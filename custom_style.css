@@ -44,9 +44,14 @@ h4,
   font-size: 26px !important;
 }
 
-h2, .home>h2 {
+h2 {
   font-size: 26px;
 }
+
+home>h2 {
+  font-size: 26px;
+}
+
 
 .si-ld-details__item>h2 {
   font-size: 1.5em;
