@@ -26,9 +26,6 @@ h1,
 h2,
 h3,
 h4,
-.si-content-label__title,
-.si-content-label-gallery__title,
-.si-property-stats__title,
 .dynamic-menu-item a,
 header nav .dropdown li .title,
 aside .box .title,
@@ -39,6 +36,17 @@ aside .box .title,
   text-transform: uppercase;
   color: #363636;
 }
+
+.si-content-label__title,
+.si-content-label-gallery__title,
+.si-property-stats__title
+{
+  font-family: Montserrat;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  color: #363636;
+}
+
 
 /* Font Sizes */
 
