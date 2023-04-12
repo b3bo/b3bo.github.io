@@ -29,7 +29,8 @@ h4,
 .si-content-label-gallery__title,
 .si-property-stats__title,
 .dynamic-menu-item a,
-header nav .dropdown li .title
+header nav .dropdown li .title,
+aside .box .title
 {
   font-family: Montserrat !important;
   font-weight: 500 !important;
