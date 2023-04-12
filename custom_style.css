@@ -54,12 +54,11 @@ h2, .home>h2 {
 }
 
 @media (max-width: 480px) {
-  .si-ld-details__item>h2 .si-ld section>h2 {
+  .si-ld-details__item>h2, .si-ld section>h2 {
     font-size: 1.2em;
     margin-bottom: 20px;
   }
 }
-
 
 h3 {
   font-size: 24px !important;
