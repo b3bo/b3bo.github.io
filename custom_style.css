@@ -45,7 +45,7 @@ h4,
 }
 
 h2, .home>h2 {
-  font-size: 26px !important;
+  font-size: 26px;
 }
 
 .si-ld-details__item>h2, .si-ld section>h2 {
