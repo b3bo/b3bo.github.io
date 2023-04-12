@@ -91,3 +91,8 @@ h4 {
   }
 }
 
+/* Hyperlinks */
+a {
+  color: #71939d;
+  text-decoration: none;
+}
