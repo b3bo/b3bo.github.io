@@ -41,6 +41,19 @@ h2, .home h2 {
  font-size: 26px !important;
 }
 
+@media (max-width: 480px)
+
+.si-ld section>h2 {
+    font-size: 16px;
+}
+
+h3 {
+  font-size: 24px !important;
+}
+
+h4 {
+  font-size: 22px !important;
+}
 
 
 /*
