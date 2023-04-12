@@ -1,5 +1,5 @@
 /* Colors
-Primary, Dk Gray: #313842
+Primary, Dk Gray: #363636
 Secondary, New Teal: #71939d
 White: #ffffff
 Text: #363636
@@ -24,11 +24,17 @@ Table Borders: 1px solid #d9d9d9; */
 }
 
 
-/* Headers Mods */
+/* Headers Mods - Family, Weight & Transform*/
 h1, h2, h3, h4, .si-content-label__title, .si-content-label-gallery__title, .dynamic-menu-item a {
   font-family: Montserrat !important;
   font-weight: 500 !important;
   text-transform: uppercase;
+}
+
+/* SI  Special Content Label Header*/
+.si-content-label-gallery__title {
+  color: #363636;
+  font-size: 38px;
 }
 
 
