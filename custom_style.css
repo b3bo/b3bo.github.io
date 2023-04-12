@@ -58,16 +58,11 @@ h2 {
   font-size: 26px;
 }
 
-.main-content .si-content-area h2 {
-  font-size: 26px;
-}
-
-.si-content-label-gallery__title {
-  font-size: 26px;
-}
-
-.si-content-label__title {
-  font-size: 24px !important;
+.si-content-label__title,
+.si-content-label-gallery__title,
+.si-property-stats__title
+{
+  font-size: 22px !important;
 }
 
 h3 {
