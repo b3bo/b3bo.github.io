@@ -42,7 +42,7 @@ aside .box .title,
 .si-property-stats__title
 {
   font-family: Montserrat;
-  font-weight: 500;
+  /* font-weight: 500; */
   /* text-transform: uppercase; */
   color: #363636;
 }
