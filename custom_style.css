@@ -49,7 +49,7 @@ h2,
   font-size: 26px !important;
 }
 
-.si-ld-details__item>h2 {
+.si-ld-details__item>h2, .si-ld section>h2 {
   font-size: 1.5em !important;
   margin-bottom: 15px;
 }
