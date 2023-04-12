@@ -32,8 +32,8 @@ h4,
 header nav .dropdown li .title,
 aside .box .title
 {
-  font-family: Montserrat !important;
-  font-weight: 500 !important;
+  font-family: Montserrat;
+  font-weight: 500;
   text-transform: uppercase;
   color: #363636;
 }
