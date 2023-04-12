@@ -50,13 +50,13 @@ h2,
 }
 
 .si-ld-details__item>h2 {
-  font-size: 1.5em;
+  font-size: 1.5em !important;
   margin-bottom: 15px;
 }
 
 @media (max-width: 480px) {
   .si-ld section>h2 {
-    font-size: 1.2em;
+    font-size: 1.2em !important;
     margin-bottom: 20px;
   }
 }
