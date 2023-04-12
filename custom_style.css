@@ -13,13 +13,12 @@ Table Borders: 1px solid #d9d9d9; */
 }
  */
 
+
+/* Navigation Mods */ 
 .blog-link {
   display: none !important;
 }
-
-
-
-/* 
+ 
 .dynamic-menu-item a {
   text-transform: uppercase;
   font-family: Montserrat;
@@ -27,6 +26,7 @@ Table Borders: 1px solid #d9d9d9; */
   font-weight: 500!important
 }
 
+/*
 .si-content-label-gallery__title,.si-content-label__title,h2,h3,h4 {
   text-transform: uppercase;
   color: #313842!important;
