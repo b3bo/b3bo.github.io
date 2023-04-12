@@ -14,7 +14,7 @@ Table Borders: 1px solid #d9d9d9; */
  */
 
 .blog-link {
-  display: none;
+  display: none !important;
 }
 
 
