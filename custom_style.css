@@ -25,26 +25,40 @@ Table Borders: 1px solid #d9d9d9; */
 
 
 /* Headers Mods - Family, Weight & Transform*/
-h1, h2, h3, h4, .si-content-label__title, .si-content-label-gallery__title, .dynamic-menu-item a {
+h1,
+h2,
+h3,
+h4,
+.si-content-label__title,
+.si-content-label-gallery__title,
+.dynamic-menu-item a {
   font-family: Montserrat !important;
   font-weight: 500 !important;
   text-transform: uppercase;
 }
 
 /* SI  Special Content Label Header*/
-.si-content-label__title, .si-content-label-gallery__title {
+.si-content-label__title,
+.si-content-label-gallery__title {
   color: #363636;
   font-size: 26px !important;
 }
 
-h2, .home h2 {
- font-size: 26px !important;
+h2,
+.home h2 {
+  font-size: 26px !important;
 }
 
 .si-ld-details__item>h2 {
   font-size: 1.5em;
-  margin-bottom: 0 0 15px; 
-  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 480px) {
+  .si-ld section>h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
 }
 
 
