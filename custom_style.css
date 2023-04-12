@@ -19,10 +19,6 @@ Table Borders: 1px solid #dedede; */
   display: none !important;
 }
 
-.dynamic-menu-item a {
-  font-size: 14px !important;
-}
-
 
 /* Headers Mods - Family, Weight & Transform*/
 h1,
@@ -31,22 +27,18 @@ h3,
 h4,
 .si-content-label__title,
 .si-content-label-gallery__title,
-.si-property-stats__title {
+.si-property-stats__title,
+.dynamic-menu-item a,
+header nav .dropdown li .title
+{
   font-family: Montserrat !important;
   font-weight: 500 !important;
   text-transform: uppercase;
   color: #363636;
 }
 
-/*Nav Menu*/
-.dynamic-menu-item a {
-  font-family: Montserrat !important;
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  color: #363636;
-}
+/* Font Sizes */
 
-/*Header Font Sizes*/
 h2 {
   font-size: 26px;
 }
