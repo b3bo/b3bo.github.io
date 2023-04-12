@@ -30,7 +30,8 @@ h4,
 .si-property-stats__title,
 .dynamic-menu-item a,
 header nav .dropdown li .title,
-aside .box .title
+aside .box .title,
+.main-content .si-content-area h2
 {
   font-family: Montserrat;
   font-weight: 500;
