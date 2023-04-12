@@ -105,3 +105,21 @@ a {
 .si-property-stats__title {
   background: #f7f7f7;
 }
+
+/*Custom CSS for New Quick Links*/
+p.quicklinks {
+  background: #f7f7f7;
+  border: 1px solid #d9d9d9;
+  font-size: 13px !important;
+  text-align: center;
+  padding: 20px;
+}
+
+p.quicklinks a {
+ color: #363636 !important;
+ text-decoration: underline !important;
+}
+
+p.quicklinks a:hover {
+ color: #5ea6b2 !important;
+}
