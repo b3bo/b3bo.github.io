@@ -15,10 +15,10 @@ Table Borders: 1px solid #dedede; */
 
 
 /* Navigation Mods */
+/*This removes the blog link in the nav*/
 .blog-link {
   display: none !important;
 }
-
 
 /* Headers Mods - Family, Weight & Transform*/
 h1,
