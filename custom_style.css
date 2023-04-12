@@ -34,9 +34,12 @@ h1, h2, h3, h4, .si-content-label__title, .si-content-label-gallery__title, .dyn
 /* SI  Special Content Label Header*/
 .si-content-label-gallery__title {
   color: #363636;
-  font-size: 38px;
+  font-size: 26px;
 }
 
+h2 {
+ font-size: 26px;
+}
 
 
 
