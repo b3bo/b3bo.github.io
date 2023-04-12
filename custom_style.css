@@ -4,7 +4,7 @@ Secondary, New Teal: #71939d
 White: #ffffff
 Text: #363636
 Light Gray Background: #f7f7f7; 
-Table Borders: 1px solid #d9d9d9; */
+Table Borders: 1px solid #dedede; */
 
 
 /* Font Awesome Mods 
@@ -95,4 +95,14 @@ h4 {
 a {
   color: #71939d;
   text-decoration: none;
+}
+
+.si-content-label__body {
+  background: #fff;
+  border: 1px solid #dedede; 
+}
+
+/*Slightly lighter background */
+.si-property-stats__title {
+  background: #f7f7f7;
 }
