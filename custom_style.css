@@ -16,7 +16,7 @@ hr {
 }
 
 header nav>ul>li>a {
-  color: #fff;
+  color: #fff !important;
 }
 
 /* End             */
