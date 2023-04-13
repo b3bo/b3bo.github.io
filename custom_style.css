@@ -185,7 +185,7 @@ p.quicklinks a:hover {
   padding: 1px 15px 1px 15px;
 }
 
-.js-chart-listings-stats {
+section.padding>.js-chart-listings-stats {
   padding-top: 100px;
   padding-bottom: 100px;
 }
