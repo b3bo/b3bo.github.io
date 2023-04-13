@@ -11,6 +11,12 @@ Table Borders: 1px solid #dedede; */
   opacity: 1;
 }
 
+hr {
+  opacity: 1;
+}
+/* End             */
+
+
 /* Font Awesome Mods */
 .fa {
   font-family: FontAwesome;
