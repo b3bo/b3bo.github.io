@@ -15,9 +15,12 @@ hr {
   opacity: 1;
 }
 
+.dynamic-menu-item a,
 header nav>ul>li>a {
   color: #fff !important;
+  font-weight: 300px !important;
 }
+
 
 /* End             */
 
@@ -57,9 +60,6 @@ aside .box .title
   color: #363636;
 }
 
-
-
-/*.dynamic-menu-item a,*/
 .si-content-label-gallery__label
 {
   font-family: Montserrat !important;
