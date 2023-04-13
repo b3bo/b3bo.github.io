@@ -21,6 +21,7 @@ h1,
 h2,
 .home h2,
 .main-content .si-content-area h2,
+.si-content-label__title,
 h3,
 h4,
 .si-content-label-gallery__title,
@@ -42,7 +43,6 @@ aside .box .title
   color: #fff;
 }
 
-.si-content-label__title,
 .si-content-label-gallery__title,
 .si-property-stats__title,
 .si-property-stats__title-main,
