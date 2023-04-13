@@ -185,6 +185,8 @@ p.quicklinks a:hover {
   padding: 1px 15px 1px 15px;
 }
 
+.home .featured,
+.home .communities,
 .home .chart,
 .home .blog {
   padding-top: 100px !important;
