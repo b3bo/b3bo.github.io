@@ -40,6 +40,15 @@ aside .box .title
   color: #363636;
 }
 
+.blog-title
+{
+  font-family: Montserrat !important;
+  font-weight: 300 !important; 
+  color: #363636;
+}
+
+
+
 /*.dynamic-menu-item a,*/
 .si-content-label-gallery__label
 {
