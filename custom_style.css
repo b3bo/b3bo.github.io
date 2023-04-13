@@ -34,7 +34,7 @@ h4,
 aside .box .title
 {
   font-family: Montserrat;
-  /* font-weight: 500 !important; */
+  font-weight: 300 !important; 
   text-transform: uppercase;
   color: #363636;
 }
