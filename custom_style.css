@@ -6,16 +6,11 @@ Text: #363636
 Light Gray Background: #f7f7f7; 
 Table Borders: 1px solid #dedede; */
 
-
-/* Font Awesome Mods 
-.fas {
-  color: #363636
+/* Font Awesome Mods */
+.fa {
+  font-family: FontAwesome;
 }
- */
-
-
-
-/* Navigation Mods */
+ 
 /*This removes the blog link in the nav*/
 .blog-link {
   display: none !important;
