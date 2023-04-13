@@ -141,6 +141,10 @@ p.quicklinks a:hover {
  color: #5ea6b2 !important;
 }
 
+b, strong {
+  font-weight: 500;
+}
+
 /*Custom CSS for New Guide Box */
 .guide {
   margin-top: 10px !important;
