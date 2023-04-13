@@ -29,7 +29,7 @@ h2,
 h3,
 h4,
 .si-content-label-gallery__title,
-header nav .dropdown li .title,
+/* header nav .dropdown li .title, */
 aside .box .title
 {
   font-family: Montserrat;
@@ -38,7 +38,7 @@ aside .box .title
   color: #363636;
 }
 
-.dynamic-menu-item a,
+/*.dynamic-menu-item a,*/
 .si-content-label-gallery__label
 {
   font-family: Montserrat;
