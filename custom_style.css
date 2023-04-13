@@ -30,7 +30,8 @@ h4,
 .si-content-label-gallery__title,
 header nav .dropdown li .title,
 aside .box .title,
-.main-content .si-content-area h2
+.main-content .si-content-area h2,
+.si-content-label-gallery__label
 {
   font-family: Montserrat;
   font-weight: 500;
@@ -42,8 +43,7 @@ aside .box .title,
 .si-content-label-gallery__title,
 .si-property-stats__title,
 .si-property-stats__title-main,
-.si-property-stats__title-date,
-.si-content-label-gallery__label
+.si-property-stats__title-date
 {
   font-family: Montserrat;
   font-weight: 400;
