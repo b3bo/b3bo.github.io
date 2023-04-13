@@ -39,9 +39,9 @@ aside .box .title,
 
 .si-content-label__title,
 .si-content-label-gallery__title,
-.si-property-stats__title-date,
 .si-property-stats__title,
-.si-property-stats__title-main
+.si-property-stats__title-main,
+.si-property-stats__title-date
 {
   font-family: Montserrat;
   font-weight: 400;
