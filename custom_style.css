@@ -70,11 +70,14 @@ h4 {
 .si-content-label__title,
 .si-content-label-gallery__title,
 .si-property-stats__title
-.si-property-stats__title-main
 {
   font-size: 22px;
 }
 
+.si-property-stats__title-main
+{
+  font-size: 20px;
+}
 
 
 
