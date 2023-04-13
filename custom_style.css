@@ -40,7 +40,7 @@ aside .box .title,
 .si-content-label__title,
 .si-content-label-gallery__title,
 .si-property-stats__title
-.si-property-stats__title-ma
+.si-property-stats__title-main
 {
   font-family: Montserrat;
   font-weight: 400;
@@ -70,7 +70,7 @@ h4 {
 .si-content-label__title,
 .si-content-label-gallery__title,
 .si-property-stats__title
-.si-property-stats__title-ma
+.si-property-stats__title-main
 {
   font-size: 22px;
 }
