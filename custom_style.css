@@ -31,9 +31,10 @@ h3,
 h4,
 .si-content-label-gallery__title,
 /* header nav .dropdown li .title, */
+.blog-title,
 aside .box .title
 {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   font-weight: 300 !important; 
   text-transform: uppercase;
   color: #363636;
@@ -42,7 +43,7 @@ aside .box .title
 /*.dynamic-menu-item a,*/
 .si-content-label-gallery__label
 {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   font-weight: 300 !important;
   text-transform: uppercase;
   color: #fff;
@@ -53,7 +54,7 @@ aside .box .title
 .si-property-stats__title-main,
 .si-property-stats__title-date
 {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   font-weight: 300 !important;
   color: #363636;
 }
