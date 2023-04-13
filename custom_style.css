@@ -39,12 +39,11 @@ aside .box .title,
 
 .si-content-label__title,
 .si-content-label-gallery__title,
-.si-content-label-gallery__title-ma,
 .si-property-stats__title
+.si-property-stats__title-ma
 {
   font-family: Montserrat;
   font-weight: 400;
-    /* text-transform: uppercase; */
   color: #363636;
 }
 
@@ -70,8 +69,8 @@ h4 {
 
 .si-content-label__title,
 .si-content-label-gallery__title,
-.si-content-label-gallery__title-ma,
 .si-property-stats__title
+.si-property-stats__title-ma
 {
   font-size: 22px;
 }
