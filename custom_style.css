@@ -191,3 +191,7 @@ p.quicklinks a:hover {
   padding-top: 100px !important;
   padding-bottom: 100px !important;
 }
+
+.communities .items {
+  padding: 100px 100px 100px !important;
+}
