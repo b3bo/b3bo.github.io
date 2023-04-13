@@ -184,3 +184,8 @@ p.quicklinks a:hover {
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
 }
+
+.chart {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
