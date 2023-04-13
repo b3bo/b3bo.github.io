@@ -42,13 +42,20 @@ aside .box .title,
 .si-content-label-gallery__title,
 .si-property-stats__title,
 .si-property-stats__title-main,
-.si-property-stats__title-date
+.si-property-stats__title-date,
+.si-content-label-gallery__label
 {
   font-family: Montserrat;
   font-weight: 400;
   color: #363636;
 }
 
+.dynamic-menu-item a
+{
+  font-family: Montserrat;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 
 /* Font Sizes */
 
