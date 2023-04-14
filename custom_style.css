@@ -54,30 +54,44 @@ p.quicklinks {
   border: 1px solid #dedede;
 }
 
-/*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css */
+/*! CSS Used from: https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css */
 
-/* .row {
-  --mdb-gutter-x: 1.5rem;
-  --mdb-gutter-y: 0;
+
+h2 {
+  font-size: calc(1.325rem + .9vw);
+}
+
+@media (min-width:1200px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
-  margin-top: calc(var(--mdb-gutter-y)*-1);
-  margin-right: calc(var(--mdb-gutter-x)*-0.5);
-  margin-left: calc(var(--mdb-gutter-x)*-0.5);
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
 .row>* {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: calc(var(--mdb-gutter-x)*0.5);
-  padding-left: calc(var(--mdb-gutter-x)*0.5);
-  margin-top: var(--mdb-gutter-y);
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y);
 }
 
-.col {
-  flex: 1 0 0%;
-} */
+@media (min-width:576px) {
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
 
 /*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css */
 .fa-solid {
@@ -120,5 +134,18 @@ p.quicklinks {
 }
 
 /*! CSS Used fontfaces */
-@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:400;font-display:block;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");}
-@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:block;src:url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+}
