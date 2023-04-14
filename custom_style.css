@@ -1,3 +1,14 @@
+.si-content-label__title {
+  color: #363636;
+}
+
+.si-property-stats__title,
+.si-property-stats__title-date {
+  font-family: Montserrat;
+  font-weight: 300;
+}
+
+
 /*Custom CSS for New Guide Box */
 .guide {
   margin-top: 10px !important;
