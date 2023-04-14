@@ -1,0 +1,25 @@
+.main-content .si-content-area h1 {
+    text-transform: uppercase;
+}
+
+.main-content .si-content-area h2 {
+    text-transform: uppercase;
+}
+
+.h3,
+h1,
+h2,
+h3 {
+    font-family: Montserrat;
+}
+
+.h3,
+h1,
+h2,
+h3 {
+    font-family: Montserrat;
+}
+
+.blog-link {
+    display: none !important;
+}
