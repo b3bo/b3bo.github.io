@@ -11,13 +11,7 @@ h1,
 h2,
 h3 {
     font-family: Montserrat;
-}
-
-.h3,
-h1,
-h2,
-h3 {
-    font-family: Montserrat;
+    text-transform: uppercase;
 }
 
 .blog-link {
