@@ -56,7 +56,7 @@ p.quicklinks {
 
 /*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css */
 
-.row {
+/* .row {
   --mdb-gutter-x: 1.5rem;
   --mdb-gutter-y: 0;
   display: flex;
@@ -77,7 +77,7 @@ p.quicklinks {
 
 .col {
   flex: 1 0 0%;
-}
+} */
 
 /*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css */
 .fa-solid {
