@@ -29,3 +29,11 @@
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
 }
+
+p.quicklinks {
+  background: #f7f7f7;
+  border: 1px solid #d9d9d9;
+  font-size: 13px !important;
+  text-align: center;
+  padding: 20px;
+}
