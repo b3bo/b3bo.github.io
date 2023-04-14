@@ -37,3 +37,8 @@ p.quicklinks {
   text-align: center;
   padding: 20px;
 }
+
+.si-content-label__body {
+  background: #fff;
+  border: 1px solid #dedede;
+}
