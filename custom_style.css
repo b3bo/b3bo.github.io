@@ -53,3 +53,68 @@ p.quicklinks {
   background: #fff;
   border: 1px solid #dedede;
 }
+
+/*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css */
+
+.row {
+  --mdb-gutter-x: 1.5rem;
+  --mdb-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--mdb-gutter-y)*-1);
+  margin-right: calc(var(--mdb-gutter-x)*-0.5);
+  margin-left: calc(var(--mdb-gutter-x)*-0.5);
+}
+
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--mdb-gutter-x)*0.5);
+  padding-left: calc(var(--mdb-gutter-x)*0.5);
+  margin-top: var(--mdb-gutter-y);
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+/*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css */
+.fa-solid {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa-cart-shopping:before {
+  content: "\f07a";
+}
+
+.fa-city:before {
+  content: "\f64f";
+}
+
+.fa-face-meh:before {
+  content: "\f11a";
+}
+
+.fa-face-smile:before {
+  content: "\f118";
+}
+
+.fa-umbrella-beach:before {
+  content: "\f5ca";
+}
+
+.fa-utensils:before {
+  content: "\f2e7";
+}
+
+.fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
