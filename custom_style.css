@@ -12,6 +12,11 @@ a {
   color: #71939d;
 }
 
+.quicklinks > a
+a {
+  color: #363636;
+}
+
 
 /*Custom CSS for New Guide Box */
 .guide {
