@@ -82,7 +82,7 @@ h2 {
     font-size: 2rem;
   }
 }
-.row:not(home) {
+.row:not(.home) {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   display: flex;
@@ -92,7 +92,7 @@ h2 {
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
-.row:not(hom)>* {
+.row:not(.home)>* {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
