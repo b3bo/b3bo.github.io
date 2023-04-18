@@ -188,3 +188,12 @@ p.quicklinks {
   font-display: block;
   src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
 }
+
+.figure {
+  display: inline-block
+}
+
+.figure-caption {
+  font-size: .875em;
+  color: #6c757d
+}
