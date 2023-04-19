@@ -11,9 +11,10 @@
   font-weight: 300;
 }
 
-.si-content-label-gallery__title {
+.home .si-content-label-gallery__title {
   font-size: 38px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 a {
