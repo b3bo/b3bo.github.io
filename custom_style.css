@@ -3,8 +3,7 @@
 .si-property-stats__title-date,
 .si-property-stats__title,
 .si-property-stats__title-main,
-.si-content-label__title,
-.quicklinks>a {
+.si-content-label__title {
   color: #363636;
   font-family: Montserrat;
   font-weight: 300;
@@ -12,7 +11,7 @@
 
 .quicklinks>a {
   color: #363636;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .si-videos-widget>h2 {
