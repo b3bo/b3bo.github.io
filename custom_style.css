@@ -1,12 +1,9 @@
 .si-content-label-gallery__title,
+.si-property-stats__title-date,
+.si-property-stats__title,
 .si-content-label__title,
 .quicklinks>a {
   color: #363636;
-}
-
-.si-content-label-gallery__title,
-.si-property-stats__title,
-.si-property-stats__title-date {
   font-family: Montserrat;
   font-weight: 300;
 }
