@@ -10,6 +10,11 @@
   font-weight: 300;
 }
 
+.quicklinks>a {
+  color: #363636;
+  font-weight: 400;
+}
+
 .si-videos-widget>h2 {
 font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
 }
