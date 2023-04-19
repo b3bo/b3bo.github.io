@@ -1,3 +1,4 @@
+.si-videos-widget>h2,
 .si-content-label-gallery__title,
 .si-property-stats__title-date,
 .si-property-stats__title,
@@ -6,6 +7,10 @@
   color: #363636;
   font-family: Montserrat;
   font-weight: 300;
+}
+
+.si-videos-widget>h2 {
+font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
 }
 
 .home .si-content-label-gallery__title {
