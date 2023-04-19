@@ -11,6 +11,11 @@
   font-weight: 300;
 }
 
+.si-content-label-gallery__title {
+  font-size: 38px;
+  text-transform: uppercase;
+}
+
 a {
   color: #71939d;
 }
