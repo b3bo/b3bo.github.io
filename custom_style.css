@@ -12,10 +12,13 @@
 .quicklinks>a {
   color: #363636;
   font-weight: bold;
+  word-spacing: 0.1em;
+  letter-spacing: .1em;
+  font-size: 12px;
 }
 
 .si-videos-widget>h2 {
-font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
+  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
 }
 
 .home .si-content-label-gallery__title {
@@ -98,7 +101,7 @@ strong {
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
-.myrow >* {
+.myrow>* {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
@@ -257,7 +260,7 @@ button:not(:disabled) {
 
 @media (prefers-reduced-motion:reduce) {
   .accordion-button {
-      transition: none;
+    transition: none;
   }
 }
 
@@ -286,7 +289,7 @@ button:not(:disabled) {
 
 @media (prefers-reduced-motion:reduce) {
   .accordion-button:after {
-      transition: none;
+    transition: none;
   }
 }
 
