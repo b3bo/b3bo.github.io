@@ -96,21 +96,21 @@ strong {
   margin-top: var(--bs-gutter-y);
 }
 
-@media (min-width:576px) {
+@media (min-width:768px) {
   .myrow .col-sm-3 {
     flex: 0 0 auto;
     width: 25%
   }
 }
 
-@media (min-width:576px) {
+@media (min-width:768px) {
   .myrow .col-sm-4 {
     flex: 0 0 auto;
     width: 33.33333333%
   }
 }
 
-@media (min-width:576px) {
+@media (min-width:768px) {
   .myrow .col-sm-6 {
     flex: 0 0 auto;
     width: 50%;
