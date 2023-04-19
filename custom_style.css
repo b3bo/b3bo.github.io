@@ -1,7 +1,10 @@
-.si-content-label__title {
+.si-content-label-gallery__title,
+.si-content-label__title,
+.quicklinks>a {
   color: #363636;
 }
 
+.si-content-label-gallery__title,
 .si-property-stats__title,
 .si-property-stats__title-date {
   font-family: Montserrat;
@@ -16,11 +19,6 @@ b,
 strong {
   font-weight: 500;
 }
-
-.quicklinks>a {
-  color: #363636;
-}
-
 
 /*Custom CSS for New Guide Box */
 .guide {
@@ -159,6 +157,7 @@ p.quicklinks {
   font-weight: 900;
 }
 
+/* Captions */
 .figure {
   display: inline-block
 }
