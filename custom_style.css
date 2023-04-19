@@ -11,10 +11,11 @@
 
 .quicklinks>a {
   color: #363636;
-  font-weight: bold;
+  font-weight: 500;
   word-spacing: 0.1em;
   letter-spacing: .1em;
   font-size: 12px;
+  line-height: 2.1
 }
 
 .si-videos-widget>h2 {
