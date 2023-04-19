@@ -87,7 +87,7 @@ p.quicklinks {
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
-.myrow>* {
+.myrow >* {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
@@ -99,14 +99,14 @@ p.quicklinks {
 }
 
 @media (min-width:576px) {
-  .col-sm-3 {
+  .myrow .col-sm-3 {
     flex: 0 0 auto;
     width: 25%
   }
 }
 
 @media (min-width:576px) {
-  .col-sm-4 {
+  .myrow .col-sm-4 {
     flex: 0 0 auto;
     width: 33.33333333%
   }
