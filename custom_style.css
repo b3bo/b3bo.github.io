@@ -184,11 +184,50 @@ strong {
   color: #6c757d
 }
 
+/*! CSS Used fontfaces */
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+}
+
 /* Accordion */
 .main-content .si-content-area .accordion h2 {
   margin: 0;
 }
 
+/* *,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: calc(1.325rem + .9vw);
+}
+
+@media (min-width:1200px) {
+  h2 {
+    font-size: 2rem;
+  }
+} */
 
 button {
   border-radius: 0;
@@ -308,6 +347,10 @@ button:not(:disabled) {
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
+.accordion-header {
+  margin-bottom: 0;
+}
+
 .accordion-item {
   color: var(--mdb-accordion-color);
   background-color: var(--mdb-accordion-bg);
@@ -355,22 +398,4 @@ button:not(:disabled) {
   border-color: var(--mdb-accordion-btn-focus-border-color);
   outline: 0;
   box-shadow: none;
-}
-
-
-/*! CSS Used fontfaces */
-@font-face {
-  font-family: "Font Awesome 6 Free";
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Font Awesome 6 Free";
-  font-style: normal;
-  font-weight: 900;
-  font-display: block;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
 }
