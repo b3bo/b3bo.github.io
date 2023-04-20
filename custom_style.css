@@ -176,16 +176,6 @@ strong {
   font-weight: 900;
 }
 
-/* Captions  -------------------------------> */
-.figure {
-  display: inline-block
-}
-
-.figure-caption {
-  font-size: .875em;
-  color: #6c757d
-}
-
 @font-face {
   font-family: "Font Awesome 6 Free";
   font-style: normal;
@@ -201,6 +191,18 @@ strong {
   font-display: block;
   src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
 }
+
+/* Captions  -------------------------------> */
+.figure {
+  display: inline-block
+}
+
+.figure-caption {
+  font-size: .875em;
+  color: #6c757d
+}
+
+
 
 /* Accordion  -------------------------------> */
 .main-content .si-content-area .accordion h2 {
