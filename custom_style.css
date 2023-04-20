@@ -208,7 +208,7 @@ strong {
 }
 
 .accordion {
-  --mdb-accordion-color: #363636;
+  --mdb-accordion-color: #4f4f4f;
   --mdb-accordion-bg: #fff;
   --mdb-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --mdb-accordion-border-color: var(--mdb-border-color);
