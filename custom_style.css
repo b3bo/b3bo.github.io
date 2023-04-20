@@ -185,6 +185,11 @@ strong {
 }
 
 /* Accordion */
+.main-content .si-content-area .accordion-header h2 {
+  margin: 0;
+}
+
+
 button {
   border-radius: 0;
 }
