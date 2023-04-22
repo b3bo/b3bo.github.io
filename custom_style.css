@@ -37,6 +37,23 @@ strong {
   font-weight: 500;
 }
 
+ul.custom {
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 4;
+  column-gap: 20px;
+}
+
+
+/*This is code for li 
+.main-content .si-content-area ul:not(.si-content-label__body) li:not(.si-content-label__link):before {
+  content: "\2022";
+  font-size: 1.5em;
+  margin-left: -1em;
+} */
+
 /*Custom CSS for New Guide Box -------------------------------> */
 .guide {
   margin-top: 10px !important;
