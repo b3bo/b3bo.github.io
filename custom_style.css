@@ -57,13 +57,15 @@ ul.custom {-moz-columns:3;column-count:3;margin:0;padding:0;}
 
 
 /*Test Code for tabs*/
-section.featured {
-  min-height: 550px;
-  padding-bottom: 10px;
-}
 section.padding {
   padding: 60px 0;
 }
+section.featured {
+  min-height: 550px;
+  padding-bottom: 10px;
+  margin: 50px auto;
+}
+
 
 .featured .featured-tabs{display:flex;flex-wrap:wrap;}
 .featured .featured-tabs label{cursor:pointer;display:block;font-size:14px;font-weight:400;margin:0;order:1;text-align:center;text-transform:uppercase;}
