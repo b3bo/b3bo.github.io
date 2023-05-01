@@ -63,13 +63,12 @@ section.padding {
 section.featured {
   min-height: 550px;
   padding-bottom: 10px;
-  margin: 50px auto;
 }
 
 
 .featured .featured-tabs{display:flex;flex-wrap:wrap;}
 .featured .featured-tabs label{cursor:pointer;display:block;font-size:14px;font-weight:400;margin:0;order:1;text-align:center;text-transform:uppercase;}
-.featured .featured-tabs .tab{display:none;flex-grow:1;order:99;padding:0 1rem;width:100%;}
+.featured .featured-tabs .tab{display:none;flex-grow:1;order:99;padding:0 1rem;width:100%;margin: 50px auto;}
 .featured .featured-tabs input[type=radio]{display:none;}
 .featured .featured-tabs input[type=radio]:checked+label+.tab{display:block;}
 @media (max-width:991px){
