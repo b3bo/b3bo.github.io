@@ -65,6 +65,10 @@ section.featured {
   padding-bottom: 10px;
 }
 
+.padding-left {
+  padding-left: 40px;
+}
+
 
 .featured .featured-tabs{display:flex;flex-wrap:wrap;}
 .featured .featured-tabs label{cursor:pointer;display:block;font-size:14px;font-weight:400;margin:0;order:1;text-align:center;text-transform:uppercase;}
