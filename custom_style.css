@@ -3,6 +3,10 @@
   --sis-text-color-rgb: 54, 54, 54;
 }
 
+.bg-gray-400 {
+      background-color: var(--sis-btn-secondary-bg);
+}
+
 .si-videos-widget>h2,
 .si-content-label-gallery__title,
 .si-property-stats__title-date,
