@@ -7,6 +7,10 @@
       background-color: var(--sis-btn-secondary-bg);
 }
 
+.bg-gray-400:hover {
+      background-color: var(--sis-btn-secondary-bg-hover);
+}
+
 .si-videos-widget>h2,
 .si-content-label-gallery__title,
 .si-property-stats__title-date,
