@@ -1,3 +1,8 @@
+:root:root {
+  --sis-text-color: #363636;
+  --sis-text-color-rgb: 54, 54, 54;
+}
+
 .si-videos-widget>h2,
 .si-content-label-gallery__title,
 .si-property-stats__title-date,
