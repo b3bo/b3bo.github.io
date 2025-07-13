@@ -575,7 +575,7 @@ order: 5;
 display: grid;
 grid-template-columns: 1fr 1fr;
 padding: 10px 15px;
-gap: 5px;
+gap: 15px;
 }
 .more-menu-overlay .row > .col-sm-6 {
 display: contents;
@@ -606,4 +606,13 @@ grid-row: 1;
 grid-column: 2;
 grid-row: 2;
 }
+.blogs .row {
+flex-direction: column;
 }
+.blogs .row > [class*="col-"] {
+width: 100%;
+max-width: 100%;
+flex: 0 0 100%;
+}
+}
+
