@@ -541,7 +541,7 @@ section.padding-left {
   ul.link-list li:has(a[href="/"]) {
     display: none; /* Hides "Home" */
   }
-  ul.link-list li:has(a[href="/blog/"]) {
-    text-transform: uppercase; /* Changes "blog" to "BLOG" */
+  ul.link-list li {
+    text-transform: capitalize; /* Changes "HOMES" to "Home" */
   }
 }
