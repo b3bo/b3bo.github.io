@@ -1,5 +1,6 @@
-/* 1. Resets and Base Styles
- * Global resets and base background overrides.
+/* 1. Variables and Resets
+ * Define root variables for consistent theming across the site. All colors are centralized here.
+ * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
@@ -62,11 +63,15 @@
 
 a {
   color: var(--color-link);
-  transition: color 0.3s ease; /* Suggested: Smooth color transition on hover */
+  transition: color 0.3s ease, outline 0.2s ease; /* Suggested: Smooth transitions, including focus outline */
 }
 
 a:hover {
   color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
+}
+
+a:focus {
+  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
 }
 
 b,
@@ -200,17 +205,17 @@ ul.custom {
   border-style: solid;
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
-  background-color: #fff !important; /* Force white for body to prevent shading bleed */
+  background-color: var(--color-white) !important; /* Force white for body to prevent shading bleed */
 }
 
 .si-content-label__body {
-  background: #fff !important; /* Force white for body, overriding any inheritance */
-  border: 1px solid #dedede;
+  background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
+  border: 1px solid var(--color-border);
 }
 
 .custom-btn--secondary-hollow {
   background-color: transparent;
-  border-color: #dedede;
+  border-color: var(--color-border);
   color: var(--sis-btn-secondary-border); /* Note: Assumes --sis-btn-secondary-border is defined in third-party CSS */
   transition: background-color .5s ease;
 }
@@ -269,9 +274,9 @@ section.padding-left {
 
 .accordion {
   --mdb-accordion-color: var(--color-accordion-text);
-  --mdb-accordion-bg: #fff;
+  --mdb-accordion-bg: var(--color-white);
   --mdb-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
-  --mdb-accordion-border-color: #dedede;
+  --mdb-accordion-border-color: var(--color-border);
   --mdb-accordion-border-width: 1px;
   --mdb-accordion-border-radius: 0.5rem;
   --mdb-accordion-inner-border-radius: calc(0.5rem - 1px);
@@ -284,12 +289,12 @@ section.padding-left {
   --mdb-accordion-btn-icon-transform: rotate(-180deg);
   --mdb-accordion-btn-icon-transition: transform 0.2s ease-in-out;
   --mdb-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill'%233b71ca'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
-  --mdb-accordion-btn-focus-border-color: #71939d;
+  --mdb-accordion-btn-focus-border-color: var(--color-link);
   --mdb-accordion-btn-focus-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
   --mdb-accordion-body-padding-x: 1.5rem;
   --mdb-accordion-body-padding-y: 1.15rem;
-  --mdb-accordion-active-color: #71939d;
-  --mdb-accordion-active-bg: #fff;
+  --mdb-accordion-active-color: var(--color-link);
+  --mdb-accordion-active-bg: var(--color-white);
 }
 
 .accordion-button {
@@ -338,7 +343,7 @@ section.padding-left {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 0;
+  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -436,7 +441,7 @@ section.padding-left {
 
 .figure-caption {
   font-size: 0.875em;
-  color: #6c757d;
+  color: var(--color-secondary);
 }
 
 /* 6. Media Queries
@@ -451,9 +456,9 @@ section.padding-left {
     order: 0;
   }
   .featured .featured-tabs label {
-    background-color: #f5f5f5;
+    background-color: var(--color-tab-mobile-bg);
     border-bottom: none;
-    color: var(--si-link-color); /* Note: Assumes --si-link-color is defined in third-party CSS */
+    color: var(--color-link);
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
@@ -503,14 +508,14 @@ section.padding-left {
     justify-content: center;
   }
   .featured .featured-tabs label {
-    border-bottom: 1px solid #dedede;
-    color: #6f6f6f;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-tab-label);
     max-width: 20%;
     padding: 12px 40px;
   }
   .featured .featured-tabs input[type=radio]:checked+label {
-    border-bottom-color: var(--si-link-color); /* Note: Assumes --si-link-color is defined in third-party CSS */
-    color: var(--si-link-color);
+    border-bottom-color: var(--color-link);
+    color: var(--color-link);
   }
 }
 
