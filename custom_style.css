@@ -208,6 +208,14 @@ ul.custom {
   background-color: var(--color-white) !important; /* Force white for body to prevent shading bleed */
 }
 
+.content-box-top blockquote ul {
+    margin-bottom: 0;
+}
+
+.content-box-top .box.link-effect {
+    margin-bottom: 5px;
+}
+
 .si-content-label__body {
   background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
   border: 1px solid var(--color-border);
