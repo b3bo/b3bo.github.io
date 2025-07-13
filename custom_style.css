@@ -1,30 +1,15 @@
-/* 1. Variables and Resets
- * Define root variables for consistent theming across the site.
+/* Global resets and base background overrides.
  */
-:root {
-  --sis-text-color: #363636;
-  --sis-text-color-rgb: 54, 54, 54;
-  --sis-btn-secondary-bg: #f2f3f9; /* Optimized from rgb(242 243 249) for clarity */
-  --sis-btn-secondary-bg-hover: #e0e0e0; /* Suggested hover state for better UX */
-  --sis-link-color: #71939d; /* Primary link color */
-  --sis-border-color: #dedede; /* Common border color */
-  --sis-font-family: 'Montserrat', sans-serif; /* Primary font family */
-  --sis-font-size-base: 16px; /* Base font size for rem calculations */
-  --sis-font-weight-light: 300; /* Light weight for headings */
-  --sis-font-weight-medium: 500; /* Medium weight for bold/strong */
-}
-
-/* Reset and base background overrides */
 .bg-\[\#9297b2\] {
-  background-color: var(--sis-btn-secondary-bg);
+  background-color: rgb(242 243 249 / var(--tw-bg-opacity));
 }
 
 .bg-gray-400 {
-  background-color: var(--sis-btn-secondary-bg);
+  background-color: var(--sis-btn-secondary-bg); /* Note: Assumes --sis-btn-secondary-bg is defined in third-party CSS */
 }
 
 .bg-gray-400:hover {
-  background-color: var(--sis-btn-secondary-bg-hover);
+  background-color: var(--sis-btn-secondary-bg-hover); /* Note: Assumes --sis-btn-secondary-bg-hover is defined in third-party CSS */
 }
 
 /* General container for better readability on wide screens (suggested tweak) */
@@ -43,13 +28,13 @@
 .si-property-stats__title,
 .si-property-stats__title-main,
 .si-content-label__title {
-  color: var(--sis-text-color);
-  font-family: var(--sis-font-family);
-  font-weight: var(--sis-font-weight-light);
+  color: #363636;
+  font-family: Montserrat;
+  font-weight: 300;
 }
 
 .si-videos-widget > h2 {
-  font-size: calc(var(--sis-font-size-base) * 1.5); /* Adjusted for consistency; use variable for scalability */
+  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs)); /* Note: Assumes --sis-font-size-base and --sis-clt-fs are defined in third-party CSS */
 }
 
 .home .si-content-label-gallery__title {
@@ -59,17 +44,17 @@
 }
 
 a {
-  color: var(--sis-link-color);
+  color: #71939d;
   transition: color 0.3s ease; /* Suggested: Smooth color transition on hover */
 }
 
 a:hover {
-  color: darken(var(--sis-link-color), 10%); /* Suggested: Darken on hover for better feedback (requires preprocessor or manual hex) */
+  color: #5f7d85; /* Suggested: Darkened version of #71939d for better feedback on hover */
 }
 
 b,
 strong {
-  font-weight: var(--sis-font-weight-medium);
+  font-weight: 500;
 }
 
 /* Multi-column unordered lists with responsive columns */
@@ -82,7 +67,7 @@ ul.custom {
 }
 
 /* 3. Layout Utilities
- * Custom row and column overrides for responsive two-column designs.
+ * Custom row and column overrides for responsive designs.
  */
 .myrow {
   --bs-gutter-x: 0; /* Remove horizontal gutter for seamless columns */
@@ -92,33 +77,17 @@ ul.custom {
   margin-top: 0;
   margin-right: 0;
   margin-left: 0;
-  align-items: stretch; /* Suggested: Equal height columns for balancing image and links */
 }
 
 .myrow > * {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  padding-top: calc(var(--bs-gutter-x) * 0.5);
-  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-top: calc(var(--bs-gutter-x) * .5);
+  padding-bottom: calc(var(--bs-gutter-x) * .5);
   margin-top: var(--bs-gutter-y);
-}
-
-/* Suggested: Explicit column resets for zero padding in custom rows */
-.myrow > [class*="col-"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-/* Suggested: Image filling for left column in two-column layouts */
-.myrow img.img-fluid {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Preserve aspect ratio while filling space */
-  margin: 0;
-  border-radius: 0; /* Remove rounding if not needed */
 }
 
 /* 4. Components
@@ -126,17 +95,17 @@ ul.custom {
  */
 /* Quicklinks: Horizontal links with separators */
 .quicklinks > a {
-  color: var(--sis-text-color);
-  font-weight: var(--sis-font-weight-medium);
+  color: #363636;
+  font-weight: 500;
   word-spacing: 0.1em;
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
   font-size: 12px;
   line-height: 2.1;
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
 }
 
 .quicklinks > a:hover {
-  color: var(--sis-link-color); /* Suggested: Change color on hover for interactivity */
+  color: #71939d; /* Suggested: Change color on hover for interactivity */
 }
 
 .main-content .si-content-area p.quicklinks {
@@ -147,27 +116,6 @@ ul.custom {
   padding: 20px;
 }
 
-/* Suggested: Enhance links container for better wrapping in two-column designs */
-.myrow .links-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem; /* Small gap for wrapped links */
-  margin: 0;
-  padding: 0;
-}
-
-.myrow .quicklinks {
-  margin: 0;
-  display: contents; /* Integrate with flex for seamless flow */
-}
-
-.myrow .link-separator {
-  margin: 0 0.5rem;
-  color: #6c757d; /* Subtle separator color */
-}
-
 /* Guide and Content Boxes */
 .guide {
   margin-top: 10px !important;
@@ -175,34 +123,41 @@ ul.custom {
   font-size: 24px !important;
 }
 
-.guide-top,
+.guide-top {
+  width: 100%;
+  border-color: #d9d9d9;
+  border-style: solid;
+  border-width: 1px 1px 0px 1px;
+  padding: 1px 15px 1px 15px;
+  background-color: #f7f7f7;
+}
+
 .content-box-top {
   width: 100%;
   border-color: #d9d9d9;
   border-style: solid;
-  border-width: 1px 1px 0 1px;
-  padding: 1px 15px;
-  background-color: #f7f7f7;
+  border-width: 1px 1px 0px 1px;
+  padding: 1px 15px 1px 15px;
 }
 
 .content-box-bottom {
   width: 100%;
   border-color: #d9d9d9;
   border-style: solid;
-  border-width: 0 1px 1px 1px;
-  padding: 1px 15px;
+  border-width: 0px 1px 1px 1px;
+  padding: 1px 15px 1px 15px;
 }
 
 .si-content-label__body {
   background: #fff;
-  border: 1px solid var(--sis-border-color);
+  border: 1px solid #dedede;
 }
 
 .custom-btn--secondary-hollow {
   background-color: transparent;
-  border-color: var(--sis-border-color);
-  color: var(--sis-btn-secondary-bg); /* Adjusted for consistency */
-  transition: background-color 0.5s ease;
+  border-color: #dedede;
+  color: var(--sis-btn-secondary-border); /* Note: Assumes --sis-btn-secondary-border is defined in third-party CSS */
+  transition: background-color .5s ease;
 }
 
 /* Tabs Component */
@@ -244,11 +199,11 @@ section.padding-left {
   margin: 50px auto;
 }
 
-.featured .featured-tabs input[type="radio"] {
+.featured .featured-tabs input[type=radio] {
   display: none;
 }
 
-.featured .featured-tabs input[type="radio"]:checked + label + .tab {
+.featured .featured-tabs input[type=radio]:checked+label+.tab {
   display: block;
 }
 
@@ -261,7 +216,7 @@ section.padding-left {
   --mdb-accordion-color: #4f4f4f;
   --mdb-accordion-bg: #fff;
   --mdb-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
-  --mdb-accordion-border-color: var(--sis-border-color);
+  --mdb-accordion-border-color: #dedede;
   --mdb-accordion-border-width: 1px;
   --mdb-accordion-border-radius: 0.5rem;
   --mdb-accordion-inner-border-radius: calc(0.5rem - 1px);
@@ -269,7 +224,7 @@ section.padding-left {
   --mdb-accordion-btn-padding-y: 1.15rem;
   --mdb-accordion-btn-color: #4f4f4f;
   --mdb-accordion-btn-bg: var(--mdb-accordion-bg);
-  --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
+  --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill'%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
   --mdb-accordion-btn-icon-width: 1.25rem;
   --mdb-accordion-btn-icon-transform: rotate(-180deg);
   --mdb-accordion-btn-icon-transition: transform 0.2s ease-in-out;
@@ -279,7 +234,7 @@ section.padding-left {
   --mdb-accordion-body-padding-x: 1.5rem;
   --mdb-accordion-body-padding-y: 1.15rem;
   --mdb-accordion-active-color: #71939d;
-  --mdb-accordion-active-bg: #fff
+  --mdb-accordion-active-bg: #fff;
 }
 
 .accordion-button {
@@ -298,24 +253,18 @@ section.padding-left {
   transition: var(--mdb-accordion-transition);
 }
 
-@media (prefers-reduced-motion:reduce) {
-  .accordion-button {
-    transition: none;
-  }
-}
-
 .accordion-button:not(.collapsed) {
   color: var(--mdb-accordion-active-color);
   background-color: var(--mdb-accordion-active-bg);
-  box-shadow: inset 0 calc(var(--mdb-accordion-border-width)*-1) 0 var(--mdb-accordion-border-color);
+  box-shadow: inset 0 calc(var(--mdb-accordion-border-width) * -1) 0 var(--mdb-accordion-border-color);
 }
 
-.accordion-button:not(.collapsed):after {
+.accordion-button:not(.collapsed)::after {
   background-image: var(--mdb-accordion-btn-active-icon);
   transform: var(--mdb-accordion-btn-icon-transform);
 }
 
-.accordion-button:after {
+.accordion-button::after {
   flex-shrink: 0;
   width: var(--mdb-accordion-btn-icon-width);
   height: var(--mdb-accordion-btn-icon-width);
@@ -327,18 +276,14 @@ section.padding-left {
   transition: var(--mdb-accordion-btn-icon-transition);
 }
 
-@media (prefers-reduced-motion:reduce) {
-  .accordion-button:after {
-    transition: none;
-  }
-}
-
 .accordion-button:hover {
   z-index: 2;
 }
 
 .accordion-button:focus {
   z-index: 3;
+  border-color: var(--mdb-accordion-btn-focus-border-color);
+  outline: 0;
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -382,17 +327,11 @@ section.padding-left {
 }
 
 .accordion-body {
-  padding: var(--mdb-accordion-body-padding-y) var(--mdb-accordion-btn-padding-x);
+  padding: var(--mdb-accordion-body-padding-y) var(--mdb-accordion-body-padding-x);
 }
 
-.accordion-button:not(.collapsed):focus {
-  box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
-}
-
-.accordion-button:focus {
-  border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 0;
-  box-shadow: none;
+.collapse:not(.show) {
+  display: none;
 }
 
 /* 5. Icons and External
@@ -406,43 +345,24 @@ section.padding-left {
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
-}
-
-.fa-cart-shopping:before {
-  content: "\f07a";
-}
-
-.fa-city:before {
-  content: "\f64f";
-}
-
-.fa-face-meh:before {
-  content: "\f11a";
-}
-
-.fa-face-smile:before {
-  content: "\f118";
-}
-
-.fa-umbrella-beach:before {
-  content: "\f5ca";
-}
-
-.fa-utensils:before {
-  content: "\f2e7";
-}
-
-.fa-solid {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
+
+.fa-cart-shopping::before { content: "\f07a"; }
+.fa-city::before { content: "\f64f"; }
+.fa-face-meh::before { content: "\f11a"; }
+.fa-face-smile::before { content: "\f118"; }
+.fa-umbrella-beach::before { content: "\f5ca"; }
+.fa-utensils::before { content: "\f2e7"; }
 
 @font-face {
   font-family: "Font Awesome 6 Free";
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"), ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
+       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
 }
 
 @font-face {
@@ -450,7 +370,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
+       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
 }
 
 /* Figure captions */
@@ -459,7 +380,7 @@ section.padding-left {
 }
 
 .figure-caption {
-  font-size: .875em;
+  font-size: 0.875em;
   color: #6c757d;
 }
 
@@ -470,6 +391,22 @@ section.padding-left {
   ul.custom {
     -moz-columns: 2;
     column-count: 2;
+  }
+  .featured .featured-tabs .tab, .featured .featured-tabs label {
+    order: 0;
+  }
+  .featured .featured-tabs label {
+    background-color: #f5f5f5;
+    border-bottom: none;
+    color: var(--si-link-color); /* Note: Assumes --si-link-color is defined in third-party CSS */
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    width: 100%;
+  }
+  .featured .featured-tabs input[type=radio]:checked+label {
+    background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
+    color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
   }
 }
 
@@ -483,34 +420,32 @@ section.padding-left {
 @media (min-width: 768px) {
   .myrow .col-sm-3 {
     flex: 0 0 auto;
-    width: 25%
+    width: 25%;
   }
-}
-
-@media (min-width: 768px) {
   .myrow .col-sm-4 {
     flex: 0 0 auto;
-    width: 33.33333333%
+    width: 33.33333333%;
   }
-}
-
-@media (min-width: 768px) {
   .myrow .col-sm-6 {
     flex: 0 0 auto;
     width: 50%;
   }
 }
 
-@media (max-width:991px){
-  .featured .featured-tabs .tab,.featured .featured-tabs label{order:0;}
-  .featured .featured-tabs label{background-color:#f5f5f5;border-bottom:none;color:var(--si-link-color);height:50px;line-height:50px;padding:0 20px;width:100%;}
-  .featured .featured-tabs input[type=radio]:checked+label{background-color:var(--si-primary-color);color:var(--si-primary-text-color);}
-}
-
-@media (min-width:992px){
-  .featured .featured-tabs{justify-content:center;}
-  .featured .featured-tabs label{border-bottom:1px solid #dedede;color:#6f6f6f;max-width:20%;padding:12px 40px;}
-  .featured .featured-tabs input[type=radio]:checked+label{border-bottom-color:var(--si-link-color);color:var(--si-link-color);}
+@media (min-width: 992px) {
+  .featured .featured-tabs {
+    justify-content: center;
+  }
+  .featured .featured-tabs label {
+    border-bottom: 1px solid #dedede;
+    color: #6f6f6f;
+    max-width: 20%;
+    padding: 12px 40px;
+  }
+  .featured .featured-tabs input[type=radio]:checked+label {
+    border-bottom-color: var(--si-link-color); /* Note: Assumes --si-link-color is defined in third-party CSS */
+    color: var(--si-link-color);
+  }
 }
 
 /* Reduced motion preferences */
