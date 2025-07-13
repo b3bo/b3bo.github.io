@@ -535,3 +535,10 @@ section.padding-left {
     transition: none; /* Disable transitions for users who prefer reduced motion */
   }
 }
+
+/* Hide the Home bullet so that it doesn't compete with Homes */
+@media (max-width: 768px) {
+  nav ul li:contains("Home") {
+    display: none;
+  }
+}
