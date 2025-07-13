@@ -536,7 +536,7 @@ section.padding-left {
   }
 }
 
-/* Update mobile view preferences 
+/* Update mobile view preferences */
 @media (max-width: 767px) {
 .more-menu-overlay .row {
 display: flex;
