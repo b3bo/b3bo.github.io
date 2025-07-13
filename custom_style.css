@@ -522,7 +522,9 @@ section.padding-left {
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .accordion-button,
-  .accordion-button::after {
-    transition: none;
+  .accordion-button::after,
+  a {
+    transition: none; /* Disable transitions for users who prefer reduced motion */
   }
 }
+```
