@@ -1,22 +1,13 @@
 /* 1. Variables and Resets
- * Define root variables for consistent theming across the site. All colors are centralized here.
- * To change a color site-wide, update its variable value once (e.g., --sis-background-secondary: #newcolor;).
+ * Define root variables for consistent theming across the site.
  */
 :root {
-  --sis-text-color: #363636; /* Primary text color */
-  --sis-text-color-rgb: 54, 54, 54; /* RGB version for opacity or calculations */
-  --sis-btn-secondary-bg: #f2f3f9; /* Secondary background (e.g., gray-400) */
-  --sis-btn-secondary-bg-hover: #e0e0e0; /* Hover state for secondary buttons/backgrounds */
+  --sis-text-color: #363636;
+  --sis-text-color-rgb: 54, 54, 54;
+  --sis-btn-secondary-bg: #f2f3f9; /* Optimized from rgb(242 243 249) for clarity */
+  --sis-btn-secondary-bg-hover: #e0e0e0; /* Suggested hover state for better UX */
   --sis-link-color: #71939d; /* Primary link color */
-  --sis-border-color: #dedede; /* Default border color */
-  --sis-background-light: #f7f7f7; /* Light background for boxes and quicklinks */
-  --sis-border-light: #d9d9d9; /* Lighter border for content boxes */
-  --sis-background-white: #fff; /* Pure white background */
-  --sis-secondary-color: #6c757d; /* Secondary text/separators (e.g., captions) */
-  --sis-accordion-text: #4f4f4f; /* Accordion button text */
-  --sis-accordion-active-fill: #3b71ca; /* Active icon fill in accordion */
-  --sis-tab-label: #6f6f6f; /* Tab label color */
-  --sis-tab-mobile-bg: #f5f5f5; /* Mobile tab background */
+  --sis-border-color: #dedede; /* Common border color */
   --sis-font-family: 'Montserrat', sans-serif; /* Primary font family */
   --sis-font-size-base: 16px; /* Base font size for rem calculations */
   --sis-font-weight-light: 300; /* Light weight for headings */
@@ -73,7 +64,7 @@ a {
 }
 
 a:hover {
-  color: darken(var(--sis-link-color), 10%); /* Suggested: Darken on hover for better feedback (requires preprocessor or manual hex; alternatively, use #5f7d85) */
+  color: darken(var(--sis-link-color), 10%); /* Suggested: Darken on hover for better feedback (requires preprocessor or manual hex) */
 }
 
 b,
@@ -149,8 +140,8 @@ ul.custom {
 }
 
 .main-content .si-content-area p.quicklinks {
-  background: var(--sis-background-light);
-  border: 1px solid var(--sis-border-light);
+  background: #f7f7f7;
+  border: 1px solid #d9d9d9;
   font-size: 14px;
   text-align: center;
   padding: 20px;
@@ -174,10 +165,10 @@ ul.custom {
 
 .myrow .link-separator {
   margin: 0 0.5rem;
-  color: var(--sis-secondary-color); /* Subtle separator color */
+  color: #6c757d; /* Subtle separator color */
 }
 
-/* Guide and Content Boxes - Ensure header is shaded, body is white */
+/* Guide and Content Boxes */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
@@ -187,31 +178,31 @@ ul.custom {
 .guide-top,
 .content-box-top {
   width: 100%;
-  border-color: var(--sis-border-light);
+  border-color: #d9d9d9;
   border-style: solid;
   border-width: 1px 1px 0 1px;
   padding: 1px 15px;
-  background-color: var(--sis-background-light); /* Shaded header (light gray) */
+  background-color: #f7f7f7;
 }
 
-.content-box-bottom,
-.si-content-label__body,
-.guide-content,
-.video-carousel .carousel-item,
-.carousel-item p,
-.carousel-item ul {
+.content-box-bottom {
   width: 100%;
-  border-color: var(--sis-border-light);
+  border-color: #d9d9d9;
   border-style: solid;
   border-width: 0 1px 1px 1px;
   padding: 1px 15px;
-  background-color: var(--sis-background-white) !important; /* Force white body, overriding any inheritance */
 }
 
-/* Carousel/Guide-Specific Styles: For multi-slide guides */
-.si-content-label-gallery__title { /* For carousel titles/sub-headers */
-  background-color: var(--sis-background-light); /* Shade sub-headers if needed */
-  padding: 10px; /* Add padding for better header distinction */
+.si-content-label__body {
+  background: #fff;
+  border: 1px solid var(--sis-border-color);
+}
+
+.custom-btn--secondary-hollow {
+  background-color: transparent;
+  border-color: var(--sis-border-color);
+  color: var(--sis-btn-secondary-bg); /* Adjusted for consistency */
+  transition: background-color 0.5s ease;
 }
 
 /* Tabs Component */
@@ -267,8 +258,8 @@ section.padding-left {
 }
 
 .accordion {
-  --mdb-accordion-color: var(--sis-accordion-text);
-  --mdb-accordion-bg: var(--sis-background-white);
+  --mdb-accordion-color: #4f4f4f;
+  --mdb-accordion-bg: #fff;
   --mdb-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --mdb-accordion-border-color: var(--sis-border-color);
   --mdb-accordion-border-width: 1px;
@@ -276,19 +267,19 @@ section.padding-left {
   --mdb-accordion-inner-border-radius: calc(0.5rem - 1px);
   --mdb-accordion-btn-padding-x: 1.5rem;
   --mdb-accordion-btn-padding-y: 1.15rem;
-  --mdb-accordion-btn-color: var(--sis-accordion-text);
+  --mdb-accordion-btn-color: #4f4f4f;
   --mdb-accordion-btn-bg: var(--mdb-accordion-bg);
-  --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E"); /* Note: Update fill color manually if changing --sis-accordion-text */
+  --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
   --mdb-accordion-btn-icon-width: 1.25rem;
   --mdb-accordion-btn-icon-transform: rotate(-180deg);
   --mdb-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --mdb-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233b71ca'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E"); /* Note: Update fill color manually if changing --sis-accordion-active-fill */
-  --mdb-accordion-btn-focus-border-color: var(--sis-link-color);
+  --mdb-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill'%233b71ca'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
+  --mdb-accordion-btn-focus-border-color: #71939d;
   --mdb-accordion-btn-focus-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
   --mdb-accordion-body-padding-x: 1.5rem;
   --mdb-accordion-body-padding-y: 1.15rem;
-  --mdb-accordion-active-color: var(--sis-link-color);
-  --mdb-accordion-active-bg: var(--sis-background-white);
+  --mdb-accordion-active-color: #71939d;
+  --mdb-accordion-active-bg: #fff
 }
 
 .accordion-button {
@@ -307,18 +298,24 @@ section.padding-left {
   transition: var(--mdb-accordion-transition);
 }
 
+@media (prefers-reduced-motion:reduce) {
+  .accordion-button {
+    transition: none;
+  }
+}
+
 .accordion-button:not(.collapsed) {
   color: var(--mdb-accordion-active-color);
   background-color: var(--mdb-accordion-active-bg);
-  box-shadow: inset 0 calc(var(--mdb-accordion-border-width) * -1) 0 var(--mdb-accordion-border-color);
+  box-shadow: inset 0 calc(var(--mdb-accordion-border-width)*-1) 0 var(--mdb-accordion-border-color);
 }
 
-.accordion-button:not(.collapsed)::after {
+.accordion-button:not(.collapsed):after {
   background-image: var(--mdb-accordion-btn-active-icon);
   transform: var(--mdb-accordion-btn-icon-transform);
 }
 
-.accordion-button::after {
+.accordion-button:after {
   flex-shrink: 0;
   width: var(--mdb-accordion-btn-icon-width);
   height: var(--mdb-accordion-btn-icon-width);
@@ -330,15 +327,19 @@ section.padding-left {
   transition: var(--mdb-accordion-btn-icon-transition);
 }
 
+@media (prefers-reduced-motion:reduce) {
+  .accordion-button:after {
+    transition: none;
+  }
+}
+
 .accordion-button:hover {
   z-index: 2;
 }
 
 .accordion-button:focus {
   z-index: 3;
-  border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 0;
-  box-shadow: var(--mdb-accordion-btn-focus-box-shadow); /* Suggested: Improved focus for accessibility */
+  box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
 .accordion-header {
@@ -381,11 +382,17 @@ section.padding-left {
 }
 
 .accordion-body {
-  padding: var(--mdb-accordion-body-padding-y) var(--mdb-accordion-body-padding-x);
+  padding: var(--mdb-accordion-body-padding-y) var(--mdb-accordion-btn-padding-x);
 }
 
-.collapse:not(.show) {
-  display: none;
+.accordion-button:not(.collapsed):focus {
+  box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
+}
+
+.accordion-button:focus {
+  border-color: var(--mdb-accordion-btn-focus-border-color);
+  outline: 0;
+  box-shadow: none;
 }
 
 /* 5. Icons and External
@@ -399,24 +406,43 @@ section.padding-left {
   font-variant: normal;
   line-height: 1;
   text-rendering: auto;
+}
+
+.fa-cart-shopping:before {
+  content: "\f07a";
+}
+
+.fa-city:before {
+  content: "\f64f";
+}
+
+.fa-face-meh:before {
+  content: "\f11a";
+}
+
+.fa-face-smile:before {
+  content: "\f118";
+}
+
+.fa-umbrella-beach:before {
+  content: "\f5ca";
+}
+
+.fa-utensils:before {
+  content: "\f2e7";
+}
+
+.fa-solid {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
-
-.fa-cart-shopping::before { content: "\f07a"; }
-.fa-city::before { content: "\f64f"; }
-.fa-face-meh::before { content: "\f11a"; }
-.fa-face-smile::before { content: "\f118"; }
-.fa-umbrella-beach::before { content: "\f5ca"; }
-.fa-utensils::before { content: "\f2e7"; }
 
 @font-face {
   font-family: "Font Awesome 6 Free";
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
-       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"), ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
 }
 
 @font-face {
@@ -424,8 +450,7 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
-       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"), ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
 }
 
 /* Figure captions */
@@ -434,8 +459,8 @@ section.padding-left {
 }
 
 .figure-caption {
-  font-size: 0.875em;
-  color: var(--sis-secondary-color);
+  font-size: .875em;
+  color: #6c757d;
 }
 
 /* 6. Media Queries
@@ -445,34 +470,6 @@ section.padding-left {
   ul.custom {
     -moz-columns: 2;
     column-count: 2;
-  }
-  .featured .featured-tabs label {
-    background-color: var(--sis-tab-mobile-bg);
-    border-bottom: none;
-    color: var(--sis-link-color);
-    height: 50px;
-    line-height: 50px;
-    padding: 0 20px;
-    width: 100%;
-  }
-  .featured .featured-tabs input[type="radio"]:checked + label {
-    background-color: var(--sis-link-color); /* Adjusted for variable consistency */
-    color: var(--sis-background-white); /* Suggested: White text on active for contrast */
-  }
-  .featured .featured-tabs .tab,
-  .featured .featured-tabs label {
-    order: 0;
-  }
-  /* Suggested: Stack columns on small screens for two-column layouts */
-  .myrow > [class*="col-"] {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-  .myrow .links-container {
-    justify-content: center; /* Center wrapped links */
-  }
-  .myrow img.img-fluid {
-    height: auto; /* Prevent distortion when stacked */
   }
 }
 
@@ -486,32 +483,34 @@ section.padding-left {
 @media (min-width: 768px) {
   .myrow .col-sm-3 {
     flex: 0 0 auto;
-    width: 25%;
+    width: 25%
   }
+}
+
+@media (min-width: 768px) {
   .myrow .col-sm-4 {
     flex: 0 0 auto;
-    width: 33.33333333%;
+    width: 33.33333333%
   }
+}
+
+@media (min-width: 768px) {
   .myrow .col-sm-6 {
     flex: 0 0 auto;
     width: 50%;
   }
 }
 
-@media (min-width: 992px) {
-  .featured .featured-tabs {
-    justify-content: center;
-  }
-  .featured .featured-tabs label {
-    border-bottom: 1px solid var(--sis-border-color);
-    color: var(--sis-tab-label);
-    max-width: 20%;
-    padding: 12px 40px;
-  }
-  .featured .featured-tabs input[type="radio"]:checked + label {
-    border-bottom-color: var(--sis-link-color);
-    color: var(--sis-link-color);
-  }
+@media (max-width:991px){
+  .featured .featured-tabs .tab,.featured .featured-tabs label{order:0;}
+  .featured .featured-tabs label{background-color:#f5f5f5;border-bottom:none;color:var(--si-link-color);height:50px;line-height:50px;padding:0 20px;width:100%;}
+  .featured .featured-tabs input[type=radio]:checked+label{background-color:var(--si-primary-color);color:var(--si-primary-text-color);}
+}
+
+@media (min-width:992px){
+  .featured .featured-tabs{justify-content:center;}
+  .featured .featured-tabs label{border-bottom:1px solid #dedede;color:#6f6f6f;max-width:20%;padding:12px 40px;}
+  .featured .featured-tabs input[type=radio]:checked+label{border-bottom-color:var(--si-link-color);color:var(--si-link-color);}
 }
 
 /* Reduced motion preferences */
