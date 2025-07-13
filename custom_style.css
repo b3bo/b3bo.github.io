@@ -162,7 +162,11 @@ ul.custom {
   align-items: center;
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
-  padding: 10px; /* Added: Space around the links text; adjust as needed (e.g., 10px 15px) */
+  padding: 20px;
+  background: var(--color-light-bg);
+  border: 1px solid var(--color-border-light);
+  text-align: center;
+  font-size: 14px;
 }
 
 .myrow .quicklinks {
