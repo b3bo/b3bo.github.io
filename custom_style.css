@@ -536,7 +536,7 @@ section.padding-left {
   }
 }
 
-/* Update mobile view preferences */
+/* Update mobile view preferences 
 @media (max-width: 767px) {
   ul.link-list li:has(a[href="/"]) {
     display: none; /* Hides "Home" */
@@ -547,4 +547,4 @@ section.padding-left {
   ul.link-list li:has(a[href="/"]) {
     display: none; /* Hides "Home" */
   }
-}
+} */
