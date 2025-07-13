@@ -1,4 +1,5 @@
-/* Global resets and base background overrides.
+/* 1. Resets and Base Styles
+ * Global resets and base background overrides.
  */
 .bg-\[\#9297b2\] {
   background-color: rgb(242 243 249 / var(--tw-bg-opacity));
@@ -77,6 +78,7 @@ ul.custom {
   margin-top: 0;
   margin-right: 0;
   margin-left: 0;
+  align-items: stretch; /* Suggested: Equal height columns for balancing content */
 }
 
 .myrow > * {
@@ -88,6 +90,21 @@ ul.custom {
   padding-top: calc(var(--bs-gutter-x) * .5);
   padding-bottom: calc(var(--bs-gutter-x) * .5);
   margin-top: var(--bs-gutter-y);
+}
+
+/* Suggested: Explicit column resets for zero padding in custom rows */
+.myrow > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* Suggested: Image filling for layouts using .myrow */
+.myrow img.img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preserve aspect ratio while filling space, preventing distortion */
+  margin: 0;
+  border-radius: 0; /* Remove rounding if not needed */
 }
 
 /* 4. Components
@@ -114,6 +131,27 @@ ul.custom {
   font-size: 14px;
   text-align: center;
   padding: 20px;
+}
+
+/* Suggested: Enhance links container for better wrapping in layouts */
+.myrow .links-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem; /* Small gap for wrapped links on small screens */
+  margin: 0;
+  padding: 0;
+}
+
+.myrow .quicklinks {
+  margin: 0;
+  display: contents; /* Integrate with flex for seamless flow */
+}
+
+.myrow .link-separator {
+  margin: 0 0.5rem;
+  color: #6c757d; /* Subtle separator color */
 }
 
 /* Guide and Content Boxes */
