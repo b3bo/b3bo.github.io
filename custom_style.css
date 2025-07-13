@@ -157,9 +157,12 @@ ul.custom {
 /* Suggested: Enhance links container for better wrapping in layouts */
 .myrow .links-container {
   width: 100%;
+  height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
@@ -174,7 +177,7 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: left; /* Left-aligned like in the screenshot; change to center if needed */
+  text-align: center; /* Center the links text */
   white-space: normal; /* Allow wrapping to multiple lines */
   display: contents; /* Integrate with flex for seamless flow */
 }
