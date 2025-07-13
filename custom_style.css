@@ -591,19 +591,19 @@ grid-column: 1;
 grid-row: 1;
 }
 .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
-grid-column: 2;
-grid-row: 1;
+grid-column: 1;
+grid-row: 2;
 }
 .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
 grid-column: 1;
-grid-row: 2;
+grid-row: 3;
 }
 .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
 grid-column: 2;
-grid-row: 2;
+grid-row: 1;
 }
 .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-grid-column: 1;
-grid-row: 3;
+grid-column: 2;
+grid-row: 2;
 }
 }
