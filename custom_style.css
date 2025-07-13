@@ -168,6 +168,30 @@ ul.custom {
 .myrow .quicklinks {
   margin: 0;
   display: contents; /* Integrate with flex for seamless flow */
+  padding: 0;
+  background: none; /* No background */
+  border: none; /* No border */
+  text-align: left; /* Left-aligned like in the screenshot; change to center if needed */
+  font-size: 12px; /* Match link font size */
+  line-height: 2.1;
+  white-space: normal; /* Allow wrapping to multiple lines */
+}
+
+.myrow .quicklinks a {
+    color: var(--color-primary-text); /* #363636 */
+    font-weight: 500;
+    word-spacing: 0.1em;
+    letter-spacing: .1em;
+    text-decoration: underline; /* Add underline if origins has it; remove if not */
+    transition: color 0.3s ease;
+}
+
+.myrow .quicklinks a:hover {
+    color: var(--color-link); /* #71939d on hover */
+}
+
+.myrow .quicklinks &::before, .myrow .quicklinks &::after { /* Not needed, as separators are text */
+    color: var(--color-primary-text);
 }
 
 .myrow .link-separator {
