@@ -553,6 +553,8 @@ section.padding-left {
 .more-menu-overlay .row {
 display: flex;
 flex-direction: column;
+padding: 10px 15px;
+gap: 15px;
 }
 .more-menu-overlay .row > .col-sm-6 {
 display: contents;
