@@ -548,3 +548,34 @@ section.padding-left {
     display: none; /* Hides "Home" 
   }
 } */
+
+@media (max-width: 767px) {
+.more-menu-overlay .row {
+display: flex;
+flex-direction: column;
+}
+.more-menu-overlay .row > .col-sm-6 {
+display: contents;
+}
+.more-menu-overlay ul.link-list {
+display: contents;
+}
+.more-menu-overlay ul.link-list li:has(a[href="/"]) {
+display: none;
+}
+.more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+order: 1;
+}
+.more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+order: 2;
+}
+.more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+order: 3;
+}
+.more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+order: 4;
+}
+.more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+order: 5;
+}
+}
