@@ -606,4 +606,12 @@ grid-row: 1;
 grid-column: 2;
 grid-row: 2;
 }
+.blogs .row {
+flex-direction: column;
+}
+.blogs .row > [class*="col-"] {
+width: 100%;
+max-width: 100%;
+flex: 0 0 100%;
+}
 }
