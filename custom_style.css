@@ -162,12 +162,12 @@ ul.custom {
   align-items: center;
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
-  padding: 0;
+  padding: 10px; /* Added: Space around the links text; adjust as needed (e.g., 10px 15px) */
 }
 
 .myrow .quicklinks {
   margin: 0;
-  padding: 10px; /* Added: Space around the text; adjust as needed (e.g., 10px 15px 10px 10px for asymmetric) */
+  padding: 0;
   background: none; /* No background */
   border: none; /* No border */
   text-align: left; /* Left-aligned like in the screenshot; change to center if needed */
