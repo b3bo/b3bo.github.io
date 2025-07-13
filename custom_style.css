@@ -177,7 +177,7 @@ ul.custom {
   color: var(--sis-secondary-color); /* Subtle separator color */
 }
 
-/* Guide and Content Boxes */
+/* Guide and Content Boxes - Ensure header is shaded, body is white */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
@@ -191,27 +191,29 @@ ul.custom {
   border-style: solid;
   border-width: 1px 1px 0 1px;
   padding: 1px 15px;
-  background-color: var(--sis-background-light);
+  background-color: var(--sis-background-light); /* Shaded header (light gray) */
 }
 
-.content-box-bottom {
+.content-box-bottom,
+.si-content-label__body {
   width: 100%;
   border-color: var(--sis-border-light);
   border-style: solid;
   border-width: 0 1px 1px 1px;
   padding: 1px 15px;
+  background-color: var(--sis-background-white) !important; /* Force white body, overriding any inheritance */
 }
 
-.si-content-label__body {
-  background: var(--sis-background-white);
-  border: 1px solid var(--sis-border-color);
+/* Carousel/Guide-Specific Styles: For multi-slide guides */
+.si-content-label-gallery__title { /* For carousel titles/sub-headers */
+  background-color: var(--sis-background-light); /* Shade sub-headers if needed */
+  padding: 10px; /* Add padding for better header distinction */
 }
 
-.custom-btn--secondary-hollow {
-  background-color: transparent;
-  border-color: var(--sis-border-color);
-  color: var(--sis-btn-secondary-bg); /* Adjusted for consistency */
-  transition: background-color 0.5s ease;
+/* Ensure slide bodies in the guide are white */
+.carousel-item .si-content-label__body p,
+.carousel-item ul {
+  background-color: var(--sis-background-white); /* Ensure lists/paragraphs in slides are white */
 }
 
 /* Tabs Component */
@@ -521,10 +523,3 @@ section.padding-left {
     transition: none;
   }
 }
-
-
-
-
-
-
-16.1s
