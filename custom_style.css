@@ -195,7 +195,11 @@ ul.custom {
 }
 
 .content-box-bottom,
-.si-content-label__body {
+.si-content-label__body,
+.guide-content,
+.video-carousel .carousel-item,
+.carousel-item p,
+.carousel-item ul {
   width: 100%;
   border-color: var(--sis-border-light);
   border-style: solid;
@@ -208,12 +212,6 @@ ul.custom {
 .si-content-label-gallery__title { /* For carousel titles/sub-headers */
   background-color: var(--sis-background-light); /* Shade sub-headers if needed */
   padding: 10px; /* Add padding for better header distinction */
-}
-
-/* Ensure slide bodies in the guide are white */
-.carousel-item .si-content-label__body p,
-.carousel-item ul {
-  background-color: var(--sis-background-white); /* Ensure lists/paragraphs in slides are white */
 }
 
 /* Tabs Component */
