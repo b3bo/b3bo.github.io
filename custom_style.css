@@ -1,8 +1,24 @@
 /* 1. Resets and Base Styles
  * Global resets and base background overrides.
  */
+:root {
+  --color-primary-text: #363636; /* Primary text and links */
+  --color-link: #71939d; /* Link color */
+  --color-link-hover: #5f7d85; /* Darkened link hover */
+  --color-light-bg: #f7f7f7; /* Light background for headers/boxes */
+  --color-border-light: #d9d9d9; /* Light borders */
+  --color-border: #dedede; /* Default borders */
+  --color-secondary: #6c757d; /* Secondary text/separators */
+  --color-tab-label: #6f6f6f; /* Tab labels */
+  --color-tab-mobile-bg: #f5f5f5; /* Mobile tab background */
+  --color-accordion-text: #4f4f4f; /* Accordion text */
+  --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
+  --color-white: #fff; /* Pure white for bodies */
+  --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
+}
+
 .bg-\[\#9297b2\] {
-  background-color: rgb(242 243 249 / var(--tw-bg-opacity));
+  background-color: var(--color-secondary-bg);
 }
 
 .bg-gray-400 {
@@ -29,7 +45,7 @@
 .si-property-stats__title,
 .si-property-stats__title-main,
 .si-content-label__title {
-  color: #363636;
+  color: var(--color-primary-text);
   font-family: Montserrat;
   font-weight: 300;
 }
@@ -45,12 +61,12 @@
 }
 
 a {
-  color: #71939d;
+  color: var(--color-link);
   transition: color 0.3s ease; /* Suggested: Smooth color transition on hover */
 }
 
 a:hover {
-  color: #5f7d85; /* Suggested: Darkened version of #71939d for better feedback on hover */
+  color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
 }
 
 b,
@@ -112,7 +128,7 @@ ul.custom {
  */
 /* Quicklinks: Horizontal links with separators */
 .quicklinks > a {
-  color: #363636;
+  color: var(--color-primary-text);
   font-weight: 500;
   word-spacing: 0.1em;
   letter-spacing: .1em;
@@ -122,12 +138,12 @@ ul.custom {
 }
 
 .quicklinks > a:hover {
-  color: #71939d; /* Suggested: Change color on hover for interactivity */
+  color: var(--color-link); /* Suggested: Change color on hover for interactivity */
 }
 
 .main-content .si-content-area p.quicklinks {
-  background: #f7f7f7;
-  border: 1px solid #d9d9d9;
+  background: var(--color-light-bg);
+  border: 1px solid var(--color-border-light);
   font-size: 14px;
   text-align: center;
   padding: 20px;
@@ -151,10 +167,10 @@ ul.custom {
 
 .myrow .link-separator {
   margin: 0 0.5rem;
-  color: #6c757d; /* Subtle separator color */
+  color: var(--color-secondary); /* Subtle separator color */
 }
 
-/* Guide and Content Boxes */
+/* Guide and Content Boxes - Ensure header is shaded, body is white */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
@@ -163,16 +179,16 @@ ul.custom {
 
 .guide-top {
   width: 100%;
-  border-color: #d9d9d9;
+  border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
   padding: 1px 15px 1px 15px;
-  background-color: #f7f7f7;
+  background-color: var(--color-light-bg);
 }
 
 .content-box-top {
   width: 100%;
-  border-color: #d9d9d9;
+  border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
   padding: 1px 15px 1px 15px;
@@ -180,14 +196,15 @@ ul.custom {
 
 .content-box-bottom {
   width: 100%;
-  border-color: #d9d9d9;
+  border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
+  background-color: #fff !important; /* Force white for body to prevent shading bleed */
 }
 
 .si-content-label__body {
-  background: #fff;
+  background: #fff !important; /* Force white for body, overriding any inheritance */
   border: 1px solid #dedede;
 }
 
@@ -251,7 +268,7 @@ section.padding-left {
 }
 
 .accordion {
-  --mdb-accordion-color: #4f4f4f;
+  --mdb-accordion-color: var(--color-accordion-text);
   --mdb-accordion-bg: #fff;
   --mdb-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
   --mdb-accordion-border-color: #dedede;
@@ -260,7 +277,7 @@ section.padding-left {
   --mdb-accordion-inner-border-radius: calc(0.5rem - 1px);
   --mdb-accordion-btn-padding-x: 1.5rem;
   --mdb-accordion-btn-padding-y: 1.15rem;
-  --mdb-accordion-btn-color: #4f4f4f;
+  --mdb-accordion-btn-color: var(--color-accordion-text);
   --mdb-accordion-btn-bg: var(--mdb-accordion-bg);
   --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill'%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
   --mdb-accordion-btn-icon-width: 1.25rem;
@@ -445,6 +462,17 @@ section.padding-left {
   .featured .featured-tabs input[type=radio]:checked+label {
     background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
     color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
+  }
+  /* Suggested: Stack columns on small screens for two-column layouts */
+  .myrow > [class*="col-"] {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .myrow .links-container {
+    justify-content: center; /* Center wrapped links */
+  }
+  .myrow img.img-fluid {
+    height: auto; /* Prevent distortion when stacked */
   }
 }
 
