@@ -538,10 +538,11 @@ section.padding-left {
 
 /* Hide the Home bullet so that it doesn't compete with Homes */
 @media (max-width: 767px) {
-  .more-menu-overlay ul li[data-menu-item="Home"] {
+  .more-menu-overlay .row > .col-sm-6:first-child ul.link-list li:nth-child(1) {
     display: none; /* Hides "Home" */
   }
-  .more-menu-overlay ul li[data-menu-item="blog"] {
+  .more-menu-overlay .row > .col-sm-6:first-child ul.link-list li:nth-child(2) {
     text-transform: uppercase; /* Changes "blog" to "BLOG" */
   }
+}
 }
