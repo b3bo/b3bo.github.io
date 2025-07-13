@@ -571,13 +571,13 @@ order: 5;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-.more-menu-overlay .links .row {
+.more-menu-overlay .row {
 display: grid;
 grid-template-columns: 1fr 1fr;
 padding: 10px 15px;
 gap: 15px;
 }
-.more-menu-overlay .links .row > .col-sm-6 {
+.more-menu-overlay .row > .col-sm-6 {
 display: contents;
 }
 .more-menu-overlay ul.link-list {
