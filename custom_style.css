@@ -128,6 +128,17 @@ ul.custom {
   border-radius: 0; /* Remove rounding if not needed */
 }
 
+/* Make the image column wider for landscape look */
+.myrow .col-sm-6:first-child {
+  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
+  max-width: 66.6667%;
+}
+
+.myrow .col-sm-6:last-child {
+  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
+  max-width: 33.3333%;
+}
+
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
@@ -160,9 +171,7 @@ ul.custom {
   height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center; /* Vertically center the content */
-  align-items: center; /* Horizontally center the content */
+  align-items: center;
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
@@ -170,6 +179,8 @@ ul.custom {
   border: 1px solid var(--color-border-light);
   text-align: center;
   font-size: 14px;
+  justify-content: center; /* Center horizontally if needed */
+  align-content: center; /* Center vertically for multi-line wrap */
 }
 
 .myrow .quicklinks {
@@ -441,8 +452,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
-       url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
+       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
 }
 
 @font-face {
@@ -450,8 +461,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
-       url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
+       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
 }
 
 /* Figure captions */
