@@ -154,7 +154,7 @@ ul.custom {
   color: #6c757d; /* Subtle separator color */
 }
 
-/* Guide and Content Boxes - Ensure header is shaded, body is white */
+/* Guide and Content Boxes */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
@@ -184,11 +184,10 @@ ul.custom {
   border-style: solid;
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
-  background-color: #fff !important; /* Force white for body to prevent shading bleed */
 }
 
 .si-content-label__body {
-  background: #fff !important; /* Force white for body, overriding any inheritance */
+  background: #fff;
   border: 1px solid #dedede;
 }
 
@@ -446,17 +445,6 @@ section.padding-left {
   .featured .featured-tabs input[type=radio]:checked+label {
     background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
     color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
-  }
-  /* Suggested: Stack columns on small screens for two-column layouts */
-  .myrow > [class*="col-"] {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-  .myrow .links-container {
-    justify-content: center; /* Center wrapped links */
-  }
-  .myrow img.img-fluid {
-    height: auto; /* Prevent distortion when stacked */
   }
 }
 
