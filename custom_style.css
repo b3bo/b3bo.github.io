@@ -542,3 +542,9 @@ section.padding-left {
     display: none; /* Hides "Home" */
   }
 }
+
+@media (max-width: 991px) {
+  ul.link-list li:has(a[href="/"]) {
+    display: none; /* Hides "Home" */
+  }
+}
