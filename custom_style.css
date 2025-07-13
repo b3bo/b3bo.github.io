@@ -536,12 +536,12 @@ section.padding-left {
   }
 }
 
-/* Hide the Home bullet so that it doesn't compete with Homes */
+/* Update mobile view preferences */
 @media (max-width: 767px) {
   ul.link-list li:has(a[href="/"]) {
     display: none; /* Hides "Home" */
   }
   ul.link-list li {
-    text-transform: capitalize; /* Changes "HOMES" to "Home" */
+    text-transform: capitalize; /* Changes "HOMES" to "Home, etc" */
   }
 }
