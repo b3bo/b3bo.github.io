@@ -209,12 +209,12 @@ ul.custom {
 }
 
 .content-box-top blockquote ul {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
-.content-box-top .box.link-effect {
+/*.content-box-top .box.link-effect {
     margin-bottom: 5px;
-}
+}*/
 
 .si-content-label__body {
   background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
