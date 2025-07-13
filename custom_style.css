@@ -541,3 +541,4 @@ section.padding-left {
   ul.link-list li:has(a[href="/"]) {
     display: none; /* Hides "Home" */
   }
+}
