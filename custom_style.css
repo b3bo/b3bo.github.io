@@ -194,6 +194,21 @@ ul.custom {
   font-size: 14px;
 }
 
+.myrow .links-container h2 {
+  color: var(--color-primary-text);
+  font-family: Montserrat;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 24px; /* Adjust size to match desired */
+  margin-bottom: 10px;
+  width: 100%; /* Full width for centering */
+  text-align: left; /* Left align to match desired */
+}
+
+.myrow .links-container .hr-rule {
+  margin: 0 0 10px 0; /* Adjust margin to match desired */
+}
+
 .myrow .quicklinks {
   margin: 0;
   padding: 0;
@@ -209,12 +224,14 @@ ul.custom {
   color: var(--color-secondary); /* Subtle separator */
 }
 
-/* Override quicklinks paragraph in myrow to remove box styling */
-.myrow p.quicklinks {
+/* Override quicklinks paragraph in myrow with higher specificity to remove box styling */
+.main-content .si-content-area .myrow p.quicklinks {
   background: none !important;
   border: none !important;
   padding: 0 !important;
-  text-align: left !important; /* Adjust alignment if needed; desired looks left-aligned */
+  text-align: left !important; /* Left align to match desired look */
+  font-size: 14px !important;
+  margin: 0 !important;
 }
 
 /* Guide and Content Boxes: Shaded header, white body */
