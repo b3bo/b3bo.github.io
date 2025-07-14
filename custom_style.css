@@ -1,5 +1,6 @@
 /* 1. Variables and Resets
- * Centralizes colors for easy theming. Update variables here for site-wide changes.
+ * Define root variables for consistent theming across the site. All colors are centralized here.
+ * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
@@ -15,22 +16,6 @@
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
-  --color-focus-outline: #71939d; /* Centralized focus color for accessibility */
-  --color-hr-rule: #a2b1b5; /* Variabilized hardcoded HR color */
-
-  /* Layout variables for modernization */
-  --grid-gap: 1rem; /* Standard gap for grids/flex */
-  --container-max-width: 1200px; /* For wide screens */
-
-  /* Fallbacks for assumed third-party vars (define overrides in base CSS if available) */
-  --sis-btn-secondary-bg: #6c757d; /* Fallback secondary button bg */
-  --sis-btn-secondary-bg-hover: #5a6268; /* Fallback hover */
-  --sis-btn-secondary-border: #6c757d; /* Fallback border */
-  --sis-font-size-base: 16px; /* Fallback base font size */
-  --sis-clt-fs: 1.5; /* Fallback font size multiplier */
-  --si-primary-color: #71939d; /* Fallback primary color */
-  --si-primary-text-color: #fff; /* Fallback primary text */
-  --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
 .bg-\[\#9297b2\] {
@@ -38,16 +23,16 @@
 }
 
 .bg-gray-400 {
-  background-color: var(--sis-btn-secondary-bg);
+  background-color: var(--sis-btn-secondary-bg); /* Note: Assumes --sis-btn-secondary-bg is defined in third-party CSS */
 }
 
 .bg-gray-400:hover {
-  background-color: var(--sis-btn-secondary-bg-hover);
+  background-color: var(--sis-btn-secondary-bg-hover); /* Note: Assumes --sis-btn-secondary-bg-hover is defined in third-party CSS */
 }
 
-/* General container for readability on wide screens */
+/* General container for better readability on wide screens (suggested tweak) */
 .container {
-  max-width: var(--container-max-width); /* Variabilized for easy tweaks */
+  max-width: 1200px; /* Prevent overly wide content on large desktops */
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -67,7 +52,7 @@
 }
 
 .si-videos-widget > h2 {
-  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
+  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs)); /* Note: Assumes --sis-font-size-base and --sis-clt-fs are defined in third-party CSS */
 }
 
 .home .si-content-label-gallery__title {
@@ -78,15 +63,15 @@
 
 a {
   color: var(--color-link);
-  transition: color 0.3s ease, outline 0.2s ease; /* Consolidated transitions for hover and focus */
+  transition: color 0.3s ease, outline 0.2s ease; /* Suggested: Smooth transitions, including focus outline */
 }
 
 a:hover {
-  color: var(--color-link-hover);
+  color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
 }
 
 a:focus {
-  outline: 2px solid var(--color-focus-outline); /* Enhanced focus for accessibility */
+  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
 }
 
 b,
@@ -100,47 +85,68 @@ ul.custom {
   column-count: 3;
   margin: 0;
   padding: 0;
-  list-style: none; /* Remove bullets for custom lists */
+  list-style: none; /* Suggested: Explicitly remove bullets for custom lists */
 }
 
 /* 3. Layout Utilities
- * Modernized with CSS Grid for better 2D control.
+ * Custom row and column overrides for responsive designs.
  */
 .myrow {
-  display: grid; /* Switched to Grid from Flex for modernization */
-  grid-template-columns: 2fr 1fr; /* Explicit 2 columns: wider left for image/map, narrower right for links */
-  gap: var(--grid-gap); /* Built-in gap */
-  align-items: stretch; /* Equal height */
-  margin: 0;
+  --bs-gutter-x: 0; /* Remove horizontal gutter for seamless columns */
+  --bs-gutter-y: 0; /* Remove vertical gutter */
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  align-items: stretch; /* Suggested: Equal height columns for balancing content */
+  transition: all 0.3s ease; /* Smooth transition for layout changes (low impact) */
 }
 
-/* Explicit column resets */
+.myrow > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-top: calc(var(--bs-gutter-x) * .5);
+  padding-bottom: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y);
+  transition: all 0.3s ease; /* Smooth transition for column adjustments (low impact) */
+}
+
+/* Suggested: Explicit column resets for zero padding in custom rows */
 .myrow > [class*="col-"] {
-  padding: 0; /* Zero padding */
+  padding-right: 0;
+  padding-left: 0;
 }
 
-/* Image filling for .myrow layouts */
+/* Suggested: Image filling for layouts using .myrow */
 .myrow img.img-fluid {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Show full image */
+  height: auto; /* Let image determine height for landscape aspect */
+  object-fit: contain; /* Show full image without cropping */
   margin: 0;
-  border-radius: 0; /* Remove rounding to match desired look */
+  border-radius: 0; /* Remove rounding if not needed */
 }
 
-/* Adjusted proportions to match screenshot: left column (image/map) wider, right (links) narrower */
+/* Make the image column wider for landscape look */
 .myrow .col-sm-6:first-child {
-  display: grid;
-  place-items: center; /* Center content */
-  padding-right: 20px;
+  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
+  max-width: 66.6667%;
+  display: flex;
+  align-items: center; /* Vertically center the image */
+  justify-content: center; /* Horizontally center the image if needed */
+  padding-right: 20px; /* Add white space between image and links box */
 }
 
 .myrow .col-sm-6:last-child {
-  /* Takes the second column automatically */
+  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
+  max-width: 33.3333%;
 }
 
 /* 4. Components
- * Styles for UI elements like quicklinks, guides, tabs, content boxes, and accordions.
+ * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
 
 /* Horizontal rule style */
@@ -150,7 +156,7 @@ ul.custom {
   height: 2px;
   width: 90px;
   border: 0;
-  background-color: var(--color-hr-rule); /* Variabilized */
+  background-color: #a2b1b5;
 }
 
 /* Quicklinks: Horizontal links with separators */
@@ -161,11 +167,11 @@ ul.custom {
   letter-spacing: .1em;
   font-size: 12px;
   line-height: 2.1;
-  transition: color 0.3s ease; /* Smooth hover */
+  transition: color 0.3s ease; /* Suggested: Smooth hover transition */
 }
 
 .quicklinks > a:hover {
-  color: var(--color-link);
+  color: var(--color-link); /* Suggested: Change color on hover for interactivity */
 }
 
 .main-content .si-content-area p.quicklinks {
@@ -176,69 +182,44 @@ ul.custom {
   padding: 20px;
 }
 
-/* Enhanced links container for wrapping - adjusted to match desired white background without border */
+/* Suggested: Enhance links container for better wrapping in layouts */
 .myrow .links-container {
   width: 100%;
-  height: 100%; /* Fill column height */
+  height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-wrap: wrap;
-  align-items: center; /* Vertical center */
-  align-content: center; /* Center multi-line */
-  justify-content: center; /* Horizontal center */
-  gap: 0.5rem; /* Gap for wrapped links */
+  align-items: center; /* Vertically center the content */
+  align-content: center; /* Center multi-line content vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
-  background: var(--color-white); /* White background to match desired look */
-  border: none; /* No border to match desired look */
+  background: var(--color-light-bg);
+  border: 1px solid var(--color-border-light);
   text-align: center;
   font-size: 14px;
-}
-
-.myrow .links-container h2 {
-  color: var(--color-primary-text);
-  font-family: Montserrat;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-size: 24px; /* Adjust size to match desired */
-  margin-bottom: 10px;
-  width: 100%; /* Full width for centering */
-  text-align: left; /* Left align to match desired */
-}
-
-.myrow .links-container .hr-rule {
-  margin: 0 0 10px 0; /* Adjust margin to match desired */
 }
 
 .myrow .quicklinks {
   margin: 0;
   padding: 0;
-  background: none;
-  border: none;
-  text-align: center;
-  white-space: normal; /* Allow wrapping */
-  display: contents; /* Seamless flex integration */
+  background: none; /* No background */
+  border: none; /* No border */
+  text-align: center; /* Center the links text */
+  white-space: normal; /* Allow wrapping to multiple lines */
+  display: contents; /* Integrate with flex for seamless flow */
 }
 
 .myrow .link-separator {
   margin: 0 0.5rem;
-  color: var(--color-secondary); /* Subtle separator */
+  color: var(--color-secondary); /* Subtle separator color */
 }
 
-/* Override quicklinks paragraph in myrow with higher specificity to remove box styling */
-.main-content .si-content-area .myrow p.quicklinks {
-  background: none !important;
-  border: none !important;
-  padding: 0 !important;
-  text-align: left !important; /* Left align to match desired look */
-  font-size: 14px !important;
-  margin: 0 !important;
-}
-
-/* Guide and Content Boxes: Shaded header, white body */
+/* Guide and Content Boxes - Ensure header is shaded, body is white */
 .guide {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 24px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  font-size: 24px !important;
 }
 
 .guide-top {
@@ -246,7 +227,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px; /* Consolidated padding */
+  padding: 1px 15px 1px 15px;
   background-color: var(--color-light-bg);
 }
 
@@ -255,12 +236,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px; /* Consolidated */
-}
-
-/* Increased specificity for ul margin by targeting deeper */
-.content-box-top blockquote ul {
-  margin-bottom: 0;
+  padding: 1px 15px 1px 15px;
 }
 
 .content-box-bottom {
@@ -268,40 +244,42 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
-  padding: 1px 15px; /* Consolidated */
-  background-color: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
+  padding: 1px 15px 1px 15px;
+  background-color: var(--color-white) !important; /* Force white for body to prevent shading bleed */
 }
 
+.content-box-top blockquote ul {
+    margin-bottom: 0 !important;
+}
+
+/*.content-box-top .box.link-effect {
+    margin-bottom: 5px;
+}*/
+
 .si-content-label__body {
-  background: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
+  background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
   border: 1px solid var(--color-border);
 }
 
 .custom-btn--secondary-hollow {
   background-color: transparent;
   border-color: var(--color-border);
-  color: var(--sis-btn-secondary-border);
+  color: var(--sis-btn-secondary-border); /* Note: Assumes --sis-btn-secondary-border is defined in third-party CSS */
   transition: background-color .5s ease;
 }
 
-.custom-btn--secondary-hollow:focus {
-  outline: 2px solid var(--color-focus-outline); /* Added focus for accessibility */
-}
-
 /* Tabs Component */
-section.padding,
-section.padding-left { /* Consolidated similar paddings */
+section.padding {
   padding: 40px 0;
-}
-
-section.padding-left {
-  padding-left: 40px;
-  padding-right: 0; /* Explicit for consistency */
 }
 
 section.featured {
   min-height: 550px;
   padding-bottom: 10px;
+}
+
+section.padding-left {
+  padding-left: 40px;
 }
 
 .featured .featured-tabs {
@@ -318,11 +296,6 @@ section.featured {
   order: 1;
   text-align: center;
   text-transform: uppercase;
-  transition: color 0.3s ease; /* Added smooth transition for perf/a11y */
-}
-
-.featured .featured-tabs label:focus {
-  outline: 2px solid var(--color-focus-outline); /* Added focus for tab accessibility */
 }
 
 .featured .featured-tabs .tab {
@@ -418,7 +391,7 @@ section.featured {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 2px solid var(--color-focus-outline); /* Enhanced focus */
+  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -496,8 +469,8 @@ section.featured {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf") format("truetype");
 }
 
 @font-face {
@@ -505,8 +478,8 @@ section.featured {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 /* Figure captions */
@@ -520,16 +493,11 @@ section.featured {
 }
 
 /* 6. Media Queries
- * Refined and consolidated for better responsiveness.
+ * Responsive adjustments for different screen sizes.
  */
-@media (max-width: 479px) {
-  ul.custom {
-    column-count: 1; /* Simplified from -moz- prefix (modern browsers support column-count) */
-  }
-}
-
 @media (max-width: 767px) {
   ul.custom {
+    -moz-columns: 2;
     column-count: 2;
   }
   .featured .featured-tabs .tab, .featured .featured-tabs label {
@@ -545,25 +513,78 @@ section.featured {
     width: 100%;
   }
   .featured .featured-tabs input[type=radio]:checked+label {
-    background-color: var(--si-primary-color);
-    color: var(--si-primary-text-color);
+    background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
+    color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
   }
-  /* Stack for mobile with Grid */
-  .myrow {
-    grid-template-columns: 1fr; /* Single column stack */
-  }
+  /* Suggested: Stack columns on small screens for two-column layouts */
   .myrow > [class*="col-"] {
-    grid-column: span 1; /* Full width */
+    flex-basis: 100%;
+    max-width: 100%;
   }
   .myrow .links-container {
-    justify-content: center;
+    justify-content: center; /* Center wrapped links */
   }
   .myrow img.img-fluid {
-    height: auto;
+    height: auto; /* Prevent distortion when stacked */
+  }
+  .myrow {
+    flex-direction: column; /* Force stacking on mobile */
   }
   .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
-    grid-column: span 1;
+    flex: 0 0 100%; /* Reset widths for stacking */
+    max-width: 100%;
   }
+}
+
+@media (max-width: 479px) {
+  ul.custom {
+    -moz-columns: 1;
+    column-count: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .myrow .col-sm-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  .myrow .col-sm-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+  .myrow .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .featured .featured-tabs {
+    justify-content: center;
+  }
+  .featured .featured-tabs label {
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-tab-label);
+    max-width: 20%;
+    padding: 12px 40px;
+  }
+  .featured .featured-tabs input[type=radio]:checked+label {
+    border-bottom-color: var(--color-link);
+    color: var(--color-link);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .accordion-button,
+  .accordion-button::after,
+  a {
+    transition: none; /* Disable transitions for users who prefer reduced motion */
+  }
+}
+
+/* Update mobile view preferences */
+@media (max-width: 767px) {
   .more-menu-overlay .row {
     display: flex;
     flex-direction: column;
@@ -596,25 +617,7 @@ section.featured {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) { /* Consolidated tablet rules */
-  .myrow {
-    grid-template-columns: 2fr 1fr; /* Maintain proportions for tablet */
-  }
-  .myrow .col-sm-3 {
-    grid-column: span 1;
-  }
-  .myrow .col-sm-4 {
-    grid-column: span 1;
-  }
-  .myrow .col-sm-6 {
-    grid-column: span 1; /* Adjusted for grid */
-  }
-  .myrow .col-sm-6:first-child {
-    /* Wide left preserved */
-  }
-  .myrow .col-sm-6:last-child {
-    /* Narrow right preserved */
-  }
+@media (min-width: 768px) and (max-width: 991px) {
   .more-menu-overlay .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -657,51 +660,5 @@ section.featured {
     width: 100%;
     max-width: 100%;
     flex: 0 0 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .featured .featured-tabs {
-    justify-content: center;
-  }
-  .featured .featured-tabs label {
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-tab-label);
-    max-width: 20%;
-    padding: 12px 40px;
-  }
-  .featured .featured-tabs input[type=radio]:checked+label {
-    border-bottom-color: var(--color-link);
-    color: var(--color-link);
-  }
-  .myrow .col-sm-3 {
-    grid-column: span 1; /* Fine-tuned for larger screens */
-  }
-  .myrow .col-sm-4 {
-    grid-column: span 1;
-  }
-  .myrow .col-sm-6 {
-    grid-column: span 1;
-  }
-}
-
-@media (min-width: 1200px) { /* New breakpoint for wide screens */
-  .myrow {
-    grid-template-columns: 2fr 1fr; /* Reinforce proportions */
-  }
-  .container {
-    padding: 0 2rem; /* More padding for breathing room */
-  }
-}
-
-/* Reduced motion preferences - Expanded for more elements */
-@media (prefers-reduced-motion: reduce) {
-  .accordion-button,
-  .accordion-button::after,
-  a,
-  .quicklinks > a,
-  .featured .featured-tabs label,
-  .custom-btn--secondary-hollow { /* Added more interactive elements */
-    transition: none; /* Disable transitions for perf/a11y */
   }
 }
