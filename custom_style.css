@@ -96,8 +96,8 @@ strong {
 
 /* Multi-column unordered lists with responsive columns */
 ul.custom {
-  -moz-columns: 2; /* Updated to 2 columns for desktop as per preference */
-  column-count: 2;
+  -moz-columns: 3; /* Re-added legacy prefix to restore 3-column layout due to site-specific quirk */
+  column-count: 3;
   margin: 0;
   padding: 0;
   list-style: none; /* Remove bullets for custom lists */
@@ -524,12 +524,14 @@ section.featured {
  */
 @media (max-width: 479px) {
   ul.custom {
-    column-count: 1; /* Simplified from -moz- prefix (modern browsers support column-count) */
+    -moz-columns: 1;
+    column-count: 1;
   }
 }
 
 @media (max-width: 767px) {
   ul.custom {
+    -moz-columns: 2;
     column-count: 2;
   }
   .featured .featured-tabs .tab, .featured .featured-tabs label {
