@@ -96,7 +96,8 @@ strong {
 
 /* Multi-column unordered lists with responsive columns */
 ul.custom {
-  column-count: 3; /* Removed obsolete -moz- prefix */
+  -moz-columns: 3;
+  column-count: 3;
   margin: 0;
   padding: 0;
   list-style: none; /* Remove bullets for custom lists */
@@ -158,7 +159,7 @@ ul.custom {
   font-weight: 500;
   word-spacing: 0.1em;
   letter-spacing: .1em;
-  font-size: clamp(12px, 2vw, 14px); /* Fluid typography for better responsiveness */
+  font-size: 12px;
   line-height: 2.1;
   transition: color 0.3s ease; /* Smooth hover */
 }
