@@ -128,17 +128,6 @@ ul.custom {
   border-radius: 0; /* Remove rounding if not needed */
 }
 
-/* Make the image column wider for landscape look */
-.myrow .col-sm-6:first-child {
-  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
-  max-width: 66.6667%;
-}
-
-.myrow .col-sm-6:last-child {
-  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
-  max-width: 33.3333%;
-}
-
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
@@ -168,7 +157,6 @@ ul.custom {
 /* Suggested: Enhance links container for better wrapping in layouts */
 .myrow .links-container {
   width: 100%;
-  height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -179,8 +167,6 @@ ul.custom {
   border: 1px solid var(--color-border-light);
   text-align: center;
   font-size: 14px;
-  justify-content: center; /* Center horizontally if needed */
-  align-content: center; /* Center vertically for multi-line wrap */
 }
 
 .myrow .quicklinks {
@@ -188,7 +174,7 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: center; /* Center the links text */
+  text-align: left; /* Left-aligned like in the screenshot; change to center if needed */
   white-space: normal; /* Allow wrapping to multiple lines */
   display: contents; /* Integrate with flex for seamless flow */
 }
@@ -509,6 +495,9 @@ section.padding-left {
   }
   .myrow img.img-fluid {
     height: auto; /* Prevent distortion when stacked */
+  }
+  .myrow {
+    flex-direction: column; /* Force stacking on mobile */
   }
 }
 
