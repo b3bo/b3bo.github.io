@@ -108,7 +108,7 @@ ul.custom {
  */
 .myrow {
   display: grid; /* Switched to Grid from Flex for modernization */
-  grid-template-columns: repeat(3, 1fr); /* 3 parts for 33/67 split */
+  grid-template-columns: 1fr 2fr; /* Explicit 2 columns: 33% left, 67% right */
   gap: var(--grid-gap); /* Built-in gap, no gutter vars needed */
   align-items: stretch; /* Equal height */
   margin: 0;
@@ -128,16 +128,15 @@ ul.custom {
   border-radius: 0;
 }
 
-/* Adjusted proportions to match screenshot: left column (list) narrower, right (image) wider */
+/* No need for span adjustments since grid columns are explicit */
 .myrow .col-sm-6:first-child {
-  grid-column: span 1; /* Left: 33% (list) */
   display: grid;
   place-items: center; /* Center content */
   padding-right: 20px;
 }
 
 .myrow .col-sm-6:last-child {
-  grid-column: span 2; /* Right: 67% (image/map) */
+  /* No span needed; takes the second column automatically */
 }
 
 /* 4. Components
