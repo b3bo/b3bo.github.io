@@ -1,6 +1,5 @@
 /* 1. Variables and Resets
- * Define root variables for consistent theming across the site. All colors are centralized here.
- * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
+ * Centralizes colors for easy theming. Update variables here for site-wide changes.
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
@@ -16,6 +15,16 @@
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
+
+  /* Fallbacks for assumed third-party vars (define overrides in base CSS if available) */
+  --sis-btn-secondary-bg: #6c757d; /* Fallback secondary button bg */
+  --sis-btn-secondary-bg-hover: #5a6268; /* Fallback hover */
+  --sis-btn-secondary-border: #6c757d; /* Fallback border */
+  --sis-font-size-base: 16px; /* Fallback base font size */
+  --sis-clt-fs: 1.5; /* Fallback font size multiplier */
+  --si-primary-color: #71939d; /* Fallback primary color */
+  --si-primary-text-color: #fff; /* Fallback primary text */
+  --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
 .bg-\[\#9297b2\] {
@@ -23,16 +32,16 @@
 }
 
 .bg-gray-400 {
-  background-color: var(--sis-btn-secondary-bg); /* Note: Assumes --sis-btn-secondary-bg is defined in third-party CSS */
+  background-color: var(--sis-btn-secondary-bg);
 }
 
 .bg-gray-400:hover {
-  background-color: var(--sis-btn-secondary-bg-hover); /* Note: Assumes --sis-btn-secondary-bg-hover is defined in third-party CSS */
+  background-color: var(--sis-btn-secondary-bg-hover);
 }
 
-/* General container for better readability on wide screens (suggested tweak) */
+/* General container for readability on wide screens */
 .container {
-  max-width: 1200px; /* Prevent overly wide content on large desktops */
+  max-width: 1200px; /* Prevent overly wide content */
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -52,7 +61,7 @@
 }
 
 .si-videos-widget > h2 {
-  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs)); /* Note: Assumes --sis-font-size-base and --sis-clt-fs are defined in third-party CSS */
+  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
 }
 
 .home .si-content-label-gallery__title {
@@ -63,15 +72,15 @@
 
 a {
   color: var(--color-link);
-  transition: color 0.3s ease, outline 0.2s ease; /* Suggested: Smooth transitions, including focus outline */
+  transition: color 0.3s ease, outline 0.2s ease; /* Smooth transitions for hover and focus */
 }
 
 a:hover {
-  color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
+  color: var(--color-link-hover);
 }
 
 a:focus {
-  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
+  outline: 2px solid var(--color-link); /* Visible focus for accessibility */
 }
 
 b,
@@ -85,22 +94,22 @@ ul.custom {
   column-count: 3;
   margin: 0;
   padding: 0;
-  list-style: none; /* Suggested: Explicitly remove bullets for custom lists */
+  list-style: none; /* Remove bullets for custom lists */
 }
 
 /* 3. Layout Utilities
  * Custom row and column overrides for responsive designs.
  */
 .myrow {
-  --bs-gutter-x: 0; /* Remove horizontal gutter for seamless columns */
+  --bs-gutter-x: 0; /* Remove horizontal gutter */
   --bs-gutter-y: 0; /* Remove vertical gutter */
   display: flex;
   flex-wrap: wrap;
   margin-top: 0;
   margin-right: 0;
   margin-left: 0;
-  align-items: stretch; /* Suggested: Equal height columns for balancing content */
-  transition: all 0.3s ease; /* Smooth transition for layout changes (low impact) */
+  align-items: stretch; /* Equal height columns */
+  transition: all 0.3s ease; /* Smooth layout changes */
 }
 
 .myrow > * {
@@ -112,41 +121,41 @@ ul.custom {
   padding-top: calc(var(--bs-gutter-x) * .5);
   padding-bottom: calc(var(--bs-gutter-x) * .5);
   margin-top: var(--bs-gutter-y);
-  transition: all 0.3s ease; /* Smooth transition for column adjustments (low impact) */
+  transition: all 0.3s ease; /* Smooth column adjustments */
 }
 
-/* Suggested: Explicit column resets for zero padding in custom rows */
+/* Explicit column resets for zero padding */
 .myrow > [class*="col-"] {
   padding-right: 0;
   padding-left: 0;
 }
 
-/* Suggested: Image filling for layouts using .myrow */
+/* Image filling for .myrow layouts */
 .myrow img.img-fluid {
   width: 100%;
-  height: auto; /* Let image determine height for landscape aspect */
-  object-fit: contain; /* Show full image without cropping */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Show full image */
   margin: 0;
-  border-radius: 0; /* Remove rounding if not needed */
+  border-radius: 0;
 }
 
-/* Make the image column wider for landscape look */
+/* Wider image column for landscape look */
 .myrow .col-sm-6:first-child {
-  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
+  flex: 0 0 66.6667%; /* col-sm-8 equivalent */
   max-width: 66.6667%;
   display: flex;
-  align-items: center; /* Vertically center the image */
-  justify-content: center; /* Horizontally center the image if needed */
-  padding-right: 20px; /* Add white space between image and links box */
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  padding-right: 20px; /* Space between image and links */
 }
 
 .myrow .col-sm-6:last-child {
-  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
+  flex: 0 0 33.3333%; /* col-sm-4 equivalent */
   max-width: 33.3333%;
 }
 
 /* 4. Components
- * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
+ * Styles for UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
 
 /* Horizontal rule style */
@@ -167,11 +176,11 @@ ul.custom {
   letter-spacing: .1em;
   font-size: 12px;
   line-height: 2.1;
-  transition: color 0.3s ease; /* Suggested: Smooth hover transition */
+  transition: color 0.3s ease; /* Smooth hover */
 }
 
 .quicklinks > a:hover {
-  color: var(--color-link); /* Suggested: Change color on hover for interactivity */
+  color: var(--color-link);
 }
 
 .main-content .si-content-area p.quicklinks {
@@ -182,16 +191,16 @@ ul.custom {
   padding: 20px;
 }
 
-/* Suggested: Enhance links container for better wrapping in layouts */
+/* Enhanced links container for wrapping */
 .myrow .links-container {
   width: 100%;
-  height: 100%; /* Fill the full height of the column to match the image */
+  height: 100%; /* Fill column height */
   display: flex;
   flex-wrap: wrap;
-  align-items: center; /* Vertically center the content */
-  align-content: center; /* Center multi-line content vertically */
-  justify-content: center; /* Center horizontally */
-  gap: 0.5rem; /* Small gap for wrapped links on small screens */
+  align-items: center; /* Vertical center */
+  align-content: center; /* Center multi-line */
+  justify-content: center; /* Horizontal center */
+  gap: 0.5rem; /* Gap for wrapped links */
   margin: 0;
   padding: 20px;
   background: var(--color-light-bg);
@@ -203,19 +212,19 @@ ul.custom {
 .myrow .quicklinks {
   margin: 0;
   padding: 0;
-  background: none; /* No background */
-  border: none; /* No border */
-  text-align: center; /* Center the links text */
-  white-space: normal; /* Allow wrapping to multiple lines */
-  display: contents; /* Integrate with flex for seamless flow */
+  background: none;
+  border: none;
+  text-align: center;
+  white-space: normal; /* Allow wrapping */
+  display: contents; /* Seamless flex integration */
 }
 
 .myrow .link-separator {
   margin: 0 0.5rem;
-  color: var(--color-secondary); /* Subtle separator color */
+  color: var(--color-secondary); /* Subtle separator */
 }
 
-/* Guide and Content Boxes - Ensure header is shaded, body is white */
+/* Guide and Content Boxes: Shaded header, white body */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
@@ -245,26 +254,22 @@ ul.custom {
   border-style: solid;
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
-  background-color: var(--color-white) !important; /* Force white for body to prevent shading bleed */
+  background-color: var(--color-white) !important; /* Force white body */
 }
 
 .content-box-top blockquote ul {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
-/*.content-box-top .box.link-effect {
-    margin-bottom: 5px;
-}*/
-
 .si-content-label__body {
-  background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
+  background: var(--color-white) !important; /* Force white body */
   border: 1px solid var(--color-border);
 }
 
 .custom-btn--secondary-hollow {
   background-color: transparent;
   border-color: var(--color-border);
-  color: var(--sis-btn-secondary-border); /* Note: Assumes --sis-btn-secondary-border is defined in third-party CSS */
+  color: var(--sis-btn-secondary-border);
   transition: background-color .5s ease;
 }
 
@@ -391,7 +396,7 @@ section.padding-left {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
+  outline: 2px solid var(--color-link); /* Visible focus for accessibility */
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -469,8 +474,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf") format("truetype");
 }
 
 @font-face {
@@ -478,8 +483,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 /* Figure captions */
@@ -493,7 +498,7 @@ section.padding-left {
 }
 
 /* 6. Media Queries
- * Responsive adjustments for different screen sizes.
+ * Responsive adjustments for screen sizes.
  */
 @media (max-width: 767px) {
   ul.custom {
@@ -513,10 +518,10 @@ section.padding-left {
     width: 100%;
   }
   .featured .featured-tabs input[type=radio]:checked+label {
-    background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
-    color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
+    background-color: var(--si-primary-color);
+    color: var(--si-primary-text-color);
   }
-  /* Suggested: Stack columns on small screens for two-column layouts */
+  /* Stack columns on small screens */
   .myrow > [class*="col-"] {
     flex-basis: 100%;
     max-width: 100%;
@@ -525,13 +530,13 @@ section.padding-left {
     justify-content: center; /* Center wrapped links */
   }
   .myrow img.img-fluid {
-    height: auto; /* Prevent distortion when stacked */
+    height: auto; /* Prevent distortion */
   }
   .myrow {
-    flex-direction: column; /* Force stacking on mobile */
+    flex-direction: column; /* Force stacking */
   }
   .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
-    flex: 0 0 100%; /* Reset widths for stacking */
+    flex: 0 0 100%; /* Reset widths */
     max-width: 100%;
   }
 }
@@ -579,7 +584,7 @@ section.padding-left {
   .accordion-button,
   .accordion-button::after,
   a {
-    transition: none; /* Disable transitions for users who prefer reduced motion */
+    transition: none; /* Disable transitions */
   }
 }
 
