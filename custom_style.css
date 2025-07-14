@@ -96,8 +96,9 @@ strong {
 
 /* Multi-column unordered lists with responsive columns */
 ul.custom {
-  -moz-columns: 2; /* Updated to 2 columns for desktop as per preference; legacy prefix for compatibility */
-  column-count: 2;
+  -moz-columns: 3;
+  -webkit-column-count: 3; /* Added for Chrome compatibility to fix column rendering */
+  column-count: 3;
   margin: 0;
   padding: 0;
   list-style: none; /* Remove bullets for custom lists */
@@ -525,6 +526,7 @@ section.featured {
 @media (max-width: 479px) {
   ul.custom {
     -moz-columns: 1;
+    -webkit-column-count: 1; /* Added for Chrome compatibility */
     column-count: 1;
   }
 }
@@ -532,6 +534,7 @@ section.featured {
 @media (max-width: 767px) {
   ul.custom {
     -moz-columns: 2;
+    -webkit-column-count: 2; /* Added for Chrome compatibility */
     column-count: 2;
   }
   .featured .featured-tabs .tab, .featured .featured-tabs label {
