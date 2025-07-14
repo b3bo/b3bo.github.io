@@ -108,7 +108,7 @@ ul.custom {
  */
 .myrow {
   display: grid; /* Switched to Grid from Flex for modernization */
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); /* Auto-responsive columns */
+  grid-template-columns: repeat(3, 1fr); /* 3 parts for 33/67 split */
   gap: var(--grid-gap); /* Built-in gap, no gutter vars needed */
   align-items: stretch; /* Equal height */
   margin: 0;
@@ -128,16 +128,16 @@ ul.custom {
   border-radius: 0;
 }
 
-/* Wider image column for landscape look - Use grid-column for spans */
+/* Adjusted proportions to match screenshot: left column (list) narrower, right (image) wider */
 .myrow .col-sm-6:first-child {
-  grid-column: span 2; /* Spans 2/3 of grid (approx 66%) */
+  grid-column: span 1; /* Left: 33% (list) */
   display: grid;
   place-items: center; /* Center content */
   padding-right: 20px;
 }
 
 .myrow .col-sm-6:last-child {
-  grid-column: span 1; /* Spans 1/3 (33%) */
+  grid-column: span 2; /* Right: 67% (image/map) */
 }
 
 /* 4. Components
@@ -573,14 +573,23 @@ section.featured {
 }
 
 @media (min-width: 768px) and (max-width: 991px) { /* Consolidated tablet rules */
+  .myrow {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3-part grid for consistency */
+  }
   .myrow .col-sm-3 {
-    grid-column: span 1; /* Adjusted for Grid (25% equiv) */
+    grid-column: span 1;
   }
   .myrow .col-sm-4 {
-    grid-column: span 1; /* 33% */
+    grid-column: span 1;
   }
   .myrow .col-sm-6 {
-    grid-column: span 2; /* 50% */
+    grid-column: span 2;
+  }
+  .myrow .col-sm-6:first-child {
+    grid-column: span 1; /* Adjust for tablet if needed */
+  }
+  .myrow .col-sm-6:last-child {
+    grid-column: span 2;
   }
   .more-menu-overlay .row {
     display: grid;
@@ -654,7 +663,7 @@ section.featured {
 
 @media (min-width: 1200px) { /* New breakpoint for wide screens */
   .myrow {
-    grid-template-columns: repeat(3, 1fr); /* Example: Force 3 columns on large desktops */
+    grid-template-columns: repeat(3, 1fr); /* Reinforce 3-part grid */
   }
   .container {
     padding: 0 2rem; /* More padding for breathing room */
