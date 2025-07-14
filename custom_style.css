@@ -96,8 +96,8 @@ strong {
 
 /* Multi-column unordered lists with responsive columns */
 ul.custom {
-  -moz-columns: 3; /* Re-added legacy prefix to restore 3-column layout due to site-specific quirk */
-  column-count: 3;
+  -moz-columns: 2; /* Updated to 2 columns for desktop as per preference; legacy prefix for compatibility */
+  column-count: 2;
   margin: 0;
   padding: 0;
   list-style: none; /* Remove bullets for custom lists */
