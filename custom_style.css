@@ -122,10 +122,21 @@ ul.custom {
 /* Suggested: Image filling for layouts using .myrow */
 .myrow img.img-fluid {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Preserve aspect ratio while filling space, preventing distortion */
+  height: auto; /* Let image determine height for landscape aspect */
+  object-fit: contain; /* Show full image without cropping */
   margin: 0;
   border-radius: 0; /* Remove rounding if not needed */
+}
+
+/* Make the image column wider for landscape look */
+.myrow .col-sm-6:first-child {
+  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
+  max-width: 66.6667%;
+}
+
+.myrow .col-sm-6:last-child {
+  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
+  max-width: 33.3333%;
 }
 
 /* 4. Components
@@ -157,9 +168,12 @@ ul.custom {
 /* Suggested: Enhance links container for better wrapping in layouts */
 .myrow .links-container {
   width: 100%;
+  height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: center; /* Vertically center the content */
+  align-content: center; /* Center multi-line content vertically */
+  justify-content: center; /* Center horizontally */
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
@@ -174,7 +188,7 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: left; /* Left-aligned like in the screenshot; change to center if needed */
+  text-align: center; /* Center the links text */
   white-space: normal; /* Allow wrapping to multiple lines */
   display: contents; /* Integrate with flex for seamless flow */
 }
@@ -498,6 +512,10 @@ section.padding-left {
   }
   .myrow {
     flex-direction: column; /* Force stacking on mobile */
+  }
+  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
+    flex: 0 0 100%; /* Reset widths for stacking */
+    max-width: 100%;
   }
 }
 
