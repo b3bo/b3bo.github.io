@@ -148,6 +148,17 @@ ul.custom {
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
+
+/* Horizontal rule style */
+.hr-rule {
+  margin-left: 0;
+  margin-right: auto;
+  height: 2px;
+  width: 90px;
+  border: 0;
+  background-color: #a2b1b5;
+}
+
 /* Quicklinks: Horizontal links with separators */
 .quicklinks > a {
   color: var(--color-primary-text);
