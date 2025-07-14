@@ -107,12 +107,11 @@ ul.custom {
  * Modernized with CSS Grid for better 2D control.
  */
 .myrow {
-  display: grid; /* Modernized: Switched to Grid from Flex for better control, preserving look */
-  grid-template-columns: 2fr 1fr; /* Modernized: Explicit 2 columns - wide left (map/image), narrow right (text/links) to match screenshot */
-  gap: var(--grid-gap); /* Built-in gap, no gutter vars needed */
+  display: grid; /* Switched to Grid from Flex for modernization */
+  grid-template-columns: 2fr 1fr; /* Explicit 2 columns: wider left for image/map, narrower right for links */
+  gap: var(--grid-gap); /* Built-in gap */
   align-items: stretch; /* Equal height */
   margin: 0;
-  min-height: 400px; /* Added: Ensure minimum height for the row to allow content to fill vertically */
 }
 
 /* Explicit column resets */
@@ -123,21 +122,21 @@ ul.custom {
 /* Image filling for .myrow layouts */
 .myrow img.img-fluid {
   width: 100%;
-  height: 100%; /* Updated: Fill the full height of the parent column */
-  object-fit: cover; /* Updated: Cover the space without distortion (crops if necessary, suitable for maps) */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Show full image */
   margin: 0;
-  border-radius: 0;
+  border-radius: 0; /* Remove rounding to match desired look */
 }
 
-/* Adjusted proportions to match screenshot: left column (map/image) wider, right (text/list) narrower */
+/* Adjusted proportions to match screenshot: left column (image/map) wider, right (links) narrower */
 .myrow .col-sm-6:first-child {
   display: grid;
-  place-items: center; /* Modernized: Grid centering for content (preserves vertical/horizontal alignment) */
+  place-items: center; /* Center content */
   padding-right: 20px;
 }
 
 .myrow .col-sm-6:last-child {
-  /* No span needed; takes the second column automatically */
+  /* Takes the second column automatically */
 }
 
 /* 4. Components
@@ -162,8 +161,7 @@ ul.custom {
   letter-spacing: .1em;
   font-size: 12px;
   line-height: 2.1;
-  transition: inline-block;
-  transition: color 0.3s ease; /* Smooth hover transition */
+  transition: color 0.3s ease; /* Smooth hover */
 }
 
 .quicklinks > a:hover {
@@ -178,9 +176,9 @@ ul.custom {
   padding: 20px;
 }
 
-/* Enhanced links container for wrapping */
+/* Enhanced links container for wrapping - adjusted to match desired white background without border */
 .myrow .links-container {
-  width: 100%);
+  width: 100%;
   height: 100%; /* Fill column height */
   display: flex;
   flex-wrap: wrap;
@@ -190,8 +188,8 @@ ul.custom {
   gap: 0.5rem; /* Gap for wrapped links */
   margin: 0;
   padding: 20px;
-  background: var(--color-light-bg);
-  border: 1px solid var(--color-border-light);
+  background: var(--color-white); /* White background to match desired look */
+  border: none; /* No border to match desired look */
   text-align: center;
   font-size: 14px;
 }
@@ -209,6 +207,14 @@ ul.custom {
 .myrow .link-separator {
   margin: 0 0.5rem;
   color: var(--color-secondary); /* Subtle separator */
+}
+
+/* Override quicklinks paragraph in myrow to remove box styling */
+.myrow p.quicklinks {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  text-align: left !important; /* Adjust alignment if needed; desired looks left-aligned */
 }
 
 /* Guide and Content Boxes: Shaded header, white body */
@@ -527,7 +533,7 @@ section.featured {
   }
   /* Stack for mobile with Grid */
   .myrow {
-    grid-template-columns: 1fr; /* Modernized: Single column stack, preserving mobile functionality */
+    grid-template-columns: 1fr; /* Single column stack */
   }
   .myrow > [class*="col-"] {
     grid-column: span 1; /* Full width */
@@ -536,7 +542,7 @@ section.featured {
     justify-content: center;
   }
   .myrow img.img-fluid {
-    height: 100%;
+    height: auto;
   }
   .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
     grid-column: span 1;
