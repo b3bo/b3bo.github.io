@@ -132,9 +132,10 @@ ul.custom {
 .myrow .col-sm-6:first-child {
   flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
   max-width: 66.6667%;
-  display: flex; /* Enable flex for centering */
+  display: flex;
   align-items: center; /* Vertically center the image */
   justify-content: center; /* Horizontally center the image if needed */
+  padding-right: 20px; /* Add white space between image and links box */
 }
 
 .myrow .col-sm-6:last-child {
