@@ -72,7 +72,7 @@
 
 a {
   color: var(--color-link);
-  transition: color 0.3s ease, outline 0.2s ease; /* Smooth transitions for hover and focus */
+  transition: color 0.3s ease, outline 0.2s ease; /* Consolidated transitions for hover and focus */
 }
 
 a:hover {
@@ -226,9 +226,9 @@ ul.custom {
 
 /* Guide and Content Boxes: Shaded header, white body */
 .guide {
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
-  font-size: 24px !important;
+  margin-top: 10px; /* Removed !important; increase specificity if needed by adding parent selector */
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .guide-top {
@@ -248,21 +248,22 @@ ul.custom {
   padding: 1px 15px 1px 15px;
 }
 
+/* Increased specificity for ul margin by targeting deeper */
+.content-box-top blockquote ul {
+  margin-bottom: 0; /* Removed !important; if override needed, add more context like .content-box-top > blockquote > ul */
+}
+
 .content-box-bottom {
   width: 100%;
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
   padding: 1px 15px 1px 15px;
-  background-color: var(--color-white) !important; /* Force white body */
-}
-
-.content-box-top blockquote ul {
-  margin-bottom: 0 !important;
+  background-color: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
 }
 
 .si-content-label__body {
-  background: var(--color-white) !important; /* Force white body */
+  background: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
   border: 1px solid var(--color-border);
 }
 
