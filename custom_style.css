@@ -15,6 +15,7 @@
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
+  --color-focus-outline: #71939d; /* Centralized focus color for accessibility (match link for consistency) */
 
   /* Fallbacks for assumed third-party vars (define overrides in base CSS if available) */
   --sis-btn-secondary-bg: #6c757d; /* Fallback secondary button bg */
@@ -80,7 +81,7 @@ a:hover {
 }
 
 a:focus {
-  outline: 2px solid var(--color-link); /* Visible focus for accessibility */
+  outline: 2px solid var(--color-focus-outline); /* Enhanced focus for accessibility */
 }
 
 b,
@@ -109,7 +110,7 @@ ul.custom {
   margin-right: 0;
   margin-left: 0;
   align-items: stretch; /* Equal height columns */
-  transition: all 0.3s ease; /* Smooth layout changes */
+  /* Removed transition for perf: layout changes don't need animation */
 }
 
 .myrow > * {
@@ -121,7 +122,7 @@ ul.custom {
   padding-top: calc(var(--bs-gutter-x) * .5);
   padding-bottom: calc(var(--bs-gutter-x) * .5);
   margin-top: var(--bs-gutter-y);
-  transition: all 0.3s ease; /* Smooth column adjustments */
+  /* Removed transition for perf */
 }
 
 /* Explicit column resets for zero padding */
@@ -226,7 +227,7 @@ ul.custom {
 
 /* Guide and Content Boxes: Shaded header, white body */
 .guide {
-  margin-top: 10px; /* Removed !important; increase specificity if needed by adding parent selector */
+  margin-top: 10px;
   margin-bottom: 10px;
   font-size: 24px;
 }
@@ -236,7 +237,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated padding */
   background-color: var(--color-light-bg);
 }
 
@@ -245,12 +246,12 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated */
 }
 
 /* Increased specificity for ul margin by targeting deeper */
 .content-box-top blockquote ul {
-  margin-bottom: 0; /* Removed !important; if override needed, add more context like .content-box-top > blockquote > ul */
+  margin-bottom: 0;
 }
 
 .content-box-bottom {
@@ -258,7 +259,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated */
   background-color: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
 }
 
@@ -274,18 +275,24 @@ ul.custom {
   transition: background-color .5s ease;
 }
 
+.custom-btn--secondary-hollow:focus {
+  outline: 2px solid var(--color-focus-outline); /* Added focus for accessibility */
+}
+
 /* Tabs Component */
-section.padding {
+section.padding,
+section.padding-left { /* Consolidated similar paddings */
   padding: 40px 0;
+}
+
+section.padding-left {
+  padding-left: 40px;
+  padding-right: 0; /* Explicit for consistency */
 }
 
 section.featured {
   min-height: 550px;
   padding-bottom: 10px;
-}
-
-section.padding-left {
-  padding-left: 40px;
 }
 
 .featured .featured-tabs {
@@ -302,6 +309,11 @@ section.padding-left {
   order: 1;
   text-align: center;
   text-transform: uppercase;
+  transition: color 0.3s ease; /* Added smooth transition for perf/a11y */
+}
+
+.featured .featured-tabs label:focus {
+  outline: 2px solid var(--color-focus-outline); /* Added focus for tab accessibility */
 }
 
 .featured .featured-tabs .tab {
@@ -397,7 +409,7 @@ section.padding-left {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 2px solid var(--color-link); /* Visible focus for accessibility */
+  outline: 2px solid var(--color-focus-outline); /* Enhanced focus */
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -580,12 +592,15 @@ section.padding-left {
   }
 }
 
-/* Reduced motion preferences */
+/* Reduced motion preferences - Expanded for more elements */
 @media (prefers-reduced-motion: reduce) {
   .accordion-button,
   .accordion-button::after,
-  a {
-    transition: none; /* Disable transitions */
+  a,
+  .quicklinks > a,
+  .featured .featured-tabs label,
+  .custom-btn--secondary-hollow { /* Added more interactive elements */
+    transition: none; /* Disable transitions for perf/a11y */
   }
 }
 
