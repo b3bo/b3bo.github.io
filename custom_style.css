@@ -1,4 +1,3 @@
-```css
 /* 1. Variables and Resets
  * Define root variables for consistent theming across the site. All colors are centralized here.
  * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
@@ -146,26 +145,9 @@ ul.custom {
   max-width: 33.3333%;
 }
 
-/* Left-align quicklinks in myrow to match h2 and hr */
-.myrow .quicklinks {
-  text-align: left; /* Align links with h2 and hr */
-  margin: 15px 0 0 0; /* Space below hr */
-}
-
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
-/* Horizontal rule separating h2 from links */
-.hrule {
-  margin-left: 0;
-  margin-right: auto;
-  height: 2px;
-  width: 90px;
-  border: 0;
-  background-color: var(--color-border-light); /* #d9d9d9, matches theme */
-  margin-bottom: 15px; /* Space between hr and links */
-}
-
 /* Quicklinks: Horizontal links with separators */
 .quicklinks > a {
   color: var(--color-primary-text);
@@ -476,13 +458,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-<<<<<<< HEAD
   src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"),
        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf") format("truetype");
-=======
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
-       url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
->>>>>>> parent of 0e02888 (Update custom_style.css)
 }
 
 @font-face {
@@ -490,13 +467,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-<<<<<<< HEAD
   src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2") format("woff2"),
        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf") format("truetype");
-=======
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
-       url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
->>>>>>> parent of 0e02888 (Update custom_style.css)
 }
 
 /* Figure captions */
@@ -679,4 +651,3 @@ section.padding-left {
     flex: 0 0 100%;
   }
 }
-```
