@@ -1,3 +1,4 @@
+```css
 /* 1. Variables and Resets
  * Define root variables for consistent theming across the site. All colors are centralized here.
  * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
@@ -145,9 +146,26 @@ ul.custom {
   max-width: 33.3333%;
 }
 
+/* Left-align quicklinks in myrow to match h2 and hr */
+.myrow .quicklinks {
+  text-align: left; /* Align links with h2 and hr */
+  margin: 15px 0 0 0; /* Space below hr */
+}
+
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
+/* Horizontal rule separating h2 from links */
+.hrule {
+  margin-left: 0;
+  margin-right: auto;
+  height: 2px;
+  width: 90px;
+  border: 0;
+  background-color: var(--color-border-light); /* #d9d9d9, matches theme */
+  margin-bottom: 15px; /* Space between hr and links */
+}
+
 /* Quicklinks: Horizontal links with separators */
 .quicklinks > a {
   color: var(--color-primary-text);
@@ -458,8 +476,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
-       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf") format("truetype");
 }
 
 @font-face {
@@ -467,8 +485,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
-       ur[](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 /* Figure captions */
@@ -574,80 +592,81 @@ section.padding-left {
 
 /* Update mobile view preferences */
 @media (max-width: 767px) {
-.more-menu-overlay .row {
-display: flex;
-flex-direction: column;
-padding: 10px 15px;
-gap: 5px;
-}
-.more-menu-overlay .row > .col-sm-6 {
-display: contents;
-}
-.more-menu-overlay ul.link-list {
-display: contents;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/"]) {
-display: none;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
-order: 1;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
-order: 2;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
-order: 3;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
-order: 4;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-order: 5;
-}
+  .more-menu-overlay .row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 5px;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    order: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    order: 2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    order: 3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    order: 4;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    order: 5;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-.more-menu-overlay .row {
-display: grid;
-grid-template-columns: 1fr 1fr;
-padding: 10px 15px;
-gap: 15px;
+  .more-menu-overlay .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .blogs .row {
+    flex-direction: column;
+  }
+  .blogs .row > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
 }
-.more-menu-overlay .row > .col-sm-6 {
-display: contents;
-}
-.more-menu-overlay ul.link-list {
-display: contents;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/"]) {
-display: none;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
-grid-column: 1;
-grid-row: 1;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
-grid-column: 1;
-grid-row: 2;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
-grid-column: 1;
-grid-row: 3;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
-grid-column: 2;
-grid-row: 1;
-}
-.more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-grid-column: 2;
-grid-row: 2;
-}
-.blogs .row {
-flex-direction: column;
-}
-.blogs .row > [class*="col-"] {
-width: 100%;
-max-width: 100%;
-flex: 0 0 100%;
-}
-}
+```
