@@ -182,16 +182,21 @@ ul.custom {
   background: var(--color-light-bg); /* Revert to light background */
   border: 1px solid var(--color-border-light); /* Add border */
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
-  line-height: 1.0; /* Even tighter line height to reduce spacing between lines */
+  line-height: 1.2 !important; /* Adjust line height */
   padding-left: 0 !important; /* Remove default list padding to eliminate indent */
 }
 
 .quicklinks li {
   display: inline-block;
-  margin: 0; /* Remove margin for tighter control */
+  margin: 0;
+  padding: 0;
   list-style: none !important;
   list-style-type: none !important;
   margin-bottom: 0; /* No vertical margin */
+}
+
+.quicklinks li::marker {
+  content: "" !important;
 }
 
 .quicklinks li::before {
@@ -199,7 +204,8 @@ ul.custom {
 }
 
 .quicklinks li:not(:last-child):after {
-  content: "  |  "; /* Two spaces on either side of | */
+  content: "|";
+  margin: 0 1em; /* Approximately 2 spaces on each side (adjust as needed, 1em ~ 2 spaces in many fonts) */
   color: var(--color-secondary);
 }
 
@@ -209,7 +215,7 @@ ul.custom {
   word-spacing: 0.1em;
   letter-spacing: .1em;
   font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Fluid font-size matching original */
-  line-height: 1.0; /* Tighter line height */
+  line-height: 1.2 !important; /* Adjust line height */
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
   text-decoration: none; /* Remove underline if present */
 }
@@ -261,8 +267,12 @@ ul.custom {
   width: 100%; /* Ensure full width for wrapping */
   list-style: none !important;
   list-style-type: none !important;
-  line-height: 1.0; /* Tighter line height */
+  line-height: 1.2 !important; /* Adjust line height */
   padding-left: 0 !important; /* Remove default list padding */
+}
+
+.myrow .quicklinks li::marker {
+  content: "" !important;
 }
 
 .myrow .quicklinks li::before {
