@@ -174,20 +174,28 @@ ul.custom {
 
 /* Quicklinks: Horizontal links with separators */
 .quicklinks {
-  list-style: none; /* Remove bullets */
+  list-style: none !important;
+  list-style-type: none !important;
   padding: 0;
   margin: 0;
   text-align: center; /* Center the links */
-  background: var(--color-light-bg); /* Add background */
+  background: var(--color-white); /* Match target white background */
   border: 1px solid var(--color-border-light); /* Add border */
   padding: 10px; /* Adjust padding for spacing */
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
-  line-height: 1.2; /* Reduce line spacing */
+  line-height: 1.2; /* Tight line spacing */
+}
+
+.quicklinks ::marker {
+  content: "";
 }
 
 .quicklinks li {
   display: inline-block;
-  margin: 0 0.25rem; /* Reduce spacing between items */
+  margin-right: 0.5rem;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin-bottom: 0; /* Ensure no extra vertical spacing */
 }
 
 .quicklinks li:not(:last-child):after {
@@ -201,7 +209,7 @@ ul.custom {
   word-spacing: 0.1em;
   letter-spacing: .1em;
   font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Fluid font-size matching original */
-  line-height: 1.2; /* Reduce line spacing */
+  line-height: 1.2; /* Tight line spacing */
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
   text-decoration: none; /* Remove underline if present */
 }
@@ -224,14 +232,14 @@ ul.custom {
   height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-direction: column; /* Stack heading, HR, links vertically */
-  align-items: flex-start; /* Left align content */
+  align-items: center; /* Center content horizontally */
   justify-content: flex-start; /* Start from top */
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
-  background: var(--color-light-bg);
+  background: var(--color-white); /* Match target white background */
   border: 1px solid var(--color-border-light); /* Add border as requested */
-  text-align: left;
+  text-align: center;
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
 }
 
@@ -248,11 +256,12 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: left; /* Left align the links text */
+  text-align: center; /* Center the links text */
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
-  list-style: none; /* Ensure no bullets */
-  line-height: 1.2; /* Reduce line spacing */
+  list-style: none !important;
+  list-style-type: none !important;
+  line-height: 1.2; /* Tight line spacing */
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
