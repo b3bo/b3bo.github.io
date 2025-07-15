@@ -262,14 +262,26 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: left; /* Left align the links text */
+  text-align: center; 
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
   list-style: none !important;
   list-style-type: none !important;
-  line-height: 1.3; /* Adjusted line height to match target */
+  line-height: 1.2; 
   padding-left: 0 !important; /* Override any third-party padding */
   padding-inline-start: 0 !important; /* Override logical padding for modern browsers */
+}
+
+.myrow .quicklinks li {
+  display: inline; /* Allow inline flow for text splitting/wrapping within links */
+}
+
+.myrow .quicklinks li:not(:last-child):after {
+  content: " |"; /* Space before pipe, no space after, for even " | " spacing */
+}
+
+.myrow .quicklinks a {
+  line-height: 1.2; /* Match the ul for consistent row spacing */
 }
 
 .myrow .quicklinks li::marker {
