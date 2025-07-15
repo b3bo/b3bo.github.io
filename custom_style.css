@@ -204,8 +204,7 @@ ul.custom {
 }
 
 .quicklinks li:not(:last-child):after {
-  content: "|";
-  margin: 0 0.5em; /* Symmetric spacing, approximately 2 spaces (adjust if needed) */
+  content: " | ";
   color: var(--color-secondary);
 }
 
