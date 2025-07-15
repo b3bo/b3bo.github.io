@@ -176,26 +176,24 @@ ul.custom {
 .quicklinks {
   list-style: none !important;
   list-style-type: none !important;
-  padding: 0;
+  padding: 20px; /* Increased padding to match target */
   margin: 0;
   text-align: center; /* Center the links */
-  background: var(--color-white); /* Match target white background */
+  background: var(--color-light-bg); /* Revert to light background */
   border: 1px solid var(--color-border-light); /* Add border */
-  padding: 10px; /* Adjust padding for spacing */
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
   line-height: 1.2; /* Tight line spacing */
 }
 
-.quicklinks ::marker {
-  content: "";
-}
-
 .quicklinks li {
   display: inline-block;
-  margin-right: 0.5rem;
+  margin: 0 0.25rem; /* Reduce spacing between items */
   list-style: none !important;
   list-style-type: none !important;
-  margin-bottom: 0; /* Ensure no extra vertical spacing */
+}
+
+.quicklinks li::before {
+  content: '' !important; /* Remove any pseudo-bullet */
 }
 
 .quicklinks li:not(:last-child):after {
@@ -232,14 +230,14 @@ ul.custom {
   height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
   flex-direction: column; /* Stack heading, HR, links vertically */
-  align-items: center; /* Center content horizontally */
+  align-items: flex-start; /* Left align content */
   justify-content: flex-start; /* Start from top */
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
-  background: var(--color-white); /* Match target white background */
+  background: var(--color-light-bg); /* Revert to light background */
   border: 1px solid var(--color-border-light); /* Add border as requested */
-  text-align: center;
+  text-align: left;
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
 }
 
@@ -256,12 +254,16 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: center; /* Center the links text */
+  text-align: left; /* Left align the links text */
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
   list-style: none !important;
   list-style-type: none !important;
   line-height: 1.2; /* Tight line spacing */
+}
+
+.myrow .quicklinks li::before {
+  content: '' !important; /* Remove any pseudo-bullet */
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
