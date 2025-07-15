@@ -1,3 +1,4 @@
+```css
 /* 1. Variables and Resets
  * Centralizes colors for easy theming. Update variables here for site-wide changes.
  */
@@ -173,7 +174,23 @@ ul.custom {
 }
 
 /* Quicklinks: Horizontal links with separators */
-.quicklinks > a {
+.quicklinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quicklinks li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.quicklinks li:not(:last-child):after {
+  content: " | ";
+  color: var(--color-secondary);
+}
+
+.quicklinks a {
   color: var(--color-primary-text);
   font-weight: 500;
   word-spacing: 0.1em;
@@ -183,7 +200,7 @@ ul.custom {
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
 }
 
-.quicklinks > a:hover {
+.quicklinks a:hover {
   color: var(--color-link); /* Suggested: Change color on hover for interactivity */
 }
 
@@ -200,16 +217,15 @@ ul.custom {
   width: 100%;
   height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* Vertically center the content */
-  align-content: center; /* Center multi-line content vertically */
-  justify-content: center; /* Center horizontally */
+  flex-direction: column; /* Stack heading, HR, links vertically */
+  align-items: flex-start; /* Left align content */
+  justify-content: flex-start; /* Start from top */
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
   background: var(--color-light-bg);
   border: 1px solid var(--color-border-light);
-  text-align: center;
+  text-align: left;
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
 }
 
@@ -218,18 +234,13 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: center; /* Center the links text */
+  text-align: left; /* Left align the links text */
   white-space: normal; /* Allow wrapping to multiple lines */
-  display: contents; /* Integrate with flex for seamless flow */
-}
-
-.myrow .link-separator {
-  margin: 0 0.5rem;
-  color: var(--color-secondary); /* Subtle separator color */
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
 .guide {
+  margin-top: 10px !important;
   margin-top: 10px !important;
   margin-bottom: 10px !important;
   font-size: clamp(1.25rem, 2vw + 1rem, 24px) !important; /* Fluid font-size */
@@ -537,21 +548,23 @@ section.featured {
     background-color: var(--si-primary-color);
     color: var(--si-primary-text-color);
   }
-  /* Stack for mobile with Grid */
+  /* Stack for mobile with flex */
   .myrow {
-    grid-template-columns: 1fr; /* Single column stack */
+    flex-direction: column; /* Force stacking on mobile */
   }
   .myrow > [class*="col-"] {
-    grid-column: span 1; /* Full width */
+    flex-basis: 100%; /* Full width */
+    max-width: 100%;
   }
   .myrow .links-container {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .myrow img.img-fluid {
     height: auto;
   }
   .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
-    grid-column: span 1;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   .more-menu-overlay .row {
     display: flex;
@@ -586,23 +599,17 @@ section.featured {
 }
 
 @media (min-width: 768px) and (max-width: 991px) { /* Consolidated tablet rules */
-  .myrow {
-    grid-template-columns: 3fr 1fr; /* Maintain proportions for tablet */
-  }
   .myrow .col-sm-3 {
-    grid-column: span 1;
+    flex: 0 0 auto;
+    width: 25%;
   }
   .myrow .col-sm-4 {
-    grid-column: span 1;
+    flex: 0 0 auto;
+    width: 33.33333333%;
   }
   .myrow .col-sm-6 {
-    grid-column: span 1; /* Adjusted for grid */
-  }
-  .myrow .col-sm-6:first-child {
-    /* Wide left preserved */
-  }
-  .myrow .col-sm-6:last-child {
-    /* Narrow right preserved */
+    flex: 0 0 auto;
+    width: 50%;
   }
   .more-menu-overlay .row {
     display: grid;
@@ -663,21 +670,9 @@ section.featured {
     border-bottom-color: var(--color-link);
     color: var(--color-link);
   }
-  .myrow .col-sm-3 {
-    grid-column: span 1; /* Fine-tuned for larger screens */
-  }
-  .myrow .col-sm-4 {
-    grid-column: span 1;
-  }
-  .myrow .col-sm-6 {
-    grid-column: span 1;
-  }
 }
 
 @media (min-width: 1200px) { /* New breakpoint for wide screens */
-  .myrow {
-    grid-template-columns: 3fr 1fr; /* Reinforce proportions */
-  }
   .container {
     padding: 0 2rem; /* More padding for breathing room */
   }
@@ -688,9 +683,10 @@ section.featured {
   .accordion-button,
   .accordion-button::after,
   a,
-  .quicklinks > a,
+  .quicklinks a,
   .featured .featured-tabs label,
   .custom-btn--secondary-hollow { /* Added more interactive elements */
     transition: none; /* Disable transitions for perf/a11y */
   }
 }
+```
