@@ -270,10 +270,12 @@ ul.custom {
   line-height: 1.2; 
   padding-left: 0 !important; /* Override any third-party padding */
   padding-inline-start: 0 !important; /* Override logical padding for modern browsers */
+  font-size: 0; /* Collapse inter-li whitespace from HTML newlines */
 }
 
 .myrow .quicklinks li {
   display: inline; /* Allow inline flow for text splitting/wrapping within links */
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Restore font size for links and separators */
 }
 
 .myrow .quicklinks li:not(:last-child):after {
