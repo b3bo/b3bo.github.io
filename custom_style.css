@@ -33,16 +33,6 @@
   --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary-text: #f7f7f7; /* Inverted text for dark mode */
-    --color-light-bg: #333; /* Darker background */
-    --color-white: #1a1a1a; /* Inverted white */
-    --color-secondary-bg: rgb(50 50 50 / var(--tw-bg-opacity)); /* Dark secondary */
-  }
-}
-
 .bg-\[\#9297b2\] {
   background-color: var(--color-secondary-bg);
 }
