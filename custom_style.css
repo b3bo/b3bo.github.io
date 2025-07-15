@@ -277,7 +277,8 @@ ul.custom {
 }
 
 .myrow .quicklinks li:not(:last-child):after {
-  content: " |"; /* Space before pipe, no space after, for even " | " spacing */
+  content: " | "; /* Spaces on both sides for even " | " spacing */
+  color: var(--color-secondary); /* Match the separator color from the general quicklinks style */
 }
 
 .myrow .quicklinks a {
