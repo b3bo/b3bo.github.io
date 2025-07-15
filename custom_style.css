@@ -219,7 +219,7 @@ ul.custom {
   margin: 0;
   padding: 20px;
   background: var(--color-light-bg);
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--color-white);
   text-align: left; /* Left align text */
   font-size: 14px;
 }
