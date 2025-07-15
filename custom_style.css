@@ -20,16 +20,7 @@
 
   /* Layout variables for modernization */
   --grid-gap: 1rem; /* Standard gap for grids/flex */
-  --container-max-width: 1200px; /* For wide screens */
-
-  /* Fallbacks for assumed third-party vars (define overrides in base CSS if available) */
-  --sis-btn-secondary-bg: #6c757d; /* Fallback secondary button bg */
-  --sis-btn-secondary-bg-hover: #5a6268; /* Fallback hover */
-  --sis-btn-secondary-border: #6c757d; /* Fallback border */
-  --sis-font-size-base: 16px; /* Fallback base font size */
-  --sis-clt-fs: 1.5; /* Fallback font size multiplier */
-  --si-primary-color: #71939d; /* Fallback primary color */
-  --si-primary-text-color: #fff; /* Fallback primary text */
+  --container-max-width: 1400px; /* Increased for better wide-screen usage */
   --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
@@ -47,7 +38,7 @@
 
 /* General container for readability on wide screens */
 .container {
-  max-width: var(--container-max-width); /* Variabilized for easy tweaks */
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -107,7 +98,7 @@ ul.custom {
  */
 .myrow {
   display: grid; /* Switched to Grid from Flex for modernization */
-  grid-template-columns: 2fr 1fr; /* Explicit 2 columns: wider left for image/map, narrower right for links */
+  grid-template-columns: 4fr 1fr; /* Wider left for map at higher res */
   gap: var(--grid-gap); /* Built-in gap */
   align-items: stretch; /* Equal height */
   margin: 0;
@@ -122,7 +113,8 @@ ul.custom {
 .myrow img.img-fluid {
   width: 100%;
   height: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Show full image */
+  max-height: 400px; /* Limit height to prevent excessive white space */
+  object-fit: cover; /* Fill space without distortion */
   margin: 0;
   border-radius: 0; /* Remove rounding to match desired look */
 }
@@ -172,7 +164,7 @@ ul.custom {
   border: 1px solid var(--color-border-light);
   font-size: 14px;
   text-align: center;
-  padding: 20px;
+  padding: 10px; /* Reduced padding for tighter spacing */
 }
 
 /* Enhanced links container for wrapping - adjusted to match desired white background without border */
@@ -180,12 +172,12 @@ ul.custom {
   width: 100%;
   height: 100%; /* Fill column height */
   display: flex;
-  flex-direction: column; /* Stack heading, HR, links vertically */
+  flex-direction: column; /* Stack vertically */
   align-items: flex-start; /* Left align */
   justify-content: flex-start; /* Start from top */
-  gap: 0.5rem; /* Gap between elements */
+  gap: 0.5rem; /* Gap between heading, HR, links */
   margin: 0;
-  padding: 20px;
+  padding: 10px; /* Reduced padding for tighter fit */
   background: var(--color-white); /* White background to match desired look */
   border: none; /* No border to match desired look */
   text-align: left;
