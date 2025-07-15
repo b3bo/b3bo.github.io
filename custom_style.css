@@ -1,5 +1,6 @@
 /* 1. Variables and Resets
- * Centralizes colors for easy theming. Update variables here for site-wide changes.
+ * Define root variables for consistent theming across the site. All colors are centralized here.
+ * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
@@ -15,22 +16,6 @@
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
-  --color-focus-outline: #71939d; /* Centralized focus color for accessibility */
-  --color-hr-rule: #a2b1b5; /* Variabilized hardcoded HR color */
-
-  /* Layout variables for modernization */
-  --grid-gap: 1rem; /* Standard gap for grids/flex */
-  --container-max-width: 1200px; /* For wide screens */
-
-  /* Fallbacks for assumed third-party vars (define overrides in base CSS if available) */
-  --sis-btn-secondary-bg: #6c757d; /* Fallback secondary button bg */
-  --sis-btn-secondary-bg-hover: #5a6268; /* Fallback hover */
-  --sis-btn-secondary-border: #6c757d; /* Fallback border */
-  --sis-font-size-base: 16px; /* Fallback base font size */
-  --sis-clt-fs: 1.5; /* Fallback font size multiplier */
-  --si-primary-color: #71939d; /* Fallback primary color */
-  --si-primary-text-color: #fff; /* Fallback primary text */
-  --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
 .bg-\[\#9297b2\] {
@@ -38,11 +23,11 @@
 }
 
 .bg-gray-400 {
-  background-color: var(--sis-btn-secondary-bg);
+  background-color: var(--sis-btn-secondary-bg); /* Note: Assumes --sis-btn-secondary-bg is defined in third-party CSS */
 }
 
 .bg-gray-400:hover {
-  background-color: var(--sis-btn-secondary-bg-hover);
+  background-color: var(--sis-btn-secondary-bg-hover); /* Note: Assumes --sis-btn-secondary-bg-hover is defined in third-party CSS */
 }
 
 /* General container for better readability on wide screens (suggested tweak) */
@@ -175,16 +160,6 @@ ul.custom {
 }
 
 /* Quicklinks: Horizontal links with separators */
-.quicklinks li {
-  display: inline-block; /* Horizontal display */
-  margin-right: 0.5rem; /* Space between items */
-}
-
-.quicklinks li:not(:last-child):after {
-  content: " | "; /* Add separator after each item except the last */
-  color: var(--color-secondary); /* Subtle separator color */
-}
-
 .quicklinks > a {
   color: var(--color-primary-text);
   font-weight: 500;
@@ -212,24 +187,17 @@ ul.custom {
   width: 100%;
   height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
-  flex-direction: column; /* Stack heading, HR, links vertically */
-  align-items: flex-start; /* Left align content */
-  justify-content: flex-start; /* Start from top */
-  gap: 0.5rem; /* Small gap between elements */
+  flex-wrap: wrap;
+  align-items: center; /* Vertically center the content */
+  align-content: center; /* Center multi-line content vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
   padding: 20px;
   background: var(--color-light-bg);
-  /* border: 1px solid var(--color-border-light); Save for later*/
-  text-align: left; /* Left align text */
+  border: 1px solid var(--color-border-light);
+  text-align: center;
   font-size: 14px;
-}
-
-.myrow .links-container h2 {
-  margin-bottom: 10px;
-}
-
-.myrow .links-container .hr-rule {
-  margin-bottom: 10px;
 }
 
 .myrow .quicklinks {
@@ -237,8 +205,14 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: left; /* Left align the links text */
+  text-align: center; /* Center the links text */
   white-space: normal; /* Allow wrapping to multiple lines */
+  display: contents; /* Integrate with flex for seamless flow */
+}
+
+.myrow .link-separator {
+  margin: 0 0.5rem;
+  color: var(--color-secondary); /* Subtle separator color */
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
@@ -495,8 +469,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-regular-400.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-regular-400.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf") format("truetype");
 }
 
 @font-face {
@@ -504,8 +478,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 /* Figure captions */
