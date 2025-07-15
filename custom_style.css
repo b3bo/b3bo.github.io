@@ -45,9 +45,9 @@
   background-color: var(--sis-btn-secondary-bg-hover);
 }
 
-/* General container for better readability on wide screens (suggested tweak) */
+/* General container for readability on wide screens */
 .container {
-  max-width: 1200px; /* Prevent overly wide content on large desktops */
+  max-width: var(--container-max-width); /* Variabilized for easy tweaks */
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -67,7 +67,7 @@
 }
 
 .si-videos-widget > h2 {
-  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs)); /* Note: Assumes --sis-font-size-base and --sis-clt-fs are defined in third-party CSS */
+  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs));
 }
 
 .home .si-content-label-gallery__title {
@@ -78,15 +78,15 @@
 
 a {
   color: var(--color-link);
-  transition: color 0.3s ease, outline 0.2s ease; /* Suggested: Smooth transitions, including focus outline */
+  transition: color 0.3s ease, outline 0.2s ease; /* Consolidated transitions for hover and focus */
 }
 
 a:hover {
-  color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
+  color: var(--color-link-hover);
 }
 
 a:focus {
-  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
+  outline: 2px solid var(--color-focus-outline); /* Enhanced focus for accessibility */
 }
 
 b,
@@ -96,72 +96,50 @@ strong {
 
 /* Multi-column unordered lists with responsive columns */
 ul.custom {
-  -moz-columns: 3;
-  column-count: 3;
+  column-count: 3; /* Removed obsolete -moz- prefix */
   margin: 0;
   padding: 0;
-  list-style: none; /* Suggested: Explicitly remove bullets for custom lists */
+  list-style: none; /* Remove bullets for custom lists */
 }
 
 /* 3. Layout Utilities
- * Custom row and column overrides for responsive designs.
+ * Modernized with CSS Grid for better 2D control.
  */
 .myrow {
-  --bs-gutter-x: 0; /* Remove horizontal gutter for seamless columns */
-  --bs-gutter-y: 0; /* Remove vertical gutter */
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 0;
-  margin-right: 0;
-  margin-left: 0;
-  align-items: stretch; /* Suggested: Equal height columns for balancing content */
-  transition: all 0.3s ease; /* Smooth transition for layout changes (low impact) */
+  display: grid; /* Switched to Grid from Flex for modernization */
+  grid-template-columns: 2fr 1fr; /* Explicit 2 columns: wider left for image/map, narrower right for links */
+  gap: var(--grid-gap); /* Built-in gap */
+  align-items: stretch; /* Equal height */
+  margin: 0;
 }
 
-.myrow > * {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
-  padding-top: calc(var(--bs-gutter-x) * .5);
-  padding-bottom: calc(var(--bs-gutter-x) * .5);
-  margin-top: var(--bs-gutter-y);
-  transition: all 0.3s ease; /* Smooth transition for column adjustments (low impact) */
-}
-
-/* Suggested: Explicit column resets for zero padding in custom rows */
+/* Explicit column resets */
 .myrow > [class*="col-"] {
-  padding-right: 0;
-  padding-left: 0;
+  padding: 0; /* Zero padding */
 }
 
-/* Suggested: Image filling for layouts using .myrow */
+/* Image filling for .myrow layouts */
 .myrow img.img-fluid {
   width: 100%;
-  height: auto; /* Let image determine height for landscape aspect */
-  object-fit: contain; /* Show full image without cropping */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Show full image */
   margin: 0;
-  border-radius: 0; /* Remove rounding if not needed */
+  border-radius: 0; /* Remove rounding to match desired look */
 }
 
-/* Make the image column wider for landscape look */
+/* Adjusted proportions to match screenshot: left column (image/map) wider, right (links) narrower */
 .myrow .col-sm-6:first-child {
-  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
-  max-width: 66.6667%;
-  display: flex;
-  align-items: center; /* Vertically center the image */
-  justify-content: center; /* Horizontally center the image if needed */
-  padding-right: 20px; /* Add white space between image and links box */
+  display: grid;
+  place-items: center; /* Center content */
+  padding-right: 20px;
 }
 
 .myrow .col-sm-6:last-child {
-  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
-  max-width: 33.3333%;
+  /* Takes the second column automatically */
 }
 
 /* 4. Components
- * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
+ * Styles for UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
 
 /* Horizontal rule style */
@@ -171,7 +149,7 @@ ul.custom {
   height: 2px;
   width: 90px;
   border: 0;
-  background-color: #a2b1b5;
+  background-color: var(--color-hr-rule); /* Variabilized */
 }
 
 /* Quicklinks: Horizontal links with separators */
@@ -182,11 +160,11 @@ ul.custom {
   letter-spacing: .1em;
   font-size: 12px;
   line-height: 2.1;
-  transition: color 0.3s ease; /* Suggested: Smooth hover transition */
+  transition: color 0.3s ease; /* Smooth hover */
 }
 
 .quicklinks > a:hover {
-  color: var(--color-link); /* Suggested: Change color on hover for interactivity */
+  color: var(--color-link);
 }
 
 .main-content .si-content-area p.quicklinks {
@@ -197,44 +175,70 @@ ul.custom {
   padding: 20px;
 }
 
-/* Suggested: Enhance links container for better wrapping in layouts */
+/* Enhanced links container for wrapping - adjusted to match desired white background without border */
 .myrow .links-container {
   width: 100%;
-  height: 100%; /* Fill the full height of the column to match the image */
+  height: 100%; /* Fill column height */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* Vertically center the content */
-  align-content: center; /* Center multi-line content vertically */
-  justify-content: center; /* Center horizontally */
-  gap: 0.5rem; /* Small gap for wrapped links on small screens */
+  flex-direction: column; /* Stack heading, HR, links vertically */
+  align-items: flex-start; /* Left align */
+  justify-content: flex-start; /* Start from top */
+  gap: 0.5rem; /* Gap between elements */
   margin: 0;
   padding: 20px;
-  background: var(--color-light-bg);
-  border: 1px solid var(--color-border-light);
-  text-align: center;
+  background: var(--color-white); /* White background to match desired look */
+  border: none; /* No border to match desired look */
+  text-align: left;
   font-size: 14px;
+}
+
+.myrow .links-container h2 {
+  color: var(--color-primary-text);
+  font-family: Montserrat;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 24px; /* Adjust size to match desired */
+  margin-bottom: 10px;
+  width: 100%; /* Full width for centering */
+  text-align: left; /* Left align to match desired */
+}
+
+.myrow .links-container .hr-rule {
+  margin: 0 0 10px 0; /* Adjust margin to match desired */
 }
 
 .myrow .quicklinks {
   margin: 0;
   padding: 0;
-  background: none; /* No background */
-  border: none; /* No border */
-  text-align: center; /* Center the links text */
-  white-space: normal; /* Allow wrapping to multiple lines */
-  display: contents; /* Integrate with flex for seamless flow */
+  background: none;
+  border: none;
+  text-align: left;
+  white-space: nowrap; /* Prevent wrapping unless needed */
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to multiple lines if too long */
+  gap: 0.5rem; /* Space between links */
 }
 
 .myrow .link-separator {
   margin: 0 0.5rem;
-  color: var(--color-secondary); /* Subtle separator color */
+  color: var(--color-secondary); /* Subtle separator */
 }
 
-/* Guide and Content Boxes - Ensure header is shaded, body is white */
+/* Override quicklinks paragraph in myrow to remove box styling */
+.main-content .si-content-area .myrow p.quicklinks {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  text-align: left !important; /* Left align to match desired look */
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+/* Guide and Content Boxes: Shaded header, white body */
 .guide {
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
-  font-size: 24px !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .guide-top {
@@ -242,7 +246,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated padding */
   background-color: var(--color-light-bg);
 }
 
@@ -251,7 +255,12 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated */
+}
+
+/* Increased specificity for ul margin by targeting deeper */
+.content-box-top blockquote ul {
+  margin-bottom: 0;
 }
 
 .content-box-bottom {
@@ -259,42 +268,40 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
-  padding: 1px 15px 1px 15px;
-  background-color: var(--color-white) !important; /* Force white for body to prevent shading bleed */
+  padding: 1px 15px; /* Consolidated */
+  background-color: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
 }
-
-.content-box-top blockquote ul {
-    margin-bottom: 0 !important;
-}
-
-/*.content-box-top .box.link-effect {
-    margin-bottom: 5px;
-}*/
 
 .si-content-label__body {
-  background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
+  background: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
   border: 1px solid var(--color-border);
 }
 
 .custom-btn--secondary-hollow {
   background-color: transparent;
   border-color: var(--color-border);
-  color: var(--sis-btn-secondary-border); /* Note: Assumes --sis-btn-secondary-border is defined in third-party CSS */
+  color: var(--sis-btn-secondary-border);
   transition: background-color .5s ease;
 }
 
+.custom-btn--secondary-hollow:focus {
+  outline: 2px solid var(--color-focus-outline); /* Added focus for accessibility */
+}
+
 /* Tabs Component */
-section.padding {
+section.padding,
+section.padding-left { /* Consolidated similar paddings */
   padding: 40px 0;
+}
+
+section.padding-left {
+  padding-left: 40px;
+  padding-right: 0; /* Explicit for consistency */
 }
 
 section.featured {
   min-height: 550px;
   padding-bottom: 10px;
-}
-
-section.padding-left {
-  padding-left: 40px;
 }
 
 .featured .featured-tabs {
@@ -311,6 +318,11 @@ section.padding-left {
   order: 1;
   text-align: center;
   text-transform: uppercase;
+  transition: color 0.3s ease; /* Added smooth transition for perf/a11y */
+}
+
+.featured .featured-tabs label:focus {
+  outline: 2px solid var(--color-focus-outline); /* Added focus for tab accessibility */
 }
 
 .featured .featured-tabs .tab {
@@ -406,7 +418,7 @@ section.padding-left {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
+  outline: 2px solid var(--color-focus-outline); /* Enhanced focus */
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -484,8 +496,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-regular-400.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-regular-400.ttf") format("truetype");
 }
 
 @font-face {
@@ -493,8 +505,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf") format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 /* Figure captions */
@@ -508,11 +520,16 @@ section.padding-left {
 }
 
 /* 6. Media Queries
- * Responsive adjustments for different screen sizes.
+ * Refined and consolidated for better responsiveness.
  */
+@media (max-width: 479px) {
+  ul.custom {
+    column-count: 1;
+  }
+}
+
 @media (max-width: 767px) {
   ul.custom {
-    -moz-columns: 2;
     column-count: 2;
   }
   .featured .featured-tabs .tab, .featured .featured-tabs label {
@@ -528,78 +545,25 @@ section.padding-left {
     width: 100%;
   }
   .featured .featured-tabs input[type=radio]:checked+label {
-    background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
-    color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
+    background-color: var(--si-primary-color);
+    color: var(--si-primary-text-color);
   }
-  /* Suggested: Stack columns on small screens for two-column layouts */
+  /* Stack for mobile with Grid */
+  .myrow {
+    grid-template-columns: 1fr; /* Single column stack */
+  }
   .myrow > [class*="col-"] {
-    flex-basis: 100%;
-    max-width: 100%;
+    grid-column: span 1; /* Full width */
   }
   .myrow .links-container {
-    justify-content: center; /* Center wrapped links */
-  }
-  .myrow img.img-fluid {
-    height: auto; /* Prevent distortion when stacked */
-  }
-  .myrow {
-    flex-direction: column; /* Force stacking on mobile */
-  }
-  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
-    flex: 0 0 100%; /* Reset widths for stacking */
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 479px) {
-  ul.custom {
-    -moz-columns: 1;
-    column-count: 1;
-  }
-}
-
-@media (min-width: 768px) {
-  .myrow .col-sm-3 {
-    flex: 0 0 auto;
-    width: 25%;
-  }
-  .myrow .col-sm-4 {
-    flex: 0 0 auto;
-    width: 33.33333333%;
-  }
-  .myrow .col-sm-6 {
-    flex: 0 0 auto;
-    width: 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  .featured .featured-tabs {
     justify-content: center;
   }
-  .featured .featured-tabs label {
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-tab-label);
-    max-width: 20%;
-    padding: 12px 40px;
+  .myrow img.img-fluid {
+    height: auto;
   }
-  .featured .featured-tabs input[type=radio]:checked+label {
-    border-bottom-color: var(--color-link);
-    color: var(--color-link);
+  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
+    grid-column: span 1;
   }
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .accordion-button,
-  .accordion-button::after,
-  a {
-    transition: none; /* Disable transitions for users who prefer reduced motion */
-  }
-}
-
-/* Update mobile view preferences */
-@media (max-width: 767px) {
   .more-menu-overlay .row {
     display: flex;
     flex-direction: column;
@@ -632,7 +596,25 @@ section.padding-left {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) { /* Consolidated tablet rules */
+  .myrow {
+    grid-template-columns: 3fr 1fr; /* Maintain proportions for tablet */
+  }
+  .myrow .col-sm-3 {
+    grid-column: span 1;
+  }
+  .myrow .col-sm-4 {
+    grid-column: span 1;
+  }
+  .myrow .col-sm-6 {
+    grid-column: span 1; /* Adjusted for grid */
+  }
+  .myrow .col-sm-6:first-child {
+    /* Wide left preserved */
+  }
+  .myrow .col-sm-6:last-child {
+    /* Narrow right preserved */
+  }
   .more-menu-overlay .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -675,5 +657,51 @@ section.padding-left {
     width: 100%;
     max-width: 100%;
     flex: 0 0 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .featured .featured-tabs {
+    justify-content: center;
+  }
+  .featured .featured-tabs label {
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-tab-label);
+    max-width: 20%;
+    padding: 12px 40px;
+  }
+  .featured .featured-tabs input[type=radio]:checked+label {
+    border-bottom-color: var(--color-link);
+    color: var(--color-link);
+  }
+  .myrow .col-sm-3 {
+    grid-column: span 1; /* Fine-tuned for larger screens */
+  }
+  .myrow .col-sm-4 {
+    grid-column: span 1;
+  }
+  .myrow .col-sm-6 {
+    grid-column: span 1;
+  }
+}
+
+@media (min-width: 1200px) { /* New breakpoint for wide screens */
+  .myrow {
+    grid-template-columns: 3fr 1fr; /* Reinforce proportions */
+  }
+  .container {
+    padding: 0 2rem; /* More padding for breathing room */
+  }
+}
+
+/* Reduced motion preferences - Expanded for more elements */
+@media (prefers-reduced-motion: reduce) {
+  .accordion-button,
+  .accordion-button::after,
+  a,
+  .quicklinks > a,
+  .featured .featured-tabs label,
+  .custom-btn--secondary-hollow { /* Added more interactive elements */
+    transition: none; /* Disable transitions for perf/a11y */
   }
 }
