@@ -97,7 +97,7 @@ strong {
 /* Multi-column unordered lists with responsive columns */
 ul.custom {
   -moz-columns: 3;
-  -webkit-column-count: 3; /* Added for Chrome compatibility to fix column rendering */
+  -webkit-column-count: 3;
   column-count: 3;
   margin: 0;
   padding: 0;
@@ -108,9 +108,9 @@ ul.custom {
  * Modernized with CSS Grid for better 2D control.
  */
 .myrow {
-  display: grid; /* Switched to Grid from Flex for modernization */
-  grid-template-columns: 2fr 1fr; /* Explicit 2 columns: wider left for image/map, narrower right for links */
-  gap: var(--grid-gap); /* Built-in gap */
+  display: grid; /* Modernized: Switched to Grid from Flex for better control, preserving look */
+  grid-template-columns: 3fr 1fr; /* Adjusted: Wider left (map/image), narrow right (text/links) to match screenshot proportions */
+  gap: var(--grid-gap); /* Built-in gap, no gutter vars needed */
   align-items: stretch; /* Equal height */
   margin: 0;
 }
@@ -126,18 +126,23 @@ ul.custom {
   height: auto; /* Maintain aspect ratio */
   object-fit: contain; /* Show full image */
   margin: 0;
-  border-radius: 0; /* Remove rounding to match desired look */
+  border-radius: 0;
 }
 
-/* Adjusted proportions to match screenshot: left column (image/map) wider, right (links) narrower */
+/* Adjusted proportions to match screenshot: left column (map/image) wider, right (text/list) narrower */
 .myrow .col-sm-6:first-child {
   display: grid;
-  place-items: center; /* Center content */
+  place-items: start; /* Align to top to match desired */
   padding-right: 20px;
 }
 
 .myrow .col-sm-6:last-child {
-  /* Takes the second column automatically */
+  /* No span needed; takes the second column automatically */
+}
+
+/* Override Bootstrap flex centering for right column to start from top */
+.myrow .col-sm-6.d-flex {
+  align-items: flex-start !important; /* Override HTML's align-items-center to top-align content */
 }
 
 /* 4. Components
@@ -160,7 +165,7 @@ ul.custom {
   font-weight: 500;
   word-spacing: 0.1em;
   letter-spacing: .1em;
-  font-size: 12px;
+  font-size: 14px; /* Increased slightly to match screenshot */
   line-height: 2.1;
   transition: color 0.3s ease; /* Smooth hover */
 }
@@ -177,21 +182,20 @@ ul.custom {
   padding: 20px;
 }
 
-/* Enhanced links container for wrapping - adjusted to match desired white background without border */
+/* Enhanced links container for wrapping */
 .myrow .links-container {
   width: 100%;
   height: 100%; /* Fill column height */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center; /* Vertical center */
-  align-content: center; /* Center multi-line */
-  justify-content: center; /* Horizontal center */
-  gap: 0.5rem; /* Gap for wrapped links */
+  flex-direction: column; /* Stack vertically from top */
+  align-items: flex-start; /* Left align */
+  justify-content: flex-start; /* Top align */
+  gap: 0; /* No gap */
   margin: 0;
   padding: 20px;
-  background: var(--color-white); /* White background to match desired look */
-  border: none; /* No border to match desired look */
-  text-align: center;
+  background: var(--color-white); /* White background to match desired */
+  border: none; /* No border to match desired */
+  text-align: left;
   font-size: 14px;
 }
 
@@ -200,14 +204,13 @@ ul.custom {
   font-family: Montserrat;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 24px; /* Adjust size to match desired */
-  margin-bottom: 10px;
-  width: 100%; /* Full width for centering */
-  text-align: left; /* Left align to match desired */
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  width: 100%;
 }
 
 .myrow .links-container .hr-rule {
-  margin: 0 0 10px 0; /* Adjust margin to match desired */
+  margin: 0 0 10px 0;
 }
 
 .myrow .quicklinks {
@@ -215,9 +218,9 @@ ul.custom {
   padding: 0;
   background: none;
   border: none;
-  text-align: center;
+  text-align: left;
   white-space: normal; /* Allow wrapping */
-  display: contents; /* Seamless flex integration */
+  display: block; /* Block for vertical flow */
 }
 
 .myrow .link-separator {
@@ -230,7 +233,7 @@ ul.custom {
   background: none !important;
   border: none !important;
   padding: 0 !important;
-  text-align: left !important; /* Left align to match desired look */
+  text-align: left !important;
   font-size: 14px !important;
   margin: 0 !important;
 }
@@ -526,7 +529,7 @@ section.featured {
 @media (max-width: 479px) {
   ul.custom {
     -moz-columns: 1;
-    -webkit-column-count: 1; /* Added for Chrome compatibility */
+    -webkit-column-count: 1;
     column-count: 1;
   }
 }
@@ -534,7 +537,7 @@ section.featured {
 @media (max-width: 767px) {
   ul.custom {
     -moz-columns: 2;
-    -webkit-column-count: 2; /* Added for Chrome compatibility */
+    -webkit-column-count: 2;
     column-count: 2;
   }
   .featured .featured-tabs .tab, .featured .featured-tabs label {
