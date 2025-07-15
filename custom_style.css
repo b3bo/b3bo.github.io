@@ -176,20 +176,21 @@ ul.custom {
 .quicklinks {
   list-style: none !important;
   list-style-type: none !important;
-  padding: 20px; /* Increased padding to match target */
+  padding: 10px 20px; /* Adjusted vertical padding to reduce spacing */
   margin: 0;
   text-align: center; /* Center the links */
   background: var(--color-light-bg); /* Revert to light background */
   border: 1px solid var(--color-border-light); /* Add border */
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
-  line-height: 1.2; /* Tight line spacing */
+  line-height: 1.1; /* Tighter line height */
 }
 
 .quicklinks li {
   display: inline-block;
-  margin: 0 0.25rem; /* Reduce spacing between items */
+  margin: 0 0.5rem; /* Balanced margin for items */
   list-style: none !important;
   list-style-type: none !important;
+  margin-bottom: 0; /* No vertical margin */
 }
 
 .quicklinks li::before {
@@ -197,7 +198,8 @@ ul.custom {
 }
 
 .quicklinks li:not(:last-child):after {
-  content: " | ";
+  content: "|";
+  margin-left: 0.5rem; /* Balanced spacing for separator */
   color: var(--color-secondary);
 }
 
@@ -207,7 +209,7 @@ ul.custom {
   word-spacing: 0.1em;
   letter-spacing: .1em;
   font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Fluid font-size matching original */
-  line-height: 1.2; /* Tight line spacing */
+  line-height: 1.1; /* Tighter line height */
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
   text-decoration: none; /* Remove underline if present */
 }
@@ -259,7 +261,7 @@ ul.custom {
   width: 100%; /* Ensure full width for wrapping */
   list-style: none !important;
   list-style-type: none !important;
-  line-height: 1.2; /* Tight line spacing */
+  line-height: 1.1; /* Tighter line height */
 }
 
 .myrow .quicklinks li::before {
