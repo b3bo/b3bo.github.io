@@ -1,6 +1,5 @@
 /* 1. Variables and Resets
- * Define root variables for consistent theming across the site. All colors are centralized here.
- * To change a color site-wide, update its variable value once (e.g., --color-light-bg: #newcolor;).
+ * Centralizes colors for easy theming. Update variables here for site-wide changes.
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
@@ -16,6 +15,22 @@
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
+  --color-focus-outline: #71939d; /* Centralized focus color for accessibility */
+  --color-hr-rule: #a2b1b5; /* Variabilized hardcoded HR color */
+
+  /* Layout variables for modernization */
+  --grid-gap: 1rem; /* Standard gap for grids/flex */
+  --container-max-width: 1200px; /* For wide screens */
+
+  /* Fallbacks for assumed third-party vars (define overrides in base CSS if available) */
+  --sis-btn-secondary-bg: #6c757d; /* Fallback secondary button bg */
+  --sis-btn-secondary-bg-hover: #5a6268; /* Fallback hover */
+  --sis-btn-secondary-border: #6c757d; /* Fallback border */
+  --sis-font-size-base: 16px; /* Fallback base font size */
+  --sis-clt-fs: 1.5; /* Fallback font size multiplier */
+  --si-primary-color: #71939d; /* Fallback primary color */
+  --si-primary-text-color: #fff; /* Fallback primary text */
+  --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
 .bg-\[\#9297b2\] {
@@ -23,22 +38,22 @@
 }
 
 .bg-gray-400 {
-  background-color: var(--sis-btn-secondary-bg); /* Note: Assumes --sis-btn-secondary-bg is defined in third-party CSS */
+  background-color: var(--sis-btn-secondary-bg);
 }
 
 .bg-gray-400:hover {
-  background-color: var(--sis-btn-secondary-bg-hover); /* Note: Assumes --sis-btn-secondary-bg-hover is defined in third-party CSS */
+  background-color: var(--sis-btn-secondary-bg-hover);
 }
 
 /* General container for better readability on wide screens (suggested tweak) */
 .container {
-  max-width: 1200px; /* Prevent overly wide content on large desktops */
+  max-width: var(--container-max-width); /* Prevent overly wide content on large desktops */
   margin: 0 auto;
   padding: 0 15px;
 }
 
 /* 2. Typography and Base Elements
- * Styles for text, links, headings, and lists.
+ * Styles for text, links, headings, and lists. Added fluid typography with clamp.
  */
 .si-videos-widget > h2,
 .si-content-label-gallery__title,
@@ -49,14 +64,15 @@
   color: var(--color-primary-text);
   font-family: Montserrat;
   font-weight: 300;
+  font-size: clamp(1.2rem, 2vw + 1rem, 2rem); /* Fluid scaling: min 1.2rem, preferred 2vw +1rem, max 2rem */
 }
 
 .si-videos-widget > h2 {
-  font-size: calc(var(--sis-font-size-base)*var(--sis-clt-fs)); /* Note: Assumes --sis-font-size-base and --sis-clt-fs are defined in third-party CSS */
+  font-size: clamp(1.5rem, calc(var(--sis-font-size-base)*var(--sis-clt-fs)), 2.5rem); /* Fluid with fallback */
 }
 
 .home .si-content-label-gallery__title {
-  font-size: 38px;
+  font-size: clamp(2rem, 3vw + 1rem, 38px); /* Fluid version of fixed 38px */
   text-transform: uppercase;
   text-align: center;
 }
@@ -79,9 +95,8 @@ strong {
   font-weight: 500;
 }
 
-/* Multi-column unordered lists with responsive columns */
+/* Multi-column unordered lists with responsive columns (removed obsolete -moz- prefix) */
 ul.custom {
-  -moz-columns: 3;
   column-count: 3;
   margin: 0;
   padding: 0;
@@ -122,34 +137,97 @@ ul.custom {
 /* Suggested: Image filling for layouts using .myrow */
 .myrow img.img-fluid {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Preserve aspect ratio while filling space, preventing distortion */
+  height: auto; /* Let image determine height for landscape aspect */
+  object-fit: contain; /* Show full image without cropping */
   margin: 0;
   border-radius: 0; /* Remove rounding if not needed */
+}
+
+/* Make the image column wider for landscape look */
+.myrow .col-sm-6:first-child {
+  flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
+  max-width: 66.6667%;
+  display: flex;
+  align-items: center; /* Vertically center the image */
+  justify-content: center; /* Horizontally center the image if needed */
+  padding-right: 20px; /* Add white space between image and links box */
+}
+
+.myrow .col-sm-6:last-child {
+  flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
+  max-width: 33.3333%;
 }
 
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
+
+/* Horizontal rule style */
+.hr-rule {
+  margin-left: 0;
+  margin-right: auto;
+  height: 2px;
+  width: 90px;
+  border: 0;
+  background-color: var(--color-hr-rule);
+}
+
 /* Quicklinks: Horizontal links with separators */
-.quicklinks > a {
+.quicklinks {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 10px 20px;
+  margin: 0;
+  text-align: center; /* Center the links */
+  background: var(--color-light-bg); /* Revert to light background */
+  border: 1px solid var(--color-border-light); /* Add border */
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
+  line-height: 1.3; /* Adjusted line height to match target */
+  padding-left: 0 !important; /* Override any third-party padding */
+  padding-inline-start: 0 !important; /* Override logical padding for modern browsers */
+}
+
+.quicklinks li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin-bottom: 0; /* No vertical margin */
+}
+
+.quicklinks li::marker {
+  content: "" !important;
+}
+
+.quicklinks li::before {
+  content: '' !important; /* Remove any pseudo-bullet */
+}
+
+.quicklinks li:not(:last-child):after {
+  content: " | ";
+  color: var(--color-secondary);
+}
+
+.quicklinks a {
   color: var(--color-primary-text);
   font-weight: 500;
   word-spacing: 0.1em;
   letter-spacing: .1em;
-  font-size: 12px;
-  line-height: 2.1;
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Fluid font-size matching original */
+  line-height: 1.3; /* Adjusted line height to match target */
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
+  text-decoration: none; /* Remove underline if present */
 }
 
-.quicklinks > a:hover {
-  color: var(--color-link); /* Suggested: Change color on hover for interactivity */
+.quicklinks a:hover {
+  color: var(--color-link); /* Change color on hover for interactivity */
 }
 
 .main-content .si-content-area p.quicklinks {
   background: var(--color-light-bg);
   border: 1px solid var(--color-border-light);
-  font-size: 14px;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
   text-align: center;
   padding: 20px;
 }
@@ -157,29 +235,56 @@ ul.custom {
 /* Suggested: Enhance links container for better wrapping in layouts */
 .myrow .links-container {
   width: 100%;
+  height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column; /* Stack heading, HR, links vertically */
+  align-items: flex-start; /* Left align content */
+  justify-content: flex-start; /* Start from top */
   gap: 0.5rem; /* Small gap for wrapped links on small screens */
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  background: var(--color-light-bg); /* Revert to light background */
+  border: 1px solid var(--color-border-light); /* Add border as requested */
+  text-align: left;
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
+}
+
+.myrow .links-container h2 {
+  margin-bottom: 10px;
+}
+
+.myrow .links-container .hr-rule {
+  margin-bottom: 10px;
 }
 
 .myrow .quicklinks {
   margin: 0;
-  display: contents; /* Integrate with flex for seamless flow */
+  padding: 0;
+  background: none; /* No background */
+  border: none; /* No border */
+  text-align: left; /* Left align the links text */
+  white-space: normal; /* Allow wrapping to multiple lines */
+  width: 100%; /* Ensure full width for wrapping */
+  list-style: none !important;
+  list-style-type: none !important;
+  line-height: 1.3; /* Adjusted line height to match target */
+  padding-left: 0 !important; /* Override any third-party padding */
+  padding-inline-start: 0 !important; /* Override logical padding for modern browsers */
 }
 
-.myrow .link-separator {
-  margin: 0 0.5rem;
-  color: var(--color-secondary); /* Subtle separator color */
+.myrow .quicklinks li::marker {
+  content: "" !important;
+}
+
+.myrow .quicklinks li::before {
+  content: '' !important; /* Remove any pseudo-bullet */
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  font-size: 24px !important;
+  font-size: clamp(1.25rem, 2vw + 1rem, 24px) !important; /* Fluid font-size */
 }
 
 .guide-top {
@@ -187,7 +292,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated padding */
   background-color: var(--color-light-bg);
 }
 
@@ -196,7 +301,7 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px 1px 15px;
+  padding: 1px 15px; /* Consolidated */
 }
 
 .content-box-bottom {
@@ -204,34 +309,40 @@ ul.custom {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
-  padding: 1px 15px 1px 15px;
-  background-color: var(--color-white) !important; /* Force white for body to prevent shading bleed */
+  padding: 1px 15px; /* Consolidated */
+  background-color: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
+}
+
+.content-box-top blockquote ul {
+  margin-bottom: 0;
 }
 
 .si-content-label__body {
-  background: var(--color-white) !important; /* Force white for body, overriding any inheritance */
+  background: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
   border: 1px solid var(--color-border);
 }
 
 .custom-btn--secondary-hollow {
   background-color: transparent;
   border-color: var(--color-border);
-  color: var(--sis-btn-secondary-border); /* Note: Assumes --sis-btn-secondary-border is defined in third-party CSS */
+  color: var(--sis-btn-secondary-border);
   transition: background-color .5s ease;
 }
 
 /* Tabs Component */
-section.padding {
+section.padding,
+section.padding-left { /* Consolidated similar paddings */
   padding: 40px 0;
+}
+
+section.padding-left {
+  padding-left: 40px;
+  padding-right: 0; /* Explicit for consistency */
 }
 
 section.featured {
   min-height: 550px;
   padding-bottom: 10px;
-}
-
-section.padding-left {
-  padding-left: 40px;
 }
 
 .featured .featured-tabs {
@@ -242,12 +353,17 @@ section.padding-left {
 .featured .featured-tabs label {
   cursor: pointer;
   display: block;
-  font-size: 14px;
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
   font-weight: 400;
   margin: 0;
   order: 1;
   text-align: center;
   text-transform: uppercase;
+  transition: color 0.3s ease; /* Added smooth transition for perf/a11y */
+}
+
+.featured .featured-tabs label:focus {
+  outline: 2px solid var(--color-focus-outline); /* Added focus for tab accessibility */
 }
 
 .featured .featured-tabs .tab {
@@ -303,7 +419,7 @@ section.padding-left {
   align-items: center;
   width: 100%;
   padding: var(--mdb-accordion-btn-padding-y) var(--mdb-accordion-btn-padding-x);
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 2vw + 1rem, 1.8rem); /* Fluid font-size */
   color: var(--mdb-accordion-btn-color);
   text-align: left;
   background-color: var(--mdb-accordion-btn-bg);
@@ -343,7 +459,7 @@ section.padding-left {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
+  outline: 2px solid var(--color-focus-outline); /* Enhanced focus */
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -421,8 +537,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.woff2) format("woff2"),
-       url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-regular-400.ttf) format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-regular-400.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-regular-400.ttf") format("truetype");
 }
 
 @font-face {
@@ -430,8 +546,8 @@ section.padding-left {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2) format("woff2"),
-       url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.ttf) format("truetype");
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2") format("woff2"),
+       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 /* Figure captions */
@@ -440,16 +556,21 @@ section.padding-left {
 }
 
 .figure-caption {
-  font-size: 0.875em;
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 0.875em); /* Fluid font-size */
   color: var(--color-secondary);
 }
 
 /* 6. Media Queries
- * Responsive adjustments for different screen sizes.
+ * Refined and consolidated for better responsiveness.
  */
+@media (max-width: 479px) {
+  ul.custom {
+    column-count: 1;
+  }
+}
+
 @media (max-width: 767px) {
   ul.custom {
-    -moz-columns: 2;
     column-count: 2;
   }
   .featured .featured-tabs .tab, .featured .featured-tabs label {
@@ -465,30 +586,60 @@ section.padding-left {
     width: 100%;
   }
   .featured .featured-tabs input[type=radio]:checked+label {
-    background-color: var(--si-primary-color); /* Note: Assumes --si-primary-color is defined in third-party CSS */
-    color: var(--si-primary-text-color); /* Note: Assumes --si-primary-text-color is defined in third-party CSS */
+    background-color: var(--si-primary-color);
+    color: var(--si-primary-text-color);
   }
-  /* Suggested: Stack columns on small screens for two-column layouts */
+  /* Stack for mobile with flex */
+  .myrow {
+    flex-direction: column; /* Force stacking on mobile */
+  }
   .myrow > [class*="col-"] {
-    flex-basis: 100%;
+    flex-basis: 100%; /* Full width */
     max-width: 100%;
   }
   .myrow .links-container {
-    justify-content: center; /* Center wrapped links */
+    justify-content: flex-start;
   }
   .myrow img.img-fluid {
-    height: auto; /* Prevent distortion when stacked */
+    height: auto;
+  }
+  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .more-menu-overlay .row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 5px;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    order: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    order: 2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    order: 3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    order: 4;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    order: 5;
   }
 }
 
-@media (max-width: 479px) {
-  ul.custom {
-    -moz-columns: 1;
-    column-count: 1;
-  }
-}
-
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) { /* Consolidated tablet rules */
   .myrow .col-sm-3 {
     flex: 0 0 auto;
     width: 25%;
@@ -500,6 +651,49 @@ section.padding-left {
   .myrow .col-sm-6 {
     flex: 0 0 auto;
     width: 50%;
+  }
+  .more-menu-overlay .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .blogs .row {
+    flex-direction: column;
+  }
+  .blogs .row > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
   }
 }
 
@@ -519,12 +713,20 @@ section.padding-left {
   }
 }
 
-/* Reduced motion preferences */
+@media (min-width: 1200px) { /* New breakpoint for wide screens */
+  .container {
+    padding: 0 2rem; /* More padding for breathing room */
+  }
+}
+
+/* Reduced motion preferences - Expanded for more elements */
 @media (prefers-reduced-motion: reduce) {
   .accordion-button,
   .accordion-button::after,
-  a {
-    transition: none; /* Disable transitions for users who prefer reduced motion */
+  a,
+  .quicklinks a,
+  .featured .featured-tabs label,
+  .custom-btn--secondary-hollow { /* Added more interactive elements */
+    transition: none; /* Disable transitions for perf/a11y */
   }
 }
-```
