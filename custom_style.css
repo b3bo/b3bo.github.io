@@ -182,7 +182,7 @@ ul.custom {
   background: var(--color-light-bg); /* Revert to light background */
   border: 1px solid var(--color-border-light); /* Add border */
   font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
-  line-height: 1.2 !important; /* Adjust line height */
+  line-height: 1.5; /* Standard line height to match target spacing */
   padding-left: 0 !important; /* Remove default list padding to eliminate indent */
 }
 
@@ -204,8 +204,7 @@ ul.custom {
 }
 
 .quicklinks li:not(:last-child):after {
-  content: "|";
-  margin: 0 1em; /* Approximately 2 spaces on each side (adjust as needed, 1em ~ 2 spaces in many fonts) */
+  content: " | "; /* One space on each side; adjust if needed */
   color: var(--color-secondary);
 }
 
@@ -215,7 +214,7 @@ ul.custom {
   word-spacing: 0.1em;
   letter-spacing: .1em;
   font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Fluid font-size matching original */
-  line-height: 1.2 !important; /* Adjust line height */
+  line-height: 1.5; /* Standard line height to match target spacing */
   transition: color 0.3s ease; /* Suggested: Smooth hover transition */
   text-decoration: none; /* Remove underline if present */
 }
@@ -267,7 +266,7 @@ ul.custom {
   width: 100%; /* Ensure full width for wrapping */
   list-style: none !important;
   list-style-type: none !important;
-  line-height: 1.2 !important; /* Adjust line height */
+  line-height: 1.5; /* Standard line height to match target spacing */
   padding-left: 0 !important; /* Remove default list padding */
 }
 
