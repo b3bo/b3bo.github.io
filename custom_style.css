@@ -226,7 +226,7 @@ ul.custom {
 
 .quicklinks a:hover,
 .myrow .quicklinks a:hover {
-  outline: none;
+  outline: none !important;
   box-shadow: none;
 }
 
