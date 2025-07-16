@@ -6,23 +6,26 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Make root writable
+        run: chmod -R u+w . || true  # Ensure root directory is writable to avoid permission issues
       - name: Minify files
         uses: nizarmah/auto-minify@v3
         with:
           directory: '.'  # Adjust to your CSS folder path if not in root (e.g., 'styles/')
-          output: 'dist/'  # This creates a 'dist' folder with minified files (same names as originals)
+          output: 'temp_dist/'  # Use a temporary folder for minified files
           overwrite: false
           css_engine: 'clean-css'
-      - name: Rename minified CSS to add .min
+      - name: Rename and move minified CSS to root
         run: |
-          mkdir -p dist  # Ensure dist exists (though minify action should create it)
-          rm -f dist/*.min.css  # Remove any existing .min.css files to avoid conflicts
-          for file in dist/*.css; do
+          mkdir -p temp_dist  # Ensure temp_dist exists
+          for file in temp_dist/*.css; do
             if [ -f "$file" ] && [[ ! "$file" =~ \.min\.css$ ]]; then
               mv "$file" "${file%.css}.min.css"
             fi
           done
+          mv temp_dist/*.min.css .  # Move to root
+          rm -rf temp_dist  # Clean up temporary folder
       - name: Commit minified files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-minified CSS files to dist/ with .min suffix"
+          commit_message: "Auto-minified CSS files with .min suffix in root"
