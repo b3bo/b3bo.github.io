@@ -18,16 +18,16 @@ jobs:
       - name: Rename and move minified CSS to root
         run: |
           mkdir -p temp_dist  # Ensure temp_dist exists
-          chmod -R u+w temp_dist || true  # Make temp_dist and its files writable
           rm -f ./*.min.css  # Remove any existing .min.css in root to avoid conflicts
           for file in temp_dist/*.css; do
             if [ -f "$file" ] && [[ ! "$file" =~ \.min\.css$ ]]; then
-              mv "$file" "${file%.css}.min.css"
+              cp "$file" "${file%.css}.min.css"
+              rm "$file"
             fi
           done
-          mv temp_dist/*.min.css .  # Move to root
+          cp temp_dist/*.min.css .  # Copy to root (creates new writable files)
           rm -rf temp_dist  # Clean up temporary folder
       - name: Commit minified files
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "Auto-minified CSS files with .min suffix in root"
