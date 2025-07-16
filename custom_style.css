@@ -627,6 +627,7 @@ section.featured {
   .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
     flex: 0 0 100%;
     max-width: 100%;
+    padding-right: 0px;
   }
   .more-menu-overlay .row {
     display: flex;
