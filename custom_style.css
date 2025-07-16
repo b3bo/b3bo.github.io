@@ -614,6 +614,9 @@ section.featured {
   .myrow {
     flex-direction: column; /* Force stacking on mobile */
   }
+  .myrow p.quicklinks {
+    text-align: left !important; /* Use !important if needed to override any inherited or parent styles */
+  }
   .myrow > [class*="col-"] {
     flex-basis: 100%; /* Full width */
     max-width: 100%;
