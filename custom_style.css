@@ -261,7 +261,7 @@ ul.custom {
   margin: 0;
   padding: 0;
   background: none; /* No background */
-  border: none; /* No border */
+  border: none !important; /* No border */
   text-align: center; /* Center each wrapped line */
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
