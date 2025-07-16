@@ -265,7 +265,7 @@ ul.custom {
   text-align: center; /* Center each wrapped line */
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
-  line-height: 1.2; /* Tight row spacing */
+  line-height: 2.5; /* from 1.2 to 2.5 Tight row spacing */
   font-size: 0; /* Collapse whitespace between inline <a> elements from HTML newlines */
 }
 
