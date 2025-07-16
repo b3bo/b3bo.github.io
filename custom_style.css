@@ -148,6 +148,12 @@ ul.custom {
   border-radius: 0; /* Remove rounding if not needed */
 }
 
+/* Add this here for global shadow on maps */
+.myrow .col-sm-6 a img.figure-image {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
+  border-radius: 8px; /* Slight rounding to match your example image */
+}
+
 /* Make the image column wider for landscape look */
 .myrow .col-sm-6:first-child {
   flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
@@ -161,12 +167,6 @@ ul.custom {
 .myrow .col-sm-6:last-child {
   flex: 0 0 33.3333%; /* Equivalent to col-sm-4 */
   max-width: 33.3333%;
-}
-
-/* Add this here for global shadow on maps */
-.myrow .col-sm-6 a img.figure-image {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
-  border-radius: 8px; /* Slight rounding to match your example image */
 }
 
 /* 4. Components
