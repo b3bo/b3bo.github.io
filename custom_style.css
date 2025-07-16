@@ -265,14 +265,14 @@ ul.custom {
   text-align: center; /* Center each wrapped line */
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
-  line-height: 2.5; /* from 1.2 to 2.5 Tight row spacing */
+  line-height: 2.5; /* Tight row spacing */
   font-size: 0; /* Collapse whitespace between inline <a> elements from HTML newlines */
 }
 
 .myrow .quicklinks a {
   display: inline; /* Flow as inline text for splitting/wrapping within links */
-  font-size: clamp(1.0625rem, 1.0vw + 1.0625rem, 17px) /* Larger fluid font size, with override */
-  line-height: 1.2 /* Match for consistent spacing, also with override if needed */
+  font-size: clamp(1.0625rem, 1.0vw + 1.0625rem, 17px); /* Larger fluid font size, with override */
+  line-height: 1.2; /* Match for consistent spacing, also with override if needed */
   color: var(--color-primary-text);
   font-weight: 500;
   word-spacing: 0.1em;
