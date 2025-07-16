@@ -195,17 +195,12 @@ ul.custom {
   margin-right: 0.2em; /* Optional: Adjust spacing if needed */
 }
 
+.quicklinks li:not(:last-child):after {
+  content: "  ";
+}
+
 .quicklinks li::marker {
   content: "" !important;
-}
-
-.quicklinks li::before {
-  content: "> ";
-  color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
-}
-
-.quicklinks li:not(:last-child):after {
-  content: "  "; 
 }
 
 .quicklinks a {
