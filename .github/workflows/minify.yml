@@ -18,6 +18,8 @@ jobs:
       - name: Rename and move minified CSS to root
         run: |
           mkdir -p temp_dist  # Ensure temp_dist exists
+          chmod -R u+w temp_dist || true  # Make temp_dist and its files writable
+          rm -f ./*.min.css  # Remove any existing .min.css in root to avoid conflicts
           for file in temp_dist/*.css; do
             if [ -f "$file" ] && [[ ! "$file" =~ \.min\.css$ ]]; then
               mv "$file" "${file%.css}.min.css"
