@@ -3,8 +3,8 @@
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
-  --color-link: #71939d; /* Link color */
-  --color-link-hover: #37555e; /* Darkened link hover */
+  --color-link: #37555e; /* Link or Menu color */
+  --color-link-hover: #71939d; /* Darkened link hover */
   --color-light-bg: #f7f7f7; /* Light background for headers/boxes */
   --color-border-light: #d9d9d9; /* Light borders */
   --color-border: #dedede; /* Default borders */
@@ -16,7 +16,7 @@
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
   --color-focus-outline: #71939d; /* Centralized focus color for accessibility */
-  --color-hr-rule: #a2b1b5; /* Variabilized hardcoded HR color */
+  --color-hr-rule: #71939d; /* Variabilized hardcoded HR color */
 
   /* Layout variables for modernization */
   --grid-gap: 1rem; /* Standard gap for grids/flex */
@@ -298,7 +298,7 @@ ul.custom {
 }
 
 .myrow .quicklinks a:hover {
-  color: var(--color-link);
+  color: var(--color-link-hover);
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
