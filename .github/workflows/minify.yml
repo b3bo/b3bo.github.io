@@ -27,10 +27,11 @@ jobs:
             if [ -f "$file" ] && [[ ! "$file" =~ \.min\.css$ ]]; then
               cp "$file" "./$(basename "${file%.css}.min.css")"
               echo "Copied $file to root as .min.css"
+              rm -f "$file"  # Remove the original file in temp_dist after copy
             fi
           done
-          echo "Files in root after copy: $(ls *.min.css || echo 'None')"
           rm -rf temp_dist || true  # Clean up temporary folder, ignore errors
+          echo "Files in root after cleanup: $(ls *.min.css || echo 'None')"
       - name: Commit minified files
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
