@@ -262,22 +262,32 @@ ul.custom {
   padding: 0;
   background: none; /* No background */
   border: none; /* No border */
-  text-align: left; /* Left align the links text */
+  text-align: center; /* Center each wrapped line */
   white-space: normal; /* Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
-  list-style: none !important;
-  list-style-type: none !important;
-  line-height: 1.3; /* Adjusted line height to match target */
-  padding-left: 0 !important; /* Override any third-party padding */
-  padding-inline-start: 0 !important; /* Override logical padding for modern browsers */
+  line-height: 1.2; /* Tight row spacing */
+  font-size: 0; /* Collapse whitespace between inline <a> elements from HTML newlines */
 }
 
-.myrow .quicklinks li::marker {
-  content: "" !important;
+.myrow .quicklinks a {
+  display: inline; /* Flow as inline text for splitting/wrapping within links */
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Restore fluid font size */
+  line-height: 1.2; /* Match for consistent spacing */
+  color: var(--color-primary-text);
+  font-weight: 500;
+  word-spacing: 0.1em;
+  letter-spacing: .1em;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
-.myrow .quicklinks li::before {
-  content: '' !important; /* Remove any pseudo-bullet */
+.myrow .quicklinks a:not(:last-child)::after {
+  content: " | "; /* Even spacing around pipes */
+  color: var(--color-secondary); /* Subtle gray for separators */
+}
+
+.myrow .quicklinks a:hover {
+  color: var(--color-link);
 }
 
 /* Guide and Content Boxes - Ensure header is shaded, body is white */
