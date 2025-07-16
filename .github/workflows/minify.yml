@@ -22,14 +22,10 @@ jobs:
           rm -f ./*.min.css  # Remove any existing .min.css in root to avoid conflicts
           for file in temp_dist/*.css; do
             if [ -f "$file" ] && [[ ! "$file" =~ \.min\.css$ ]]; then
-              cp "$file" "${file%.css}.min.css"
-              rm -f "$file"
+              cp "$file" "./$(basename "${file%.css}.min.css")"
             fi
           done
-          chmod -R u+w temp_dist || true  # Re-apply writable permissions after operations
-          cp temp_dist/*.min.css .  # Copy to root (creates new writable files)
-          rm -f temp_dist/*.min.css  # Remove files in temp_dist before folder cleanup
-          rm -rf temp_dist  # Clean up temporary folder
+          rm -rf temp_dist || true  # Clean up temporary folder, ignore errors
       - name: Commit minified files
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
