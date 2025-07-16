@@ -3,6 +3,8 @@ on: [push]
 jobs:
   minify:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Grant write access to contents for pushing commits
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
