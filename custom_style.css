@@ -163,6 +163,12 @@ ul.custom {
   max-width: 33.3333%;
 }
 
+/* Add this here for global shadow on maps */
+.myrow .col-sm-6 a img.figure-image {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
+  border-radius: 8px; /* Slight rounding to match your example image */
+}
+
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
@@ -623,14 +629,6 @@ section.featured {
   }
   .myrow img.img-fluid {
     height: auto;
-  }
-  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
- .myrow .col-sm-6 a img.figure-image {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adjust values as needed for shadow depth */
-    border-radius: 8px; /* Matches the softened edges in your example */
   }
   .more-menu-overlay .row {
     display: flex;
