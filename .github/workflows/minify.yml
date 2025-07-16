@@ -8,3 +8,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Minify files
         uses: nizarmah/auto-minify@v3
+        with:
+          directory: '.'  # Or your CSS folder path
+          overwrite: true
+          css_engine: 'clean-css'
+      - name: Commit minified files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-minified CSS files"
