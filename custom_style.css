@@ -3,7 +3,7 @@
  */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
-  --color-link: #37555e; /* Link or Menu color */
+  --color-link: #7ca3af; /* Link or Menu color */
   --color-link-hover: #71939d; /* Darkened link hover */
   --color-light-bg: #f7f7f7; /* Light background for headers/boxes */
   --color-border-light: #d9d9d9; /* Light borders */
@@ -15,7 +15,7 @@
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
-  --color-focus-outline: #71939d; /* Centralized focus color for accessibility */
+  --color-focus-outline: #7ca3af; /* Centralized focus color for accessibility */
   --color-hr-rule: #71939d; /* Variabilized hardcoded HR color */
 
   /* Layout variables for modernization */
