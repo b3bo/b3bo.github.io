@@ -145,8 +145,7 @@ ul.custom {
   height: auto; /* Let image determine height for landscape aspect */
   object-fit: contain; /* Show full image without cropping */
   margin: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
-  border-radius: 8px; /* Slight rounding to match your example image (overrides previous 0) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
 }
 
 /* Make the image column wider for landscape look */
