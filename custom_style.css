@@ -628,6 +628,10 @@ section.featured {
     flex: 0 0 100%;
     max-width: 100%;
   }
+ .myrow .col-sm-6 a img.figure-image {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adjust values as needed for shadow depth */
+    border-radius: 8px; /* Matches the softened edges in your example */
+  }
   .more-menu-overlay .row {
     display: flex;
     flex-direction: column;
