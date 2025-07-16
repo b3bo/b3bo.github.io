@@ -4,7 +4,7 @@
 :root {
   --color-primary-text: #363636; /* Primary text and links */
   --color-link: #71939d; /* Link color */
-  --color-link-hover: #5f7d85; /* Darkened link hover */
+  --color-link-hover: #37555e; /* Darkened link hover */
   --color-light-bg: #f7f7f7; /* Light background for headers/boxes */
   --color-border-light: #d9d9d9; /* Light borders */
   --color-border: #dedede; /* Default borders */
@@ -215,8 +215,7 @@ ul.custom {
 }
 
 .quicklinks a:hover {
-  color: var(--color-link); /* Change color on hover for interactivity */
-}
+  color: var(--color-link-hover); 
 
 .main-content .si-content-area p.quicklinks {
   background: var(--color-light-bg);
