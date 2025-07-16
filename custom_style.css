@@ -201,7 +201,7 @@ ul.custom {
 }
 
 .quicklinks li:not(:last-child):after {
-  content: "&nbsp;&nbsp;&nbsp;&nbsp;";
+  content: "     ";
 }
 
 .quicklinks li::marker {
@@ -294,7 +294,7 @@ ul.custom {
 }
 
 .myrow .quicklinks a:not(:last-child)::after {
-  content: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; 
+  content: "     "; 
 }
 
 .myrow .quicklinks a:hover {
