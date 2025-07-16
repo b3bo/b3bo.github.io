@@ -5,15 +5,15 @@
   --color-primary-text: #363636; /* Primary text and links */
   --color-link: #7ca3af; /* Link or Menu color */
   --color-link-hover: #71939d; /* Darkened link hover */
-  --color-light-bg: #f7f7f7; /* Light background for headers/boxes */
-  --color-border-light: #d9d9d9; /* Light borders */
   --color-border: #dedede; /* Default borders */
+  --color-border-light: #d9d9d9; /* Light borders */
   --color-secondary: #6c757d; /* Secondary text/separators */
   --color-tab-label: #6f6f6f; /* Tab labels */
   --color-tab-mobile-bg: #f5f5f5; /* Mobile tab background */
   --color-accordion-text: #4f4f4f; /* Accordion text */
   --color-accordion-active-fill: #3b71ca; /* Accordion active icon */
   --color-white: #fff; /* Pure white for bodies */
+  --color-light-bg: #f7f7f7; /* Light background for headers/boxes */
   --color-secondary-bg: rgb(242 243 249 / var(--tw-bg-opacity)); /* Secondary background */
   --color-focus-outline: #7ca3af; /* Centralized focus color for accessibility */
   --color-hr-rule: #71939d; /* Variabilized hardcoded HR color */
@@ -201,7 +201,7 @@ ul.custom {
 }
 
 .quicklinks li:not(:last-child):after {
-  content: "  ";
+  content: "&nbsp;&nbsp;&nbsp;&nbsp;";
 }
 
 .quicklinks li::marker {
@@ -294,7 +294,7 @@ ul.custom {
 }
 
 .myrow .quicklinks a:not(:last-child)::after {
-  content: "  "; 
+  content: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; 
 }
 
 .myrow .quicklinks a:hover {
