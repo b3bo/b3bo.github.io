@@ -1,0 +1,10 @@
+name: Auto Minify CSS
+on: [push]
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Minify files
+        uses: nizarmah/auto-minify@v3
