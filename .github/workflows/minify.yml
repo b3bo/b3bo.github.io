@@ -16,8 +16,9 @@ jobs:
       - name: Rename minified CSS to add .min
         run: |
           mkdir -p dist  # Ensure dist exists (though minify action should create it)
+          rm -f dist/*.min.css  # Remove any existing .min.css files to avoid conflicts
           for file in dist/*.css; do
-            if [ -f "$file" ]; then
+            if [ -f "$file" ] && [[ ! "$file" =~ \.min\.css$ ]]; then
               mv "$file" "${file%.css}.min.css"
             fi
           done
