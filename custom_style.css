@@ -83,7 +83,9 @@ a {
 }
 
 a:hover {
-  color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
+  color: var(--color-link-hover);
+  outline: none; /* Explicitly remove any outline on hover */
+  box-shadow: none; /* Prevent any shadow-based boxes */
 }
 
 a:focus-visible {
@@ -220,6 +222,13 @@ ul.custom {
 
 .quicklinks a:hover {
   color: var(--color-link-hover); 
+}
+
+.quicklinks a:hover,
+.myrow .quicklinks a:hover {
+  outline: none;
+  box-shadow: none;
+}
 
 .main-content .si-content-area p.quicklinks {
   background: var(--color-light-bg);
