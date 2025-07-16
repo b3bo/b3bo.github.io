@@ -187,13 +187,12 @@ ul.custom {
   padding-inline-start: 0 !important; /* Override logical padding for modern browsers */
 }
 
-.quicklinks li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  list-style: none !important;
-  list-style-type: none !important;
-  margin-bottom: 0; /* No vertical margin */
+.quicklinks li::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f054 "; /* fa-chevron-right icon, with space after for separation */
+  color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
+  margin-right: 0.2em; /* Optional: Adjust spacing if needed */
 }
 
 .quicklinks li::marker {
@@ -205,9 +204,10 @@ ul.custom {
   color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
 }
 
+/* Old separator rule
 .quicklinks li:not(:last-child):after {
-  content: none; /* Or delete this entire rule */
-}
+  content: none; 
+}*/
 
 .quicklinks a {
   color: var(--color-primary-text);
@@ -282,13 +282,17 @@ ul.custom {
 }
 
 .myrow .quicklinks a::before {
-  content: "> ";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f054 "; /* fa-chevron-right icon, with space after for separation */
   color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
-
-.myrow .quicklinks a:not(:last-child)::after {
-  content: none /* Or delete this entire rule */
-  color: var(--color-secondary); /* Subtle gray for separators */
+  margin-right: 0.2em; /* Optional: Adjust spacing if needed */
 }
+
+/* Old separator rule
+.myrow .quicklinks a:not(:last-child)::after {
+  content: none; 
+} */
 
 .myrow .quicklinks a:hover {
   color: var(--color-link);
