@@ -139,19 +139,14 @@ ul.custom {
   padding-left: 0;
 }
 
-/* Suggested: Image filling for layouts using .myrow */
+/* Suggested: Image filling for layouts using .myrow (combined with shadow for maps) */
 .myrow img.img-fluid {
   width: 100%;
   height: auto; /* Let image determine height for landscape aspect */
   object-fit: contain; /* Show full image without cropping */
   margin: 0;
-  border-radius: 0; /* Remove rounding if not needed */
-}
-
-/* Add this here for global shadow on maps */
-.myrow .col-sm-6 a img.figure-image {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
-  border-radius: 8px; /* Slight rounding to match your example image */
+  border-radius: 8px; /* Slight rounding to match your example image (overrides previous 0) */
 }
 
 /* Make the image column wider for landscape look */
@@ -629,6 +624,10 @@ section.featured {
   }
   .myrow img.img-fluid {
     height: auto;
+  }
+  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   .more-menu-overlay .row {
     display: flex;
