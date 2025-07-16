@@ -190,7 +190,7 @@ ul.custom {
 .quicklinks li::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f054 "; /* fa-chevron-right icon, with space after for separation */
+  content: "\f0da "; /* fa-chevron-right icon, with space after for separation */
   color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
   margin-right: 0.2em; /* Optional: Adjust spacing if needed */
 }
@@ -204,10 +204,9 @@ ul.custom {
   color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
 }
 
-/* Old separator rule
 .quicklinks li:not(:last-child):after {
-  content: none; 
-}*/
+  content: "  "; 
+}
 
 .quicklinks a {
   color: var(--color-primary-text);
@@ -284,15 +283,14 @@ ul.custom {
 .myrow .quicklinks a::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f054 "; /* fa-chevron-right icon, with space after for separation */
+  content: "\f0da "; /* fa-chevron-right icon, with space after for separation */
   color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
   margin-right: 0.2em; /* Optional: Adjust spacing if needed */
 }
 
-/* Old separator rule
 .myrow .quicklinks a:not(:last-child)::after {
-  content: none; 
-} */
+  content: "  "; 
+}
 
 .myrow .quicklinks a:hover {
   color: var(--color-link);
