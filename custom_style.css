@@ -86,8 +86,12 @@ a:hover {
   color: var(--color-link-hover); /* Suggested: Darkened version for better feedback on hover */
 }
 
-a:focus {
-  outline: 2px solid var(--color-link); /* Suggested: Visible focus for accessibility */
+a:focus-visible {
+  outline: 2px solid var(--color-link); /* Visible only on keyboard focus */
+}
+
+a:focus:not(:focus-visible) {
+  outline: none; /* No outline on mouse interactions */
 }
 
 b,
