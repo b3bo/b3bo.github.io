@@ -9,10 +9,19 @@ jobs:
       - name: Minify files
         uses: nizarmah/auto-minify@v3
         with:
-          directory: '.'  # Or your CSS folder path
-          overwrite: true
+          directory: '.'  # Adjust to your CSS folder path if not in root (e.g., 'styles/')
+          output: 'dist/'  # This creates a 'dist' folder with minified files (same names as originals)
+          overwrite: false
           css_engine: 'clean-css'
+      - name: Rename minified CSS to add .min
+        run: |
+          mkdir -p dist  # Ensure dist exists (though minify action should create it)
+          for file in dist/*.css; do
+            if [ -f "$file" ]; then
+              mv "$file" "${file%.css}.min.css"
+            fi
+          done
       - name: Commit minified files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-minified CSS files"
+          commit_message: "Auto-minified CSS files to dist/ with .min suffix"
