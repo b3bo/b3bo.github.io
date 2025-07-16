@@ -271,7 +271,7 @@ ul.custom {
 
 .myrow .quicklinks a {
   display: inline; /* Flow as inline text for splitting/wrapping within links */
-  font-size: clamp(1.0625rem, 1vw + 1rem, 1.25rem); 
+  font-size: clamp(1.25rem, 1.25rem + 1.5vw, 1.5rem); 
   line-height: 2.5; /* Match for consistent spacing, also with override if needed */
   color: var(--color-primary-text);
   font-weight: 500;
