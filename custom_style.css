@@ -152,13 +152,6 @@ strong {
   max-width: 33.3333%;
 }
 
-.myrow .col-sm-6 ul {
-  column-count: 1; /* Forces vertical single-column layout */
-  list-style: none; /* Removes bullets for a cleaner look, matching your design */
-  padding-left: 0; /* Removes default indent */
-  margin-bottom: 1rem; /* Adds spacing between lists */
-}
-
 /* 4. Components */
 /* Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions. */
 
