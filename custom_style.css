@@ -100,7 +100,7 @@ strong {
 
 /* 3. Layout Utilities */
 /* Custom row and column overrides for responsive designs. */
-.row.faq-wrapper {
+.row.faq-row {
   border: 1px solid #dedede; 
   background: #f7f7f7;
 }
