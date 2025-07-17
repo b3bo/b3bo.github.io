@@ -101,6 +101,9 @@ strong {
 /* 3. Layout Utilities */
 /* Custom row and column overrides for responsive designs. */
 .faq-row {
+  display: block;
+  flex-wrap: wrap;
+  align-items: stretch;
   border: 1px solid #dedede; 
   background: #f7f7f7;
 }
