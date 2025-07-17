@@ -101,11 +101,16 @@ strong {
 /* 3. Layout Utilities */
 /* Custom row and column overrides for responsive designs. */
 .faq-row {
-  display: block;
+  display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   border: 1px solid #dedede; 
   background: #f7f7f7;
+}
+
+.faq-row > .col-sm-6 {
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
 .myrow {
@@ -556,6 +561,13 @@ section.featured {
 
 /* 6. Media Queries */
 /* Refined and consolidated for better responsiveness. */
+@media (min-width: 576px) {
+  .faq-row > .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 @media (max-width: 767px) {
 
   .featured .featured-tabs .tab, .featured .featured-tabs label {
