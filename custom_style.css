@@ -156,10 +156,11 @@ strong {
 }
 
 .myrow .col-sm-6 ul {
-  column-count: 1 !important; /* Forces vertical single-column layout, overriding any defaults */
-  list-style: none; /* Removes bullets for clean look */
-  padding-left: 0; /* Removes default indent */
-  margin-bottom: 1rem; /* Adds spacing between lists */
+  column-count: 1 !important; /* Force vertical /
+  display: block !important; / Override if flex */
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
 }
 
 /* 4. Components
