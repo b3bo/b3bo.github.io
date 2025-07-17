@@ -163,6 +163,10 @@ ul.custom {
   max-width: 33.3333%;
 }
 
+.myrow .col-sm-6 ul {
+  column-count: 1; /* Overrides any site-wide multi-column rule for these specific lists */
+}
+
 /* 4. Components
  * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
  */
