@@ -100,14 +100,6 @@ strong {
   font-weight: 500;
 }
 
-/* Multi-column unordered lists with responsive columns (removed obsolete -moz- prefix) */
-ul.custom {
-  column-count: 3;
-  margin: 0;
-  padding: 0;
-  list-style: none; /* Suggested: Explicitly remove bullets for custom lists */
-}
-
 /* 3. Layout Utilities
  * Custom row and column overrides for responsive designs.
  */
@@ -164,7 +156,10 @@ ul.custom {
 }
 
 .myrow .col-sm-6 ul {
-  column-count: 1; /* Overrides any site-wide multi-column rule for these specific lists */
+  column-count: 1; /* Forces vertical single-column layout */
+  list-style: none; /* Optional: Removes bullets for a cleaner look, matching your design */
+  padding-left: 0; /* Optional: Removes default indent */
+  margin-bottom: 1rem; /* Optional: Adds spacing between lists */
 }
 
 /* 4. Components
@@ -566,16 +561,8 @@ section.featured {
 /* 6. Media Queries
  * Refined and consolidated for better responsiveness.
  */
-@media (max-width: 479px) {
-  ul.custom {
-    column-count: 1;
-  }
-}
-
 @media (max-width: 767px) {
-  ul.custom {
-    column-count: 2;
-  }
+
   .featured .featured-tabs .tab, .featured .featured-tabs label {
     order: 0;
   }
