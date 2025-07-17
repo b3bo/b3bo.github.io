@@ -156,8 +156,8 @@ strong {
 }
 
 .myrow .col-sm-6 ul {
-  column-count: 1 !important; /* Force vertical /
-  display: block !important; / Override if flex */
+  column-count: 1 !important; /* Force vertical */
+  display: block !important; /* Override if flex */
   list-style: none;
   padding-left: 0;
   margin-bottom: 1rem;
