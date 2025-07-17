@@ -1,6 +1,5 @@
-/* 1. Variables and Resets
- * Centralizes colors for easy theming. Update variables here for site-wide changes.
- */
+/* 1. Variables and Resets */
+/* Centralizes colors for easy theming. Update variables here for site-wide changes. */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
   --color-link: #7ca3af; /* Link or Menu color */
@@ -52,9 +51,8 @@
   padding: 0 15px;
 }
 
-/* 2. Typography and Base Elements
- * Styles for text, links, headings, and lists. Added fluid typography with clamp.
- */
+/* 2. Typography and Base Elements */
+/* Styles for text, links, headings, and lists. Added fluid typography with clamp. */
 .si-videos-widget > h2,
 .si-content-label-gallery__title,
 .si-property-stats__title-date,
@@ -100,9 +98,8 @@ strong {
   font-weight: 500;
 }
 
-/* 3. Layout Utilities
- * Custom row and column overrides for responsive designs.
- */
+/* 3. Layout Utilities */
+/* Custom row and column overrides for responsive designs. */
 .myrow {
   --bs-gutter-x: 0; /* Remove horizontal gutter for seamless columns */
   --bs-gutter-y: 0; /* Remove vertical gutter */
@@ -156,16 +153,14 @@ strong {
 }
 
 .myrow .col-sm-6 ul {
-  column-count: 1 !important; /* Force vertical */
-  display: block !important; /* Override if flex */
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 1rem;
+  column-count: 1; /* Forces vertical single-column layout */
+  list-style: none; /* Removes bullets for a cleaner look, matching your design */
+  padding-left: 0; /* Removes default indent */
+  margin-bottom: 1rem; /* Adds spacing between lists */
 }
 
-/* 4. Components
- * Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions.
- */
+/* 4. Components */
+/* Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions. */
 
 /* Horizontal rule style */
 .hr-rule {
@@ -242,13 +237,13 @@ strong {
 .myrow .quicklinks {
   margin: 0;
   padding: 0 !important;
-  /* background: none;  No background */
+  /* background: none; No background */
   border: none !important; /* No border */
-  /* text-align: center;  Center each wrapped line */
-  /* white-space: normal;  Allow wrapping to multiple lines */
+  /* text-align: center; Center each wrapped line */
+  /* white-space: normal; Allow wrapping to multiple lines */
   width: 100%; /* Ensure full width for wrapping */
   line-height: 2.5; 
-  /* font-size: 0;  Collapse whitespace between inline <a> elements from HTML newlines */
+  /* font-size: 0; Collapse whitespace between inline <a> elements from HTML newlines */
 }
 
 .myrow .quicklinks a {
@@ -509,9 +504,8 @@ section.featured {
   display: none;
 }
 
-/* 5. Icons and External
- * Font Awesome icons and figure captions.
- */
+/* 5. Icons and External */
+/* Font Awesome icons and figure captions. */
 .fa-solid {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -559,9 +553,8 @@ section.featured {
   color: var(--color-secondary);
 }
 
-/* 6. Media Queries
- * Refined and consolidated for better responsiveness.
- */
+/* 6. Media Queries */
+/* Refined and consolidated for better responsiveness. */
 @media (max-width: 767px) {
 
   .featured .featured-tabs .tab, .featured .featured-tabs label {
