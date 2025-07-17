@@ -101,7 +101,8 @@ strong {
 /* 3. Layout Utilities */
 /* Custom row and column overrides for responsive designs. */
 .faq-row {
-  border: 1px solid #dedede; background: #f7f7f7;
+  border: 1px solid #dedede; 
+  background: #f7f7f7;
 }
 
 .myrow {
