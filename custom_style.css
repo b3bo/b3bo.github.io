@@ -392,11 +392,11 @@ section.featured {
   --mdb-accordion-btn-padding-y: 1.15rem;
   --mdb-accordion-btn-color: var(--color-accordion-text);
   --mdb-accordion-btn-bg: var(--mdb-accordion-bg);
-  --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill'%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
-  --mdb-accordion-btn-icon-width: 1.25rem;
+  --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
+  --mdb-accordion-btn-icon-width: 1.5rem; /* Increased for better visibility */
   --mdb-accordion-btn-icon-transform: rotate(-180deg);
   --mdb-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --mdb-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill'%233b71ca'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
+  --mdb-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233b71ca'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
   --mdb-accordion-btn-focus-border-color: var(--color-link);
   --mdb-accordion-btn-focus-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
   --mdb-accordion-body-padding-x: 1.5rem;
@@ -441,7 +441,27 @@ section.featured {
   background-image: var(--mdb-accordion-btn-icon);
   background-repeat: no-repeat;
   background-size: var(--mdb-accordion-btn-icon-width);
+  background-position: center;
+  display: inline-block !important; /* Ensure icon renders */
+  position: relative;
+  z-index: 1; /* Prevent obscuring by other elements */
   transition: var(--mdb-accordion-btn-icon-transition);
+}
+
+/* Fallback to Font Awesome if SVG fails */
+@supports (not (background-image: url("data:image/svg+xml..."))) {
+  .accordion-button::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078"; /* fa-chevron-down */
+    background-image: none;
+    line-height: var(--mdb-accordion-btn-icon-width);
+    text-align: center;
+  }
+  .accordion-button:not(.collapsed)::after {
+    content: "\f077"; /* fa-chevron-up */
+    transform: rotate(0deg); /* No rotation needed for Font Awesome */
+  }
 }
 
 .accordion-button:hover {
@@ -554,7 +574,6 @@ section.featured {
 /* 6. Media Queries */
 /* Refined and consolidated for better responsiveness. */
 @media (max-width: 767px) {
-
   .featured .featured-tabs .tab, .featured .featured-tabs label {
     order: 0;
   }
