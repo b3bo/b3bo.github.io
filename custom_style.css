@@ -378,6 +378,10 @@ section.featured {
 }
 
 /* Accordion Overrides */
+.main-content .si-content-area .accordion h2 {
+  margin: 0;
+}
+
 .accordion {
   --mdb-accordion-color: var(--color-accordion-text);
   --mdb-accordion-bg: var(--color-white);
