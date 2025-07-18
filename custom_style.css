@@ -162,6 +162,11 @@ strong {
 /* 4. Components */
 /* Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions. */
 
+/* Make the Subscribe button in the banner pop */
+ .dark-banner {
+ background-color: var(--si-secondary-color-300) !important;
+}
+
 /* Horizontal rule style */
 .hr-rule {
   margin-left: 0;
