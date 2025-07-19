@@ -769,13 +769,14 @@ section.featured {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white; /* Adjust color for visibility */
+    color: white !important; /* Ensured white color with !important to override any theme styles */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
 }
 
 .hero-carousel .overlay h1 {
     font-size: 3rem; /* Adjust size as needed */
     margin: 0;
+    color: white !important; /* Explicitly set on h1 as well */
 }
 
 /* Slick arrow customizations (buttons on the side) */
