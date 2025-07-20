@@ -788,7 +788,7 @@ section.featured {
     margin: 0;
     line-height: 1.2; /* Improve readability */
     transition: font-size 0.3s ease; /* Smooth transition for size changes */
-    color: (--color-white);
+    color: var(--color-white);
 }
 
 /* Responsive adjustments */
