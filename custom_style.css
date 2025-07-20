@@ -789,3 +789,10 @@ section.featured {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin: 0;
 }
+
+/* Hide or remove whitespace from top-strip or parents when container-fluid is present */
+.container-fluid ~ .top-strip,
+.container-fluid + .top-strip,
+.top-strip:has(+ .container-fluid) {
+    display: none !important; /* Hide top-strip if followed by container-fluid */
+}
