@@ -778,8 +778,6 @@ section.featured {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     z-index: 2;
     width: 100%; /* Full width for better centering on wide screens */
 }
@@ -787,5 +785,7 @@ section.featured {
 /* H1 styling */
 .hero-carousel .overlay h1 {
     font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin: 0;
 }
