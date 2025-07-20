@@ -782,12 +782,43 @@ section.featured {
     width: 100%; /* Full width for better centering on wide screens */
 }
 
-/* H1 styling */
+/* H1 styling with responsive design */
 .hero-carousel .overlay h1 {
-    font-size: 3.375rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 6rem; /* Base size for large screens */
     margin: 0;
+    line-height: 1.2; /* Improve readability */
+    transition: font-size 0.3s ease; /* Smooth transition for size changes */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .hero-carousel .overlay h1 {
+        font-size: 5rem; /* Slightly smaller for large tablets/desktops */
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-carousel .overlay h1 {
+        font-size: 4rem; /* Medium size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel .overlay h1 {
+        font-size: 3rem; /* Smaller for smaller tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-carousel .overlay h1 {
+        font-size: 2.5rem; /* Mobile-friendly size */
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-carousel .overlay h1 {
+        font-size: 2rem; /* Minimum size for very small screens */
+    }
 }
 
 /* Hide or remove whitespace from top-strip or parents when container-fluid is present */
