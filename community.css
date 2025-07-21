@@ -41,27 +41,27 @@
     display: block; /* Remove any inline image gaps */
 }
 
-/* Overlay positioning with improved contrast */
+/* Overlay positioning at bottom edge with new styling */
 .hero-carousel .overlay {
     position: absolute;
-    top: 50%;
+    bottom: 0; /* Move to bottom edge */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%); /* Horizontal center only, no vertical shift */
     text-align: center;
     z-index: 2;
-    width: 100%; /* Full width for better centering on wide screens */
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for contrast */
+    width: 100%; /* Full width for better centering */
+    background: rgba(255, 255, 255, 0.85); /* 85% transparency white background */
     padding: 10px; /* Optional padding for text breathing room */
 }
 
-/* H1 styling with responsive design and enhanced shadow */
+/* H1 styling with responsive design and new color */
 .hero-carousel .overlay h1 {
     font-size: 6rem; /* Base size for large screens */
     margin: 0;
     line-height: 1.2; /* Improve readability */
     transition: font-size 0.3s ease; /* Smooth transition for size changes */
-    color: var(--color-white); /* Keep white text */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Enhanced shadow for better contrast */
+    color: #313842; /* New font color */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Enhanced shadow for contrast */
 }
 
 @media (max-width: 1200px) {
