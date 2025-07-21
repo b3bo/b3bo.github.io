@@ -11,7 +11,7 @@
     overflow: hidden;
     margin-top: 0; /* Ensure no top gap */
     margin-bottom: 0; /* Ensure no bottom gap */
-    padding-top: 0;
+    padding: 0;
 }
 
 /* Set fixed height to 560px */
