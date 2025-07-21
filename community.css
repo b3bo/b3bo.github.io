@@ -52,11 +52,17 @@
     .hero-carousel .overlay h1 {
         font-size: 5rem; /* Slightly smaller for large tablets/desktops */
     }
+    .hero-carousel .slide {
+        height: 550px; /* Explicit fixed height */
+    }
 }
 
 @media (max-width: 992px) {
     .hero-carousel .overlay h1 {
         font-size: 4rem; /* Medium size for tablets */
+    }
+    .hero-carousel .slide {
+        height: 500px; /* Explicit fixed height */
     }
 }
 
@@ -64,17 +70,26 @@
     .hero-carousel .overlay h1 {
         font-size: 3rem; /* Smaller for smaller tablets */
     }
+    .hero-carousel .slide {
+        height: 438px; /* Explicit fixed height */
+    }
 }
 
 @media (max-width: 576px) {
     .hero-carousel .overlay h1 {
         font-size: 2.5rem; /* Mobile-friendly size */
     }
+    .hero-carousel .slide {
+        height: 324px; /* Explicit fixed height */
+    }
 }
 
 @media (max-width: 400px) {
     .hero-carousel .overlay h1 {
         font-size: 2rem; /* Minimum size for very small screens */
+    }
+    .hero-carousel .slide {
+        height: 324px; /* Explicit fixed height */
     }
 }
 
