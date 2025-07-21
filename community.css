@@ -1,4 +1,4 @@
-/* Community.css (for community pages like test-page) */
+/* community.css (for community pages like test-page) */
 
 /* Hero carousel container - make full-width with breakout technique */
 .hero-carousel {
@@ -14,15 +14,14 @@
     padding: 0;
 }
 
-/* Slide with responsive height, max 560px */
+/* Slide with responsive height using aspect ratio (16:9 example; adjust based on images) */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; /* Height as percentage of width for 16:9 ratio (9/16 = 0.5625) */
-    max-height: 560px; /* Cap the maximum height */
-    overflow: hidden; /* Contain overflow if aspect ratio adjustment causes issues */
 }
 
+/* Image fills the responsive slide */
 .hero-carousel .slide img {
     position: absolute;
     top: 0;
