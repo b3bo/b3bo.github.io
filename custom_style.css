@@ -883,3 +883,62 @@ section.featured {
         font-size: 0.9rem; /* Smaller text for mobile */
     }
 }
+
+/* Google Photos-style tab bar: light background, centered text tabs, responsive stacking */
+.google-style-nav {
+    background-color: #f1f3f4; /* Light gray like Google Photos */
+    padding: 0.5rem 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the tabs horizontally */
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1); /* Subtle top shadow for depth */
+}
+
+.google-style-nav .nav-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem; /* Space between tabs */
+}
+
+.google-style-nav .nav-tabs li {
+    margin: 0;
+}
+
+.google-style-nav .nav-tabs a {
+    color: #5f6368; /* Google gray text */
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Rounded like Google tabs */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping in tabs */
+}
+
+.google-style-nav .nav-tabs a:hover {
+    background-color: #e8eaed; /* Light hover background */
+    color: #202124; /* Darker text on hover */
+}
+
+/* Responsive stacking for smaller screens */
+@media (max-width: 768px) {
+    .google-style-nav .nav-tabs {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center stacked tabs */
+        gap: 0.5rem; /* Reduced gap */
+    }
+
+    .google-style-nav .nav-tabs a {
+        width: 80%; /* Wider on mobile */
+        text-align: center; /* Center text */
+    }
+}
+
+@media (max-width: 576px) {
+    .google-style-nav .nav-tabs a {
+        font-size: 0.9rem; /* Smaller text */
+        width: 90%; /* Even wider */
+    }
+}
