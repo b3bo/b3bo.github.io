@@ -832,58 +832,53 @@ section.featured {
 
 /* Custom Nav CSS */
 /* Custom horizontal nav bar */
-.custom-nav {
-    width: 100%;
-    background-color: #f8f9fa; /* Light gray, match Bootstrap bg-light if desired */
+/* Custom navigation bar with buttons */
+.custom-nav-bar {
+    background-color: var(--si-secondary-color-300, #6c757d); /* Fallback color if variable undefined */
     padding: 1rem 0;
+    width: 100%;
     margin-bottom: 0; /* Align with carousel */
-}
-
-.custom-nav .nav-links {
     display: flex;
-    justify-content: flex-end; /* Align right like ms-auto */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: var(--container-max-width, 1200px); /* Match theme container */
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 1rem; /* Space between buttons */
 }
 
-.custom-nav .nav-links li {
-    margin-left: 2rem; /* Space between links */
+/* Style for navigation buttons */
+.custom-nav-bar .nav-button {
+    background-color: var(--si-primary-color, #71939d); /* Button background */
+    color: var(--si-primary-text-color, #fff); /* Button text color */
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    border-radius: 4px; /* Optional: Rounded corners */
+    text-decoration: none; /* Remove underline if treated as link */
 }
 
-.custom-nav .nav-links li:first-child {
-    margin-left: 0; /* No margin on first item */
+/* Hover effect for buttons */
+.custom-nav-bar .nav-button:hover {
+    background-color: var(--color-link-hover, #5a6268); /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
-.custom-nav .nav-links a {
-    color: var(--color-link, #7ca3af); /* Use theme color if available */
-    text-decoration: none;
-    font-size: 1.1rem; /* Adjust as needed */
-    transition: color 0.3s ease;
-}
-
-.custom-nav .nav-links a:hover {
-    color: var(--color-link-hover, #71939d); /* Hover effect */
-}
-
-/* Responsive adjustments */
+/* Responsive stacking */
 @media (max-width: 768px) {
-    .custom-nav .nav-links {
-        justify-content: center; /* Center on smaller screens */
+    .custom-nav-bar {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center each button */
+        gap: 0.5rem; /* Reduced gap for stacking */
     }
-    .custom-nav .nav-links li {
-        margin: 0 1rem; /* Reduce spacing */
-    }
-    .custom-nav .nav-links a {
+
+    .custom-nav-bar .nav-button {
+        width: 80%; /* Ensure buttons take full width on mobile */
         font-size: 1rem; /* Slightly smaller text */
     }
 }
 
 @media (max-width: 576px) {
-    .custom-nav .nav-links a {
-        font-size: 0.9rem; /* Even smaller for mobile */
+    .custom-nav-bar .nav-button {
+        width: 90%; /* Even wider on very small screens */
+        font-size: 0.9rem; /* Smaller text for mobile */
     }
 }
