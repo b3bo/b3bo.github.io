@@ -125,10 +125,7 @@
 /* Style the breadcrumb container with centering */
 #breadcrumb-container.custom-breadcrumb {
     padding: 10px 20px;
-    background-color: var(--color-light-bg);
     margin-bottom: 15px;
-    font-size: 16px;
-    text-align: center; /* Center the breadcrumb text */
 }
 
 /* Style breadcrumb links with underlines and primary color */
@@ -145,7 +142,6 @@
 
 /* Style the current page (no link) */
 #breadcrumb-container.custom-breadcrumb span {
-    font-weight: bold;
     margin-right: 5px;
 }
 
