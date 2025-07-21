@@ -884,7 +884,7 @@ section.featured {
     }
 }
 
-/* Google Photos-style tab bar: light background, centered text tabs, responsive stacking */
+/* Google Photos-style tab bar with <p> and custom rounding */
 .google-style-nav {
     background-color: #f1f3f4; /* Light gray like Google Photos */
     padding: 0.5rem 0;
@@ -897,32 +897,40 @@ section.featured {
 
 .google-style-nav .nav-tabs {
     display: flex;
-    list-style: none;
     margin: 0;
     padding: 0;
     gap: 1.5rem; /* Space between tabs */
 }
 
-.google-style-nav .nav-tabs li {
-    margin: 0;
-}
-
 .google-style-nav .nav-tabs a {
-    color: #5f6368; /* Google gray text */
+    color: #5f6368; /* Google gray text, base 16px */
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 16px; /* Fixed at 16px as requested */
     padding: 0.5rem 1rem;
-    border-radius: 20px; /* Rounded like Google tabs */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    white-space: nowrap; /* Prevent text wrapping in tabs */
+    border-radius: 20px; /* Default rounding for all */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
+/* Custom rounding: round only first and last items */
+.google-style-nav .nav-tabs a:first-child {
+    border-radius: 20px 0 0 20px; /* Round left end */
+}
+
+.google-style-nav .nav-tabs a:last-child {
+    border-radius: 0 20px 20px 0; /* Round right end */
+}
+
+.google-style-nav .nav-tabs a:not(:first-child):not(:last-child) {
+    border-radius: 0; /* No rounding for middle items */
+}
+
+/* Hover effect: darken text only */
 .google-style-nav .nav-tabs a:hover {
-    background-color: #e8eaed; /* Light hover background */
     color: #202124; /* Darker text on hover */
 }
 
-/* Responsive stacking for smaller screens */
+/* Responsive stacking */
 @media (max-width: 768px) {
     .google-style-nav .nav-tabs {
         flex-direction: column; /* Stack vertically */
@@ -933,12 +941,13 @@ section.featured {
     .google-style-nav .nav-tabs a {
         width: 80%; /* Wider on mobile */
         text-align: center; /* Center text */
+        border-radius: 20px; /* Reset to full rounding on mobile stack */
     }
 }
 
 @media (max-width: 576px) {
     .google-style-nav .nav-tabs a {
-        font-size: 0.9rem; /* Smaller text */
+        font-size: 14px; /* Slightly smaller for very small screens */
         width: 90%; /* Even wider */
     }
 }
