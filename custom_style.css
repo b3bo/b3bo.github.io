@@ -831,7 +831,6 @@ section.featured {
 }
 
 /* Custom Nav CSS */
-/* Custom horizontal nav bar */
 /* Custom navigation bar with buttons */
 .custom-nav-bar {
     background-color: var(--si-secondary-color-300, #6c757d); /* Fallback color if variable undefined */
@@ -843,17 +842,19 @@ section.featured {
     gap: 1rem; /* Space between buttons */
 }
 
-/* Style for navigation buttons */
+/* Style for navigation buttons, inspired by Sierra's "SEARCH HOMES" button */
 .custom-nav-bar .nav-button {
-    background-color: var(--si-primary-color, #71939d); /* Button background */
+    background-color: var(--si-primary-color, #71939d); /* Button background from theme var */
     color: var(--si-primary-text-color, #fff); /* Button text color */
     border: none;
     padding: 0.5rem 1.5rem;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
-    border-radius: 4px; /* Optional: Rounded corners */
+    border-radius: 4px; /* Rounded corners */
     text-decoration: none; /* Remove underline if treated as link */
+    text-transform: uppercase; /* Match the all-caps style from screenshot */
+    font-weight: bold; /* Bold text for emphasis */
 }
 
 /* Hover effect for buttons */
