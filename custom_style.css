@@ -792,7 +792,6 @@ section.featured {
     color: var(--color-white);
 }
 
-/* Responsive adjustments */
 @media (max-width: 1200px) {
     .hero-carousel .overlay h1 {
         font-size: 5rem; /* Slightly smaller for large tablets/desktops */
@@ -822,68 +821,6 @@ section.featured {
         font-size: 2rem; /* Minimum size for very small screens */
     }
 }
-
-/* Hide or remove whitespace from top-strip or parents when container-fluid is present */
-.container-fluid ~ .top-strip,
-.container-fluid + .top-strip,
-.top-strip:has(+ .container-fluid) {
-    display: none !important; /* Hide top-strip if followed by container-fluid */
-}
-
-/* Custom Nav CSS */
-/* Custom navigation bar with buttons */
-.custom-nav-bar {
-    background-color: var(--si-secondary-color-300, #6c757d); /* Fallback color if variable undefined */
-    padding: 1rem 0;
-    width: 100%;
-    margin-bottom: 0; /* Align with carousel */
-    display: flex;
-    justify-content: center; /* Center buttons horizontally */
-    gap: 1rem; /* Space between buttons */
-}
-
-/* Style for navigation buttons, inspired by Sierra's "SEARCH HOMES" button */
-.custom-nav-bar .nav-button {
-    background-color: var(--si-primary-color, #71939d); /* Button background from theme var */
-    color: var(--si-primary-text-color, #fff); /* Button text color */
-    border: none;
-    padding: 0.5rem 1.5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
-    border-radius: 4px; /* Rounded corners */
-    text-decoration: none; /* Remove underline if treated as link */
-    text-transform: uppercase; /* Match the all-caps style from screenshot */
-    font-weight: bold; /* Bold text for emphasis */
-}
-
-/* Hover effect for buttons */
-.custom-nav-bar .nav-button:hover {
-    background-color: var(--color-link-hover, #5a6268); /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Responsive stacking */
-@media (max-width: 768px) {
-    .custom-nav-bar {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center each button */
-        gap: 0.5rem; /* Reduced gap for stacking */
-    }
-
-    .custom-nav-bar .nav-button {
-        width: 80%; /* Ensure buttons take full width on mobile */
-        font-size: 1rem; /* Slightly smaller text */
-    }
-}
-
-@media (max-width: 576px) {
-    .custom-nav-bar .nav-button {
-        width: 90%; /* Even wider on very small screens */
-        font-size: 0.9rem; /* Smaller text for mobile */
-    }
-}
-
 /* Google Photos-style tab bar with <p> and custom rounding */
 .google-style-nav {
     background-color: #f1f3f4; /* Light gray like Google Photos */
@@ -902,17 +839,20 @@ section.featured {
     gap: 1.5rem; /* Space between tabs */
 }
 
+/* Ensure links are styled as flex items */
 .google-style-nav .nav-tabs a {
     color: #5f6368; /* Google gray text, base 16px */
     text-decoration: none;
     font-size: 16px; /* Fixed at 16px as requested */
     padding: 0.5rem 1rem;
-    border-radius: 20px; /* Default rounding for all */
+    background-color: transparent; /* Ensure no default background interferes */
     transition: color 0.3s ease; /* Smooth color transition on hover */
     white-space: nowrap; /* Prevent text wrapping */
+    display: inline-block; /* Ensure block-level behavior for border-radius */
+    position: relative; /* For potential z-index if needed */
 }
 
-/* Custom rounding: round only first and last items */
+/* Explicitly target first and last children with higher specificity */
 .google-style-nav .nav-tabs a:first-child {
     border-radius: 20px 0 0 20px; /* Round left end */
 }
@@ -921,8 +861,9 @@ section.featured {
     border-radius: 0 20px 20px 0; /* Round right end */
 }
 
-.google-style-nav .nav-tabs a:not(:first-child):not(:last-child) {
-    border-radius: 0; /* No rounding for middle items */
+/* Remove rounding from middle items */
+.google-style-nav .nav-tabs a:nth-child(n+2):nth-child(-n+4) {
+    border-radius: 0; /* No rounding for middle items (2nd to 4th) */
 }
 
 /* Hover effect: darken text only */
@@ -941,7 +882,7 @@ section.featured {
     .google-style-nav .nav-tabs a {
         width: 80%; /* Wider on mobile */
         text-align: center; /* Center text */
-        border-radius: 20px; /* Reset to full rounding on mobile stack */
+        border-radius: 20px; /* Full rounding on mobile stack */
     }
 }
 
