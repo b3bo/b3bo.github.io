@@ -5,8 +5,8 @@
    Description: Styles for community pages (e.g., test-page) in Sierra Interactive.
    Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
 
-   Author: John Bauman
-   Date: July 21, 2025
+   Author: [Your Name]
+   Date: July 21, 2025 (Updated 04:39 PM CDT, Monday, July 21, 2025)
    ========================================================================== */
 
 /* ==========================================================================
@@ -122,12 +122,13 @@
 /* ==========================================================================
    Breadcrumb Navigation Styles
    ========================================================================== */
-/* Style the breadcrumb container */
+/* Style the breadcrumb container with centering */
 #breadcrumb-container.custom-breadcrumb {
     padding: 10px 20px;
     background-color: var(--color-light-bg);
     margin-bottom: 15px;
     font-size: 16px;
+    text-align: center; /* Center the breadcrumb text */
 }
 
 /* Style breadcrumb links with underlines and primary color */
