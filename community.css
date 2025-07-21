@@ -1,26 +1,47 @@
-/* community.css (for community pages like test-page) */
+/* ==========================================================================
+   community.css
+   ==========================================================================
 
-/* Hero carousel container - make full-width with breakout technique */
+   Description: Styles for community pages (e.g., test-page) in Sierra Interactive.
+   Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
+
+   Author: John Bauman
+   Date: July 21, 2025
+   ========================================================================== */
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+:root {
+    --primary-color: #0066cc; /* Define your primary color (e.g., blue) */
+    --text-color: #202124;   /* Define your text color (e.g., dark gray) */
+    --color-light-bg: #f8f8f8; /* Light background for tabs and breadcrumb */
+}
+
+/* ==========================================================================
+   Hero Carousel Styles
+   ========================================================================== */
+/* Hero carousel container - full-width with breakout technique */
 .hero-carousel {
     position: relative;
-    width: 100vw; /* Full viewport width */
+    width: 100vw;
     left: 50%;
     right: 50%;
-    margin-left: -50vw; /* Offset to center and fill */
+    margin-left: -50vw;
     margin-right: -50vw;
     overflow: hidden;
-    margin-top: 0; /* Ensure no top gap */
-    margin-bottom: 0; /* Ensure no bottom gap */
+    margin-top: 0;
+    margin-bottom: 0;
     padding: 0;
-    max-height: 560px; /* Cap the entire carousel height */
+    max-height: 560px;
 }
 
 /* Slide with responsive height, capped at 560px */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
-    height: 100%; /* Fill the container height */
-    max-height: 560px; /* Ensure no overflow beyond container */
+    height: 100%;
+    max-height: 560px;
     overflow: hidden;
 }
 
@@ -37,76 +58,115 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image fills without distortion */
-    display: block; /* Remove any inline image gaps */
+    object-fit: cover;
+    display: block;
 }
 
 /* Overlay for logo positioning (dynamic bottom-right) */
 .hero-carousel .overlay {
     position: absolute;
-    bottom: 2%; /* Dynamic offset from bottom, adjustable */
-    right: 2%; /* Dynamic offset from right, adjustable */
+    bottom: 2%;
+    right: 2%;
     z-index: 2;
-    text-align: right; /* Align logo to the right */
-    width: auto; /* Auto width for logo */
-    background: transparent; /* No background since logo is transparent */
-    padding: 0; /* No padding needed */
+    text-align: right;
+    width: auto;
+    background: transparent;
+    padding: 0;
 }
 
 /* Logo styling for responsiveness */
 .hero-carousel .overlay .overlay-logo {
-    width: 150px; /* Fixed width; adjust base size */
-    height: auto; /* Maintain logo aspect ratio */
-    display: block; /* Ensure no inline gaps */
+    width: 150px;
+    height: auto;
+    display: block;
 }
 
 /* Responsive adjustments for logo on smaller screens */
 @media (max-width: 992px) {
     .hero-carousel .overlay .overlay-logo {
-        width: 120px; /* Scale down for tablets */
+        width: 120px;
     }
     .hero-carousel .overlay {
-        bottom: 3%; /* Slightly larger offset on tablets */
+        bottom: 3%;
         right: 3%;
     }
 }
 
 @media (max-width: 768px) {
     .hero-carousel .overlay .overlay-logo {
-        width: 100px; /* Smaller for mobile */
+        width: 100px;
     }
     .hero-carousel .overlay {
-        bottom: 4%; /* Larger offset on mobile */
+        bottom: 4%;
         right: 4%;
     }
 }
 
 @media (max-width: 576px) {
     .hero-carousel .overlay .overlay-logo {
-        width: 80px; /* Even smaller for very small screens */
+        width: 80px;
     }
     .hero-carousel .overlay {
-        bottom: 5%; /* Largest offset for small screens */
+        bottom: 5%;
         right: 5%;
     }
 }
 
-/* Google Photos-style tab bar with <p>, <span>, and custom rounding */
+/* Reinforce max height on larger screens */
+@media (min-width: 1000px) {
+    .hero-carousel .slide {
+        max-height: 560px !important;
+    }
+}
+
+/* ==========================================================================
+   Breadcrumb Navigation Styles
+   ========================================================================== */
+/* Style the breadcrumb container */
+#breadcrumb-container.custom-breadcrumb {
+    padding: 10px 20px;
+    background-color: var(--color-light-bg);
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Style breadcrumb links with underlines and primary color */
+#breadcrumb-container.custom-breadcrumb a {
+    text-decoration: underline; /* Keep underlines */
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+/* Hover effect: change to text color */
+#breadcrumb-container.custom-breadcrumb a:hover {
+    color: var(--text-color);
+}
+
+/* Style the current page (no link) */
+#breadcrumb-container.custom-breadcrumb span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* ==========================================================================
+   Google Photos-Style Tab Bar Styles
+   ========================================================================== */
+/* Tab bar container */
 .google-style-nav {
-    background-color: #fff; /* White background for nav */
+    background-color: #fff;
     padding: 0.5rem 0;
     width: 100%;
     margin: 0;
     display: flex;
-    justify-content: center; /* Center the tabs horizontally */
+    justify-content: center;
 }
 
 .google-style-nav .nav-tabs {
     display: flex;
-    margin: 0 !important; /* Override any inherited margins */
+    margin: 0 !important;
     padding: 0;
     border-bottom: 0;
-    gap: 0; /* No gap for connected tabs */
+    gap: 0;
 }
 
 /* Style the wrapper span for light background and rounding */
@@ -115,24 +175,24 @@
     transition: background-color 0.3s ease;
 }
 
-/* Style the link inside span */
+/* Style the link inside span with underlines and primary color */
 .google-style-nav .nav-tabs .tab-item a {
-    color: #5f6368; /* Google gray text, base 16px */
-    text-decoration: none;
-    font-size: 16px; /* Fixed at 16px as requested */
+    color: var(--primary-color);
+    text-decoration: underline; /* Keep underlines */
+    font-size: 16px;
     padding: 14px 20px;
-    display: block; /* Make full span clickable */
-    transition: color 0.3s ease; /* Smooth color transition on hover */
-    white-space: nowrap; /* Prevent text wrapping */
+    display: block;
+    transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 /* Custom rounding on span: round only first and last items */
 .google-style-nav .nav-tabs .tab-item:first-child {
-    border-radius: 20px 0 0 20px; /* Round left end */
+    border-radius: 20px 0 0 20px;
 }
 
 .google-style-nav .nav-tabs .tab-item:last-child {
-    border-radius: 0 20px 20px 0; /* Round right end */
+    border-radius: 0 20px 20px 0;
 }
 
 /* No rounding for middle spans */
@@ -140,37 +200,39 @@
     border-radius: 0;
 }
 
-/* Hover effect on span: darken text only */
+/* Hover effect: change to text color */
 .google-style-nav .nav-tabs .tab-item:hover a {
-    color: #202124; /* Darker text on hover */
+    color: var(--text-color);
 }
 
 /* Responsive stacking */
 @media (max-width: 768px) {
     .google-style-nav .nav-tabs {
-        flex-direction: column; /* Stack vertically */
-        align-items: center; /* Center stacked tabs */
-        gap: 0.5rem; /* Reduced gap */
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .google-style-nav .nav-tabs .tab-item {
-        border-radius: 20px; /* Full rounding on mobile stack */
+        border-radius: 20px;
     }
 
     .google-style-nav .nav-tabs .tab-item a {
-        text-align: center; /* Center text */
+        text-align: center;
     }
 }
 
 @media (max-width: 576px) {
     .google-style-nav .nav-tabs .tab-item a {
-        font-size: 14px; /* Slightly smaller for very small screens */
+        font-size: 14px;
     }
 }
 
-/* Additional media query to enforce max height on larger screens */
-@media (min-width: 1000px) {
-    .hero-carousel .slide {
-        max-height: 560px !important; /* Reinforce cap on wide screens */
-    }
+/* ==========================================================================
+   Community Container Styles
+   ========================================================================== */
+/* Center the h1 within any element with class 'container community' */
+.container.community h1 {
+    text-align: center;
+    margin: 20px 0;
 }
