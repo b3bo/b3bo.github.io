@@ -14,14 +14,19 @@
     padding: 0;
 }
 
-/* Set fixed height to 560px */
+/* Slide with responsive height, capped at 560px */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
-    height: 560px; /* Explicit fixed height */
+    padding-bottom: 56.25%; /* Maintains 16:9 aspect ratio (9/16 * 100); adjust if image differs */
+    max-height: 560px; /* Caps the maximum height */
+    overflow: hidden; /* Contain any overflow */
 }
 
 .hero-carousel .slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensure image fills without distortion */
@@ -48,12 +53,10 @@
     color: var(--color-white);
 }
 
+/* Responsive H1 adjustments */
 @media (max-width: 1200px) {
     .hero-carousel .overlay h1 {
         font-size: 5rem; /* Slightly smaller for large tablets/desktops */
-    }
-    .hero-carousel .slide {
-        height: 550px; /* Explicit fixed height */
     }
 }
 
@@ -61,17 +64,11 @@
     .hero-carousel .overlay h1 {
         font-size: 4rem; /* Medium size for tablets */
     }
-    .hero-carousel .slide {
-        height: 500px; /* Explicit fixed height */
-    }
 }
 
 @media (max-width: 768px) {
     .hero-carousel .overlay h1 {
         font-size: 3rem; /* Smaller for smaller tablets */
-    }
-    .hero-carousel .slide {
-        height: 438px; /* Explicit fixed height */
     }
 }
 
@@ -79,17 +76,11 @@
     .hero-carousel .overlay h1 {
         font-size: 2.5rem; /* Mobile-friendly size */
     }
-    .hero-carousel .slide {
-        height: 324px; /* Explicit fixed height */
-    }
 }
 
 @media (max-width: 400px) {
     .hero-carousel .overlay h1 {
         font-size: 2rem; /* Minimum size for very small screens */
-    }
-    .hero-carousel .slide {
-        height: 324px; /* Explicit fixed height */
     }
 }
 
