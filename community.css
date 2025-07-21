@@ -1,0 +1,156 @@
+/* community.css (for community pages like test-page) */
+
+/* Hero carousel container - make full-width with breakout technique */
+.hero-carousel {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw; /* Offset to center and fill */
+    margin-right: -50vw;
+    overflow: hidden;
+    margin-top: 0; /* Ensure no top gap */
+    margin-bottom: 0; /* Ensure no bottom gap */
+    padding-top: 0;
+}
+
+/* Set fixed height to 560px */
+.hero-carousel .slide {
+    position: relative;
+    width: 100%;
+    height: 560px; /* Explicit fixed height */
+}
+
+.hero-carousel .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image fills without distortion */
+    display: block; /* Remove any inline image gaps */
+}
+
+/* Overlay positioning */
+.hero-carousel .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 100%; /* Full width for better centering on wide screens */
+}
+
+/* H1 styling with responsive design */
+.hero-carousel .overlay h1 {
+    font-size: 6rem; /* Base size for large screens */
+    margin: 0;
+    line-height: 1.2; /* Improve readability */
+    transition: font-size 0.3s ease; /* Smooth transition for size changes */
+    color: var(--color-white);
+}
+
+@media (max-width: 1200px) {
+    .hero-carousel .overlay h1 {
+        font-size: 5rem; /* Slightly smaller for large tablets/desktops */
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-carousel .overlay h1 {
+        font-size: 4rem; /* Medium size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel .overlay h1 {
+        font-size: 3rem; /* Smaller for smaller tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-carousel .overlay h1 {
+        font-size: 2.5rem; /* Mobile-friendly size */
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-carousel .overlay h1 {
+        font-size: 2rem; /* Minimum size for very small screens */
+    }
+}
+
+/* Google Photos-style tab bar with <p>, <span>, and custom rounding */
+.google-style-nav {
+    background-color: #fff; /* White background for nav */
+    padding: 0.5rem 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the tabs horizontally */
+}
+
+.google-style-nav .nav-tabs {
+    display: flex;
+    margin: 0 !important; /* Override any inherited margins */
+    padding: 0;
+    border-bottom: 0;
+    gap: 0; /* No gap for connected tabs */
+}
+
+/* Style the wrapper span for light background and rounding */
+.google-style-nav .nav-tabs .tab-item {
+    background-color: var(--color-light-bg);
+    transition: background-color 0.3s ease;
+}
+
+/* Style the link inside span */
+.google-style-nav .nav-tabs .tab-item a {
+    color: #5f6368; /* Google gray text, base 16px */
+    text-decoration: none;
+    font-size: 16px; /* Fixed at 16px as requested */
+    padding: 14px 20px;
+    display: block; /* Make full span clickable */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Custom rounding on span: round only first and last items */
+.google-style-nav .nav-tabs .tab-item:first-child {
+    border-radius: 20px 0 0 20px; /* Round left end */
+}
+
+.google-style-nav .nav-tabs .tab-item:last-child {
+    border-radius: 0 20px 20px 0; /* Round right end */
+}
+
+/* No rounding for middle spans */
+.google-style-nav .nav-tabs .tab-item:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+/* Hover effect on span: darken text only */
+.google-style-nav .nav-tabs .tab-item:hover a {
+    color: #202124; /* Darker text on hover */
+}
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+    .google-style-nav .nav-tabs {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center stacked tabs */
+        gap: 0.5rem; /* Reduced gap */
+    }
+
+    .google-style-nav .nav-tabs .tab-item {
+        border-radius: 20px; /* Full rounding on mobile stack */
+    }
+
+    .google-style-nav .nav-tabs .tab-item a {
+        text-align: center; /* Center text */
+    }
+}
+
+@media (max-width: 576px) {
+    .google-style-nav .nav-tabs .tab-item a {
+        font-size: 14px; /* Slightly smaller for very small screens */
+    }
+}
