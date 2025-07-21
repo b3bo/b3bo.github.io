@@ -755,6 +755,7 @@ section.featured {
     overflow: hidden;
     margin-top: 0; /* Ensure no top gap */
     margin-bottom: 0; /* Ensure no bottom gap */
+    padding-top: 0;
 }
 
 /* Set fixed height to 560px */
@@ -827,4 +828,62 @@ section.featured {
 .container-fluid + .top-strip,
 .top-strip:has(+ .container-fluid) {
     display: none !important; /* Hide top-strip if followed by container-fluid */
+}
+
+/* Custom Nav CSS */
+/* Custom horizontal nav bar */
+.custom-nav {
+    width: 100%;
+    background-color: #f8f9fa; /* Light gray, match Bootstrap bg-light if desired */
+    padding: 1rem 0;
+    margin-bottom: 0; /* Align with carousel */
+}
+
+.custom-nav .nav-links {
+    display: flex;
+    justify-content: flex-end; /* Align right like ms-auto */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: var(--container-max-width, 1200px); /* Match theme container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-nav .nav-links li {
+    margin-left: 2rem; /* Space between links */
+}
+
+.custom-nav .nav-links li:first-child {
+    margin-left: 0; /* No margin on first item */
+}
+
+.custom-nav .nav-links a {
+    color: var(--color-link, #7ca3af); /* Use theme color if available */
+    text-decoration: none;
+    font-size: 1.1rem; /* Adjust as needed */
+    transition: color 0.3s ease;
+}
+
+.custom-nav .nav-links a:hover {
+    color: var(--color-link-hover, #71939d); /* Hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .custom-nav .nav-links {
+        justify-content: center; /* Center on smaller screens */
+    }
+    .custom-nav .nav-links li {
+        margin: 0 1rem; /* Reduce spacing */
+    }
+    .custom-nav .nav-links a {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-nav .nav-links a {
+        font-size: 0.9rem; /* Even smaller for mobile */
+    }
 }
