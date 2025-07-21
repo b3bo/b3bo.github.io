@@ -821,7 +821,9 @@ section.featured {
         font-size: 2rem; /* Minimum size for very small screens */
     }
 }
-/* Google Photos-style tab bar with <p> and custom rounding */
+
+
+/* Google Photos-style tab bar with <p>, <span>, and custom rounding */
 .google-style-nav {
     background-color: #f1f3f4; /* Light gray like Google Photos */
     padding: 0.5rem 0;
@@ -836,38 +838,47 @@ section.featured {
     display: flex;
     margin: 0 !important;
     padding: 0;
-    gap: 1.5rem; /* Space between tabs */
+    gap: 0; /* No gap for connected tabs */
 }
 
-/* Ensure links are styled as flex items */
-.google-style-nav .nav-tabs a {
+/* Style the wrapper span for background and rounding */
+.google-style-nav .nav-tabs .tab-item {
+    background-color: #fff; /* White background to make rounding visible */
+    border: 1px solid #ddd; /* Light border for visibility */
+    transition: background-color 0.3s ease;
+}
+
+/* Style the link inside span */
+.google-style-nav .nav-tabs .tab-item a {
     color: #5f6368; /* Google gray text, base 16px */
     text-decoration: none;
     font-size: 16px; /* Fixed at 16px as requested */
     padding: 0.5rem 1rem;
-    background-color: transparent; /* Ensure no default background interferes */
+    display: block; /* Make full span clickable */
     transition: color 0.3s ease; /* Smooth color transition on hover */
     white-space: nowrap; /* Prevent text wrapping */
-    display: inline-block; /* Ensure block-level behavior for border-radius */
-    position: relative; /* For potential z-index if needed */
 }
 
-/* Explicitly target first and last children with higher specificity */
-.google-style-nav .nav-tabs a:first-child {
+/* Custom rounding on span: round only first and last items */
+.google-style-nav .nav-tabs .tab-item:first-child {
     border-radius: 20px 0 0 20px; /* Round left end */
 }
 
-.google-style-nav .nav-tabs a:last-child {
+.google-style-nav .nav-tabs .tab-item:last-child {
     border-radius: 0 20px 20px 0; /* Round right end */
 }
 
-/* Remove rounding from middle items */
-.google-style-nav .nav-tabs a:nth-child(n+2):nth-child(-n+4) {
-    border-radius: 0; /* No rounding for middle items (2nd to 4th) */
+/* No rounding for middle spans */
+.google-style-nav .nav-tabs .tab-item:not(:first-child):not(:last-child) {
+    border-radius: 0;
 }
 
-/* Hover effect: darken text only */
-.google-style-nav .nav-tabs a:hover {
+/* Hover effect on span: background change, darken text */
+.google-style-nav .nav-tabs .tab-item:hover {
+    background-color: #e8eaed; /* Light hover background */
+}
+
+.google-style-nav .nav-tabs .tab-item:hover a {
     color: #202124; /* Darker text on hover */
 }
 
@@ -879,16 +890,17 @@ section.featured {
         gap: 0.5rem; /* Reduced gap */
     }
 
-    .google-style-nav .nav-tabs a {
-        width: 80%; /* Wider on mobile */
-        text-align: center; /* Center text */
+    .google-style-nav .nav-tabs .tab-item {
         border-radius: 20px; /* Full rounding on mobile stack */
+    }
+
+    .google-style-nav .nav-tabs .tab-item a {
+        text-align: center; /* Center text */
     }
 }
 
 @media (max-width: 576px) {
-    .google-style-nav .nav-tabs a {
+    .google-style-nav .nav-tabs .tab-item a {
         font-size: 14px; /* Slightly smaller for very small screens */
-        width: 90%; /* Even wider */
     }
 }
