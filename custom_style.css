@@ -831,7 +831,6 @@ section.featured {
     margin: 0;
     display: flex;
     justify-content: center; /* Center the tabs horizontally */
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1); /* Subtle top shadow for depth */
 }
 
 .google-style-nav .nav-tabs {
@@ -844,7 +843,7 @@ section.featured {
 
 /* Style the wrapper span for light background and rounding */
 .google-style-nav .nav-tabs .tab-item {
-    background-color: #f1f3f4; /* Light background for buttons, matching Google Photos */
+    background-color: var(--color-light-bg);
     transition: background-color 0.3s ease;
 }
 
@@ -853,7 +852,7 @@ section.featured {
     color: #5f6368; /* Google gray text, base 16px */
     text-decoration: none;
     font-size: 16px; /* Fixed at 16px as requested */
-    padding: 0.5rem 1rem;
+    padding: 14px 20px;
     display: block; /* Make full span clickable */
     transition: color 0.3s ease; /* Smooth color transition on hover */
     white-space: nowrap; /* Prevent text wrapping */
