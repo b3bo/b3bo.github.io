@@ -126,6 +126,7 @@
 #breadcrumb-container.custom-breadcrumb {
     padding: 10px 20px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 /* Style breadcrumb links with underlines and primary color */
