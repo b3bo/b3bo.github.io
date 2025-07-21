@@ -12,15 +12,23 @@
     margin-top: 0; /* Ensure no top gap */
     margin-bottom: 0; /* Ensure no bottom gap */
     padding: 0;
+    max-height: 560px; /* Cap the entire carousel height */
 }
 
 /* Slide with responsive height, capped at 560px */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Maintains 16:9 aspect ratio (9/16 * 100); adjust if image differs */
-    max-height: 560px; /* Caps the maximum height */
-    overflow: hidden; /* Contain any overflow */
+    height: 100%; /* Fill the container height */
+    max-height: 560px; /* Ensure no overflow beyond container */
+    overflow: hidden;
+}
+
+.hero-carousel .slide::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio up to max height */
 }
 
 .hero-carousel .slide img {
@@ -33,7 +41,7 @@
     display: block; /* Remove any inline image gaps */
 }
 
-/* Overlay positioning */
+/* Overlay positioning with improved contrast */
 .hero-carousel .overlay {
     position: absolute;
     top: 50%;
@@ -42,18 +50,20 @@
     text-align: center;
     z-index: 2;
     width: 100%; /* Full width for better centering on wide screens */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for contrast */
+    padding: 10px; /* Optional padding for text breathing room */
 }
 
-/* H1 styling with responsive design */
+/* H1 styling with responsive design and enhanced shadow */
 .hero-carousel .overlay h1 {
     font-size: 6rem; /* Base size for large screens */
     margin: 0;
     line-height: 1.2; /* Improve readability */
     transition: font-size 0.3s ease; /* Smooth transition for size changes */
-    color: var(--color-white);
+    color: var(--color-white); /* Keep white text */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Enhanced shadow for better contrast */
 }
 
-/* Responsive H1 adjustments */
 @media (max-width: 1200px) {
     .hero-carousel .overlay h1 {
         font-size: 5rem; /* Slightly smaller for large tablets/desktops */
@@ -158,5 +168,12 @@
 @media (max-width: 576px) {
     .google-style-nav .nav-tabs .tab-item a {
         font-size: 14px; /* Slightly smaller for very small screens */
+    }
+}
+
+/* Additional media query to enforce max height on larger screens */
+@media (min-width: 1000px) {
+    .hero-carousel .slide {
+        max-height: 560px !important; /* Reinforce cap on wide screens */
     }
 }
