@@ -825,7 +825,7 @@ section.featured {
 
 /* Google Photos-style tab bar with <p>, <span>, and custom rounding */
 .google-style-nav {
-    background-color: #f1f3f4; /* Light gray like Google Photos */
+    background-color: #fff; /* White background for nav */
     padding: 0.5rem 0;
     width: 100%;
     margin: 0;
@@ -836,15 +836,14 @@ section.featured {
 
 .google-style-nav .nav-tabs {
     display: flex;
-    margin: 0 !important;
+    margin: 0 !important; /* Override any inherited margins */
     padding: 0;
     gap: 0; /* No gap for connected tabs */
 }
 
-/* Style the wrapper span for background and rounding */
+/* Style the wrapper span for light background and rounding */
 .google-style-nav .nav-tabs .tab-item {
-    background-color: #fff; /* White background to make rounding visible */
-    border: 1px solid #ddd; /* Light border for visibility */
+    background-color: #f1f3f4; /* Light background for buttons, matching Google Photos */
     transition: background-color 0.3s ease;
 }
 
@@ -873,11 +872,7 @@ section.featured {
     border-radius: 0;
 }
 
-/* Hover effect on span: background change, darken text */
-.google-style-nav .nav-tabs .tab-item:hover {
-    background-color: #e8eaed; /* Light hover background */
-}
-
+/* Hover effect on span: darken text only */
 .google-style-nav .nav-tabs .tab-item:hover a {
     color: #202124; /* Darker text on hover */
 }
