@@ -1,4 +1,4 @@
-/* Community.css (for community pages like test-page) */
+/* community.css (for community pages like test-page) */
 
 /* Hero carousel container - make full-width with breakout technique */
 .hero-carousel {
@@ -41,11 +41,11 @@
     display: block; /* Remove any inline image gaps */
 }
 
-/* Overlay for logo positioning (bottom-right by default) */
+/* Overlay for logo positioning (dynamic bottom-right) */
 .hero-carousel .overlay {
     position: absolute;
-    bottom: 20px; /* Offset from bottom edge; adjust as needed */
-    right: 20px; /* Offset from right edge; adjust as needed */
+    bottom: 2%; /* Dynamic offset from bottom, adjustable */
+    right: 2%; /* Dynamic offset from right, adjustable */
     z-index: 2;
     text-align: right; /* Align logo to the right */
     width: auto; /* Auto width for logo */
@@ -65,17 +65,29 @@
     .hero-carousel .overlay .overlay-logo {
         width: 120px; /* Scale down for tablets */
     }
+    .hero-carousel .overlay {
+        bottom: 3%; /* Slightly larger offset on tablets */
+        right: 3%;
+    }
 }
 
 @media (max-width: 768px) {
     .hero-carousel .overlay .overlay-logo {
         width: 100px; /* Smaller for mobile */
     }
+    .hero-carousel .overlay {
+        bottom: 4%; /* Larger offset on mobile */
+        right: 4%;
+    }
 }
 
 @media (max-width: 576px) {
     .hero-carousel .overlay .overlay-logo {
         width: 80px; /* Even smaller for very small screens */
+    }
+    .hero-carousel .overlay {
+        bottom: 5%; /* Largest offset for small screens */
+        right: 5%;
     }
 }
 
