@@ -1,4 +1,4 @@
-/* community.css (for community pages like test-page) */
+/* Community.css (for community pages like test-page) */
 
 /* Hero carousel container - make full-width with breakout technique */
 .hero-carousel {
@@ -39,6 +39,44 @@
     height: 100%;
     object-fit: cover; /* Ensure image fills without distortion */
     display: block; /* Remove any inline image gaps */
+}
+
+/* Overlay for logo positioning (bottom-right by default) */
+.hero-carousel .overlay {
+    position: absolute;
+    bottom: 20px; /* Offset from bottom edge; adjust as needed */
+    right: 20px; /* Offset from right edge; adjust as needed */
+    z-index: 2;
+    text-align: right; /* Align logo to the right */
+    width: auto; /* Auto width for logo */
+    background: transparent; /* No background since logo is transparent */
+    padding: 0; /* No padding needed */
+}
+
+/* Logo styling for responsiveness */
+.hero-carousel .overlay .overlay-logo {
+    width: 150px; /* Fixed width; adjust base size */
+    height: auto; /* Maintain logo aspect ratio */
+    display: block; /* Ensure no inline gaps */
+}
+
+/* Responsive adjustments for logo on smaller screens */
+@media (max-width: 992px) {
+    .hero-carousel .overlay .overlay-logo {
+        width: 120px; /* Scale down for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-carousel .overlay .overlay-logo {
+        width: 100px; /* Smaller for mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-carousel .overlay .overlay-logo {
+        width: 80px; /* Even smaller for very small screens */
+    }
 }
 
 /* Google Photos-style tab bar with <p>, <span>, and custom rounding */
