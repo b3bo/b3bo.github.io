@@ -14,18 +14,14 @@
     padding: 0;
 }
 
-/* Slide with responsive height using aspect ratio (16:9 example; adjust based on images) */
+/* Set fixed height to 560px */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Height as percentage of width for 16:9 ratio (9/16 = 0.5625) */
+    height: 560px; /* Explicit fixed height */
 }
 
-/* Image fills the responsive slide */
 .hero-carousel .slide img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensure image fills without distortion */
