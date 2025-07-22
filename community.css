@@ -282,11 +282,12 @@
 /* Style each tag item as a pill */
 .tags .tag-item,
 .tags .tab-item {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); 
     border-radius: .25rem; /* Pill shape */
     padding: 8px 15px; /* Vertical and horizontal padding for pill height */
     display: inline-block;
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
 .tags .tag-item a,
