@@ -5,8 +5,8 @@
    Description: Styles for community pages (e.g., test-page) in Sierra Interactive.
    Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
 
-   Author: [Your Name]
-   Date: July 21, 2025 (Updated 04:39 PM CDT, Monday, July 21, 2025)
+   Author: John Bauman
+   Date: July 21, 2025 (Updated 10:50 PM CDT, Monday, July 21, 2025)
    ========================================================================== */
 
 /* ==========================================================================
@@ -122,16 +122,20 @@
 /* ==========================================================================
    Breadcrumb Navigation Styles
    ========================================================================== */
-/* Style the breadcrumb container with centering */
+/* Style the breadcrumb container with centering for all items */
 #breadcrumb-container.custom-breadcrumb {
     padding: 10px 20px;
+    background-color: var(--color-light-bg);
     margin-bottom: 15px;
+    font-size: 16px;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 /* Style breadcrumb links with underlines and primary color */
 #breadcrumb-container.custom-breadcrumb a {
-    text-decoration: underline; /* Keep underlines */
+    text-decoration: underline;
     color: var(--primary-color);
     margin-right: 5px;
 }
@@ -143,8 +147,14 @@
 
 /* Style the current page (no link) */
 #breadcrumb-container.custom-breadcrumb span {
-
     margin-right: 5px;
+}
+
+/* Style Font Awesome icon for Home */
+#breadcrumb-container.custom-breadcrumb i {
+    color: var(--primary-color);
+    margin-right: 5px;
+    font-size: 16px; /* Match text size */
 }
 
 /* ==========================================================================
@@ -177,7 +187,7 @@
 /* Style the link inside span with underlines and primary color */
 .google-style-nav .nav-tabs .tab-item a {
     color: var(--primary-color);
-    text-decoration: underline; /* Keep underlines */
+    text-decoration: underline;
     font-size: 16px;
     padding: 14px 20px;
     display: block;
