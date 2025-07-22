@@ -150,6 +150,8 @@
     margin-right: 5px;
 }
 
+.fa-home::before { content: "\f015"; }
+
 @font-face {
   font-family: "Font Awesome 6 Free";
   font-style: normal;
