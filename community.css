@@ -298,12 +298,15 @@
     font-weight: 500; /* Slightly bold for emphasis */
     white-space: nowrap; /* Prevent text wrapping */
     padding: .25rem;
+    display: block; /* Ensure the <a> fills the pill */
+    width: 100%; /* Full width of the pill */
+    box-sizing: border-box; /* Include padding in width */
 }
 
-.tags .tag-item a:hover,
-.tags .tab-item a:hover {
-    color: #fff; /* Keep text white on hover */
-    background-color: var(--tag-hover-color);
+/* Hover effect on the entire pill */
+.tags .tag-item:hover,
+.tags .tab-item:hover {
+    background-color: var(--tag-hover-color); /* Highlight the whole pill */
 }
 
 /* Responsive adjustments */
