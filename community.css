@@ -276,6 +276,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    line-height: 1.2 !important;
 }
 
 /* Style each tag item as a pill */
@@ -301,7 +302,7 @@
 .tags .tag-item a:hover,
 .tags .tab-item a:hover {
     color: #fff; /* Keep text white on hover */
-    background-color: var(--primary-color);
+    background-color: var(--tag-hover-color);
 }
 
 /* Responsive adjustments */
