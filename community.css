@@ -283,7 +283,7 @@
 .tags .tag-item,
 .tags .tab-item {
     background-color: var(--primary-color); 
-    border-radius: .25rem; /* Pill shape */
+    border-radius: 1rem; /* Pill shape */
     padding: 8px 15px; /* Vertical and horizontal padding for pill height */
     display: inline-block;
     transition: background-color 0.3s ease;
