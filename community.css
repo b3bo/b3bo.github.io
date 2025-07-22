@@ -265,7 +265,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px; /* Space between pills */
+    gap: 8px; /* Space between pills */
 }
 
 /* Style the paragraph wrapper */
@@ -282,7 +282,7 @@
 .tags .tag-item,
 .tags .tab-item {
     background-color: var(--primary-color);
-    border-radius: 20px; /* Pill shape */
+    border-radius: .25rem; /* Pill shape */
     padding: 8px 15px; /* Vertical and horizontal padding for pill height */
     display: inline-block;
     transition: background-color 0.3s ease; /* Smooth hover transition */
@@ -295,6 +295,7 @@
     font-size: 14px; /* Readable size */
     font-weight: 500; /* Slightly bold for emphasis */
     white-space: nowrap; /* Prevent text wrapping */
+    padding: .25rem;
 }
 
 .tags .tag-item a:hover,
