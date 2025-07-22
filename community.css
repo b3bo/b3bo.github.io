@@ -125,9 +125,7 @@
 /* Style the breadcrumb container with centering for all items */
 #breadcrumb-container.custom-breadcrumb {
     padding: 10px 20px;
-    background-color: var(--color-light-bg);
     margin-bottom: 15px;
-    font-size: 16px;
     text-align: center;
     display: flex;
     justify-content: center;
