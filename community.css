@@ -285,7 +285,8 @@
     background-color: var(--primary-color); 
     border-radius: 1rem; /* Pill shape */
     padding: 8px 15px; /* Vertical and horizontal padding for pill height */
-    display: inline-block;
+    display: flex; /* Use flex for vertical centering */
+    align-items: center; /* Vertically center content */
     transition: background-color 0.3s ease;
     text-transform: uppercase;
 }
@@ -297,9 +298,9 @@
     font-size: 14px; /* Readable size */
     font-weight: 500; /* Slightly bold for emphasis */
     white-space: nowrap; /* Prevent text wrapping */
-    padding: .25rem;
-    display: block; /* Ensure the <a> fills the pill */
-    width: 100%; /* Full width of the pill */
+    padding: 0; /* Remove padding to avoid overlap with parent */
+    display: block; /* Ensure full width */
+    width: 100%; /* Fill the pill */
     box-sizing: border-box; /* Include padding in width */
 }
 
