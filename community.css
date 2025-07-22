@@ -260,8 +260,7 @@
 /* Style the tags container */
 .tags {
     padding: 10px 20px;
-    background-color: var(--color-light-bg);
-    margin-bottom: 15px;
+    margin: 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
