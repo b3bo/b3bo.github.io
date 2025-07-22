@@ -13,9 +13,10 @@
    Variables
    ========================================================================== */
 :root {
-    --primary-color: #0066cc; /* Define your primary color (e.g., blue) */
-    --text-color: #202124;   /* Define your text color (e.g., dark gray) */
-    --color-light-bg: #f8f8f8; /* Light background for tabs and breadcrumb */
+    --primary-color: #71939d;
+    --text-color: #313842;  
+    --color-light-bg: #f7f7f7;
+    --tag-hover-color: #4a5c69;
 }
 
 /* ==========================================================================
@@ -255,7 +256,7 @@
 }
 
 /* ==========================================================================
-   Tags Navigation Styles
+   Community Tags Navigation Styles
    ========================================================================== */
 /* Style the tags container */
 .tags {
@@ -299,12 +300,7 @@
 .tags .tag-item a:hover,
 .tags .tab-item a:hover {
     color: #fff; /* Keep text white on hover */
-    text-decoration: underline; /* Optional: Add underline on hover */
-}
-
-.tags .tab-item a[title] {
-    /* Specific styling for the title attribute (e.g., Watersound Origins Market Update) */
-    font-style: italic; /* Indicate it's a title or special tag */
+    background-color: var(--primary-color);
 }
 
 /* Responsive adjustments */
