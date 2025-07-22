@@ -253,3 +253,78 @@
     text-align: center;
     margin: 20px 0;
 }
+
+/* ==========================================================================
+   Tags Navigation Styles
+   ========================================================================== */
+/* Style the tags container */
+.tags {
+    padding: 10px 20px;
+    background-color: var(--color-light-bg);
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between pills */
+}
+
+/* Style the paragraph wrapper */
+.tags .comm-tags {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Style each tag item as a pill */
+.tags .tag-item,
+.tags .tab-item {
+    background-color: var(--primary-color);
+    border-radius: 20px; /* Pill shape */
+    padding: 8px 15px; /* Vertical and horizontal padding for pill height */
+    display: inline-block;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.tags .tag-item a,
+.tags .tab-item a {
+    color: #fff; /* White text for contrast */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Readable size */
+    font-weight: 500; /* Slightly bold for emphasis */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.tags .tag-item a:hover,
+.tags .tab-item a:hover {
+    color: #fff; /* Keep text white on hover */
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+.tags .tab-item a[title] {
+    /* Specific styling for the title attribute (e.g., Watersound Origins Market Update) */
+    font-style: italic; /* Indicate it's a title or special tag */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tags .tag-item,
+    .tags .tab-item {
+        padding: 6px 12px; /* Slightly smaller on mobile */
+        font-size: 12px; /* Adjust text size */
+    }
+}
+
+@media (max-width: 576px) {
+    .tags {
+        padding: 5px 10px;
+        gap: 5px;
+    }
+    .tags .tag-item,
+    .tags .tab-item {
+        padding: 4px 10px;
+        font-size: 10px;
+    }
+}
