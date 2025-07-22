@@ -302,6 +302,7 @@
     display: block; /* Ensure full width */
     width: 100%; /* Fill the pill */
     box-sizing: border-box; /* Include padding in width */
+    line-height: 1; /* Reset line-height to center text vertically */
 }
 
 /* Hover effect on the entire pill */
