@@ -17,6 +17,7 @@
     --text-color: #313842;  
     --color-light-bg: #f7f7f7;
     --tag-hover-color: #4a5c69;
+    --sis-btn-tertiary-bg: #71939d;
 }
 
 /* ==========================================================================
@@ -341,12 +342,12 @@
   border: 1px solid var(--color-border);
 }
 
-/* Hide Content Label H2 */
+/* Hide Content Label Title */
 .si-content-label__title {
     display: none;
 }
 
-/* Hide Videos H2 */
+/* Hide Videos Title */
 .si-container .si-videos-widget .js-videos-widget {
     display: none;
 }
