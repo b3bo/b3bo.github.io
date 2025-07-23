@@ -261,6 +261,7 @@
    ========================================================================== */
 .full-width-bg {
     width: 100vw;
+    position: relative;
     left: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
