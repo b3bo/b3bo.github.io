@@ -718,11 +718,12 @@ section.featured {
   }
 }
 
-@media (min-width: 1200px) { /* New breakpoint for wide screens */
+/*
+@media (min-width: 1200px) { /* New breakpoint for wide screens 
   .container {
-    padding: 0 2rem; /* More padding for breathing room */
+    padding: 0 2rem; /* More padding for breathing room 
   }
-}
+}*/
 
 /* Reduced motion preferences - Expanded for more elements */
 @media (prefers-reduced-motion: reduce) {
