@@ -347,7 +347,7 @@
 }
 
 /* Hide Videos H2 */
-.si-container si-videos-widget js-videos-widget {
+.si-container .si-videos-widget .js-videos-widget {
     display: none;
 }
 
