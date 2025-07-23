@@ -355,7 +355,5 @@
 
 /* Style the title as an h2 */
 .si-content-label__title {
-    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem); /* Fluid scaling, default h2-like size */
-    margin: 0 0 1rem 0; /* Default margin below h2 */
-    color: var(--text-color); /* Consistent with theme */
+    display: none;
 }
