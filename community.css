@@ -339,8 +339,9 @@
 .si-container.si-content-label.js-content-label {
     max-width: var(--container-max-width, 1200px);
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 17px;
     box-sizing: border-box;
+    margin: 0;
 }
 
 .si-container.si-content-label.js-content-label .si-row {
