@@ -230,7 +230,7 @@
     color: var(--text-color);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
     .google-style-nav {
         display: none;
     }
