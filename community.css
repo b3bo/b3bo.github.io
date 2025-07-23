@@ -6,7 +6,7 @@
    Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
 
    Author: John Bauman
-   Date: July 21, 2025 (Updated 09:45 AM CDT, Wednesday, July 23, 2025)
+   Date: July 21, 2025 (Updated 11:05 AM EDT, Wednesday, July 23, 2025)
    ========================================================================== */
 
 /* ==========================================================================
@@ -26,7 +26,7 @@
 /* Hero carousel container - full-screen width with max 16:9 aspect ratio and shadow */
 .hero-carousel {
     position: relative;
-    width: 100vw; /* Full viewport width */
+    width: 100vw; /* Full viewport width for end-to-end */
     left: 50%;
     right: 50%;
     margin-left: -50vw; /* Breakout technique for edge-to-edge */
@@ -38,20 +38,28 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow: 0px horizontal, 4px vertical, 12px blur, 20% opacity */
 }
 
-/* Slide with max 16:9 aspect ratio, scaling down if needed */
+/* Slide with 16:9 aspect ratio, adjusted for mobile */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
-    max-height: 56.25vw; /* Max 16:9 aspect ratio (9/16 * 100vw) */
+    padding-bottom: 56.25%; /* 9/16 * 100 for 16:9 aspect ratio */
     overflow: hidden;
+}
+
+/* Ensure proper height on smaller screens */
+@media (max-width: 576px) {
+    .hero-carousel .slide {
+        min-height: 200px; /* Minimum height to avoid being too short, adjust based on image */
+        padding-bottom: 56.25%; /* Maintain 16:9 */
+    }
 }
 
 .hero-carousel .slide::before {
     content: '';
     display: block;
     width: 100%;
-    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio up to max height */
-    max-height: 56.25vw; /* Cap height to prevent 4:3 */
+    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+    max-height: 56.25vw; /* Cap height to prevent 4:3 stretching on larger screens */
 }
 
 .hero-carousel .slide img {
