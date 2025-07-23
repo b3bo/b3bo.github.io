@@ -35,7 +35,6 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow: 0px horizontal, 4px vertical, 12px blur, 20% opacity */
 }
 
 /* Slide with max height of 560px for widths >= 996px, 16:9 below that */
@@ -49,7 +48,7 @@
     content: '';
     display: block;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 70%; /* 16:9 aspect ratio */
 }
 
 .hero-carousel .slide img {
