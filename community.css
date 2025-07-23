@@ -17,7 +17,7 @@
     --text-color: #313842;  
     --color-light-bg: #f7f7f7;
     --tag-hover-color: #4a5c69;
-    --sis-btn-tertiary-bg: #71939d;
+    --sis-btn-tertiary-bg: #71939d; /*Check to see if it overwrites Video Buttone */
 }
 
 /* ==========================================================================
@@ -348,7 +348,7 @@
 }
 
 /* Hide Videos Title */
-.si-container .si-videos-widget .js-videos-widget {
+.si-videos-widget>h2 {
     display: none;
 }
 
