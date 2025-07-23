@@ -6,7 +6,7 @@
    Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
 
    Author: John Bauman
-   Date: July 21, 2025 (Updated 09:38 PM EDT, Tuesday, July 22, 2025)
+   Date: July 21, 2025 (Updated 09:57 PM EDT, Tuesday, July 22, 2025)
    ========================================================================== */
 
 /* ==========================================================================
@@ -348,4 +348,10 @@
     font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem); /* Fluid scaling, default h2-like size */
     margin: 0 0 1rem 0; /* Default margin below h2 */
     color: var(--primary-color); /* Consistent with theme */
+    padding: 0 15px; /* Add padding to indent the title */
+}
+
+/* Style the content body (assuming it contains the table) */
+.si-content-label__body {
+    padding: 0 15px; /* Add padding to indent the table */
 }
