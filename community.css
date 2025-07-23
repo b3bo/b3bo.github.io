@@ -274,7 +274,6 @@
 /* Style the tags container */
 .tags {
     padding: 10px 20px;
-    margin: 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
