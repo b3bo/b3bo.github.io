@@ -337,10 +337,20 @@
    ========================================================================== */
 /* Style the content label container to obey container max-width rules */
 .si-container.si-content-label.js-content-label {
-    max-width: var(--container-max-width, 1200px); /* Match container max-width */
-    margin: 0 auto; /* Center the container */
-    padding: 0 15px; /* Match container padding */
-    box-sizing: border-box; /* Ensure padding doesn't add to width */
+    max-width: var(--container-max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.si-container.si-content-label.js-content-label .row {
+    box-sizing: border-box; /* Ensures padding is contained within the row */
+    padding: inherit; /* Inherits the parent's padding */
+}
+
+.si-container.si-content-label.js-content-label .row .si-content-label.title,
+.si-container.si-content-label.js-content-label .row .si-content-label.body {
+    box-sizing: border-box; /* Ensures padding is contained */
 }
 
 @media (min-width: 1200px) {
