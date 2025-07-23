@@ -343,13 +343,13 @@
     box-sizing: border-box;
 }
 
-.si-container.si-content-label.js-content-label .row {
+.si-container.si-content-label.js-content-label .si-row {
     box-sizing: border-box; /* Ensures padding is contained within the row */
     padding: inherit; /* Inherits the parent's padding */
 }
 
-.si-container.si-content-label.js-content-label .row .si-content-label.title,
-.si-container.si-content-label.js-content-label .row .si-content-label.body {
+.si-container.si-content-label.js-content-label .si-row .si-content-label.title,
+.si-container.si-content-label.js-content-label .si-row .si-content-label.body {
     box-sizing: border-box; /* Ensures padding is contained */
 }
 
