@@ -33,7 +33,7 @@
     margin-right: -50vw;
     overflow: hidden;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0
     padding: 0;
 }
 
@@ -345,4 +345,13 @@
 /* Hide Videos Title */
 .si-videos-widget>h2 {
     display: none;
+}
+
+/* ==========================================================================
+   Contact Form Styles
+   ========================================================================== */
+/* Style the contact form width */ 
+.si-form {
+    max-width: inherit;
+    width: 100%;
 }
