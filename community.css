@@ -339,7 +339,7 @@
 .si-container.si-content-label.js-content-label {
     max-width: var(--container-max-width, 1200px);
     margin: 0 auto;
-    padding: 0 17px;
+    padding: 0 25px;
     box-sizing: border-box;
     margin: 0;
 }
@@ -352,12 +352,6 @@
 .si-container.si-content-label.js-content-label .si-row .si-content-label.title,
 .si-container.si-content-label.js-content-label .si-row .si-content-label.body {
     box-sizing: border-box; /* Ensures padding is contained */
-}
-
-@media (min-width: 1200px) {
-    .si-container.si-content-label.js-content-label {
-        padding:0 2rem;
-    }
 }
 
 /* Style the title as an h2 */
