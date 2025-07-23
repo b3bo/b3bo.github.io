@@ -361,3 +361,7 @@
     color: var(--color-border-color);
     line-height: 5;
 }
+
+.main-content .si-content-area h2 { /*We may have to do something else*/
+    display: none;
+}
