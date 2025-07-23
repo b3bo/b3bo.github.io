@@ -335,7 +335,18 @@
 /* ==========================================================================
    Content Labels Styles
    ========================================================================== */
-/* Style the content label container to obey container max-width rules */
+/* Style the content label table */ 
+.si-content-label__body {
+  background: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
+  border: 1px solid var(--color-border);
+}
+
+/* Hide the Title and create your own H2 */
+.si-content-label__title {
+    display: none;
+}
+
+/*
 .si-container.si-content-label.js-content-label {
     max-width: var(--container-max-width, 1200px);
     margin: 0 auto;
@@ -344,16 +355,12 @@
 }
 
 .si-container.si-content-label.js-content-label .si-row {
-    box-sizing: border-box; /* Ensures padding is contained within the row */
-    padding: inherit; /* Inherits the parent's padding */
+    box-sizing: border-box; /* Ensures padding is contained within the row 
+    padding: inherit; /* Inherits the parent's padding 
 }
 
 .si-container.si-content-label.js-content-label .si-row .si-content-label.title,
 .si-container.si-content-label.js-content-label .si-row .si-content-label.body {
-    box-sizing: border-box; /* Ensures padding is contained */
+    box-sizing: border-box; /* Ensures padding is contained 
 }
-
-/* Style the title as an h2 */
-.si-content-label__title {
-    display: none;
-}
+*/
