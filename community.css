@@ -6,7 +6,7 @@
    Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
 
    Author: John Bauman
-   Date: July 21, 2025 (Updated 11:00 AM CDT, Wednesday, July 23, 2025)
+   Date: July 21, 2025 (Updated 11:25 AM CDT, Wednesday, July 23, 2025)
    ========================================================================== */
 
 /* ==========================================================================
@@ -23,7 +23,7 @@
 /* ==========================================================================
    Hero Carousel Styles
    ========================================================================== */
-/* Hero carousel container - full-screen width with max 16:9 aspect ratio and shadow */
+/* Hero carousel container - full-screen width with max 16:10 aspect ratio */
 .hero-carousel {
     position: relative;
     width: 100vw; /* Full viewport width for end-to-end */
@@ -37,10 +37,11 @@
     padding: 0;
 }
 
-/* Slide with max height of 560px for widths >= 996px, 16:9 below that */
+/* Slide with max 16:10 aspect ratio, scaling down if content exceeds, with mobile min-height */
 .hero-carousel .slide {
     position: relative;
     width: 100%;
+    max-height: 62.5vw; /* Max 16:10 aspect ratio (10/16 * 100vw) to avoid stretching */
     overflow: hidden;
 }
 
@@ -48,7 +49,8 @@
     content: '';
     display: block;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 62.5%; /* 10/16 * 100 for 16:10 aspect ratio */
+    max-height: 62.5vw; /* Cap height to prevent stretching */
 }
 
 .hero-carousel .slide img {
@@ -61,26 +63,10 @@
     display: block;
 }
 
-/* Set max height of 560px for widths >= 996px */
-@media (min-width: 996px) {
+/* Ensure proper height on smaller screens to match 16:10 */
+@media (max-width: 896px) { /* 896px * 10/16 = 560px, matching your max height threshold */
     .hero-carousel .slide {
-        max-height: 560px; /* Fixed height for widths 996px and above */
-    }
-    .hero-carousel .slide::before {
-        padding-bottom: 0; /* Disable aspect ratio padding when height is fixed */
-        height: 560px; /* Enforce 560px height */
-    }
-}
-
-/* Maintain 16:9 aspect ratio for widths < 996px, with min-height adjustment */
-@media (max-width: 995px) {
-    .hero-carousel .slide {
-        max-height: none; /* Allow height to scale with width */
-        min-height: calc(9 / 16 * 100vw); /* Minimum height to ensure 16:9 on small screens */
-    }
-    .hero-carousel .slide::before {
-        padding-bottom: 56.25%; /* Revert to 16:9 aspect ratio */
-        max-height: none; /* Allow scaling */
+        min-height: calc(10 / 16 * 100vw); /* Minimum height for 16:10 based on viewport width */
     }
 }
 
@@ -135,9 +121,9 @@
 }
 
 /* Reinforce max height on larger screens */
-@media (min-width: 1000px) {
+@media (min-width: 896px) {
     .hero-carousel .slide {
-        max-height: 560px; /* Cap height to avoid stretching beyond 16:9 */
+        max-height: 560px; /* Cap height to avoid stretching beyond 16:10 */
     }
 }
 
