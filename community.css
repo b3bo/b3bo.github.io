@@ -33,7 +33,7 @@
     margin-left: -50vw; /* Breakout technique for edge-to-edge */
     margin-right: -50vw;
     overflow: hidden;
-    margin-top: 110px; /* Adjusted to match header height (120px minus 10 margin from si-content-area img) */
+    margin-top: 65px; /* 65 at biggest og 110 then 65 */
     margin-bottom: 0;
     padding: 0;
 }
@@ -99,9 +99,8 @@
         bottom: 3%;
         right: 3%;
     }
-
     .hero-carousel {
-    margin-top: 100px; /* JB */
+        margin-top: 100px; /* JB */
     }
 }
 
