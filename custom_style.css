@@ -46,12 +46,12 @@
   background-color: var(--sis-btn-secondary-bg-hover);
 }
 
-/* General container for better readability on wide screens (suggested tweak) */
+/* General container for better readability on wide screens (suggested tweak) 
 .container {
-  max-width: var(--container-max-width); /* Prevent overly wide content on large desktops */
+  max-width: var(--container-max-width); /* Prevent overly wide content on large desktops 
   margin: 0 auto;
   padding: 0 15px;
-}
+} */
 
 /* 2. Typography and Base Elements */
 /* Styles for text, links, headings, and lists. Added fluid typography with clamp. */
