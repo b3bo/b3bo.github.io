@@ -99,6 +99,10 @@
         bottom: 3%;
         right: 3%;
     }
+
+    .hero-carousel {
+    margin-top: 100px; /* JB */
+    }
 }
 
 @media (max-width: 768px) {
