@@ -6,7 +6,7 @@
    Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
 
    Author: John Bauman
-   Date: July 21, 2025 (Updated 11:25 AM CDT, Wednesday, July 23, 2025)
+   Date: July 21, 2025 (Updated 01:11 PM EDT, Wednesday, July 23, 2025)
    ========================================================================== */
 
 /* ==========================================================================
@@ -244,6 +244,12 @@
 
     .google-style-nav .nav-tabs .tab-item a {
         text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .google-style-nav {
+        display: none;
     }
 }
 
