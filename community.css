@@ -338,7 +338,7 @@
   border: 1px solid var(--color-border);
 }
 
-/* Hide Content Label Title */
+/* Hide Content Label Title */ 
 .si-content-label__title {
     display: none;
 }
