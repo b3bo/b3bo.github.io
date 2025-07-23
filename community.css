@@ -17,6 +17,7 @@
     --text-color: #313842;  
     --color-light-bg: #f7f7f7;
     --tag-hover-color: #4a5c69;
+    --color-border-color: #dedede;
     /*--sis-btn-tertiary-bg: #71939d; /*Check to see if it overwrites Video Button */
 }
 
@@ -353,5 +354,10 @@
 /* Style the contact form width */ 
 .si-form {
     max-width: inherit;
-    width: 100%;
+    width: 95%;
+}
+
+.form-control, output {
+    color: var(--color-border-color);
+    line-height: 5;
 }
