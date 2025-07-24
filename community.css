@@ -298,6 +298,7 @@
 .tags .tag-item,
 .tags .tab-item {
     background-color: var(--primary-color); 
+    border: 1px solid var(--primary-color);
     border-radius: 1rem; /* Pill shape */
     padding: 8px 15px; /* Vertical and horizontal padding for pill height */
     display: flex; /* Use flex for vertical centering */
@@ -323,8 +324,13 @@
 /* Hover effect on the entire pill */
 .tags .tag-item:hover,
 .tags .tab-item:hover {
+    background-color: var(--color-white); /* Highlight the whole pill */
+    border: 1px solid var(--primary-color);
+}
+
+.tags .tag-item:hover a,
+.tags .tab-item:hover a {
     color: var(--primary-color);
-    background-color: var(--tag-hover-color); /* Highlight the whole pill */
 }
 
 /* Responsive adjustments */
