@@ -13,11 +13,12 @@
    Variables
    ========================================================================== */
 :root {
-    --primary-color: #71939d;
-    --text-color: #313842;  
-    --color-light-bg: #f7f7f7;
-    --tag-hover-color: #4a5c69;
-    --color-border-color: #dedede;
+    --primary-color: #32788c;
+    --text-color: #343a40;  
+    --color-light-bg: #fef9f3;
+    --tag-hover-color: #fff;
+    --color-border-color: #32788c; /*buttons */
+    --color-light-border-color: #b4dcdc; /*tables */
     /*--sis-btn-tertiary-bg: #71939d; /*Check to see if it overwrites Video Button */
 }
 
