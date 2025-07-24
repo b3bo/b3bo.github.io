@@ -196,6 +196,15 @@ p {
     font-size: 16px; /* Match text size */
 }
 
+/* Specific styling for the angle-right chevron */
+#breadcrumb-container.custom-breadcrumb .fa-angle-right {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 5px;
+    font-size: 12px;
+    margin-top: 4px; /* Adjust this value to shift down */
+}
+
 /* ==========================================================================
    Community Nav Bar Styles
    ========================================================================== */
