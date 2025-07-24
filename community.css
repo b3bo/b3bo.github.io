@@ -18,8 +18,11 @@
     --light-bg-color: #fef9f3;
     --tag-hover-color: #fff;
     --border-color: #32788c; /*buttons */
-    --light-border-color: #b4dcdc; /*tables */
+    --light-border-color1: #b4dcdc; /*tables */
+    --light-border-color2: #78b4be;
     --color-white: #fff;
+    --color-gold1: #b0a091;
+    --color-gold2: #cfae72;
     /*--sis-btn-tertiary-bg: #71939d; /*Check to see if it overwrites Video Button */
 }
 
