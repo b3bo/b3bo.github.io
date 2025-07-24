@@ -15,7 +15,7 @@
 :root {
     --primary-color: #32788c;
     --text-color: #343a40;  
-    --light-bg-color: #fef9f3;
+    --light-bg-color: #fbf1e5;
     --tag-hover-color: #fff;
     --border-color: #32788c; /*buttons */
     --light-border-color1: #b4dcdc; /*tables */
@@ -413,7 +413,7 @@ p {
     border: 1px solid var(--primary-color);
 }
 
-.si-property-stats__title {
+.si-property-stats__title, .si-property-stats__title-date {
     color: var(--color-white) !important; /*Might be able to remove later*/
     background-color: var(--primary-color);
     border-bottom: 1px solid var(--primary-color);
