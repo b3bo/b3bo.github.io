@@ -397,10 +397,12 @@
    Stats Styles
    ========================================================================== */
 .si-property-stats {
-    border: 1px solid var(--light-border-color2);
+    border: 1px solid var(--primary-color);
 }
 
 .si-property-stats__title {
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--light-border-color2);
+    color: var(--color-white);
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
 }
