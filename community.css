@@ -154,7 +154,8 @@ p {
    ========================================================================== */
 /* Style the breadcrumb container with centering for all items */
 #breadcrumb-container.custom-breadcrumb {
-    padding: 10px 20px;
+    padding-bottom: 50px;
+    padding-top: 20px;
     margin-bottom: 15px;
     text-align: center;
     display: flex;
