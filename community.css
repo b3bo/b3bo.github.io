@@ -27,6 +27,15 @@
 }
 
 /* ==========================================================================
+   Titles & Headers
+   ========================================================================== */
+p, h1, h2, h3, h4, h5 {
+    font-family:Montserrat;
+    text-transform:uppercase;
+    color: var(--text-color) !important;
+}
+
+/* ==========================================================================
    Hero Carousel Styles
    ========================================================================== */
 /* Hero carousel container - full-screen width with max 16:10 aspect ratio */
