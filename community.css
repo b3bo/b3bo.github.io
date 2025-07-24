@@ -228,6 +228,7 @@ p {
     color: var(--primary-color);
     text-decoration: underline;
     font-size: 16px;
+    font-weight: 500;
     padding: 14px 20px;
     display: block;
     transition: color 0.3s ease;
@@ -250,7 +251,7 @@ p {
 
 /* Hover effect: change to text color */
 .google-style-nav .nav-tabs .tab-item:hover a {
-    color: var(--text-color);
+    color: var(--color-white);
 }
 
 @media (max-width: 600px) {
