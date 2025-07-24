@@ -280,6 +280,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px; /* Space between pills */
+    
 }
 
 /* Style the paragraph wrapper */
