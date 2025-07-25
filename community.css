@@ -6,7 +6,8 @@
    Includes hero carousel with logo overlay, breadcrumb navigation, tab bar,
    community tags, content labels, contact form, property stats, and responsive
    layouts. Updated to include optimized logo overlay styles with Cloudinary
-   parameters for minimized size in the hero carousel.
+   parameters for minimized size in the hero carousel, positioned in bottom right
+   with responsive adjustments.
 
    Author: John Bauman
    Date: July 25, 2025 (Updated 12:13 PM CDT)
@@ -85,25 +86,25 @@ p {
     display: block;
 }
 
-/* Overlay for logo positioning (centered) */
+/* Overlay for logo positioning (bottom-right) */
 .hero-carousel .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10; /* Ensure logo is above slides */
+    bottom: 2%;
+    right: 2%;
+    z-index: 2;
+    text-align: right;
+    width: auto;
+    background: transparent;
+    padding: 0;
 }
 
 /* Logo styling for responsiveness with Cloudinary optimization */
 .hero-carousel .overlay-logo {
     width: 100%;
-    max-width: 300px; /* Limit logo size, adjust as needed */
+    max-width: 150px; /* Limit logo size, adjust as needed */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure full logo is visible */
+    display: block;
 }
 
 /* Ensure proper height on smaller screens to match 16:10 */
@@ -111,24 +112,39 @@ p {
     .hero-carousel .slide {
         min-height: calc(10 / 16 * 100vw); /* Minimum height for 16:10 based on viewport width */
     }
-    .hero-carousel .overlay-logo {
-        max-width: 200px; /* Smaller logo on mobile */
-    }
     .hero-carousel {
         margin-top: 100px; /* JB */
     }
 }
 
 /* Responsive adjustments for logo on smaller screens */
+@media (max-width: 992px) {
+    .hero-carousel .overlay-logo {
+        max-width: 120px;
+    }
+    .hero-carousel .overlay {
+        bottom: 3%;
+        right: 3%;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-carousel .overlay-logo {
-        max-width: 150px;
+        max-width: 100px;
+    }
+    .hero-carousel .overlay {
+        bottom: 4%;
+        right: 4%;
     }
 }
 
 @media (max-width: 576px) {
     .hero-carousel .overlay-logo {
-        max-width: 100px;
+        max-width: 80px;
+    }
+    .hero-carousel .overlay {
+        bottom: 5%;
+        right: 5%;
     }
 }
 
@@ -297,6 +313,7 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px; /* Space between pills */
+    
 }
 
 /* Style the paragraph wrapper */
