@@ -50,7 +50,7 @@
   --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
-.bg-$$ \#9297b2 $$ {
+.bg-\[\#9297b2\] {
   background-color: var(--color-secondary-bg);
 }
 
