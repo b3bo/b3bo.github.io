@@ -101,7 +101,7 @@ p {
 /* Logo styling for responsiveness with Cloudinary optimization */
 .hero-carousel .overlay-logo {
     width: auto; /* Respect HTML width attribute */
-    max-width: 150px; /* Limit logo size, adjust as needed */
+    max-width: 300px; /* Limit logo size, adjust as needed */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure full logo is visible */
     display: block;
@@ -121,7 +121,7 @@ p {
 /* Responsive adjustments for logo on smaller screens */
 @media (max-width: 992px) {
     .hero-carousel .overlay-logo {
-        max-width: 130px;
+        max-width: 200px;
     }
     .hero-carousel .overlay {
         /* bottom: 4%;  Increased from 3% to shift down further */
@@ -131,7 +131,7 @@ p {
 
 @media (max-width: 768px) {
     .hero-carousel .overlay-logo {
-        max-width: 100px;
+        max-width: 190px;
     }
     .hero-carousel .overlay {
         bottom: -2%; /* Increased from 4% to shift down further */
@@ -141,7 +141,7 @@ p {
 
 @media (max-width: 576px) {
     .hero-carousel .overlay-logo {
-        max-width: 80px;
+        max-width: 150px;
     }
     .hero-carousel .overlay {
         /* bottom: 7%;  Increased from 5% to shift down further */
