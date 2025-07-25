@@ -417,6 +417,7 @@ p {
 .si-form {
     max-width: inherit;
     width: 95%;
+    min-height: 300px;
 }
 
 .form-control, output {
