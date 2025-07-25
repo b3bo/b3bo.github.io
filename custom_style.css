@@ -62,12 +62,6 @@
   background-color: var(--sis-btn-secondary-bg-hover);
 }
 
-/* General container for better readability on wide screens */
-.container {
-  max-width: var(--container-max-width); /* Prevent overly wide content on large desktops */
-  padding: 0 15px;
-}
-
 /* ==========================================================================
    2. Typography and Base Elements
    ========================================================================== */
