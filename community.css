@@ -103,7 +103,7 @@ p {
 /* Logo styling for responsiveness with Cloudinary optimization */
 .hero-carousel .overlay-logo {
     width: 100%;
-    max-width: 150px; /* Limit logo size, adjust as needed */
+    max-width: 200px; /* Limit logo size, adjust as needed */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure full logo is visible */
     display: block;
@@ -142,7 +142,7 @@ p {
 
 @media (max-width: 576px) {
     .hero-carousel .overlay-logo {
-        max-width: 80px;
+        max-width: 150px;
     }
     .hero-carousel .overlay {
         /* bottom: 7%; Increased from 5% to shift down further */
