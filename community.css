@@ -8,10 +8,10 @@
    layouts. Updated to include optimized logo overlay styles with Cloudinary
    parameters for minimized size in the hero carousel, positioned in bottom right
    with responsive adjustments, and shifted logo vertically down further on mobile.
-   Added min-height adjustments to headings, breadcrumb, nav bar, and tags for CLS optimization.
+   Added min-height adjustments to headings, breadcrumb, nav bar, tags, and stats for CLS optimization.
 
    Author: John Bauman
-   Date: July 25, 2025 (Updated 3:50 PM CDT)
+   Date: July 25, 2025 (Updated 3:55 PM CDT)
    ========================================================================== */
 
 /* ==========================================================================
@@ -430,7 +430,7 @@ p {
    ========================================================================== */
 .si-property-stats {
     border: 1px solid var(--primary-color);
-    min-height: 200px;
+    min-height: 200px; /* Reserves space for title + stats content */
 }
 
 .si-property-stats__title, .si-property-stats__title-date {
