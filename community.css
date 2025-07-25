@@ -123,7 +123,7 @@ p {
         max-width: 120px;
     }
     .hero-carousel .overlay {
-        bottom: 4%; /* Increased from 3% to shift down further */
+        /* bottom: 4%;  Increased from 3% to shift down further */
         right: 3%;
     }
 }
@@ -133,7 +133,7 @@ p {
         max-width: 100px;
     }
     .hero-carousel .overlay {
-        bottom: 6%; /* Increased from 4% to shift down further */
+        bottom: -2%; /* Increased from 4% to shift down further */
         right: 4%;
     }
 }
@@ -143,7 +143,7 @@ p {
         max-width: 80px;
     }
     .hero-carousel .overlay {
-        bottom: 7%; /* Increased from 5% to shift down further */
+        /* bottom: 7%;  Increased from 5% to shift down further */
         right: 5%;
     }
 }
