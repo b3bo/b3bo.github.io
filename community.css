@@ -305,7 +305,7 @@ p {
     margin-left: -50vw;
     margin-right: -50vw;
     background-color: var(--light-bg-color); 
-    min-height: 200px; /* Reserves space for background + content */
+    min-height: 100px; /* Reserves space for background + content */
 }
 
 /* ==========================================================================
