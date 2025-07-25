@@ -8,10 +8,10 @@
    layouts. Updated to include optimized logo overlay styles with Cloudinary
    parameters for minimized size in the hero carousel, positioned in bottom right
    with responsive adjustments, and shifted logo vertically down further on mobile.
-   Added min-height adjustments to headings, breadcrumb, nav bar, tags, and stats for CLS optimization.
+   Added min-height adjustments to all relevant elements for CLS optimization.
 
    Author: John Bauman
-   Date: July 25, 2025 (Updated 3:55 PM CDT)
+   Date: July 25, 2025 (Updated 4:00 PM CDT)
    ========================================================================== */
 
 /* ==========================================================================
@@ -305,6 +305,7 @@ p {
     margin-left: -50vw;
     margin-right: -50vw;
     background-color: var(--light-bg-color); 
+    min-height: 200px; /* Reserves space for background + content */
 }
 
 /* ==========================================================================
@@ -417,7 +418,7 @@ p {
 .si-form {
     max-width: inherit;
     width: 95%;
-    min-height: 300px;
+    min-height: 300px; /* Reserves space for form inputs + padding */
 }
 
 .form-control, output {
