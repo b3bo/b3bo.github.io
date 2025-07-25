@@ -1,6 +1,22 @@
-/* custom_style.css (updated, stripped of carousel and google menu) */
+/* ==========================================================================
+   custom_style.css
+   ==========================================================================
 
-/* 1. Variables and Resets */
+   Description: Custom styles deployed across all pages in Sierra Interactive.
+   Includes centralized variables for theming, typography with fluid scaling,
+   layout utilities for responsive designs, component styles for UI elements
+   like quicklinks, tabs, accordions, and content boxes, icons with Font Awesome,
+   and media queries for responsiveness. Added uppercase transformation and
+   Montserrat font for headings, and hid blog-link class.
+
+   Author: John Bauman
+   Date: July 25, 2025
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Variables and Resets
+   ========================================================================== */
+
 /* Centralizes colors for easy theming. Update variables here for site-wide changes. */
 :root {
   --color-primary-text: #363636; /* Primary text and links */
@@ -34,7 +50,7 @@
   --tw-bg-opacity: 1; /* Fallback for Tailwind-like opacity */
 }
 
-.bg-\[\#9297b2\] {
+.bg-$$ \#9297b2 $$ {
   background-color: var(--color-secondary-bg);
 }
 
@@ -46,15 +62,18 @@
   background-color: var(--sis-btn-secondary-bg-hover);
 }
 
-/* General container for better readability on wide screens (suggested tweak) 
+/* General container for better readability on wide screens */
 .container {
-  max-width: var(--container-max-width); /* Prevent overly wide content on large desktops 
+  max-width: var(--container-max-width); /* Prevent overly wide content on large desktops */
   margin: 0 auto;
   padding: 0 15px;
-} */
+}
 
-/* 2. Typography and Base Elements */
-/* Styles for text, links, headings, and lists. Added fluid typography with clamp. */
+/* ==========================================================================
+   2. Typography and Base Elements
+   ========================================================================== */
+
+/* Styles for text, links, headings, and lists. Added fluid typography with clamp. Updated to include uppercase transformation and Montserrat font for headings (h1, h2, h3, .h3 class). */
 .si-videos-widget > h2,
 .si-content-label-gallery__title,
 .si-property-stats__title-date,
@@ -79,7 +98,7 @@
 
 a {
   color: var(--color-link);
-  transition: color 0.3s ease, outline 0.2s ease; /* Suggested: Smooth transitions, including focus outline */
+  transition: color 0.3s ease, outline 0.2s ease; /* Smooth transitions, including focus outline */
 }
 
 a:hover {
@@ -100,11 +119,25 @@ strong {
   font-weight: 500;
 }
 
-/* 3. Layout Utilities */
-/* Custom row and column overrides for responsive designs. */
+/* Heading styles: Uppercase transformation for specific content area headings and global uppercase/Montserrat for h1-h3 and .h3 class */
+.main-content .si-content-area h1,
+.main-content .si-content-area h2,
+.h3,
+h1,
+h2,
+h3 {
+  font-family: Montserrat;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. Layout Utilities
+   ========================================================================== */
+
+/* Custom row and column overrides for responsive designs */
 .row.faq-row {
-  border: 1px solid #dedede; 
-  background: #f7f7f7;
+  border: 1px solid var(--color-border);
+  background: var(--color-light-bg);
   margin-left: 0;
   margin-right: 0;
 }
@@ -117,7 +150,7 @@ strong {
   margin-top: 0;
   margin-right: 0;
   margin-left: 0;
-  align-items: stretch; /* Suggested: Equal height columns for balancing content */
+  align-items: stretch; /* Equal height columns for balancing content */
 }
 
 .myrow > * {
@@ -131,13 +164,11 @@ strong {
   margin-top: var(--bs-gutter-y);
 }
 
-/* Suggested: Explicit column resets for zero padding in custom rows */
 .myrow > [class*="col-"] {
   padding-right: 0;
   padding-left: 0;
 }
 
-/* Suggested: Image filling for layouts using .myrow (combined with shadow for maps) */
 .myrow img.img-fluid {
   width: 100%;
   height: auto; /* Let image determine height for landscape aspect */
@@ -146,7 +177,6 @@ strong {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); /* Horizontal offset: 0, Vertical: 4px, Blur: 12px, Color: semi-transparent black */
 }
 
-/* Make the image column wider for landscape look */
 .myrow .col-sm-6:first-child {
   flex: 0 0 66.6667%; /* Equivalent to col-sm-8 */
   max-width: 66.6667%;
@@ -161,12 +191,15 @@ strong {
   max-width: 33.3333%;
 }
 
-/* 4. Components */
-/* Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions. */
+/* ==========================================================================
+   4. Components
+   ========================================================================== */
+
+/* Styles for specific UI elements like quicklinks, guides, tabs, content boxes, and accordions. Added rule to hide .blog-link elements site-wide. */
 
 /* Make the Subscribe button in the banner pop */
- .dark-banner {
- background-color: var(--si-secondary-color-300) !important;
+.dark-banner {
+  background-color: var(--si-secondary-color-300) !important;
 }
 
 /* Horizontal rule style */
@@ -182,10 +215,10 @@ strong {
 /* Quicklinks: Horizontal links with separators */
 .quicklinks {
   margin: 0;
-  background: var(--color-light-bg); /* Revert to light background */
-  border: 1px solid var(--color-border-light); /* Add border */
-  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size matching target */
-  line-height: 1.3; /* Adjusted line height to match target */
+  background: var(--color-light-bg);
+  border: 1px solid var(--color-border-light);
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
+  line-height: 1.3;
 }
 
 .quicklinks a {
@@ -193,14 +226,14 @@ strong {
   font-weight: 500;
   word-spacing: 0.1em;
   letter-spacing: .1em;
-  font-size: clamp(0.75rem, 1vw + 0.5rem, 12px); /* Fluid font-size matching original */
-  line-height: 1.3; /* Adjusted line height to match target */
-  transition: color 0.3s ease; /* Suggested: Smooth hover transition */
-  text-decoration: none; /* Remove underline if present */
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 12px);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .quicklinks a:hover {
-  color: var(--color-link-hover); 
+  color: var(--color-link-hover);
 }
 
 .quicklinks a:hover,
@@ -211,26 +244,25 @@ strong {
 .main-content .si-content-area p.quicklinks {
   background: var(--color-light-bg);
   border: 1px solid var(--color-border-light);
-  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px);
   text-align: center;
   padding: 20px;
 }
 
-/* Suggested: Enhance links container for better wrapping in layouts */
 .myrow .links-container {
   width: 100%;
   height: 100%; /* Fill the full height of the column to match the image */
   display: flex;
-  flex-direction: column; /* Stack heading, HR, links vertically */
-  align-items: flex-start; /* Left align content */
-  justify-content: flex-start; /* Start from top */
-  gap: 0.5rem; /* Small gap for wrapped links on small screens */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
   margin: 0;
   padding: 20px;
-  background: var(--color-light-bg); /* Revert to light background */
-  border: 1px solid var(--color-border-light); /* Add border as requested */
+  background: var(--color-light-bg);
+  border: 1px solid var(--color-border-light);
   text-align: left;
-  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 14px);
 }
 
 .myrow .links-container h2 {
@@ -244,19 +276,15 @@ strong {
 .myrow .quicklinks {
   margin: 0;
   padding: 0 !important;
-  /* background: none; No background */
-  border: none !important; /* No border */
-  /* text-align: center; Center each wrapped line */
-  /* white-space: normal; Allow wrapping to multiple lines */
-  width: 100%; /* Ensure full width for wrapping */
-  line-height: 2.5; 
-  /* font-size: 0; Collapse whitespace between inline <a> elements from HTML newlines */
+  border: none !important;
+  width: 100%;
+  line-height: 2.5;
 }
 
 .myrow .quicklinks a {
-  display: inline; /* Flow as inline text for splitting/wrapping within links */
-  font-size: clamp(1.25rem, 1.25rem + 1.5vw, 1.5rem); 
-  line-height: 2.5; /* Match for consistent spacing, also with override if needed */
+  display: inline;
+  font-size: clamp(1.25rem, 1.25rem + 1.5vw, 1.5rem);
+  line-height: 2.5;
   color: var(--color-primary-text);
   font-weight: 500;
   word-spacing: 0.1em;
@@ -268,24 +296,24 @@ strong {
 .myrow .quicklinks a::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f0da "; /* fa-chevron-right icon, with space after for separation */
-  color: var(--color-hr-rule); /* Matches HR color #a2b1b5 */
-  margin-right: 0.2em; /* Optional: Adjust spacing if needed */
+  content: "\f0da "; /* fa-chevron-right icon */
+  color: var(--color-hr-rule);
+  margin-right: 0.2em;
 }
 
 .myrow .quicklinks a:not(:last-child)::after {
-  content: "     "; 
+  content: "     ";
 }
 
 .myrow .quicklinks a:hover {
   color: var(--color-link-hover);
 }
 
-/* Guide and Content Boxes - Ensure header is shaded, body is white */
+/* Guide and Content Boxes */
 .guide {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  font-size: clamp(1.25rem, 2vw + 1rem, 24px) !important; /* Fluid font-size */
+  font-size: clamp(1.25rem, 2vw + 1rem, 24px) !important;
 }
 
 .guide-top {
@@ -293,7 +321,7 @@ strong {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px; /* Consolidated padding */
+  padding: 1px 15px;
   background-color: var(--color-light-bg);
 }
 
@@ -302,7 +330,7 @@ strong {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 1px 1px 0px 1px;
-  padding: 1px 15px; /* Consolidated */
+  padding: 1px 15px;
 }
 
 .content-box-bottom {
@@ -310,8 +338,8 @@ strong {
   border-color: var(--color-border-light);
   border-style: solid;
   border-width: 0px 1px 1px 1px;
-  padding: 1px 15px; /* Consolidated */
-  background-color: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
+  padding: 1px 15px;
+  background-color: var(--color-white) !important;
 }
 
 .content-box-top blockquote ul {
@@ -319,7 +347,7 @@ strong {
 }
 
 .si-content-label__body {
-  background: var(--color-white) !important; /* Kept !important; likely overrides third-party inheritance */
+  background: var(--color-white) !important;
   border: 1px solid var(--color-border);
 }
 
@@ -332,13 +360,13 @@ strong {
 
 /* Tabs Component */
 section.padding,
-section.padding-left { /* Consolidated similar paddings */
+section.padding-left {
   padding: 40px 0;
 }
 
 section.padding-left {
   padding-left: 40px;
-  padding-right: 0; /* Explicit for consistency */
+  padding-right: 0;
 }
 
 section.featured {
@@ -354,17 +382,17 @@ section.featured {
 .featured .featured-tabs label {
   cursor: pointer;
   display: block;
-  font-size: clamp(0.75rem, 1vw + 0.5rem, 14px); /* Fluid font-size */
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 14px);
   font-weight: 400;
   margin: 0;
   order: 1;
   text-align: center;
   text-transform: uppercase;
-  transition: color 0.3s ease; /* Added smooth transition for perf/a11y */
+  transition: color 0.3s ease;
 }
 
 .featured .featured-tabs label:focus {
-  outline: 2px solid var(--color-focus-outline); /* Added focus for tab accessibility */
+  outline: 2px solid var(--color-focus-outline);
 }
 
 .featured .featured-tabs .tab {
@@ -402,7 +430,7 @@ section.featured {
   --mdb-accordion-btn-color: var(--color-accordion-text);
   --mdb-accordion-btn-bg: var(--mdb-accordion-bg);
   --mdb-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234f4f4f'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
-  --mdb-accordion-btn-icon-width: 1.5rem; /* Increased for better visibility */
+  --mdb-accordion-btn-icon-width: 1.5rem;
   --mdb-accordion-btn-icon-transform: rotate(-180deg);
   --mdb-accordion-btn-icon-transition: transform 0.2s ease-in-out;
   --mdb-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233b71ca'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E");
@@ -420,7 +448,7 @@ section.featured {
   align-items: center;
   width: 100%;
   padding: var(--mdb-accordion-btn-padding-y) var(--mdb-accordion-btn-padding-x);
-  font-size: clamp(1.2rem, 2vw + 1rem, 1.8rem); /* Fluid font-size */
+  font-size: clamp(1.2rem, 2vw + 1rem, 1.8rem);
   color: var(--mdb-accordion-btn-color);
   text-align: left;
   background-color: var(--mdb-accordion-btn-bg);
@@ -451,9 +479,9 @@ section.featured {
   background-repeat: no-repeat;
   background-size: var(--mdb-accordion-btn-icon-width);
   background-position: center;
-  display: inline-block !important; /* Ensure icon renders */
+  display: inline-block !important;
   position: relative;
-  z-index: 1; /* Prevent obscuring by other elements */
+  z-index: 1;
   transition: var(--mdb-accordion-btn-icon-transition);
 }
 
@@ -469,7 +497,7 @@ section.featured {
   }
   .accordion-button:not(.collapsed)::after {
     content: "\f077"; /* fa-chevron-up */
-    transform: rotate(0deg); /* No rotation needed for Font Awesome */
+    transform: rotate(0deg);
   }
 }
 
@@ -480,7 +508,7 @@ section.featured {
 .accordion-button:focus {
   z-index: 3;
   border-color: var(--mdb-accordion-btn-focus-border-color);
-  outline: 2px solid var(--color-focus-outline); /* Enhanced focus */
+  outline: 2px solid var(--color-focus-outline);
   box-shadow: var(--mdb-accordion-btn-focus-box-shadow);
 }
 
@@ -531,8 +559,16 @@ section.featured {
   display: none;
 }
 
-/* 5. Icons and External */
-/* Font Awesome icons and figure captions. */
+/* Hide blog link elements site-wide */
+.blog-link {
+  display: none !important;
+}
+
+/* ==========================================================================
+   5. Icons and External
+   ========================================================================== */
+
+/* Font Awesome icons and figure captions */
 .fa-solid {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -557,8 +593,7 @@ section.featured {
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2") format("woff2"),
-      /* url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.ttf") format("truetype"); Test Remove */
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2") format("woff2");
 }
 
 /* Figure captions */
@@ -567,14 +602,18 @@ section.featured {
 }
 
 .figure-caption {
-  font-size: clamp(0.75rem, 1vw + 0.5rem, 0.875em); /* Fluid font-size */
+  font-size: clamp(0.75rem, 1vw + 0.5rem, 0.875em);
   color: var(--color-secondary);
 }
 
-/* 6. Media Queries */
-/* Refined and consolidated for better responsiveness. */
+/* ==========================================================================
+   6. Media Queries
+   ========================================================================== */
+
+/* Refined and consolidated for better responsiveness */
 @media (max-width: 767px) {
-  .featured .featured-tabs .tab, .featured .featured-tabs label {
+  .featured .featured-tabs .tab,
+  .featured .featured-tabs label {
     order: 0;
   }
   .featured .featured-tabs label {
@@ -590,15 +629,14 @@ section.featured {
     background-color: var(--si-primary-color);
     color: var(--si-primary-text-color);
   }
-  /* Stack for mobile with flex */
   .myrow {
-    flex-direction: column; /* Force stacking on mobile */
+    flex-direction: column;
   }
   .myrow p.quicklinks {
-    text-align: left !important; /* Use !important if needed to override any inherited or parent styles */
+    text-align: left !important;
   }
   .myrow > [class*="col-"] {
-    flex-basis: 100%; /* Full width */
+    flex-basis: 100%;
     max-width: 100%;
   }
   .myrow .links-container {
@@ -607,7 +645,8 @@ section.featured {
   .myrow img.img-fluid {
     height: auto;
   }
-  .myrow .col-sm-6:first-child, .myrow .col-sm-6:last-child {
+  .myrow .col-sm-6:first-child,
+  .myrow .col-sm-6:last-child {
     flex: 0 0 100%;
     max-width: 100%;
     padding-right: 0px;
@@ -644,7 +683,7 @@ section.featured {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) { /* Consolidated tablet rules */
+@media (min-width: 768px) and (max-width: 991px) {
   .myrow .col-sm-3 {
     flex: 0 0 auto;
     width: 25%;
@@ -718,21 +757,24 @@ section.featured {
   }
 }
 
-/*
-@media (min-width: 1200px) { /* New breakpoint for wide screens 
+@media (min-width: 1200px) {
   .container {
-    padding: 0 2rem; /* More padding for breathing room 
+    padding: 0 2rem; /* More padding for breathing room */
   }
-}*/
+}
 
-/* Reduced motion preferences - Expanded for more elements */
+/* ==========================================================================
+   7. Accessibility
+   ========================================================================== */
+
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .accordion-button,
   .accordion-button::after,
   a,
   .quicklinks a,
   .featured .featured-tabs label,
-  .custom-btn--secondary-hollow { /* Added more interactive elements */
-    transition: none; /* Disable transitions for perf/a11y */
+  .custom-btn--secondary-hollow {
+    transition: none; /* Disable transitions for performance/accessibility */
   }
 }
