@@ -2,11 +2,14 @@
    community.css
    ==========================================================================
 
-   Description: Styles for community pages (e.g., test-page) in Sierra Interactive.
-   Includes hero carousel, breadcrumb navigation, tab bar, and responsive layouts.
+   Description: Styles for community pages in Sierra Interactive.
+   Includes hero carousel with logo overlay, breadcrumb navigation, tab bar,
+   community tags, content labels, contact form, property stats, and responsive
+   layouts. Updated to include optimized logo overlay styles with Cloudinary
+   parameters for minimized size in the hero carousel.
 
    Author: John Bauman
-   Date: July 21, 2025 (Updated 05:25 PM CDT, Wednesday, July 23, 2025)
+   Date: July 25, 2025 (Updated 12:13 PM CDT)
    ========================================================================== */
 
 /* ==========================================================================
@@ -17,21 +20,21 @@
     --text-color: #343a40;  
     --light-bg-color: #e5e0d9;
     --tag-hover-color: #fff;
-    --border-color: #32788c; /*buttons */
-    --light-border-color1: #b4dcdc; /*tables */
+    --border-color: #32788c; /* buttons */
+    --light-border-color1: #b4dcdc; /* tables */
     --light-border-color2: #78b4be;
     --color-white: #fff;
     --color-gold1: #b0a091;
     --color-gold2: #cfae72;
-    /*--sis-btn-tertiary-bg: #71939d; /*Check to see if it overwrites Video Button */
+    /* --sis-btn-tertiary-bg: #71939d; /* Check to see if it overwrites Video Button */
 }
 
 /* ==========================================================================
    Titles & Headers
    ========================================================================== */
 h1, h2, h3, h4, h5 {
-    font-family:Montserrat;
-    text-transform:uppercase;
+    font-family: Montserrat;
+    text-transform: uppercase;
     color: var(--text-color) !important;
 }
 
@@ -82,63 +85,50 @@ p {
     display: block;
 }
 
+/* Overlay for logo positioning (centered) */
+.hero-carousel .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Ensure logo is above slides */
+}
+
+/* Logo styling for responsiveness with Cloudinary optimization */
+.hero-carousel .overlay-logo {
+    width: 100%;
+    max-width: 300px; /* Limit logo size, adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure full logo is visible */
+}
+
 /* Ensure proper height on smaller screens to match 16:10 */
-@media (max-width: 896px) { /* 896px * 10/16 = 560px, matching your max height threshold */
+@media (max-width: 896px) {
     .hero-carousel .slide {
         min-height: calc(10 / 16 * 100vw); /* Minimum height for 16:10 based on viewport width */
     }
-}
-
-/* Overlay for logo positioning (dynamic bottom-right) */
-.hero-carousel .overlay {
-    position: absolute;
-    bottom: 2%;
-    right: 2%;
-    z-index: 2;
-    text-align: right;
-    width: auto;
-    background: transparent;
-    padding: 0;
-}
-
-/* Logo styling for responsiveness */
-.hero-carousel .overlay .overlay-logo {
-    width: 150px;
-    height: auto;
-    display: block;
-}
-
-/* Responsive adjustments for logo on smaller screens */
-@media (max-width: 992px) {
-    .hero-carousel .overlay .overlay-logo {
-        width: 120px;
-    }
-    .hero-carousel .overlay {
-        bottom: 3%;
-        right: 3%;
+    .hero-carousel .overlay-logo {
+        max-width: 200px; /* Smaller logo on mobile */
     }
     .hero-carousel {
         margin-top: 100px; /* JB */
     }
 }
 
+/* Responsive adjustments for logo on smaller screens */
 @media (max-width: 768px) {
-    .hero-carousel .overlay .overlay-logo {
-        width: 100px;
-    }
-    .hero-carousel .overlay {
-        bottom: 4%;
-        right: 4%;
+    .hero-carousel .overlay-logo {
+        max-width: 150px;
     }
 }
 
 @media (max-width: 576px) {
-    .hero-carousel .overlay .overlay-logo {
-        width: 80px;
-    }
-    .hero-carousel .overlay {
-        bottom: 5%;
-        right: 5%;
+    .hero-carousel .overlay-logo {
+        max-width: 100px;
     }
 }
 
@@ -285,8 +275,6 @@ p {
     color: var(--text-color)
 }
 
-
-
 /* ==========================================================================
    Full Width Background Styles
    ========================================================================== */
@@ -309,7 +297,6 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px; /* Space between pills */
-    
 }
 
 /* Style the paragraph wrapper */
@@ -424,7 +411,7 @@ p {
 }
 
 .si-property-stats__title, .si-property-stats__title-date {
-    color: var(--color-white) !important; /*Might be able to remove later*/
+    color: var(--color-white) !important; /* Might be able to remove later */
     background-color: var(--primary-color);
     border-bottom: 1px solid var(--primary-color);
     font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
