@@ -224,6 +224,7 @@ p {
     margin: 0;
     display: flex;
     justify-content: center;
+    min-height: 50px; /* Reserves space for padding + content */
 }
 
 .google-style-nav .nav-tabs {
