@@ -430,6 +430,7 @@ p {
    ========================================================================== */
 .si-property-stats {
     border: 1px solid var(--primary-color);
+    min-height: 200px;
 }
 
 .si-property-stats__title, .si-property-stats__title-date {
