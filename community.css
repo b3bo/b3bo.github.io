@@ -7,10 +7,10 @@
    community tags, content labels, contact form, property stats, and responsive
    layouts. Updated to include optimized logo overlay styles with Cloudinary
    parameters for minimized size in the hero carousel, positioned in bottom right
-   with responsive adjustments.
+   with responsive adjustments, and shifted logo vertically down further on mobile.
 
    Author: John Bauman
-   Date: July 25, 2025 (Updated 12:13 PM CDT)
+   Date: July 25, 2025 (Updated 12:47 PM CDT)
    ========================================================================== */
 
 /* ==========================================================================
@@ -123,7 +123,7 @@ p {
         max-width: 120px;
     }
     .hero-carousel .overlay {
-        bottom: 3%;
+        bottom: 4%; /* Increased from 3% to shift down further */
         right: 3%;
     }
 }
@@ -133,7 +133,7 @@ p {
         max-width: 100px;
     }
     .hero-carousel .overlay {
-        bottom: 4%;
+        bottom: 6%; /* Increased from 4% to shift down further */
         right: 4%;
     }
 }
@@ -143,7 +143,7 @@ p {
         max-width: 80px;
     }
     .hero-carousel .overlay {
-        bottom: 5%;
+        bottom: 7%; /* Increased from 5% to shift down further */
         right: 5%;
     }
 }
@@ -313,7 +313,6 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px; /* Space between pills */
-    
 }
 
 /* Style the paragraph wrapper */
