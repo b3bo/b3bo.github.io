@@ -167,6 +167,7 @@ p {
     text-align: center;
     display: flex;
     justify-content: center;
+    min-height: 70px; /* Reserves space for padding + content */
 }
 
 /* Style breadcrumb links with underlines and primary color */
