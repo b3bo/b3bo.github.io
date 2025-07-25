@@ -100,11 +100,12 @@ p {
 
 /* Logo styling for responsiveness with Cloudinary optimization */
 .hero-carousel .overlay-logo {
-    width: 100%;
+    width: auto; /* Respect HTML width attribute */
     max-width: 150px; /* Limit logo size, adjust as needed */
     height: auto; /* Maintain aspect ratio */
     object-fit: contain; /* Ensure full logo is visible */
     display: block;
+    aspect-ratio: 150 / 38; /* Reserves space based on attributes' ratio (adjust if logo dimensions differ) */
 }
 
 /* Ensure proper height on smaller screens to match 16:10 */
