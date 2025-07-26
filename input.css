@@ -3,30 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
 /* Custom overrides for Sierra CSS (extends Preflight with higher specificity and !important) */
-@layer base {
-  .si-content-label--price-range {
-    background-color: #f3f4f6 !important;
-    border: none !important;
-    font-size: 1rem !important;
-    font-weight: bold !important;
-    color: #1a202c !important;
-    padding: 0.5rem !important;
-    margin: 0 !important;
-  }
-  .si-container.si-property-stats,
-  .si-listings-gallery,
-  .si-row {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .si-listing__photo-img img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-}
-@layer utilities {
-  .si-content-label--price-range {
-    @apply bg-gray-100 border border-gray-300 rounded-md p-2 text-gray-900 !important;
-  }
-}
