@@ -1,4 +1,13 @@
-/* Purpose: Entry point for Tailwind v3 build. Includes layers; separate from your custom CSS. */
+/* Purpose: Entry point for Tailwind v3.4.10 build. Includes base layers; separate from custom CSS. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom resets for Sierra CSS overrides (extends Preflight) */
+@layer base {
+  .si-container, .si-content-label--price-range {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
