@@ -12,4 +12,7 @@ module.exports = {
     },
   },
   plugins: [],
+  corePlugins: {
+    preflight: true, // Enable Preflight (default; set to false if we need to disable)
+  },
 };
