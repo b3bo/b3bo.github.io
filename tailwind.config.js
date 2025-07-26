@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'real-estate-primary': '#1E3A8A', // Custom blue; must be here for purge to include .bg-real-estate-primary.
+        'real-estate-primary': '#32788c', // Custom blue; must be here for purge to include .bg-real-estate-primary.
       },
     },
   },
