@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* input.css: Define Roboto Regular (v20-latin-regular.woff2) for CLS optimization */
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://css.site-static.com/assets/dist/v202502191450/fonts/templates/pro-main/roboto/v20-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +15,6 @@
     font-family: 'Roboto', system-ui, sans-serif;
   }
 }
-
 /* Optional: Custom CSS for Sierra-specific overrides or unique styles */
 @layer components {
   /* Example: Override Sierra's default link styles */
