@@ -1,8 +1,14 @@
-/* input.css: Entry point for Tailwind CLI build */
-/* Core Tailwind directives */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  nav[aria-label="Breadcrumb"] {
+    font-family: 'Roboto', system-ui, sans-serif;
+  }
+}
 
 /* Optional: Custom CSS for Sierra-specific overrides or unique styles */
 @layer components {
