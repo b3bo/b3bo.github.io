@@ -3,11 +3,11 @@
 // Content paths: Points to 'content.html' in repo root; add more if files are in subfolders (e.g., './css/*.html').
 // Theme: Extends for custom real estate styles (e.g., colors from test div).
 module.exports = {
-  content: ['./content.html'], // Ensure this path is correct; no other JS/HTML for now.
+  content: ['./compontents/breadcrumb/*.html'], 
   theme: {
     extend: {
       colors: {
-        'real-estate-primary': '#32788c', // Custom blue; must be here for purge to include .bg-real-estate-primary.
+        'primary-color': '#32788c', // Custom blue; must be here for purge to include .bg-real-estate-primary.
       },
     },
   },
