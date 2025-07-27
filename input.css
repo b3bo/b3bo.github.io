@@ -18,7 +18,7 @@
   /* Placeholder for logo preload (replace with actual URL) */
   /* Example: Assume logo.jpg is the LCP image */
   .site-logo {
-    background-image: url('https://css.site-static.com/.../logo.jpg'); /* Update with real path */
+    background-image: url('https://cdn.sitephotos.sierrastatic.com/1068_logo_ts-gray-250x100-20190109084059.jpg'); 
   }
 }
 /* Optional: Custom CSS for Sierra-specific overrides or unique styles */
