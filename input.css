@@ -1,10 +1,17 @@
-/* Purpose: Entry point for Tailwind v3.4.10 build. Includes base layers; separate from custom CSS. */
+/* input.css: Entry point for Tailwind CLI build */
+/* Core Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities);
-
-/* Custom overrides for Sierra CSS (extends Preflight with higher specificity and !important) */
+/* Optional: Custom CSS for Sierra-specific overrides or unique styles */
+@layer components {
+  /* Example: Override Sierra's default link styles */
+  .sierra-override a {
+    @apply text-indigo-600 hover:text-indigo-500 !important;
+  }
+  /* Example: Custom breadcrumb separator */
+  .breadcrumb-separator {
+    @apply text-gray-400 mx-2;
+  }
+}
