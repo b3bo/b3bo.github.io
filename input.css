@@ -15,10 +15,10 @@
   nav[aria-label="Breadcrumb"] {
     font-family: 'Roboto', system-ui, sans-serif;
   }
-  /* Placeholder for logo preload (replace with actual URL) */
-  /* Example: Assume logo.jpg is the LCP image */
-  .site-logo {
-    background-image: url('https://cdn.sitephotos.sierrastatic.com/1068_logo_ts-gray-250x100-20190109084059.jpg'); 
+  /* Reserve space for logo (replace class if needed) */
+  .site-logo img {
+    min-width: 250px;
+    min-height: 100px;
   }
 }
 /* Optional: Custom CSS for Sierra-specific overrides or unique styles */
