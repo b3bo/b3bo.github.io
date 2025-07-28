@@ -17,11 +17,11 @@
   }
   .site-logo img {
     min-width: 250px;
-    min-height: 100px; /* Reserve space for logo to avoid shift */
+    min-height: 100px; /* Reserve space for logo */
   }
 }
 
-/* Optional: Sierra overrides */
+/* Optional: Custom CSS for Sierra overrides */
 @layer components {
   .sierra-override a {
     @apply text-indigo-600 hover:text-indigo-500 !important;
