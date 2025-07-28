@@ -24,10 +24,13 @@
     min-width: 250px;
     min-height: 100px;
   }
-  /* Optional IDX image prioritization (keep for when IDX is re-added) */
+  
+  /* Optional IDX image prioritization (keep for when IDX is re-added) 
   .si-listing__photo img:first-child {
-    @apply loading-eager priority-high; /* No lazy for LCP */
-  }
+    @apply loading-eager priority-high; /* No lazy for LCP *
+  }*/
+
+
   /* Sierra margin override: Change margin on .si-property-stats */
   .si-property-stats {
     margin-left: 0;
