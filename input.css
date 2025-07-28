@@ -1,23 +1,36 @@
-/* input.css: Optimized for CLS/LCP in Bare-Bones Sierra Setup */
+/* input.css: Entry point for Tailwind CLI build */
+/* Optimizes Roboto font and overrides Sierra class margins for CLS/LCP reduction in bare-bones Sierra setup */
+/* Defines Roboto regular (400) with swap display for fast fallback */
 @font-face {
   font-family: 'Roboto';
   src: url('https://css.site-static.com/assets/dist/v202502191450/fonts/templates/pro-main/roboto/v20-latin-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap; /* Fast fallback to reduce FOUC/CLS */
+  font-display: swap; /* Allows fallback during load, reducing CLS */
 }
 
+/* Core Tailwind directives for base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base layer: Apply Roboto to breadcrumb, reserve space for logo, and override Sierra margins */
 @layer base {
   nav[aria-label="Breadcrumb"] {
     font-family: 'Roboto', system-ui, sans-serif;
   }
+  /* Reserve space for logo to prevent shift (class based on Sierra's .site-logo) */
   .site-logo img {
     min-width: 250px;
-    min-height: 100px; /* Reserve space for logo */
+    min-height: 100px;
+  }
+  /* Optional IDX image prioritization (keep for when IDX is re-added) */
+  .si-listing__photo img:first-child {
+    @apply loading-eager priority-high; /* No lazy for LCP */
+  }
+  /* Sierra margin override: Change margin on .si-listing__photo (e.g., for IDX photos) */
+  .si-container {
+    margin: 0;
   }
 }
 
@@ -27,3 +40,4 @@
     @apply text-indigo-600 hover:text-indigo-500 !important;
   }
 }
+
