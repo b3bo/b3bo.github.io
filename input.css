@@ -1,4 +1,6 @@
-/* input.css: Optimize Roboto and Logo for CLS/LCP */
+/* input.css: Entry point for Tailwind CLI build */
+/* Optimizes Roboto font and logo for CLS/LCP reduction in bare-bones Sierra setup */
+/* Defines Roboto regular (400) with swap display for fast fallback */
 @font-face {
   font-family: 'Roboto';
   src: url('https://css.site-static.com/assets/dist/v202502191450/fonts/templates/pro-main/roboto/v20-latin-regular.woff2') format('woff2');
@@ -7,27 +9,30 @@
   font-display: swap; /* Allows fallback during load, reducing CLS */
 }
 
+/* Core Tailwind directives for base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base layer: Apply Roboto to breadcrumb and reserve space for logo */
 @layer base {
   nav[aria-label="Breadcrumb"] {
     font-family: 'Roboto', system-ui, sans-serif;
   }
-  /* Reserve space for logo (replace class if needed) */
+  /* Reserve space for logo to prevent shift (class based on Sierra's .site-logo) */
   .site-logo img {
     min-width: 250px;
     min-height: 100px;
   }
 }
-/* Optional: Custom CSS for Sierra-specific overrides or unique styles */
+
+/* Optional components layer: Sierra-specific overrides or custom styles */
 @layer components {
-  /* Example: Override Sierra's default link styles */
+  /* Example: Override Sierra's default link styles if conflicting */
   .sierra-override a {
     @apply text-indigo-600 hover:text-indigo-500 !important;
   }
-  /* Example: Custom breadcrumb separator */
+  /* Example: Custom breadcrumb separator if using text instead of SVG */
   .breadcrumb-separator {
     @apply text-gray-400 mx-2;
   }
