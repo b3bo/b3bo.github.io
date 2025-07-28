@@ -35,10 +35,14 @@
   }
 }
 
-/* Optional: Custom CSS for Sierra overrides */
+/* Optional components layer: Sierra-specific overrides or custom styles */
 @layer components {
+  /* Example: Override Sierra's default link styles if conflicting */
   .sierra-override a {
     @apply text-indigo-600 hover:text-indigo-500 !important;
   }
+  /* Example: Custom breadcrumb separator if using text instead of SVG */
+  .breadcrumb-separator {
+    @apply text-gray-400 mx-2;
+  }
 }
-
