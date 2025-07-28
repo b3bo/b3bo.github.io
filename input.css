@@ -29,7 +29,7 @@
     @apply loading-eager priority-high; /* No lazy for LCP */
   }
   /* Sierra margin override: Change margin on .si-listing__photo (e.g., for IDX photos) */
-  .si-.si-property-stats {
+  .si-property-stats {
     margin-left: 0;
     margin-right: 0;
   }
