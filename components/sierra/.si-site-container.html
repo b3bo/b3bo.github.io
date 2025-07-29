@@ -9,10 +9,10 @@
 </head>
 <body class="bg-gray-100 font-sans antialiased">
 
-    <!-- Simulated GTM wrapper around Sierra content: Stack all sections vertically -->
+    <!-- Simulated GTM wrapper around Sierra content: Stack all sections vertically with flex-col -->
     <div class="si-site-container col-md-12 si-site-container--full flex flex-col gap-4 min-h-[600px]">
 
-        <!-- Breadcrumb: Full width -->
+        <!-- Breadcrumb: Full width at top -->
         <nav aria-label="Breadcrumb" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 min-h-[48px]">
             <ol class="flex items-center justify-center space-x-2 text-sm text-gray-600 min-w-[320px] min-h-[40px] whitespace-nowrap">
                 <li><a href="/" class="hover:text-indigo-600 transition-colors duration-200">Home</a></li>
@@ -84,4 +84,79 @@
                 </div>
                 <div class="si-filter__sort">
                     <select class="js-lw-selectbox border rounded px-4 py-2">
-                        <option value="m.Price DESC">Price (Highest)</option
+                        <option value="m.Price DESC">Price (Highest)</option>
+                        <option value="m.Price ASC">Price (Lowest)</option>
+                        <option value="m.DateListed DESC" selected>Days on Site (Newest)</option>
+                        <option value="m.DateListed ASC">Days on Site (Oldest)</option>
+                        <option value="m.Beds DESC">Bedrooms (Most)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="si-row flex justify-between">
+                <div class="si-filter__status text-lg font-semibold mb-4">92 Properties</div>
+                <div class="si-filter__pager js-lw-pager flex justify-center gap-2">
+                    <a href="javascript:void(0);" class="is-disabled px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"><i class="fa fa-chevron-left"></i><span>Prev</span></a>
+                    <span>Page 1 of 8</span>
+                    <a href="/30a/tailwind-test2/?pg=2" class="js-next px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listings Gallery: Full width under filters -->
+        <div class="tab-content si-container si-listings js-lw-container">
+            <div class="tab-pane fade active in" id="lwGallery374894">
+                <div class="si-listings-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Example Listing 1 -->
+                    <div class="si-listings-column" data-compliance="40">
+                        <div class="si-listing bg-white shadow-md rounded-lg overflow-hidden">
+                            <div class="si-listing__photo relative">
+                                <img src="https://cdn.listingphotos.sierrastatic.com/pics2x/v1753733269/40/40_981886_01.jpg" class="si-listing-photo" alt="28 Pollard Cove West Inlet Beach,  FL 32461">
+                                <div class="si-listing__photo-price text-2xl font-bold">$1,695,000</div>
+                                <div class="si-listing__photo-count">4 <i class="fa fa-camera"></i></div>
+                            </div>
+                            <div class="si-listing__title p-4">
+                                <div class="si-listing__title-main text-lg font-semibold">28 Pollard Cove West</div>
+                                <div class="si-listing__title-description text-sm text-gray-600">Inlet Beach,  FL 32461</div>
+                            </div>
+                            <div class="si-listing__content p-4">
+                                <div class="si-listing__neighborhood text-sm text-gray-600">Watersound Origins</div>
+                                <div class="si-listing__info flex gap-4 text-sm text-gray-700 mt-2">
+                                    <div>4 Beds</div>
+                                    <div>4F 1 1/2 Baths</div>
+                                    <div>2,684 Sq.Ft.</div>
+                                </div>
+                                <div class="si-listing__footer text-sm text-gray-500 mt-2">MLS #: 981886</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional listings... -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination: Full width under listings -->
+        <div class="si-container si-pager js-lw-pager flex justify-center gap-2 text-center">
+            <ul>
+                <li class="prev disabled"><a href="javascript:void(0);"><i class="fa fa-chevron-left"></i><span>Prev</span></a></li>
+                <li class="current"><span>1</span></li>
+                <li><a href="/30a/tailwind-test2/?pg=2" class="js-page-link">2</a></li>
+                <li><a href="/30a/tailwind-test2/?pg=3" class="js-page-link">3</a></li>
+                <li><a href="/30a/tailwind-test2/?pg=4" class="js-page-link">4</a></li>
+                <li><a href="/30a/tailwind-test2/?pg=5" class="js-page-link">5</a></li>
+                <li class="disabled"><span>...</span></li>
+                <li><a href="/30a/tailwind-test2/?pg=8" class="js-page-link">8</a></li>
+                <li class="next"><a href="/30a/tailwind-test2/?pg=2" class="js-page-link"><span>Next</span><i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Logo for override -->
+        <div class="logo">
+            <img src="placeholder-logo.png" alt="Logo" min-width="250px" min-height="100px" content-visibility="auto" />
+        </div>
+
+    </div>
+
+</body>
+</html>
