@@ -45,4 +45,7 @@
   .breadcrumb-separator {
     @apply text-gray-400 mx-2;
   }
+  .si-content-label__title {
+    color: inherit;
+  }
 }
