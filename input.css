@@ -49,6 +49,18 @@
 
 }
 
+/* Overrides for Sierra Content */
 .si-content-label__title {
     color: inherit;
   }
+
+.si-content-label__body {
+    background-color: none;
+    border: 1px solid var(--sis-component-border);
+}
+
+.si-property-stats__title {
+    background-color: none;
+    line-height: inherit;
+    padding: 6px 10px;
+}
