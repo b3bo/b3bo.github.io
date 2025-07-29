@@ -23,7 +23,7 @@
   .si-content-label__title {
     color: inherit;
   }
-  
+
   /* Reserve space for logo to prevent shift (class based on Sierra's .logo) */
   .logo img {
     min-width: 250px;
