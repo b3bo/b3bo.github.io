@@ -23,11 +23,11 @@
   .logo img {
     min-width: 250px;
     min-height: 100px;
-    content-visibility: auto; /* Optional: Improves rendering performance */
+    content-visibility: auto; /* Improves rendering performance */
   }
   /* Optional IDX image prioritization (keep for when IDX is re-added) */
   .si-listing__photo img:first-child {
-    @apply loading-eager priority-high; /* No lazy for LCP */
+    @apply [loading:eager] [fetchpriority:high]; /* Use arbitrary attributes for eager loading and high priority */
   }
   /* Sierra margin override: Change margin on .si-property-stats */
   .si-property-stats {
@@ -38,6 +38,11 @@
   nav[aria-label="Breadcrumb"] ol {
     min-width: 340px;
     min-height: 40px;
+  }
+  /* Target breadcrumb separators for stability */
+  nav[aria-label="Breadcrumb"] span {
+    min-width: 20px;
+    min-height: 20px;
   }
 }
 
