@@ -29,11 +29,6 @@
   .si-listing__photo img:first-child {
     @apply [loading:eager] [fetchpriority:high]; /* Use arbitrary attributes for eager loading and high priority */
   }
-  /* Sierra margin override: Change margin on .si-property-stats */
-  .si-property-stats {
-    margin-left: 0;
-    margin-right: 0;
-  }
   /* Ensure breadcrumb stability against Sierra overrides */
   nav[aria-label="Breadcrumb"] ol {
     min-width: 340px;
@@ -45,7 +40,6 @@
     min-height: 20px;
   }
 }
-
 /* Optional components layer: Sierra-specific overrides or custom styles */
 @layer components {
   .breadcrumb-separator {
