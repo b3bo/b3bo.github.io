@@ -10,10 +10,10 @@
 <body class="bg-gray-100 font-sans antialiased">
 
     <!-- Simulated GTM wrapper around Sierra content -->
-    <div class="si-site-container col-md-12 si-site-container--full grid grid-cols-1 md:grid-cols-4 gap-4 min-h-[600px]">
+    <div class="si-site-container col-md-12 si-site-container--full flex flex-col gap-4 min-h-[600px]">
 
-        <!-- Breadcrumb: Span full width -->
-        <nav aria-label="Breadcrumb" class="col-span-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 min-h-[48px]">
+        <!-- Breadcrumb: Full width -->
+        <nav aria-label="Breadcrumb" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 min-h-[48px]">
             <ol class="flex items-center justify-center space-x-2 text-sm text-gray-600 min-w-[320px] min-h-[40px] whitespace-nowrap">
                 <li><a href="/" class="hover:text-indigo-600 transition-colors duration-200">Home</a></li>
                 <li class="flex items-center"><span class="text-gray-400 mx-1">/</span> <a href="/30a" class="hover:text-indigo-600 transition-colors duration-200">30A</a></li>
@@ -21,14 +21,14 @@
             </ol>
         </nav>
 
-        <!-- Content Area with Title and Description: Span full width -->
-        <div class="si-content-area col-span-full">
+        <!-- Content Area with Title and Description: Full width -->
+        <div class="si-content-area">
             <h1 class="si-content-label__title text-3xl font-bold text-center mb-4">Bare Bones Homes for Sale</h1>
             <p class="text-lg text-gray-700 text-center mb-6">Welcome to the quaint town of Maplewood, nestled in the rolling hills of Clover County. Below is a glimpse into the charm of this hidden gem, where community spirit thrives. For more tales or to explore local happenings, check the town’s bulletin board or visit the Maplewood Gazette’s website. This cozy town, surrounded by lush forests and sparkling creeks, is built for those who love a slower pace. Just a short drive from bustling Willow City, serene Pine Lake, and the artisan village of Crafton, Maplewood offers a perfect escape into small-town life.</p>
         </div>
 
-        <!-- Property Stats: Span full width -->
-        <div class="si-container si-property-stats col-span-full">
+        <!-- Property Stats: Full width -->
+        <div class="si-container si-property-stats">
             <div class="si-row grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
                 <div class="si-property-stats__title">
                     <span class="si-property-stats__title-main text-xl font-semibold">Active Listings </span><span class="si-property-stats__title-date">July 29, 2025</span>
@@ -52,8 +52,8 @@
             </div>
         </div>
 
-        <!-- Price Range Filters: Span full width, but internal list as responsive grid (2 -> 3 -> 4 columns) -->
-        <div class="si-container si-content-label si-content-label--price-range js-lw-price-ranges col-span-full">
+        <!-- Price Range Filters: Full width container, but list as responsive grid (2 -> 3 -> 4 columns) -->
+        <div class="si-container si-content-label si-content-label--price-range js-lw-price-ranges">
             <div class="si-row">
                 <div class="si-content-label__title text-lg font-semibold mb-2">Active Listings by Price</div>
                 <ul class="si-content-label__body grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
@@ -66,8 +66,8 @@
             </div>
         </div>
 
-        <!-- Filter Controls: Span full width -->
-        <div class="si-container si-filter col-span-full">
+        <!-- Filter Controls: Full width -->
+        <div class="si-container si-filter">
             <div class="si-row si-filter-controls flex flex-col md:flex-row justify-between items-center bg-white shadow-md rounded-lg">
                 <div class="si-filter__tabs">
                     <ul class="js-lw-tabs flex gap-4 mb-4 md:mb-0">
@@ -103,8 +103,8 @@
             </div>
         </div>
 
-        <!-- Listings Gallery: Span full width, internal gallery as responsive grid -->
-        <div class="tab-content si-container si-listings js-lw-container col-span-full">
+        <!-- Listings Gallery: Full width -->
+        <div class="tab-content si-container si-listings js-lw-container">
             <div class="tab-pane fade active in" id="lwGallery374894">
                 <div class="si-listings-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Example Listing 1 -->
@@ -136,8 +136,8 @@
             </div>
         </div>
 
-        <!-- Pagination: Span full width -->
-        <div class="si-container si-pager js-lw-pager col-span-full flex justify-center gap-2 text-center">
+        <!-- Pagination: Full width -->
+        <div class="si-container si-pager js-lw-pager flex justify-center gap-2 text-center">
             <ul>
                 <li class="prev disabled"><a href="javascript:void(0);"><i class="fa fa-chevron-left"></i><span>Prev</span></a></li>
                 <li class="current"><span>1</span></li>
@@ -152,7 +152,7 @@
         </div>
 
         <!-- Logo for override -->
-        <div class="logo col-span-full">
+        <div class="logo">
             <img src="placeholder-logo.png" alt="Logo" min-width="250px" min-height="100px" content-visibility="auto" />
         </div>
 
