@@ -1,6 +1,5 @@
 module.exports = {
   content: [
-    
     './components/breadcrumb/breadcrumb.html',  
     './components/sierra/.si-site-container.html',
     './components/sierra/header.html',
