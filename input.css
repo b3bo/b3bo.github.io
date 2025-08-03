@@ -77,10 +77,6 @@
     @apply font-light text-3xl uppercase text-primary;
   }
 
-  .si-content-label__title {
-    @apply text-inherit;
-  }
-
   .si-property-stats__title {
     @apply bg-inherit leading-inherit p-[6px_10px];
   }
@@ -121,6 +117,11 @@
 .si-content-label__body {
   background-color: inherit;
   border: 1px solid var(--sis-component-border);
+}
+
+/* Style si-content-label__title outside layer to override Sierra */
+.si-content-label__title {
+  color: inherit;
 }
 
 /* Responsive header height adjustments */
