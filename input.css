@@ -66,10 +66,10 @@
     @apply md:mt-[95px]; /* Base for md (768px-991px) and up */
   }
 
-  /* Specific adjustment for below 767px */
+  /* Specific adjustment for below 767px using raw media query */
   @media screen and (max-width: 767px) {
     .main-content {
-      @apply sm:mt-[115px]; /* Adjusted for small screens (0px-767px) */
+      margin-top: 115px; /* Raw CSS to ensure application */
     }
   }
 }
