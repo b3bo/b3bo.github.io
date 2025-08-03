@@ -56,6 +56,10 @@
   .breadcrumb-separator {
     @apply theme('colors.primary.DEFAULT') mx-2;
   }
+  
+  .h2 {
+    @apply font-light text-3xl uppercase text-primary;
+  }
 }
 
 .si-content-label__title {
