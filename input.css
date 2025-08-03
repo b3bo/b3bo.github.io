@@ -81,10 +81,6 @@
     @apply text-inherit;
   }
 
-  .si-content-label__body {
-    @apply bg-inherit border border-[var(--sis-component-border)];
-  }
-
   .si-property-stats__title {
     @apply bg-inherit leading-inherit p-[6px_10px];
   }
@@ -119,6 +115,12 @@
   .main-content {
     margin-top: 115px; /* Adjusted for below 767px to clear fixed header */
   }
+}
+
+/* Style si-content-label__body outside layer to override Sierra */
+.si-content-label__body {
+  background-color: inherit;
+  border: 1px solid var(--sis-component-border);
 }
 
 /* Responsive header height adjustments */
