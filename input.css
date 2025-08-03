@@ -22,10 +22,6 @@
     @apply font-sans; /* Use theme-defined font */
   }
 
-  .logo img {
-    @apply min-w-[171px] min-h-[65px] content-visibility-auto; 
-  }
-
   /* Custom utility for content-visibility: auto */
   .content-visibility-auto {
     content-visibility: auto;
@@ -96,6 +92,14 @@
     
 }
 
-.container {
-    max-width: 765px;
+@media screen and (max-width: 991px) {
+    header {
+        height: 95px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        height: 120px;
+    }
 }
