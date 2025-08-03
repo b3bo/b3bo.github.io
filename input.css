@@ -1,5 +1,11 @@
 /* input.css: Entry point for Tailwind CLI build */
-/* Optimizes Roboto font and overrides Sierra class margins for CLS/LCP reduction */
+/* Description: Custom styles deployed across all pages in Sierra Interactive. Includes centralized variables for theming, typography with fluid scaling, layout utilities for responsive designs, component styles for UI elements like quicklinks, tabs, accordions, and content boxes, icons with Font Awesome, and media queries for responsive headings. Added uppercase transformation and hid blog-link class. */
+/* Author: John Bauman */
+/* Date: August 03, 2025 */
+
+/* ==========================================================================
+   1. Fonts and Base Optimizations
+   ========================================================================== */
 
 /* Define Roboto with performance optimizations */
 @font-face {
@@ -11,10 +17,14 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215; /* Limit to Latin chars for performance */
 }
 
-/* Core Tailwind directives */
+/* Core Tailwind directives for base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ==========================================================================
+   2. Base Layer: Typography, Layout, and Optimizations
+   ========================================================================== */
 
 /* Base layer: Apply Roboto, reserve space, and optimize layout */
 @layer base {
@@ -45,61 +55,69 @@
   nav[aria-label="Breadcrumb"] span {
     @apply min-w-[20px] min-h-[20px];
   }
+
+  /* Apply Roboto to Sierra containers and descendants */
+  .si-container, .si-container * {
+    font-family: 'Roboto';
+  }
 }
+
+/* ==========================================================================
+   3. Components Layer: Sierra-Specific Styles and Overrides
+   ========================================================================== */
 
 /* Components layer: Sierra-specific styles */
 @layer components {
   .breadcrumb-separator {
-    @apply theme('colors.primary.DEFAULT') mx-2;
+    @apply text-primary mx-2; /* Use theme primary color for separator */
   }
 
+  /* Custom H2 styling using theme */
   .h2 {
     @apply font-light text-3xl uppercase text-primary;
   }
-}
 
-.si-container, .si-container * {
-    font-family: 'Roboto';
-}
-
-.main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
-    font-weight: 300;
-    font-style: normal;
-    font-size: 30px;
-    text-transform: uppercase;
-    color: theme('colors.primary.DEFAULT');
-}
-
-.si-property-stats__title {
-    background-color: inherit;
-    line-height: inherit;
-    padding: 6px 10px;
-}
-
-.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-    font-size: var(--sis-font-size-large);
-    border-left: 1px solid var(--sis-component-border);
-    border-right: 1px solid var(--sis-component-border);
-    border-top: 1px solid var(--sis-component-border);
-    padding: 6px 10px;
-    margin: 0;
-    color: inherit;
+  .si-content-label__title {
+    @apply text-inherit;
   }
 
-.si-content-label__body {
-    background-color: inherit;
-    border: 1px solid var(--sis-component-border);
-    
+  .si-content-label__body {
+    @apply bg-inherit border border-[var(--sis-component-border)];
+  }
+
+  .si-property-stats__title {
+    @apply bg-inherit leading-inherit p-[6px_10px];
+  }
+
+  /* Override titles and headers with theme color and uppercase */
+  .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
+    @apply font-light text-3xl uppercase text-primary;
+  }
+
+  /* Specific override for price range title */
+  .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+    @apply text-lg border-l border-r border-t border-[var(--sis-component-border)] p-[6px_10px] m-0 text-inherit;
+  }
 }
 
+/* ==========================================================================
+   4. Navigation and Layout Customizations
+   ========================================================================== */
+
+/* Responsive header height adjustments */
 @media screen and (max-width: 991px) {
-    header {
-        height: 95px;
-    }
+  header {
+    height: 95px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    header {
-        height: 120px;
-    }
+  header {
+    height: 120px;
+  }
+}
+
+/* Hide blog link elements site-wide */
+.blog-link {
+  display: none !important;
 }
