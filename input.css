@@ -63,13 +63,13 @@
 
   /* Adjust main-content margin-top to prevent header overlap */
   .main-content {
-    @apply md:mt-[95px]; /* Default for md (768px-991px) and up */
+    @apply md:mt-[95px]; /* Base for md (768px-991px) and up */
   }
 
   /* Specific adjustment for below 767px */
   @media screen and (max-width: 767px) {
     .main-content {
-      @apply mt-[115px]; /* Adjusted based on feedback, slightly below 120px */
+      @apply sm:mt-[115px]; /* Adjusted for small screens (0px-767px) */
     }
   }
 }
