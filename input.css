@@ -77,7 +77,7 @@
     padding: 6px 10px;
 }
 
-h2, .main-content .si-content-area h2, .si-content-label__title {
+h2, .main-content .si-content-area h2 {
     font-weight: 300;
     font-style: normal;
     font-size: 30px;
