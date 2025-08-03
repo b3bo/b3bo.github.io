@@ -117,7 +117,12 @@
   }
 }
 
-/* Hide blog link elements site-wide */
+/* Hide blog link */
 .blog-link {
   display: none !important;
 }
+
+/* Hide the Top-Strip */
+.top-strip {
+    display: none;
+} 
