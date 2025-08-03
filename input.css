@@ -122,7 +122,12 @@
   }
 }
 
-/* Hide blog link elements site-wide */
+/* Hides blog link*/
 .blog-link {
-  display: none !important;
+  display: none;
+}
+
+/*Hides SI Top-stip for hero images */
+.top-strip {
+  display: none;
 }
