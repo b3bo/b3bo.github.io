@@ -56,6 +56,7 @@
   .breadcrumb-separator {
     @apply text-gray-400 mx-2;
   }
+}
 
   .si-content-label__title {
     @apply text-inherit;
@@ -73,10 +74,3 @@
   h2 {
     @apply font-light text-3xl uppercase text-primary; /* 30px, uppercase, primary color */
   }
-  .si-container.si-property-stats + h2 {
-    @apply font-light text-3xl uppercase text-primary;
-  }
-  .main-content .si-content-area + h2 {
-    @apply font-light text-3xl uppercase text-primary;
-  }
-}
