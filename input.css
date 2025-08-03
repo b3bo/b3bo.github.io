@@ -71,9 +71,12 @@
 
   /* Style h2 with theme colors and Tailwind utilities */
   h2 {
-      font-weight: 300;
-      font-size: 30px;
-      text-transform: uppercase;
-      color: #32788c;
-    }
+    @apply font-light text-3xl uppercase text-primary; /* 30px, uppercase, primary color */
+  }
+  .si-container.si-property-stats + h2 {
+    @apply font-light text-3xl uppercase text-primary;
+  }
+  .main-content .si-content-area + h2 {
+    @apply font-light text-3xl uppercase text-primary;
+  }
 }
