@@ -1,5 +1,5 @@
 /* input.css: Entry point for Tailwind CLI build */
-/* Description: Custom styles deployed across all pages in Sierra Interactive. Includes centralized variables for theming, typography with fluid scaling, layout utilities for responsive designs, component styles for UI elements like quicklinks, tabs, accordions, and content boxes, icons with Font Awesome, and media queries for responsive headings. Added uppercase transformation and hid blog-link class. */
+/* Description: Custom styles deployed across all pages in Sierra Interactive. Includes centralized variables for theming, typography with fluid scaling, layout utilities for responsive designs, component styles for UI elements like quicklinks, tabs, accordions, and content boxes, icons with Font Awesome, and media queries for responsive headings. Added uppercase transformation and hid blog-link class and top-strip. */
 /* Author: John Bauman */
 /* Date: August 03, 2025 */
 
@@ -63,7 +63,14 @@
 
   /* Adjust main-content margin-top to prevent header overlap */
   .main-content {
-    @apply mt-[120px] md:mt-[95px]; /* Matches header height, responsive */
+    @apply md:mt-[95px]; /* Default for md (768px-991px) and up */
+  }
+
+  /* Specific adjustment for below 767px */
+  @media screen and (max-width: 767px) {
+    .main-content {
+      @apply mt-[115px]; /* Adjusted based on feedback, slightly below 120px */
+    }
   }
 }
 
@@ -127,7 +134,7 @@
   display: none;
 }
 
-/*Hides SI Top-stip for hero images */
+/*Hides SI Top-strip for hero images */
 .top-strip {
   display: none;
 }
