@@ -74,6 +74,10 @@
 
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
     font-size: var(--sis-font-size-large);
+    border-left: 1px solid var(--sis-component-border);
+    border-right: 1px solid var(--sis-component-border);
+    border-top: 1px solid var(--sis-component-border);
+    margin: 0;
   }
 
 .si-content-label__body {
