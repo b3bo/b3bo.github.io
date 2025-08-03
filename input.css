@@ -97,8 +97,7 @@
   /* Specific adjustment for below 767px */
   @media screen and (max-width: 767px) {
     .main-content {
-      @apply sm:mt-[115px]; /* Adjusted for small screens (0px-767px) with Tailwind utility */
-      margin-top: 115px; /* Raw CSS fallback */
+      @apply sm:mt-[115px]; /* Tailwind utility for small screens (0px-767px) */
     }
   }
 
