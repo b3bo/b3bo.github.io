@@ -32,6 +32,8 @@ module.exports = {
   plugins: [],
   safelist: [
     'text-primary', // Ensure h2 text color isn’t purged
+    'content-visibility-auto', // Existing custom utility
+    'leading-inherit', // New custom utility
     {
       pattern: /bg-(primary|secondary|accent)-(DEFAULT|light|dark)/,
       variants: ['hover', 'focus'],
