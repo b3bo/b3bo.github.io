@@ -60,6 +60,11 @@
   .si-container, .si-container * {
     font-family: 'Roboto';
   }
+
+  /* Adjust main-content margin-top to prevent header overlap */
+  .main-content {
+    @apply mt-[120px] md:mt-[95px]; /* Matches header height, responsive */
+  }
 }
 
 /* ==========================================================================
@@ -117,12 +122,7 @@
   }
 }
 
-/* Hide blog link */
+/* Hide blog link elements site-wide */
 .blog-link {
   display: none !important;
 }
-
-/* Hide the Top-Strip */
-.top-strip {
-    display: none;
-} 
