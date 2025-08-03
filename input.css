@@ -68,10 +68,6 @@
     padding: 6px 10px;
 }
 
-.si-content-label__title {
-    color: inherit;
-  }
-
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
     font-size: var(--sis-font-size-large);
     border-left: 1px solid var(--sis-component-border);
@@ -79,6 +75,7 @@
     border-top: 1px solid var(--sis-component-border);
     padding: 6px 10px;
     margin: 0;
+    color: inherit;
   }
 
 .si-content-label__body {
@@ -87,7 +84,7 @@
     
 }
 
-.main-content .si-content-area h2, h2, .si-content-label__title {
+.main-content .si-content-area h2, h2 {
     font-weight: 300;
     font-style: normal;
     font-size: 30px;
