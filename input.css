@@ -54,23 +54,29 @@
 /* Components layer: Sierra-specific styles */
 @layer components {
   .breadcrumb-separator {
-    @apply text-gray-400 mx-2;
+    @apply theme('colors.primary.DEFAULT') mx-2;
   }
 }
 
-  .si-content-label__title {
-    @apply text-inherit;
+.si-content-label__title {
+    color: inherit;
   }
 
-  .si-content-label__body {
-    @apply bg-inherit border border-sis-component-border;
-  }
+.si-content-label__body {
+    background-color: inherit;
+    border: 1px solid var(--sis-component-border);
+}
 
-  .si-property-stats__title {
-    @apply bg-inherit leading-inherit p-[6px_10px];
-  }
+.si-property-stats__title {
+    background-color: inherit;
+    line-height: inherit;
+    padding: 6px 10px;
+}
 
-  /* Style h2 with theme colors and Tailwind utilities */
-  h2 {
-    @apply font-light text-3xl uppercase text-primary; /* 30px, uppercase, primary color */
-  }
+h2 {
+    font-weight: 400px;
+    font-style: normal;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: theme('colors.primary.DEFAULT');
+}
