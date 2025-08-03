@@ -72,7 +72,7 @@
     color: inherit;
   }
 
-.js-lw-price-ranges ~ .si-content-label__title {
+.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
     font-size: var(--sis-font-size-large);
   }
 
