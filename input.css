@@ -1,70 +1,66 @@
 /* input.css: Entry point for Tailwind CLI build */
-/* Optimizes Roboto font and overrides Sierra class margins for CLS/LCP reduction in bare-bones Sierra setup */
-/* Defines Roboto regular (400) with swap display for fast fallback */
+/* Optimizes Roboto font and overrides Sierra class margins for CLS/LCP reduction */
+
+/* Define Roboto with performance optimizations */
 @font-face {
   font-family: 'Roboto';
   src: url('https://css.site-static.com/assets/dist/v202502191450/fonts/templates/pro-main/roboto/v20-latin-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap; /* Fast fallback to reduce FOUC/CLS */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215; /* Limit to Latin chars for performance */
 }
 
-/* Core Tailwind directives for base, components, and utilities */
+/* Core Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base layer: Apply Roboto to breadcrumb, reserve space for logo, and override Sierra margins */
+/* Base layer: Apply Roboto, reserve space, and optimize layout */
 @layer base {
   nav[aria-label="Breadcrumb"] {
-    font-family: 'Roboto', system-ui, sans-serif;
+    @apply font-sans; /* Use theme-defined font */
   }
-  
-  /* Reserve space for logo to prevent shift (class based on Sierra's .logo) */
+
   .logo img {
-    min-width: 250px;
-    min-height: 100px;
-    content-visibility: auto; /* Improves rendering performance */
+    @apply min-w-[250px] min-h-[100px] content-visibility-auto; /* Use arbitrary values for precision */
   }
-  /* Optional IDX image prioritization (keep for when IDX is re-added) */
+
+  /* IDX image prioritization (keep for potential re-add) */
   .si-listing__photo img:first-child {
-    @apply [loading:eager] [fetchpriority:high]; /* Use arbitrary attributes for eager loading and high priority */
+    @apply [loading:eager] [fetchpriority:high];
   }
-  /* Ensure breadcrumb stability against Sierra overrides */
+
+  /* Breadcrumb stability */
   nav[aria-label="Breadcrumb"] ol {
-    min-width: 340px;
-    min-height: 40px;
+    @apply min-w-[340px] min-h-[40px];
   }
-  /* Target breadcrumb separators for stability */
+
   nav[aria-label="Breadcrumb"] span {
-    min-width: 20px;
-    min-height: 20px;
+    @apply min-w-[20px] min-h-[20px];
   }
 }
-/* Optional components layer: Sierra-specific overrides or custom styles */
+
+/* Components layer: Sierra-specific styles */
 @layer components {
   .breadcrumb-separator {
     @apply text-gray-400 mx-2;
   }
 
-}
-
-.si-content-label__title {
-    color: inherit;
+  .si-content-label__title {
+    @apply text-inherit;
   }
 
-.si-content-label__body {
-    background-color: inherit;
-    border: 1px solid var(--sis-component-border);
-}
+  .si-content-label__body {
+    @apply bg-inherit border border-sis-component-border;
+  }
 
-.si-property-stats__title {
-    background-color: inherit;
-    line-height: inherit;
-    padding: 6px 10px;
-}
+  .si-property-stats__title {
+    @apply bg-inherit leading-inherit p-[6px_10px];
+  }
 
-h2 {
-    font-size: 30px;
-    text-transform: uppercase;
+  /* Style h2 with theme colors and Tailwind utilities */
+  h2 {
+    @apply font-normal text-3xl uppercase text-primary; /* 30px, uppercase, primary color */
+  }
 }
