@@ -85,11 +85,6 @@
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
     @apply font-light text-3xl uppercase text-primary;
   }
-
-  /* Specific override for price range title */
-  .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-    @apply text-lg border-l border-r border-t border-[var(--sis-component-border)] p-[6px_10px] m-0 text-inherit;
-  }
 }
 
 /* ==========================================================================
@@ -123,6 +118,17 @@
 .si-content-label__title {
   color: inherit;
   font-size: var(--sis-font-size-large); /* Added to match previous override */
+}
+
+/* Specific override for price range title (moved outside for precedence) */
+.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+  font-size: var(--sis-font-size-large);
+  border-left: 1px solid var(--sis-component-border);
+  border-right: 1px solid var(--sis-component-border);
+  border-top: 1px solid var(--sis-component-border);
+  padding: 6px 10px;
+  margin: 0;
+  color: inherit;
 }
 
 /* Responsive header height adjustments */
