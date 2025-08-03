@@ -89,18 +89,6 @@
     @apply bg-inherit leading-inherit p-[6px_10px];
   }
 
-  /* Adjust main-content margin-top to prevent header overlap */
-  .main-content {
-    @apply md:mt-[95px]; /* Base for md (768px-991px) and up */
-  }
-
-  /* Specific adjustment for below 767px */
-  @media screen and (max-width: 767px) {
-    .main-content {
-      @apply sm:mt-[115px]; /* Tailwind utility for small screens (0px-767px) */
-    }
-  }
-
   /* Override titles and headers with theme color and uppercase */
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
     @apply font-light text-3xl uppercase text-primary;
@@ -116,6 +104,23 @@
    4. Navigation and Layout Customizations
    ========================================================================== */
 
+/* Adjust main-content margin-top to prevent header overlap */
+.main-content {
+  margin-top: 95px; /* Default for above 767px */
+}
+
+@media screen and (max-width: 991px) {
+  .main-content {
+    margin-top: 95px; /* Matches header height for 768px-991px */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main-content {
+    margin-top: 115px; /* Adjusted for below 767px to clear fixed header */
+  }
+}
+
 /* Responsive header height adjustments */
 @media screen and (max-width: 991px) {
   header {
@@ -129,12 +134,4 @@
   }
 }
 
-/* Hides blog link*/
-.blog-link {
-  display: none;
-}
-
-/*Hides SI Top-strip for hero images */
-.top-strip {
-  display: none;
-}
+/* Hides blog link
