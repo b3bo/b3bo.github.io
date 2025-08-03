@@ -23,7 +23,12 @@
   }
 
   .logo img {
-    @apply min-w-[250px] min-h-[100px] content-visibility-auto; /* Use arbitrary values for precision */
+    @apply min-w-[250px] min-h-[100px]; /* Remove content-visibility-auto for now, will add as custom utility */
+  }
+
+  /* Custom utility for content-visibility: auto */
+  .content-visibility-auto {
+    content-visibility: auto;
   }
 
   /* IDX image prioritization (keep for potential re-add) */
