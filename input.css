@@ -134,4 +134,12 @@
   }
 }
 
-/* Hides blog link
+/* Hides blog link*/
+.blog-link {
+  display: none;
+}
+
+/*Hides SI Top-strip for hero images */
+.top-strip {
+  display: none;
+}
