@@ -122,6 +122,7 @@
 /* Style si-content-label__title outside layer to override Sierra */
 .si-content-label__title {
   color: inherit;
+  font-size: var(--sis-font-size-large); /* Added to match previous override */
 }
 
 /* Responsive header height adjustments */
