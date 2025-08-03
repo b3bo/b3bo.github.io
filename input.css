@@ -85,6 +85,11 @@
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
     @apply font-light text-3xl uppercase text-primary;
   }
+
+  /* Specific override for price range title */
+  .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+    @apply text-lg border-l border-r border-t border-[var(--sis-component-border)] p-[6px_10px] m-0 text-inherit;
+  }
 }
 
 /* ==========================================================================
@@ -144,9 +149,9 @@
   }
 }
 
-/* Hides blog link*/
+/* Hides blog link with !important */
 .blog-link {
-  display: none;
+  display: none !important;
 }
 
 /*Hides SI Top-strip for hero images */
