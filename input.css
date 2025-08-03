@@ -23,7 +23,7 @@
   }
 
   .logo img {
-    @apply min-w-[250px] min-h-[100px] content-visibility-auto; /* Reapply with custom utility */
+    @apply min-w-[171px] min-h-[65px] content-visibility-auto; /* Reapply with custom utility */
   }
 
   /* Custom utility for content-visibility: auto */
