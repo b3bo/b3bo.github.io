@@ -32,7 +32,7 @@
 }
 
 /* Optional: Scan files for classes */
-@source ["./*.html", "./components/**/*.html"];
+@source { content: ["./*.html", "./components/**/*.html"]; };
 
 /* Optional: Include custom.css if needed */
 @import "./custom.css";
