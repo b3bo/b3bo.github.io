@@ -7,11 +7,18 @@
 @import "tailwindcss";
 @reference "tailwindcss";
 
-/* Section 2: Custom Styles */
+/* Section 2: Sierra Customization */
 .blog-link {
   display: none !important;
 }
 
 .top-strip {
   display: none;
+}
+
+/* Section 3: Font Customization */
+@layer base {
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4;
+  }
 }
