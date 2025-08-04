@@ -1,15 +1,9 @@
 module.exports = {
-  content: [
-    './*.html', // Root HTML files
-    './components/**/*.{html,js}', // Recursive scan for components
-    './components/breadcrumb/breadcrumb.html',
-    './components/sierra/*.html', // Specific Sierra components
-  ],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#58a7af', 
+          DEFAULT: '#58a7af',
           light: '#5ea3b3',
           dark: '#32788c',
         },
@@ -22,25 +16,28 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Roboto', 'system-ui', 'sans-serif'], // Centralize Roboto
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        '3xl': '30px', // Explicitly set 3xl to 30px
+        '3xl': '30px',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
   safelist: [
-    'text-primary', // Ensure h2 text color isn’t purged
-    'content-visibility-auto', // Existing custom utility
-    'leading-inherit', // New custom utility
+    'text-primary',
+    'content-visibility-auto',
+    'leading-inherit',
     {
       pattern: /bg-(primary|secondary|accent)-(DEFAULT|light|dark)/,
       variants: ['hover', 'focus'],
     },
   ],
-  darkMode: 'class', // Optional for future dark mode
+  darkMode: 'class',
   corePlugins: {
-    preflight: true, // Keep base styles
+    preflight: true,
   },
 };
