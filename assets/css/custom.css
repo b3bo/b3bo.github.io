@@ -50,11 +50,11 @@
 /* Components Layer */
 @layer components {
   .breadcrumb-separator {
-    @apply text-primary mx-2;
+    @apply mx-2; /* Removed text-primary */
   }
 
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, .si-videos-widget>h2, h2 {
-    @apply font-light text-3xl uppercase text-primary;
+    @apply font-light text-3xl uppercase; /* Removed text-primary */
   }
 
   h2::after {
@@ -63,12 +63,11 @@
     width: 90px;
     height: 2px;
     opacity: 0.6;
-    @apply bg-primary;
-    margin-top: 20px;
+    margin-top: 20px; /* Removed @apply bg-primary */
   }
 
   .si-property-stats__item-label {
-    @apply text-primary;
+    /* Removed @apply text-primary */
   }
 }
 
@@ -104,7 +103,7 @@
 }
 
 header {
-  @apply bg-primary;
+  /* Removed @apply bg-primary */
 }
 
 @media screen and (max-width: 991px) {
