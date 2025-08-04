@@ -72,14 +72,10 @@
     @apply text-primary mx-2; /* Use theme primary color for separator */
   }
 
-  /* Custom H2 styling using theme */
-  .h2 {
+  /* Remove redundant .h2 class rule */
+  /* .h2 {
     @apply font-light text-3xl uppercase text-primary;
-  }
-
-  .si-property-stats__title {
-    @apply bg-inherit leading-inherit p-[6px_10px];
-  }
+  } */
 
   /* Override titles and headers with theme color and uppercase */
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
@@ -99,12 +95,6 @@
 /* Adjust main-content margin-top to prevent header overlap */
 .main-content {
   margin-top: 95px; /* Default for above 767px */
-}
-
-@media screen and (max-width: 991px) {
-  .main-content {
-    margin-top: 95px; /* Matches header height for 768px-991px */
-  }
 }
 
 @media screen and (max-width: 767px) {
