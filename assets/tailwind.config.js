@@ -3,7 +3,6 @@ module.exports = {
   content: [
     "./*.html",
     "./components/**/*.html",
-    "./components/sierra/si-site-container.html",
     "./assets/**/*.css" // Add this to scan custom.css for @apply classes
   ],
   theme: {
