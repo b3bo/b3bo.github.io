@@ -160,123 +160,81 @@
 
 /* Reordering of hamburger menu items for mobile and tablet, including hiding home link and ordering other links (e.g., home search, condo search, blog, resources), excluding our team below 767px. */
 
-/* Two-column layout above 767px, mimicking 992px+ featured tabs style */
-@media screen and (min-width: 768px) {
-  .more-menu-overlay .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center; /* Center the grid like featured tabs */
-    padding: 10px 15px;
-    gap: 15px;
-  }
-
-  .more-menu-overlay .row > .col-sm-6 {
-    display: contents;
-  }
-
-  .more-menu-overlay ul.link-list {
-    display: contents;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
-    display: none;
-  }
-
-  .more-menu-overlay ul.link-list li {
-    max-width: 20%; /* Mimic featured tabs max-width */
-    padding: 12px 40px; /* Mimic featured tabs padding */
-    text-align: center; /* Center content like tabs */
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-}
-
-/* One-column layout below 767px, matching higher resolution order minus our team */
-@media screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .more-menu-overlay .row {
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
     gap: 5px;
   }
-
   .more-menu-overlay .row > .col-sm-6 {
     display: contents;
   }
-
   .more-menu-overlay ul.link-list {
     display: contents;
   }
-
   .more-menu-overlay ul.link-list li:has(a[href="/"]) {
     display: none;
   }
-
   .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
     order: 1;
   }
-
   .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
     order: 2;
   }
-
   .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
     order: 3;
   }
-
   .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
     order: 4;
   }
-
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-    display: none; /* Exclude our team in lower resolution */
+    order: 5;
   }
 }
 
-/* ==========================================================================
-   6. Layout Utilities
-   ========================================================================== */
-
-/* Enforce two-column layout for blog posts above 767px */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
+  .more-menu-overlay .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    grid-column: 2;
+    grid-row: 2;
+  }
   .blogs .row {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
-
-  .blogs .row .col-sm-6 {
-    flex: 0 0 50%; /* Ensure 50% width for each column */
-    max-width: 50%;
-  }
-}
-
-/* Optional: Stack below 767px if desired, matching your original intent */
-@media screen and (max-width: 767px) {
-  .blogs .row .col-sm-6 {
-    flex: 0 0 100%; /* Stack below 767px */
+  .blogs .row > [class*="col-"] {
+    width: 100%;
     max-width: 100%;
+    flex: 0 0 100%;
   }
 }
