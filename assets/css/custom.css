@@ -16,6 +16,22 @@
   display: none;
 }
 
+.si-content-label__body {
+  background-color: inherit;
+  border: 1px solid var(--ui-color-neutral-200);
+}
+
+.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+  font-size: var(--sis-font-size-large);
+  border-left: 1px solid var(--sis-component-border);
+  border-right: 1px solid var(--sis-component-border);
+  border-top: 1px solid var(--sis-component-border);
+  padding: 6px 10px;
+  margin: 0;
+  color: inherit;
+}
+
+
 /* Section 3: Font Customization */
 .main-content .si-content-area h1 {
   @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 text-neutral-700;
