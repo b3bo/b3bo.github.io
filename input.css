@@ -160,7 +160,62 @@
 
 /* Reordering of hamburger menu items for mobile and tablet, including hiding home link and ordering other links (e.g., home search, condo search, blog, resources, our team). */
 
-@media (max-width: 767px) {
+/* Two-column layout above 767px, mimicking 992px+ featured tabs style */
+@media screen and (min-width: 768px) {
+  .more-menu-overlay .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center; /* Center the grid like featured tabs */
+    padding: 10px 15px;
+    gap: 15px;
+  }
+
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+
+  .more-menu-overlay ul.link-list li {
+    max-width: 20%; /* Mimic featured tabs max-width */
+    padding: 12px 40px; /* Mimic featured tabs padding */
+    text-align: center; /* Center content like tabs */
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* One-column layout below 767px */
+@media screen and (max-width: 767px) {
   .more-menu-overlay .row {
     display: flex;
     flex-direction: column;
@@ -198,51 +253,5 @@
 
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
     order: 5;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .more-menu-overlay .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px 15px;
-    gap: 15px;
-  }
-
-  .more-menu-overlay .row > .col-sm-6 {
-    display: contents;
-  }
-
-  .more-menu-overlay ul.link-list {
-    display: contents;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
-    display: none;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-    grid-column: 2;
-    grid-row: 2;
   }
 }
