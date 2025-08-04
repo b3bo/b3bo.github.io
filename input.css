@@ -191,5 +191,8 @@
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
     order: 5;
   }
+  .more-menu-overlay .col-main .blogs .item .img {
+    width: 345px;
+  }
 }
 
