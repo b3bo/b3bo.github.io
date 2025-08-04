@@ -17,8 +17,7 @@
 }
 
 /* Section 3: Font Customization */
-@layer base {
+
   h1 {
     @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 text-hippie-blue-500;
   }
-}
