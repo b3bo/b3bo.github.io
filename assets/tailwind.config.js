@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'hippie-blue': {
+        'primary': {
           '50': '#f1fcfd',
           '100': '#e0f5f8',
           '200': '#c1edf2',
@@ -21,7 +21,7 @@ module.exports = {
           '900': '#2e4d50',
           '950': '#1a3336',
         },
-        'dove-gray': {
+        'neutral': {
           '50': '#fafafa',
           '100': '#f5f5f5',
           '200': '#e5e5e5',
@@ -29,7 +29,7 @@ module.exports = {
           '400': '#a1a1a1',
           '500': '#737373',
           '600': '#525252',
-          '700': '#404040',
+          '700': '#404040', /*Normal Text Color*/
           '800': '#262626',
           '900': '#171717',
           '950': '#0a0a0a',
