@@ -85,6 +85,11 @@
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
     @apply font-light text-3xl uppercase text-primary;
   }
+
+  /* Change text color of si-property-stats__item-label to primary */
+  .si-property-stats__item-label {
+    @apply text-primary;
+  }
 }
 
 /* ==========================================================================
