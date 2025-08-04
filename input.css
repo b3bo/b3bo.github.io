@@ -260,10 +260,23 @@
    6. Layout Utilities
    ========================================================================== */
 
-/* Set thumbnail dimensions at lower resolution to 345x170px for blog images */
+/* Enforce two-column layout for blog posts above 767px */
+@media screen and (min-width: 768px) {
+  .blogs .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .blogs .row .col-sm-6 {
+    flex: 0 0 50%; /* Ensure 50% width for each column */
+    max-width: 50%;
+  }
+}
+
+/* Optional: Stack below 767px if desired, matching your original intent */
 @media screen and (max-width: 767px) {
-  .blogs img {
-    width: 345px;
-    height: 170px;
+  .blogs .row .col-sm-6 {
+    flex: 0 0 100%; /* Stack below 767px */
+    max-width: 100%;
   }
 }
