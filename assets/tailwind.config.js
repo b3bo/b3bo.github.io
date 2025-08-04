@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.html",
+    "./*.html", // Includes si-site-container.html in the root
     "./components/**/*.html",
-    "./assets/**/*.css" // Add this to scan custom.css for @apply classes
+    "./assets/**/*.css"
   ],
   theme: {
     extend: {
@@ -55,6 +55,7 @@ module.exports = {
       pattern: /min-w-\[.*\]/,
       variants: ['hover', 'focus'],
     },
+    'text-hippie-blue-500', // Force include to prevent purging
   ],
   darkMode: 'class',
   corePlugins: {
