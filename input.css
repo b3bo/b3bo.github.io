@@ -255,15 +255,3 @@
     display: none; /* Exclude our team in lower resolution */
   }
 }
-
-/* ==========================================================================
-   6. Layout Utilities
-   ========================================================================== */
-
-/* Set thumbnail dimensions at lower resolution to 345x170px, targeting nested images within .blogs */
-@media screen and (max-width: 767px) {
-  .blogs img.img-fluid {
-    width: 345px;
-    height: 170px;
-  }
-}
