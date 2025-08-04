@@ -254,3 +254,4 @@
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
     display: none; /* Exclude our team in lower resolution */
   }
+}
