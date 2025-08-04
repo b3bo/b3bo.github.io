@@ -77,6 +77,16 @@
     @apply font-light text-3xl uppercase text-primary;
   }
 
+  /* HR Styling after every h2 */
+  h2::after {
+    content: ''; /* Required for ::after to work */
+    display: block; /* Makes it a block-level element like hr */
+    width: 200px; /* Sets the length of the hr */
+    height: 2px; /* Sets the thickness */
+    @apply bg-primary; /* Uses Tailwind primary color from tailwind.config.js */
+    margin-top: 5px; /* Optional: Space above the hr */
+  }
+
   /* Change text color of si-property-stats__item-label to primary */
   .si-property-stats__item-label {
     @apply text-primary;
