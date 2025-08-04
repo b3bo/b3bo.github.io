@@ -158,7 +158,7 @@
    5. Hamburger Menu Reordering
    ========================================================================== */
 
-/* Reordering of hamburger menu items for mobile and tablet, including hiding home link and ordering other links (e.g., home search, condo search, blog, resources, our team). */
+/* Reordering of hamburger menu items for mobile and tablet, including hiding home link and ordering other links (e.g., home search, condo search, blog, resources), excluding our team below 767px. */
 
 /* Two-column layout above 767px, mimicking 992px+ featured tabs style */
 @media screen and (min-width: 768px) {
@@ -214,7 +214,7 @@
   }
 }
 
-/* One-column layout below 767px */
+/* One-column layout below 767px, matching higher resolution order minus our team */
 @media screen and (max-width: 767px) {
   .more-menu-overlay .row {
     display: flex;
@@ -252,6 +252,6 @@
   }
 
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-    order: 5;
+    display: none; /* Exclude our team in lower resolution */
   }
 }
