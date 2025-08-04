@@ -85,11 +85,6 @@
   .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, h2 {
     @apply font-light text-3xl uppercase text-primary;
   }
-
-  /* Specific override for price range title */
-  .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-    @apply text-lg border-l border-r border-t border-[var(--sis-component-border)] p-[6px_10px] m-0 text-inherit;
-  }
 }
 
 /* ==========================================================================
@@ -157,4 +152,97 @@
 /*Hides SI Top-strip for hero images */
 .top-strip {
   display: none;
+}
+
+/* ==========================================================================
+   5. Hamburger Menu Reordering
+   ========================================================================== */
+
+/* Reordering of hamburger menu items for mobile and tablet, including hiding home link and ordering other links (e.g., home search, condo search, blog, resources, our team). */
+
+@media (max-width: 767px) {
+  .more-menu-overlay .row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 5px;
+  }
+
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    order: 1;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    order: 2;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    order: 3;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    order: 4;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    order: 5;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .more-menu-overlay .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
