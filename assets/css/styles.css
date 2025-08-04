@@ -1,3 +1,38 @@
 @import "tailwindcss";
-@config "../tailwind.config.js";
+
+@theme {
+  --color-primary-50: #f1fcfd;
+  --color-primary-100: #e0f5f8;
+  --color-primary-200: #c1edf2;
+  --color-primary-300: #9ce0e7;
+  --color-primary-400: #73cad3;
+  --color-primary-500: #58a7af;
+  --color-primary-600: #4c8f96;
+  --color-primary-700: #3e7378;
+  --color-primary-800: #335d61;
+  --color-primary-900: #2e4d50;
+  --color-primary-950: #1a3336;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a1a1a1;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+  --font-size-5xl: 48px;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --radius: 0.375rem;
+}
+
+/* Optional: Scan files for classes */
+@source ["./*.html", "./components/**/*.html"];
+
+/* Optional: Include custom.css if needed */
 @import "./custom.css";
