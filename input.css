@@ -131,18 +131,20 @@
   color: inherit;
 }
 
-/* Responsive header height adjustments and temporary Tailwind primary color */
+/* Header styling with temporary Tailwind primary color at all resolutions */
+header {
+  @apply bg-primary; /* TEMP: Tailwind primary color from tailwind.config.js, adjustable later */
+}
+
 @media screen and (max-width: 991px) {
   header {
     height: 95px;
-    @apply bg-primary; /* TEMP: Tailwind primary color from tailwind.config.js, adjustable later */
   }
 }
 
 @media screen and (max-width: 767px) {
   header {
     height: 120px;
-    @apply bg-primary; /* TEMP: Tailwind primary color from tailwind.config.js, adjustable later */
   }
 }
 
