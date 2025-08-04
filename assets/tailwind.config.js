@@ -29,7 +29,7 @@ module.exports = {
           '400': '#a1a1a1',
           '500': '#737373',
           '600': '#525252',
-          '700': '#404040', /*Normal Text Color*/
+          '700': '#404040',
           '800': '#262626',
           '900': '#171717',
           '950': '#0a0a0a',
@@ -38,6 +38,15 @@ module.exports = {
       fontFamily: {
         heading: ["Montserrat", "sans-serif"],
         body: ["Roboto", "sans-serif"],
+      },
+      fontSize: {
+        '3xl': '30px',
+        '4xl': '36px',
+        '5xl': '48px',
+      },
+      lineHeight: {
+        inherit: 'inherit',
+        DEFAULT: '1.5', // Provides a fallback line-height
       },
       borderRadius: {
         DEFAULT: '0.375rem',
@@ -55,7 +64,6 @@ module.exports = {
       pattern: /min-w-\[.*\]/,
       variants: ['hover', 'focus'],
     },
-    'text-hippie-blue-500', // Force include to prevent purging
   ],
   darkMode: 'class',
   corePlugins: {
