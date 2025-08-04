@@ -32,7 +32,7 @@
 }
 
 /* Optional: Scan files for classes */
-@source { content: ["./*.html", "./components/**/*.html"]; };
+@source "./*.html", "./components/sierra/*.html";
 
 /* Optional: Include custom.css if needed */
 @import "./custom.css";
