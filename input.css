@@ -73,7 +73,7 @@
   }
 
   /* Override titles and headers with theme color and uppercase */
-  .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, ..si-videos-widget>h2, h2 {
+  .main-content .si-content-area h2, .si-container.si-content-label.js-content-label .si-content-label__title, .si-videos-widget>h2, h2 {
     @apply font-light text-3xl uppercase text-primary;
   }
 
