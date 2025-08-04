@@ -191,8 +191,24 @@
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
     order: 5;
   }
-  .more-menu-overlay .col-main .blogs .item .img {
+  .blogs .item .img img {
     width: 345px;
   }
 }
 
+/* ==========================================================================
+   6. Layout Utilities
+   ========================================================================== */
+
+/* Enforce two-column layout for blog posts above 767px */
+@media screen and (min-width: 768px) {
+  .blogs .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .blogs .row .col-sm-6 {
+    flex: 0 0 50%; /* Ensure 50% width for each column */
+    max-width: 50%;
+  }
+}
