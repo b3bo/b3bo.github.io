@@ -128,3 +128,10 @@ html {
 [aria-label="Breadcrumb"] ol li::before {
   content: none !important;
 }
+
+[aria-label="Breadcrumb"] ol {
+  @apply flex items-center;
+}
+[aria-label="Breadcrumb"] li {
+  @apply flex items-center;
+}
