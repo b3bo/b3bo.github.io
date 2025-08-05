@@ -18,7 +18,7 @@
 
 /* Community Content Tables */
 .si-content-label__body {
-  background-color:  var(--color-neutral-100);
+  background-color:  transparent;
   border: 1px solid var(--color-neutral-200);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .si-property-stats {
-  border: 1px solid var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
 }
 
 /* Active Listings By Price */
