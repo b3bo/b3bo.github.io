@@ -21,13 +21,14 @@
   border: 1px solid var(--color-neutral-200);
 }
 
-/* Active Listings By Price */
-.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+/* Active Listings & Active Listings By Price */
+.si-property-stats__title-main, .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
   border-left: 1px solid var(--color-neutral-200);
   border-right: 1px solid var(--color-neutral-200);
   border-top: 1px solid var(--color-neutral-200);
   padding: 6px 10px;
   margin: 0;
+  background-color: var(--color-neutral-300);
   @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-500;
 }
 
