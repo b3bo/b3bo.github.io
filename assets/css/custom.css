@@ -114,3 +114,8 @@ html {
     max-width: 50%;
   }
 }
+
+/* Breadcrum Formating */
+[aria-label="Breadcrumb"] a { @apply text-sm font-body text-neutral-700 hover:text-neutral-900; }
+[aria-label="Breadcrumb"] span { @apply text-neutral-500; }
+[aria-label="Breadcrumb"] svg { @apply w-6 h-6 text-neutral-400; }
