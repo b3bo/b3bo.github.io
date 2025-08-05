@@ -45,3 +45,52 @@ html {
     font-size: 100%; /* Resets to browser default of 16px */
 }
 
+/* Hamburger Menu Reordering */
+@media (max-width: 767px) {
+  .more-menu-overlay .row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 5px;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list {
+    display: contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    display: none;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    order: 1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    order: 2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    order: 3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    order: 4;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    order: 5;
+  }
+  .blogs .item .img img {
+    width: 345px;
+  }
+}
+
+/* Layout Utilities */
+@media screen and (min-width: 768px) {
+  .blogs .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .blogs .row .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
