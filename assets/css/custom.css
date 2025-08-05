@@ -123,15 +123,11 @@ html {
 [aria-label="Breadcrumb"] span { @apply text-sm font-body text-neutral-500; }
 
 [aria-label="Breadcrumb"] ol {
-  @apply list-none;
-}
-[aria-label="Breadcrumb"] ol li::before {
-  content: none !important;
-}
-
-[aria-label="Breadcrumb"] ol {
-  @apply flex items-center;
+  @apply flex items-center justify-center space-x-2;
 }
 [aria-label="Breadcrumb"] li {
   @apply flex items-center;
+}
+[aria-label="Breadcrumb"] li::before {
+  content: none !important;
 }
