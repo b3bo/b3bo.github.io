@@ -23,13 +23,14 @@
 }
 
 /* Active Listings */
-.si-property-stats__title-main {
-  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-500;
+.si-property-stats__title-date::before {
+  content: "on ";
 }
 
 .si-property-stats__title {
   border-bottom:  1px solid var(--color-neutral-200);
   background-color:  var(--color-neutral-100);
+  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-500;
 }
 
 .si-property-stats {
