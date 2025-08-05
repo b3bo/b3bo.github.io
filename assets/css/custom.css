@@ -116,6 +116,8 @@ html {
 }
 
 /* Breadcrum Formating */
+[aria-label="Breadcrumb"] { @apply flex justify-center; }
+[aria-label="Breadcrumb"] ol { @apply inline-flex items-center space-x-1 md:space-x-2 list-none; }
 [aria-label="Breadcrumb"] a { @apply text-sm font-body text-neutral-700 hover:text-neutral-900; }
-[aria-label="Breadcrumb"] span { @apply text-neutral-500; }
 [aria-label="Breadcrumb"] svg { @apply w-6 h-6 text-neutral-400; }
+[aria-label="Breadcrumb"] span { @apply text-sm font-body text-neutral-500; }
