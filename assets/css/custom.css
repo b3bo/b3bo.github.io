@@ -31,11 +31,11 @@
 
 /* Section 3: Font Customization */
 .main-content .si-content-area h1 {
-  @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 text-neutral-700;
+  @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, h2 {
-  @apply text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 text-neutral-700;
+  @apply text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 text-neutral-700 leading-tight;
 }
 
 html {
