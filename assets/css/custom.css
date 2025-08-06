@@ -117,23 +117,20 @@ html {
 
 /* Breadcrumb Formatting */
 [aria-label="Breadcrumb"] {
-  @apply flex justify-center;
+  @apply flex justify-center items-center py-4;
 }
-[aria-label="Breadcrumb"] ol {
-  @apply flex items-center space-x-2 list-none;
+[aria-label="Breadcrumb"] div {
+  @apply flex items-center space-x-2 md:space-x-4;
 }
-[aria-label="Breadcrumb"] li {
-  @apply flex items-center;
+[aria-label="Breadcrumb"] a, [aria-label="Breadcrumb"] span {
+  @apply text-sm font-body text-neutral-700;
 }
-[aria-label="Breadcrumb"] li::before {
-  content: none !important;
-}
-[aria-label="Breadcrumb"] a {
-  @apply text-sm font-body text-neutral-700 hover:text-neutral-900;
-}
-[aria-label="Breadcrumb"] svg {
-  @apply w-6 h-6 text-neutral-400;
+[aria-label="Breadcrumb"] a:hover {
+  @apply text-neutral-900;
 }
 [aria-label="Breadcrumb"] span {
-  @apply text-sm font-body text-neutral-500;
+  @apply text-neutral-500;
+}
+[aria-label="Breadcrumb"] svg {
+  @apply w-4 h-4 text-neutral-400 flex-shrink-0;
 }

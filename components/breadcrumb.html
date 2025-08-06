@@ -1,29 +1,13 @@
-<nav class="flex justify-center" aria-label="Breadcrumb">
-       <ol class="inline-flex items-center space-x-1 md:space-x-2 list-none" style="list-style-type: none;">
-         <li class="inline-flex items-center">
-           <a href="/" class="inline-flex items-center text-sm font-body text-neutral-700 hover:text-neutral-900">
-             Home
-           </a>
-         </li>
-         <li>
-           <div class="flex items-center">
-             <svg class="w-6 h-6 text-neutral-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-             </svg>
-             <a href="/%Directory%" class="ml-1 text-sm font-body text-neutral-700 hover:text-neutral-900 md:ml-2">
-               %Directory%
-             </a>
-           </div>
-         </li>
-         <li aria-current="page">
-           <div class="flex items-center">
-             <svg class="w-6 h-6 text-neutral-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-             </svg>
-             <span class="ml-1 text-sm font-body text-neutral-500 md:ml-2">
-               %Page Title%
-             </span>
-           </div>
-         </li>
-       </ol>
-     </nav>
+<nav class="flex justify-center items-center py-4" aria-label="Breadcrumb">
+  <div class="flex items-center space-x-2 md:space-x-4 text-sm font-body text-neutral-700">
+    <a href="/" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500">Home</a>
+    <svg class="w-4 h-4 text-neutral-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+    </svg>
+    <a href="/%Directory%" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500 directory-link">%Directory%</a>
+    <svg class="w-4 h-4 text-neutral-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+    </svg>
+    <span class="text-neutral-500" aria-current="page">%Page Title%</span>
+  </div>
+</nav>
