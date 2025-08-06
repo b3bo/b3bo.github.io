@@ -140,4 +140,3 @@ html {
 [aria-label="Breadcrumb"] span {
   @apply text-base font-body text-neutral-500 font-bold;
 }
-}
