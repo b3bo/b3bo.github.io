@@ -124,15 +124,15 @@ html {
   @apply flex justify-center items-center py-4;
 }
 [aria-label="Breadcrumb"] .breadcrumb-items {
-  @apply flex items-center space-x-2 md:space-x-4 !important;
+  @apply flex items-center space-x-2 md:space-x-4;
 }
 [aria-label="Breadcrumb"] .breadcrumb-items > * {
   @apply flex-shrink-0;
 }
 [aria-label="Breadcrumb"] svg {
   @apply w-4 h-4 text-neutral-400 flex-shrink-0;
-  width: 1rem !important;
-  height: 1rem !important;
+  width: 1rem ;
+  height: 1rem ;
 }
 [aria-label="Breadcrumb"] a {
   @apply text-base font-body text-neutral-700 font-bold hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500;
