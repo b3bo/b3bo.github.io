@@ -10,6 +10,7 @@ module.exports = {
     require('@tailwindcss/forms'),
   ],
   safelist: [
+    'text-primary-500',
     'content-visibility-auto',
     'leading-inherit',
     {
