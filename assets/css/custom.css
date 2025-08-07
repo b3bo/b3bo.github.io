@@ -62,7 +62,7 @@
 }
 
 /* Span customization for 'Beautiful' */
-.main-content .si-content-area h1 span {
+.main-content .si-content-area h1 span svg {
   @apply text-[var(--color-primary-500)];
 }
 
