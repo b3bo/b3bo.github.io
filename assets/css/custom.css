@@ -67,11 +67,11 @@
 }
 
 a {
-  @apply font-semibold text-[var(--color-primary-500)];
+  @apply font-medium text-[var(--color-primary-500)];
 }
 
 .si-content-label__link>a {
-  @apply font-semibold text-[var(--color-neutral-600)];
+  @apply font-medium text-[var(--color-neutral-600)];
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
