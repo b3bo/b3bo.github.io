@@ -65,7 +65,7 @@ a {
   @apply font-semibold text-[var(--color-primary-500)];
 }
 
-.main-content .si-content-area h2, .si-videos-widget>h2, si-content-label__title, h2 {
+.main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
   @apply text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
 }
 
