@@ -58,7 +58,7 @@
 }
 
 .main-content .si-content-area p {
-  @apply text-base sm:text-lg md:text-xl font-body leading-relaxed text-neutral-500 mb-6;
+  @apply text-sm sm:text-base md:text-lg font-body leading-relaxed text-neutral-600 mb-6;
 }
 
 /* Span customization for 'Beautiful' */
