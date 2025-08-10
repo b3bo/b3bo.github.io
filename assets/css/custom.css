@@ -52,10 +52,10 @@
   @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600;
 }
 
-/* Section 3: Font Customization 
+/* Section 3: Font Customization */
 .main-content .si-content-area h1 {
-  @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-5 text-neutral-700 leading-tight;
-} */
+  @apply text-3xl sm:text-4xl md:text-5xl font-heading font-medium mb-4 text-neutral-700 leading-tight;
+} 
 
 .main-content .si-content-area p {
   @apply text-sm sm:text-base md:text-lg font-body leading-relaxed text-neutral-600 mb-6;
