@@ -41,7 +41,7 @@
   border: 1px solid var(--color-neutral-300);
 }
 
-.button {
+button {
   @apply inline-flex rounded border-0 bg-primary-500 px-6 py-2 text-lg text-white hover:bg-primary-500/75 focus:outline-none;
 }
 
