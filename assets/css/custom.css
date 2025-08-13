@@ -50,10 +50,10 @@ button {
   @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600 border-l border-r border-t border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0;
 }
 
-/* Section 3: Font Customization */
+/* Section 3: Font Customization - Try INLINE
 .main-content .si-content-area h1 {
   @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
-} 
+} */
 
 .main-content .si-content-area p {
   @apply text-sm sm:text-base md:text-lg font-body leading-relaxed text-neutral-600 mb-6;
