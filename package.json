@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:tailwind": "tailwindcss -i assets/css/styles.css -o assets/css/tailwind.css --minify",
-    "build:critical": "critical --src 'https://www.truesouthcoastalhomes.com/pcb/rivercamps-crooked-creek/' --css assets/css/tailwind.css --width 1300 --height 900 > assets/css/critical.css",
-    "build": "npm run build:tailwind && npm run build:critical",
-    "watch": "tailwindcss -i assets/css/styles.css -o assets/css/tailwind.css --watch"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build:tailwind": "tailwindcss -i assets/css/styles.css -o assets/css/tailwind.css --minify",
+  "build:critical": "node generate-critical.js",
+  "build": "npm run build:tailwind && npm run build:critical",
+  "watch": "tailwindcss -i assets/css/styles.css -o assets/css/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
