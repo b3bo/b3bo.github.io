@@ -61,7 +61,7 @@ button {
 
 /* Span customization for 'Beautiful' */
 .main-content .si-content-area h1 span {
-  @apply text-[var(--color-primary-500)];
+  @apply text-3xl sm:text-4xl md:text-5xl text-[var(--color-primary-500)];
 }
 
 a {
