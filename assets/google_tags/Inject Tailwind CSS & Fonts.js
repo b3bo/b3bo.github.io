@@ -30,23 +30,14 @@
     montVariable.crossorigin = 'anonymous';
     document.head.appendChild(montVariable);
 
-    console.log('Step 3.2: Preload added for Roboto regular');
-    var robotoRegular = document.createElement('link');
-    robotoRegular.rel = 'preload';
-    robotoRegular.href = 'https://b3bo.github.io/assets/fonts/Roboto/roboto-v48-latin-regular.woff2';
-    robotoRegular.as = 'font';
-    robotoRegular.type = 'font/woff2';
-    robotoRegular.crossorigin = 'anonymous';
-    document.head.appendChild(robotoRegular);
-
-    console.log('Step 3.3: Preload added for Roboto bold');
-    var robotoBold = document.createElement('link');
-    robotoBold.rel = 'preload';
-    robotoBold.href = 'https://b3bo.github.io/assets/fonts/Roboto/roboto-v48-latin-700.woff2';
-    robotoBold.as = 'font';
-    robotoBold.type = 'font/woff2';
-    robotoBold.crossorigin = 'anonymous';
-    document.head.appendChild(robotoBold);
+    console.log('Step 3.2: Preload added for Roboto variable');
+    var robotoVariable = document.createElement('link');
+    robotoVariable.rel = 'preload';
+    robotoVariable.href = 'https://b3bo.github.io/assets/fonts/Roboto/roboto-flex-variable-latin.woff2';
+    robotoVariable.as = 'font';
+    robotoVariable.type = 'font/woff2';
+    robotoVariable.crossorigin = 'anonymous';
+    document.head.appendChild(robotoVariable);
 
     // Step 4: Preload styles CSS (updated from tailwind)
     console.log('Step 4: Preload added for styles CSS');
