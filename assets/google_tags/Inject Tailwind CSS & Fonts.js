@@ -4,7 +4,7 @@
     console.log('Step 1: Stylesheet link added for Critical CSS (loaded first)');
     var criticalLink = document.createElement('link');
     criticalLink.rel = 'stylesheet';
-    criticalLink.href = 'https://b3bo.github.io/assets/css/critical.css'; // Adjust path to your critical.css
+    criticalLink.href = 'https://b3bo.github.io/assets/css/critical.css'; 
     criticalLink.onload = function() {
       console.log('Critical CSS loaded successfully');
     };
@@ -39,7 +39,7 @@
     console.log('Step 5: Preload added for Tailwind CSS');
     var tailwindPreload = document.createElement('link');
     tailwindPreload.rel = 'preload';
-    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Adjust path
+    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; 
     tailwindPreload.as = 'style';
     document.head.appendChild(tailwindPreload);
 
