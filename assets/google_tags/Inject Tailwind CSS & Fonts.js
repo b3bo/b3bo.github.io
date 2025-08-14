@@ -13,74 +13,67 @@
     };
     document.head.appendChild(criticalLink);
 
-    // Step 2: Preconnect for font resources
-    console.log('Step 2: Preconnect added for https://fonts.googleapis.com');
-    var link1 = document.createElement('link');
-    link1.rel = 'preconnect';
-    link1.href = 'https://fonts.googleapis.com';
-    document.head.appendChild(link1);
+    // Step 2: Preconnect for asset domain (for self-hosted fonts and CSS)
+    console.log('Step 2: Preconnect added for https://b3bo.github.io');
+    var assetPreconnect = document.createElement('link');
+    assetPreconnect.rel = 'preconnect';
+    assetPreconnect.href = 'https://b3bo.github.io';
+    document.head.appendChild(assetPreconnect);
 
-    console.log('Step 3: Preconnect added for https://fonts.gstatic.com');
-    var link2 = document.createElement('link');
-    link2.rel = 'preconnect';
-    link2.href = 'https://fonts.gstatic.com';
-    link2.setAttribute('crossorigin', '');
-    document.head.appendChild(link2);
+    // Step 3: Preload self-hosted fonts
+    console.log('Step 3.1: Preload added for Montserrat variable');
+    var montVariable = document.createElement('link');
+    montVariable.rel = 'preload';
+    montVariable.href = 'https://b3bo.github.io/assets/fonts/Montserrat/montserrat-variable-latin.woff2';
+    montVariable.as = 'font';
+    montVariable.type = 'font/woff2';
+    montVariable.crossorigin = 'anonymous';
+    document.head.appendChild(montVariable);
 
-    // Step 4: Preload font stylesheet (trimmed weights)
-    console.log('Step 4: Preload added for Montserrat and Roboto font stylesheet');
-    var fontPreload = document.createElement('link');
-    fontPreload.rel = 'preload';
-    fontPreload.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap';
-    fontPreload.as = 'style';
-    document.head.appendChild(fontPreload);
+    console.log('Step 3.2: Preload added for Roboto regular');
+    var robotoRegular = document.createElement('link');
+    robotoRegular.rel = 'preload';
+    robotoRegular.href = 'https://b3bo.github.io/assets/fonts/Roboto/roboto-v48-latin-regular.woff2';
+    robotoRegular.as = 'font';
+    robotoRegular.type = 'font/woff2';
+    robotoRegular.crossorigin = 'anonymous';
+    document.head.appendChild(robotoRegular);
 
-    // Step 5: Preload Tailwind CSS
-    console.log('Step 5: Preload added for Tailwind CSS');
-    var tailwindPreload = document.createElement('link');
-    tailwindPreload.rel = 'preload';
-    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; 
-    tailwindPreload.as = 'style';
-    document.head.appendChild(tailwindPreload);
+    console.log('Step 3.3: Preload added for Roboto bold');
+    var robotoBold = document.createElement('link');
+    robotoBold.rel = 'preload';
+    robotoBold.href = 'https://b3bo.github.io/assets/fonts/Roboto/roboto-v48-latin-700.woff2';
+    robotoBold.as = 'font';
+    robotoBold.type = 'font/woff2';
+    robotoBold.crossorigin = 'anonymous';
+    document.head.appendChild(robotoBold);
 
-    // Step 6: Load font stylesheet asynchronously
-    console.log('Step 6: Stylesheet link added for Montserrat and Roboto fonts');
-    var fontLink = document.createElement('link');
-    fontLink.rel = 'stylesheet';
-    fontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap';
-    fontLink.media = 'print'; // Async hack
-    fontLink.onload = function() {
+    // Step 4: Preload styles CSS (updated from tailwind)
+    console.log('Step 4: Preload added for styles CSS');
+    var stylesPreload = document.createElement('link');
+    stylesPreload.rel = 'preload';
+    stylesPreload.href = 'https://b3bo.github.io/assets/css/styles.css'; 
+    stylesPreload.as = 'style';
+    document.head.appendChild(stylesPreload);
+
+    // Step 5: Load full styles CSS asynchronously in head (after critical)
+    console.log('Step 5: Stylesheet link added for styles CSS');
+    var stylesLink = document.createElement('link');
+    stylesLink.rel = 'stylesheet';
+    stylesLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Updated path
+    stylesLink.media = 'print'; // Async hack
+    stylesLink.onload = function() {
       this.media = 'all';
-      console.log('Montserrat and Roboto font stylesheet loaded successfully');
+      console.log('styles CSS loaded successfully');
     };
-    fontLink.onerror = function() {
-      console.error('Error: Failed to load Montserrat and Roboto font stylesheet');
+    stylesLink.onerror = function() {
+      console.error('Error: Failed to load styles CSS');
     };
-    document.head.appendChild(fontLink);
+    document.head.appendChild(stylesLink);
 
-    // Noscript fallback for fonts
-    var noscriptFonts = document.createElement('noscript');
-    noscriptFonts.innerHTML = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap">';
-    document.head.appendChild(noscriptFonts);
-
-    // Step 7: Load full Tailwind CSS asynchronously in head (after critical)
-    console.log('Step 7: Stylesheet link added for Tailwind CSS');
-    var tailwindLink = document.createElement('link');
-    tailwindLink.rel = 'stylesheet';
-    tailwindLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Adjust path
-    tailwindLink.media = 'print'; // Async hack
-    tailwindLink.onload = function() {
-      this.media = 'all';
-      console.log('Tailwind CSS loaded successfully');
-    };
-    tailwindLink.onerror = function() {
-      console.error('Error: Failed to load Tailwind CSS');
-    };
-    document.head.appendChild(tailwindLink);
-
-    // Noscript fallback for Tailwind
-    var noscriptTailwind = document.createElement('noscript');
-    noscriptTailwind.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/assets/css/tailwind.css">';
-    document.head.appendChild(noscriptTailwind);
+    // Noscript fallback for styles
+    var noscriptStyles = document.createElement('noscript');
+    noscriptStyles.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/assets/css/styles.css">';
+    document.head.appendChild(noscriptStyles);
   })();
 </script>
