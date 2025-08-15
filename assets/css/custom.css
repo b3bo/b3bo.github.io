@@ -46,6 +46,12 @@ button {
   @apply inline-flex rounded border-0 bg-primary-600 px-6 py-2 text-base font-body text-white hover:bg-primary-600/75 focus:outline-none mr-4;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
+
 /* Active Listings By Price */
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
   @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600 border-l border-r border-t border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0;
