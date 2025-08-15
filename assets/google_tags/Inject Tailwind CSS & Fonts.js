@@ -20,11 +20,11 @@
     assetPreconnect.href = 'https://b3bo.github.io';
     document.head.appendChild(assetPreconnect);
 
-    // Step 3: Preload self-hosted fonts
+    // Step 3: Preload self-hosted fonts (with crossorigin='anonymous' to match credentials mode)
     console.log('Step 3.1: Preload added for Montserrat variable');
     var montVariable = document.createElement('link');
     montVariable.rel = 'preload';
-    montVariable.href = 'https://b3bo.github.io/assets/fonts/Montserrat/montserrat-variable-latin.woff2';
+    montVariable.href = 'https://b3bo.github.io/assets/fonts/Montserrat/Montserrat-VF.woff2';
     montVariable.as = 'font';
     montVariable.type = 'font/woff2';
     montVariable.crossorigin = 'anonymous';
@@ -33,38 +33,38 @@
     console.log('Step 3.2: Preload added for Roboto variable');
     var robotoVariable = document.createElement('link');
     robotoVariable.rel = 'preload';
-    robotoVariable.href = 'https://b3bo.github.io/assets/fonts/Roboto/roboto-flex-variable-latin.woff2';
+    robotoVariable.href = 'https://b3bo.github.io/assets/fonts/Roboto/Roboto-Flex-VF.woff2';
     robotoVariable.as = 'font';
     robotoVariable.type = 'font/woff2';
     robotoVariable.crossorigin = 'anonymous';
     document.head.appendChild(robotoVariable);
 
-    // Step 4: Preload styles CSS (updated from tailwind)
-    console.log('Step 4: Preload added for styles CSS');
-    var stylesPreload = document.createElement('link');
-    stylesPreload.rel = 'preload';
-    stylesPreload.href = 'https://b3bo.github.io/assets/css/styles.css'; 
-    stylesPreload.as = 'style';
-    document.head.appendChild(stylesPreload);
+    // Step 4: Preload minified Tailwind CSS
+    console.log('Step 4: Preload added for minified Tailwind CSS');
+    var tailwindPreload = document.createElement('link');
+    tailwindPreload.rel = 'preload';
+    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; 
+    tailwindPreload.as = 'style';
+    document.head.appendChild(tailwindPreload);
 
-    // Step 5: Load full styles CSS asynchronously in head (after critical)
-    console.log('Step 5: Stylesheet link added for styles CSS');
-    var stylesLink = document.createElement('link');
-    stylesLink.rel = 'stylesheet';
-    stylesLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Updated path
-    stylesLink.media = 'print'; // Async hack
-    stylesLink.onload = function() {
+    // Step 5: Load full minified Tailwind CSS asynchronously in head (after critical)
+    console.log('Step 5: Stylesheet link added for minified Tailwind CSS');
+    var tailwindLink = document.createElement('link');
+    tailwindLink.rel = 'stylesheet';
+    tailwindLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Updated to minified Tailwind
+    tailwindLink.media = 'print'; // Async hack
+    tailwindLink.onload = function() {
       this.media = 'all';
-      console.log('styles CSS loaded successfully');
+      console.log('Minified Tailwind CSS loaded successfully');
     };
-    stylesLink.onerror = function() {
-      console.error('Error: Failed to load styles CSS');
+    tailwindLink.onerror = function() {
+      console.error('Error: Failed to load minified Tailwind CSS');
     };
-    document.head.appendChild(stylesLink);
+    document.head.appendChild(tailwindLink);
 
-    // Noscript fallback for styles
-    var noscriptStyles = document.createElement('noscript');
-    noscriptStyles.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/assets/css/styles.css">';
-    document.head.appendChild(noscriptStyles);
+    // Noscript fallback for Tailwind
+    var noscriptTailwind = document.createElement('noscript');
+    noscriptTailwind.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/assets/css/tailwind.css">';
+    document.head.appendChild(noscriptTailwind);
   })();
 </script>
