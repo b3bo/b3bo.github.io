@@ -49,7 +49,6 @@ img {
   height: auto;
 }
 
-
 /* Active Listings By Price */
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
   @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600 border-l border-r border-t border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0;
