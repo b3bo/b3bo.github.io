@@ -16,6 +16,12 @@
   display: none;
 }
 
+.main-content .si-content-area ul:not(.si-content-label__body) li:not(.si-content-label__link):before {
+  content: unset;         /* Removes the bullet */
+  font-size: unset;       /* Reverts to inherited or default font size */
+  margin-left: unset;     /* Reverts to inherited or default margin */
+}
+
 /* Community Content Tables */
 .si-content-label__body {
   background-color:  transparent;
