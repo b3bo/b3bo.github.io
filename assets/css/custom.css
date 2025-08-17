@@ -12,14 +12,15 @@
   display: none !important;
 }
 
-.top-strip {
-  display: none;
-}
-
 .main-content .si-content-area ul:not(.si-content-label__body) li:not(.si-content-label__link):before {
-  content: unset;         /* Removes the bullet */
-  font-size: unset;       /* Reverts to inherited or default font size */
-  margin-left: unset;     /* Reverts to inherited or default margin */
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f105";
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    font-size: inherit;
+    padding: 0 5px;
 }
 
 /* Community Content Tables */
