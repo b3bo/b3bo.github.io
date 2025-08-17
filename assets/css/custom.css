@@ -8,9 +8,16 @@
 @reference "tailwindcss";
 
 /* Section 2: Sierra Customization */
-section .text-center {
-  text-align: unset; /* Reverts to the default (left) unless inherited */
-}
+
+/*Overrides Sierra's .text-center css*/
+.content-wrapper .hero {
+    @apply text-center;
+  }
+  @media (min-width: 768px) {
+    .content-wrapper .hero {
+      @apply text-left;
+    }
+  }
 
 .blog-link {
   display: none !important;
