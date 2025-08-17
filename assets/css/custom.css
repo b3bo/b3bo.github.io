@@ -1,26 +1,19 @@
 /* assets/css/custom.css */
 /* Description: Minimal custom styles for Sierra Interactive pages */
 /* Author: John Bauman */
-/* Date: August 04, 2025 */
+/* Date: August 17, 2025 */
 
 /* Section 1: Imports and References */
 @import "tailwindcss";
 @reference "tailwindcss";
 
 /* Section 2: Sierra Customization */
-.blog-link {
-  display: none !important;
+section .text-center {
+  text-align: unset; /* Reverts to the default (left) unless inherited */
 }
 
-.main-content .si-content-area ul:not(.si-content-label__body) li:not(.si-content-label__link):before {
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f105";
-    display: inline-block;
-    font: normal normal normal 14px / 1 FontAwesome;
-    font-size: inherit;
-    padding: 0 5px;
+.blog-link {
+  display: none !important;
 }
 
 /* Community Content Tables */
