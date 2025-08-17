@@ -10,13 +10,8 @@
 /* Section 2: Sierra Customization */
 
 /*Overrides Sierra's .text-center css*/
-.content-wrapper .hero {
-    @apply text-center;
-  }
-  @media (min-width: 768px) {
-    .content-wrapper .hero {
-      @apply text-left;
-    }
+.hero h1 {
+    @apply text-center md:text-left;
   }
 
 .blog-link {
