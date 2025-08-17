@@ -10,10 +10,6 @@
 /* Section 2: Sierra Customization */
 
 /*Overrides Sierra's .text-center css*/
-.hero h1 {
-    @apply text-center md:text-left;
-  }
-
 .blog-link {
   display: none !important;
 }
@@ -61,7 +57,7 @@ img {
 
 /* Section 3: Font Customization */
 .main-content .si-content-area h1 {
-  @apply text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+  @apply text-center md:text-left text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
 } 
 
 .main-content .si-content-area p {
