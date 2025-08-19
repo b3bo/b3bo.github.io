@@ -30,9 +30,7 @@
 }
 
 .si-property-stats__title {
-  border-bottom:  1px solid var(--color-neutral-300);
-  background-color:  var(--color-neutral-100);
-  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-normal leading-relaxed text-neutral-600;
 }
 
 .si-property-stats {
@@ -98,11 +96,11 @@ img {
 }
 
 a {
-  @apply font-medium text-[var(--color-primary-600)];
+  @apply font-medium text-primary-600 underline;
 }
 
 .si-content-label__link>a {
-  @apply font-medium text-[var(--color-neutral-600)];
+  @apply font-medium text-neutral-600;
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
