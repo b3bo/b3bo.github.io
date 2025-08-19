@@ -40,8 +40,28 @@
 }
 
 /* Buttons & Images */
-button.custom {
-  @apply inline-flex rounded border-0 bg-primary-600 px-6 py-2 text-base font-body text-white hover:bg-primary-600/75 focus:outline-none mr-4;
+.btn-custom {
+  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2;
+}
+
+.button-group {
+  @apply inline-flex w-full flex-col rounded-md shadow-sm md:w-auto md:flex-row mx-auto;
+}
+
+.button-group button {
+  @apply border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700;
+}
+
+.button-group button:first-child {
+  @apply rounded-t-lg md:rounded-l-lg md:rounded-tr-none;
+}
+
+.button-group button:not(:first-child):not(:last-child) {
+  @apply border-x border-gray-200 md:border-x-0 md:border-t md:border-b;
+}
+
+.button-group button:last-child {
+  @apply rounded-b-lg md:rounded-r-lg md:rounded-bl-none;
 }
 
 img {
