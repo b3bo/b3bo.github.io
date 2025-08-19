@@ -41,25 +41,31 @@
 
 /* Buttons & Images */
 
-/* Button Group Style*/
+/* Button Group Style */
 .button-group {
   @apply inline-flex w-full flex-col md:w-auto md:flex-row mx-auto;
+  @apply sm:grid sm:grid-cols-2 sm:gap-2;
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500;
+  @apply border-2 border-neutral-300 bg-neutral-100 px-6 py-4 text-sm font-medium text-neutral-600 m-2 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 rounded-lg;
 }
 
 .button-group a:not(:first-child):not(:last-child) {
   @apply border-x-0;
 }
 
-.button-group a:first-child {
-  @apply rounded-l-lg border-r-0;
-}
-
-.button-group a:last-child {
-  @apply rounded-r-lg border-l-0;
+/* Override rounding for horizontal layout at md and above */
+@media (min-width: 768px) {
+  .button-group a:first-child {
+    @apply rounded-l-lg border-r-0 rounded-r-none;
+  }
+  .button-group a:last-child {
+    @apply rounded-r-lg border-l-0 rounded-l-none;
+  }
+  .button-group a:not(:first-child):not(:last-child) {
+    @apply rounded-none border-x-0;
+  }
 }
 
 /* Standalone Button Style */
