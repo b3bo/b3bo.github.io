@@ -47,15 +47,19 @@
 }
 
 .button-group a {
-  @apply bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500;
+}
+
+.button-group a:not(:first-child):not(:last-child) {
+  @apply border-x-0;
 }
 
 .button-group a:first-child {
-  @apply rounded-l-lg;
+  @apply rounded-l-lg border-r-0;
 }
 
 .button-group a:last-child {
-  @apply rounded-r-lg;
+  @apply rounded-r-lg border-l-0;
 }
 
 /* Standalone Button Style */
