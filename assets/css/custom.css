@@ -50,7 +50,7 @@ button.custom {
 
 
 .button-group {
-  @apply inline-flex w-full flex-col rounded-md shadow-sm md:w-auto md:flex-row mx-auto;
+  @apply inline-flex w-full flex-col rounded-md md:w-auto md:flex-row mx-auto;
 }
 
 .button-group button {
