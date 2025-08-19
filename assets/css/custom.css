@@ -45,7 +45,7 @@ button.custom {
 }
 
 .button-group {
-  @apply inline-flex w-full flex-col rounded-md shadow-sm md:w-auto md:flex-row mx-auto;
+  @apply inline-flex w-full flex-col md:w-auto md:flex-row mx-auto;
 }
 
 .button-group a {
@@ -53,15 +53,11 @@ button.custom {
 }
 
 .button-group a:first-child {
-  @apply rounded-t-lg md:rounded-l-lg md:rounded-tr-none;
-}
-
-.button-group a:not(:first-child):not(:last-child) {
-  @apply border-x border-gray-200 md:border-x-0 md:border-t md:border-b;
+  @apply rounded-l-lg;
 }
 
 .button-group a:last-child {
-  @apply rounded-b-lg md:rounded-r-lg md:rounded-bl-none;
+  @apply rounded-r-lg;
 }
 
 /* Standalone button style */
