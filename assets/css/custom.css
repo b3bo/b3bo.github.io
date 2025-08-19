@@ -80,6 +80,11 @@ a {
   @apply text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
 }
 
+.main-content .si-content-area h3 {
+  @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+}
+ 
+
 html {
     font-size: 100%; /* Resets to browser default of 16px */
 }
