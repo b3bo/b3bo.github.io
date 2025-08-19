@@ -40,7 +40,7 @@
 }
 
 /* Buttons & Images */
-button {
+button.custom {
   @apply inline-flex rounded border-0 bg-primary-600 px-6 py-2 text-base font-body text-white hover:bg-primary-600/75 focus:outline-none mr-4;
 }
 
