@@ -226,3 +226,9 @@ html {
 body {
   @apply overflow-x-hidden;
 }
+
+@media (max-width: 767px) {
+  body {
+    @apply overflow-x-hidden;
+  }
+}
