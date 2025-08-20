@@ -178,10 +178,10 @@ html {
 }
 
 
-.tag-items span {
+.tag-items {
   @apply text-base font-body text-neutral-700 font-medium;
 }
 
-.tag-items span a {
+.tag-items a {
   @apply border border-primary-600 rounded-full px-2 py-1 text-base text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500/50 text-center;
 }
