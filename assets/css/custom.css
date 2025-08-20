@@ -179,8 +179,8 @@ html {
   @apply text-base font-body text-neutral-500 font-bold;
 }
 
-/* Tags Styling */
 .tag-items span a:not(:first-of-type):before {
   content: ", ";
   text-decoration: none;
 }
+
