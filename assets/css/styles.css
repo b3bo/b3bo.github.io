@@ -1,54 +1,53 @@
 /* Theme definition (fixing @theme to @layer) */
-@layer base {
-  :root {
-    --color-primary-50: #f1fcfd;
-    --color-primary-100: #e0f5f8;
-    --color-primary-200: #c1edf2;
-    --color-primary-300: #9ce0e7;
-    --color-primary-400: #73cad3;
-    --color-primary-500: #58a7af;
-    --color-primary-600: #4c8f96;
-    --color-primary-700: #3e7378;
-    --color-primary-800: #335d61;
-    --color-primary-900: #2e4d50;
-    --color-primary-950: #1a3336;
-    --color-neutral-50: #fafafb;
-    --color-neutral-100: #f3f4f5;
-    --color-neutral-200: #e3e5e7;
-    --color-neutral-300: #d0d5dc;
-    --color-neutral-400: #98a1ae;
-    --color-neutral-500: #697381;
-    --color-neutral-600: #4a5462;
-    --color-neutral-700: #313842; /*default text*/
-    --color-neutral-800: #24282d;
-    --color-neutral-900: #16181c;
-    --color-neutral-950: #07090d;
+@theme {
+  --color-primary-50: #f1fcfd;
+  --color-primary-100: #e0f5f8;
+  --color-primary-200: #c1edf2;
+  --color-primary-300: #9ce0e7;
+  --color-primary-400: #73cad3;
+  --color-primary-500: #58a7af;
+  --color-primary-600: #4c8f96;
+  --color-primary-700: #3e7378;
+  --color-primary-800: #335d61;
+  --color-primary-900: #2e4d50;
+  --color-primary-950: #1a3336;
+  --color-neutral-50: #fafafb;
+  --color-neutral-100: #f3f4f5;
+  --color-neutral-200: #e3e5e7;
+  --color-neutral-300: #d0d5dc;
+  --color-neutral-400: #98a1ae;
+  --color-neutral-500: #697381;
+  --color-neutral-600: #4a5462;
+  --color-neutral-700: #313842; /*default text*/
+  --color-neutral-800: #24282d;
+  --color-neutral-900: #16181c;
+  --color-neutral-950: #07090d;
 
-    --font-heading: "Montserrat", sans-serif;
-    --font-body: "Roboto", sans-serif;
-    --radius: 0.375rem;
-  }
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --radius: 0.375rem;
+}
 
   /* Font definitions with swap */
+@layer base {
   @font-face {
     font-family: 'Montserrat';
-    src: url('https://b3bo.github.io/assets/fonts/Montserrat/Montserrat-VF.woff2') format('woff2-variations');
-    font-weight: 400 700;
+    src: url('https://b3bo.github.io/assets/fonts/Montserrat/Montserrat-VF.woff2') format('woff2-variations'); 
+    font-weight: 400 700; 
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; /* Basic Latin */
     crossorigin: "anonymous";
   }
-
   @font-face {
-    font-family: 'Roboto';
-    src: url('https://b3bo.github.io/assets/fonts/Roboto/Roboto-Flex-VF.woff2') format('woff2-variations');
-    font-weight: 400 700;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    crossorigin: "anonymous";
-  }
+      font-family: 'Roboto';
+      src: url('https://b3bo.github.io/assets/fonts/Roboto/Roboto-Flex-VF.woff2') format('woff2-variations');
+      font-weight: 400 700; 
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      crossorigin: "anonymous";
+    }
 }
 
 /* Optional: Scan files for classes */
