@@ -25,11 +25,11 @@
 }
 
 .si-property-stats__title-date {
-  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight;
 }
 
 .si-property-stats {
@@ -45,7 +45,7 @@
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1;
 }
 
 /* Reset styles for horizontal layout at md and above */
@@ -66,12 +66,12 @@
 
 /* Standalone Button Style */
 .btn-custom {
-  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2;
+  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm;
 }
 
 /* Active Listings By Price */
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0;
+  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0 max-sm:text-sm max-sm:leading-tight;
 }
 
 /* Section 3: Font Customization */
@@ -112,7 +112,7 @@ html {
 /* Hamburger Menu Reordering */
 @media (max-width: 767px) {
   .more-menu-overlay .row {
-    @apply flex flex-col p-2.5 gap-1.25;
+    @apply flex flex-col p-2.5 gap-1.25 md:p-4 md:gap-2;
   }
   .more-menu-overlay .row > .col-sm-6 {
     @apply contents;
@@ -139,7 +139,7 @@ html {
     @apply order-5;
   }
   .blogs .item .img img {
-    @apply w-[345px];
+    @apply w-[345px] max-md:w-full max-md:max-h-[200px] md:w-auto;
   }
 }
 
@@ -155,7 +155,7 @@ html {
 }
 
 .hero-image img {
-  @apply max-w-full w-full;
+  @apply max-w-full w-full max-md:max-h-[300px];
 }
 
 /* Breadcrumb Formatting */
