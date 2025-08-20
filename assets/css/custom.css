@@ -182,7 +182,7 @@ html {
 }
 
 .tag-items span {
-  @apply text-base font-body text-neutral-700 font-bold;
+  @apply text-base font-body text-neutral-700 font-medium;
 }
 
 .tag-items span a:not(:last-child)::after {
