@@ -153,8 +153,17 @@ html {
   }
 }
 
+/* Hero & Logo Sytlying */
+.hero-image {
+  @apply relative;
+}
+
 .hero-image img {
   @apply max-w-full w-full max-md:max-h-[300px];
+}
+
+.hero-logo {
+  @apply absolute bottom-5 right-5 w-[150px] h-auto z-10 md:bottom-3 md:right-3 md:w-[120px];
 }
 
 /* Breadcrumb Styling */
