@@ -102,7 +102,7 @@
   /* Added max-w-full to prevent text overflow */
 }
 
-.main-content a {
+.main-content p a {
   @apply font-medium text-primary-600 underline max-w-full;
   /* Added max-w-full to prevent text overflow */
 }
