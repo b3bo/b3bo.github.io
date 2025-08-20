@@ -171,17 +171,17 @@ html {
   @apply w-4 h-4 text-primary-600 flex-shrink-0;
 }
 [aria-label="Breadcrumb"] a {
-  @apply text-lg font-body text-neutral-700 font-medium hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+  @apply text-base font-body text-neutral-600 font-medium hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50;
 }
 [aria-label="Breadcrumb"] span {
-  @apply text-lg font-body text-neutral-500 font-medium;
+  @apply text-base font-body text-neutral-600 font-medium;
 }
 
 
 .tag-items {
-  @apply text-base font-body text-neutral-700 font-medium;
+  @apply text-base font-body text-neutral-600 font-medium;
 }
 
 .tag-items a {
-  @apply font-body text-neutral-500 text-center hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1;
+  @apply text-base font-body text-neutral-600 text-center hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1;
 }
