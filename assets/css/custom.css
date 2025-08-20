@@ -178,7 +178,7 @@ html {
 }
 
 .tag-items a {
-  @apply underline;
+  @apply hover:underline;
 }
 
 .tag items span {
