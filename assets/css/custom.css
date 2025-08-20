@@ -210,3 +210,15 @@ html {
   @apply text-base font-body text-neutral-500 font-bold max-w-full;
   /* Added max-w-full to prevent text overflow */
 }
+
+.hero-image img {
+  @apply max-w-full w-full h-auto;
+}
+
+.button-group {
+  @apply max-w-full overflow-hidden;
+}
+
+.si-property-stats {
+  @apply max-w-full overflow-hidden;
+}
