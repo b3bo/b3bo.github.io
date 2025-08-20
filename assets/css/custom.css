@@ -177,10 +177,6 @@ html {
   @apply text-base font-body text-neutral-500 font-medium;
 }
 
-.tag-items a {
-  @apply no-underline;
-}
-
 .tag items span {
   @apply text-base font-body text-neutral-500 font-medium;
 }
