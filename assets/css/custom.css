@@ -157,7 +157,7 @@ html {
   @apply max-w-full w-full max-md:max-h-[300px];
 }
 
-/* Breadcrumb Formatting */
+/* Breadcrumb Styling */
 [aria-label="Breadcrumb"] {
   @apply flex justify-center items-center py-4;
 }
@@ -177,4 +177,9 @@ html {
 }
 [aria-label="Breadcrumb"] span {
   @apply text-base font-body text-neutral-500 font-bold;
+}
+
+/* Tags Styling */
+.tag-items .tags-list a:not(:last-child):after {
+  content: ", ";
 }
