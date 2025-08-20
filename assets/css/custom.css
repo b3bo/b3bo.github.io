@@ -1,7 +1,7 @@
 /* assets/css/custom.css */
 /* Description: Minimal custom styles for Sierra Interactive pages */
 /* Author: John Bauman */
-/* Date: August 19, 2025 */
+/* Date: August 20, 2025 */
 
 /* Section 1: Imports and References */
 @import "tailwindcss";
@@ -45,7 +45,7 @@
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 transition-colors duration-200;
 }
 
 /* Reset styles for horizontal layout at md and above */
@@ -66,7 +66,7 @@
 
 /* Standalone Button Style */
 .btn-custom {
-  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm;
+  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm transition-colors duration-200;
 }
 
 /* Active Listings By Price */
@@ -89,7 +89,7 @@
 }
 
 .main-content p a {
-  @apply font-medium text-primary-600 underline;
+  @apply font-medium text-primary-600 underline transition-colors duration-200;
 }
 
 .si-content-label__link>a {
@@ -155,11 +155,11 @@ html {
 
 /* Hero & Logo Sytlying */
 .hero-image {
-  @apply relative;
+  @apply relative contain-layout contain-paint;
 }
 
 .hero-image img {
-  @apply max-w-full w-full max-md:max-h-[300px];
+  @apply max-w-full w-full max-md:max-h-[300px] image-rendering-auto;
 }
 
 .hero-logo {
@@ -180,7 +180,7 @@ html {
   @apply w-4 h-4 text-primary-600 flex-shrink-0;
 }
 [aria-label="Breadcrumb"] a {
-  @apply text-base text-neutral-600 font-medium hover:underline hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+  @apply text-base text-neutral-600 font-medium hover:underline hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
 }
 [aria-label="Breadcrumb"] span {
   @apply text-base text-neutral-500 font-medium;
@@ -192,5 +192,11 @@ html {
 }
 
 .tag-items a {
-  @apply text-sm font-medium text-neutral-600 text-center hover:text-neutral-700 hover:no-underline hover:bg-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1;
+  @apply text-sm font-medium text-neutral-600 text-center hover:text-neutral-700 hover:no-underline hover:bg-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1 transition-colors duration-200;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-colors {
+    transition-duration: 0ms !important;
+  }
 }
