@@ -187,7 +187,7 @@ html {
 
 .tag-items span a:not(:last-child)::after {
   content: ", ";
-  @apply text-base font-body text-neutral-500 font-medium
+  @apply text-base font-body text-neutral-500 font-medium hover:no-underline;
 }
 
 .tag-items span a {
