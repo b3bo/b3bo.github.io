@@ -1,7 +1,3 @@
-/* styles.css */
-@import "node_modules/tailwindcss/dist/tailwind.css";
-@import "./custom.css";
-
 /* Theme definition (fixing @theme to @layer) */
 @layer base {
   :root {

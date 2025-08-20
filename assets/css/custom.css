@@ -3,6 +3,10 @@
 /* Author: John Bauman */
 /* Date: August 17, 2025 */
 
+/* Section 1: Imports and References */
+@import "tailwindcss";
+@reference "tailwindcss"
+
 /* Section 2: Sierra Customization */
 
 /*Overrides Sierra's .text-center css*/
