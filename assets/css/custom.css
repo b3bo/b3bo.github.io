@@ -182,7 +182,7 @@ html {
 }
 
 .tag items span {
-  @apply text-base font-body text-neutral-500 font-medium;
+  @apply text-base font-body text-neutral-700 font-bold;
 }
 
 .tag-items span a {
