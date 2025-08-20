@@ -159,7 +159,7 @@ html {
 
 /* Breadcrumb Styling */
 [aria-label="Breadcrumb"] {
-  @apply flex justify-center items-center py-4;
+  @apply flex justify-center items-center pt-4;
 }
 [aria-label="Breadcrumb"] .breadcrumb-items {
   @apply flex items-center space-x-2 md:space-x-4;
