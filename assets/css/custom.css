@@ -11,7 +11,7 @@
 
 /*Overrides Sierra's .text-center css*/
 .blog-link {
-  @apply hidden !important;
+  display: none !important;
 }
 
 /* Community Content Tables */
