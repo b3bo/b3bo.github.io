@@ -11,7 +11,7 @@
 
 /* Overrides Sierra's .text-center css */
 .blog-link {
-  @apply hidden;
+  display: none !important;
 }
 
 /* Community Content Tables */
@@ -125,7 +125,7 @@ html {
   .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
     @apply order-1;
   }
-  .more-menu-overflow ul.link-list li:has(a[href="/condo-search-menu/"]) {
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
     @apply order-2;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
