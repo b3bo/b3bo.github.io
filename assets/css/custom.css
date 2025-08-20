@@ -181,7 +181,7 @@ html {
   @apply hover:underline;
 }
 
-.tag items span {
+.tag-items span {
   @apply text-base font-body text-neutral-700 font-bold;
 }
 
