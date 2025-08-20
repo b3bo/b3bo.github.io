@@ -180,6 +180,7 @@ html {
 }
 
 /* Tags Styling */
-.tag-items .tags-list a:not(:last-child):after {
+.tag-items span a:not(:first-of-type):before {
   content: ", ";
+  text-decoration: none;
 }
