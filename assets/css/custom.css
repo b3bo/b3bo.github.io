@@ -11,13 +11,12 @@
 
 /*Overrides Sierra's .text-center css*/
 .blog-link {
-  display: none !important;
+  @apply hidden;
 }
 
 /* Community Content Tables */
 .si-content-label__body {
-  background-color:  transparent;
-  border: 1px solid var(--color-neutral-300);
+  @apply bg-transparent border border-neutral-300;
 }
 
 /* Active Listings */
@@ -26,15 +25,15 @@
 }
 
 .si-property-stats__title-date {
-  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-normal leading-relaxed text-neutral-600;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600;
 }
 
 .si-property-stats {
-  border: 1px solid var(--color-neutral-300);
+  @apply border border-neutral-300;
 }
 
 /* Buttons & Images */
@@ -42,12 +41,11 @@
 /* Button Group Style */
 .button-group {
   @apply inline-flex w-full flex-col md:flex-row md:w-auto mx-auto;
-  @apply max-md:grid max-md:grid-cols-2 max-md:gap-2; /* Two columns with 0.5rem gap below md */
+  @apply max-md:grid max-md:grid-cols-2 max-md:gap-2;
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500;
-  @apply max-md:rounded-lg max-md:text-center;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center;
 }
 
 /* Reset styles for horizontal layout at md and above */
@@ -73,7 +71,7 @@
 
 /* Active Listings By Price */
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed text-neutral-600 border-l border-r border-t border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0;
+  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0;
 }
 
 /* Section 3: Font Customization */
@@ -82,7 +80,7 @@
 } 
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-body leading-relaxed text-neutral-600 mb-6;
+  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 mb-6;
 }
 
 /* Span customization for 'Beautiful' */
@@ -114,37 +112,34 @@ html {
 /* Hamburger Menu Reordering */
 @media (max-width: 767px) {
   .more-menu-overlay .row {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 15px;
-    gap: 5px;
+    @apply flex flex-col p-2.5 gap-1.25;
   }
   .more-menu-overlay .row > .col-sm-6 {
-    display: contents;
+    @apply contents;
   }
   .more-menu-overlay ul.link-list {
-    display: contents;
+    @apply contents;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/"]) {
-    display: none;
+    @apply hidden;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
-    order: 1;
+    @apply order-1;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
-    order: 2;
+    @apply order-2;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
-    order: 3;
+    @apply order-3;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
-    order: 4;
+    @apply order-4;
   }
   .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
-    order: 5;
+    @apply order-5;
   }
   .blogs .item .img img {
-    width: 345px;
+    @apply w-[345px];
   }
 }
 
