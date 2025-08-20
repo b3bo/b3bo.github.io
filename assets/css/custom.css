@@ -11,7 +11,7 @@
 
 /*Overrides Sierra's .text-center css*/
 .blog-link {
-  @apply hidden;
+  @apply hidden !important;
 }
 
 /* Community Content Tables */
@@ -88,7 +88,7 @@
   @apply text-3xl sm:text-4xl md:text-5xl text-[var(--color-primary-600)];
 }
 
-a {
+.main-content a {
   @apply font-medium text-primary-600 underline;
 }
 
