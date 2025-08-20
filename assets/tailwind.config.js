@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "C:\Users\johnb\Documents\GitHub\b3bo.github.io\components\faq.html",
-    "C:\Users\johnb\Documents\GitHub\b3bo.github.io\components\breadcrumb.html",
     "./components/*.html",
     "./components/**/*.html",
     "./assets/**/*.css"
