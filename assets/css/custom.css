@@ -11,47 +11,56 @@
 
 /*Overrides Sierra's .text-center css*/
 .blog-link {
-  display: none !important;
+  @apply hidden;
+  /* No width issue */
 }
 
 /* Community Content Tables */
 .si-content-label__body {
-  @apply bg-transparent border border-neutral-300;
+  @apply bg-transparent border border-neutral-300 max-w-full;
+  /* Added max-w-full to prevent overflow */
 }
 
 /* Active Listings */
 .si-property-stats__title-date::before {
   content: "on ";
+  /* No width issue */
 }
 
 .si-property-stats__title-date {
-  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight;
+  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 .si-property-stats {
-  @apply border border-neutral-300;
+  @apply border border-neutral-300 max-w-full;
+  /* Added max-w-full to prevent overflow */
 }
 
 /* Buttons & Images */
 
 /* Button Group Style */
 .button-group {
-  @apply inline-flex w-full flex-col md:flex-row md:w-auto mx-auto;
+  @apply inline-flex w-full flex-col md:flex-row md:w-auto mx-auto max-w-full;
   @apply max-md:grid max-md:grid-cols-2 max-md:gap-2;
+  /* Added max-w-full to container, no width fix needed for grid */
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 max-w-full;
+  /* Added max-w-full to prevent width overflow */
 }
 
 /* Reset styles for horizontal layout at md and above */
 @media (min-width: 768px) {
   .button-group a {
     @apply m-0 max-w-full;
+    /* Already has max-w-full, no change needed */
   }
   .button-group a:not(:first-child):not(:last-child) {
     @apply border-x-0 rounded-none;
@@ -66,42 +75,51 @@
 
 /* Standalone Button Style */
 .btn-custom {
-  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm;
+  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm max-w-full;
+  /* Added max-w-full to prevent overflow */
 }
 
 /* Active Listings By Price */
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0 max-sm:text-sm max-sm:leading-tight;
+  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0 max-sm:text-sm max-sm:leading-tight max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 /* Section 3: Font Customization */
 .main-content .si-content-area h1 {
-  @apply text-center md:text-left text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+  @apply text-center md:text-left text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight max-w-full;
+  /* Added max-w-full to prevent text overflow */
 } 
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 mb-6;
+  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 mb-6 max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 /* Span customization for 'Beautiful' */
 .main-content .si-content-area h1 span {
-  @apply text-3xl sm:text-4xl md:text-5xl text-[var(--color-primary-600)];
+  @apply text-3xl sm:text-4xl md:text-5xl text-[var(--color-primary-600)] max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 .main-content a {
-  @apply font-medium text-primary-600 underline;
+  @apply font-medium text-primary-600 underline max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 .si-content-label__link>a {
-  @apply font-medium text-neutral-600;
+  @apply font-medium text-neutral-600 max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
-  @apply text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+  @apply text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-4 text-neutral-700 leading-tight max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 
 .main-content .si-content-area h3 {
-  @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+  @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 text-neutral-700 leading-tight max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
  
 
@@ -112,13 +130,16 @@ html {
 /* Hamburger Menu Reordering */
 @media (max-width: 767px) {
   .more-menu-overlay .row {
-    @apply flex flex-col p-2.5 gap-1.25 md:p-4 md:gap-2;
+    @apply flex flex-col p-2.5 gap-1.25 md:p-4 md:gap-2 max-w-full;
+    /* Added max-w-full to prevent overflow */
   }
   .more-menu-overlay .row > .col-sm-6 {
-    @apply contents;
+    @apply contents max-w-full;
+    /* Added max-w-full to prevent overflow */
   }
   .more-menu-overlay ul.link-list {
-    @apply contents;
+    @apply contents max-w-full;
+    /* Added max-w-full to prevent overflow */
   }
   .more-menu-overlay ul.link-list li:has(a[href="/"]) {
     @apply hidden;
@@ -139,43 +160,53 @@ html {
     @apply order-5;
   }
   .blogs .item .img img {
-    @apply w-[345px] max-md:w-full max-md:max-h-[200px] md:w-auto;
+    @apply w-[345px] max-md:w-full max-md:max-h-[200px] md:w-auto max-w-full;
+    /* Added max-w-full to prevent overflow */
   }
 }
 
 /* Layout Utilities */
 @media (min-width: 768px) {
   .blogs .row {
-    @apply flex flex-wrap;
+    @apply flex flex-wrap max-w-full;
+    /* Added max-w-full to prevent overflow */
   }
 
   .blogs .row .col-sm-6 {
-    @apply flex-none w-1/2;
+    @apply flex-none w-1/2 max-w-full;
+    /* Added max-w-full to prevent overflow */
   }
 }
 
 .hero-image img {
   @apply max-w-full w-full max-md:max-h-[300px];
+  /* Already constrained, no change needed */
 }
 
 /* Breadcrumb Formatting */
 [aria-label="Breadcrumb"] {
-  @apply flex justify-center items-center py-4;
+  @apply flex justify-center items-center py-4 max-w-full;
+  /* Added max-w-full to prevent overflow */
 }
 [aria-label="Breadcrumb"] .breadcrumb-items {
-  @apply flex items-center space-x-2 md:space-x-4;
+  @apply flex items-center space-x-2 md:space-x-4 max-w-full;
+  /* Added max-w-full to prevent overflow */
 }
 [aria-label="Breadcrumb"] .breadcrumb-items > * {
-  @apply flex-shrink-0;
+  @apply flex-shrink-0 max-w-full;
+  /* Added max-w-full to prevent overflow */
 }
 [aria-label="Breadcrumb"] svg {
-  @apply w-4 h-4 text-primary-600 flex-shrink-0;
-  width: 1rem ;
-  height: 1rem ;
+  @apply w-4 h-4 text-primary-600 flex-shrink-0 max-w-full;
+  /* Added max-w-full to prevent overflow */
+  width: 1rem;
+  height: 1rem;
 }
 [aria-label="Breadcrumb"] a {
-  @apply text-base font-body text-neutral-700 font-bold hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500;
+  @apply text-base font-body text-neutral-700 font-bold hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500 max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
 [aria-label="Breadcrumb"] span {
-  @apply text-base font-body text-neutral-500 font-bold;
+  @apply text-base font-body text-neutral-500 font-bold max-w-full;
+  /* Added max-w-full to prevent text overflow */
 }
