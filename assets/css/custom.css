@@ -179,9 +179,9 @@ html {
 
 
 .tag-items {
-  @apply text-base font-body text-neutral-600 font-medium;
+  @apply text-sm font-medium text-neutral-600;
 }
 
 .tag-items a {
-  @apply text-base font-body text-neutral-600 text-center hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1;
+  @apply text-sm font-medium text-neutral-600 text-center hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1;
 }
