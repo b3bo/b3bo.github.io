@@ -185,6 +185,11 @@ html {
   @apply text-base font-body text-neutral-700 font-bold;
 }
 
+.tag-items span a:not(:last-child)::after {
+  content: ", ";
+  @apply text-base font-body text-neutral-500 font-medium
+}
+
 .tag-items span a {
   @apply text-base font-body text-neutral-500 font-medium hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50;
 }
