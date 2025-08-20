@@ -149,21 +149,18 @@ html {
 }
 
 /* Layout Utilities */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .blogs .row {
-    display: flex;
-    flex-wrap: wrap;
+    @apply flex flex-wrap;
   }
 
   .blogs .row .col-sm-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+    @apply flex-none w-1/2;
   }
 }
 
 .hero-image img {
-  max-width: 100%;
-  width: 100%;
+  @apply max-w-full w-full;
 }
 
 /* Breadcrumb Formatting */
