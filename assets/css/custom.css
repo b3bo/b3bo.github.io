@@ -222,3 +222,7 @@ html {
 .si-property-stats {
   @apply max-w-full overflow-hidden;
 }
+
+body {
+  @apply overflow-x-hidden;
+}
