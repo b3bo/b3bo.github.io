@@ -153,18 +153,18 @@ html {
   }
 }
 
-/* Hero & Logo Sytlying */
+/* Hero & Logo Styling */
 .hero-image {
   @apply relative contain-layout contain-paint;
 }
 
 .hero-image img {
-  @apply max-w-full max-md:max-h-[300px];
+  @apply w-full max-w-full max-md:max-h-[300px];
   image-rendering: auto;
 }
 
 .hero-logo {
-  @apply absolute bottom-5 right-5 w-[150px] h-auto z-10 md:bottom-3 md:right-3 md:w-[120px];
+  @apply absolute bottom-5 right-5 w-[clamp(120px,20%,150px)] h-auto z-10;
 }
 
 /* Breadcrumb Styling */
