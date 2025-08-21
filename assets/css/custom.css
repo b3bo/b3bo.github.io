@@ -164,7 +164,7 @@ html {
 }
 
 .hero-logo {
-  @apply absolute bottom-5 right-5 w-[clamp(120px,20%,150px)] h-auto z-10 md:bottom-3 md:right-3 md:w-[clamp(100px,15%,120px)];
+  @apply absolute bottom-[10%] right-[10%] w-[clamp(120px,20%,150px)] h-auto z-10 md:bottom-[8%] md:right-[8%] md:w-[clamp(100px,15%,120px)];
 }
 
 /* Breadcrumb Styling */
