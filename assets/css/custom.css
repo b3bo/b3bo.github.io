@@ -159,7 +159,7 @@ html {
 }
 
 .hero-image img {
-  @apply max-w-full w-full max-md:max-h-[300px];
+  @apply max-w-full max-md:max-h-[300px];
   image-rendering: auto;
 }
 
