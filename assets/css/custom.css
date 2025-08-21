@@ -158,7 +158,7 @@ html {
   @apply relative contain-layout contain-paint;
 }
 
-.hero-image img {
+.hero-image > img:not(.hero-logo) {
   @apply max-w-full max-md:max-h-[300px];
   image-rendering: auto;
 }
