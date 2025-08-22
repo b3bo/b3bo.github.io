@@ -92,6 +92,10 @@
   @apply font-medium text-primary-600 underline transition-colors duration-200;
 }
 
+.main-content a {
+  @apply font-medium text-primary-600 underline transition-colors duration-200;
+}
+
 .si-content-label__link>a {
   @apply font-medium text-neutral-600;
 }
