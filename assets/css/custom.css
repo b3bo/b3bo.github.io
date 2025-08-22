@@ -155,17 +155,12 @@ html {
 
 /* Hero & Logo Styling */
 .hero-image {
-  @apply relative contain-layout contain-paint max-md:max-h-[300px];
-  aspect-ratio: 10 / 6 !important;
+  @apply relative aspect-[10/6];
 }
 
-.hero-image > img:not(.hero-logo) {
-  @apply absolute inset-0 w-full h-full object-cover;
+.hero-image > img {
+  @apply w-full h-full object-cover;
   image-rendering: auto;
-}
-
-.hero-logo {
-  @apply absolute bottom-[5%] right-[5%] w-[clamp(80px,15%,150px)] h-auto z-10 md:bottom-[3%] md:right-[3%] md:w-[clamp(80px,12%,120px)];
 }
 
 /* Breadcrumb Styling */
