@@ -201,3 +201,16 @@ html {
     transition-duration: 0ms !important;
   }
 }
+
+/* ==========================================================================
+   Full Width Background Styles
+   ========================================================================== */
+.full-width-bg {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: var(--light-bg-color); 
+    min-height: 100px; /* Reserves space for background + content */
+}
