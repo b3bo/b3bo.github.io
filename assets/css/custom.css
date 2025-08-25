@@ -193,7 +193,7 @@ html {
 }
 
 .tag-items a {
-  @apply text-sm font-medium text-neutral-600 text-center hover:text-neutral-700 hover:no-underline hover:bg-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1 transition-colors duration-200;
+  @apply text-sm font-medium text-neutral-600 text-center no-underline hover:text-neutral-700 hover:no-underline hover:bg-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-primary-600 rounded-lg px-2 py-1 transition-colors duration-200;
 }
 
 @media (prefers-reduced-motion: reduce) {
