@@ -11,7 +11,7 @@
 
 /* Contact Form Bottom*/
 .si-container.si-form {
-  @apply max-w-2xl mx-auto bg-gray-100 rounded-bl-lg rounded-br-lg p-8 mb-6;
+  @apply max-w-2xl mx-auto bg-neutral-100 rounded-bl-lg rounded-br-lg p-8 mb-6;
 }
 
 /* Overrides Sierra's .text-center css */
