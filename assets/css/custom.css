@@ -9,9 +9,9 @@
 
 /* Section 2: Sierra Customization */
 
-/* Contact Form */
+/* Contact Form Bottom*/
 .si-container.si-form {
-  @apply rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 shadow-md;
+  @apply max-w-2xl mx-auto bg-gray-100 rounded-bl-lg rounded-br-lg p-8 mb-6;
 }
 
 /* Overrides Sierra's .text-center css */
@@ -50,7 +50,7 @@
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 transition-colors duration-200;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 no-underline hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 transition-colors duration-200;
 }
 
 /* Reset styles for horizontal layout at md and above */
