@@ -106,11 +106,11 @@ textarea#requestComments990235 {
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
-  @apply text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+  @apply text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-4 mt-4 text-neutral-700 leading-tight;
 }
 
 .main-content .si-content-area h3 {
-  @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
+  @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 mt-4 text-neutral-700 leading-tight;
 }
 
 html {
