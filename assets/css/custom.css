@@ -89,7 +89,7 @@ textarea#requestComments990235 {
 } 
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 mb-6;
+  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600;
 }
 
 /* Span customization for 'Beautiful' */
