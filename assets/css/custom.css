@@ -93,12 +93,12 @@ textarea#requestComments990235 {
 }
 
 /* Span customization for 'Beautiful' */
-.main-content .si-content-area h1 span, .main-content .si-content-area h3 span {
+.main-content .si-content-area h1 span {
   @apply text-3xl sm:text-4xl md:text-5xl text-primary-600;
 }
 
 .main-content .si-content-area h3 span, .main-content .si-content-area p span  {
-  @apply text-primary-600;
+  @apply text-primary-600 text-lg sm:text-xl md:text-2xl font-heading font-bold;
 }
 
 .main-content p a {
