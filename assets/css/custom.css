@@ -38,7 +38,7 @@ h2 {
 }
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg lg:text-xl font-body leading-normal text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg lg:text-lg font-body leading-normal text-neutral-600;
 }
 
 /* Span customization for accent */
