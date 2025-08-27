@@ -93,8 +93,8 @@ textarea#requestComments990235 {
 }
 
 /* Span customization for 'Beautiful' */
-.main-content .si-content-area h1 span, .main-content .si-content-area h2 span {
-  @apply text-3xl sm:text-4xl md:text-5xl text-[var(--color-primary-600)];
+.main-content .si-content-area h1 span, .main-content .si-content-area h3 span {
+  @apply text-3xl sm:text-4xl md:text-5xl text-primary-600;
 }
 
 .main-content p a {
@@ -102,7 +102,7 @@ textarea#requestComments990235 {
 }
 
 .si-content-label__link>a {
-  @apply font-medium text-neutral-600;
+  @apply font-medium text-neutral-600; 
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
