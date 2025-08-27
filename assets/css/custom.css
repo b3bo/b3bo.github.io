@@ -13,7 +13,7 @@
    2. Font Styles
    ========================================================================== */
 /* Note: Combined all font-related styles from original Section 3 and scattered typography classes. */
-/* Inconsistency noted: Some selectors use responsive variants like text-sm sm:text-base md:text-lg, while others use max-sm:text-sm. This mixes min-width and max-width breakpoints; recommend standardizing to min-width for consistency (e.g., base + sm: + md:). No changes made. */
+/* Note: Standardized responsive variants to min-width breakpoints (base + sm: + md: + lg:). */
 /* Inconsistency noted: Line-height uses leading-relaxed in some places and leading-tight in others; may need review for uniform typography rhythm. No changes made. */
 /* Inconsistency noted: Font weights are mixed (font-normal, font-medium, font-bold); ensure this aligns with design system. No changes made. */
 
@@ -57,16 +57,20 @@ h2 {
   @apply text-neutral-600 font-medium;
 }
 
+.si-property-stats__title-date::after {
+  content: ".";
+}
+
 .si-property-stats__title-date {
-  @apply text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-tight sm:leading-relaxed text-neutral-600;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-body font-normal leading-tight sm:leading-relaxed text-neutral-600;
 }
 
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
+  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm sm:text-base md:text-lg font-body font-normal leading-tight sm:leading-relaxed text-neutral-600;
 }
 
 /* ==========================================================================
