@@ -46,7 +46,7 @@ h2 {
 }
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg font-body leading-relaxed text-neutral-600;
 }
 
 .main-content p a {
@@ -62,15 +62,15 @@ h2 {
 }
 
 .si-property-stats__title-date {
-  @apply text-sm max-sm:text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
+  @apply text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm max-sm:text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
 
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm max-sm:text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
+  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
 
 /* ==========================================================================
