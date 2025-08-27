@@ -80,7 +80,7 @@ h2 {
 }
 
 .faq-answer {
-  @apply text-sm sm:text-base md:text-lg lg:text-lg font-body leading-normal text-neutral-600 pl-4; /*Same as <p> */
+  @apply text-sm sm:text-base md:text-lg lg:text-lg font-body leading-normal text-neutral-600 pt-4; /*Same as <p> */
 }
 
 
