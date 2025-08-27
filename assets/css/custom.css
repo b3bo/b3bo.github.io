@@ -93,25 +93,8 @@ textarea#requestComments990235 {
   @apply text-center md:text-left text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
 } 
 
-.main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600;
-}
-
-/* Span customization for 'Beautiful' */
-.main-content .si-content-area h1 span {
-  @apply text-3xl sm:text-4xl md:text-5xl text-primary-600;
-}
-
-.main-content .si-content-area h3 span, .main-content .si-content-area p span  {
-  @apply text-primary-600 text-lg sm:text-xl md:text-2xl font-heading font-bold;
-}
-
-.main-content p a {
-  @apply font-medium text-primary-600 underline transition-colors duration-200;
-}
-
-.si-content-label__link>a {
-  @apply font-medium text-neutral-600; 
+.main-content .si-content-area h1 span {                                                                /* Span customization for accent */
+  @apply text-primary-600;
 }
 
 .main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
@@ -120,6 +103,22 @@ textarea#requestComments990235 {
 
 .main-content .si-content-area h3 {
   @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 mt-4 text-neutral-700 leading-tight;
+}
+
+.main-content .si-content-area h3 span, .main-content .si-content-area p span  {                        /* Span customization for accent */
+  @apply text-primary-600;
+}
+
+.main-content .si-content-area p {
+  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600;
+}
+
+.main-content p a {
+  @apply font-medium text-primary-600 underline transition-colors duration-200;
+}
+
+.si-content-label__link>a {
+  @apply font-medium text-neutral-600; 
 }
 
 html {
