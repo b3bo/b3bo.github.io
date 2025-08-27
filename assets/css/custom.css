@@ -51,7 +51,8 @@ h2 {
   @apply text-base sm:text-lg md:text-xl lg:text-2xl;
 }
 
-.main-content p a {
+.main-content p a,
+.main-content dd a {
   @apply text-primary-600 font-medium underline transition-colors duration-200;
 }
 
