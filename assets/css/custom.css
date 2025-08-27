@@ -6,23 +6,20 @@
 /* ==========================================================================
    1. Imports and References
    ========================================================================== */
+
 @import "tailwindcss";
 @reference "tailwindcss";
 
 /* ==========================================================================
    2. Font Styles
    ========================================================================== */
-/* Note: Combined all font-related styles from original Section 3 and scattered typography classes. */
-/* Note: Standardized responsive variants to min-width breakpoints (base + sm: + md: + lg:). */
-/* Inconsistency noted: Line-height uses leading-relaxed in some places and leading-tight in others; may need review for uniform typography rhythm. No changes made. */
-/* Inconsistency noted: Font weights are mixed (font-normal, font-medium, font-bold); ensure this aligns with design system. No changes made. */
 
 html {
   font-size: 100%; /* Resets to browser default of 16px */
 }
 
 .main-content .si-content-area h1 {
-  @apply mb-4 text-center md:text-left text-[1.5625rem] sm:text-[1.875rem] md:text-[2.34375rem] lg:text-[2.8125rem] font-heading font-bold leading-tight text-neutral-700;
+  @apply mb-4 text-center md:text-left text-[1.6rem] sm:text-[1.9rem] md:text-[2.35rem] lg:text-[2.75rem] font-heading font-bold leading-tight text-neutral-700;
 }
 
 .main-content .si-content-area h1 span {
@@ -46,7 +43,7 @@ h2 {
 }
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-body leading-relaxed text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg font-body leading-normal text-neutral-600;
 }
 
 .main-content p a {
@@ -62,15 +59,15 @@ h2 {
 }
 
 .si-property-stats__title-date {
-  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-tight sm:leading-relaxed text-neutral-600;
+  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-body font-normal leading-tight sm:leading-relaxed text-neutral-600;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
 }
 
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm sm:text-base md:text-lg font-body font-normal leading-tight sm:leading-relaxed text-neutral-600;
+  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
 }
 
 /* ==========================================================================
@@ -138,7 +135,6 @@ textarea#requestComments990235 {
    6. Content Tables and Labels
    ========================================================================== */
 /* Note: Combined content labels, tables, and related overrides. */
-/* Inconsistency noted: Borders are consistently neutral-300, but backgrounds mix transparent and neutral-100; ensure visual hierarchy. No changes made. */
 
 .si-content-label__body {
   @apply bg-transparent border border-neutral-300;
