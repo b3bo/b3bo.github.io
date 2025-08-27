@@ -22,7 +22,7 @@ html {
 }
 
 .main-content .si-content-area h1 {
-  @apply mb-4 text-center text-3xl font-heading font-bold leading-tight text-neutral-700 md:text-left sm:text-4xl md:text-5xl lg:text-6xl;
+  @apply mb-4 text-center md:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-tight text-neutral-700;
 }
 
 .main-content .si-content-area h1 span {
@@ -33,11 +33,11 @@ html {
 .si-videos-widget > h2,
 .si-content-label__title,
 h2 {
-  @apply mb-4 mt-20 text-xl font-heading font-bold leading-tight text-neutral-700 sm:text-2xl md:text-3xl;
+  @apply mb-4 mt-20 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-tight text-neutral-700;
 }
 
 .main-content .si-content-area h3 {
-  @apply mb-4 mt-4 text-lg font-heading font-bold leading-tight text-neutral-700 sm:text-xl md:text-2xl;
+  @apply mb-4 mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold leading-tight text-neutral-700;
 }
 
 .main-content .si-content-area h3 span,
@@ -46,15 +46,15 @@ h2 {
 }
 
 .main-content .si-content-area p {
-  @apply text-sm font-sans leading-relaxed text-neutral-600 sm:text-base md:text-lg;
+  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600;
 }
 
 .main-content p a {
-  @apply font-medium text-primary-600 underline transition-colors duration-200;
+  @apply text-primary-600 font-medium underline transition-colors duration-200;
 }
 
 .si-content-label__link > a {
-  @apply font-medium text-neutral-600;
+  @apply text-neutral-600 font-medium;
 }
 
 .si-property-stats__title-date::before {
@@ -62,15 +62,15 @@ h2 {
 }
 
 .si-property-stats__title-date {
-  @apply font-sans font-normal text-sm leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight sm:text-base md:text-lg;
+  @apply text-sm max-sm:text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 font-sans font-normal text-sm leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight sm:text-base md:text-lg;
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm max-sm:text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
 
 .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 font-sans font-normal text-sm leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight sm:text-base md:text-lg;
+  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm max-sm:text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
 
 /* ==========================================================================
@@ -79,11 +79,11 @@ h2 {
 /* Note: Combined all button-related styles, including button groups and standalone buttons. */
 
 .button-group {
-  @apply mx-auto inline-flex w-full flex-col max-md:grid max-md:grid-cols-2 max-md:gap-2 md:flex-row md:w-auto;
+  @apply inline-flex mx-auto w-full flex-col md:w-auto md:flex-row max-md:grid max-md:grid-cols-2 max-md:gap-2;
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 font-medium text-sm text-neutral-600 no-underline hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 transition-colors duration-200;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm text-neutral-600 font-medium no-underline transition-colors duration-200 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1;
 }
 
 /* Reset styles for horizontal layout at md and above */
@@ -92,20 +92,20 @@ h2 {
     @apply m-0;
   }
   .button-group a:not(:first-child):not(:last-child) {
-    @apply rounded-none border-x-0;
+    @apply border-x-0 rounded-none;
   }
   .button-group a:first-child {
-    @apply rounded-l-lg border-r-0;
+    @apply border-r-0 rounded-l-lg;
   }
   .button-group a:last-child {
-    @apply rounded-r-lg border-l-0;
+    @apply border-l-0 rounded-r-lg;
   }
 }
 
 .btn-custom,
 .si-iw-fma__btn,
 .si-form .si-btn {
-  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 font-medium text-base text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm transition-colors duration-200;
+  @apply inline-flex items-center border-0 rounded bg-primary-600 px-6 py-2 text-base text-white font-medium transition-colors duration-200 hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm;
 }
 
 /* ==========================================================================
@@ -114,11 +114,11 @@ h2 {
 /* Note: Tag item styling. */
 
 .tag-items {
-  @apply font-medium text-sm text-neutral-600;
+  @apply text-sm text-neutral-600 font-medium;
 }
 
 .tag-items a {
-  @apply rounded-lg border border-neutral-300 px-2 py-1 font-medium text-sm text-center text-neutral-600 no-underline hover:bg-primary-600/30 hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
+  @apply border border-neutral-300 rounded-lg px-2 py-1 text-sm text-center text-neutral-600 font-medium no-underline transition-colors duration-200 hover:bg-primary-600/30 hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50;
 }
 
 /* ==========================================================================
@@ -127,7 +127,7 @@ h2 {
 /* Note: Combined form-related styles, including contact forms and textareas. */
 
 .si-container.si-form {
-  @apply mx-auto mt-0 mb-6 max-w-4xl rounded-bl-lg rounded-br-lg bg-neutral-100 p-8;
+  @apply max-w-4xl mx-auto bg-neutral-100 rounded-bl-lg rounded-br-lg p-8 mb-6 mt-0;
 }
 
 textarea#requestComments990235 {
@@ -141,7 +141,7 @@ textarea#requestComments990235 {
 /* Inconsistency noted: Borders are consistently neutral-300, but backgrounds mix transparent and neutral-100; ensure visual hierarchy. No changes made. */
 
 .si-content-label__body {
-  @apply border border-neutral-300 bg-transparent;
+  @apply bg-transparent border border-neutral-300;
 }
 
 .si-property-stats {
@@ -169,7 +169,7 @@ textarea#requestComments990235 {
 
 @media (max-width: 767px) {
   .more-menu-overlay .row {
-    @apply flex flex-col gap-1.25 p-2.5 md:gap-2 md:p-4;
+    @apply flex flex-col p-2.5 gap-1.25 md:p-4 md:gap-2;
   }
   .more-menu-overlay .row > .col-sm-6 {
     @apply contents;
@@ -196,7 +196,7 @@ textarea#requestComments990235 {
     @apply order-5;
   }
   .blogs .item .img img {
-    @apply w-[345px] max-md:max-h-[200px] max-md:w-full md:w-auto;
+    @apply w-[345px] max-md:w-full max-md:max-h-[200px] md:w-auto;
   }
 }
 
@@ -211,7 +211,7 @@ textarea#requestComments990235 {
   }
 
   .blogs .row .col-sm-6 {
-    @apply w-1/2 flex-none;
+    @apply flex-none w-1/2;
   }
 }
 
@@ -236,7 +236,7 @@ textarea#requestComments990235 {
 /* Inconsistency noted: Text sizes are base (text-base), but other typography uses responsive scaling; consider adding sm:/md: variants for consistency. No changes made. */
 
 [aria-label="Breadcrumb"] {
-  @apply flex items-center justify-center pt-4;
+  @apply flex justify-center items-center pt-4;
 }
 [aria-label="Breadcrumb"] .breadcrumb-items {
   @apply flex items-center space-x-2 md:space-x-4;
@@ -245,13 +245,13 @@ textarea#requestComments990235 {
   @apply flex-shrink-0;
 }
 [aria-label="Breadcrumb"] svg {
-  @apply h-4 w-4 flex-shrink-0 text-primary-600;
+  @apply w-4 h-4 text-primary-600 flex-shrink-0;
 }
 [aria-label="Breadcrumb"] a {
-  @apply font-medium text-base text-neutral-600 hover:text-neutral-700 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
+  @apply text-base text-neutral-600 font-medium hover:underline hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
 }
 [aria-label="Breadcrumb"] span {
-  @apply font-medium text-base text-neutral-500;
+  @apply text-base text-neutral-500 font-medium;
 }
 
 /* ==========================================================================
