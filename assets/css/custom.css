@@ -129,7 +129,7 @@ h2 {
 /* Note: Combined form-related styles, including contact forms and textareas. */
 
 .si-container.si-form {
-  @apply max-w-4xl mx-auto bg-neutral-100 rounded-bl-lg rounded-br-lg p-8 mb-6 mt-0;
+  @apply max-w-4xl mx-auto bg-neutral-100 rounded-bl-lg rounded-br-lg p-12 mb-6 mt-0;
 }
 
 textarea#requestComments990235 {
