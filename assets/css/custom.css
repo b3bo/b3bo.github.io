@@ -75,6 +75,15 @@ h2 {
   @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
 }
 
+.faq-question {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-bold leading-tight text-neutral-700;
+}
+
+.faq-answer {
+ @apply text-sm sm:text-base md:text-lg lg:text-lg font-body leading-normal text-neutral-600; /*Same as <p> */
+}
+
+
 /* ==========================================================================
    3. Button Styles
    ========================================================================== */
