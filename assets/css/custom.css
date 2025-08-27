@@ -22,7 +22,7 @@ html {
 }
 
 .main-content .si-content-area h1 {
-  @apply mb-4 text-center md:text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-tight text-neutral-700;
+  @apply mb-4 text-center md:text-left text-[1.5625rem] sm:text-[1.875rem] md:text-[2.34375rem] lg:text-[2.8125rem] font-heading font-bold leading-tight text-neutral-700;
 }
 
 .main-content .si-content-area h1 span {
