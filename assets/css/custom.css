@@ -30,7 +30,7 @@ html {
 .si-videos-widget > h2,
 .si-content-label__title,
 h2 {
-  @apply mb-4 mt-20 text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold leading-tight text-neutral-700;
+  @apply mb-4 mt-20 text-xl sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold leading-tight text-neutral-700;
 }
 
 .main-content .si-content-area h3 {
