@@ -1,65 +1,89 @@
 /* assets/css/custom.css */
-/* Description: Minimal custom styles for Sierra Interactive pages */
+/* Description: Reorganized and documented minimal custom styles for Sierra Interactive pages */
 /* Author: John Bauman */
-/* Date: August 20, 2025 */
+/* Date: August 27, 2025 */
 
-/* Section 1: Imports and References */
+/* ==========================================================================
+   1. Imports and References
+   ========================================================================== */
 @import "tailwindcss";
 @reference "tailwindcss";
 
-/* Section 2: Sierra Customization */
+/* ==========================================================================
+   2. Font Styles
+   ========================================================================== */
+/* Note: Combined all font-related styles from original Section 3 and scattered typography classes. */
+/* Inconsistency noted: Some selectors use responsive variants like text-sm sm:text-base md:text-lg, while others use max-sm:text-sm. This mixes min-width and max-width breakpoints; recommend standardizing to min-width for consistency (e.g., base + sm: + md:). No changes made. */
+/* Inconsistency noted: Line-height uses leading-relaxed in some places and leading-tight in others; may need review for uniform typography rhythm. No changes made. */
+/* Inconsistency noted: Font weights are mixed (font-normal, font-medium, font-bold); ensure this aligns with design system. No changes made. */
 
-/* Videos Re-styling */
-.si-video {
-  @apply mb-0;
+html {
+  font-size: 100%; /* Resets to browser default of 16px */
 }
 
-/* Contact Form Bottom*/
-.si-container.si-form {
-  @apply max-w-4xl mx-auto bg-neutral-100 rounded-bl-lg rounded-br-lg p-8 mb-6 mt-0;
+.main-content .si-content-area h1 {
+  @apply mb-4 text-center text-3xl font-heading font-bold leading-tight text-neutral-700 md:text-left sm:text-4xl md:text-5xl lg:text-6xl;
 }
 
-textarea#requestComments990235 {
-  @apply h-24;
+.main-content .si-content-area h1 span {
+  @apply text-primary-600; /* Span customization for accent */
 }
 
-/* Overrides Sierra's .text-center css */
-.blog-link {
-  display: none !important;
+.main-content .si-content-area h2,
+.si-videos-widget > h2,
+.si-content-label__title,
+h2 {
+  @apply mb-4 mt-20 text-xl font-heading font-bold leading-tight text-neutral-700 sm:text-2xl md:text-3xl;
 }
 
-/* Community Content Tables */
-.si-content-label__body {
-  @apply bg-transparent border border-neutral-300;
+.main-content .si-content-area h3 {
+  @apply mb-4 mt-4 text-lg font-heading font-bold leading-tight text-neutral-700 sm:text-xl md:text-2xl;
 }
 
-/* Active Listings */
+.main-content .si-content-area h3 span,
+.main-content .si-content-area p span {
+  @apply text-primary-600; /* Span customization for accent */
+}
+
+.main-content .si-content-area p {
+  @apply text-sm font-sans leading-relaxed text-neutral-600 sm:text-base md:text-lg;
+}
+
+.main-content p a {
+  @apply font-medium text-primary-600 underline transition-colors duration-200;
+}
+
+.si-content-label__link > a {
+  @apply font-medium text-neutral-600;
+}
+
 .si-property-stats__title-date::before {
   content: "on ";
 }
 
 .si-property-stats__title-date {
-  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight;
+  @apply font-sans font-normal text-sm leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight sm:text-base md:text-lg;
 }
 
 .si-property-stats__title {
-  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight;
+  @apply border-b border-neutral-300 bg-neutral-100 font-sans font-normal text-sm leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight sm:text-base md:text-lg;
 }
 
-.si-property-stats {
-  @apply border border-neutral-300;
+.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 font-sans font-normal text-sm leading-relaxed text-neutral-600 max-sm:text-sm max-sm:leading-tight sm:text-base md:text-lg;
 }
 
-/* Buttons & Images */
+/* ==========================================================================
+   3. Button Styles
+   ========================================================================== */
+/* Note: Combined all button-related styles, including button groups and standalone buttons. */
 
-/* Button Group Style */
 .button-group {
-  @apply inline-flex w-full flex-col md:flex-row md:w-auto mx-auto;
-  @apply max-md:grid max-md:grid-cols-2 max-md:gap-2;
+  @apply mx-auto inline-flex w-full flex-col max-md:grid max-md:grid-cols-2 max-md:gap-2 md:flex-row md:w-auto;
 }
 
 .button-group a {
-  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm font-medium text-neutral-600 no-underline hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 transition-colors duration-200;
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 font-medium text-sm text-neutral-600 no-underline hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1 transition-colors duration-200;
 }
 
 /* Reset styles for horizontal layout at md and above */
@@ -68,7 +92,7 @@ textarea#requestComments990235 {
     @apply m-0;
   }
   .button-group a:not(:first-child):not(:last-child) {
-    @apply border-x-0 rounded-none;
+    @apply rounded-none border-x-0;
   }
   .button-group a:first-child {
     @apply rounded-l-lg border-r-0;
@@ -78,57 +102,74 @@ textarea#requestComments990235 {
   }
 }
 
-/* Standalone Button Style */
-.btn-custom, .si-iw-fma__btn, .si-form .si-btn {
-  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 text-base font-medium text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm transition-colors duration-200;
+.btn-custom,
+.si-iw-fma__btn,
+.si-form .si-btn {
+  @apply inline-flex items-center rounded border-0 bg-primary-600 px-6 py-2 font-medium text-base text-white hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 max-md:px-4 max-md:py-1 max-md:text-sm transition-colors duration-200;
 }
 
-/* Active Listings By Price */
-.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
-  @apply text-sm sm:text-base md:text-lg font-sans font-normal leading-relaxed text-neutral-600 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 m-0 max-sm:text-sm max-sm:leading-tight;
+/* ==========================================================================
+   4. Tag Styles
+   ========================================================================== */
+/* Note: Tag item styling. */
+
+.tag-items {
+  @apply font-medium text-sm text-neutral-600;
 }
 
-/* Section 3: Font Customization */
-.main-content .si-content-area h1 {
-  @apply text-center md:text-left text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 text-neutral-700 leading-tight;
-} 
-
-.main-content .si-content-area h1 span {                                                                /* Span customization for accent */
-  @apply text-primary-600;
+.tag-items a {
+  @apply rounded-lg border border-neutral-300 px-2 py-1 font-medium text-sm text-center text-neutral-600 no-underline hover:bg-primary-600/30 hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
 }
 
-.main-content .si-content-area h2, .si-videos-widget>h2, .si-content-label__title, h2 {
-  @apply text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-4 mt-20 text-neutral-700 leading-tight;
+/* ==========================================================================
+   5. Form and Input Styles
+   ========================================================================== */
+/* Note: Combined form-related styles, including contact forms and textareas. */
+
+.si-container.si-form {
+  @apply mx-auto mt-0 mb-6 max-w-4xl rounded-bl-lg rounded-br-lg bg-neutral-100 p-8;
 }
 
-.main-content .si-content-area h3 {
-  @apply text-lg sm:text-xl md:text-2xl font-heading font-bold mb-4 mt-4 text-neutral-700 leading-tight;
+textarea#requestComments990235 {
+  @apply h-24;
 }
 
-.main-content .si-content-area h3 span, .main-content .si-content-area p span  {                        /* Span customization for accent */
-  @apply text-primary-600;
+/* ==========================================================================
+   6. Content Tables and Labels
+   ========================================================================== */
+/* Note: Combined content labels, tables, and related overrides. */
+/* Inconsistency noted: Borders are consistently neutral-300, but backgrounds mix transparent and neutral-100; ensure visual hierarchy. No changes made. */
+
+.si-content-label__body {
+  @apply border border-neutral-300 bg-transparent;
 }
 
-.main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600;
+.si-property-stats {
+  @apply border border-neutral-300;
 }
 
-.main-content p a {
-  @apply font-medium text-primary-600 underline transition-colors duration-200;
+/* Overrides Sierra's .text-center css */
+.blog-link {
+  display: none !important;
 }
 
-.si-content-label__link>a {
-  @apply font-medium text-neutral-600; 
+/* ==========================================================================
+   7. Video Styles
+   ========================================================================== */
+/* Note: Minimal video re-styling. */
+
+.si-video {
+  @apply mb-0;
 }
 
-html {
-    font-size: 100%; /* Resets to browser default of 16px */
-}
+/* ==========================================================================
+   8. Hamburger Menu Reordering
+   ========================================================================== */
+/* Note: Mobile-specific menu adjustments. */
 
-/* Hamburger Menu Reordering */
 @media (max-width: 767px) {
   .more-menu-overlay .row {
-    @apply flex flex-col p-2.5 gap-1.25 md:p-4 md:gap-2;
+    @apply flex flex-col gap-1.25 p-2.5 md:gap-2 md:p-4;
   }
   .more-menu-overlay .row > .col-sm-6 {
     @apply contents;
@@ -155,22 +196,30 @@ html {
     @apply order-5;
   }
   .blogs .item .img img {
-    @apply w-[345px] max-md:w-full max-md:max-h-[200px] md:w-auto;
+    @apply w-[345px] max-md:max-h-[200px] max-md:w-full md:w-auto;
   }
 }
 
-/* Layout Utilities */
+/* ==========================================================================
+   9. Layout Utilities
+   ========================================================================== */
+/* Note: General layout helpers for blogs and rows. */
+
 @media (min-width: 768px) {
   .blogs .row {
     @apply flex flex-wrap;
   }
 
   .blogs .row .col-sm-6 {
-    @apply flex-none w-1/2;
+    @apply w-1/2 flex-none;
   }
 }
 
-/* Hero & Logo Styling */
+/* ==========================================================================
+   10. Hero and Image Styles
+   ========================================================================== */
+/* Note: Hero image and related styling. */
+
 .hero-image {
   @apply relative aspect-[10/6];
 }
@@ -180,9 +229,14 @@ html {
   image-rendering: auto;
 }
 
-/* Breadcrumb Styling */
+/* ==========================================================================
+   11. Breadcrumb Styles
+   ========================================================================== */
+/* Note: Breadcrumb navigation styling. */
+/* Inconsistency noted: Text sizes are base (text-base), but other typography uses responsive scaling; consider adding sm:/md: variants for consistency. No changes made. */
+
 [aria-label="Breadcrumb"] {
-  @apply flex justify-center items-center pt-4;
+  @apply flex items-center justify-center pt-4;
 }
 [aria-label="Breadcrumb"] .breadcrumb-items {
   @apply flex items-center space-x-2 md:space-x-4;
@@ -191,40 +245,37 @@ html {
   @apply flex-shrink-0;
 }
 [aria-label="Breadcrumb"] svg {
-  @apply w-4 h-4 text-primary-600 flex-shrink-0;
+  @apply h-4 w-4 flex-shrink-0 text-primary-600;
 }
 [aria-label="Breadcrumb"] a {
-  @apply text-base text-neutral-600 font-medium hover:underline hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
+  @apply font-medium text-base text-neutral-600 hover:text-neutral-700 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
 }
 [aria-label="Breadcrumb"] span {
-  @apply text-base text-neutral-500 font-medium;
+  @apply font-medium text-base text-neutral-500;
 }
 
+/* ==========================================================================
+   12. Full Width Background Styles
+   ========================================================================== */
+/* Note: Utility for full-width backgrounds. */
 
-.tag-items {
-  @apply text-sm font-medium text-neutral-600;
+.full-width-bg {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--light-bg-color);
+  min-height: 100px; /* Reserves space for background + content */
 }
 
-.tag-items a {
-  @apply text-sm font-medium text-neutral-600 text-center no-underline hover:text-neutral-700 hover:no-underline hover:bg-primary-600/30 focus:outline-none focus:ring-2 focus:ring-primary-500/50 border border-neutral-300 rounded-lg px-2 py-1 transition-colors duration-200;
-}
+/* ==========================================================================
+   13. Accessibility and Motion Preferences
+   ========================================================================== */
+/* Note: Reduced motion override. */
 
 @media (prefers-reduced-motion: reduce) {
   .transition-colors {
     transition-duration: 0ms !important;
   }
 }
-
-/* ==========================================================================
-   Full Width Background Styles
-   ========================================================================== */
-.full-width-bg {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    background-color: var(--light-bg-color); 
-    min-height: 100px; /* Reserves space for background + content */
-}
-
