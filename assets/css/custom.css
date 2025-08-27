@@ -57,10 +57,6 @@ h2 {
   @apply text-neutral-600 font-medium;
 }
 
-.si-property-stats__title-date::before {
-  content: "on ";
-}
-
 .si-property-stats__title-date {
   @apply text-sm max-sm:text-sm sm:text-base md:text-lg font-body font-normal leading-relaxed max-sm:leading-tight text-neutral-600;
 }
