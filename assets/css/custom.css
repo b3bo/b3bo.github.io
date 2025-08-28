@@ -14,6 +14,10 @@
    2. Font Styles
    ========================================================================== */
 
+.cloudinary-gallery .cld-thumbnail.cld-selected {
+  border-color: white !important;
+}
+
 html {
   font-size: 100%; /* Resets to browser default of 16px */
 }
