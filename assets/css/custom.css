@@ -91,7 +91,7 @@ h2 {
 /* Note: Combined all button-related styles, including button groups and standalone buttons. */
 
 .button-group {
-  @apply inline-flex mx-auto w-full flex-col md:w-auto md:flex-row max-md:grid max-md:grid-cols-2 max-md:gap-2;
+  @apply justify-center inline-flex mx-auto w-full flex-col md:w-auto md:flex-row max-md:grid max-md:grid-cols-2 max-md:gap-2 mt-4;
 }
 
 .button-group a {
