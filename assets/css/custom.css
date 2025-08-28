@@ -126,7 +126,7 @@ h2 {
 /* Note: Tag item styling. */
 
 .tag-items {
-  @apply flex items-center justify-center mb-4 space-x-1 md:space-x-2 flex-wrap text-sm font-body text-neutral-600 font-medium;
+  @apply flex items-center justify-center mb-8 space-x-1 md:space-x-2 flex-wrap text-sm font-body text-neutral-600 font-medium;
 }
 
 .tag-items a {
