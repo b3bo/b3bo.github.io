@@ -2,6 +2,9 @@
 function getPageTitle() {
   var path = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/').pop() || 'Home';
   path = path.replace(/_/g, ' ').replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+
+  // Trim trailing " Lot" or " Lots" from the title
+  path = path.replace(/\s+Lots?$/i, '');
   return path;
 }
 
@@ -29,7 +32,18 @@ var container = document.querySelector('.si-container.si-property-stats');
 if (container) {
   var title = getPageTitle();
   var listedCount = getListedCount(container);
-  var h2Text = (listedCount ? listedCount + ' Current Homes for Sale in ' + title : 'Current Homes for Sale in ' + title);
+
+  // Check if the original path contained "lot"
+  var isLotsPage = /lot/i.test(window.location.pathname);
+
+  // Pick the correct label
+  var label = isLotsPage ? "Lots" : "Homes";
+
+  // Build the H2 text
+  var h2Text = (listedCount 
+    ? listedCount + " Current " + label + " for Sale in " + title 
+    : "Current " + label + " for Sale in " + title);
+
   var h2 = '<h2 id="listings">' + h2Text + '</h2>';
   container.insertAdjacentHTML('afterend', h2);
   console.log('Added H2: ' + h2Text);
