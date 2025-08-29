@@ -307,7 +307,7 @@ textarea#requestComments990235 {
 }
 
 .head-custom {
-    @apply ltr:text-left rtl:text-right;
+    @apply ltr:text-left rtl:text-right font-bold;
 }
 
 .td-custom {
