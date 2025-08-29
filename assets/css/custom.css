@@ -301,6 +301,7 @@ textarea#requestComments990235 {
 .table-custom {
   @apply w-full min-w-full divide-y divide-neutral-300;
 }
+
 .th-custom {
     @apply ltr:text-left rtl:text-right;
 }
