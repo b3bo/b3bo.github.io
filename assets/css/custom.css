@@ -42,7 +42,7 @@ h2 {
 }
 
 .main-content .si-content-area .disclaimer {
-  @apply mb-4 mt-4 text-xs sm:text-sm md:text-base lg:text-base font-body font-semibold leading-tight text-neutral-700 uppercase;
+  @apply mb-4 mt-4 text-xs sm:text-sm md:text-base lg:text-base font-body font-semibold leading-tight text-neutral-500 uppercase;
 }
 
 .main-content .si-content-area .disclaimer::before {
@@ -329,4 +329,19 @@ textarea#requestComments990235 {
 
 .tbody-custom {
   @apply divide-y divide-neutral-300
+}
+
+/* 15. Blockquote */
+.main-content .si-content-area blockquote {
+  @apply relative bg-green-50 border-l-4 border-primary-600 p-6 my-6 text-black font-body text-base sm:text-lg md:text-xl lg:text-xl leading-relaxed;
+}
+
+.main-content .si-content-area blockquote::before {
+  @apply absolute text-4xl text-primary-600 -top-2 -left-2;
+  content: '“';
+}
+
+.main-content .si-content-area blockquote::after {
+  @apply absolute text-sm text-gray-600 -bottom-4 right-4;
+  content: '— dcode';
 }
