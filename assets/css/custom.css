@@ -46,7 +46,7 @@ h2 {
 }
 
 .main-content .si-content-area p {
-  @apply text-sm sm:text-base md:text-lg lg:text-lg font-heading font-bold leading-tight text-neutral-700;
+  @apply text-sm sm:text-base md:text-lg lg:text-lg font-heading font-normal leading-tight text-neutral-700;
 }
 
 /* Span customization for accent */
