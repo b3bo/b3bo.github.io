@@ -46,7 +46,7 @@ h2 {
 }
 
 .main-content .si-content-area .disclaimer::before {
-  @apply block h-px bg-neutral-300 mb-2;
+  @apply block h-px bg-neutral-300 mt-20 mb-2;
   content: "";
 }
 
