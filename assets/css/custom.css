@@ -41,6 +41,10 @@ h2 {
   @apply mb-4 mt-4 text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-bold leading-tight text-neutral-700;
 }
 
+.disclaimer {
+  @apply mb-4 mt-4 text-sma sm:text-base md:text-lg lg:text-xl font-heading font-bold leading-tight text-neutral-700;
+}
+
 .main-content .si-content-area p {
   @apply text-sm sm:text-base md:text-lg lg:text-lg font-body leading-normal text-neutral-600;
 }
