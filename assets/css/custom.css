@@ -42,7 +42,7 @@ h2 {
 }
 
 .main-content .si-content-area .disclaimer {
-  @apply mb-4 mt-4 text-sm sm:text-base md:text-lg lg:text-xl font-body font-semibold leading-tight text-neutral-700 uppercase;
+  @apply mb-4 mt-4 text-xs sm:text-sm md:text-base lg:text-base font-body font-semibold leading-tight text-neutral-700 uppercase;
 }
 
 .main-content .si-content-area .disclaimer::before {
