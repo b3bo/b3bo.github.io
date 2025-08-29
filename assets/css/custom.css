@@ -297,6 +297,22 @@ textarea#requestComments990235 {
 
 
 /* 14. Tables */
+
+.table-custom {
+  @apply w-full min-w-full divide-y divide-neutral-300;
+}
+.th-custom {
+    @apply ltr:text-left rtl:text-right;
+}
+
 .td-custom {
     @apply px-3 py-2;
+}
+
+.tr-custom {
+  @apply text-xs *:text-neutral-600 *:first:sticky *:first:left-0 *:first:bg-white *:first:font-medium;
+}
+
+.tbody-custom {
+  @apply divide-y divide-neutral-300
 }
