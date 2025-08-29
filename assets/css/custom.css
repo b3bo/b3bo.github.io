@@ -338,6 +338,6 @@ textarea#requestComments990235 {
 }
 
 .main-content .si-content-area blockquote::before {
-  @apply absolute text-5xl font-body font-bold text-primary-600 -top-5 left-5;
+  @apply absolute text-5xl font-body font-bold text-primary-600 top-3 left-5 z-10;
   content: '“';
 }
