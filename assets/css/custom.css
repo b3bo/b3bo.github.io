@@ -41,14 +41,18 @@ h2 {
   @apply mb-4 mt-4 text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-bold leading-tight text-neutral-700;
 }
 
-.disclaimer {
-  @apply mb-4 mt-4 text-sm sm:text-base md:text-lg lg:text-xl font-body font-bold leading-tight text-neutral-700 capitalize;
+.main-content .si-content-area .disclaimer {
+  @apply mb-4 mt-4 text-sm sm:text-base md:text-lg lg:text-xl font-body font-semibold leading-tight text-neutral-700 uppercase;
+}
+
+.main-content .si-content-area .disclaimer::before {
+  @apply block h-px bg-neutral-300 mb-2;
+  content: "";
 }
 
 .main-content .si-content-area p {
   @apply text-sm sm:text-base md:text-lg lg:text-lg font-body font-normal leading-tight text-neutral-700;
 }
-
 
 /* Span customization for accent */
 .main-content .si-content-area h3 span,
