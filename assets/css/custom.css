@@ -56,7 +56,8 @@ h2 {
 
 /* Span customization for accent */
 .main-content .si-content-area h3 span,
-.main-content .si-content-area p span {
+.main-content .si-content-area p span,
+.main-content .si-content-area blockquote span {
   @apply text-primary-600; 
 }
 
