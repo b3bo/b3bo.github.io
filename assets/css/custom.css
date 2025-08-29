@@ -294,3 +294,9 @@ textarea#requestComments990235 {
     transition-duration: 0ms !important;
   }
 }
+
+
+/* 14. Tables */
+.td-custom {
+    @apply px-3 py-2;
+}
