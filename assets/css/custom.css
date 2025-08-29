@@ -303,6 +303,10 @@ textarea#requestComments990235 {
 }
 
 .th-custom {
+    @apply px-3 py-2;
+}
+
+.head-custom {
     @apply ltr:text-left rtl:text-right;
 }
 
