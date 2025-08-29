@@ -334,10 +334,10 @@ textarea#requestComments990235 {
 
 /* 15. Blockquote */
 .main-content .si-content-area blockquote {
-  @apply relative bg-neutral-50/50 border-l-4 border-primary-600/50;
+  @apply relative bg-neutral-50/50 border-l-4 border-primary-600/50 p-6;
 }
 
 .main-content .si-content-area blockquote::before {
-  @apply absolute text-4xl text-primary-600 -top-2 -left-2;
+  @apply absolute text-4xl font-body font-bold text-primary-600 -top-4 -left-2;
   content: '“';
 }
