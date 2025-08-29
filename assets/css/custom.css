@@ -66,7 +66,8 @@ h2 {
 }
 
 .main-content p a,
-.main-content dd a {
+.main-content dd a,
+.main-content blockquote a {
   @apply text-primary-600 font-medium underline transition-colors duration-200;
 }
 
@@ -334,7 +335,7 @@ textarea#requestComments990235 {
 
 /* 15. Blockquote */
 .main-content .si-content-area blockquote {
-  @apply relative bg-neutral-50/50 border-l-4 border-primary-600/50 pt-12;
+  @apply relative bg-neutral-100/50 border-l-4 border-primary-600/50 pt-12;
 }
 
 .main-content .si-content-area blockquote::before {
