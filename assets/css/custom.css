@@ -315,7 +315,7 @@ textarea#requestComments990235 {
 }
 
 .tr-custom {
-  @apply text-xs *:text-neutral-600 *:first:sticky *:first:left-0 *:first:bg-white *:first:font-medium;
+  @apply text-xs sm:text-base *:text-neutral-600 *:first:sticky *:first:left-0 *:first:bg-white *:first:font-medium;
 }
 
 .tbody-custom {
