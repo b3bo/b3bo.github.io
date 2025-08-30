@@ -335,10 +335,12 @@ textarea#requestComments990235 {
 
 /* 15. Blockquote */
 .main-content .si-content-area blockquote {
-  @apply relative bg-neutral-100/50 border-l-4 border-primary-600/50 pt-12 pb-6;
+  @apply relative bg-neutral-100/50 border-l-4 border-primary-600/50 pt-12 pb-6 text-sm sm:text-base md:text-lg lg:text-lg font-body;
 }
 
 .main-content .si-content-area blockquote::before {
   @apply absolute text-5xl font-body font-bold text-primary-600 top-3 left-5 z-10;
   content: '“';
 }
+
+
