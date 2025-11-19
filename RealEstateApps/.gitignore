@@ -1,4 +1,10 @@
-/.git-rewrite
-/.git-rewrite
-/To Delete
-/To Delete
+# Sensitive files
+service_account.json
+*.pem
+*.key
+.env
+.env.local
+
+# Temporary folders
+.git-rewrite/
+To Delete/
