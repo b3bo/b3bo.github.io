@@ -3,3 +3,10 @@
 /node_modules/*
 /assets/google tags
 assets/css/custom - Copy.css
+
+# Sensitive files
+**/service_account.json
+**/*.pem
+**/*.key
+**/.env
+**/.env.local
