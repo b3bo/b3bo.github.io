@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "../components/*.html",
-    "../components/**/*.html",
-    "./**/*.css"
+    "./components/*.html",
+    "./components/**/*.html",
+    "./assets/**/*.css"
   ],
   plugins: [
     require('@tailwindcss/typography'),
