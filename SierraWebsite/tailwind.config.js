@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./components/*.html",
     "./components/**/*.html",
+    "./neighborhoods/*.html",
     "./assets/**/*.css"
   ],
   plugins: [
