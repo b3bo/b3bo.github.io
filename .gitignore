@@ -10,3 +10,8 @@ assets/css/custom - Copy.css
 **/*.key
 **/.env
 **/.env.local
+
+# Separate repositories (managed outside this repo)
+.claude/
+RealEstateApps/
+StockTonePrototype/
