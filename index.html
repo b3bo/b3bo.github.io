@@ -99,10 +99,23 @@
 </head>
 <body class="h-screen overflow-hidden font-body text-neutral-700">
     <div class="flex flex-col md:flex-row h-screen">
+        <!-- Mobile Filter Toggle Button -->
+        <button id="filterToggle" class="md:hidden fixed top-4 left-4 z-50 bg-white shadow-lg rounded-lg p-3 border border-neutral-200">
+            <svg class="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+            </svg>
+        </button>
+
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-hidden h-auto md:h-full">
+        <aside id="sidebar" class="fixed md:static inset-0 z-40 w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-hidden transform -translate-x-full md:translate-x-0 transition-transform duration-300">
             <!-- Header -->
-            <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+            <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white relative">
+                <!-- Close button for mobile -->
+                <button id="closeSidebar" class="md:hidden absolute top-4 right-4 text-white hover:text-primary-100">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
                 <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
                 <p class="text-sm text-primary-50">Discover Your Emerald Coast Community</p>
             </div>
@@ -575,7 +588,28 @@
             textEl.textContent = count === 1 ? 'neighborhood found' : 'neighborhoods found';
         }
 
-        // Mobile sidebar toggle removed - using simple side-by-side layout
+        // Mobile sidebar toggle functionality
+        const sidebar = document.getElementById('sidebar');
+        const filterToggle = document.getElementById('filterToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+        }
+        
+        function hideSidebar() {
+            sidebar.classList.add('-translate-x-full');
+        }
+        
+        filterToggle.addEventListener('click', openSidebar);
+        closeSidebar.addEventListener('click', hideSidebar);
+        
+        // Close sidebar when clicking on map on mobile
+        document.getElementById('map').addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                hideSidebar();
+            }
+        });
 
         window.initMap = initMap;
         
