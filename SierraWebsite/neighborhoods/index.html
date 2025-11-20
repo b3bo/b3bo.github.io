@@ -97,14 +97,20 @@
         }
     </style>
 </head>
-<body class="h-screen overflow-hidden font-body text-neutral-700">
-    <div class="flex flex-col md:flex-row h-screen">
+<body class="font-body text-neutral-700">
+    <div class="flex flex-col md:flex-row min-h-screen">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-auto md:overflow-hidden">
+        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col md:h-screen md:sticky md:top-0">
             <!-- Header -->
             <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
                 <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
                 <p class="text-sm text-primary-50">Discover Your Emerald Coast Community</p>
+            </div>
+
+            <!-- Results Count -->
+            <div class="p-4 bg-neutral-50 border-b border-neutral-200 text-center">
+                <div class="text-2xl font-bold text-primary-700" id="neighborhoodCount">1</div>
+                <div class="text-sm text-neutral-600">neighborhood found</div>
             </div>
 
             <!-- Filters -->
@@ -144,16 +150,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Results Count -->
-            <div class="p-4 bg-neutral-50 border-t border-neutral-200 text-center">
-                <div class="text-2xl font-bold text-primary-700" id="neighborhoodCount">1</div>
-                <div class="text-sm text-neutral-600">neighborhood found</div>
-            </div>
         </aside>
 
         <!-- Map -->
-        <div id="map" class="flex-1 bg-neutral-100 relative z-0"></div>
+        <div id="map" class="flex-1 bg-neutral-100 min-h-screen md:min-h-0"></div>
     </div>
 
     <script>
