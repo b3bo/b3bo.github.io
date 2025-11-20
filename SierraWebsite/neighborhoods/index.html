@@ -59,9 +59,6 @@
                     </button>
                 </div>
             </div>
-                <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
-                <p class="text-sm text-primary-50">Discover Your Emerald Coast Community</p>
-            </div>
 
             <!-- Filters -->
             <div class="flex-1 overflow-y-auto p-4 md:p-6">
@@ -211,15 +208,15 @@
                         initializeMap(userLocation, 10);
                     },
                     (error) => {
-                        // Fallback to first neighborhood if location denied
-                        const center = neighborhoods[0]?.position || { lat: 30.3, lng: -86.1 };
-                        initializeMap(center, 12);
+                        // Fallback to Seaside (iconic 30A location)
+                        const seaside = { lat: 30.3217, lng: -86.1428 };
+                        initializeMap(seaside, 11);
                     }
                 );
             } else {
-                // Browser doesn't support geolocation
-                const center = neighborhoods[0]?.position || { lat: 30.3, lng: -86.1 };
-                initializeMap(center, 12);
+                // Browser doesn't support geolocation - center on Seaside
+                const seaside = { lat: 30.3217, lng: -86.1428 };
+                initializeMap(seaside, 11);
             }
         }
 
