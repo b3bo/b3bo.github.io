@@ -1,6 +1,7 @@
 [
   {
     "name": "Watersound Origins",
+    "featured": true,
     "position": {
       "lat": 30.294396274692907,
       "lng": -86.01317525044458
@@ -16,14 +17,16 @@
     "amenities": [
       "Pool",
       "Beach Access",
-      "Fitness Center",
-      "Pickleball Courts",
-      "Tennis Courts",
-      "Golf Course",
+      "Fitness",
+      "Pickleball",
+      "Tennis",
+      "Golf",
       "Parks/Playgrounds",
       "Walking Trails",
       "Dog Park",
-      "Gated Community"
+      "Gated",
+      "Waterfront",
+      "No Short-Term"
     ],
     "marketReportUrl": "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
   }
