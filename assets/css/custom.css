@@ -1,0 +1,346 @@
+/* assets/css/custom.css */
+/* Description: Reorganized and documented minimal custom styles for Sierra Interactive pages */
+/* Author: John Bauman */
+/* Date: August 27, 2025 */
+
+/* ==========================================================================
+   1. Imports and References
+   ========================================================================== */
+
+@import "tailwindcss";
+@reference "tailwindcss";
+
+/* ==========================================================================
+   2. Font Styles
+   ========================================================================== */
+
+.css-16xp66h {
+    background-color: #4c8f96;
+}
+
+html {
+  font-size: 100%; /* Resets to browser default of 16px */
+}
+
+.main-content .si-content-area h1 {
+  @apply mb-4 text-center md:text-left text-[1.6rem] sm:text-[1.9rem] md:text-[2.35rem] lg:text-[2.75rem] font-heading font-bold leading-tight text-neutral-700;
+}
+
+.main-content .si-content-area h1 span {
+  @apply text-primary-600; /* Span customization for accent */
+}
+
+.main-content .si-content-area h2,
+.si-videos-widget > h2,
+.si-content-label__title,
+h2 {
+  @apply mb-4 mt-20 text-xl sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold leading-tight text-neutral-700;
+}
+
+.main-content .si-content-area h3 {
+  @apply mb-4 mt-4 text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-bold leading-tight text-neutral-700;
+}
+
+.main-content .si-content-area .disclaimer {
+  @apply mb-4 mt-4 text-xs sm:text-sm md:text-base lg:text-base font-body font-semibold leading-tight text-neutral-500 uppercase;
+}
+
+.main-content .si-content-area .disclaimer::before {
+  @apply block h-px bg-neutral-300 mt-20 mb-2;
+  content: "";
+}
+
+.main-content .si-content-area p {
+  @apply text-sm sm:text-base md:text-lg lg:text-lg font-body font-normal leading-tight text-neutral-700;
+}
+
+/* Span customization for accent */
+.main-content .si-content-area h3 span,
+.main-content .si-content-area p span,
+.main-content .si-content-area blockquote span {
+  @apply text-primary-600; 
+}
+
+.main-content .si-content-area p span {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+}
+
+.main-content p a,
+.main-content dd a,
+.main-content blockquote a {
+  @apply text-primary-600 font-medium underline transition-colors duration-200;
+}
+
+.si-content-label__link > a {
+  @apply text-neutral-600 font-medium;
+}
+
+.si-property-stats__title-date::after {
+  content: ".";
+}
+
+.si-property-stats__title-date {
+  @apply text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
+}
+
+.si-property-stats__title {
+  @apply border-b border-neutral-300 bg-neutral-100 text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
+}
+
+.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+  @apply m-0 border border-neutral-300 bg-neutral-100 py-1.5 px-2.5 text-sm sm:text-base md:text-lg font-body font-normal leading-normal text-neutral-600;
+}
+
+.faq-question {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-bold leading-tight text-neutral-700; /*same as <h3> */
+}
+
+.faq-answer {
+  @apply text-sm sm:text-base md:text-lg lg:text-lg font-body leading-normal text-neutral-600 pt-4; /*Same as <p> */
+}
+
+
+/* ==========================================================================
+   3. Button Styles
+   ========================================================================== */
+/* Note: Combined all button-related styles, including button groups and standalone buttons. */
+
+.button-group {
+  @apply justify-center inline-flex mx-auto w-full flex-col md:w-auto md:flex-row max-md:grid max-md:grid-cols-2 max-md:gap-2 mt-4;
+}
+
+.button-group a {
+  @apply border border-neutral-300 bg-neutral-100 px-8 py-2 text-sm text-neutral-600 font-medium no-underline transition-colors duration-200 hover:bg-neutral-200 hover:text-neutral-700 hover:no-underline focus:z-10 focus:ring-2 focus:ring-neutral-500 focus:text-neutral-500 max-md:rounded-lg max-md:text-center max-md:px-4 max-md:py-1;
+}
+
+/* Reset styles for horizontal layout at md and above */
+@media (min-width: 768px) {
+  .button-group a {
+    @apply m-0;
+  }
+  .button-group a:not(:first-child):not(:last-child) {
+    @apply border-x-0 rounded-none;
+  }
+  .button-group a:first-child {
+    @apply border-r-0 rounded-l-lg;
+  }
+  .button-group a:last-child {
+    @apply border-l-0 rounded-r-lg;
+  }
+}
+
+.btn-custom,
+.si-iw-fma__btn,
+.si-form .si-btn {
+  @apply inline-flex items-center border-0 rounded bg-primary-600 px-6 py-2 text-base text-white font-medium transition-colors duration-200 hover:bg-primary-600/75 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 whitespace-nowrap max-md:px-4 max-md:py-1 max-md:text-sm;
+}
+
+/* ==========================================================================
+   4. Tag Styles
+   ========================================================================== */
+/* Note: Tag item styling. */
+
+.tag-items {
+  @apply flex items-center justify-center mb-8 space-x-1 md:space-x-2 flex-wrap text-sm font-body text-neutral-600 font-medium;
+}
+
+.tag-items a {
+  @apply border border-neutral-300 rounded-lg px-2 py-1 text-sm text-center text-neutral-600 font-medium no-underline transition-colors duration-200 hover:bg-primary-600/30 hover:text-neutral-700 hover:no-underline focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+}
+
+/* ==========================================================================
+   5. Form and Input Styles
+   ========================================================================== */
+/* Note: Combined form-related styles, including contact forms and textareas. */
+
+.si-container.si-form {
+  @apply max-w-4xl mx-auto bg-neutral-100 rounded-bl-lg rounded-br-lg p-12 mb-6 mt-0;
+}
+
+textarea#requestComments990235 {
+  @apply h-24;
+}
+
+/* ==========================================================================
+   6. Content Tables and Labels
+   ========================================================================== */
+/* Note: Combined content labels, tables, and related overrides. */
+
+.si-content-label__body {
+  @apply bg-transparent border border-neutral-300;
+}
+
+.si-property-stats {
+  @apply border border-neutral-300;
+}
+
+/* Overrides Sierra's .text-center css */
+.blog-link {
+  display: none !important;
+}
+
+/* ==========================================================================
+   7. Video Styles
+   ========================================================================== */
+/* Note: Minimal video re-styling. */
+
+.si-video {
+  @apply mb-0;
+}
+
+/* ==========================================================================
+   8. Hamburger Menu Reordering
+   ========================================================================== */
+/* Note: Mobile-specific menu adjustments. */
+
+@media (max-width: 767px) {
+  .more-menu-overlay .row {
+    @apply flex flex-col p-2.5 gap-1.25 md:p-4 md:gap-2;
+  }
+  .more-menu-overlay .row > .col-sm-6 {
+    @apply contents;
+  }
+  .more-menu-overlay ul.link-list {
+    @apply contents;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/"]) {
+    @apply hidden;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/home-search-menu/"]) {
+    @apply order-1;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/condo-search-menu/"]) {
+    @apply order-2;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/blog/"]) {
+    @apply order-3;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/resources-menu/"]) {
+    @apply order-4;
+  }
+  .more-menu-overlay ul.link-list li:has(a[href="/our-team/"]) {
+    @apply order-5;
+  }
+  .blogs .item .img img {
+    @apply w-[345px] max-md:w-full max-md:max-h-[200px] md:w-auto;
+  }
+}
+
+/* ==========================================================================
+   9. Layout Utilities
+   ========================================================================== */
+/* Note: General layout helpers for blogs and rows. */
+
+@media (min-width: 768px) {
+  .blogs .row {
+    @apply flex flex-wrap;
+  }
+
+  .blogs .row .col-sm-6 {
+    @apply flex-none w-1/2;
+  }
+}
+
+/* ==========================================================================
+   10. Hero and Image Styles
+   ========================================================================== */
+/* Note: Hero image and related styling. */
+
+.hero-image {
+  @apply relative aspect-[10/6];
+}
+
+.hero-image > img {
+  @apply w-full object-cover;
+  image-rendering: auto;
+}
+
+/* ==========================================================================
+   11. Breadcrumb Styles
+   ========================================================================== */
+/* Note: Breadcrumb navigation styling. */
+/* Inconsistency noted: Text sizes are base (text-base), but other typography uses responsive scaling; consider adding sm:/md: variants for consistency. No changes made. */
+
+[aria-label="Breadcrumb"] {
+  @apply flex justify-center items-center pt-4;
+}
+[aria-label="Breadcrumb"] .breadcrumb-items {
+  @apply flex items-center space-x-2 md:space-x-4;
+}
+[aria-label="Breadcrumb"] .breadcrumb-items > * {
+  @apply flex-shrink-0;
+}
+[aria-label="Breadcrumb"] svg {
+  @apply w-4 h-4 text-primary-600 flex-shrink-0;
+}
+[aria-label="Breadcrumb"] a {
+  @apply text-base text-neutral-600 font-medium hover:underline hover:text-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-500/50 transition-colors duration-200;
+}
+[aria-label="Breadcrumb"] span {
+  @apply text-base text-neutral-500 font-medium;
+}
+
+/* ==========================================================================
+   12. Full Width Background Styles
+   ========================================================================== */
+/* Note: Utility for full-width backgrounds. */
+
+.full-width-bg {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--light-bg-color);
+  min-height: 100px; /* Reserves space for background + content */
+}
+
+/* ==========================================================================
+   13. Accessibility and Motion Preferences
+   ========================================================================== */
+/* Note: Reduced motion override. */
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-colors {
+    transition-duration: 0ms !important;
+  }
+}
+
+
+/* 14. Tables */
+
+.table-custom {
+  @apply w-full min-w-full divide-y divide-neutral-300;
+}
+
+.th-custom {
+    @apply px-3 py-2;
+}
+
+.head-custom {
+    @apply ltr:text-left rtl:text-right font-bold;
+}
+
+.td-custom {
+    @apply px-3 py-2;
+}
+
+.tr-custom {
+  @apply text-xs sm:text-base *:text-neutral-600 *:first:sticky *:first:left-0 *:first:bg-white *:first:font-bold;
+}
+
+.tbody-custom {
+  @apply divide-y divide-neutral-300
+}
+
+/* 15. Blockquote */
+.main-content .si-content-area blockquote {
+  @apply relative bg-neutral-100/50 border-l-4 border-primary-600/50 pt-12 pb-6 text-sm sm:text-base md:text-lg lg:text-lg font-body;
+}
+
+.main-content .si-content-area blockquote::before {
+  @apply absolute text-5xl font-body font-bold text-primary-600 top-3 left-5 z-10;
+  content: '“';
+}
+
+
