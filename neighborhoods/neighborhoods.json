@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Watersound Origins",
+    "featured": true,
+    "position": {
+      "lat": 30.294396274692907,
+      "lng": -86.01317525044458
+    },
+    "stats": {
+      "listingCount": 76,
+      "avgPrice": 825000,
+      "avgPriceDisplay": "$825,000",
+      "avgSqft": 2450,
+      "avgDom": 45,
+      "priceRange": "$600k - $1.2M"
+    },
+    "amenities": [
+      "Pool",
+      "Beach Access",
+      "Fitness",
+      "Pickleball",
+      "Tennis",
+      "Golf",
+      "Parks/Playgrounds",
+      "Walking Trails",
+      "Dog Park",
+      "Gated",
+      "Waterfront",
+      "No Short-Term"
+    ],
+    "marketReportUrl": "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
+  }
+]
