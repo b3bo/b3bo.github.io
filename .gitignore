@@ -1,6 +1,17 @@
+# Dependencies
+node_modules/
+**/node_modules/
 /node_modules/.bin
 /node_modules
 /node_modules/*
+
+# Build outputs
+**/dist/
+**/build/
+**/.next/
+**/.cache/
+
+# Misc
 /assets/google tags
 assets/css/custom - Copy.css
 
@@ -10,8 +21,14 @@ assets/css/custom - Copy.css
 **/*.key
 **/.env
 **/.env.local
+**/.env.neighborhoods
 
 # Separate repositories (managed outside this repo)
 .claude/
 RealEstateApps/
 StockTonePrototype/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
