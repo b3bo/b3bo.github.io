@@ -13,14 +13,21 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap" async defer></script>
     
     <style>
+        /* Ensure map stays in flex container */
+        #map {
+            height: 100% !important;
+            width: 100% !important;
+            position: relative !important;
+        }
+        
         /* Info window custom styles (Google Maps injects this) */
         .gm-style .info-window {
             font-family: var(--font-body);
         }
     </style>
 </head>
-<body class="h-screen overflow-hidden font-body text-neutral-700">
-    <div class="flex flex-col md:flex-row h-screen">
+<body class="h-screen font-body text-neutral-700">
+    <div class="flex flex-col md:flex-row h-screen overflow-hidden">
         <!-- Mobile Toggle Button -->
         <button id="mobileToggle" class="md:hidden fixed top-4 left-4 z-50 bg-primary-600 text-white p-3 rounded-lg shadow-lg">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +137,7 @@
         </aside>
 
         <!-- Map -->
-        <div id="map" class="flex-1 bg-neutral-100 h-64 md:h-auto">
+        <div id="map" class="flex-1 bg-neutral-100 min-h-screen md:h-screen">
             <div class="flex items-center justify-center h-full text-neutral-500 text-lg">
                 🗺️ Loading map...
             </div>
