@@ -100,7 +100,7 @@
 <body class="h-screen overflow-hidden font-body text-neutral-700">
     <div class="flex flex-col md:flex-row h-screen">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-auto md:overflow-hidden">
+        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-hidden h-auto md:h-full">
             <!-- Header -->
             <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
                 <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
@@ -153,7 +153,7 @@
         </aside>
 
         <!-- Map -->
-        <div id="map" class="flex-1 bg-neutral-100 relative z-0"></div>
+        <div id="map" class="flex-1 bg-neutral-100"></div>
     </div>
 
     <script>
