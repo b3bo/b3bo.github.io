@@ -8,7 +8,7 @@
     <meta name="description" content="Explore neighborhoods along Florida's Emerald Coast with interactive maps, pricing, and amenities.">
     
     <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="./SierraWebsite/assets/css/tailwind.css">
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
     
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap" async defer></script>
@@ -100,7 +100,7 @@
 <body class="h-screen overflow-hidden font-body text-neutral-700">
     <div class="flex flex-col md:flex-row h-screen">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-hidden h-auto md:h-full">
+        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-hidden md:h-full z-10 relative">
             <!-- Header -->
             <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
                 <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
@@ -153,7 +153,7 @@
         </aside>
 
         <!-- Map -->
-        <div id="map" class="flex-1 bg-neutral-100"></div>
+        <div id="map" class="flex-1 bg-neutral-100 relative z-0"></div>
     </div>
 
     <script>
