@@ -50,14 +50,14 @@
         }
         
         .amenity-tag.selected {
-            background: #7ca3af;
-            color: white;
+            background: rgba(124, 163, 175, 0.3);
+            color: #3f3f46;
             border-color: #7ca3af;
         }
         
         .amenity-tag.selected:hover {
-            background: #6b8f9a;
-            border-color: #6b8f9a;
+            background: rgba(124, 163, 175, 0.4);
+            border-color: #7ca3af;
         }
         
         /* Tab icon switching */
@@ -150,10 +150,10 @@
 
             <!-- Toggle Buttons -->
             <div class="px-5 pt-4 flex gap-2">
-                <button id="btn-homes" class="flex-1 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 property-type-btn active">
+                <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active" style="background: rgba(124, 163, 175, 0.3); color: #3f3f46; border: 1px solid #7ca3af; border-radius: 0.5rem;">
                     Homes
                 </button>
-                <button id="btn-condos" class="flex-1 py-2 text-sm font-medium text-neutral-500 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 property-type-btn">
+                <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn" style="background: white; color: #52525b; border: 1px solid #d4d4d8; border-radius: 0.5rem;">
                     Condos
                 </button>
             </div>
@@ -575,7 +575,7 @@
                 .map(tag => tag.dataset.amenity);
             
             // Get selected property type (homes or condos)
-            const selectedPropertyType = document.querySelector('.property-type-btn.text-neutral-900')?.id === 'btn-condos' ? 'condos' : 'homes';
+            const selectedPropertyType = document.querySelector('.property-type-btn[style*="rgba(124, 163, 175"]')?.id === 'btn-condos' ? 'condos' : 'homes';
 
             let visibleCount = 0;
 
@@ -690,13 +690,15 @@
             btn.addEventListener('click', function() {
                 // Remove active state from all buttons
                 document.querySelectorAll('.property-type-btn').forEach(b => {
-                    b.classList.remove('text-neutral-900');
-                    b.classList.add('text-neutral-500');
+                    b.style.background = 'white';
+                    b.style.color = '#52525b';
+                    b.style.borderColor = '#d4d4d8';
                 });
                 
                 // Add active state to clicked button
-                this.classList.add('text-neutral-900');
-                this.classList.remove('text-neutral-500');
+                this.style.background = 'rgba(124, 163, 175, 0.3)';
+                this.style.color = '#3f3f46';
+                this.style.borderColor = '#7ca3af';
                 
                 // Apply filters (this will be used when we have property type data in neighborhoods.json)
                 applyFilters();
