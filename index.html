@@ -19,6 +19,16 @@
             font-family: var(--font-body);
         }
         
+        /* Hide the default close button */
+        .gm-style-iw-chr {
+            display: none !important;
+        }
+        
+        /* Remove padding/margin from the info window container */
+        .gm-style .gm-style-iw-c {
+            padding: 0 !important;
+        }
+        
         /* Amenity tag styles - matching Sierra site tags */
         .amenity-tag {
             border: 1px solid #d4d4d8;
@@ -435,7 +445,7 @@
             
             const content = `
                 <div class="info-window p-4 max-w-sm" style="cursor: pointer;">
-                    <h3 class="font-semibold text-neutral-900 mb-3 pb-2 border-b border-neutral-200">
+                    <h3 class="font-semibold text-neutral-900 mb-3">
                         ${neighborhood.name}
                     </h3>
                     
@@ -461,12 +471,12 @@
                         </div>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <div class="text-xs font-semibold text-neutral-700 mb-1">Amenities</div>
                         <div class="text-xs text-neutral-600">${neighborhood.amenities.join(', ')}</div>
                     </div>
                     
-                    <div class="pt-3 border-t border-neutral-200">
+                    <div class="pt-4 border-t border-neutral-200">
                         <a href="${neighborhood.marketReportUrl}" 
                            target="_blank" 
                            style="display: block; padding: 0.5rem 1rem; background-color: #313842; color: white; text-align: center; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: background-color 0.2s;"
