@@ -50,6 +50,15 @@
             border-color: #6b8f9a;
         }
         
+        /* Tab icon switching */
+        #drawer-toggle:checked ~ aside .tab-icon-closed {
+            display: none;
+        }
+        
+        #drawer-toggle:checked ~ aside .tab-icon-open {
+            display: block;
+        }
+        
         /* Ripple marker animation */
         .ripple-marker {
             position: relative;
@@ -103,32 +112,30 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" />
         
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-11/12 max-w-sm bg-white shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-96 md:max-w-96" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs bg-white shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5">
+                <!-- Filter icon (shows when closed) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                </svg>
+                <!-- X icon (shows when open) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-open hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </label>
             
             <!-- Header -->
-            <div class="p-5 border-b border-neutral-200 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h1 class="font-semibold text-neutral-900">Neighborhood Finder</h1>
-                        <p class="text-xs text-neutral-500">on 30A & Florida's Emerald Coast</p>
-                    </div>
-                </div>
-                <label for="drawer-toggle" class="cursor-pointer text-neutral-400 hover:text-neutral-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            <div class="p-5 border-b border-neutral-200 flex items-center gap-3">
+                <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
                     </svg>
-                </label>
+                </div>
+                <div>
+                    <h1 class="font-semibold text-neutral-900">Neighborhood Finder</h1>
+                    <p class="text-xs text-neutral-500">on 30A & Florida's Emerald Coast</p>
+                </div>
             </div>
 
             <!-- Toggle Buttons -->
