@@ -625,14 +625,9 @@
                 count = markers.filter(m => m.marker.getVisible()).length;
             }
             
-            // Get selected property type
-            const selectedPropertyType = document.querySelector('.property-type-btn.text-neutral-900')?.id === 'btn-condos' ? 'condos' : 'homes';
-            const typeLabel = selectedPropertyType === 'condos' ? 'condo' : 'home';
-            const typeLabelPlural = selectedPropertyType === 'condos' ? 'condos' : 'homes';
-            
             const resultsEl = document.getElementById('resultsCount');
             if (resultsEl) {
-                resultsEl.textContent = `${count} ${count === 1 ? typeLabel : typeLabelPlural} found`;
+                resultsEl.textContent = `${count} ${count === 1 ? 'community' : 'communities'} found!`;
             }
         }
 
