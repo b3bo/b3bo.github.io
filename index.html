@@ -427,6 +427,12 @@
         }
 
         function showInfoWindow(marker, neighborhood) {
+            // Use avgPricePerSqFt from data or calculate if not available
+            const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
+                (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
+            const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
+            const medianPriceDisplay = `$${medianPrice.toLocaleString()}`;
+            
             const content = `
                 <div class="info-window p-4 max-w-sm" style="cursor: pointer;">
                     <h3 class="font-semibold text-neutral-900 mb-3 pb-2 border-b border-neutral-200">
@@ -434,21 +440,25 @@
                     </h3>
                     
                     <div class="grid grid-cols-2 gap-2 mb-2">
-                        <button class="bg-white px-3 py-2 rounded-lg border border-neutral-300 text-left">
-                            <div class="text-xs text-neutral-500 mb-0.5">${neighborhood.stats.listingCount} Listings</div>
-                        </button>
-                        <button class="bg-white px-3 py-2 rounded-lg border border-neutral-300 text-left">
-                            <div class="text-xs text-neutral-500 mb-0.5">${neighborhood.stats.avgPriceDisplay}</div>
-                        </button>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Listings</div>
+                            <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.listingCount}</div>
+                        </div>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Med List Price</div>
+                            <div class="text-sm font-semibold text-neutral-900">${medianPriceDisplay}</div>
+                        </div>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-2 mb-3">
-                        <button class="bg-white px-3 py-2 rounded-lg border border-neutral-300 text-left">
-                            <div class="text-xs text-neutral-500 mb-0.5">${neighborhood.stats.avgSqft.toLocaleString()} Sq Ft</div>
-                        </button>
-                        <button class="bg-white px-3 py-2 rounded-lg border border-neutral-300 text-left">
-                            <div class="text-xs text-neutral-500 mb-0.5">${neighborhood.stats.avgDom} Days on Market</div>
-                        </button>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Avg $/Sq Ft</div>
+                            <div class="text-sm font-semibold text-neutral-900">$${pricePerSqFt}</div>
+                        </div>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Avg DOM</div>
+                            <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.avgDom}</div>
+                        </div>
                     </div>
                     
                     <div class="mb-3">
