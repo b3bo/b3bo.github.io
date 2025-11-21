@@ -4,7 +4,7 @@
     console.log('Step 1: Stylesheet link added for Critical CSS (loaded first)');
     var criticalLink = document.createElement('link');
     criticalLink.rel = 'stylesheet';
-    criticalLink.href = 'https://b3bo.github.io/SierraWebsite/assets/css/critical.css'; 
+    criticalLink.href = 'https://b3bo.github.io/assets/css/critical.css'; 
     criticalLink.onload = function() {
       console.log('Critical CSS loaded successfully');
     };
@@ -24,7 +24,7 @@
     console.log('Step 3.1: Preload added for Montserrat variable');
     var montVariable = document.createElement('link');
     montVariable.rel = 'preload';
-    montVariable.href = 'https://b3bo.github.io/SierraWebsite/assets/fonts/Montserrat/Montserrat-VF.woff2';
+    montVariable.href = 'https://b3bo.github.io/assets/fonts/Montserrat/Montserrat-VF.woff2';
     montVariable.as = 'font';
     montVariable.type = 'font/woff2';
     montVariable.crossorigin = 'anonymous';
@@ -33,7 +33,7 @@
     console.log('Step 3.2: Preload added for Roboto variable');
     var robotoVariable = document.createElement('link');
     robotoVariable.rel = 'preload';
-    robotoVariable.href = 'https://b3bo.github.io/SierraWebsite/assets/fonts/Roboto/Roboto-Flex-VF.woff2';
+    robotoVariable.href = 'https://b3bo.github.io/assets/fonts/Roboto/Roboto-Flex-VF.woff2';
     robotoVariable.as = 'font';
     robotoVariable.type = 'font/woff2';
     robotoVariable.crossorigin = 'anonymous';
@@ -43,7 +43,7 @@
     console.log('Step 4: Preload added for minified Tailwind CSS');
     var tailwindPreload = document.createElement('link');
     tailwindPreload.rel = 'preload';
-    tailwindPreload.href = 'https://b3bo.github.io/SierraWebsite/assets/css/tailwind.css'; 
+    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; 
     tailwindPreload.as = 'style';
     document.head.appendChild(tailwindPreload);
 
@@ -51,7 +51,7 @@
     console.log('Step 5: Stylesheet link added for minified Tailwind CSS');
     var tailwindLink = document.createElement('link');
     tailwindLink.rel = 'stylesheet';
-    tailwindLink.href = 'https://b3bo.github.io/SierraWebsite/assets/css/tailwind.css'; // Updated to minified Tailwind
+    tailwindLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Updated to minified Tailwind
     tailwindLink.media = 'print'; // Async hack
     tailwindLink.onload = function() {
       this.media = 'all';
@@ -64,7 +64,7 @@
 
     // Noscript fallback for Tailwind
     var noscriptTailwind = document.createElement('noscript');
-    noscriptTailwind.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/SierraWebsite/assets/css/tailwind.css">';
+    noscriptTailwind.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/assets/css/tailwind.css">';
     document.head.appendChild(noscriptTailwind);
   })();
 </script>

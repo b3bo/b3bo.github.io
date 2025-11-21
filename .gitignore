@@ -11,6 +11,14 @@ node_modules/
 **/.next/
 **/.cache/
 
+# Build-time files (not deployed)
+components/
+package.json
+package-lock.json
+tailwind.config.js
+postcss.config.js
+generate-critical.js
+
 # Misc
 /assets/google tags
 assets/css/custom - Copy.css
