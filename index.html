@@ -7,13 +7,8 @@
     <title>Neighborhood Finder | Florida Emerald Coast</title>
     <meta name="description" content="Explore neighborhoods along Florida's Emerald Coast with interactive maps, pricing, and amenities.">
     
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-    
     <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="./assets/css/tailwind.css">
+    <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
     
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap" async defer></script>
@@ -102,20 +97,14 @@
         }
     </style>
 </head>
-<body class="font-body text-neutral-700">
-    <div class="flex flex-col md:flex-row h-screen overflow-hidden">
+<body class="h-screen overflow-hidden font-body text-neutral-700">
+    <div class="flex flex-col md:flex-row h-screen">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col md:sticky md:top-0 md:h-screen shrink-0">
+        <aside id="sidebar" class="w-full md:w-80 bg-white border-r border-neutral-200 flex flex-col overflow-hidden h-1/2 md:h-full">
             <!-- Header -->
             <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
                 <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
                 <p class="text-sm text-primary-50">Discover Your Emerald Coast Community</p>
-            </div>
-
-            <!-- Results Count -->
-            <div class="p-4 bg-neutral-50 border-b border-neutral-200 text-center">
-                <div class="text-2xl font-bold text-primary-700" id="neighborhoodCount">1</div>
-                <div class="text-sm text-neutral-600">neighborhood found</div>
             </div>
 
             <!-- Filters -->
@@ -154,6 +143,12 @@
                         <!-- Tags will be dynamically generated -->
                     </div>
                 </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="p-4 bg-neutral-50 border-t border-neutral-200 text-center">
+                <div class="text-2xl font-bold text-primary-700" id="neighborhoodCount">1</div>
+                <div class="text-sm text-neutral-600">neighborhood found</div>
             </div>
         </aside>
 
