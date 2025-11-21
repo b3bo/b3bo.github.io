@@ -1,18 +1,17 @@
 [
   {
-    "name": "Watersound Origins",
-    "featured": true,
+    "name": "Demo Properties",
     "position": {
       "lat": 30.294396274692907,
       "lng": -86.01317525044458
     },
     "stats": {
-      "listingCount": 76,
-      "avgPrice": 825000,
-      "avgPriceDisplay": "$825,000",
-      "avgSqft": 2450,
-      "avgDom": 45,
-      "priceRange": "$600k - $1.2M"
+      "listingCount": 50,
+      "avgPrice": 8468829141.0,
+      "avgPriceDisplay": "$8,468,829,141.0",
+      "avgSqft": 2488.0,
+      "avgDom": 0,
+      "priceRange": "$1,199.0 - $423,424,212,612.0"
     },
     "amenities": [
       "Pool",
