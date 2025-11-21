@@ -160,12 +160,12 @@
         </aside>
 
         <!-- Map -->
-        <div id="map" class="flex-1 bg-neutral-100">
-            <!-- Button to open drawer (shows when drawer is closed) -->
-            <label for="drawer-toggle" class="fixed top-4 left-4 z-30 bg-white px-4 py-2.5 rounded-lg shadow-lg cursor-pointer font-medium text-neutral-700 hover:bg-neutral-50 transition-colors peer-checked:hidden">
-                📍 Show Filters
-            </label>
-        </div>
+        <div id="map" class="flex-1 bg-neutral-100"></div>
+        
+        <!-- Button to open drawer (shows when drawer is closed) - outside map div to avoid z-index issues -->
+        <label for="drawer-toggle" class="fixed top-4 left-4 z-50 bg-white px-4 py-2.5 rounded-lg shadow-lg cursor-pointer font-medium text-neutral-700 hover:bg-neutral-50 transition-colors peer-checked:hidden">
+            📍 Show Filters
+        </label>
 
         <!-- Backdrop overlay -->
         <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
