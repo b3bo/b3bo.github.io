@@ -540,11 +540,19 @@
                 .map(cb => cb.value);
             const selectedAmenities = Array.from(document.querySelectorAll('.amenity-tag.selected'))
                 .map(tag => tag.dataset.amenity);
+            
+            // Get selected property type (homes or condos)
+            const selectedPropertyType = document.querySelector('.property-type-btn.text-neutral-900')?.id === 'btn-condos' ? 'condos' : 'homes';
 
             let visibleCount = 0;
 
             markers.forEach(({ marker, neighborhood }) => {
                 let showMarker = true;
+
+                // Property type filter
+                if (neighborhood.propertyType && neighborhood.propertyType !== selectedPropertyType) {
+                    showMarker = false;
+                }
 
                 const avgPrice = neighborhood.stats.avgPrice;
                 const priceMatch = selectedPrices.some(range => {
