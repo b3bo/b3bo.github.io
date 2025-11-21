@@ -560,13 +560,16 @@
                     showMarker = false;
                 }
 
-                const avgPrice = neighborhood.stats.avgPrice;
-                const priceMatch = selectedPrices.some(range => {
-                    const [min, max] = range.split('-').map(Number);
-                    return avgPrice >= min && avgPrice <= max;
-                });
+                // Price filter - only apply if prices are selected
+                if (selectedPrices.length > 0) {
+                    const avgPrice = neighborhood.stats.avgPrice;
+                    const priceMatch = selectedPrices.some(range => {
+                        const [min, max] = range.split('-').map(Number);
+                        return avgPrice >= min && avgPrice <= max;
+                    });
 
-                if (!priceMatch) showMarker = false;
+                    if (!priceMatch) showMarker = false;
+                }
 
                 // Show neighborhood if it has ANY of the selected amenities (not ALL)
                 if (selectedAmenities.length > 0) {
