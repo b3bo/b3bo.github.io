@@ -1,32 +1,33 @@
 [
   {
-    "name": "Demo Properties",
+    "name": "Watersound Origins",
+    "propertyType": "homes",
     "position": {
-      "lat": 30.294396274692907,
-      "lng": -86.01317525044458
+      "lat": 30.29448656,
+      "lng": -86.00690015
     },
     "stats": {
-      "listingCount": 50,
-      "avgPrice": 8468829141.0,
-      "avgPriceDisplay": "$8,468,829,141.0",
-      "avgSqft": 2488.0,
-      "avgDom": 0,
-      "priceRange": "$1,199.0 - $423,424,212,612.0"
+      "listingCount": 73,
+      "avgPrice": 1300553,
+      "avgPriceDisplay": "$1,300,553",
+      "avgSqft": 3500,
+      "avgDom": 132,
+      "priceRange": "$500,000 - $3695000"
     },
     "amenities": [
-      "Pool",
-      "Beach Access",
+      "30A",
       "Fitness",
-      "Pickleball",
-      "Tennis",
       "Golf",
-      "Parks/Playgrounds",
-      "Walking Trails",
-      "Dog Park",
-      "Gated",
-      "Waterfront",
-      "No Short-Term"
+      "No Short-Term",
+      "Pickleball",
+      "Pool",
+      "Tennis",
+      "Walking Trails"
     ],
-    "marketReportUrl": "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
+    "photos": {
+      "hero": "",
+      "samples": []
+    },
+    "marketReportUrl": ""
   }
 ]
