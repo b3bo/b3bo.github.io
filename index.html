@@ -103,7 +103,7 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" />
         
         <!-- Drawer Sidebar -->
-        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-11/12 max-w-sm bg-white shadow-xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col overflow-y-auto md:w-96 md:max-w-96">
+        <aside id="sidebar" class="fixed top-0 left-0 h-full max-h-screen w-11/12 max-w-sm bg-white shadow-xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-96 md:max-w-96">
             <!-- Header -->
             <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white relative">
                 <!-- Close button (X) -->
@@ -115,7 +115,7 @@
             </div>
 
             <!-- Filters -->
-            <div class="flex-1 overflow-y-auto p-6">
+            <div class="flex-1 overflow-y-auto overscroll-contain p-6">
                 <!-- Price Range Filter -->
                 <div class="mb-6">
                     <h3 class="text-xs font-semibold text-neutral-600 uppercase tracking-wider mb-3">
