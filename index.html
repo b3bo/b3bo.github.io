@@ -103,59 +103,62 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" />
         
         <!-- Drawer Sidebar -->
-        <aside id="sidebar" class="fixed top-0 left-0 w-11/12 max-w-sm bg-white shadow-xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-96 md:max-w-96" style="height: 100dvh; max-height: 100dvh;">
+        <aside id="sidebar" class="fixed top-4 left-4 w-11/12 max-w-sm bg-white shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-96 md:max-w-96" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
             <!-- Header -->
-            <div class="p-6 bg-gradient-to-br from-primary-500 to-primary-700 text-white relative">
-                <!-- Close button (X) -->
-                <label for="drawer-toggle" class="absolute top-4 right-4 cursor-pointer text-3xl font-bold text-white hover:text-primary-50">
-                    ×
+            <div class="p-5 border-b border-neutral-200 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold text-neutral-900">Neighborhood Finder</h1>
+                        <p class="text-xs text-neutral-500">Florida Emerald Coast</p>
+                    </div>
+                </div>
+                <label for="drawer-toggle" class="cursor-pointer text-neutral-400 hover:text-neutral-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
                 </label>
-                <h1 class="text-2xl font-heading font-bold mb-1">🏖️ Neighborhood Finder</h1>
-                <p class="text-sm text-primary-50">Discover Your Emerald Coast Community</p>
             </div>
 
-            <!-- Filters -->
-            <div class="flex-1 overflow-y-auto overscroll-contain p-6">
-                <!-- Price Range Filter -->
-                <div class="mb-6">
-                    <h3 class="text-xs font-semibold text-neutral-600 uppercase tracking-wider mb-3">
-                        💰 Average Price Range
-                    </h3>
-                    <div class="space-y-2" id="priceFilters">
-                        <label class="flex items-center p-2 rounded-md hover:bg-neutral-50 cursor-pointer transition-colors">
-                            <input type="checkbox" value="0-500000" checked class="mr-3 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500">
-                            <span class="text-sm text-neutral-700">Under $500k</span>
-                        </label>
-                        <label class="flex items-center p-2 rounded-md hover:bg-neutral-50 cursor-pointer transition-colors">
-                            <input type="checkbox" value="500000-750000" checked class="mr-3 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500">
-                            <span class="text-sm text-neutral-700">$500k - $750k</span>
-                        </label>
-                        <label class="flex items-center p-2 rounded-md hover:bg-neutral-50 cursor-pointer transition-colors">
-                            <input type="checkbox" value="750000-1000000" checked class="mr-3 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500">
-                            <span class="text-sm text-neutral-700">$750k - $1M</span>
-                        </label>
-                        <label class="flex items-center p-2 rounded-md hover:bg-neutral-50 cursor-pointer transition-colors">
-                            <input type="checkbox" value="1000000-999999999" checked class="mr-3 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500">
-                            <span class="text-sm text-neutral-700">$1M+</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Amenities Filter -->
-                <div class="mb-6">
-                    <h3 class="text-xs font-semibold text-neutral-600 uppercase tracking-wider mb-3">
-                        🏊 Amenities
-                    </h3>
-                    <div class="flex flex-wrap gap-2" id="amenityFilters">
-                        <!-- Tags will be dynamically generated -->
-                    </div>
-                </div>
+            <!-- Toggle Buttons -->
+            <div class="px-5 pt-4 flex gap-2">
+                <button class="flex-1 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50">
+                    Location
+                </button>
+                <button class="flex-1 py-2 text-sm font-medium text-neutral-500 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50">
+                    Client
+                </button>
             </div>
 
-            <!-- Results Count -->
-            <div class="p-4 bg-neutral-50 border-t border-neutral-200 text-center">
-                <div class="text-2xl font-bold text-primary-700" id="neighborhoodCount">1</div>
-                <div class="text-sm text-neutral-600">neighborhood found</div>
+            <!-- Tabs -->
+            <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
+                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900">
+                    1
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600">
+                    2
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600">
+                    3
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600">
+                    4
+                </button>
+            </div>
+
+            <!-- Section Header -->
+            <div class="px-5 pt-5 pb-3">
+                <h2 class="text-base font-semibold text-neutral-900">Holder</h2>
+            </div>
+            <div class="mx-5 border-b border-neutral-200"></div>
+
+            <!-- Content Area -->
+            <div class="flex-1 overflow-y-auto overscroll-contain p-5">
+                <!-- Content will go here -->
             </div>
         </aside>
 
@@ -163,8 +166,8 @@
         <div id="map" class="flex-1 bg-neutral-100"></div>
         
         <!-- Tab to open drawer - vertical strip on left edge -->
-        <label for="drawer-toggle" class="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-white px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-50 transition-colors peer-checked:hidden rounded-r-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#404040" class="w-5 h-5">
+        <label for="drawer-toggle" class="fixed left-0 top-1/2 -translate-y-1/2 z-50 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors peer-checked:hidden rounded-r-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
             </svg>
         </label>
