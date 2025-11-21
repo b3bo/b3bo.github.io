@@ -140,34 +140,52 @@
 
             <!-- Toggle Buttons -->
             <div class="px-5 pt-4 flex gap-2">
-                <button class="flex-1 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50">
+                <button id="btn-homes" class="flex-1 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 property-type-btn active">
                     Homes
                 </button>
-                <button class="flex-1 py-2 text-sm font-medium text-neutral-500 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50">
+                <button id="btn-condos" class="flex-1 py-2 text-sm font-medium text-neutral-500 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 property-type-btn">
                     Condos
                 </button>
             </div>
 
             <!-- Tabs -->
             <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
-                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900">
+                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="amenities">
                     Amenities
                 </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600">
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="2">
                     2
                 </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600">
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="3">
                     3
                 </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600">
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="4">
                     4
                 </button>
             </div>
 
-            <!-- Amenities Filter -->
+            <!-- Tab Content -->
             <div class="flex-1 overflow-y-auto overscroll-contain p-5">
-                <div class="flex flex-wrap gap-2" id="amenityFilters">
-                    <!-- Tags will be dynamically generated -->
+                <!-- Amenities Tab -->
+                <div id="tab-amenities" class="tab-content">
+                    <div class="flex flex-wrap gap-2" id="amenityFilters">
+                        <!-- Tags will be dynamically generated -->
+                    </div>
+                </div>
+                
+                <!-- Tab 2 Content -->
+                <div id="tab-2" class="tab-content hidden">
+                    <p class="text-neutral-500 text-sm">Tab 2 content coming soon...</p>
+                </div>
+                
+                <!-- Tab 3 Content -->
+                <div id="tab-3" class="tab-content hidden">
+                    <p class="text-neutral-500 text-sm">Tab 3 content coming soon...</p>
+                </div>
+                
+                <!-- Tab 4 Content -->
+                <div id="tab-4" class="tab-content hidden">
+                    <p class="text-neutral-500 text-sm">Tab 4 content coming soon...</p>
                 </div>
             </div>
         </aside>
@@ -598,7 +616,47 @@
             textEl.textContent = count === 1 ? 'neighborhood found' : 'neighborhoods found';
         }
 
-        // Mobile sidebar toggle removed - using simple side-by-side layout
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active state from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('border-b-2', 'border-neutral-900', 'text-neutral-900');
+                    b.classList.add('text-neutral-400');
+                });
+                
+                // Add active state to clicked tab
+                this.classList.add('border-b-2', 'border-neutral-900', 'text-neutral-900');
+                this.classList.remove('text-neutral-400');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected tab content
+                const tabId = 'tab-' + this.dataset.tab;
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+
+        // Property type toggle (Homes/Condos)
+        document.querySelectorAll('.property-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active state from all buttons
+                document.querySelectorAll('.property-type-btn').forEach(b => {
+                    b.classList.remove('text-neutral-900');
+                    b.classList.add('text-neutral-500');
+                });
+                
+                // Add active state to clicked button
+                this.classList.add('text-neutral-900');
+                this.classList.remove('text-neutral-500');
+                
+                // Apply filters (this will be used when we have property type data in neighborhoods.json)
+                applyFilters();
+            });
+        });
 
         window.initMap = initMap;
         
