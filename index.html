@@ -134,7 +134,7 @@
                 </div>
                 <div>
                     <h1 class="font-semibold text-neutral-900">Neighborhood Finder</h1>
-                    <p class="text-xs text-neutral-500">on 30A & Florida's Emerald Coast</p>
+                    <p class="text-xs text-neutral-500">30A & Florida's Emerald Coast</p>
                 </div>
             </div>
 
@@ -188,6 +188,11 @@
                     <p class="text-neutral-500 text-sm">Tab 4 content coming soon...</p>
                 </div>
             </div>
+            
+            <!-- Divider and Results Count -->
+            <div class="border-t border-neutral-200 px-5 py-3">
+                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
+            </div>
         </aside>
 
         <!-- Map -->
@@ -215,6 +220,7 @@
                 return [
                     {
                         name: "Watersound Origins",
+                        propertyType: "homes",
                         position: { lat: 30.294396274692907, lng: -86.01317525044458 },
                         stats: {
                             listingCount: 76,
@@ -224,7 +230,7 @@
                             avgDom: 45,
                             priceRange: "$600k - $1.2M"
                         },
-                        amenities: ["Pool", "Beach Access", "Fitness", "Pickleball", "Tennis", "Golf", "Parks/Playgrounds", "Walking Trails", "Dog Park", "Gated", "Waterfront", "No Short-Term"],
+                        amenities: ["Beach Access", "Dog Park", "Fitness", "Gated", "Golf", "No Short-Term", "Parks/Playgrounds", "Pickleball", "Pool", "Tennis", "Walking Trails", "Waterfront"],
                         marketReportUrl: "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
                     }
                 ];
@@ -618,10 +624,16 @@
             if (count === undefined) {
                 count = markers.filter(m => m.marker.getVisible()).length;
             }
-            const countEl = document.getElementById('neighborhoodCount');
-            const textEl = countEl.nextElementSibling;
-            countEl.textContent = count;
-            textEl.textContent = count === 1 ? 'neighborhood found' : 'neighborhoods found';
+            
+            // Get selected property type
+            const selectedPropertyType = document.querySelector('.property-type-btn.text-neutral-900')?.id === 'btn-condos' ? 'condos' : 'homes';
+            const typeLabel = selectedPropertyType === 'condos' ? 'condo' : 'home';
+            const typeLabelPlural = selectedPropertyType === 'condos' ? 'condos' : 'homes';
+            
+            const resultsEl = document.getElementById('resultsCount');
+            if (resultsEl) {
+                resultsEl.textContent = `${count} ${count === 1 ? typeLabel : typeLabelPlural} found`;
+            }
         }
 
         // Tab switching
