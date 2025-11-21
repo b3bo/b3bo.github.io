@@ -23,9 +23,6 @@ assets/css/custom - Copy.css
 **/.env.local
 **/.env.neighborhoods
 
-# Spark API data (keep local until ready)
-neighborhoods.json
-
 # Separate repositories (managed outside this repo)
 .claude/
 RealEstateApps/
