@@ -128,6 +128,14 @@
         
         <!-- Drawer Sidebar with attached tab -->
         <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs bg-white shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+            <style>
+                @media (min-width: 768px) {
+                    #sidebar {
+                        height: calc(100dvh - 8rem) !important;
+                        max-height: calc(100dvh - 8rem) !important;
+                    }
+                }
+            </style>
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
                 <!-- Filter icon (shows when closed) -->
