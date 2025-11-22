@@ -318,12 +318,14 @@
                     }
                 }
                 
-                // Hide drawer in single mode
+                // Hide drawer and footer in single mode
                 if (urlParams.mode === 'single') {
                     const sidebar = document.getElementById('sidebar');
                     const drawerToggle = document.getElementById('drawer-toggle');
+                    const footer = document.querySelector('.bg-neutral-800');
                     if (sidebar) sidebar.style.display = 'none';
                     if (drawerToggle) drawerToggle.style.display = 'none';
+                    if (footer) footer.style.display = 'none';
                     document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
                 }
                 
