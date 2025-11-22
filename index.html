@@ -831,13 +831,24 @@
             }
         }, true);
         
-        // Timeout fallback if map doesn't load in 10 seconds
+        // Check if Google Maps is ready after DOM loads (for iframe contexts)
+        document.addEventListener('DOMContentLoaded', function() {
+            // If Google Maps loaded before callback, call initMap manually
+            setTimeout(function() {
+                if (typeof google !== 'undefined' && google.maps && !map) {
+                    console.log('Google Maps ready, initializing...');
+                    initMap();
+                }
+            }, 1000);
+        });
+        
+        // Timeout fallback if map doesn't load in 15 seconds
         setTimeout(() => {
             const loadingScreen = document.getElementById('loading-screen');
             if (loadingScreen && loadingScreen.style.display !== 'none') {
                 loadingScreen.innerHTML = '<div class="text-center"><p class="text-neutral-600 font-medium">Map is taking longer than expected to load...</p><button onclick="location.reload()" class="mt-4 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-900">Refresh Page</button></div>';
             }
-        }, 10000);
+        }, 15000);
         
         // Set current year for copyright
         document.getElementById('currentYear').textContent = new Date().getFullYear();
