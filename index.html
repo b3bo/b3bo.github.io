@@ -209,7 +209,17 @@
         </aside>
 
         <!-- Map -->
-        <div id="map" class="flex-1 bg-neutral-100"></div>
+        <div id="map" class="flex-1 bg-neutral-100 relative">
+            <!-- Footer Disclaimer -->
+            <div class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-neutral-200 px-4 py-3 text-xs text-neutral-600 z-10">
+                <p class="mb-1">
+                    <strong>Disclaimer:</strong> All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from Stellar MLS.
+                </p>
+                <p class="text-neutral-500">
+                    &copy; <span id="currentYear"></span> Kimberly Bauman, P.A. | All Rights Reserved
+                </p>
+            </div>
+        </div>
 
         <!-- Backdrop overlay -->
         <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
@@ -772,6 +782,8 @@
 
         window.initMap = initMap;
         
+        // Set current year for copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     </script>
 </body>
