@@ -210,6 +210,13 @@
 
         <!-- Map -->
         <div id="map" class="flex-1 bg-neutral-100 relative">
+            <!-- Loading Screen -->
+            <div id="loading-screen" class="absolute inset-0 bg-neutral-100 flex items-center justify-center z-20">
+                <div class="text-center">
+                    <div class="w-12 h-12 border-4 border-neutral-300 border-t-neutral-700 rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-neutral-600 font-medium">Loading Community Finder...</p>
+                </div>
+            </div>
             <!-- Footer Disclaimer -->
             <div class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-neutral-200 px-4 py-3 text-xs text-neutral-600 z-10">
                 <p class="mb-1">
@@ -279,54 +286,72 @@
         }
 
         async function initMap() {
-            neighborhoods = await loadNeighborhoods();
-            const urlParams = getUrlParams();
-            
-            // Handle single neighborhood mode
-            if (urlParams.neighborhood) {
-                const targetNeighborhood = neighborhoods.find(n => toSlug(n.name) === urlParams.neighborhood);
-                if (targetNeighborhood) {
-                    // Filter to show only this neighborhood
-                    neighborhoods = [targetNeighborhood];
+            try {
+                // Ensure Google Maps is loaded
+                if (typeof google === 'undefined' || !google.maps) {
+                    console.error('Google Maps API not loaded');
+                    document.getElementById('loading-screen').innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+                    return;
                 }
-            }
-            
-            // Hide drawer in single mode
-            if (urlParams.mode === 'single') {
-                const sidebar = document.getElementById('sidebar');
-                const drawerToggle = document.getElementById('drawer-toggle');
-                if (sidebar) sidebar.style.display = 'none';
-                if (drawerToggle) drawerToggle.style.display = 'none';
-                document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
-            }
-            
-            // Determine center and zoom
-            let center, zoom;
-            
-            if (urlParams.lat && urlParams.lng) {
-                // Use explicit coordinates
-                center = { lat: urlParams.lat, lng: urlParams.lng };
-                zoom = urlParams.zoom || 14;
-            } else if (urlParams.neighborhood && neighborhoods.length === 1) {
-                // Center on specific neighborhood
-                center = neighborhoods[0].position;
-                zoom = urlParams.zoom || 14;
-            } else {
-                // Default: center on Watersound Origins area
-                center = { lat: 30.294396274692907, lng: -86.01317525044458 };
-                zoom = urlParams.zoom || 12;
-            }
-            
-            initializeMap(center, zoom);
-            
-            // Auto-open info window if requested
-            if (urlParams.autoOpen && neighborhoods.length === 1) {
-                // Wait for markers to be created
-                setTimeout(() => {
-                    if (markers.length > 0) {
-                        google.maps.event.trigger(markers[0].marker, 'click');
+                
+                neighborhoods = await loadNeighborhoods();
+                const urlParams = getUrlParams();
+                
+                // Handle single neighborhood mode
+                if (urlParams.neighborhood) {
+                    const targetNeighborhood = neighborhoods.find(n => toSlug(n.name) === urlParams.neighborhood);
+                    if (targetNeighborhood) {
+                        // Filter to show only this neighborhood
+                        neighborhoods = [targetNeighborhood];
                     }
-                }, 500);
+                }
+                
+                // Hide drawer in single mode
+                if (urlParams.mode === 'single') {
+                    const sidebar = document.getElementById('sidebar');
+                    const drawerToggle = document.getElementById('drawer-toggle');
+                    if (sidebar) sidebar.style.display = 'none';
+                    if (drawerToggle) drawerToggle.style.display = 'none';
+                    document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
+                }
+                
+                // Determine center and zoom
+                let center, zoom;
+                
+                if (urlParams.lat && urlParams.lng) {
+                    // Use explicit coordinates
+                    center = { lat: urlParams.lat, lng: urlParams.lng };
+                    zoom = urlParams.zoom || 14;
+                } else if (urlParams.neighborhood && neighborhoods.length === 1) {
+                    // Center on specific neighborhood
+                    center = neighborhoods[0].position;
+                    zoom = urlParams.zoom || 14;
+                } else {
+                    // Default: center on Watersound Origins area
+                    center = { lat: 30.294396274692907, lng: -86.01317525044458 };
+                    zoom = urlParams.zoom || 12;
+                }
+                
+                initializeMap(center, zoom);
+                
+                // Hide loading screen
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                }
+                
+                // Auto-open info window if requested
+                if (urlParams.autoOpen && neighborhoods.length === 1) {
+                    // Wait for markers to be created
+                    setTimeout(() => {
+                        if (markers.length > 0) {
+                            google.maps.event.trigger(markers[0].marker, 'click');
+                        }
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Error initializing map:', error);
+                document.getElementById('loading-screen').innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
             }
         }
 
@@ -781,6 +806,24 @@
         });
 
         window.initMap = initMap;
+        
+        // Fallback if Google Maps API fails to load
+        window.addEventListener('error', function(e) {
+            if (e.message && e.message.includes('google')) {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading Google Maps. Please check your connection and refresh.</p></div>';
+                }
+            }
+        }, true);
+        
+        // Timeout fallback if map doesn't load in 10 seconds
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen && loadingScreen.style.display !== 'none') {
+                loadingScreen.innerHTML = '<div class="text-center"><p class="text-neutral-600 font-medium">Map is taking longer than expected to load...</p><button onclick="location.reload()" class="mt-4 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-900">Refresh Page</button></div>';
+            }
+        }, 10000);
         
         // Set current year for copyright
         document.getElementById('currentYear').textContent = new Date().getFullYear();
