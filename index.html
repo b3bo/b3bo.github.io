@@ -223,6 +223,24 @@
         let activeMarker = null;
         let rippleOverlays = new Map();
 
+        // Parse URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                neighborhood: params.get('neighborhood'), // Slug of specific neighborhood
+                mode: params.get('mode'), // 'single' = hide drawer, single neighborhood view
+                zoom: params.get('zoom') ? parseInt(params.get('zoom')) : null,
+                lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
+                lng: params.get('lng') ? parseFloat(params.get('lng')) : null,
+                autoOpen: params.get('autoOpen') === 'true'
+            };
+        }
+
+        // Convert neighborhood name to slug (e.g., "Watersound Origins" -> "watersound-origins")
+        function toSlug(name) {
+            return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        }
+
         async function loadNeighborhoods() {
             try {
                 const response = await fetch('./neighborhoods.json');
@@ -252,10 +270,54 @@
 
         async function initMap() {
             neighborhoods = await loadNeighborhoods();
+            const urlParams = getUrlParams();
             
-            // Center on Watersound Origins for now (TODO: add user location feature later)
-            const watersoundOrigins = { lat: 30.294396274692907, lng: -86.01317525044458 };
-            initializeMap(watersoundOrigins, 12);
+            // Handle single neighborhood mode
+            if (urlParams.neighborhood) {
+                const targetNeighborhood = neighborhoods.find(n => toSlug(n.name) === urlParams.neighborhood);
+                if (targetNeighborhood) {
+                    // Filter to show only this neighborhood
+                    neighborhoods = [targetNeighborhood];
+                }
+            }
+            
+            // Hide drawer in single mode
+            if (urlParams.mode === 'single') {
+                const sidebar = document.getElementById('sidebar');
+                const drawerToggle = document.getElementById('drawer-toggle');
+                if (sidebar) sidebar.style.display = 'none';
+                if (drawerToggle) drawerToggle.style.display = 'none';
+                document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
+            }
+            
+            // Determine center and zoom
+            let center, zoom;
+            
+            if (urlParams.lat && urlParams.lng) {
+                // Use explicit coordinates
+                center = { lat: urlParams.lat, lng: urlParams.lng };
+                zoom = urlParams.zoom || 14;
+            } else if (urlParams.neighborhood && neighborhoods.length === 1) {
+                // Center on specific neighborhood
+                center = neighborhoods[0].position;
+                zoom = urlParams.zoom || 14;
+            } else {
+                // Default: center on Watersound Origins area
+                center = { lat: 30.294396274692907, lng: -86.01317525044458 };
+                zoom = urlParams.zoom || 12;
+            }
+            
+            initializeMap(center, zoom);
+            
+            // Auto-open info window if requested
+            if (urlParams.autoOpen && neighborhoods.length === 1) {
+                // Wait for markers to be created
+                setTimeout(() => {
+                    if (markers.length > 0) {
+                        google.maps.event.trigger(markers[0].marker, 'click');
+                    }
+                }, 500);
+            }
         }
 
         function initializeMap(center, zoom) {
