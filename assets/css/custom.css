@@ -54,6 +54,11 @@ h2 {
   @apply text-sm sm:text-base md:text-lg lg:text-lg font-body font-normal leading-tight text-neutral-700;
 }
 
+.main-content .si-content-area b,
+.main-content .si-content-area strong {
+  font-weight: 550;
+}
+
 /* Span customization for accent */
 .main-content .si-content-area h3 span,
 .main-content .si-content-area p span,
