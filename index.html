@@ -454,6 +454,14 @@
             // Initialize Feature Layer for postal code boundaries
             featureLayer = map.getFeatureLayer('POSTAL_CODE');
             
+            // Add click listener to debug postal code features
+            featureLayer.addListener('click', (event) => {
+                console.log('Postal code clicked:', {
+                    displayName: event.features[0].displayName,
+                    placeId: event.features[0].placeId
+                });
+            });
+            
             // Set initial style (hide all boundaries)
             featureLayer.style = (featureStyleOptions) => {
                 return { fillOpacity: 0, strokeOpacity: 0 };
