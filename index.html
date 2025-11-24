@@ -268,59 +268,7 @@
         let featureLayer; // Google Maps Feature Layer for postal codes
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
-        // Zip code boundary management using Google Maps Platform's native boundaries
-        let placesLoaded = new Set();
-        
-        function updateFeatureLayerStyle() {
-            if (!featureLayer) return;
-            
-            featureLayer.style = (params) => {
-                const placeFeature = params.feature;
-                
-                // If place isn't loaded yet, fetch it
-                if (!placeFeature.place) {
-                    placeFeature.fetchPlace().then(() => {
-                        const code = placeFeature.place?.displayName;
-                        if (code && !placesLoaded.has(code)) {
-                            placesLoaded.add(code);
-                            // Force map refresh to apply new styling
-                            map.setZoom(map.getZoom());
-                        }
-                    });
-                    // Show with low opacity while loading if any zip is active
-                    if (activeZipCodes.size > 0) {
-                        return {
-                            strokeColor: '#7ca3af',
-                            strokeWeight: 2.5,
-                            strokeOpacity: 0.3,
-                            fillColor: '#7ca3af',
-                            fillOpacity: 0.05
-                        };
-                    }
-                    return { fillOpacity: 0, strokeOpacity: 0 };
-                }
-                
-                // Check if this postal code is in the active set
-                const currentCode = placeFeature.place?.displayName;
-                
-                if (activeZipCodes.size > 0 && currentCode && activeZipCodes.has(currentCode)) {
-                    return {
-                        strokeColor: '#7ca3af',
-                        strokeWeight: 2.5,
-                        strokeOpacity: 0.8,
-                        fillColor: '#7ca3af',
-                        fillOpacity: 0.12
-                    };
-                }
-                
-                // Hide all other postal codes
-                return {
-                    fillOpacity: 0,
-                    strokeOpacity: 0
-                };
-            };
-        }
-
+        // Zip code boundary management using Google Maps Platform's native boundaries        
         function showZipCodeBoundary(zipCode) {
             if (!featureLayer) {
                 console.error('Feature layer not initialized');
@@ -328,14 +276,24 @@
             }
             
             activeZipCodes.add(zipCode);
-            console.log(`Showing boundary for zip code ${zipCode}`);
-            updateFeatureLayerStyle();
+            console.log(`Showing boundary for zip code ${zipCode}`, 'Active codes:', Array.from(activeZipCodes));
+            
+            // Force refresh by toggling the feature layer
+            featureLayer.isEnabled = false;
+            setTimeout(() => {
+                featureLayer.isEnabled = true;
+            }, 50);
         }
 
         function hideZipCodeBoundary(zipCode) {
             activeZipCodes.delete(zipCode);
-            console.log(`Hiding boundary for zip code ${zipCode}`);
-            updateFeatureLayerStyle();
+            console.log(`Hiding boundary for zip code ${zipCode}`, 'Active codes:', Array.from(activeZipCodes));
+            
+            // Force refresh by toggling the feature layer
+            featureLayer.isEnabled = false;
+            setTimeout(() => {
+                featureLayer.isEnabled = true;
+            }, 50);
         }
 
         function toggleZipCodeBoundary(zipCode) {
@@ -488,15 +446,41 @@
             try {
                 featureLayer = map.getFeatureLayer('POSTAL_CODE');
                 console.log('Feature layer initialized:', featureLayer);
-                console.log('Feature layer isAvailable:', featureLayer.isAvailable);
-                console.log('Feature layer isEnabled:', featureLayer.isEnabled);
                 
-                // Enable the feature layer
-                featureLayer.isEnabled = true;
-                
-                // Set initial style (hide all boundaries)
-                featureLayer.style = (featureStyleOptions) => {
-                    console.log('Style function called!');
+                // Set the style function once - it will be called for each feature
+                featureLayer.style = (params) => {
+                    const placeFeature = params.feature;
+                    
+                    // If place isn't loaded yet, fetch it
+                    if (!placeFeature.place) {
+                        placeFeature.fetchPlace();
+                        // Show with low opacity while loading if any zip is active
+                        if (activeZipCodes.size > 0) {
+                            return {
+                                strokeColor: '#7ca3af',
+                                strokeWeight: 2.5,
+                                strokeOpacity: 0.3,
+                                fillColor: '#7ca3af',
+                                fillOpacity: 0.05
+                            };
+                        }
+                        return { fillOpacity: 0, strokeOpacity: 0 };
+                    }
+                    
+                    // Check if this postal code is in the active set
+                    const currentCode = placeFeature.place?.displayName;
+                    
+                    if (activeZipCodes.size > 0 && currentCode && activeZipCodes.has(currentCode)) {
+                        return {
+                            strokeColor: '#7ca3af',
+                            strokeWeight: 2.5,
+                            strokeOpacity: 0.8,
+                            fillColor: '#7ca3af',
+                            fillOpacity: 0.12
+                        };
+                    }
+                    
+                    // Hide all other postal codes
                     return { fillOpacity: 0, strokeOpacity: 0 };
                 };
             } catch (error) {
