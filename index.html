@@ -267,27 +267,61 @@
         let rippleOverlays = new Map();
         let featureLayer; // Google Maps Feature Layer for postal codes
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
-        let activePlaceIds = new Set(); // Track active Place IDs
-        let zipCodeToPlaceId = new Map(); // Cache for Zip -> Place ID
-        let geocoder; // Google Maps Geocoder
+        let fetchedPlaceIds = new Set(); // Track which Place IDs we've already tried to fetch
 
         // Zip code boundary management using Google Maps Platform's native boundaries
         function applyFeatureLayerStyle() {
             if (!featureLayer) return;
             
-            // Force a style recalculation by assigning a new function
             featureLayer.style = (params) => {
-                // Check if this feature's placeId is in our active set
-                if (activePlaceIds.has(params.feature.placeId)) {
-                    return {
-                        strokeColor: '#7ca3af',
-                        strokeWeight: 2.5,
-                        strokeOpacity: 0.8,
-                        fillColor: '#7ca3af',
-                        fillOpacity: 0.12
-                    };
+                const feature = params.feature;
+                
+                // 1. If we have the place data already
+                if (feature.place) {
+                    const name = feature.place.displayName;
+                    // Check if any active zip code is contained in the place name
+                    for (const zip of activeZipCodes) {
+                        if (name && name.includes(zip)) {
+                            return {
+                                strokeColor: '#7ca3af',
+                                strokeWeight: 2.5,
+                                strokeOpacity: 0.8,
+                                fillColor: '#7ca3af',
+                                fillOpacity: 0.12
+                            };
+                        }
+                    }
+                    return null; // Not active
                 }
-                return null; // Default style (invisible)
+                
+                // 2. If not fetched yet, try to fetch it
+                // We use a Set to ensure we only fetch each feature once
+                if (!fetchedPlaceIds.has(feature.placeId)) {
+                    fetchedPlaceIds.add(feature.placeId);
+                    
+                    feature.fetchPlace().then((place) => {
+                        // Check if this newly fetched place matches any active zip
+                        let match = false;
+                        for (const zip of activeZipCodes) {
+                            if (place.displayName && place.displayName.includes(zip)) {
+                                match = true;
+                                break;
+                            }
+                        }
+                        
+                        // If it's a match, we MUST trigger a re-style to make it appear
+                        if (match) {
+                            console.log('Found matching boundary:', place.displayName);
+                            // Re-assigning the style function triggers a re-evaluation
+                            featureLayer.style = featureLayer.style;
+                        }
+                    }).catch(err => {
+                        // If fetch fails (e.g. API key issues), we can't do much
+                        console.error('Error fetching place details:', err);
+                    });
+                }
+                
+                return null; // Invisible while loading
             };
         }
         
@@ -300,44 +334,15 @@
             activeZipCodes.add(zipCode);
             console.log(`Showing boundary for zip code ${zipCode}`);
             
-            // Check if we already have the Place ID
-            if (zipCodeToPlaceId.has(zipCode)) {
-                const placeId = zipCodeToPlaceId.get(zipCode);
-                activePlaceIds.add(placeId);
-                console.log(`Using cached Place ID: ${placeId}`);
-                applyFeatureLayerStyle();
-                return;
-            }
-            
-            // If not, look it up
-            if (!geocoder) geocoder = new google.maps.Geocoder();
-            
-            console.log(`Looking up Place ID for zip code ${zipCode}...`);
-            geocoder.geocode({ componentRestrictions: { postalCode: zipCode, country: 'US' } }, (results, status) => {
-                if (status === 'OK' && results[0]) {
-                    const placeId = results[0].place_id;
-                    console.log(`Found Place ID for ${zipCode}: ${placeId}`);
-                    zipCodeToPlaceId.set(zipCode, placeId);
-                    
-                    // Only add if the zip is still active (user might have toggled it off while loading)
-                    if (activeZipCodes.has(zipCode)) {
-                        activePlaceIds.add(placeId);
-                        applyFeatureLayerStyle();
-                    }
-                } else {
-                    console.error(`Geocode failed for ${zipCode}: ${status}`);
-                }
-            });
+            // Trigger style update
+            applyFeatureLayerStyle();
         }
 
         function hideZipCodeBoundary(zipCode) {
             activeZipCodes.delete(zipCode);
             console.log(`Hiding boundary for zip code ${zipCode}`);
             
-            if (zipCodeToPlaceId.has(zipCode)) {
-                activePlaceIds.delete(zipCodeToPlaceId.get(zipCode));
-            }
-            
+            // Trigger style update
             applyFeatureLayerStyle();
         }
 
