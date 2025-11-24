@@ -488,9 +488,15 @@
             try {
                 featureLayer = map.getFeatureLayer('POSTAL_CODE');
                 console.log('Feature layer initialized:', featureLayer);
+                console.log('Feature layer isAvailable:', featureLayer.isAvailable);
+                console.log('Feature layer isEnabled:', featureLayer.isEnabled);
+                
+                // Enable the feature layer
+                featureLayer.isEnabled = true;
                 
                 // Set initial style (hide all boundaries)
                 featureLayer.style = (featureStyleOptions) => {
+                    console.log('Style function called!');
                     return { fillOpacity: 0, strokeOpacity: 0 };
                 };
             } catch (error) {
