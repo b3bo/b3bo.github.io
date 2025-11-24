@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
     
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker,places" async></script>
     
     <style>
         /* Info window custom styles */
@@ -271,8 +271,13 @@
 
         // Zip code boundary management using Google Maps Platform's native boundaries
         function applyFeatureLayerStyle() {
-            if (!featureLayer) return;
+            if (!featureLayer) {
+                console.log("applyFeatureLayerStyle: Feature layer not ready.");
+                return;
+            }
             
+            // console.log("Applying feature layer style with active zips:", Array.from(activeZipCodes));
+
             featureLayer.style = (params) => {
                 const feature = params.feature;
                 
@@ -299,6 +304,8 @@
                 if (!fetchedPlaceIds.has(feature.placeId)) {
                     fetchedPlaceIds.add(feature.placeId);
                     
+                    // console.log("Fetching place for feature:", feature.placeId);
+
                     feature.fetchPlace().then((place) => {
                         // Check if this newly fetched place matches any active zip
                         let match = false;
