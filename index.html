@@ -272,19 +272,12 @@
         function updateFeatureLayerStyle() {
             if (!featureLayer) return;
             
-            let debugLogged = false;
             featureLayer.style = (featureStyleOptions) => {
+                // Get the postal code from the feature - try multiple properties
                 const feature = featureStyleOptions.feature;
+                const postalCode = feature.displayName || feature.h || feature.postalCode;
                 
-                // Debug log first feature to see what properties are available
-                if (!debugLogged) {
-                    console.log('Feature object:', feature);
-                    console.log('Feature keys:', Object.keys(feature));
-                    debugLogged = true;
-                }
-                
-                // Try to get postal code from various possible properties
-                const postalCode = feature.displayName || feature.postalCode || feature.name || feature.code;
+                console.log('Feature styling:', postalCode, 'Active:', Array.from(activeZipCodes));
                 
                 // Check if this postal code should be shown
                 if (postalCode && activeZipCodes.has(postalCode)) {
@@ -466,17 +459,12 @@
             });
 
             // Initialize Feature Layer for postal code boundaries
-            try {
-                featureLayer = map.getFeatureLayer('POSTAL_CODE');
-                console.log('Feature layer initialized:', featureLayer);
-                
-                // Set initial style (hide all boundaries)
-                featureLayer.style = (featureStyleOptions) => {
-                    return { fillOpacity: 0, strokeOpacity: 0 };
-                };
-            } catch (error) {
-                console.error('Error initializing feature layer:', error);
-            }
+            featureLayer = map.getFeatureLayer('POSTAL_CODE');
+            
+            // Set initial style (hide all boundaries)
+            featureLayer.style = (featureStyleOptions) => {
+                return { fillOpacity: 0, strokeOpacity: 0 };
+            };
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
             addMarkers();
