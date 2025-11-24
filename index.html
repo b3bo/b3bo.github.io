@@ -272,37 +272,23 @@
         function updateFeatureLayerStyle() {
             if (!featureLayer) return;
             
-            featureLayer.style = (featureStyleOptions) => {
-                const feature = featureStyleOptions.feature;
+            featureLayer.style = (params) => {
+                const placeFeature = params.feature;
                 
-                // Use fetchPlace to get the postal code asynchronously
-                if (!feature.place) {
-                    feature.fetchPlace().then(() => {
-                        // After place is fetched, check if we should style this feature
-                        const postalCode = feature.place?.displayName;
-                        if (postalCode && activeZipCodes.has(postalCode)) {
-                            // Trigger a style update by reassigning the style function
-                            updateFeatureLayerStyle();
-                        }
-                    });
-                }
+                // Fetch place info to get the postal code
+                placeFeature.fetchPlace().then(() => {
+                    const displayName = placeFeature.place?.displayName;
+                    console.log('Fetched postal code:', displayName);
+                });
                 
-                // Get postal code from place.displayName if available
-                const postalCode = feature.place?.displayName;
-                
-                // Check if this postal code should be shown
-                if (postalCode && activeZipCodes.has(postalCode)) {
-                    return {
-                        strokeColor: '#7ca3af',
-                        strokeWeight: 2.5,
-                        strokeOpacity: 0.8,
-                        fillColor: '#7ca3af',
-                        fillOpacity: 0.12
-                    };
-                }
-                
-                // Hide all other postal codes
-                return { fillOpacity: 0, strokeOpacity: 0 };
+                // For now, style all postal codes with low opacity while we debug
+                return {
+                    strokeColor: '#7ca3af',
+                    strokeWeight: 2.5,
+                    strokeOpacity: 0.8,
+                    fillColor: '#7ca3af',
+                    fillOpacity: 0.12
+                };
             };
         }
 
@@ -314,12 +300,20 @@
             
             activeZipCodes.add(zipCode);
             console.log(`Showing boundary for zip code ${zipCode}`);
+            
+            // Enable the feature layer to show boundaries
+            featureLayer.isEnabled = true;
             updateFeatureLayerStyle();
         }
 
         function hideZipCodeBoundary(zipCode) {
             activeZipCodes.delete(zipCode);
             console.log(`Hiding boundary for zip code ${zipCode}`);
+            
+            // If no zip codes are active, disable the layer
+            if (activeZipCodes.size === 0) {
+                featureLayer.isEnabled = false;
+            }
             updateFeatureLayerStyle();
         }
 
