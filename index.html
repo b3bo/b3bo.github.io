@@ -267,6 +267,7 @@
         let rippleOverlays = new Map();
         let featureLayer; // Google Maps Feature Layer for postal codes
         const activeZipCodes = new Set(); // Track which zip codes are currently displayed
+        const fetchedPlaceIds = new Set(); // Prevent repeated place fetches
 
         // Approximate centers for panning
         const zipCodeCenters = {
@@ -284,32 +285,49 @@
                 return;
             }
 
-            const styleFn = ({ feature }) => {
-                const displayName = (() => {
-                    if (typeof feature.displayName === 'string') return feature.displayName;
-                    if (feature.displayName?.text) return feature.displayName.text;
-                    if (typeof feature.place?.displayName === 'string') return feature.place.displayName;
-                    if (feature.place?.displayName?.text) return feature.place.displayName.text;
-                    return '';
-                })();
+            featureLayer.style = (params) => {
+                const feature = params.feature;
 
-                const zipMatch = displayName.match(/\b\d{5}\b/);
-                const zipCode = zipMatch ? zipMatch[0] : null;
+                if (feature.place) {
+                    const name = typeof feature.place.displayName === 'string'
+                        ? feature.place.displayName
+                        : feature.place.displayName?.text || '';
 
-                if (zipCode && activeZipCodes.has(zipCode)) {
-                    return {
-                        strokeColor: '#7ca3af',
-                        strokeWeight: 2.5,
-                        strokeOpacity: 0.8,
-                        fillColor: '#7ca3af',
-                        fillOpacity: 0.12
-                    };
+                    for (const zip of activeZipCodes) {
+                        if (name && name.includes(zip)) {
+                            return {
+                                strokeColor: '#7ca3af',
+                                strokeWeight: 2.5,
+                                strokeOpacity: 0.8,
+                                fillColor: '#7ca3af',
+                                fillOpacity: 0.12
+                            };
+                        }
+                    }
+
+                    return null;
                 }
 
-                return { display: 'none' }; // Hide any non-active features
-            };
+                if (!fetchedPlaceIds.has(feature.placeId)) {
+                    fetchedPlaceIds.add(feature.placeId);
+                    feature.fetchPlace().then((place) => {
+                        const name = typeof place.displayName === 'string'
+                            ? place.displayName
+                            : place.displayName?.text || '';
 
-            featureLayer.style = styleFn;
+                        for (const zip of activeZipCodes) {
+                            if (name && name.includes(zip)) {
+                                applyFeatureLayerStyle();
+                                break;
+                            }
+                        }
+                    }).catch(err => {
+                        console.error('Error fetching place details:', err);
+                    });
+                }
+
+                return null;
+            };
         }
         
         function showZipCodeBoundary(zipCode) {
@@ -482,7 +500,9 @@
                     position: google.maps.ControlPosition.RIGHT_BOTTOM
                 },
                 fullscreenControl: true,
-                zoomControl: true
+                zoomControl: true,
+                gestureHandling: 'cooperative', // prevent accidental scroll zooming
+                scrollwheel: false
             });
 
             // Initialize Feature Layer for postal code boundaries
