@@ -269,6 +269,15 @@
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
         let fetchedPlaceIds = new Set(); // Track which Place IDs we've already tried to fetch
 
+        // Approximate centers for panning
+        const zipCodeCenters = {
+            '32541': { lat: 30.3935, lng: -86.4958 }, // Destin
+            '32459': { lat: 30.3400, lng: -86.2290 }, // Santa Rosa Beach (Adjusted)
+            '32550': { lat: 30.3750, lng: -86.3600 }, // Miramar Beach
+            '32461': { lat: 30.2850, lng: -86.0050 }, // Inlet Beach
+            '32413': { lat: 30.2500, lng: -85.9000 }  // PCB West
+        };
+
         // Zip code boundary management using Google Maps Platform's native boundaries
         function applyFeatureLayerStyle() {
             if (!featureLayer) {
@@ -276,16 +285,16 @@
                 return;
             }
             
-            // console.log("Applying feature layer style with active zips:", Array.from(activeZipCodes));
-
             featureLayer.style = (params) => {
                 const feature = params.feature;
                 
                 // 1. If we have the place data already
                 if (feature.place) {
                     const name = feature.place.displayName;
-                    // console.log("Checking feature:", name); 
                     
+                    // Debug: Log if we see the target zip code
+                    // if (name && name.includes('32461')) console.log("Saw 32461 in style function (already loaded)");
+
                     // Check if any active zip code is contained in the place name
                     for (const zip of activeZipCodes) {
                         if (name && name.includes(zip)) {
@@ -302,14 +311,11 @@
                 }
                 
                 // 2. If not fetched yet, try to fetch it
-                // We use a Set to ensure we only fetch each feature once
                 if (!fetchedPlaceIds.has(feature.placeId)) {
                     fetchedPlaceIds.add(feature.placeId);
                     
-                    console.log("Fetching place for feature:", feature.placeId);
-
                     feature.fetchPlace().then((place) => {
-                        console.log("Fetched place:", place.displayName);
+                        // console.log("Fetched place:", place.displayName);
                         
                         // Check if this newly fetched place matches any active zip
                         let match = false;
@@ -323,8 +329,8 @@
                         // If it's a match, we MUST trigger a re-style to make it appear
                         if (match) {
                             console.log('Found matching boundary:', place.displayName);
-                            // Re-assigning the style function triggers a re-evaluation
-                            featureLayer.style = featureLayer.style;
+                            // Re-apply style to force update
+                            applyFeatureLayerStyle();
                         }
                     }).catch(err => {
                         console.error('Error fetching place details:', err);
@@ -343,6 +349,12 @@
             
             activeZipCodes.add(zipCode);
             console.log(`Showing boundary for zip code ${zipCode}`);
+            
+            // Pan to the zip code if we have coordinates
+            if (zipCodeCenters[zipCode]) {
+                map.panTo(zipCodeCenters[zipCode]);
+                map.setZoom(12); // Ensure good zoom level
+            }
             
             // Trigger style update
             applyFeatureLayerStyle();
