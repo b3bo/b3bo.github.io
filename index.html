@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
     
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker,places" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
     
     <style>
         /* Info window custom styles */
@@ -266,70 +266,42 @@
         let activeMarker = null;
         let rippleOverlays = new Map();
         let featureLayer; // Google Maps Feature Layer for postal codes
-        const activeZipCodes = new Set(); // Track which zip codes are currently displayed
-        const fetchedPlaceIds = new Set(); // Prevent repeated place fetches
-
-        // Approximate centers for panning
-        const zipCodeCenters = {
-            '32541': { lat: 30.3935, lng: -86.4958 }, // Destin
-            '32459': { lat: 30.3400, lng: -86.2290 }, // Santa Rosa Beach (Adjusted)
-            '32550': { lat: 30.3750, lng: -86.3600 }, // Miramar Beach
-            '32461': { lat: 30.2850, lng: -86.0050 }, // Inlet Beach
-            '32413': { lat: 30.2500, lng: -85.9000 }  // PCB West
-        };
+        let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
         // Zip code boundary management using Google Maps Platform's native boundaries
-        function applyFeatureLayerStyle() {
-            if (!featureLayer) {
-                console.log("applyFeatureLayerStyle: Feature layer not ready.");
-                return;
-            }
-
-            featureLayer.style = (params) => {
-                const feature = params.feature;
-
-                if (feature.place) {
-                    const name = typeof feature.place.displayName === 'string'
-                        ? feature.place.displayName
-                        : feature.place.displayName?.text || '';
-
-                    for (const zip of activeZipCodes) {
-                        if (name && name.includes(zip)) {
-                            return {
-                                strokeColor: '#7ca3af',
-                                strokeWeight: 2.5,
-                                strokeOpacity: 0.8,
-                                fillColor: '#7ca3af',
-                                fillOpacity: 0.12
-                            };
-                        }
-                    }
-
-                    return null;
+        function updateFeatureLayerStyle() {
+            if (!featureLayer) return;
+            
+            let debugLogged = false;
+            featureLayer.style = (featureStyleOptions) => {
+                const feature = featureStyleOptions.feature;
+                
+                // Debug log first feature to see what properties are available
+                if (!debugLogged) {
+                    console.log('Feature object:', feature);
+                    console.log('Feature keys:', Object.keys(feature));
+                    debugLogged = true;
                 }
-
-                if (!fetchedPlaceIds.has(feature.placeId)) {
-                    fetchedPlaceIds.add(feature.placeId);
-                    feature.fetchPlace().then((place) => {
-                        const name = typeof place.displayName === 'string'
-                            ? place.displayName
-                            : place.displayName?.text || '';
-
-                        for (const zip of activeZipCodes) {
-                            if (name && name.includes(zip)) {
-                                applyFeatureLayerStyle();
-                                break;
-                            }
-                        }
-                    }).catch(err => {
-                        console.error('Error fetching place details:', err);
-                    });
+                
+                // Try to get postal code from various possible properties
+                const postalCode = feature.displayName || feature.postalCode || feature.name || feature.code;
+                
+                // Check if this postal code should be shown
+                if (postalCode && activeZipCodes.has(postalCode)) {
+                    return {
+                        strokeColor: '#7ca3af',
+                        strokeWeight: 2.5,
+                        strokeOpacity: 0.8,
+                        fillColor: '#7ca3af',
+                        fillOpacity: 0.12
+                    };
                 }
-
-                return null;
+                
+                // Hide all other postal codes
+                return { fillOpacity: 0, strokeOpacity: 0 };
             };
         }
-        
+
         function showZipCodeBoundary(zipCode) {
             if (!featureLayer) {
                 console.error('Feature layer not initialized');
@@ -337,24 +309,14 @@
             }
             
             activeZipCodes.add(zipCode);
-            console.log(`Showing boundary for zip code ${zipCode}`);
-            
-            // Pan to the zip code if we have coordinates
-            if (zipCodeCenters[zipCode]) {
-                map.panTo(zipCodeCenters[zipCode]);
-                map.setZoom(12); // Ensure good zoom level
-            }
-            
-            // Trigger style update
-            applyFeatureLayerStyle();
+            console.log(`Showing boundary for zip code ${zipCode}, active codes:`, Array.from(activeZipCodes));
+            updateFeatureLayerStyle();
         }
 
         function hideZipCodeBoundary(zipCode) {
             activeZipCodes.delete(zipCode);
-            console.log(`Hiding boundary for zip code ${zipCode}`);
-            
-            // Trigger style update
-            applyFeatureLayerStyle();
+            console.log(`Hiding boundary for zip code ${zipCode}, active codes:`, Array.from(activeZipCodes));
+            updateFeatureLayerStyle();
         }
 
         function toggleZipCodeBoundary(zipCode) {
@@ -500,9 +462,7 @@
                     position: google.maps.ControlPosition.RIGHT_BOTTOM
                 },
                 fullscreenControl: true,
-                zoomControl: true,
-                gestureHandling: 'cooperative', // prevent accidental scroll zooming
-                scrollwheel: false
+                zoomControl: true
             });
 
             // Initialize Feature Layer for postal code boundaries
@@ -510,8 +470,10 @@
                 featureLayer = map.getFeatureLayer('POSTAL_CODE');
                 console.log('Feature layer initialized:', featureLayer);
                 
-                // Apply initial style
-                applyFeatureLayerStyle();
+                // Set initial style (hide all boundaries)
+                featureLayer.style = (featureStyleOptions) => {
+                    return { fillOpacity: 0, strokeOpacity: 0 };
+                };
             } catch (error) {
                 console.error('Error initializing feature layer:', error);
             }
