@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Community Finder | Florida Emerald Coast</title>
+    <meta name="description" content="Explore communities along Florida's Emerald Coast with interactive maps, pricing, and amenities.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=beta&libraries=marker" async></script>
+    
+    <style>
+        /* Info window custom styles */
+        .gm-style .info-window {
+            font-family: var(--font-body);
+        }
+        
+        /* Hide the default close button */
+        .gm-style-iw-chr {
+            display: none !important;
+        }
+        
+        /* Remove padding/margin from the info window container */
+        .gm-style .gm-style-iw-c {
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Remove border from info window tip */
+        .gm-style .gm-style-iw-tc::after {
+            background: white !important;
+        }
+        
+        /* Amenity tag styles - matching Sierra site tags */
+        .amenity-tag {
+            border: 1px solid #d4d4d8;
+            border-radius: 0.5rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            text-align: center;
+            color: #52525b;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            background: white;
+        }
+        
+        .amenity-tag:hover {
+            background: rgba(124, 163, 175, 0.3);
+            color: #3f3f46;
+        }
+        
+        .amenity-tag.selected {
+            background: rgba(124, 163, 175, 0.3);
+            color: #3f3f46;
+            border-color: #7ca3af;
+        }
+        
+        .amenity-tag.selected:hover {
+            background: rgba(124, 163, 175, 0.4);
+            border-color: #7ca3af;
+        }
+        
+        /* Tab icon switching */
+        #drawer-toggle:checked ~ aside .tab-icon-closed {
+            display: none;
+        }
+        
+        #drawer-toggle:checked ~ aside .tab-icon-open {
+            display: block;
+        }
+        
+        /* Ripple marker animation */
+        .ripple-marker {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .ripple {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(64, 64, 64, 0.25); /* neutral-700 with transparency */
+            animation: none;
+            opacity: 0;
+        }
+        
+        .ripple.active {
+            animation: ripple-animation 2s infinite ease-out;
+        }
+        
+        .ripple-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #404040; /* neutral-700 - Tailwind default */
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+        
+        @keyframes ripple-animation {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden font-body text-neutral-700">
+    <div class="flex flex-col h-screen">
+        <!-- Hidden checkbox controls drawer state -->
+        <input type="checkbox" id="drawer-toggle" class="hidden peer" />
+        
+        <!-- Drawer Sidebar with attached tab -->
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs bg-white shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+            <style>
+                @media (min-width: 768px) {
+                    #sidebar {
+                        height: calc(100dvh - 8rem) !important;
+                        max-height: calc(100dvh - 8rem) !important;
+                    }
+                }
+            </style>
+            <!-- Tab attached to drawer edge -->
+            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
+                <!-- Filter icon (shows when closed) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                </svg>
+                <!-- X icon (shows when open) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-open hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </label>
+            
+            <!-- Header -->
+            <div class="p-5 border-b border-neutral-200 flex items-center gap-3">
+                <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
+                    <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
+                </div>
+                <div>
+                    <h1 class="font-semibold text-neutral-900">Community Finder&trade;</h1>
+                    <p class="text-xs text-neutral-500">30A & Florida's Emerald Coast</p>
+                </div>
+            </div>
+
+            <!-- Toggle Buttons -->
+            <div class="px-5 pt-4 flex gap-2">
+                <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active" style="background: rgba(124, 163, 175, 0.3); color: #3f3f46; border: 1px solid #7ca3af; border-radius: 0.5rem;">
+                    Homes
+                </button>
+                <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn" style="background: white; color: #52525b; border: 1px solid #d4d4d8; border-radius: 0.5rem;">
+                    Condos
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
+                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="amenities">
+                    Amenities
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="2">
+                    2
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="3">
+                    3
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="4">
+                    4
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="flex-1 overflow-y-auto overscroll-contain p-5">
+                <!-- Amenities Tab -->
+                <div id="tab-amenities" class="tab-content">
+                    <div class="flex flex-wrap gap-2" id="amenityFilters">
+                        <!-- Tags will be dynamically generated -->
+                    </div>
+                </div>
+                
+                <!-- Tab 2 Content -->
+                <div id="tab-2" class="tab-content hidden">
+                    <p class="text-neutral-500 text-sm">Tab 2 content coming soon...</p>
+                </div>
+                
+                <!-- Tab 3 Content -->
+                <div id="tab-3" class="tab-content hidden">
+                    <p class="text-neutral-500 text-sm">Tab 3 content coming soon...</p>
+                </div>
+                
+                <!-- Tab 4 Content -->
+                <div id="tab-4" class="tab-content hidden">
+                    <p class="text-neutral-500 text-sm">Tab 4 content coming soon...</p>
+                </div>
+            </div>
+            
+            <!-- Divider and Results Count -->
+            <div class="border-t border-neutral-200 px-5 py-4">
+                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
+            </div>
+        </aside>
+
+        <!-- Main content area with map and sidebar -->
+        <div class="flex flex-1 relative md:flex-row overflow-hidden">
+            <!-- Map -->
+            <div id="map" class="flex-1 bg-neutral-100 relative">
+                <!-- Loading Screen -->
+                <div id="loading-screen" class="absolute inset-0 bg-neutral-100 flex items-center justify-center z-20">
+                    <div class="text-center">
+                        <div class="w-12 h-12 border-4 border-neutral-300 border-t-neutral-700 rounded-full animate-spin mx-auto mb-4"></div>
+                        <p class="text-neutral-600 font-medium">Loading Community Finder...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backdrop overlay -->
+            <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
+        </div>
+    </div>
+
+    <script>
+        let map;
+        let markers = [];
+        let infoWindow;
+        let neighborhoods = [];
+        let activeMarker = null;
+        let rippleOverlays = new Map();
+
+        // Parse URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                neighborhood: params.get('neighborhood'), // Slug of specific neighborhood
+                mode: params.get('mode'), // 'single' = hide drawer, single neighborhood view
+                zoom: params.get('zoom') ? parseInt(params.get('zoom')) : null,
+                lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
+                lng: params.get('lng') ? parseFloat(params.get('lng')) : null,
+                autoOpen: params.get('autoOpen') === 'true'
+            };
+        }
+
+        // Convert neighborhood name to slug (e.g., "Watersound Origins" -> "watersound-origins")
+        function toSlug(name) {
+            return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        }
+
+        async function loadNeighborhoods() {
+            try {
+                const response = await fetch('./neighborhoods.json');
+                neighborhoods = await response.json();
+                return neighborhoods;
+            } catch (error) {
+                console.error('Error loading neighborhoods:', error);
+                return [
+                    {
+                        name: "Watersound Origins",
+                        propertyType: "homes",
+                        position: { lat: 30.294396274692907, lng: -86.01317525044458 },
+                        stats: {
+                            listingCount: 76,
+                            avgPrice: 825000,
+                            avgPriceDisplay: "$825,000",
+                            avgSqft: 2450,
+                            avgDom: 45,
+                            priceRange: "$600k - $1.2M"
+                        },
+                        amenities: ["Beach Access", "Dog Park", "Fitness", "Gated", "Golf", "No Short-Term", "Parks/Playgrounds", "Pickleball", "Pool", "Tennis", "Walking Trails", "Waterfront"],
+                        marketReportUrl: "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
+                    }
+                ];
+            }
+        }
+
+        async function initMap() {
+            try {
+                // Ensure Google Maps is loaded
+                if (typeof google === 'undefined' || !google.maps) {
+                    console.error('Google Maps API not loaded');
+                    document.getElementById('loading-screen').innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+                    return;
+                }
+                
+                neighborhoods = await loadNeighborhoods();
+                const urlParams = getUrlParams();
+                
+                // Handle single neighborhood mode
+                if (urlParams.neighborhood) {
+                    const targetNeighborhood = neighborhoods.find(n => toSlug(n.name) === urlParams.neighborhood);
+                    if (targetNeighborhood) {
+                        // Filter to show only this neighborhood
+                        neighborhoods = [targetNeighborhood];
+                    }
+                }
+                
+                // Hide drawer and footer in single mode
+                if (urlParams.mode === 'single') {
+                    const sidebar = document.getElementById('sidebar');
+                    const drawerToggle = document.getElementById('drawer-toggle');
+                    const footer = document.querySelector('.bg-neutral-800');
+                    if (sidebar) sidebar.style.display = 'none';
+                    if (drawerToggle) drawerToggle.style.display = 'none';
+                    if (footer) footer.style.display = 'none';
+                    document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
+                }
+                
+                // Determine center and zoom
+                let center, zoom;
+                
+                if (urlParams.lat && urlParams.lng) {
+                    // Use explicit coordinates
+                    center = { lat: urlParams.lat, lng: urlParams.lng };
+                    zoom = urlParams.zoom || 14;
+                } else if (urlParams.neighborhood && neighborhoods.length === 1) {
+                    // Center on specific neighborhood
+                    center = neighborhoods[0].position;
+                    zoom = urlParams.zoom || 14;
+                } else {
+                    // Default: center on Watersound Origins area
+                    center = { lat: 30.294396274692907, lng: -86.01317525044458 };
+                    zoom = urlParams.zoom || 12;
+                }
+                
+                initializeMap(center, zoom);
+                
+                // Hide loading screen
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                }
+                
+                // Auto-open info window if requested
+                if (urlParams.autoOpen && neighborhoods.length === 1) {
+                    // Wait for markers to be created
+                    setTimeout(() => {
+                        if (markers.length > 0) {
+                            google.maps.event.trigger(markers[0].marker, 'click');
+                        }
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Error initializing map:', error);
+                document.getElementById('loading-screen').innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+            }
+        }
+
+        function initializeMap(center, zoom) {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: zoom,
+                center: center,
+                mapId: 'Community Finder',
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                streetViewControl: true,
+                streetViewControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_BOTTOM
+                },
+                fullscreenControl: true,
+                zoomControl: true
+            });
+
+            infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
+            addMarkers();
+            setupFilters();
+            updateCount();
+        }
+
+        function addMarkers() {
+            markers.forEach(m => m.marker.setMap(null));
+            markers = [];
+
+            neighborhoods.forEach((neighborhood, index) => {
+                const markerColor = getMarkerColor(neighborhood.stats.avgPrice);
+
+                // Create invisible marker content (we use custom overlay for visuals)
+                const markerDiv = document.createElement('div');
+                markerDiv.style.width = '0px';
+                markerDiv.style.height = '0px';
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    position: neighborhood.position,
+                    map: map,
+                    title: neighborhood.name,
+                    content: markerDiv
+                });
+
+                // Add ripple effect for all neighborhoods (initially inactive)
+                const rippleOverlay = addRippleOverlay(marker.position, marker, neighborhood);
+                rippleOverlays.set(marker, rippleOverlay);
+
+                marker.addListener('click', () => {
+                    toggleMarker(marker, neighborhood, rippleOverlay);
+                });
+
+                // Don't auto-open any pins on load
+                markers.push({ marker, neighborhood });
+            });
+        }
+
+        function addRippleOverlay(position, marker, neighborhood) {
+            class RippleOverlay extends google.maps.OverlayView {
+                constructor(position, marker, neighborhood) {
+                    super();
+                    this.position = position;
+                    this.marker = marker;
+                    this.neighborhood = neighborhood;
+                    this.div = null;
+                    this.rippleElement = null;
+                }
+
+                onAdd() {
+                    const div = document.createElement('div');
+                    div.style.position = 'absolute';
+                    div.style.cursor = 'pointer';
+                    div.innerHTML = `
+                        <div class="ripple-marker">
+                            <div class="ripple"></div>
+                            <div class="ripple-icon"></div>
+                        </div>
+                    `;
+                    this.div = div;
+                    this.rippleElement = div.querySelector('.ripple');
+                    
+                    // Make the overlay clickable
+                    div.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        google.maps.event.trigger(this.marker, 'click');
+                    });
+                    
+                    const panes = this.getPanes();
+                    panes.overlayMouseTarget.appendChild(div);
+                }
+
+                draw() {
+                    const overlayProjection = this.getProjection();
+                    const position = overlayProjection.fromLatLngToDivPixel(this.position);
+                    if (this.div) {
+                        this.div.style.left = position.x - 20 + 'px';
+                        this.div.style.top = position.y - 20 + 'px';
+                    }
+                }
+
+                activate() {
+                    if (this.rippleElement) {
+                        this.rippleElement.classList.add('active');
+                    }
+                }
+
+                deactivate() {
+                    if (this.rippleElement) {
+                        this.rippleElement.classList.remove('active');
+                    }
+                }
+
+                hide() {
+                    if (this.div) {
+                        this.div.style.display = 'none';
+                    }
+                }
+
+                show() {
+                    if (this.div) {
+                        this.div.style.display = 'block';
+                    }
+                }
+
+                onRemove() {
+                    if (this.div) {
+                        this.div.parentNode.removeChild(this.div);
+                        this.div = null;
+                    }
+                }
+            }
+
+            const overlay = new RippleOverlay(position, marker, neighborhood);
+            overlay.setMap(map);
+            return overlay;
+        }
+
+        function toggleMarker(marker, neighborhood, rippleOverlay) {
+            // If clicking the same marker, toggle info window and ripple
+            if (activeMarker === marker) {
+                if (infoWindow && infoWindow.getMap()) {
+                    infoWindow.close();
+                    if (rippleOverlay) {
+                        rippleOverlay.deactivate();
+                    }
+                    activeMarker = null;
+                } else {
+                    showInfoWindow(marker, neighborhood);
+                    if (rippleOverlay) {
+                        rippleOverlay.activate();
+                    }
+                }
+            } else {
+                // Clicking different marker - deactivate old, activate new
+                if (activeMarker) {
+                    const oldRipple = rippleOverlays.get(activeMarker);
+                    if (oldRipple) {
+                        oldRipple.deactivate();
+                    }
+                }
+                showInfoWindow(marker, neighborhood);
+                if (rippleOverlay) {
+                    rippleOverlay.activate();
+                }
+                activeMarker = marker;
+            }
+        }
+
+        function getMarkerColor(avgPrice) {
+            if (avgPrice < 500000) return '#10b981';
+            if (avgPrice < 750000) return '#f59e0b';
+            if (avgPrice < 1000000) return '#f97316';
+            return '#ef4444';
+        }
+
+        function showInfoWindow(marker, neighborhood) {
+            // Use avgPricePerSqFt from data or calculate if not available
+            const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
+                (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
+            const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
+            const medianPriceDisplay = `$${medianPrice.toLocaleString()}`;
+            
+            const content = `
+                <div class="info-window p-4 max-w-sm" style="cursor: pointer;">
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">
+                        ${neighborhood.name}
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-2">
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Listings</div>
+                            <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.listingCount}</div>
+                        </div>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Med List Price</div>
+                            <div class="text-sm font-semibold text-neutral-900">${medianPriceDisplay}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 mb-3">
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Avg $/Sq Ft</div>
+                            <div class="text-sm font-semibold text-neutral-900">$${pricePerSqFt}</div>
+                        </div>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
+                            <div class="text-xs text-neutral-500 mb-0.5">Avg DOM</div>
+                            <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.avgDom}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="text-xs font-semibold text-neutral-700 mb-1">Amenities</div>
+                        <div class="text-xs text-neutral-600 leading-relaxed">${neighborhood.amenities.join(', ')}</div>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-neutral-200">
+                        <a href="${neighborhood.marketReportUrl}" 
+                           target="_blank" 
+                           style="display: block; padding: 0.5rem 1rem; background-color: #313842; color: white; text-align: center; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: background-color 0.2s; outline: none;"
+                           onmouseover="this.style.backgroundColor='#1f242b';" 
+                           onmouseout="this.style.backgroundColor='#313842';"
+                           onfocus="this.style.outline='none';"
+                           onclick="event.stopPropagation();">
+                            View All ${neighborhood.stats.listingCount} Listings
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            infoWindow.setContent(content);
+            infoWindow.open(map, marker);
+            
+            // Add click listener to close info window when clicking the card
+            google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+                const infoWindowDiv = document.querySelector('.gm-style-iw-d');
+                if (infoWindowDiv) {
+                    infoWindowDiv.addEventListener('click', (e) => {
+                        // Don't close if clicking the link
+                        if (e.target.tagName !== 'A' && !e.target.closest('a')) {
+                            infoWindow.close();
+                            if (rippleOverlay) {
+                                rippleOverlay.deactivate();
+                            }
+                            activeMarker = null;
+                        }
+                    });
+                }
+            });
+            
+            // Listen for info window close to deactivate ripple
+            google.maps.event.clearListeners(infoWindow, 'closeclick');
+            infoWindow.addListener('closeclick', () => {
+                const rippleOverlay = rippleOverlays.get(marker);
+                if (rippleOverlay) {
+                    rippleOverlay.deactivate();
+                }
+                activeMarker = null;
+            });
+        }
+
+        function setupFilters() {
+            // Set up price checkboxes
+            document.querySelectorAll('#priceFilters input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', applyFilters);
+            });
+            
+            // Create amenity tags dynamically
+            const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            const defaultSelected = []; // Start with no amenities selected
+            
+            const amenityContainer = document.getElementById('amenityFilters');
+            amenityContainer.innerHTML = '';
+            
+            allAmenities.forEach(amenity => {
+                const tag = document.createElement('button');
+                tag.className = 'amenity-tag' + (defaultSelected.includes(amenity) ? ' selected' : '');
+                tag.textContent = amenity;
+                tag.dataset.amenity = amenity;
+                
+                tag.addEventListener('click', function() {
+                    // Handle mutually exclusive Short-Term / No Short-Term
+                    if (amenity === 'Short-Term' || amenity === 'No Short-Term') {
+                        const otherTag = amenity === 'Short-Term' ? 'No Short-Term' : 'Short-Term';
+                        const otherButton = Array.from(amenityContainer.children).find(
+                            btn => btn.dataset.amenity === otherTag
+                        );
+                        
+                        if (this.classList.contains('selected')) {
+                            // Deselecting this one
+                            this.classList.remove('selected');
+                        } else {
+                            // Selecting this one - deselect the other
+                            if (otherButton) {
+                                otherButton.classList.remove('selected');
+                            }
+                            this.classList.add('selected');
+                        }
+                    } else {
+                        this.classList.toggle('selected');
+                    }
+                    applyFilters();
+                });
+                
+                amenityContainer.appendChild(tag);
+            });
+        }
+
+        function applyFilters() {
+            const selectedPrices = Array.from(document.querySelectorAll('#priceFilters input:checked'))
+                .map(cb => cb.value);
+            const selectedAmenities = Array.from(document.querySelectorAll('.amenity-tag.selected'))
+                .map(tag => tag.dataset.amenity);
+            
+            // Get selected property type (homes or condos)
+            const selectedPropertyType = document.querySelector('.property-type-btn[style*="rgba(124, 163, 175"]')?.id === 'btn-condos' ? 'condos' : 'homes';
+
+            let visibleCount = 0;
+
+            markers.forEach(({ marker, neighborhood }) => {
+                let showMarker = true;
+
+                // Property type filter
+                if (neighborhood.propertyType && neighborhood.propertyType !== selectedPropertyType) {
+                    showMarker = false;
+                }
+
+                // Price filter - only apply if prices are selected
+                if (selectedPrices.length > 0) {
+                    const avgPrice = neighborhood.stats.avgPrice;
+                    const priceMatch = selectedPrices.some(range => {
+                        const [min, max] = range.split('-').map(Number);
+                        return avgPrice >= min && avgPrice <= max;
+                    });
+
+                    if (!priceMatch) showMarker = false;
+                }
+
+                // Show neighborhood if it has ANY of the selected amenities (not ALL)
+                if (selectedAmenities.length > 0) {
+                    // Check rental type filters first (mutually exclusive)
+                    const hasShortTerm = selectedAmenities.includes('Short-Term');
+                    const hasNoShortTerm = selectedAmenities.includes('No Short-Term');
+                    
+                    let rentalMatch = true;
+                    if (hasShortTerm && !neighborhood.amenities.includes('Short-Term')) {
+                        rentalMatch = false;
+                    }
+                    if (hasNoShortTerm && !neighborhood.amenities.includes('No Short-Term')) {
+                        rentalMatch = false;
+                    }
+                    
+                    // Check other amenities
+                    const otherSelectedAmenities = selectedAmenities.filter(a => a !== 'Short-Term' && a !== 'No Short-Term');
+                    let otherAmenityMatch = otherSelectedAmenities.length === 0 || otherSelectedAmenities.some(amenity => 
+                        neighborhood.amenities.includes(amenity)
+                    );
+                    
+                    if (!rentalMatch || !otherAmenityMatch) showMarker = false;
+                }
+
+                marker.map = showMarker ? map : null;
+                
+                // Also hide/show the ripple overlay
+                const rippleOverlay = rippleOverlays.get(marker);
+                if (rippleOverlay) {
+                    if (showMarker) {
+                        rippleOverlay.show();
+                    } else {
+                        rippleOverlay.hide();
+                        // If marker is being hidden and its info window is open, close it
+                        if (activeMarker === marker) {
+                            console.log('🚪 Closing InfoWindow for:', neighborhood.name);
+                            infoWindow.close();
+                            activeMarker = null;
+                            // Also deactivate the ripple
+                            const rippleDiv = rippleOverlay.div.querySelector('.ripple');
+                            if (rippleDiv) {
+                                rippleDiv.classList.remove('active');
+                            }
+                        }
+                    }
+                }
+                
+                if (showMarker) visibleCount++;
+            });
+
+            updateCount(visibleCount);
+        }
+
+        function updateCount(count) {
+            if (count === undefined) {
+                count = markers.filter(m => m.marker.map !== null).length;
+            }
+            
+            const resultsEl = document.getElementById('resultsCount');
+            if (resultsEl) {
+                resultsEl.textContent = `${count} ${count === 1 ? 'community' : 'communities'} found!`;
+            }
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active state from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('border-b-2', 'border-neutral-900', 'text-neutral-900');
+                    b.classList.add('text-neutral-400');
+                });
+                
+                // Add active state to clicked tab
+                this.classList.add('border-b-2', 'border-neutral-900', 'text-neutral-900');
+                this.classList.remove('text-neutral-400');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected tab content
+                const tabId = 'tab-' + this.dataset.tab;
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+
+        // Property type toggle (Homes/Condos)
+        document.querySelectorAll('.property-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active state from all buttons
+                document.querySelectorAll('.property-type-btn').forEach(b => {
+                    b.style.background = 'white';
+                    b.style.color = '#52525b';
+                    b.style.borderColor = '#d4d4d8';
+                });
+                
+                // Add active state to clicked button
+                this.style.background = 'rgba(124, 163, 175, 0.3)';
+                this.style.color = '#3f3f46';
+                this.style.borderColor = '#7ca3af';
+                
+                // Apply filters (this will be used when we have property type data in neighborhoods.json)
+                applyFilters();
+            });
+        });
+
+        window.initMap = initMap;
+        
+        // Fallback if Google Maps API fails to load
+        window.addEventListener('error', function(e) {
+            if (e.message && e.message.includes('google')) {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading Google Maps. Please check your connection and refresh.</p></div>';
+                }
+            }
+        }, true);
+        
+        // Check if Google Maps is ready after DOM loads (for iframe contexts)
+        document.addEventListener('DOMContentLoaded', function() {
+            // If Google Maps loaded before callback, call initMap manually
+            setTimeout(function() {
+                if (typeof google !== 'undefined' && google.maps && !map) {
+                    console.log('Google Maps ready, initializing...');
+                    initMap();
+                }
+            }, 1000);
+        });
+        
+        // Timeout fallback if map doesn't load in 15 seconds
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen && loadingScreen.style.display !== 'none') {
+                loadingScreen.innerHTML = '<div class="text-center"><p class="text-neutral-600 font-medium">Map is taking longer than expected to load...</p><button onclick="location.reload()" class="mt-4 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-900">Refresh Page</button></div>';
+            }
+        }, 15000);
+        
+        // Set current year for copyright (guard in case element is absent, e.g., iframe embeds)
+        const currentYearEl = document.getElementById('currentYear');
+        if (currentYearEl) {
+            currentYearEl.textContent = new Date().getFullYear();
+        }
+
+    </script>
+</body>
+</html>

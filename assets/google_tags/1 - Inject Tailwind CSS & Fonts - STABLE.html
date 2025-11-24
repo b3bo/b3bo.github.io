@@ -1,0 +1,64 @@
+<script>
+  (function() {
+    // Step 1: Load critical CSS first (blocking in head)
+    console.log('Step 1: Stylesheet link added for Critical CSS (loaded first)');
+    var criticalLink = document.createElement('link');
+    criticalLink.rel = 'stylesheet';
+    criticalLink.href = 'https://b3bo.github.io/assets/css/critical.css'; 
+    criticalLink.onload = function() {
+      console.log('Critical CSS loaded successfully');
+    };
+    criticalLink.onerror = function() {
+      console.error('Error: Failed to load Critical CSS');
+    };
+    document.head.appendChild(criticalLink);
+
+    // Step 2: Preconnect to Google Fonts
+    console.log('Step 2: Preconnect added for Google Fonts');
+    var fontsPreconnect = document.createElement('link');
+    fontsPreconnect.rel = 'preconnect';
+    fontsPreconnect.href = 'https://fonts.googleapis.com';
+    document.head.appendChild(fontsPreconnect);
+
+    var gstaticPreconnect = document.createElement('link');
+    gstaticPreconnect.rel = 'preconnect';
+    gstaticPreconnect.href = 'https://fonts.gstatic.com';
+    gstaticPreconnect.crossOrigin = 'anonymous';
+    document.head.appendChild(gstaticPreconnect);
+
+    // Step 3: Load Google Fonts CSS
+    console.log('Step 3: Loading Google Fonts CSS');
+    var fontsLink = document.createElement('link');
+    fontsLink.rel = 'stylesheet';
+    fontsLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap';
+    document.head.appendChild(fontsLink);
+
+    // Step 4: Preload minified Tailwind CSS
+    console.log('Step 4: Preload added for minified Tailwind CSS');
+    var tailwindPreload = document.createElement('link');
+    tailwindPreload.rel = 'preload';
+    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; 
+    tailwindPreload.as = 'style';
+    document.head.appendChild(tailwindPreload);
+
+    // Step 5: Load full minified Tailwind CSS asynchronously in head (after critical)
+    console.log('Step 5: Stylesheet link added for minified Tailwind CSS');
+    var tailwindLink = document.createElement('link');
+    tailwindLink.rel = 'stylesheet';
+    tailwindLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Updated to minified Tailwind
+    tailwindLink.media = 'print'; // Async hack
+    tailwindLink.onload = function() {
+      this.media = 'all';
+      console.log('Minified Tailwind CSS loaded successfully');
+    };
+    tailwindLink.onerror = function() {
+      console.error('Error: Failed to load minified Tailwind CSS');
+    };
+    document.head.appendChild(tailwindLink);
+
+    // Noscript fallback for Tailwind
+    var noscriptTailwind = document.createElement('noscript');
+    noscriptTailwind.innerHTML = '<link rel="stylesheet" href="https://b3bo.github.io/assets/css/tailwind.css">';
+    document.head.appendChild(noscriptTailwind);
+  })();
+</script>
