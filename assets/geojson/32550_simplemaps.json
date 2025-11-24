@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.34438,
+          30.38541
+        ]
+      },
+      "properties": {
+        "zip": "32550",
+        "city": "Miramar Beach",
+        "state": "FL"
+      }
+    }
+  ]
+}

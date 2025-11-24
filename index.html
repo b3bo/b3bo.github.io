@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
     
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=beta&libraries=marker" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
     
     <style>
         /* Info window custom styles */
@@ -204,7 +204,7 @@
                 <!-- Tab 2 Content - Areas -->
                 <div id="tab-2" class="tab-content hidden">
                     <div class="flex flex-wrap gap-2" id="areaFilters">
-                        <button class="amenity-tag" data-zipcode="32550">Destin</button>
+                        <button class="amenity-tag" data-zipcode="32541">Destin</button>
                         <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
                         <button class="amenity-tag" data-zipcode="32550">Miramar Beach</button>
                         <button class="amenity-tag" data-zipcode="32461">Inlet Beach</button>
@@ -261,59 +261,48 @@
         let neighborhoods = [];
         let activeMarker = null;
         let rippleOverlays = new Map();
-        let zipCodeLayers = new Map(); // Store loaded zip code boundaries
+        let featureLayer; // Google Maps Feature Layer for postal codes
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
-        // Zip code boundary management
-        async function loadZipCodeBoundary(zipCode) {
-            if (zipCodeLayers.has(zipCode)) {
-                return zipCodeLayers.get(zipCode);
-            }
-
-            try {
-                console.log(`Loading boundary for zip code ${zipCode}...`);
-                const response = await fetch(`./assets/geojson/${zipCode}.json`);
-                const geoJson = await response.json();
+        // Zip code boundary management using Google Maps Platform's native boundaries
+        function updateFeatureLayerStyle() {
+            if (!featureLayer) return;
+            
+            featureLayer.style = (featureStyleOptions) => {
+                // Get the postal code from the feature
+                const postalCode = featureStyleOptions.feature.displayName;
                 
-                // Create a new data layer for this zip code
-                const dataLayer = new google.maps.Data();
-                dataLayer.addGeoJson(geoJson);
+                // Check if this postal code should be shown
+                if (postalCode && activeZipCodes.has(postalCode)) {
+                    return {
+                        strokeColor: '#7ca3af',
+                        strokeWeight: 2.5,
+                        strokeOpacity: 0.8,
+                        fillColor: '#7ca3af',
+                        fillOpacity: 0.12
+                    };
+                }
                 
-                // Style the boundary
-                dataLayer.setStyle({
-                    strokeColor: '#7ca3af',
-                    strokeWeight: 2.5,
-                    fillColor: '#7ca3af',
-                    fillOpacity: 0.12,
-                    strokeOpacity: 0.8
-                });
-                
-                zipCodeLayers.set(zipCode, dataLayer);
-                console.log(`Boundary loaded for zip code ${zipCode}`);
-                return dataLayer;
-            } catch (error) {
-                console.error(`Error loading boundary for zip code ${zipCode}:`, error);
-                return null;
-            }
+                // Hide all other postal codes
+                return { fillOpacity: 0, strokeOpacity: 0 };
+            };
         }
 
         function showZipCodeBoundary(zipCode) {
-            loadZipCodeBoundary(zipCode).then(dataLayer => {
-                if (dataLayer) {
-                    dataLayer.setMap(map);
-                    activeZipCodes.add(zipCode);
-                    console.log(`Showing boundary for zip code ${zipCode}`);
-                }
-            });
+            if (!featureLayer) {
+                console.error('Feature layer not initialized');
+                return;
+            }
+            
+            activeZipCodes.add(zipCode);
+            console.log(`Showing boundary for zip code ${zipCode}, active codes:`, Array.from(activeZipCodes));
+            updateFeatureLayerStyle();
         }
 
         function hideZipCodeBoundary(zipCode) {
-            const dataLayer = zipCodeLayers.get(zipCode);
-            if (dataLayer) {
-                dataLayer.setMap(null);
-                activeZipCodes.delete(zipCode);
-                console.log(`Hiding boundary for zip code ${zipCode}`);
-            }
+            activeZipCodes.delete(zipCode);
+            console.log(`Hiding boundary for zip code ${zipCode}, active codes:`, Array.from(activeZipCodes));
+            updateFeatureLayerStyle();
         }
 
         function toggleZipCodeBoundary(zipCode) {
@@ -461,6 +450,14 @@
                 fullscreenControl: true,
                 zoomControl: true
             });
+
+            // Initialize Feature Layer for postal code boundaries
+            featureLayer = map.getFeatureLayer('POSTAL_CODE');
+            
+            // Set initial style (hide all boundaries)
+            featureLayer.style = (featureStyleOptions) => {
+                return { fillOpacity: 0, strokeOpacity: 0 };
+            };
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
             addMarkers();
