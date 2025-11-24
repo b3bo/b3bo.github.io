@@ -37,7 +37,14 @@
   window.addEventListener('DOMContentLoaded', function() {
     console.log('Lazy loading script started (DOMContentLoaded fired)');
     
-    var attempts = 0;
+    // Try immediately first
+    if (applyLazyLoading()) {
+      console.log('IDX lazy loading complete on first attempt');
+      return; // Early exit - no need for retry logic
+    }
+    
+    // If not found, start retry logic
+    var attempts = 1; // Already tried once
     var maxAttempts = 20; // Try for ~5 seconds
     
     var checkInterval = setInterval(function() {
