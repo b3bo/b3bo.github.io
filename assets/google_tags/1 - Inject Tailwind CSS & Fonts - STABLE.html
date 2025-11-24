@@ -33,16 +33,8 @@
     fontsLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap';
     document.head.appendChild(fontsLink);
 
-    // Step 4: Preload minified Tailwind CSS
-    console.log('Step 4: Preload added for minified Tailwind CSS');
-    var tailwindPreload = document.createElement('link');
-    tailwindPreload.rel = 'preload';
-    tailwindPreload.href = 'https://b3bo.github.io/assets/css/tailwind.css'; 
-    tailwindPreload.as = 'style';
-    document.head.appendChild(tailwindPreload);
-
-    // Step 5: Load full minified Tailwind CSS asynchronously in head (after critical)
-    console.log('Step 5: Stylesheet link added for minified Tailwind CSS');
+    // Step 4: Load full minified Tailwind CSS asynchronously in head (after critical)
+    console.log('Step 4: Stylesheet link added for minified Tailwind CSS');
     var tailwindLink = document.createElement('link');
     tailwindLink.rel = 'stylesheet';
     tailwindLink.href = 'https://b3bo.github.io/assets/css/tailwind.css'; // Updated to minified Tailwind

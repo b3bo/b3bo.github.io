@@ -1,4 +1,8 @@
 <script>
+// Wait for DOM to be ready before manipulating elements
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('H2 injection script started');
+
 // Function to extract and format the page title from the URL path
 function getPageTitle() {
   // Get the pathname from the current URL, remove leading/trailing slashes, split by '/', take the last segment (or default to 'Home' if empty)
@@ -92,4 +96,6 @@ if (container) {
   // Log an error message to the console
   console.log('No element with class si-container.si-property-stats found');
 }
+
+}); // End DOMContentLoaded
 </script>
