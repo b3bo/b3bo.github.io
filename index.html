@@ -273,8 +273,11 @@
             if (!featureLayer) return;
             
             featureLayer.style = (featureStyleOptions) => {
-                // Get the postal code from the feature
-                const postalCode = featureStyleOptions.feature.displayName;
+                // Get the postal code from the feature - try multiple properties
+                const feature = featureStyleOptions.feature;
+                const postalCode = feature.displayName || feature.h || feature.postalCode;
+                
+                console.log('Feature styling:', postalCode, 'Active:', Array.from(activeZipCodes));
                 
                 // Check if this postal code should be shown
                 if (postalCode && activeZipCodes.has(postalCode)) {
