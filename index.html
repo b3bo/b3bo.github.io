@@ -266,8 +266,7 @@
         let activeMarker = null;
         let rippleOverlays = new Map();
         let featureLayer; // Google Maps Feature Layer for postal codes
-        let activeZipCodes = new Set(); // Track which zip codes are currently displayed
-        let fetchedPlaceIds = new Set(); // Track which Place IDs we've already tried to fetch
+        const activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
         // Approximate centers for panning
         const zipCodeCenters = {
@@ -284,61 +283,33 @@
                 console.log("applyFeatureLayerStyle: Feature layer not ready.");
                 return;
             }
-            
-            featureLayer.style = (params) => {
-                const feature = params.feature;
-                
-                // 1. If we have the place data already
-                if (feature.place) {
-                    const name = feature.place.displayName;
-                    
-                    // Debug: Log if we see the target zip code
-                    // if (name && name.includes('32461')) console.log("Saw 32461 in style function (already loaded)");
 
-                    // Check if any active zip code is contained in the place name
-                    for (const zip of activeZipCodes) {
-                        if (name && name.includes(zip)) {
-                            return {
-                                strokeColor: '#7ca3af',
-                                strokeWeight: 2.5,
-                                strokeOpacity: 0.8,
-                                fillColor: '#7ca3af',
-                                fillOpacity: 0.12
-                            };
-                        }
-                    }
-                    return null; // Not active
+            const styleFn = ({ feature }) => {
+                const displayName = (() => {
+                    if (typeof feature.displayName === 'string') return feature.displayName;
+                    if (feature.displayName?.text) return feature.displayName.text;
+                    if (typeof feature.place?.displayName === 'string') return feature.place.displayName;
+                    if (feature.place?.displayName?.text) return feature.place.displayName.text;
+                    return '';
+                })();
+
+                const zipMatch = displayName.match(/\b\d{5}\b/);
+                const zipCode = zipMatch ? zipMatch[0] : null;
+
+                if (zipCode && activeZipCodes.has(zipCode)) {
+                    return {
+                        strokeColor: '#7ca3af',
+                        strokeWeight: 2.5,
+                        strokeOpacity: 0.8,
+                        fillColor: '#7ca3af',
+                        fillOpacity: 0.12
+                    };
                 }
-                
-                // 2. If not fetched yet, try to fetch it
-                if (!fetchedPlaceIds.has(feature.placeId)) {
-                    fetchedPlaceIds.add(feature.placeId);
-                    
-                    feature.fetchPlace().then((place) => {
-                        // console.log("Fetched place:", place.displayName);
-                        
-                        // Check if this newly fetched place matches any active zip
-                        let match = false;
-                        for (const zip of activeZipCodes) {
-                            if (place.displayName && place.displayName.includes(zip)) {
-                                match = true;
-                                break;
-                            }
-                        }
-                        
-                        // If it's a match, we MUST trigger a re-style to make it appear
-                        if (match) {
-                            console.log('Found matching boundary:', place.displayName);
-                            // Re-apply style to force update
-                            applyFeatureLayerStyle();
-                        }
-                    }).catch(err => {
-                        console.error('Error fetching place details:', err);
-                    });
-                }
-                
-                return null; // Invisible while loading
+
+                return { display: 'none' }; // Hide any non-active features
             };
+
+            featureLayer.style = styleFn;
         }
         
         function showZipCodeBoundary(zipCode) {
