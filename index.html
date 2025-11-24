@@ -269,24 +269,34 @@
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
         // Zip code boundary management using Google Maps Platform's native boundaries
+        function getPostalCodeFromFeature(feature) {
+            if (!feature) return null;
+
+            if (feature.placeId && feature.placeId.includes(':')) {
+                const [type, code] = feature.placeId.split(':');
+                if (type === 'postal_code' && code) {
+                    return code;
+                }
+            }
+
+            const candidates = [feature.displayName, feature.postalCode, feature.h];
+            return candidates.find(value => value && /^\d{5}$/.test(value)) || null;
+        }
+
         function updateFeatureLayerStyle() {
             if (!featureLayer) return;
             
             featureLayer.style = (featureStyleOptions) => {
-                // Get the postal code from the feature - try multiple properties
-                const feature = featureStyleOptions.feature;
-                const postalCode = feature.displayName || feature.h || feature.postalCode;
+                const postalCode = getPostalCodeFromFeature(featureStyleOptions.feature);
                 
-                console.log('Feature styling:', postalCode, 'Active:', Array.from(activeZipCodes));
-                
-                // Check if this postal code should be shown
+                // Show only the postal codes that are toggled on
                 if (postalCode && activeZipCodes.has(postalCode)) {
                     return {
                         strokeColor: '#7ca3af',
                         strokeWeight: 2.5,
-                        strokeOpacity: 0.8,
+                        strokeOpacity: 0.85,
                         fillColor: '#7ca3af',
-                        fillOpacity: 0.12
+                        fillOpacity: 0.15
                     };
                 }
                 
@@ -460,11 +470,7 @@
 
             // Initialize Feature Layer for postal code boundaries
             featureLayer = map.getFeatureLayer('POSTAL_CODE');
-            
-            // Set initial style (hide all boundaries)
-            featureLayer.style = (featureStyleOptions) => {
-                return { fillOpacity: 0, strokeOpacity: 0 };
-            };
+            updateFeatureLayerStyle();
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
             addMarkers();
