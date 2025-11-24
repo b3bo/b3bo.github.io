@@ -284,6 +284,8 @@
                 // 1. If we have the place data already
                 if (feature.place) {
                     const name = feature.place.displayName;
+                    // console.log("Checking feature:", name); 
+                    
                     // Check if any active zip code is contained in the place name
                     for (const zip of activeZipCodes) {
                         if (name && name.includes(zip)) {
@@ -304,9 +306,11 @@
                 if (!fetchedPlaceIds.has(feature.placeId)) {
                     fetchedPlaceIds.add(feature.placeId);
                     
-                    // console.log("Fetching place for feature:", feature.placeId);
+                    console.log("Fetching place for feature:", feature.placeId);
 
                     feature.fetchPlace().then((place) => {
+                        console.log("Fetched place:", place.displayName);
+                        
                         // Check if this newly fetched place matches any active zip
                         let match = false;
                         for (const zip of activeZipCodes) {
@@ -323,7 +327,6 @@
                             featureLayer.style = featureLayer.style;
                         }
                     }).catch(err => {
-                        // If fetch fails (e.g. API key issues), we can't do much
                         console.error('Error fetching place details:', err);
                     });
                 }
