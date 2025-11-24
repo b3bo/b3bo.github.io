@@ -294,10 +294,22 @@
             return null;
         }
 
+        let featureDebugLogs = 0;
         function handleFeatureLayerStyle(featureStyleOptions) {
             const postalCode = getPostalCodeFromFeature(featureStyleOptions.feature);
+
+            if (activeZipCodes.size > 0 && featureDebugLogs < 30) {
+                console.log('Feature debug', {
+                    displayName: featureStyleOptions.feature?.displayName,
+                    placeId: featureStyleOptions.feature?.placeId,
+                    postalCode,
+                    active: Array.from(activeZipCodes)
+                });
+                featureDebugLogs++;
+            }
             
             if (postalCode && activeZipCodes.has(postalCode)) {
+                console.log('Highlighting postal code feature', postalCode);
                 return {
                     strokeColor: '#7ca3af',
                     strokeWeight: 2.5,
