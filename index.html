@@ -446,7 +446,8 @@
                     this.rippleElement = div.querySelector('.ripple');
                     
                     // Make the overlay clickable
-                    div.addEventListener('click', () => {
+                    div.addEventListener('click', (e) => {
+                        e.stopPropagation();
                         google.maps.event.trigger(this.marker, 'click');
                     });
                     
