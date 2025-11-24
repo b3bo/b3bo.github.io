@@ -272,11 +272,6 @@
                 // Get the postal code from the feature
                 const postalCode = featureStyleOptions.feature.displayName;
                 
-                // Debug: log what postal codes Google is providing
-                if (postalCode && activeZipCodes.size > 0 && Math.random() < 0.01) {
-                    console.log('Google postal code:', postalCode, 'Looking for:', Array.from(activeZipCodes));
-                }
-                
                 // Check if this postal code should be shown
                 if (postalCode && activeZipCodes.has(postalCode)) {
                     return {
@@ -458,15 +453,6 @@
 
             // Initialize Feature Layer for postal code boundaries
             featureLayer = map.getFeatureLayer('POSTAL_CODE');
-            
-            // Add click listener to debug postal code features
-            featureLayer.addListener('click', (event) => {
-                console.log('Postal code clicked:', {
-                    displayName: event.features[0].displayName,
-                    placeId: event.features[0].placeId,
-                    allProperties: event.features[0]
-                });
-            });
             
             // Set initial style (hide all boundaries)
             featureLayer.style = (featureStyleOptions) => {
