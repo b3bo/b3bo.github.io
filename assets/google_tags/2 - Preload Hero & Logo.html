@@ -8,7 +8,7 @@
     document.head.appendChild(cloudinaryPreconnect);
     // Step 2: Dynamic preloads for hero and logo images (run on DOM ready for LCP)
     function addImagePreloads() {
-      var imagesToPreload = document.querySelectorAll('img[src*="Hero"], img[src*="Logo"]');
+      var imagesToPreload = document.querySelectorAll('img[src*="Hero"], img[src*="Logo"], img[src*="logo"]');
       var subStep = 1;
       imagesToPreload.forEach(function(img) {
         var imgSrc = img.src;

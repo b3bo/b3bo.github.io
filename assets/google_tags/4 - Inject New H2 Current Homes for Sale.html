@@ -1,0 +1,95 @@
+<script>
+// Function to extract and format the page title from the URL path
+function getPageTitle() {
+  // Get the pathname from the current URL, remove leading/trailing slashes, split by '/', take the last segment (or default to 'Home' if empty)
+  var path = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/').pop() || 'Home';
+  
+  // Replace underscores and hyphens with spaces, then capitalize the first letter of each word (title case)
+  path = path.replace(/_/g, ' ').replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+
+  // Trim trailing " Lots" or " Condos" from the title (case-insensitive, only if at the end after a space)
+  path = path.replace(/\s+(Lots?|Condos?)$/i, '');  
+  // Return the processed path as the title
+  return path;
+}
+
+// Function to find and extract the number of listed items from the parent element of the container
+function getListedCount(container) {
+  // Get the parent element of the provided container
+  var parent = container.parentElement;
+  
+  // If a parent exists
+  if (parent) {
+    // Get all descendant elements within the parent
+    var elements = parent.getElementsByTagName('*');
+    
+    // Loop through each descendant element
+    for (var i = 0; i < elements.length; i++) {
+      // Get the text content of the current element (using textContent or innerText for compatibility)
+      var text = elements[i].textContent || elements[i].innerText;
+      
+      // Search for a pattern like "123 Listed" (case-insensitive) and capture the number
+      var match = text.match(/(\d+)\s*Listed/i);
+      
+      // If a match is found, return the captured number
+      if (match) {
+        return match[1];
+      }
+    }
+    
+    // If no match in descendants, get the full text of the parent
+    var parentText = parent.textContent || parent.innerText;
+    
+    // Search the parent's text for the same pattern
+    var parentMatch = parentText.match(/(\d+)\s*Listed/i);
+    
+    // If found, return the number
+    if (parentMatch) {
+      return parentMatch[1];
+    }
+  }
+  
+  // If no parent or no match found, return null
+  return null;
+}
+
+// Select the element with classes 'si-container' and 'si-property-stats'
+var container = document.querySelector('.si-container.si-property-stats');
+
+// If the container element is found
+if (container) {
+  // Get the formatted page title using the function
+  var title = getPageTitle();
+  
+  // Get the listed count using the function
+  var listedCount = getListedCount(container);
+
+  // Creat if the original path contained "lot" or "condo"
+  var isLotsPage = /lots/i.test(window.location.pathname);
+  var isCondosPage = /condo/i.test(window.location.pathname);
+  
+  console.log('isLotsPage: ', isLotsPage);
+  console.log('isCondosPage: ', isCondosPage);
+
+  // Choose the label: "Lots" if it's a lots page, otherwise "Homes"
+  var label = isLotsPage ? "Lots" : (isCondosPage ? "Condos" : "Homes");
+
+  // Build the H2 text: Include the count if available, e.g., "5 Active Homes for Sale in Title" or just "Active Homes for Sale in Title"
+  var h2Text = (listedCount 
+    ? listedCount + " Active " + label + " for Sale in " + title 
+    : "Active " + label + " for Sale in " + title);
+
+  // Create the H2 HTML string with an ID of "listings"
+  var h2 = '<h2 id="listings">' + h2Text + '</h2>';
+  
+  // Insert the H2 element right after the container in the DOM
+  container.insertAdjacentHTML('afterend', h2);
+  
+  // Log a message to the console confirming the H2 was added, including the text
+  console.log('Added H2: ' + h2Text);
+// If no container found
+} else {
+  // Log an error message to the console
+  console.log('No element with class si-container.si-property-stats found');
+}
+</script>

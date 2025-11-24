@@ -1,0 +1,26 @@
+<!-- GTM Custom HTML Tag: Add Lazy Loading to IDX Images (No Transformation, Enhanced Debug) -->
+<script>
+  console.log('Lazy loading script loaded (outside event)'); // Immediate debug
+
+  window.addEventListener('DOMContentLoaded', function() {
+    console.log('Lazy loading script started (DOMContentLoaded fired)');
+    var images = document.querySelectorAll('.si-listing__photo-img img');
+    if (images.length === 0) {
+      console.log('No IDX images found with selector ".si-listing__photo-img img"—check class in DevTools');
+    } else {
+      console.log('Found ' + images.length + ' IDX images to lazy-load');
+    }
+    for (var i = 0; i < images.length; i++) {
+      var img = images[i];
+      var originalSrc = img.getAttribute('data-src') || img.src; // Prioritize data-src for the real image
+      if (originalSrc && originalSrc.indexOf('loadingphoto_mid.gif') === -1) { // Skip placeholders
+        if (!img.hasAttribute('loading')) {
+          img.loading = 'lazy';
+          console.log('Added lazy loading to real IDX image:', originalSrc);
+        }
+      } else {
+        console.log('Skipped placeholder image:', img.src);
+      }
+    }
+  });
+</script>

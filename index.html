@@ -847,8 +847,11 @@
             }
         }, 15000);
         
-        // Set current year for copyright
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Set current year for copyright (guard in case element is absent, e.g., iframe embeds)
+        const currentYearEl = document.getElementById('currentYear');
+        if (currentYearEl) {
+            currentYearEl.textContent = new Date().getFullYear();
+        }
 
     </script>
 </body>
