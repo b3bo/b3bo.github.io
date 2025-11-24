@@ -51,7 +51,7 @@
 }
 
 /* Optional: Scan files for classes */
-@source "./*.html", "./components/**/*.html";
+@source "./*.html", "./components/sierra/*.html";
 
 /* Include custom.css */
 @import "./custom.css";
