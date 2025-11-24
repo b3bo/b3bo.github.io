@@ -459,12 +459,17 @@
             });
 
             // Initialize Feature Layer for postal code boundaries
-            featureLayer = map.getFeatureLayer('POSTAL_CODE');
-            
-            // Set initial style (hide all boundaries)
-            featureLayer.style = (featureStyleOptions) => {
-                return { fillOpacity: 0, strokeOpacity: 0 };
-            };
+            try {
+                featureLayer = map.getFeatureLayer('POSTAL_CODE');
+                console.log('Feature layer initialized:', featureLayer);
+                
+                // Set initial style (hide all boundaries)
+                featureLayer.style = (featureStyleOptions) => {
+                    return { fillOpacity: 0, strokeOpacity: 0 };
+                };
+            } catch (error) {
+                console.error('Error initializing feature layer:', error);
+            }
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
             addMarkers();
