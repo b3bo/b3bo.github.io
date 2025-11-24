@@ -261,6 +261,70 @@
         let neighborhoods = [];
         let activeMarker = null;
         let rippleOverlays = new Map();
+        let zipCodeLayers = new Map(); // Store loaded zip code boundaries
+        let activeZipCodes = new Set(); // Track which zip codes are currently displayed
+
+        // Zip code boundary management
+        async function loadZipCodeBoundary(zipCode) {
+            if (zipCodeLayers.has(zipCode)) {
+                return zipCodeLayers.get(zipCode);
+            }
+
+            try {
+                console.log(`Loading boundary for zip code ${zipCode}...`);
+                const response = await fetch(`./assets/geojson/${zipCode}.json`);
+                const geoJson = await response.json();
+                
+                // Create a new data layer for this zip code
+                const dataLayer = new google.maps.Data();
+                dataLayer.addGeoJson(geoJson);
+                
+                // Style the boundary
+                dataLayer.setStyle({
+                    strokeColor: '#7ca3af',
+                    strokeWeight: 2.5,
+                    fillColor: '#7ca3af',
+                    fillOpacity: 0.12,
+                    strokeOpacity: 0.8
+                });
+                
+                zipCodeLayers.set(zipCode, dataLayer);
+                console.log(`Boundary loaded for zip code ${zipCode}`);
+                return dataLayer;
+            } catch (error) {
+                console.error(`Error loading boundary for zip code ${zipCode}:`, error);
+                return null;
+            }
+        }
+
+        function showZipCodeBoundary(zipCode) {
+            loadZipCodeBoundary(zipCode).then(dataLayer => {
+                if (dataLayer) {
+                    dataLayer.setMap(map);
+                    activeZipCodes.add(zipCode);
+                    console.log(`Showing boundary for zip code ${zipCode}`);
+                }
+            });
+        }
+
+        function hideZipCodeBoundary(zipCode) {
+            const dataLayer = zipCodeLayers.get(zipCode);
+            if (dataLayer) {
+                dataLayer.setMap(null);
+                activeZipCodes.delete(zipCode);
+                console.log(`Hiding boundary for zip code ${zipCode}`);
+            }
+        }
+
+        function toggleZipCodeBoundary(zipCode) {
+            if (activeZipCodes.has(zipCode)) {
+                hideZipCodeBoundary(zipCode);
+                return false; // Not showing
+            } else {
+                showZipCodeBoundary(zipCode);
+                return true; // Now showing
+            }
+        }
 
         // Parse URL parameters
         function getUrlParams() {
@@ -683,6 +747,19 @@
                 });
                 
                 amenityContainer.appendChild(tag);
+            });
+            
+            // Set up area filter buttons with zip code boundaries
+            document.querySelectorAll('#areaFilters button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const zipCode = this.dataset.zipcode;
+                    const isShowing = toggleZipCodeBoundary(zipCode);
+                    
+                    // Toggle selected state
+                    this.classList.toggle('selected', isShowing);
+                    
+                    console.log(`Area button clicked: ${this.textContent} (${zipCode}) - ${isShowing ? 'showing' : 'hiding'}`);
+                });
             });
         }
 
