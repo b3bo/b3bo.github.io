@@ -239,6 +239,13 @@
             <!-- Backdrop overlay -->
             <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
         </div>
+        
+        <!-- Disclaimer (hidden on single neighborhood embeds) -->
+        <div id="map-disclaimer" class="bg-neutral-50 border-t border-neutral-200 px-4 py-3 text-center">
+            <p class="text-xs text-neutral-500 leading-relaxed">
+                <strong>Disclaimer:</strong> All information provided is for general informational purposes only and is deemed reliable but not guaranteed. Market statistics, pricing, and listing counts are approximations based on available MLS data and may not reflect real-time accuracy. Consumers are encouraged to independently verify all information before making decisions.
+            </p>
+        </div>
     </div>
 
     <script>
@@ -315,14 +322,16 @@
                     }
                 }
                 
-                // Hide drawer and footer in single mode
+                // Hide drawer, footer, and disclaimer in single mode
                 if (urlParams.mode === 'single') {
-                    const sidebar = document.getElementById('sidebar');
+                    const drawer = document.getElementById('sidebar');
                     const drawerToggle = document.getElementById('drawer-toggle');
                     const footer = document.querySelector('.bg-neutral-800');
-                    if (sidebar) sidebar.style.display = 'none';
+                    const disclaimer = document.getElementById('map-disclaimer');
+                    if (drawer) drawer.style.display = 'none';
                     if (drawerToggle) drawerToggle.style.display = 'none';
                     if (footer) footer.style.display = 'none';
+                    if (disclaimer) disclaimer.style.display = 'none';
                     document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
                 }
                 
