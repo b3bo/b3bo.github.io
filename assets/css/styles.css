@@ -32,7 +32,7 @@
 @layer base {
   @font-face {
     font-family: 'Montserrat';
-    src: url('https://b3bo.github.io/b3bo-font-host/fonts/Montserrat/Montserrat-VF.woff2') format('woff2-variations'); 
+    src: url('https://neighborhoods.truesouthcoastalhomes.com/b3bo-font-host/fonts/Montserrat/Montserrat-VF.woff2') format('woff2-variations'); 
     font-weight: 400 700; 
     font-style: normal;
     font-display: swap;
@@ -40,7 +40,7 @@
   }
   @font-face {
       font-family: 'Roboto';
-      src: url('https://b3bo.github.io/b3bo-font-host/fonts/Roboto/Roboto-Flex-VF.woff2') format('woff2-variations');
+      src: url('https://neighborhoods.truesouthcoastalhomes.com/b3bo-font-host/fonts/Roboto/Roboto-Flex-VF.woff2') format('woff2-variations');
       font-weight: 400 700; 
       font-style: normal;
       font-display: swap;
