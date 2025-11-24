@@ -370,6 +370,7 @@
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: zoom,
                 center: center,
+                mapId: 'DEMO_MAP_ID',
                 mapTypeControl: true,
                 mapTypeControlOptions: {
                     position: google.maps.ControlPosition.TOP_RIGHT
@@ -729,7 +730,7 @@
                     if (!rentalMatch || !otherAmenityMatch) showMarker = false;
                 }
 
-                marker.setVisible(showMarker);
+                marker.map = showMarker ? map : null;
                 
                 // Also hide/show the ripple overlay
                 const rippleOverlay = rippleOverlays.get(marker);
@@ -760,7 +761,7 @@
 
         function updateCount(count) {
             if (count === undefined) {
-                count = markers.filter(m => m.marker.getVisible()).length;
+                count = markers.filter(m => m.marker.map !== null).length;
             }
             
             const resultsEl = document.getElementById('resultsCount');
