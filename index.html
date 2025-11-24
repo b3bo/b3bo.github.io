@@ -272,21 +272,22 @@
         function updateFeatureLayerStyle() {
             if (!featureLayer) return;
             
-            let debugLogged = false;
             featureLayer.style = (featureStyleOptions) => {
                 const feature = featureStyleOptions.feature;
                 
-                // Debug log first feature to see place property
-                if (!debugLogged) {
-                    console.log('Feature place:', feature.place);
-                    if (feature.place) {
-                        console.log('Place keys:', Object.keys(feature.place));
-                        console.log('Place displayName:', feature.place.displayName);
-                    }
-                    debugLogged = true;
+                // Use fetchPlace to get the postal code asynchronously
+                if (!feature.place) {
+                    feature.fetchPlace().then(() => {
+                        // After place is fetched, check if we should style this feature
+                        const postalCode = feature.place?.displayName;
+                        if (postalCode && activeZipCodes.has(postalCode)) {
+                            // Trigger a style update by reassigning the style function
+                            updateFeatureLayerStyle();
+                        }
+                    });
                 }
                 
-                // Get postal code from place.displayName
+                // Get postal code from place.displayName if available
                 const postalCode = feature.place?.displayName;
                 
                 // Check if this postal code should be shown
@@ -312,13 +313,13 @@
             }
             
             activeZipCodes.add(zipCode);
-            console.log(`Showing boundary for zip code ${zipCode}, active codes:`, Array.from(activeZipCodes));
+            console.log(`Showing boundary for zip code ${zipCode}`);
             updateFeatureLayerStyle();
         }
 
         function hideZipCodeBoundary(zipCode) {
             activeZipCodes.delete(zipCode);
-            console.log(`Hiding boundary for zip code ${zipCode}, active codes:`, Array.from(activeZipCodes));
+            console.log(`Hiding boundary for zip code ${zipCode}`);
             updateFeatureLayerStyle();
         }
 
