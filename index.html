@@ -269,18 +269,29 @@
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
         // Zip code boundary management using Google Maps Platform's native boundaries
+        function normalizeZip(value) {
+            if (!value) return null;
+            const digitsMatch = String(value).match(/\d{5}/);
+            return digitsMatch ? digitsMatch[0] : null;
+        }
+
         function getPostalCodeFromFeature(feature) {
             if (!feature) return null;
 
             if (feature.placeId && feature.placeId.includes(':')) {
                 const [type, code] = feature.placeId.split(':');
-                if (type === 'postal_code' && code) {
-                    return code;
+                if (type === 'postal_code') {
+                    return normalizeZip(code);
                 }
             }
 
             const candidates = [feature.displayName, feature.postalCode, feature.h];
-            return candidates.find(value => value && /^\d{5}$/.test(value)) || null;
+            for (const candidate of candidates) {
+                const zip = normalizeZip(candidate);
+                if (zip) return zip;
+            }
+            
+            return null;
         }
 
         function updateFeatureLayerStyle() {
