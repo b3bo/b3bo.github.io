@@ -402,23 +402,20 @@
             neighborhoods.forEach((neighborhood, index) => {
                 const markerColor = getMarkerColor(neighborhood.stats.avgPrice);
 
-                const marker = new google.maps.Marker({
+                // Create invisible marker content (we use custom overlay for visuals)
+                const markerDiv = document.createElement('div');
+                markerDiv.style.width = '0px';
+                markerDiv.style.height = '0px';
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: neighborhood.position,
                     map: map,
                     title: neighborhood.name,
-                    icon: {
-                        path: google.maps.SymbolPath.CIRCLE,
-                        scale: 0, // Hide the default marker completely
-                        fillColor: 'transparent',
-                        fillOpacity: 0,
-                        strokeColor: 'transparent',
-                        strokeWeight: 0
-                    },
-                    animation: google.maps.Animation.DROP
+                    content: markerDiv
                 });
 
                 // Add ripple effect for all neighborhoods (initially inactive)
-                const rippleOverlay = addRippleOverlay(marker.getPosition(), marker, neighborhood);
+                const rippleOverlay = addRippleOverlay(marker.position, marker, neighborhood);
                 rippleOverlays.set(marker, rippleOverlay);
 
                 marker.addListener('click', () => {
