@@ -269,7 +269,7 @@
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
         // Zip code boundary management using Google Maps Platform's native boundaries
-        let styleRefreshNeeded = false;
+        let placesLoaded = new Set();
         
         function updateFeatureLayerStyle() {
             if (!featureLayer) return;
@@ -277,26 +277,33 @@
             featureLayer.style = (params) => {
                 const placeFeature = params.feature;
                 
-                // If place isn't loaded yet, fetch it and trigger a refresh
+                // If place isn't loaded yet, fetch it
                 if (!placeFeature.place) {
                     placeFeature.fetchPlace().then(() => {
-                        if (!styleRefreshNeeded) {
-                            styleRefreshNeeded = true;
-                            // Trigger refresh by reassigning style after a short delay
-                            setTimeout(() => {
-                                updateFeatureLayerStyle();
-                                styleRefreshNeeded = false;
-                            }, 100);
+                        const code = placeFeature.place?.displayName;
+                        if (code && !placesLoaded.has(code)) {
+                            placesLoaded.add(code);
+                            // Force map refresh to apply new styling
+                            map.setZoom(map.getZoom());
                         }
                     });
-                    // Hide while loading
+                    // Show with low opacity while loading if any zip is active
+                    if (activeZipCodes.size > 0) {
+                        return {
+                            strokeColor: '#7ca3af',
+                            strokeWeight: 2.5,
+                            strokeOpacity: 0.3,
+                            fillColor: '#7ca3af',
+                            fillOpacity: 0.05
+                        };
+                    }
                     return { fillOpacity: 0, strokeOpacity: 0 };
                 }
                 
                 // Check if this postal code is in the active set
                 const currentCode = placeFeature.place?.displayName;
                 
-                if (currentCode && activeZipCodes.has(currentCode)) {
+                if (activeZipCodes.size > 0 && currentCode && activeZipCodes.has(currentCode)) {
                     return {
                         strokeColor: '#7ca3af',
                         strokeWeight: 2.5,
