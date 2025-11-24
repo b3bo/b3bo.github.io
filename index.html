@@ -272,12 +272,19 @@
         function updateFeatureLayerStyle() {
             if (!featureLayer) return;
             
+            let debugLogged = false;
             featureLayer.style = (featureStyleOptions) => {
-                // Get the postal code from the feature - try multiple properties
                 const feature = featureStyleOptions.feature;
-                const postalCode = feature.displayName || feature.h || feature.postalCode;
                 
-                console.log('Feature styling:', postalCode, 'Active:', Array.from(activeZipCodes));
+                // Debug log first feature to see what properties are available
+                if (!debugLogged) {
+                    console.log('Feature object:', feature);
+                    console.log('Feature keys:', Object.keys(feature));
+                    debugLogged = true;
+                }
+                
+                // Try to get postal code from various possible properties
+                const postalCode = feature.displayName || feature.postalCode || feature.name || feature.code;
                 
                 // Check if this postal code should be shown
                 if (postalCode && activeZipCodes.has(postalCode)) {
