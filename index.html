@@ -276,15 +276,18 @@
             featureLayer.style = (featureStyleOptions) => {
                 const feature = featureStyleOptions.feature;
                 
-                // Debug log first feature to see what properties are available
+                // Debug log first feature to see place property
                 if (!debugLogged) {
-                    console.log('Feature object:', feature);
-                    console.log('Feature keys:', Object.keys(feature));
+                    console.log('Feature place:', feature.place);
+                    if (feature.place) {
+                        console.log('Place keys:', Object.keys(feature.place));
+                        console.log('Place displayName:', feature.place.displayName);
+                    }
                     debugLogged = true;
                 }
                 
-                // Try to get postal code from various possible properties
-                const postalCode = feature.displayName || feature.postalCode || feature.name || feature.code;
+                // Get postal code from place.displayName
+                const postalCode = feature.place?.displayName;
                 
                 // Check if this postal code should be shown
                 if (postalCode && activeZipCodes.has(postalCode)) {
