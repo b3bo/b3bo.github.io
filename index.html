@@ -23,6 +23,17 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
     
     <style>
+        :root {
+            /* Theme Colors */
+            --color-brand: #7ca3af;
+            --color-brand-light: rgba(124, 163, 175, 0.3);
+            --color-brand-hover: rgba(124, 163, 175, 0.4);
+            --color-ui-dark: #404040; /* neutral-700 */
+            --color-text-primary: #3f3f46; /* zinc-700 */
+            --color-text-secondary: #52525b; /* zinc-600 */
+            --color-border: #d4d4d8; /* zinc-300 */
+        }
+
         /* Info window custom styles */
         .gm-style .info-window {
             font-family: var(--font-body);
@@ -47,12 +58,12 @@
         
         /* Amenity tag styles - matching Sierra site tags */
         .amenity-tag {
-            border: 1px solid #d4d4d8;
+            border: 1px solid var(--color-border);
             border-radius: 0.5rem;
             padding: 0.375rem 0.75rem;
             font-size: 0.875rem;
             text-align: center;
-            color: #52525b;
+            color: var(--color-text-secondary);
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s;
@@ -64,25 +75,25 @@
         /* Only apply hover effects on devices that support hover */
         @media (hover: hover) {
             .amenity-tag:hover {
-                background: rgba(124, 163, 175, 0.3);
-                color: #3f3f46;
+                background: var(--color-brand-light);
+                color: var(--color-text-primary);
             }
             
             .amenity-tag.selected:hover {
-                background: rgba(124, 163, 175, 0.4);
-                border-color: #7ca3af;
+                background: var(--color-brand-hover);
+                border-color: var(--color-brand);
             }
         }
 
         /* Active state for touch feedback */
         .amenity-tag:active {
-            background: rgba(124, 163, 175, 0.4);
+            background: var(--color-brand-hover);
         }
         
         .amenity-tag.selected {
-            background: rgba(124, 163, 175, 0.3);
-            color: #3f3f46;
-            border-color: #7ca3af;
+            background: var(--color-brand-light);
+            color: var(--color-text-primary);
+            border-color: var(--color-brand);
         }
         
         /* Tab icon switching */
@@ -122,7 +133,7 @@
             transform: translate(-50%, -50%);
             width: 16px;
             height: 16px;
-            background: #404040; /* neutral-700 - Tailwind default */
+            background: var(--color-ui-dark);
             border: 3px solid white;
             border-radius: 50%;
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
@@ -195,7 +206,7 @@
             height: 18px;
             border-radius: 50%;
             background: white;
-            border: 2px solid #7ca3af;
+            border: 2px solid var(--color-brand);
             cursor: pointer;
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
             margin-top: -5px; /* Adjusted to center on track */
@@ -219,9 +230,45 @@
             top: 50%;
             transform: translateY(-50%);
             height: 4px;
-            background: #404040; /* neutral-700 */
+            background: var(--color-ui-dark);
             border-radius: 2px;
             z-index: 1;
+        }
+
+        /* Property Type Buttons */
+        .property-type-btn {
+            background: white;
+            color: var(--color-text-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .property-type-btn.active {
+            background: var(--color-brand-light);
+            color: var(--color-text-primary);
+            border-color: var(--color-brand);
+        }
+
+        /* View Listings Button in Info Window */
+        .view-listings-btn {
+            display: block;
+            padding: 0.5rem 1rem;
+            background-color: var(--color-ui-dark);
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            outline: none;
+        }
+
+        .view-listings-btn:hover,
+        .view-listings-btn:focus {
+            background-color: #1f242b; /* Darker shade of ui-dark */
+            outline: none;
         }
     </style>
 </head>
@@ -265,10 +312,10 @@
 
             <!-- Toggle Buttons -->
             <div class="px-5 pt-4 flex gap-2">
-                <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active" style="background: rgba(124, 163, 175, 0.3); color: #3f3f46; border: 1px solid #7ca3af; border-radius: 0.5rem;">
+                <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active">
                     Homes
                 </button>
-                <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn" style="background: white; color: #52525b; border: 1px solid #d4d4d8; border-radius: 0.5rem;">
+                <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn">
                     Condos
                 </button>
             </div>
@@ -295,8 +342,8 @@
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="amenities">
                     Amenities
                 </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="3">
-                    3
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="list">
+                    List
                 </button>
             </div>
 
@@ -320,9 +367,11 @@
                     </div>
                 </div>
                 
-                <!-- Tab 3 Content -->
-                <div id="tab-3" class="tab-content hidden">
-                    <p class="text-neutral-500 text-sm">Tab 3 content coming soon...</p>
+                <!-- List Tab Content -->
+                <div id="tab-list" class="tab-content hidden">
+                    <div id="neighborhoodList" class="space-y-3">
+                        <!-- List items will be dynamically generated -->
+                    </div>
                 </div>
             </div>
             
@@ -415,6 +464,11 @@
             return null;
         }
 
+        // Helper to get CSS variable value
+        function getThemeColor(variable) {
+            return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+        }
+
         let featureDebugLogs = 0;
         function handleFeatureLayerStyle(featureStyleOptions) {
             const postalCode = getPostalCodeFromFeature(featureStyleOptions.feature);
@@ -431,11 +485,12 @@
             
             if (postalCode && activeZipCodes.has(postalCode)) {
                 console.log('Highlighting postal code feature', postalCode);
+                const brandColor = getThemeColor('--color-brand');
                 return {
-                    strokeColor: '#7ca3af',
+                    strokeColor: brandColor,
                     strokeWeight: 2.5,
                     strokeOpacity: 0.85,
-                    fillColor: '#7ca3af',
+                    fillColor: brandColor,
                     fillOpacity: 0.15
                 };
             }
@@ -524,11 +579,12 @@
                     // Check for either 2020 or 2010 property
                     const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
                     if (customBoundaries.has(featureZip)) {
+                        const brandColor = getThemeColor('--color-brand');
                         return {
-                            strokeColor: '#7ca3af',
+                            strokeColor: brandColor,
                             strokeWeight: 2.5,
                             strokeOpacity: 0.85,
-                            fillColor: '#7ca3af',
+                            fillColor: brandColor,
                             fillOpacity: 0.15,
                             clickable: false
                         };
@@ -762,13 +818,6 @@
             }
         }
 
-        function getMarkerColor(avgPrice) {
-            if (avgPrice < 500000) return '#10b981';
-            if (avgPrice < 750000) return '#f59e0b';
-            if (avgPrice < 1000000) return '#f97316';
-            return '#ef4444';
-        }
-
         function showInfoWindow(marker, neighborhood) {
             // Use avgPricePerSqFt from data or calculate if not available
             const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
@@ -812,10 +861,7 @@
                     <div class="pt-4 border-t border-neutral-200">
                         <a href="${neighborhood.marketReportUrl}" 
                            target="_blank" 
-                           style="display: block; padding: 0.5rem 1rem; background-color: #313842; color: white; text-align: center; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: background-color 0.2s; outline: none;"
-                           onmouseover="this.style.backgroundColor='#1f242b';" 
-                           onmouseout="this.style.backgroundColor='#313842';"
-                           onfocus="this.style.outline='none';"
+                           class="view-listings-btn"
                            onclick="event.stopPropagation();">
                             View All ${neighborhood.stats.listingCount} Listings
                         </a>
@@ -1027,9 +1073,10 @@
                 .map(tag => tag.dataset.zipcode);
             
             // Get selected property type (homes or condos)
-            const selectedPropertyType = document.querySelector('.property-type-btn[style*="rgba(124, 163, 175"]')?.id === 'btn-condos' ? 'condos' : 'homes';
+            const selectedPropertyType = document.querySelector('.property-type-btn.active')?.id === 'btn-condos' ? 'condos' : 'homes';
 
             let visibleCount = 0;
+            const visibleNeighborhoods = [];
 
             markers.forEach(({ marker, neighborhood }) => {
                 let showMarker = true;
@@ -1093,10 +1140,12 @@
                 
                 if (showMarker) {
                     visibleCount++;
+                    visibleNeighborhoods.push({ marker, neighborhood });
                 }
             });
 
             updateCount(visibleCount);
+            updateNeighborhoodList(visibleNeighborhoods);
         }
 
 
@@ -1141,15 +1190,11 @@
             btn.addEventListener('click', function() {
                 // Remove active state from all buttons
                 document.querySelectorAll('.property-type-btn').forEach(b => {
-                    b.style.background = 'white';
-                    b.style.color = '#52525b';
-                    b.style.borderColor = '#d4d4d8';
+                    b.classList.remove('active');
                 });
                 
                 // Add active state to clicked button
-                this.style.background = 'rgba(124, 163, 175, 0.3)';
-                this.style.color = '#3f3f46';
-                this.style.borderColor = '#7ca3af';
+                this.classList.add('active');
                 
                 // Apply filters (this will be used when we have property type data in neighborhoods.json)
                 applyFilters();
@@ -1174,43 +1219,57 @@
             }
         });
 
-        window.initMap = initMap;
-        
-        // Fallback if Google Maps API fails to load
-        window.addEventListener('error', function(e) {
-            if (e.message && e.message.includes('google')) {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                    loadingScreen.innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading Google Maps. Please check your connection and refresh.</p></div>';
-                }
+        function updateNeighborhoodList(items) {
+            const listContainer = document.getElementById('neighborhoodList');
+            if (!listContainer) return;
+            
+            listContainer.innerHTML = '';
+            
+            if (items.length === 0) {
+                listContainer.innerHTML = '<p class="text-sm text-neutral-500 text-center py-4">No communities found matching your criteria.</p>';
+                return;
             }
-        }, true);
-        
-        // Check if Google Maps is ready after DOM loads (for iframe contexts)
-        document.addEventListener('DOMContentLoaded', function() {
-            // If Google Maps loaded before callback, call initMap manually
-            setTimeout(function() {
-                if (typeof google !== 'undefined' && google.maps && !map) {
-                    console.log('Google Maps ready, initializing...');
-                    initMap();
-                }
-            }, 1000);
-        });
-        
-        // Timeout fallback if map doesn't load in 15 seconds
-        setTimeout(() => {
-            const loadingScreen = document.getElementById('loading-screen');
-            if (loadingScreen && loadingScreen.style.display !== 'none') {
-                loadingScreen.innerHTML = '<div class="text-center"><p class="text-neutral-600 font-medium">Map is taking longer than expected to load...</p><button onclick="location.reload()" class="mt-4 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-900">Refresh Page</button></div>';
-            }
-        }, 15000);
-        
-        // Set current year for copyright (guard in case element is absent, e.g., iframe embeds)
-        const currentYearEl = document.getElementById('currentYear');
-        if (currentYearEl) {
-            currentYearEl.textContent = new Date().getFullYear();
+            
+            // Sort alphabetically
+            items.sort((a, b) => a.neighborhood.name.localeCompare(b.neighborhood.name));
+            
+            items.forEach(({ marker, neighborhood }) => {
+                const el = document.createElement('div');
+                el.className = 'bg-white p-3 rounded-lg border border-neutral-200 cursor-pointer hover:border-neutral-400 transition-colors';
+                
+                // Calculate price display
+                const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
+                const priceDisplay = medianPrice >= 1000000 
+                    ? '$' + (medianPrice / 1000000).toFixed(1) + 'M'
+                    : '$' + (medianPrice / 1000).toFixed(0) + 'k';
+                
+                el.innerHTML = `
+                    <div class="flex justify-between items-start mb-1">
+                        <h3 class="font-semibold text-neutral-900 text-sm">${neighborhood.name}</h3>
+                        <span class="text-xs font-medium text-neutral-600">${priceDisplay}</span>
+                    </div>
+                    <div class="flex gap-2 text-xs text-neutral-500">
+                        <span>${neighborhood.stats.listingCount} Listings</span>
+                        <span>•</span>
+                        <span>${neighborhood.amenities.length} Amenities</span>
+                    </div>
+                `;
+                
+                el.addEventListener('click', () => {
+                    // Trigger marker click
+                    google.maps.event.trigger(marker, 'click');
+                    // Pan to marker
+                    map.panTo(neighborhood.position);
+                    
+                    // On mobile, close drawer to show map
+                    if (window.innerWidth < 768) {
+                        document.getElementById('drawer-toggle').checked = false;
+                    }
+                });
+                
+                listContainer.appendChild(el);
+            });
         }
-
     </script>
 </body>
 </html>
