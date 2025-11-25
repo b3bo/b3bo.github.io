@@ -416,12 +416,14 @@
             if (customBoundaries.has(zipCode)) return;
             
             console.log(`Loading custom boundary for ${zipCode}`);
-            map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE10' }, function(features) {
+            // Try loading with ZCTA5CE20 (2020 Census) first, then fallback to ZCTA5CE10 (2010 Census)
+            map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
                 customBoundaries.add(zipCode);
                 
                 // Style the data layer
                 map.data.setStyle(function(feature) {
-                    const featureZip = feature.getProperty('ZCTA5CE10');
+                    // Check for either 2020 or 2010 property
+                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
                     if (customBoundaries.has(featureZip)) {
                         return {
                             strokeColor: '#7ca3af',
@@ -444,7 +446,8 @@
             
             // Remove features with this zip code
             map.data.forEach(function(feature) {
-                if (feature.getProperty('ZCTA5CE10') === zipCode) {
+                const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                if (featureZip === zipCode) {
                     map.data.remove(feature);
                 }
             });
