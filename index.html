@@ -235,14 +235,21 @@
         .range-slider input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             pointer-events: auto;
-            width: 18px;
-            height: 18px;
+            width: 44px; /* Large touch target (44px standard) */
+            height: 44px;
             border-radius: 50%;
-            background: white;
-            border: 2px solid var(--color-text-secondary);
-            cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            margin-top: -7px; /* Adjusted to center on track */
+            /* Draw the visual knob (18px + 2px border) inside the transparent hit area */
+            background: radial-gradient(circle, white 0, white 9px, var(--color-text-secondary) 9.5px, var(--color-text-secondary) 11px, transparent 11.5px);
+            border: none;
+            cursor: grab;
+            /* Drop shadow on the non-transparent parts */
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+            margin-top: -20px; /* (44px - 4px) / 2 */
+        }
+        
+        .range-slider input[type="range"]:active::-webkit-slider-thumb {
+            cursor: grabbing;
+            transform: scale(1.1);
         }
         
         /* Track background */
@@ -1015,7 +1022,11 @@
                 const minPrice = priceSteps[minVal];
                 const maxPrice = priceSteps[maxVal];
 
-                priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+                if (minVal === 0 && maxVal === 41) {
+                    priceDisplay.textContent = "Any";
+                } else {
+                    priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+                }
 
                 // Update track fill
                 const totalSteps = 41;
