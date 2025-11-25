@@ -168,6 +168,61 @@
                 padding-bottom: 0.5rem !important;
             }
         }
+
+        /* Range Slider Styles */
+        .range-slider {
+            position: relative;
+            height: 24px;
+            margin-top: 4px;
+        }
+        
+        .range-slider input[type="range"] {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 24px;
+            -webkit-appearance: none;
+            pointer-events: none;
+            background: none;
+            z-index: 2;
+        }
+        
+        .range-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            pointer-events: auto;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #7ca3af;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            margin-top: -7px; /* Center on track */
+        }
+        
+        /* Track background */
+        .range-track-bg {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 4px;
+            background: #e4e4e7; /* neutral-200 */
+            border-radius: 2px;
+            z-index: 1;
+        }
+        
+        /* Active track range */
+        .range-track-fill {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 4px;
+            background: #7ca3af;
+            border-radius: 2px;
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="h-screen overflow-hidden font-body text-neutral-700">
@@ -216,6 +271,20 @@
                 <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn" style="background: white; color: #52525b; border: 1px solid #d4d4d8; border-radius: 0.5rem;">
                     Condos
                 </button>
+            </div>
+
+            <!-- Price Range Slider -->
+            <div class="px-5 pt-4">
+                <div class="flex justify-between items-baseline mb-1">
+                    <span class="text-xs font-semibold text-neutral-500">Price Range</span>
+                    <span class="text-sm font-bold text-neutral-800" id="price-display">$0 - $35M+</span>
+                </div>
+                <div class="range-slider">
+                    <div class="range-track-bg"></div>
+                    <div class="range-track-fill" id="range-fill"></div>
+                    <input type="range" min="0" max="46" value="0" id="price-min">
+                    <input type="range" min="0" max="46" value="46" id="price-max">
+                </div>
             </div>
 
             <!-- Tabs -->
@@ -797,11 +866,69 @@
         }
 
         function setupFilters() {
-            // Set up price checkboxes
-            document.querySelectorAll('#priceFilters input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', applyFilters);
-            });
+            // Price Slider Logic
+            const priceSteps = [
+                0, 50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 
+                550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
+                1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
+                6000000, 7000000, 8000000, 9000000, 10000000,
+                15000000, 20000000, 25000000, 30000000, 35000000
+            ];
+
+            function formatPrice(price) {
+                if (price >= 1000000) {
+                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
+                } else if (price >= 1000) {
+                    return '$' + (price / 1000).toFixed(0) + 'k';
+                }
+                return '$' + price;
+            }
+
+            const priceMinInput = document.getElementById('price-min');
+            const priceMaxInput = document.getElementById('price-max');
+            const priceDisplay = document.getElementById('price-display');
+            const rangeFill = document.getElementById('range-fill');
+
+            function updatePriceSlider() {
+                let minVal = parseInt(priceMinInput.value);
+                let maxVal = parseInt(priceMaxInput.value);
+
+                // Prevent crossing
+                if (minVal > maxVal - 1) {
+                    const target = this === priceMinInput ? maxVal - 1 : minVal + 1;
+                    if (this === priceMinInput) {
+                        priceMinInput.value = target;
+                        minVal = target;
+                    } else {
+                        priceMaxInput.value = target;
+                        maxVal = target;
+                    }
+                }
+
+                const minPrice = priceSteps[minVal];
+                const maxPrice = priceSteps[maxVal];
+
+                priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 46 ? '+' : ''}`;
+
+                // Update track fill
+                const totalSteps = 46;
+                const leftPercent = (minVal / totalSteps) * 100;
+                const widthPercent = ((maxVal - minVal) / totalSteps) * 100;
+                
+                rangeFill.style.left = leftPercent + '%';
+                rangeFill.style.width = widthPercent + '%';
+                
+                applyFilters();
+            }
+
+            priceMinInput.addEventListener('input', updatePriceSlider);
+            priceMaxInput.addEventListener('input', updatePriceSlider);
             
+            // Initialize slider visual state
+            // We need to expose priceSteps to applyFilters or make it global
+            window.priceSteps = priceSteps;
+            updatePriceSlider();
+
             // Create amenity tags dynamically
             const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
             const defaultSelected = []; // Start with no amenities selected
@@ -857,9 +984,53 @@
             });
         }
 
+        // Helper to parse price strings like "$1.2M", "$500k", or "$500,000"
+        function parsePriceString(str) {
+            if (!str) return 0;
+            str = str.toLowerCase().replace(/[$,\s]/g, '');
+            let multiplier = 1;
+            if (str.includes('k')) {
+                multiplier = 1000;
+                str = str.replace('k', '');
+            } else if (str.includes('m')) {
+                multiplier = 1000000;
+                str = str.replace('m', '');
+            }
+            const val = parseFloat(str);
+            return isNaN(val) ? 0 : val * multiplier;
+        }
+
+        function getNeighborhoodPriceRange(neighborhood) {
+            if (neighborhood.stats.priceRange) {
+                const parts = neighborhood.stats.priceRange.split('-').map(s => parsePriceString(s));
+                if (parts.length >= 2) {
+                    return { min: parts[0], max: parts[1] };
+                }
+            }
+            // Fallback to avgPrice if range is missing or invalid
+            const avg = neighborhood.stats.avgPrice || 0;
+            return { min: avg, max: avg };
+        }
+
         function applyFilters() {
-            const selectedPrices = Array.from(document.querySelectorAll('#priceFilters input:checked'))
-                .map(cb => cb.value);
+            const priceMinInput = document.getElementById('price-min');
+            const priceMaxInput = document.getElementById('price-max');
+            
+            // Use global priceSteps if available (it should be from setupFilters)
+            // If not, we can't filter by price yet
+            let minPrice = 0;
+            let maxPrice = 100000000;
+            
+            if (window.priceSteps && priceMinInput && priceMaxInput) {
+                minPrice = window.priceSteps[parseInt(priceMinInput.value)];
+                maxPrice = window.priceSteps[parseInt(priceMaxInput.value)];
+                
+                // If max is at the end, treat as "and above" (effectively infinite for our data)
+                if (parseInt(priceMaxInput.value) === 46) {
+                    maxPrice = 1000000000; // $1B
+                }
+            }
+
             const selectedAmenities = Array.from(document.querySelectorAll('#amenityFilters .amenity-tag.selected'))
                 .map(tag => tag.dataset.amenity);
             const selectedAreas = Array.from(document.querySelectorAll('#areaFilters .amenity-tag.selected'))
@@ -879,15 +1050,12 @@
                     showMarker = false;
                 }
 
-                // Price filter - only apply if prices are selected
-                if (selectedPrices.length > 0) {
-                    const avgPrice = neighborhood.stats.avgPrice;
-                    const priceMatch = selectedPrices.some(range => {
-                        const [min, max] = range.split('-').map(Number);
-                        return avgPrice >= min && avgPrice <= max;
-                    });
-
-                    if (!priceMatch) showMarker = false;
+                // Price filter (Overlap Logic)
+                const nRange = getNeighborhoodPriceRange(neighborhood);
+                // Check if the neighborhood's range overlaps with the user's selected range
+                // Overlap exists if: (NeighborhoodMin <= UserMax) AND (NeighborhoodMax >= UserMin)
+                if (!(nRange.min <= maxPrice && nRange.max >= minPrice)) {
+                    showMarker = false;
                 }
 
                 // Area filter - only apply if areas are selected
