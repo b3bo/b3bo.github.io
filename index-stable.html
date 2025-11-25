@@ -7,6 +7,10 @@
     <title>Community Finder | Florida Emerald Coast</title>
     <meta name="description" content="Explore communities along Florida's Emerald Coast with interactive maps, pricing, and amenities.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +20,7 @@
     <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
     
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=beta&libraries=marker" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
     
     <style>
         /* Info window custom styles */
@@ -138,8 +142,8 @@
             <style>
                 @media (min-width: 768px) {
                     #sidebar {
-                        height: calc(100dvh - 8rem) !important;
-                        max-height: calc(100dvh - 8rem) !important;
+                        height: calc(100dvh - 5.5rem) !important;
+                        max-height: calc(100dvh - 5.5rem) !important;
                     }
                 }
             </style>
@@ -182,13 +186,13 @@
                     Amenities
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="2">
-                    2
+                    Areas
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="3">
                     3
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="4">
-                    4
+                    List
                 </button>
             </div>
 
@@ -201,9 +205,15 @@
                     </div>
                 </div>
                 
-                <!-- Tab 2 Content -->
+                <!-- Tab 2 Content - Areas -->
                 <div id="tab-2" class="tab-content hidden">
-                    <p class="text-neutral-500 text-sm">Tab 2 content coming soon...</p>
+                    <div class="flex flex-wrap gap-2" id="areaFilters">
+                        <button class="amenity-tag" data-zipcode="32541">Destin</button>
+                        <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
+                        <button class="amenity-tag" data-zipcode="32550">Miramar Beach</button>
+                        <button class="amenity-tag" data-zipcode="32461">Inlet Beach</button>
+                        <button class="amenity-tag" data-zipcode="32413">Panama City Beach</button>
+                    </div>
                 </div>
                 
                 <!-- Tab 3 Content -->
@@ -239,6 +249,13 @@
             <!-- Backdrop overlay -->
             <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
         </div>
+        
+        <!-- Disclaimer (hidden on single neighborhood embeds) -->
+        <div id="map-disclaimer" class="bg-neutral-50 border-t border-neutral-200 px-4 py-3 text-center">
+            <p class="text-xs text-neutral-500 leading-relaxed">
+                © <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
+            </p>
+        </div>
     </div>
 
     <script>
@@ -248,6 +265,193 @@
         let neighborhoods = [];
         let activeMarker = null;
         let rippleOverlays = new Map();
+        let featureLayers = []; // Array to hold multiple feature layers
+        let activeZipCodes = new Set(); // Track which zip codes are currently displayed
+        let customBoundaries = new Set(); // Track which custom boundaries are displayed
+
+        // Zip code to Place ID mapping
+        const zipCodeToPlaceId = {
+            '32541': 'ChIJ0V22PNNAkYgRMXln1OdqRP8',
+            '32459': 'ChIJsRLVhWrkk4gRh8aISkRj9QY',
+            '32550': 'ChIJeUkxGAlckYgR7lyiS6S2vaY',
+            // '32461': 'ChIJAWWvHFSNk4gRBuz2t1VPjwU', // Inlet Beach - using custom data now
+            '32413': 'ChIJV2evHFSNk4gRPqNRvoeNIgA'
+        };
+        
+        // Zip codes that use custom GeoJSON data instead of Google Maps Feature Layer
+        const customZipCodes = ['32461', '32541', '32459', '32550', '32413'];
+
+        const placeIdToZipCode = Object.fromEntries(
+            Object.entries(zipCodeToPlaceId).map(([zip, placeId]) => [placeId, zip])
+        );
+
+        // Zip code boundary management using Google Maps Platform's native boundaries
+        function normalizeZip(value) {
+            if (!value) return null;
+            const digitsMatch = String(value).match(/\d{5}/);
+            return digitsMatch ? digitsMatch[0] : null;
+        }
+
+        function getPostalCodeFromFeature(feature) {
+            if (!feature) return null;
+
+            // Check known Place IDs first
+            if (feature.placeId && placeIdToZipCode[feature.placeId]) {
+                return placeIdToZipCode[feature.placeId];
+            }
+
+            if (feature.placeId && feature.placeId.includes(':')) {
+                const [type, code] = feature.placeId.split(':');
+                if (type === 'postal_code') {
+                    return normalizeZip(code);
+                }
+            }
+
+            const candidates = [feature.displayName, feature.postalCode];
+            for (const candidate of candidates) {
+                const zip = normalizeZip(candidate);
+                if (zip) return zip;
+            }
+            
+            return null;
+        }
+
+        let featureDebugLogs = 0;
+        function handleFeatureLayerStyle(featureStyleOptions) {
+            const postalCode = getPostalCodeFromFeature(featureStyleOptions.feature);
+
+            if (activeZipCodes.size > 0 && featureDebugLogs < 30) {
+                console.log('Feature debug', {
+                    displayName: featureStyleOptions.feature?.displayName,
+                    placeId: featureStyleOptions.feature?.placeId,
+                    postalCode,
+                    active: Array.from(activeZipCodes)
+                });
+                featureDebugLogs++;
+            }
+            
+            if (postalCode && activeZipCodes.has(postalCode)) {
+                console.log('Highlighting postal code feature', postalCode);
+                return {
+                    strokeColor: '#7ca3af',
+                    strokeWeight: 2.5,
+                    strokeOpacity: 0.85,
+                    fillColor: '#7ca3af',
+                    fillOpacity: 0.15
+                };
+            }
+
+            return { fillOpacity: 0, strokeOpacity: 0 };
+        }
+
+        function updateFeatureLayerStyle() {
+            if (featureLayers.length === 0) return;
+            featureLayers.forEach(layer => {
+                layer.style = null;
+                layer.style = handleFeatureLayerStyle;
+            });
+        }
+
+        function showZipCodeBoundary(zipCode) {
+            const normalizedZip = normalizeZip(zipCode);
+            if (!normalizedZip) return;
+
+            // Check if this is a custom zip code
+            if (customZipCodes.includes(normalizedZip)) {
+                showCustomBoundary(normalizedZip);
+                return;
+            }
+
+            if (featureLayers.length === 0) {
+                console.error('Feature layers not initialized');
+                return;
+            }
+            
+            activeZipCodes.add(normalizedZip);
+            console.log(`Showing boundary for zip code ${normalizedZip}, active codes:`, Array.from(activeZipCodes));
+            updateFeatureLayerStyle();
+        }
+
+        function hideZipCodeBoundary(zipCode) {
+            const normalizedZip = normalizeZip(zipCode);
+            if (!normalizedZip) return;
+
+            // Check if this is a custom zip code
+            if (customZipCodes.includes(normalizedZip)) {
+                hideCustomBoundary(normalizedZip);
+                return;
+            }
+
+            activeZipCodes.delete(normalizedZip);
+            console.log(`Hiding boundary for zip code ${normalizedZip}, active codes:`, Array.from(activeZipCodes));
+            updateFeatureLayerStyle();
+        }
+
+        function toggleZipCodeBoundary(zipCode) {
+            const normalizedZip = normalizeZip(zipCode);
+            if (!normalizedZip) return false;
+
+            // Check if this is a custom zip code
+            if (customZipCodes.includes(normalizedZip)) {
+                if (customBoundaries.has(normalizedZip)) {
+                    hideCustomBoundary(normalizedZip);
+                    return false;
+                } else {
+                    showCustomBoundary(normalizedZip);
+                    return true;
+                }
+            }
+
+            if (activeZipCodes.has(normalizedZip)) {
+                hideZipCodeBoundary(normalizedZip);
+                return false; // Not showing
+            } else {
+                showZipCodeBoundary(normalizedZip);
+                return true; // Now showing
+            }
+        }
+
+        // Custom Boundary Logic
+        function showCustomBoundary(zipCode) {
+            if (customBoundaries.has(zipCode)) return;
+            
+            console.log(`Loading custom boundary for ${zipCode}`);
+            // Try loading with ZCTA5CE20 (2020 Census) first, then fallback to ZCTA5CE10 (2010 Census)
+            map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
+                customBoundaries.add(zipCode);
+                
+                // Style the data layer
+                map.data.setStyle(function(feature) {
+                    // Check for either 2020 or 2010 property
+                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                    if (customBoundaries.has(featureZip)) {
+                        return {
+                            strokeColor: '#7ca3af',
+                            strokeWeight: 2.5,
+                            strokeOpacity: 0.85,
+                            fillColor: '#7ca3af',
+                            fillOpacity: 0.15,
+                            clickable: false
+                        };
+                    }
+                    return { visible: false };
+                });
+            });
+        }
+
+        function hideCustomBoundary(zipCode) {
+            if (!customBoundaries.has(zipCode)) return;
+            
+            customBoundaries.delete(zipCode);
+            
+            // Remove features with this zip code
+            map.data.forEach(function(feature) {
+                const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                if (featureZip === zipCode) {
+                    map.data.remove(feature);
+                }
+            });
+        }
 
         // Parse URL parameters
         function getUrlParams() {
@@ -315,14 +519,16 @@
                     }
                 }
                 
-                // Hide drawer and footer in single mode
+                // Hide drawer, footer, and disclaimer in single mode
                 if (urlParams.mode === 'single') {
-                    const sidebar = document.getElementById('sidebar');
+                    const drawer = document.getElementById('sidebar');
                     const drawerToggle = document.getElementById('drawer-toggle');
                     const footer = document.querySelector('.bg-neutral-800');
-                    if (sidebar) sidebar.style.display = 'none';
+                    const disclaimer = document.getElementById('map-disclaimer');
+                    if (drawer) drawer.style.display = 'none';
                     if (drawerToggle) drawerToggle.style.display = 'none';
                     if (footer) footer.style.display = 'none';
+                    if (disclaimer) disclaimer.style.display = 'none';
                     document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
                 }
                 
@@ -356,7 +562,7 @@
                     // Wait for markers to be created
                     setTimeout(() => {
                         if (markers.length > 0) {
-                            google.maps.event.trigger(markers[0].marker, 'click');
+                            google.maps.event.trigger(markers[p0].marker, 'click');
                         }
                     }, 500);
                 }
@@ -370,7 +576,7 @@
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: zoom,
                 center: center,
-                mapId: 'Community Finder',
+                mapId: '92b2f4ea8b2fce54a50ed2e9', // Style ID: a14568cafd921b121b81dcce
                 mapTypeControl: true,
                 mapTypeControlOptions: {
                     position: google.maps.ControlPosition.TOP_RIGHT
@@ -382,6 +588,14 @@
                 fullscreenControl: true,
                 zoomControl: true
             });
+
+            // Initialize Feature Layers
+            // We need POSTAL_CODE for most, and LOCALITY for Inlet Beach (CDP)
+            const postalLayer = map.getFeatureLayer(google.maps.FeatureType.POSTAL_CODE);
+            const localityLayer = map.getFeatureLayer(google.maps.FeatureType.LOCALITY);
+            
+            featureLayers = [postalLayer, localityLayer];
+            updateFeatureLayerStyle();
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
             addMarkers();
@@ -668,6 +882,19 @@
                 });
                 
                 amenityContainer.appendChild(tag);
+            });
+            
+            // Set up area filter buttons with zip code boundaries
+            document.querySelectorAll('#areaFilters button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const zipCode = this.dataset.zipcode;
+                    const isShowing = toggleZipCodeBoundary(zipCode);
+                    
+                    // Toggle selected state
+                    this.classList.toggle('selected', isShowing);
+                    
+                    console.log(`Area button clicked: ${this.textContent} (${zipCode}) - ${isShowing ? 'showing' : 'hiding'}`);
+                });
             });
         }
 
