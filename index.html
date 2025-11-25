@@ -58,21 +58,30 @@
             transition: all 0.2s;
             cursor: pointer;
             background: white;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
         
-        .amenity-tag:hover {
-            background: rgba(124, 163, 175, 0.3);
-            color: #3f3f46;
+        /* Only apply hover effects on devices that support hover */
+        @media (hover: hover) {
+            .amenity-tag:hover {
+                background: rgba(124, 163, 175, 0.3);
+                color: #3f3f46;
+            }
+            
+            .amenity-tag.selected:hover {
+                background: rgba(124, 163, 175, 0.4);
+                border-color: #7ca3af;
+            }
+        }
+
+        /* Active state for touch feedback */
+        .amenity-tag:active {
+            background: rgba(124, 163, 175, 0.4);
         }
         
         .amenity-tag.selected {
             background: rgba(124, 163, 175, 0.3);
             color: #3f3f46;
-            border-color: #7ca3af;
-        }
-        
-        .amenity-tag.selected:hover {
-            background: rgba(124, 163, 175, 0.4);
             border-color: #7ca3af;
         }
         
@@ -1043,6 +1052,24 @@
                 // Apply filters (this will be used when we have property type data in neighborhoods.json)
                 applyFilters();
             });
+        });
+
+        // Close drawer when clicking on empty space
+        document.getElementById('sidebar').addEventListener('click', function(e) {
+            // Check if the click target is interactive or inside an interactive element
+            if (e.target.closest('button') || 
+                e.target.closest('a') || 
+                e.target.closest('label') || 
+                e.target.closest('input') ||
+                e.target.closest('.tab-btn')) {
+                return;
+            }
+            
+            // Close the drawer by unchecking the toggle
+            const drawerToggle = document.getElementById('drawer-toggle');
+            if (drawerToggle && drawerToggle.checked) {
+                drawerToggle.checked = false;
+            }
         });
 
         window.initMap = initMap;
