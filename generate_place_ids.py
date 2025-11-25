@@ -9,31 +9,28 @@ data = {
     "32413": (9841365003132692311, 9725763361284926)
 }
 
-def create_place_id(cell_id, feature_id):
-    # Structure:
-    # 0x0a (Field 1, String/Message)
-    # Length
-    #   0x09 (Field 1, Fixed64)
-    #   Cell ID (Little Endian)
-    #   0x11 (Field 2, Fixed64)
-    #   Feature ID (Little Endian)
+def create_place_id(num1, num2):
+    # Construct the protobuf message
+    # 0x0a (Field 1, Length Delimited)
+    # 0x12 (Length 18)
+    # 0x09 (Field 1, Fixed64)
+    # Num1 (8 bytes, Little Endian)
+    # 0x11 (Field 2, Fixed64)
+    # Num2 (8 bytes, Little Endian)
     
-    # Note: The order might be Feature ID then Cell ID or vice versa.
-    # In the decoded example:
-    # 09 dfcd0fef7f439188 -> Cell ID 8891437fef0fcddf
-    # 11 10e3c6e1cd209668 -> Feature ID 689620cde1c6e310
-    # So Field 1 is Cell ID, Field 2 is Feature ID.
+    # Note: The length 18 (0x12) assumes the content is exactly 18 bytes.
+    # Content = 1 byte (tag) + 8 bytes (num1) + 1 byte (tag) + 8 bytes (num2) = 18 bytes.
+    # So 0x12 is correct.
     
-    # However, sometimes it's different.
-    # Let's try this order first.
+    data = b'\x0a\x12\x09' + struct.pack('<Q', num1) + b'\x11' + struct.pack('<Q', num2)
     
-    inner = b''
-    inner += b'\x09' + struct.pack('<Q', cell_id)
-    inner += b'\x11' + struct.pack('<Q', feature_id)
+    # Base64 encode
+    encoded = base64.urlsafe_b64encode(data).decode('utf-8')
     
-    outer = b'\x0a' + bytes([len(inner)]) + inner
+    # Remove padding
+    encoded = encoded.rstrip('=')
     
-    return base64.urlsafe_b64encode(outer).decode('utf-8').replace('=', '')
+    return encoded
 
 print("{")
 for zip_code, (c, f) in data.items():
