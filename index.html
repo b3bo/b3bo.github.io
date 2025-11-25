@@ -8,8 +8,8 @@
     <meta name="description" content="Explore communities along Florida's Emerald Coast with interactive maps, pricing, and amenities.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -894,6 +894,7 @@
                     this.classList.toggle('selected', isShowing);
                     
                     console.log(`Area button clicked: ${this.textContent} (${zipCode}) - ${isShowing ? 'showing' : 'hiding'}`);
+                    applyFilters();
                 });
             });
         }
@@ -901,8 +902,10 @@
         function applyFilters() {
             const selectedPrices = Array.from(document.querySelectorAll('#priceFilters input:checked'))
                 .map(cb => cb.value);
-            const selectedAmenities = Array.from(document.querySelectorAll('.amenity-tag.selected'))
+            const selectedAmenities = Array.from(document.querySelectorAll('#amenityFilters .amenity-tag.selected'))
                 .map(tag => tag.dataset.amenity);
+            const selectedAreas = Array.from(document.querySelectorAll('#areaFilters .amenity-tag.selected'))
+                .map(tag => tag.dataset.zipcode);
             
             // Get selected property type (homes or condos)
             const selectedPropertyType = document.querySelector('.property-type-btn[style*="rgba(124, 163, 175"]')?.id === 'btn-condos' ? 'condos' : 'homes';
@@ -926,6 +929,13 @@
                     });
 
                     if (!priceMatch) showMarker = false;
+                }
+
+                // Area filter - only apply if areas are selected
+                if (selectedAreas.length > 0) {
+                    if (!neighborhood.zipCode || !selectedAreas.includes(neighborhood.zipCode)) {
+                        showMarker = false;
+                    }
                 }
 
                 // Show neighborhood if it has ANY of the selected amenities (not ALL)
