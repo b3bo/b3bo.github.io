@@ -176,7 +176,7 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" />
         
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem); background-color: #ffffffe0; backdrop-filter: blur(8px);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem); background-color: #ffffffb4; backdrop-filter: blur(8px);">
             <style>
                 @media (min-width: 768px) {
                     #sidebar {
@@ -220,11 +220,11 @@
 
             <!-- Tabs -->
             <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
-                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="amenities">
-                    Amenities
-                </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="2">
+                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="2">
                     Areas
+                </button>
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="amenities">
+                    Amenities
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="3">
                     3
@@ -236,21 +236,21 @@
 
             <!-- Tab Content -->
             <div class="flex-1 overflow-y-auto overscroll-contain p-5">
-                <!-- Amenities Tab -->
-                <div id="tab-amenities" class="tab-content">
-                    <div class="flex flex-wrap gap-2" id="amenityFilters">
-                        <!-- Tags will be dynamically generated -->
-                    </div>
-                </div>
-                
                 <!-- Tab 2 Content - Areas -->
-                <div id="tab-2" class="tab-content hidden">
+                <div id="tab-2" class="tab-content">
                     <div class="flex flex-wrap gap-2" id="areaFilters">
                         <button class="amenity-tag" data-zipcode="32541">Destin</button>
                         <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
                         <button class="amenity-tag" data-zipcode="32550">Miramar Beach</button>
                         <button class="amenity-tag" data-zipcode="32461">Inlet Beach</button>
                         <button class="amenity-tag" data-zipcode="32413">Panama City Beach</button>
+                    </div>
+                </div>
+
+                <!-- Amenities Tab -->
+                <div id="tab-amenities" class="tab-content hidden">
+                    <div class="flex flex-wrap gap-2" id="amenityFilters">
+                        <!-- Tags will be dynamically generated -->
                     </div>
                 </div>
                 
