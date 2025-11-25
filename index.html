@@ -160,6 +160,17 @@
                 max-height: calc(100dvh - 1rem) !important;
                 width: 45% !important;
                 max-width: 350px !important;
+                
+                /* Allow entire sidebar to scroll */
+                display: block !important;
+                overflow-y: auto !important;
+            }
+            
+            /* Disable internal scrolling for content */
+            #sidebar-content {
+                overflow: visible !important;
+                height: auto !important;
+                flex: none !important;
             }
             
             /* Compact spacing for landscape */
@@ -348,7 +359,7 @@
             </div>
 
             <!-- Tab Content -->
-            <div class="flex-1 overflow-y-auto overscroll-contain p-5">
+            <div id="sidebar-content" class="flex-1 overflow-y-auto overscroll-contain p-5">
                 <!-- Tab 2 Content - Areas -->
                 <div id="tab-2" class="tab-content">
                     <div class="flex flex-wrap gap-2" id="areaFilters">
