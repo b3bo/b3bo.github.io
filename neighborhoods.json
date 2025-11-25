@@ -1,11 +1,12 @@
 [
   {
-    "name": "Unknown",
+    "name": "Watersound Origins",
     "propertyType": "homes",
     "position": {
       "lat": 30.29448656,
       "lng": -86.00690015
     },
+    "zipCode": "32461",
     "stats": {
       "listingCount": 73,
       "avgPrice": 1300553,
@@ -18,8 +19,7 @@
       "bedsRange": "3 - 6",
       "bathsRange": "2 - 4",
       "yearBuiltRange": "2010 - 2025",
-      "domRange": "0 - 285",
-      "zipCode": "32461"
+      "domRange": "0 - 285"
     },
     "amenities": [
       "30A",
