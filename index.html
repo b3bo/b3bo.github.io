@@ -49,11 +49,14 @@
             padding: 0 !important;
             border: none !important;
             box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
+            background-color: #ffffffb4 !important;
+            backdrop-filter: blur(8px) !important;
         }
         
         /* Remove border from info window tip */
         .gm-style .gm-style-iw-tc::after {
-            background: white !important;
+            background: #ffffffb4 !important;
+            backdrop-filter: blur(8px) !important;
         }
         
         /* Amenity tag styles - matching Sierra site tags */
@@ -94,6 +97,45 @@
             background: var(--color-brand-light);
             color: var(--color-text-primary);
             border-color: var(--color-brand);
+        }
+
+        /* Amenity Card Styles */
+        .amenity-card {
+            width: 100%;
+            text-align: left;
+            background: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color-border);
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .amenity-card:hover {
+            border-color: #a1a1aa; /* neutral-400 */
+        }
+        
+        .amenity-card.selected {
+            background: var(--color-brand-light);
+            border-color: var(--color-brand);
+            color: var(--color-text-primary);
+        }
+        
+        .amenity-card .count {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            background: #f4f4f5; /* zinc-100 */
+            padding: 0.125rem 0.375rem;
+            border-radius: 9999px;
+        }
+        
+        .amenity-card.selected .count {
+            color: var(--color-text-primary);
+            background: rgba(255,255,255,0.5);
         }
         
         /* Tab icon switching */
@@ -989,13 +1031,33 @@
             const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
             const defaultSelected = []; // Start with no amenities selected
             
+            // Calculate amenity counts
+            const amenityCounts = {};
+            allAmenities.forEach(a => amenityCounts[a] = 0);
+            
+            neighborhoods.forEach(n => {
+                if (n.amenities) {
+                    n.amenities.forEach(a => {
+                        if (amenityCounts.hasOwnProperty(a)) {
+                            amenityCounts[a]++;
+                        }
+                    });
+                }
+            });
+
             const amenityContainer = document.getElementById('amenityFilters');
+            amenityContainer.className = 'flex flex-col gap-2'; // Vertical stack
             amenityContainer.innerHTML = '';
             
             allAmenities.forEach(amenity => {
+                const count = amenityCounts[amenity] || 0;
                 const tag = document.createElement('button');
-                tag.className = 'amenity-tag' + (defaultSelected.includes(amenity) ? ' selected' : '');
-                tag.textContent = amenity;
+                tag.className = 'amenity-card' + (defaultSelected.includes(amenity) ? ' selected' : '');
+                
+                tag.innerHTML = `
+                    <span class="font-semibold text-sm text-neutral-900">${amenity}</span>
+                    <span class="count">${count}</span>
+                `;
                 tag.dataset.amenity = amenity;
                 
                 tag.addEventListener('click', function() {
