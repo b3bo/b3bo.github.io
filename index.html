@@ -198,7 +198,7 @@
             border: 2px solid #7ca3af;
             cursor: pointer;
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            margin-top: -7px; /* Center on track */
+            margin-top: -5px; /* Adjusted to center on track */
         }
         
         /* Track background */
@@ -219,7 +219,7 @@
             top: 50%;
             transform: translateY(-50%);
             height: 4px;
-            background: #7ca3af;
+            background: #404040; /* neutral-700 */
             border-radius: 2px;
             z-index: 1;
         }
@@ -282,8 +282,8 @@
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="range-fill"></div>
-                    <input type="range" min="0" max="46" value="0" id="price-min">
-                    <input type="range" min="0" max="46" value="46" id="price-max">
+                    <input type="range" min="0" max="41" value="0" id="price-min">
+                    <input type="range" min="0" max="41" value="41" id="price-max">
                 </div>
             </div>
 
@@ -297,9 +297,6 @@
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="3">
                     3
-                </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="list">
-                    List
                 </button>
             </div>
 
@@ -326,13 +323,6 @@
                 <!-- Tab 3 Content -->
                 <div id="tab-3" class="tab-content hidden">
                     <p class="text-neutral-500 text-sm">Tab 3 content coming soon...</p>
-                </div>
-                
-                <!-- Tab List Content -->
-                <div id="tab-list" class="tab-content hidden">
-                    <div id="neighborhoodList" class="space-y-3">
-                        <!-- List items will be dynamically generated -->
-                    </div>
                 </div>
             </div>
             
@@ -868,7 +858,7 @@
         function setupFilters() {
             // Price Slider Logic
             const priceSteps = [
-                0, 50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 
+                250000, 300000, 350000, 400000, 450000, 500000, 
                 550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
                 1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
                 6000000, 7000000, 8000000, 9000000, 10000000,
@@ -908,10 +898,10 @@
                 const minPrice = priceSteps[minVal];
                 const maxPrice = priceSteps[maxVal];
 
-                priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 46 ? '+' : ''}`;
+                priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
 
                 // Update track fill
-                const totalSteps = 46;
+                const totalSteps = 41;
                 const leftPercent = (minVal / totalSteps) * 100;
                 const widthPercent = ((maxVal - minVal) / totalSteps) * 100;
                 
@@ -1026,7 +1016,7 @@
                 maxPrice = window.priceSteps[parseInt(priceMaxInput.value)];
                 
                 // If max is at the end, treat as "and above" (effectively infinite for our data)
-                if (parseInt(priceMaxInput.value) === 46) {
+                if (parseInt(priceMaxInput.value) === 41) {
                     maxPrice = 1000000000; // $1B
                 }
             }
@@ -1040,7 +1030,6 @@
             const selectedPropertyType = document.querySelector('.property-type-btn[style*="rgba(124, 163, 175"]')?.id === 'btn-condos' ? 'condos' : 'homes';
 
             let visibleCount = 0;
-            const visibleNeighborhoods = [];
 
             markers.forEach(({ marker, neighborhood }) => {
                 let showMarker = true;
@@ -1104,63 +1093,13 @@
                 
                 if (showMarker) {
                     visibleCount++;
-                    visibleNeighborhoods.push({ marker, neighborhood });
                 }
             });
 
             updateCount(visibleCount);
-            updateNeighborhoodList(visibleNeighborhoods);
         }
 
-        function updateNeighborhoodList(visibleItems) {
-            const listContainer = document.getElementById('neighborhoodList');
-            if (!listContainer) return;
-            
-            listContainer.innerHTML = '';
-            
-            if (visibleItems.length === 0) {
-                listContainer.innerHTML = '<p class="text-sm text-neutral-500 text-center py-4">No communities found matching your criteria.</p>';
-                return;
-            }
-            
-            // Sort by name alphabetically
-            visibleItems.sort((a, b) => a.neighborhood.name.localeCompare(b.neighborhood.name));
-            
-            visibleItems.forEach(({ marker, neighborhood }) => {
-                const item = document.createElement('div');
-                item.className = 'bg-white p-3 rounded-lg border border-neutral-200 shadow-sm hover:border-neutral-400 cursor-pointer transition-colors';
-                
-                const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
-                const priceDisplay = `$${(medianPrice / 1000).toFixed(0)}k`;
-                
-                item.innerHTML = `
-                    <div class="flex justify-between items-start">
-                        <h4 class="font-semibold text-neutral-900 text-sm">${neighborhood.name}</h4>
-                        <span class="text-xs font-medium text-neutral-600 bg-neutral-100 px-2 py-1 rounded">${priceDisplay}</span>
-                    </div>
-                    <div class="flex justify-between items-center mt-2">
-                        <span class="text-xs text-neutral-500">${neighborhood.stats.listingCount} Listings</span>
-                        <span class="text-xs text-blue-600 font-medium">View on Map</span>
-                    </div>
-                `;
-                
-                item.addEventListener('click', () => {
-                    // Pan to marker
-                    map.panTo(neighborhood.position);
-                    map.setZoom(15);
-                    
-                    // Trigger marker click to open info window
-                    toggleMarker(marker, neighborhood);
-                    
-                    // On mobile, close the drawer to show the map
-                    if (window.innerWidth < 768) {
-                         document.getElementById('drawer-toggle').checked = false;
-                    }
-                });
-                
-                listContainer.appendChild(item);
-            });
-        }
+
 
         function updateCount(count) {
             if (count === undefined) {
