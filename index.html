@@ -865,7 +865,7 @@
                     }
                 }
 
-                // Show neighborhood if it has ANY of the selected amenities (not ALL)
+                // Show neighborhood if it has ALL of the selected amenities
                 if (selectedAmenities.length > 0) {
                     // Check rental type filters first (mutually exclusive)
                     const hasShortTerm = selectedAmenities.includes('Short-Term');
@@ -881,7 +881,7 @@
                     
                     // Check other amenities
                     const otherSelectedAmenities = selectedAmenities.filter(a => a !== 'Short-Term' && a !== 'No Short-Term');
-                    let otherAmenityMatch = otherSelectedAmenities.length === 0 || otherSelectedAmenities.some(amenity => 
+                    let otherAmenityMatch = otherSelectedAmenities.length === 0 || otherSelectedAmenities.every(amenity => 
                         neighborhood.amenities.includes(amenity)
                     );
                     
