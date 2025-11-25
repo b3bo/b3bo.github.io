@@ -370,6 +370,32 @@
                 </div>
             </div>
 
+            <!-- Beds Slider -->
+            <div class="px-5 pt-4">
+                <div class="flex justify-between items-baseline mb-1">
+                    <span class="text-xs font-semibold text-neutral-500">Beds</span>
+                    <span class="text-sm font-bold text-neutral-800" id="beds-display">Any</span>
+                </div>
+                <div class="range-slider">
+                    <div class="range-track-bg"></div>
+                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                    <input type="range" min="0" max="6" value="0" step="1" id="beds-min">
+                </div>
+            </div>
+
+            <!-- Baths Slider -->
+            <div class="px-5 pt-4">
+                <div class="flex justify-between items-baseline mb-1">
+                    <span class="text-xs font-semibold text-neutral-500">Baths</span>
+                    <span class="text-sm font-bold text-neutral-800" id="baths-display">Any</span>
+                </div>
+                <div class="range-slider">
+                    <div class="range-track-bg"></div>
+                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                    <input type="range" min="0" max="6" value="0" step="1" id="baths-min">
+                </div>
+            </div>
+
             <!-- Tabs -->
             <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
                 <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="2">
@@ -1005,6 +1031,42 @@
             priceMinInput.addEventListener('input', updatePriceSlider);
             priceMaxInput.addEventListener('input', updatePriceSlider);
             
+            // Beds Slider Logic
+            const bedsMinInput = document.getElementById('beds-min');
+            const bedsDisplay = document.getElementById('beds-display');
+            const bedsFill = document.getElementById('beds-fill');
+
+            function updateBedsSlider() {
+                const val = parseInt(bedsMinInput.value);
+                bedsDisplay.textContent = val === 0 ? 'Any' : (val === 6 ? '6+' : val + '+');
+                
+                // Update track fill
+                const percent = (val / 6) * 100;
+                bedsFill.style.width = percent + '%';
+                
+                applyFilters();
+            }
+
+            bedsMinInput.addEventListener('input', updateBedsSlider);
+
+            // Baths Slider Logic
+            const bathsMinInput = document.getElementById('baths-min');
+            const bathsDisplay = document.getElementById('baths-display');
+            const bathsFill = document.getElementById('baths-fill');
+
+            function updateBathsSlider() {
+                const val = parseInt(bathsMinInput.value);
+                bathsDisplay.textContent = val === 0 ? 'Any' : (val === 6 ? '6+' : val + '+');
+                
+                // Update track fill
+                const percent = (val / 6) * 100;
+                bathsFill.style.width = percent + '%';
+                
+                applyFilters();
+            }
+
+            bathsMinInput.addEventListener('input', updateBathsSlider);
+            
             // Initialize slider visual state
             // We need to expose priceSteps to applyFilters or make it global
             window.priceSteps = priceSteps;
@@ -1105,9 +1167,18 @@
             return { min: avg, max: avg };
         }
 
+        function getRangeMax(rangeStr) {
+            if (!rangeStr || rangeStr === 'N/A') return 0;
+            const parts = String(rangeStr).split('-').map(s => parseFloat(s.trim()));
+            // If "3-5", max is 5. If "3", max is 3.
+            return parts.length === 2 ? parts[1] : parts[0];
+        }
+
         function applyFilters() {
             const priceMinInput = document.getElementById('price-min');
             const priceMaxInput = document.getElementById('price-max');
+            const bedsMinInput = document.getElementById('beds-min');
+            const bathsMinInput = document.getElementById('baths-min');
             
             // Use global priceSteps if available (it should be from setupFilters)
             // If not, we can't filter by price yet
@@ -1123,6 +1194,9 @@
                     maxPrice = 1000000000; // $1B
                 }
             }
+
+            const minBeds = bedsMinInput ? parseInt(bedsMinInput.value) : 0;
+            const minBaths = bathsMinInput ? parseInt(bathsMinInput.value) : 0;
 
             const selectedAmenities = Array.from(document.querySelectorAll('#amenityFilters .amenity-tag.selected'))
                 .map(tag => tag.dataset.amenity);
@@ -1149,6 +1223,18 @@
                 // Overlap exists if: (NeighborhoodMin <= UserMax) AND (NeighborhoodMax >= UserMin)
                 if (!(nRange.min <= maxPrice && nRange.max >= minPrice)) {
                     showMarker = false;
+                }
+
+                // Beds Filter
+                if (minBeds > 0) {
+                    const maxBedsInNeighborhood = getRangeMax(neighborhood.stats.beds_range || neighborhood.stats.bedsRange);
+                    if (maxBedsInNeighborhood < minBeds) showMarker = false;
+                }
+
+                // Baths Filter
+                if (minBaths > 0) {
+                    const maxBathsInNeighborhood = getRangeMax(neighborhood.stats.baths_range || neighborhood.stats.bathsRange);
+                    if (maxBathsInNeighborhood < minBaths) showMarker = false;
                 }
 
                 // Area filter - only apply if areas are selected

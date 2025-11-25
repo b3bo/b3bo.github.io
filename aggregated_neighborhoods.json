@@ -13,6 +13,7 @@
     "beds_range": "3",
     "baths_range": "2",
     "half_baths_range": "0",
+    "baths_total_range": "N/A",
     "year_built_range": "2008",
     "dom_range": "0",
     "avg_dom": 0,
@@ -22,6 +23,6 @@
     "zip": "59405",
     "area": "2 - 25th St E to MAFB and S to 10th Ave S",
     "sub_area": "2 - 25th St E to MAFB and S to 10th Ave S",
-    "last_updated": "2025-11-25 16:42:28"
+    "last_updated": "2025-11-25 17:01:39"
   }
 }
