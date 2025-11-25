@@ -1,0 +1,3 @@
+body.adthrive-device-phone .adthrive-sticky-container.adthrive-content, body.adthrive-device-desktop .adthrive-sticky-container.adthrive-content{
+    min-height: 400px !important;
+}
