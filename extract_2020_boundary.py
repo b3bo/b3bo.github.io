@@ -10,8 +10,9 @@ import io
 # and 2020 is the major decennial census release.
 # The 2020 file is large (~60MB zip), but manageable.
 url = "https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_zcta520_500k.zip"
-target_zip = "32461"
-output_file = os.path.join("assets", "data", "32461.geojson")
+
+# List of zip codes to extract
+target_zips = ['32541', '32459', '32550', '32413']
 
 print(f"Downloading 2020 US ZCTA data from {url}...")
 print("This may take a moment as the file is ~60MB...")
@@ -43,60 +44,58 @@ try:
         # Initialize shapefile reader
         sf = shapefile.Reader(shp=shp, shx=shx, dbf=dbf)
         
-        print("Searching for zip code...")
+        print(f"Searching for zip codes: {target_zips}...")
         
-        # Find the record
-        # ZCTA5CE20 is the field name for 2020 ZCTAs
-        found_shape = None
-        found_record = None
+        found_count = 0
         
         # Iterate through records
         for i, record in enumerate(sf.records()):
             # record[0] is usually the ZCTA5CE20
-            if record[0] == target_zip:
-                print(f"Found record for {target_zip} at index {i}")
-                found_record = record
-                found_shape = sf.shape(i)
-                break
+            current_zip = record[0]
+            
+            if current_zip in target_zips:
+                print(f"Found record for {current_zip} at index {i}")
                 
-        if found_shape:
-            print(f"Extracting geometry...")
-            
-            # Convert to GeoJSON format
-            # pyshp shape.__geo_interface__ provides GeoJSON geometry
-            geometry = found_shape.__geo_interface__
-            
-            # Create Feature
-            # Inspect record length to avoid index errors
-            print(f"Record has {len(found_record)} fields: {found_record}")
-            
-            feature = {
-                "type": "Feature",
-                "properties": {
-                    "ZCTA5CE20": found_record[0],
-                    "GEOID20": found_record[1],
-                    "CLASSFP20": found_record[2],
-                    "MTFCC20": found_record[3],
-                    "FUNCSTAT20": found_record[4]
-                },
-                "geometry": geometry
-            }
-            
-            # Add optional fields if they exist
-            if len(found_record) > 5: feature["properties"]["ALAND20"] = found_record[5]
-            if len(found_record) > 6: feature["properties"]["AWATER20"] = found_record[6]
-            if len(found_record) > 7: feature["properties"]["INTPTLAT20"] = found_record[7]
-            if len(found_record) > 8: feature["properties"]["INTPTLON20"] = found_record[8]
-            
-            # Ensure directory exists
-            os.makedirs(os.path.dirname(output_file), exist_ok=True)
-            
-            with open(output_file, 'w') as f:
-                json.dump(feature, f, indent=2)
+                shape = sf.shape(i)
+                geometry = shape.__geo_interface__
                 
-            print(f"Saved 2020 boundary to {output_file}")
-        else:
-            print(f"Zip code {target_zip} not found in the 2020 dataset.")
+                # Create Feature
+                # Inspect record length to avoid index errors
+                print(f"Record has {len(record)} fields: {record}")
+                
+                feature = {
+                    "type": "Feature",
+                    "properties": {
+                        "ZCTA5CE20": record[0],
+                        "GEOID20": record[1],
+                        "CLASSFP20": record[2],
+                        "MTFCC20": record[3],
+                        "FUNCSTAT20": record[4]
+                    },
+                    "geometry": geometry
+                }
+                
+                # Add optional fields if they exist
+                if len(record) > 5: feature["properties"]["ALAND20"] = record[5]
+                if len(record) > 6: feature["properties"]["AWATER20"] = record[6]
+                if len(record) > 7: feature["properties"]["INTPTLAT20"] = record[7]
+                if len(record) > 8: feature["properties"]["INTPTLON20"] = record[8]
+                
+                output_file = os.path.join("assets", "data", f"{current_zip}.geojson")
+                
+                # Ensure directory exists
+                os.makedirs(os.path.dirname(output_file), exist_ok=True)
+                
+                with open(output_file, 'w') as f:
+                    json.dump(feature, f, indent=2)
+                    
+                print(f"Saved {current_zip} boundary to {output_file}")
+                found_count += 1
+                
+                if found_count == len(target_zips):
+                    break
+        
+        print(f"Finished. Found {found_count} out of {len(target_zips)} zip codes.")
 
 except Exception as e:
     print(f"An error occurred: {e}")
