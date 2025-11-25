@@ -268,6 +268,19 @@
         let featureLayer; // Google Maps Feature Layer for postal codes
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
+        // Zip code to Place ID mapping
+        const zipCodeToPlaceId = {
+            '32541': 'ChIJ0V22PNNAkYgRMXln1OdqRP8',
+            '32459': 'ChIJsRLVhWrkk4gRh8aISkRj9QY',
+            '32550': 'ChIJeUkxGAlckYgR7lyiS6S2vaY',
+            '32461': 'ChIJxW-pAuHxk4gR8ZYTLH2XFg4',
+            '32413': 'ChIJV2evHFSNk4gRPqNRvoeNIgA'
+        };
+        
+        const placeIdToZipCode = Object.fromEntries(
+            Object.entries(zipCodeToPlaceId).map(([zip, placeId]) => [placeId, zip])
+        );
+
         // Zip code boundary management using Google Maps Platform's native boundaries
         function normalizeZip(value) {
             if (!value) return null;
@@ -278,6 +291,11 @@
         function getPostalCodeFromFeature(feature) {
             if (!feature) return null;
 
+            // Check known Place IDs first
+            if (feature.placeId && placeIdToZipCode[feature.placeId]) {
+                return placeIdToZipCode[feature.placeId];
+            }
+
             if (feature.placeId && feature.placeId.includes(':')) {
                 const [type, code] = feature.placeId.split(':');
                 if (type === 'postal_code') {
@@ -285,7 +303,7 @@
                 }
             }
 
-            const candidates = [feature.displayName, feature.postalCode, feature.h];
+            const candidates = [feature.displayName, feature.postalCode];
             for (const candidate of candidates) {
                 const zip = normalizeZip(candidate);
                 if (zip) return zip;
