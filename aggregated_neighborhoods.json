@@ -1,24 +1,27 @@
 {
   "Highwood Park": {
-    "neighborhood_name": "Highwood Park",
+    "SubdivisionName": "Highwood Park",
     "listing_count": 1,
     "property_type": "homes",
     "latitude": "********",
     "longitude": "********",
     "avg_price": "$100,000",
-    "min_price": "$100,000.0",
-    "max_price": "$100,000.0",
     "median_price": "$100,000.0",
     "price_range": "$100,000 - $100,000",
     "avg_sqft": 1280,
+    "sqft_range": "1,280.0",
     "beds_range": "3",
     "baths_range": "2",
     "half_baths_range": "0",
+    "year_built_range": "2008",
+    "dom_range": "0",
     "avg_dom": 0,
     "avg_price_per_sqft": "$78",
     "city": "GREAT FALLS",
     "state": "MT",
     "zip": "59405",
-    "last_updated": "2025-11-25 15:35:20"
+    "area": "2 - 25th St E to MAFB and S to 10th Ave S",
+    "sub_area": "2 - 25th St E to MAFB and S to 10th Ave S",
+    "last_updated": "2025-11-25 16:42:28"
   }
 }
