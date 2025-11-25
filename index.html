@@ -235,16 +235,26 @@
         .range-slider input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             pointer-events: auto;
-            width: 44px; /* Large touch target (44px standard) */
-            height: 44px;
+            /* Hit area: 18px + 24px border = 42px */
+            width: 18px;
+            height: 18px;
+            box-sizing: content-box;
+            border: 12px solid transparent;
             border-radius: 50%;
-            /* Draw the visual knob (18px + 2px border) inside the transparent hit area */
-            background: radial-gradient(circle, white 0, white 9px, var(--color-text-secondary) 9.5px, var(--color-text-secondary) 11px, transparent 11.5px);
-            border: none;
+            
+            /* Visual: White circle inside */
+            background-color: white;
+            background-clip: content-box;
+            
+            /* Visual: Grey border (simulated with inset shadow) */
+            box-shadow: inset 0 0 0 2px var(--color-text-secondary);
+            
             cursor: grab;
-            /* Drop shadow on the non-transparent parts */
+            
+            /* Shadow: Only on the visible 18px circle */
             filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
-            margin-top: -20px; /* (44px - 4px) / 2 */
+            
+            margin-top: -19px; /* Centers the 42px thumb on the 4px track */
         }
         
         .range-slider input[type="range"]:active::-webkit-slider-thumb {
@@ -713,13 +723,15 @@
                         name: "Watersound Origins",
                         propertyType: "homes",
                         position: { lat: 30.294396274692907, lng: -86.01317525044458 },
+                        zipCode: "32461",
                         stats: {
                             listingCount: 76,
                             avgPrice: 825000,
                             avgPriceDisplay: "$825,000",
                             avgSqft: 2450,
                             avgDom: 45,
-                            priceRange: "$600k - $1.2M"
+                            priceRange: "$600k - $1.2M",
+                            zip: "32461"
                         },
                         amenities: ["Beach Access", "Dog Park", "Fitness", "Gated", "Golf", "No Short-Term", "Parks/Playgrounds", "Pickleball", "Pool", "Tennis", "Walking Trails", "Waterfront"],
                         marketReportUrl: "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
@@ -1250,7 +1262,9 @@
 
                 // Area filter - only apply if areas are selected
                 if (selectedAreas.length > 0) {
-                    if (!neighborhood.zipCode || !selectedAreas.includes(neighborhood.zipCode)) {
+                    // Check both zipCode and stats.zip for compatibility
+                    const nZip = neighborhood.zipCode || (neighborhood.stats && neighborhood.stats.zip);
+                    if (!nZip || !selectedAreas.includes(String(nZip))) {
                         showMarker = false;
                     }
                 }
