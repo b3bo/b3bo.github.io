@@ -19,8 +19,7 @@
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
     
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
+    <!-- Google Maps API moved to end of body to prevent race condition -->
     
     <style>
         :root {
@@ -454,6 +453,11 @@
         let featureLayers = []; // Array to hold multiple feature layers
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
+
+        // Pagination state
+        let allFilteredNeighborhoods = [];
+        let currentRenderCount = 0;
+        const BATCH_SIZE = 20;
 
         // Zip code to Place ID mapping
         const zipCodeToPlaceId = {
@@ -1060,6 +1064,17 @@
                     applyFilters();
                 });
             });
+
+            // Infinite scroll listener
+            document.getElementById('sidebar-content').addEventListener('scroll', function() {
+                const listTab = document.getElementById('tab-list');
+                if (listTab.classList.contains('hidden')) return;
+                
+                // Load more when within 100px of bottom
+                if (this.scrollTop + this.clientHeight >= this.scrollHeight - 100) {
+                    updateNeighborhoodList(false);
+                }
+            });
         }
 
         // Helper to parse price strings like "$1.2M", "$500k", or "$500,000"
@@ -1187,7 +1202,14 @@
             });
 
             updateCount(visibleCount);
-            updateNeighborhoodList(visibleNeighborhoods);
+            
+            // Sort alphabetically
+            visibleNeighborhoods.sort((a, b) => a.neighborhood.name.localeCompare(b.neighborhood.name));
+            
+            // Store for pagination
+            allFilteredNeighborhoods = visibleNeighborhoods;
+            
+            updateNeighborhoodList(true);
         }
 
 
@@ -1261,21 +1283,26 @@
             }
         });
 
-        function updateNeighborhoodList(items) {
+        function updateNeighborhoodList(reset = false) {
             const listContainer = document.getElementById('neighborhoodList');
             if (!listContainer) return;
             
-            listContainer.innerHTML = '';
-            
-            if (items.length === 0) {
-                listContainer.innerHTML = '<p class="text-sm text-neutral-500 text-center py-4">No communities found matching your criteria.</p>';
-                return;
+            if (reset) {
+                listContainer.innerHTML = '';
+                currentRenderCount = 0;
+                
+                if (allFilteredNeighborhoods.length === 0) {
+                    listContainer.innerHTML = '<p class="text-sm text-neutral-500 text-center py-4">No communities found matching your criteria.</p>';
+                    return;
+                }
             }
             
-            // Sort alphabetically
-            items.sort((a, b) => a.neighborhood.name.localeCompare(b.neighborhood.name));
+            // Get next batch
+            const nextBatch = allFilteredNeighborhoods.slice(currentRenderCount, currentRenderCount + BATCH_SIZE);
             
-            items.forEach(({ marker, neighborhood }) => {
+            if (nextBatch.length === 0) return;
+            
+            nextBatch.forEach(({ marker, neighborhood }) => {
                 const el = document.createElement('div');
                 el.className = 'bg-white p-3 rounded-lg border border-neutral-200 cursor-pointer hover:border-neutral-400 transition-colors';
                 
@@ -1312,7 +1339,11 @@
                 
                 listContainer.appendChild(el);
             });
+            
+            currentRenderCount += nextBatch.length;
         }
     </script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
 </body>
 </html>
