@@ -8,8 +8,8 @@
     <meta name="description" content="Explore communities along Florida's Emerald Coast with interactive maps, pricing, and amenities.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,21 +58,30 @@
             transition: all 0.2s;
             cursor: pointer;
             background: white;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
         
-        .amenity-tag:hover {
-            background: rgba(124, 163, 175, 0.3);
-            color: #3f3f46;
+        /* Only apply hover effects on devices that support hover */
+        @media (hover: hover) {
+            .amenity-tag:hover {
+                background: rgba(124, 163, 175, 0.3);
+                color: #3f3f46;
+            }
+            
+            .amenity-tag.selected:hover {
+                background: rgba(124, 163, 175, 0.4);
+                border-color: #7ca3af;
+            }
+        }
+
+        /* Active state for touch feedback */
+        .amenity-tag:active {
+            background: rgba(124, 163, 175, 0.4);
         }
         
         .amenity-tag.selected {
             background: rgba(124, 163, 175, 0.3);
             color: #3f3f46;
-            border-color: #7ca3af;
-        }
-        
-        .amenity-tag.selected:hover {
-            background: rgba(124, 163, 175, 0.4);
             border-color: #7ca3af;
         }
         
@@ -264,7 +273,7 @@
         let infoWindow;
         let neighborhoods = [];
         let activeMarker = null;
-        let rippleOverlays = new Map();
+        // let rippleOverlays = new Map(); // Removed in favor of AdvancedMarkerElement content
         let featureLayers = []; // Array to hold multiple feature layers
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
@@ -608,140 +617,57 @@
             markers = [];
 
             neighborhoods.forEach((neighborhood, index) => {
-                const markerColor = getMarkerColor(neighborhood.stats.avgPrice);
-
-                // Create invisible marker content (we use custom overlay for visuals)
-                const markerDiv = document.createElement('div');
-                markerDiv.style.width = '0px';
-                markerDiv.style.height = '0px';
+                // Create the marker content structure directly
+                const markerContainer = document.createElement('div');
+                markerContainer.className = 'ripple-marker';
+                markerContainer.innerHTML = `
+                    <div class="ripple"></div>
+                    <div class="ripple-icon"></div>
+                `;
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: neighborhood.position,
                     map: map,
                     title: neighborhood.name,
-                    content: markerDiv
+                    content: markerContainer
                 });
-
-                // Add ripple effect for all neighborhoods (initially inactive)
-                const rippleOverlay = addRippleOverlay(marker.position, marker, neighborhood);
-                rippleOverlays.set(marker, rippleOverlay);
 
                 marker.addListener('click', () => {
-                    toggleMarker(marker, neighborhood, rippleOverlay);
+                    toggleMarker(marker, neighborhood);
                 });
 
-                // Don't auto-open any pins on load
                 markers.push({ marker, neighborhood });
             });
         }
 
-        function addRippleOverlay(position, marker, neighborhood) {
-            class RippleOverlay extends google.maps.OverlayView {
-                constructor(position, marker, neighborhood) {
-                    super();
-                    this.position = position;
-                    this.marker = marker;
-                    this.neighborhood = neighborhood;
-                    this.div = null;
-                    this.rippleElement = null;
-                }
+        function toggleMarker(marker, neighborhood) {
+            // Helper to get ripple element from marker content
+            const getRipple = (m) => m.content.querySelector('.ripple');
 
-                onAdd() {
-                    const div = document.createElement('div');
-                    div.style.position = 'absolute';
-                    div.style.cursor = 'pointer';
-                    div.innerHTML = `
-                        <div class="ripple-marker">
-                            <div class="ripple"></div>
-                            <div class="ripple-icon"></div>
-                        </div>
-                    `;
-                    this.div = div;
-                    this.rippleElement = div.querySelector('.ripple');
-                    
-                    // Make the overlay clickable
-                    div.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        google.maps.event.trigger(this.marker, 'click');
-                    });
-                    
-                    const panes = this.getPanes();
-                    panes.overlayMouseTarget.appendChild(div);
-                }
-
-                draw() {
-                    const overlayProjection = this.getProjection();
-                    const position = overlayProjection.fromLatLngToDivPixel(this.position);
-                    if (this.div) {
-                        this.div.style.left = position.x - 20 + 'px';
-                        this.div.style.top = position.y - 20 + 'px';
-                    }
-                }
-
-                activate() {
-                    if (this.rippleElement) {
-                        this.rippleElement.classList.add('active');
-                    }
-                }
-
-                deactivate() {
-                    if (this.rippleElement) {
-                        this.rippleElement.classList.remove('active');
-                    }
-                }
-
-                hide() {
-                    if (this.div) {
-                        this.div.style.display = 'none';
-                    }
-                }
-
-                show() {
-                    if (this.div) {
-                        this.div.style.display = 'block';
-                    }
-                }
-
-                onRemove() {
-                    if (this.div) {
-                        this.div.parentNode.removeChild(this.div);
-                        this.div = null;
-                    }
-                }
-            }
-
-            const overlay = new RippleOverlay(position, marker, neighborhood);
-            overlay.setMap(map);
-            return overlay;
-        }
-
-        function toggleMarker(marker, neighborhood, rippleOverlay) {
             // If clicking the same marker, toggle info window and ripple
             if (activeMarker === marker) {
                 if (infoWindow && infoWindow.getMap()) {
                     infoWindow.close();
-                    if (rippleOverlay) {
-                        rippleOverlay.deactivate();
-                    }
+                    const ripple = getRipple(marker);
+                    if (ripple) ripple.classList.remove('active');
                     activeMarker = null;
                 } else {
                     showInfoWindow(marker, neighborhood);
-                    if (rippleOverlay) {
-                        rippleOverlay.activate();
-                    }
+                    const ripple = getRipple(marker);
+                    if (ripple) ripple.classList.add('active');
                 }
             } else {
                 // Clicking different marker - deactivate old, activate new
                 if (activeMarker) {
-                    const oldRipple = rippleOverlays.get(activeMarker);
-                    if (oldRipple) {
-                        oldRipple.deactivate();
-                    }
+                    const oldRipple = getRipple(activeMarker);
+                    if (oldRipple) oldRipple.classList.remove('active');
                 }
+                
                 showInfoWindow(marker, neighborhood);
-                if (rippleOverlay) {
-                    rippleOverlay.activate();
-                }
+                
+                const newRipple = getRipple(marker);
+                if (newRipple) newRipple.classList.add('active');
+                
                 activeMarker = marker;
             }
         }
@@ -818,8 +744,9 @@
                         // Don't close if clicking the link
                         if (e.target.tagName !== 'A' && !e.target.closest('a')) {
                             infoWindow.close();
-                            if (rippleOverlay) {
-                                rippleOverlay.deactivate();
+                            if (activeMarker) {
+                                const ripple = activeMarker.content.querySelector('.ripple');
+                                if (ripple) ripple.classList.remove('active');
                             }
                             activeMarker = null;
                         }
@@ -830,9 +757,9 @@
             // Listen for info window close to deactivate ripple
             google.maps.event.clearListeners(infoWindow, 'closeclick');
             infoWindow.addListener('closeclick', () => {
-                const rippleOverlay = rippleOverlays.get(marker);
-                if (rippleOverlay) {
-                    rippleOverlay.deactivate();
+                if (activeMarker) {
+                    const ripple = activeMarker.content.querySelector('.ripple');
+                    if (ripple) ripple.classList.remove('active');
                 }
                 activeMarker = null;
             });
@@ -894,6 +821,7 @@
                     this.classList.toggle('selected', isShowing);
                     
                     console.log(`Area button clicked: ${this.textContent} (${zipCode}) - ${isShowing ? 'showing' : 'hiding'}`);
+                    applyFilters();
                 });
             });
         }
@@ -901,8 +829,10 @@
         function applyFilters() {
             const selectedPrices = Array.from(document.querySelectorAll('#priceFilters input:checked'))
                 .map(cb => cb.value);
-            const selectedAmenities = Array.from(document.querySelectorAll('.amenity-tag.selected'))
+            const selectedAmenities = Array.from(document.querySelectorAll('#amenityFilters .amenity-tag.selected'))
                 .map(tag => tag.dataset.amenity);
+            const selectedAreas = Array.from(document.querySelectorAll('#areaFilters .amenity-tag.selected'))
+                .map(tag => tag.dataset.zipcode);
             
             // Get selected property type (homes or condos)
             const selectedPropertyType = document.querySelector('.property-type-btn[style*="rgba(124, 163, 175"]')?.id === 'btn-condos' ? 'condos' : 'homes';
@@ -926,6 +856,13 @@
                     });
 
                     if (!priceMatch) showMarker = false;
+                }
+
+                // Area filter - only apply if areas are selected
+                if (selectedAreas.length > 0) {
+                    if (!neighborhood.zipCode || !selectedAreas.includes(neighborhood.zipCode)) {
+                        showMarker = false;
+                    }
                 }
 
                 // Show neighborhood if it has ANY of the selected amenities (not ALL)
@@ -953,25 +890,16 @@
 
                 marker.map = showMarker ? map : null;
                 
-                // Also hide/show the ripple overlay
-                const rippleOverlay = rippleOverlays.get(marker);
-                if (rippleOverlay) {
-                    if (showMarker) {
-                        rippleOverlay.show();
-                    } else {
-                        rippleOverlay.hide();
-                        // If marker is being hidden and its info window is open, close it
-                        if (activeMarker === marker) {
-                            console.log('🚪 Closing InfoWindow for:', neighborhood.name);
-                            infoWindow.close();
-                            activeMarker = null;
-                            // Also deactivate the ripple
-                            const rippleDiv = rippleOverlay.div.querySelector('.ripple');
-                            if (rippleDiv) {
-                                rippleDiv.classList.remove('active');
-                            }
-                        }
-                    }
+                // If marker is being hidden and its info window is open, close it
+                if (!showMarker && activeMarker === marker) {
+                    console.log('🚪 Closing InfoWindow for:', neighborhood.name);
+                    infoWindow.close();
+                    
+                    // Deactivate ripple
+                    const ripple = marker.content.querySelector('.ripple');
+                    if (ripple) ripple.classList.remove('active');
+                    
+                    activeMarker = null;
                 }
                 
                 if (showMarker) visibleCount++;
@@ -1033,6 +961,24 @@
                 // Apply filters (this will be used when we have property type data in neighborhoods.json)
                 applyFilters();
             });
+        });
+
+        // Close drawer when clicking on empty space
+        document.getElementById('sidebar').addEventListener('click', function(e) {
+            // Check if the click target is interactive or inside an interactive element
+            if (e.target.closest('button') || 
+                e.target.closest('a') || 
+                e.target.closest('label') || 
+                e.target.closest('input') ||
+                e.target.closest('.tab-btn')) {
+                return;
+            }
+            
+            // Close the drawer by unchecking the toggle
+            const drawerToggle = document.getElementById('drawer-toggle');
+            if (drawerToggle && drawerToggle.checked) {
+                drawerToggle.checked = false;
+            }
         });
 
         window.initMap = initMap;
