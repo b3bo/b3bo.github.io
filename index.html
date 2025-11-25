@@ -265,7 +265,7 @@
         let neighborhoods = [];
         let activeMarker = null;
         let rippleOverlays = new Map();
-        let featureLayer; // Google Maps Feature Layer for postal codes
+        let featureLayers = []; // Array to hold multiple feature layers
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
 
         // Zip code to Place ID mapping
@@ -341,16 +341,18 @@
         }
 
         function updateFeatureLayerStyle() {
-            if (!featureLayer) return;
-            featureLayer.style = null;
-            featureLayer.style = handleFeatureLayerStyle;
+            if (featureLayers.length === 0) return;
+            featureLayers.forEach(layer => {
+                layer.style = null;
+                layer.style = handleFeatureLayerStyle;
+            });
         }
 
         function showZipCodeBoundary(zipCode) {
             const normalizedZip = normalizeZip(zipCode);
             if (!normalizedZip) return;
-            if (!featureLayer) {
-                console.error('Feature layer not initialized');
+            if (featureLayers.length === 0) {
+                console.error('Feature layers not initialized');
                 return;
             }
             
@@ -515,8 +517,12 @@
                 zoomControl: true
             });
 
-            // Initialize Feature Layer for postal code boundaries
-            featureLayer = map.getFeatureLayer(google.maps.FeatureType.POSTAL_CODE);
+            // Initialize Feature Layers
+            // We need POSTAL_CODE for most, and LOCALITY for Inlet Beach (CDP)
+            const postalLayer = map.getFeatureLayer(google.maps.FeatureType.POSTAL_CODE);
+            const localityLayer = map.getFeatureLayer(google.maps.FeatureType.LOCALITY);
+            
+            featureLayers = [postalLayer, localityLayer];
             updateFeatureLayerStyle();
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
