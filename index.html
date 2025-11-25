@@ -1042,11 +1042,12 @@
 
                 // Update track fill
                 const totalSteps = 41;
-                const leftPercent = (minVal / totalSteps) * 100;
-                const widthPercent = ((maxVal - minVal) / totalSteps) * 100;
+                const minPct = minVal / totalSteps;
+                const maxPct = maxVal / totalSteps;
                 
-                rangeFill.style.left = leftPercent + '%';
-                rangeFill.style.width = widthPercent + '%';
+                // Correct for thumb width (42px) to ensure fill aligns with thumb centers
+                rangeFill.style.left = `calc(${minPct * 100}% + ${21 - minPct * 42}px)`;
+                rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
                 
                 applyFilters();
             }
@@ -1064,8 +1065,8 @@
                 bedsDisplay.textContent = val === 0 ? 'Any' : (val === 6 ? '6+' : val + '+');
                 
                 // Update track fill
-                const percent = (val / 6) * 100;
-                bedsFill.style.width = percent + '%';
+                const pct = val / 6;
+                bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
                 applyFilters();
             }
@@ -1082,8 +1083,8 @@
                 bathsDisplay.textContent = val === 0 ? 'Any' : (val === 6 ? '6+' : val + '+');
                 
                 // Update track fill
-                const percent = (val / 6) * 100;
-                bathsFill.style.width = percent + '%';
+                const pct = val / 6;
+                bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
                 applyFilters();
             }
