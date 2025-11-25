@@ -267,16 +267,20 @@
         let rippleOverlays = new Map();
         let featureLayers = []; // Array to hold multiple feature layers
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
+        let customBoundaries = new Set(); // Track which custom boundaries are displayed
 
         // Zip code to Place ID mapping
         const zipCodeToPlaceId = {
             '32541': 'ChIJ0V22PNNAkYgRMXln1OdqRP8',
             '32459': 'ChIJsRLVhWrkk4gRh8aISkRj9QY',
             '32550': 'ChIJeUkxGAlckYgR7lyiS6S2vaY',
-            '32461': 'ChIJAWWvHFSNk4gRBuz2t1VPjwU',
+            // '32461': 'ChIJAWWvHFSNk4gRBuz2t1VPjwU', // Inlet Beach - using custom data now
             '32413': 'ChIJV2evHFSNk4gRPqNRvoeNIgA'
         };
         
+        // Zip codes that use custom GeoJSON data instead of Google Maps Feature Layer
+        const customZipCodes = ['32461'];
+
         const placeIdToZipCode = Object.fromEntries(
             Object.entries(zipCodeToPlaceId).map(([zip, placeId]) => [placeId, zip])
         );
@@ -351,6 +355,13 @@
         function showZipCodeBoundary(zipCode) {
             const normalizedZip = normalizeZip(zipCode);
             if (!normalizedZip) return;
+
+            // Check if this is a custom zip code
+            if (customZipCodes.includes(normalizedZip)) {
+                showCustomBoundary(normalizedZip);
+                return;
+            }
+
             if (featureLayers.length === 0) {
                 console.error('Feature layers not initialized');
                 return;
@@ -364,6 +375,13 @@
         function hideZipCodeBoundary(zipCode) {
             const normalizedZip = normalizeZip(zipCode);
             if (!normalizedZip) return;
+
+            // Check if this is a custom zip code
+            if (customZipCodes.includes(normalizedZip)) {
+                hideCustomBoundary(normalizedZip);
+                return;
+            }
+
             activeZipCodes.delete(normalizedZip);
             console.log(`Hiding boundary for zip code ${normalizedZip}, active codes:`, Array.from(activeZipCodes));
             updateFeatureLayerStyle();
@@ -372,6 +390,18 @@
         function toggleZipCodeBoundary(zipCode) {
             const normalizedZip = normalizeZip(zipCode);
             if (!normalizedZip) return false;
+
+            // Check if this is a custom zip code
+            if (customZipCodes.includes(normalizedZip)) {
+                if (customBoundaries.has(normalizedZip)) {
+                    hideCustomBoundary(normalizedZip);
+                    return false;
+                } else {
+                    showCustomBoundary(normalizedZip);
+                    return true;
+                }
+            }
+
             if (activeZipCodes.has(normalizedZip)) {
                 hideZipCodeBoundary(normalizedZip);
                 return false; // Not showing
@@ -379,6 +409,45 @@
                 showZipCodeBoundary(normalizedZip);
                 return true; // Now showing
             }
+        }
+
+        // Custom Boundary Logic
+        function showCustomBoundary(zipCode) {
+            if (customBoundaries.has(zipCode)) return;
+            
+            console.log(`Loading custom boundary for ${zipCode}`);
+            map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE10' }, function(features) {
+                customBoundaries.add(zipCode);
+                
+                // Style the data layer
+                map.data.setStyle(function(feature) {
+                    const featureZip = feature.getProperty('ZCTA5CE10');
+                    if (customBoundaries.has(featureZip)) {
+                        return {
+                            strokeColor: '#7ca3af',
+                            strokeWeight: 2.5,
+                            strokeOpacity: 0.85,
+                            fillColor: '#7ca3af',
+                            fillOpacity: 0.15,
+                            clickable: false
+                        };
+                    }
+                    return { visible: false };
+                });
+            });
+        }
+
+        function hideCustomBoundary(zipCode) {
+            if (!customBoundaries.has(zipCode)) return;
+            
+            customBoundaries.delete(zipCode);
+            
+            // Remove features with this zip code
+            map.data.forEach(function(feature) {
+                if (feature.getProperty('ZCTA5CE10') === zipCode) {
+                    map.data.remove(feature);
+                }
+            });
         }
 
         // Parse URL parameters
