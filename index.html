@@ -1302,30 +1302,26 @@
 
                 // Create List Item
                 if (listContainer) {
-                    const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
-                        (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
-                    const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
-                    const medianPriceDisplay = `$${medianPrice.toLocaleString()}`;
+                    // Format price for card (e.g. $1.3M)
+                    const price = neighborhood.stats.avgPrice;
+                    let formattedPrice = '$' + price.toLocaleString();
+                    if (price >= 1000000) {
+                        formattedPrice = '$' + (price / 1000000).toFixed(1) + 'M';
+                    } else if (price >= 1000) {
+                        formattedPrice = '$' + (price / 1000).toFixed(0) + 'k';
+                    }
 
                     const card = document.createElement('div');
                     card.className = 'bg-white p-4 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer';
                     card.innerHTML = `
-                        <h3 class="text-lg font-semibold text-neutral-900 mb-2">${neighborhood.name}</h3>
-                        <div class="grid grid-cols-2 gap-2 mb-3">
-                            <div class="bg-neutral-50 px-3 py-2 rounded-lg border border-neutral-100">
-                                <div class="text-xs text-neutral-500 mb-0.5">Listings</div>
-                                <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.listingCount}</div>
-                            </div>
-                            <div class="bg-neutral-50 px-3 py-2 rounded-lg border border-neutral-100">
-                                <div class="text-xs text-neutral-500 mb-0.5">Avg Price</div>
-                                <div class="text-sm font-semibold text-neutral-900">${medianPriceDisplay}</div>
-                            </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-base font-bold text-neutral-900">${neighborhood.name}</h3>
+                            <span class="text-sm font-semibold text-neutral-900">${formattedPrice}</span>
                         </div>
-                        <div class="flex flex-wrap gap-1 mb-3">
-                            ${neighborhood.amenities.slice(0, 3).map(a => `<span class="text-xs px-2 py-1 bg-neutral-100 text-neutral-600 rounded-full">${a}</span>`).join('')}
-                            ${neighborhood.amenities.length > 3 ? `<span class="text-xs px-2 py-1 bg-neutral-100 text-neutral-600 rounded-full">+${neighborhood.amenities.length - 3}</span>` : ''}
+                        <div class="text-xs text-neutral-500 mb-3">${neighborhood.stats.listingCount} Listings</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed">
+                            ${neighborhood.amenities.join(', ')}
                         </div>
-                        <button class="w-full py-2 bg-neutral-800 text-white rounded-lg text-sm font-medium hover:bg-neutral-900 transition-colors">View Details</button>
                     `;
                     
                     // Add click listener to pan to marker and open info window
@@ -1347,7 +1343,7 @@
             // Update results count
             const resultsCount = document.getElementById('resultsCount');
             if (resultsCount) {
-                resultsCount.textContent = `${allFilteredNeighborhoods.length} ${allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found`;
+                resultsCount.textContent = `${allFilteredNeighborhoods.length} ${allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found!`;
             }
         }
 
