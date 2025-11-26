@@ -777,7 +777,7 @@
                     const drawerToggle = document.getElementById('drawer-toggle');
                     const footer = document.querySelector('.bg-neutral-800');
                     const disclaimer = document.getElementById('map-disclaimer');
-                    if (drawer) drawer.style.display = 'none';
+                    if (drawer) drawer.style.setProperty('display', 'none', 'important');
                     if (drawerToggle) drawerToggle.style.display = 'none';
                     if (footer) footer.style.display = 'none';
                     if (disclaimer) disclaimer.style.display = 'none';
