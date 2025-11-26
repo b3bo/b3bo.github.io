@@ -810,7 +810,16 @@
                 }
             } catch (error) {
                 console.error('Error initializing map:', error);
-                document.getElementById('loading-screen').innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+                } else {
+                    // Fallback if loading screen is gone (e.g. map initialized)
+                    const mapDiv = document.getElementById('map');
+                    if (mapDiv) {
+                        mapDiv.innerHTML = '<div class="flex items-center justify-center h-full"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+                    }
+                }
             }
         }
 
@@ -1019,6 +1028,10 @@
                 let minVal = parseInt(priceMinInput.value);
                 let maxVal = parseInt(priceMaxInput.value);
 
+                // Calculate maxPct for the fill width early
+                const totalSteps = 41;
+                const maxPct = maxVal / totalSteps;
+
                 // Push behavior
                 if (minVal > maxVal) {
                     // Use event.target if available, otherwise infer from values
@@ -1052,10 +1065,6 @@
                 } else {
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
-
-                // Calculate maxPct for the fill width
-                const totalSteps = 41;
-                const maxPct = maxVal / totalSteps;
 
                 // Update track fill - Anchored to left (0) based on Max value only
                 // This creates the "tail" effect requested, ignoring the Min thumb for visual fill
