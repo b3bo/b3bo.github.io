@@ -719,16 +719,17 @@
         }
 
         // Helper to calculate offset center for "visual centering"
-        function getOffsetCenter(latLng, zoom, pixelOffset) {
+        function getOffsetCenter(latLng, zoom, offsetX, offsetY) {
             const scale = Math.pow(2, zoom);
             const worldCoordinate = project(latLng);
             
-            // Shift by pixels (negative y is up/North)
-            const pixelShift = pixelOffset / scale;
+            // Shift by pixels (negative y is up/North, negative x is left/West)
+            const pixelShiftX = offsetX / scale;
+            const pixelShiftY = offsetY / scale;
             
             const newWorldCoordinate = {
-                x: worldCoordinate.x,
-                y: worldCoordinate.y + pixelShift
+                x: worldCoordinate.x + pixelShiftX,
+                y: worldCoordinate.y + pixelShiftY
             };
             
             return unproject(newWorldCoordinate);
@@ -758,16 +759,24 @@
 
         // Smooth camera transition
         function smoothFlyTo(targetPosition, targetZoom = 15) {
-            // Calculate the visual center (offset to account for card height)
-            // We want the marker to be lower in the view, so we center on a point North of it.
-            // Card is approx 350px tall. Center is ~175px up.
-            // So we shift the map center North by ~150px (giving a bit of buffer).
-            // Note: In pixel coords, Y increases downwards. So to shift North (Up), we subtract pixels.
-            // But we are calculating the TARGET center.
-            // If we want the Marker to be at (CenterY + 150), we need the MapCenter to be at (MarkerY - 150).
-            // So we shift the target coordinate UP (Negative Y).
+            // Calculate the visual center (offset to account for card height and sidebar)
+            // Vertical: Card is approx 350px tall. Center is ~175px up.
+            // We shift map center North (negative Y) so marker appears South (down).
+            // We use -130 to account for the bottom disclaimer/footer.
+            let offsetY = -130;
             
-            const visualTarget = getOffsetCenter(targetPosition, targetZoom, -150);
+            // Horizontal: On desktop, sidebar is 288px (w-72) on the left.
+            // We want to center in the *remaining* space.
+            // Center of remaining = 288 + (Width - 288)/2 = Width/2 + 144.
+            // Viewport center is Width/2.
+            // We want marker to be at Width/2 + 144 (shifted Right).
+            // So we shift Map Center LEFT (negative X).
+            let offsetX = 0;
+            if (window.innerWidth >= 768) {
+                offsetX = -144;
+            }
+            
+            const visualTarget = getOffsetCenter(targetPosition, targetZoom, offsetX, offsetY);
             
             const startPos = map.getCenter();
             const startZoom = map.getZoom();
@@ -799,14 +808,20 @@
 
             // Long distance flight animation
             const startTime = performance.now();
-            const duration = 2000; // 2 seconds
-            const minZoom = 11; // Cruising altitude
+            // Dynamic duration based on distance (2s to 3s)
+            const duration = Math.min(2000 + (distance / 100), 3000); 
+            
+            // Dynamic cruising altitude based on distance
+            // Further = Higher (Lower zoom number)
+            let minZoom = 11;
+            if (distance > 10000) minZoom = 10; // > 10km
+            if (distance > 30000) minZoom = 9;  // > 30km
             
             function animate(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 
-                // EaseInOutCubic for position
+                // EaseInOutCubic for position (smooth acceleration/deceleration)
                 const ease = progress < 0.5 
                     ? 4 * progress * progress * progress 
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
@@ -815,21 +830,16 @@
                 const curLat = startPos.lat() + (visualTarget.lat - startPos.lat()) * ease;
                 const curLng = startPos.lng() + (visualTarget.lng - startPos.lng()) * ease;
                 
-                // Interpolate Zoom (Parabolic arc)
-                let curZoom;
-                if (progress < 0.5) {
-                    // 0% to 50%: Zoom out from startZoom to minZoom
-                    const zoomProgress = progress * 2; // 0 to 1
-                    // Ease out to slow down as we reach peak
-                    const zoomEase = 1 - Math.pow(1 - zoomProgress, 2); 
-                    curZoom = startZoom + (minZoom - startZoom) * zoomEase;
-                } else {
-                    // 50% to 100%: Zoom in from minZoom to targetZoom
-                    const zoomProgress = (progress - 0.5) * 2; // 0 to 1
-                    // Ease in to speed up as we land
-                    const zoomEase = zoomProgress * zoomProgress;
-                    curZoom = minZoom + (targetZoom - minZoom) * zoomEase;
-                }
+                // Interpolate Zoom (Sine Wave for smoother "arc")
+                // This zooms out faster and stays out longer than a linear/quad spike
+                const altitude = Math.sin(progress * Math.PI);
+                
+                // Calculate baseline zoom (linear transition from start to end)
+                const baseZoom = startZoom + (targetZoom - startZoom) * ease;
+                
+                // Apply altitude offset (dip down to minZoom at the peak)
+                // We use the sine wave to interpolate between the baseline and the minZoom
+                const curZoom = baseZoom - (baseZoom - minZoom) * altitude;
                 
                 map.moveCamera({
                     center: { lat: curLat, lng: curLng },
