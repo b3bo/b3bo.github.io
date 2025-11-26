@@ -1140,6 +1140,48 @@
 
             bathsMinInput.addEventListener('input', updateBathsSlider);
 
+            // Create amenity tags dynamically
+            const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            const defaultSelected = []; // Start with no amenities selected
+            
+            const amenityContainer = document.getElementById('amenityFilters');
+            if (amenityContainer) {
+                amenityContainer.innerHTML = '';
+                
+                allAmenities.forEach(amenity => {
+                    const tag = document.createElement('button');
+                    tag.className = 'amenity-tag' + (defaultSelected.includes(amenity) ? ' selected' : '');
+                    tag.textContent = amenity;
+                    tag.setAttribute('data-amenity', amenity); // Use setAttribute for consistency
+                    
+                    tag.addEventListener('click', function() {
+                        // Handle mutually exclusive Short-Term / No Short-Term
+                        if (amenity === 'Short-Term' || amenity === 'No Short-Term') {
+                            const otherTag = amenity === 'Short-Term' ? 'No Short-Term' : 'Short-Term';
+                            const otherButton = Array.from(amenityContainer.children).find(
+                                btn => btn.getAttribute('data-amenity') === otherTag
+                            );
+                            
+                            if (this.classList.contains('selected')) {
+                                // Deselecting this one
+                                this.classList.remove('selected');
+                            } else {
+                                // Selecting this one - deselect the other
+                                if (otherButton) {
+                                    otherButton.classList.remove('selected');
+                                }
+                                this.classList.add('selected');
+                            }
+                        } else {
+                            this.classList.toggle('selected');
+                        }
+                        applyFilters();
+                    });
+                    
+                    amenityContainer.appendChild(tag);
+                });
+            }
+
             // Initialize sliders visual state
             // Note: These will trigger applyFilters(), which is fine for initialization
             updatePriceSlider();
@@ -1199,9 +1241,10 @@
 
             // Reset UI
             document.getElementById('resultsCount').textContent = '';
-            document.getElementById('tab-list').classList.add('hidden');
-            document.getElementById('tab-amenities').classList.add('hidden');
-            document.getElementById('tab-2').classList.remove('hidden');
+            // Don't force tab switching here - let user stay on their selected tab
+            // document.getElementById('tab-list').classList.add('hidden');
+            // document.getElementById('tab-amenities').classList.add('hidden');
+            // document.getElementById('tab-2').classList.remove('hidden');
 
             // Clear existing markers and boundaries
             markers.forEach(m => m.marker.setMap(null));
@@ -1209,6 +1252,10 @@
             activeZipCodes.clear();
             customBoundaries.clear();
             map.data.forEach(feature => map.data.remove(feature));
+            
+            // Clear list
+            const listContainer = document.getElementById('neighborhoodList');
+            if (listContainer) listContainer.innerHTML = '';
 
             // Show all neighborhoods initially
             if (filteredNeighborhoods.length === 0) {
@@ -1229,6 +1276,8 @@
         }
 
         function renderNeighborhoods(neighborhoodsToRender) {
+            const listContainer = document.getElementById('neighborhoodList');
+
             neighborhoodsToRender.forEach(neighborhood => {
                 // Create the marker content structure directly
                 const markerContainer = document.createElement('div');
@@ -1250,12 +1299,55 @@
                 });
 
                 markers.push({ marker, neighborhood });
+
+                // Create List Item
+                if (listContainer) {
+                    const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
+                        (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
+                    const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
+                    const medianPriceDisplay = `$${medianPrice.toLocaleString()}`;
+
+                    const card = document.createElement('div');
+                    card.className = 'bg-white p-4 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer';
+                    card.innerHTML = `
+                        <h3 class="text-lg font-semibold text-neutral-900 mb-2">${neighborhood.name}</h3>
+                        <div class="grid grid-cols-2 gap-2 mb-3">
+                            <div class="bg-neutral-50 px-3 py-2 rounded-lg border border-neutral-100">
+                                <div class="text-xs text-neutral-500 mb-0.5">Listings</div>
+                                <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.listingCount}</div>
+                            </div>
+                            <div class="bg-neutral-50 px-3 py-2 rounded-lg border border-neutral-100">
+                                <div class="text-xs text-neutral-500 mb-0.5">Avg Price</div>
+                                <div class="text-sm font-semibold text-neutral-900">${medianPriceDisplay}</div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            ${neighborhood.amenities.slice(0, 3).map(a => `<span class="text-xs px-2 py-1 bg-neutral-100 text-neutral-600 rounded-full">${a}</span>`).join('')}
+                            ${neighborhood.amenities.length > 3 ? `<span class="text-xs px-2 py-1 bg-neutral-100 text-neutral-600 rounded-full">+${neighborhood.amenities.length - 3}</span>` : ''}
+                        </div>
+                        <button class="w-full py-2 bg-neutral-800 text-white rounded-lg text-sm font-medium hover:bg-neutral-900 transition-colors">View Details</button>
+                    `;
+                    
+                    // Add click listener to pan to marker and open info window
+                    card.addEventListener('click', () => {
+                        map.panTo(neighborhood.position);
+                        map.setZoom(15);
+                        google.maps.event.trigger(marker, 'click');
+                        
+                        // On mobile, close drawer to show map
+                        if (window.innerWidth < 768) {
+                            document.getElementById('drawer-toggle').checked = false;
+                        }
+                    });
+
+                    listContainer.appendChild(card);
+                }
             });
 
             // Update results count
             const resultsCount = document.getElementById('resultsCount');
             if (resultsCount) {
-                resultsCount.textContent = `${neighborhoodsToRender.length} community${neighborhoodsToRender.length !== 1 ? 'ies' : 'y'} found`;
+                resultsCount.textContent = `${allFilteredNeighborhoods.length} ${allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found`;
             }
         }
 
