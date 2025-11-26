@@ -50,7 +50,6 @@
             box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
-            z-index: 10000000 !important;
         }
         
         /* Remove border from info window tip */
@@ -340,6 +339,8 @@
             background-color: rgba(124, 163, 175, 0.8);
             border-radius: 20px;
         }
+
+
     </style>
 </head>
 <body class="h-screen overflow-hidden font-body text-neutral-700">
@@ -724,6 +725,11 @@
             // If close (< 2km), just standard pan/zoom
             if (distance < 2000) {
                 map.panTo(targetPosition);
+                // After pan completes, apply offset
+                setTimeout(() => {
+                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+                    map.panTo(offsetTarget);
+                }, 100);
                 // Simple zoom animation
                 const zoomDiff = targetZoom - startZoom;
                 if (Math.abs(zoomDiff) > 0.1) {
@@ -756,7 +762,7 @@
                     ? 4 * progress * progress * progress 
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 
-                // Interpolate Position
+                // Interpolate Position (without offset during flight)
                 const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
                 const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
                 
@@ -783,21 +789,41 @@
                 
                 if (progress < 1) {
                     requestAnimationFrame(animate);
+                } else {
+                    // After animation completes, apply offset
+                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+                    map.panTo(offsetTarget);
                 }
             }
             
             requestAnimationFrame(animate);
+        }
+        
+        // Helper function to offset lat/lng by pixels
+        function offsetLatLng(latLng, offsetPixels, zoomLevel) {
+            const scale = Math.pow(2, zoomLevel || map.getZoom());
+            const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
+            
+            const pixelOffset = new google.maps.Point(
+                0,
+                -offsetPixels / scale  // Negative to shift map UP (marker appears lower)
+            );
+            
+            const newWorldCoordinate = new google.maps.Point(
+                worldCoordinate.x,
+                worldCoordinate.y + pixelOffset.y
+            );
+            
+            const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
+            return { lat: newLatLng.lat(), lng: newLatLng.lng() };
         }
 
         function initializeMap(center, zoom) {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: zoom,
                 center: center,
-                mapId: '92b2f4ea8b2fce54a50ed2e9', // Style ID: a14568cafd921b121b81dcce
+                mapId: '92b2f4ea8b2fce54a50ed2e9',
                 mapTypeControl: true,
-                mapTypeControlOptions: {
-                    position: google.maps.ControlPosition.TOP_RIGHT
-                },
                 streetViewControl: true,
                 streetViewControlOptions: {
                     position: google.maps.ControlPosition.RIGHT_BOTTOM
@@ -807,10 +833,7 @@
                 clickableIcons: false
             });
 
-            infoWindow = new google.maps.InfoWindow({ 
-                maxWidth: 280,
-                zIndex: 10000000
-            });
+            infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
             addMarkers();
             setupFilters();
             applyFilters();
@@ -1345,8 +1368,24 @@
                     
                     // Add click listener to pan to marker and open info window
                     card.addEventListener('click', () => {
+                        // Close current info window
+                        if (infoWindow && infoWindow.getMap()) {
+                            infoWindow.close();
+                        }
+                        // Deactivate current marker ripple
+                        if (activeMarker) {
+                            const ripple = activeMarker.content.querySelector('.ripple');
+                            if (ripple) ripple.classList.remove('active');
+                            activeMarker = null;
+                        }
+                        
+                        // Fly to new location
                         smoothFlyTo(neighborhood.position, 15);
-                        google.maps.event.trigger(marker, 'click');
+                        
+                        // Open info window after animation completes
+                        setTimeout(() => {
+                            google.maps.event.trigger(marker, 'click');
+                        }, 2100); // Wait for 2s animation + 100ms buffer
                         
                         // On mobile, close drawer to show map
                         if (window.innerWidth < 768) {
