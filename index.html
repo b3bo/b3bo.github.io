@@ -340,7 +340,48 @@
             border-radius: 20px;
         }
 
+        /* Custom Google Map Controls */
+        .g-control-container {
+            margin: 10px;
+            box-shadow: 0 1px 4px -1px rgba(0,0,0,0.3);
+            border-radius: 2px;
+            background-color: white;
+            display: flex;
+            cursor: pointer;
+            user-select: none;
+            height: 40px;
+            z-index: 1; /* Bottom layer - renders behind other controls */
+        }
 
+        .g-control-button {
+            padding: 0 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 15px;
+            color: #565656;
+            transition: background-color 0.1s;
+            font-weight: 500;
+        }
+
+        .g-control-divider {
+            width: 1px;
+            background-color: #d0d0d0;
+            height: 24px;
+            align-self: center;
+        }
+
+        .g-control-button:hover {
+            background-color: #ebebeb;
+            color: #000;
+        }
+
+        .g-control-button.active {
+            color: #000;
+            font-weight: 500;
+            background-color: #fff;
+        }
     </style>
 </head>
 <body class="h-screen overflow-hidden font-body text-neutral-700">
@@ -482,6 +523,13 @@
 
         <!-- Main content area with map and sidebar -->
         <div class="flex flex-1 relative md:flex-row overflow-hidden">
+            <!-- Custom Google-like Map Controls -->
+            <div id="custom-map-controls" class="g-control-container hidden">
+                <div id="g-map-btn" class="g-control-button active">Map</div>
+                <div class="g-control-divider"></div>
+                <div id="g-sat-btn" class="g-control-button">Satellite</div>
+            </div>
+
             <!-- Map -->
             <div id="map" class="flex-1 bg-neutral-100 relative">
                 <!-- Loading Screen -->
@@ -795,12 +843,7 @@
                 zoom: zoom,
                 center: center,
                 mapId: '92b2f4ea8b2fce54a50ed2e9', // Style ID: a14568cafd921b121b81dcce
-                mapTypeControl: true,
-                mapTypeControlOptions: {
-                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-                    position: google.maps.ControlPosition.TOP_RIGHT,
-                    mapTypeIds: ['roadmap', 'satellite', 'hybrid']
-                },
+                mapTypeControl: false,
                 streetViewControl: true,
                 streetViewControlOptions: {
                     position: google.maps.ControlPosition.RIGHT_BOTTOM
@@ -814,6 +857,33 @@
             addMarkers();
             setupFilters();
             applyFilters();
+            setupMapControls();
+            
+            // Add custom controls to the map using the API
+            const customControls = document.getElementById('custom-map-controls');
+            if (customControls) {
+                customControls.classList.remove('hidden');
+                map.controls[google.maps.ControlPosition.TOP_RIGHT].push(customControls);
+            }
+        }
+
+        function setupMapControls() {
+            const mapBtn = document.getElementById('g-map-btn');
+            const satBtn = document.getElementById('g-sat-btn');
+            
+            if (!mapBtn || !satBtn) return;
+
+            mapBtn.addEventListener('click', () => {
+                map.setMapTypeId('roadmap');
+                mapBtn.classList.add('active');
+                satBtn.classList.remove('active');
+            });
+            
+            satBtn.addEventListener('click', () => {
+                map.setMapTypeId('hybrid');
+                satBtn.classList.add('active');
+                mapBtn.classList.remove('active');
+            });
         }
 
         function addMarkers() {
