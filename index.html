@@ -719,17 +719,16 @@
             const startZoom = map.getZoom();
             const targetLatLng = new google.maps.LatLng(targetPosition);
             
+            // Calculate the final offset position BEFORE flight
+            const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+            const offsetLatLng_final = new google.maps.LatLng(offsetTarget);
+            
             // Calculate distance (requires geometry library)
             const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
             
             // If close (< 2km), just standard pan/zoom
             if (distance < 2000) {
-                map.panTo(targetPosition);
-                // After pan completes, apply offset
-                setTimeout(() => {
-                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
-                    map.panTo(offsetTarget);
-                }, 100);
+                map.panTo(offsetTarget);
                 // Simple zoom animation
                 const zoomDiff = targetZoom - startZoom;
                 if (Math.abs(zoomDiff) > 0.1) {
@@ -748,7 +747,7 @@
                 return;
             }
 
-            // Long distance flight animation
+            // Long distance flight animation - fly directly to offset position
             const startTime = performance.now();
             const duration = 2000; // 2 seconds
             const minZoom = 11; // Cruising altitude
@@ -762,9 +761,9 @@
                     ? 4 * progress * progress * progress 
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 
-                // Interpolate Position (without offset during flight)
-                const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
-                const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
+                // Interpolate Position directly to offset target
+                const curLat = startPos.lat() + (offsetTarget.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (offsetTarget.lng - startPos.lng()) * ease;
                 
                 // Interpolate Zoom (Parabolic arc)
                 let curZoom;
@@ -789,10 +788,6 @@
                 
                 if (progress < 1) {
                     requestAnimationFrame(animate);
-                } else {
-                    // After animation completes, apply offset
-                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
-                    map.panTo(offsetTarget);
                 }
             }
             
