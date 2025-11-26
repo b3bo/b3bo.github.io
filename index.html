@@ -1161,6 +1161,9 @@
                     updateNeighborhoodList(false);
                 }
             });
+
+            // Load saved filters
+            loadFilters();
         }
 
         // Helper to parse price strings like "$1.2M", "$500k", or "$500,000"
@@ -1196,6 +1199,88 @@
             const parts = String(rangeStr).split('-').map(s => parseFloat(s.trim()));
             // If "3-5", max is 5. If "3", max is 3.
             return parts.length === 2 ? parts[1] : parts[0];
+        }
+
+        let filtersLoaded = false;
+
+        function saveFilters() {
+            if (!filtersLoaded) return;
+            
+            const prefs = {
+                priceMin: document.getElementById('price-min').value,
+                priceMax: document.getElementById('price-max').value,
+                beds: document.getElementById('beds-min').value,
+                baths: document.getElementById('baths-min').value,
+                propertyType: document.querySelector('.property-type-btn.active')?.id,
+                amenities: Array.from(document.querySelectorAll('#amenityFilters .amenity-tag.selected')).map(el => el.dataset.amenity),
+                areas: Array.from(document.querySelectorAll('#areaFilters .amenity-tag.selected')).map(el => el.dataset.zipcode)
+            };
+            localStorage.setItem('communityFinderPrefs', JSON.stringify(prefs));
+        }
+
+        function loadFilters() {
+            const saved = localStorage.getItem('communityFinderPrefs');
+            if (saved) {
+                try {
+                    const prefs = JSON.parse(saved);
+                    
+                    // Restore Price
+                    if (prefs.priceMin) document.getElementById('price-min').value = prefs.priceMin;
+                    if (prefs.priceMax) document.getElementById('price-max').value = prefs.priceMax;
+                    
+                    // Restore Beds
+                    if (prefs.beds) document.getElementById('beds-min').value = prefs.beds;
+                    
+                    // Restore Baths
+                    if (prefs.baths) document.getElementById('baths-min').value = prefs.baths;
+                    
+                    // Restore Property Type
+                    if (prefs.propertyType) {
+                        document.querySelectorAll('.property-type-btn').forEach(btn => {
+                            if (btn.id === prefs.propertyType) {
+                                btn.classList.add('active');
+                            } else {
+                                btn.classList.remove('active');
+                            }
+                        });
+                    }
+                    
+                    // Restore Amenities
+                    if (prefs.amenities && Array.isArray(prefs.amenities)) {
+                        document.querySelectorAll('#amenityFilters .amenity-tag').forEach(btn => {
+                            if (prefs.amenities.includes(btn.dataset.amenity)) {
+                                btn.classList.add('selected');
+                            } else {
+                                btn.classList.remove('selected');
+                            }
+                        });
+                    }
+                    
+                    // Restore Areas
+                    if (prefs.areas && Array.isArray(prefs.areas)) {
+                        document.querySelectorAll('#areaFilters .amenity-tag').forEach(btn => {
+                            const zip = btn.dataset.zipcode;
+                            if (prefs.areas.includes(zip)) {
+                                btn.classList.add('selected');
+                                showZipCodeBoundary(zip);
+                            } else {
+                                btn.classList.remove('selected');
+                                hideZipCodeBoundary(zip);
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error('Error loading preferences:', e);
+                }
+            }
+            
+            // Enable saving from now on
+            filtersLoaded = true;
+            
+            // Trigger updates to refresh UI and Map
+            document.getElementById('price-min').dispatchEvent(new Event('input'));
+            document.getElementById('beds-min').dispatchEvent(new Event('input'));
+            document.getElementById('baths-min').dispatchEvent(new Event('input'));
         }
 
         function applyFilters() {
@@ -1322,6 +1407,7 @@
             allFilteredNeighborhoods = visibleNeighborhoods;
             
             updateNeighborhoodList(true);
+            saveFilters();
         }
 
 
