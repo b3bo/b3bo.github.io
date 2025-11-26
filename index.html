@@ -432,13 +432,13 @@
 
             <!-- Tabs -->
             <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="2">
+                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="2">
                     Areas
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="amenities">
                     Amenities
                 </button>
-                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="list">
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="list">
                     List
                 </button>
             </div>
@@ -446,7 +446,7 @@
             <!-- Tab Content -->
             <div id="sidebar-content" class="flex-1 overflow-y-auto overscroll-contain p-5">
                 <!-- Tab 2 Content - Areas -->
-                <div id="tab-2" class="tab-content hidden">
+                <div id="tab-2" class="tab-content">
                     <div class="flex flex-wrap gap-2" id="areaFilters">
                         <button class="amenity-tag" data-zipcode="32541">Destin</button>
                         <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
@@ -464,7 +464,7 @@
                 </div>
                 
                 <!-- List Tab Content -->
-                <div id="tab-list" class="tab-content">
+                <div id="tab-list" class="tab-content hidden">
                     <div id="neighborhoodList" class="space-y-3">
                         <!-- List items will be dynamically generated -->
                     </div>
@@ -509,7 +509,6 @@
         let infoWindow;
         let neighborhoods = [];
         let activeMarker = null;
-        // let rippleOverlays = new Map(); // Removed in favor of AdvancedMarkerElement content
         let featureLayers = []; // Array to hold multiple feature layers
         let activeZipCodes = new Set(); // Track which zip codes are currently displayed
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
@@ -1031,8 +1030,6 @@
             });
         }
 
-        // priceSteps moved to top
-
         // Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6"
         function parseRange(rangeStr) {
             if (!rangeStr) return null;
@@ -1047,6 +1044,17 @@
             }
             return null;
         }
+
+        // Debounce helper for performance
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        const debouncedApplyFilters = debounce(() => applyFilters(), 100);
 
         function setupFilters() {
             // Price Slider Logic
@@ -1113,7 +1121,7 @@
                     rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
                 }
                 
-                applyFilters();
+                debouncedApplyFilters();
             }
 
             priceMinInput.addEventListener('input', updatePriceSlider);
@@ -1134,7 +1142,7 @@
                 // Update fill width with thumb offset correction
                 bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
-                applyFilters();
+                debouncedApplyFilters();
             }
 
             bedsMinInput.addEventListener('input', updateBedsSlider);
@@ -1154,7 +1162,7 @@
                 // Update fill width with thumb offset correction
                 bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
-                applyFilters();
+                debouncedApplyFilters();
             }
 
             bathsMinInput.addEventListener('input', updateBathsSlider);
@@ -1170,7 +1178,23 @@
             });
 
             // Create amenity tags dynamically
-            const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Playground', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            // Extract unique amenities from loaded neighborhoods
+            const extractedAmenities = new Set();
+            neighborhoods.forEach(n => {
+                if (n.amenities && Array.isArray(n.amenities)) {
+                    n.amenities.forEach(a => extractedAmenities.add(a));
+                }
+            });
+            
+            // Convert to array and sort
+            let allAmenities = Array.from(extractedAmenities).sort();
+            
+            // Ensure specific order or grouping if desired, otherwise just alpha sorted
+            // If no amenities found (e.g. data load error), fallback to default list
+            if (allAmenities.length === 0) {
+                allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Playground', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            }
+
             const defaultSelected = []; // Start with no amenities selected
             
             const amenityContainer = document.getElementById('amenityFilters');
