@@ -722,12 +722,14 @@
             // Calculate distance (requires geometry library)
             const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
             
-            // Offset the target position to account for info window height
-            const offsetTarget = offsetLatLng(targetPosition, 150);
-            
             // If close (< 2km), just standard pan/zoom
             if (distance < 2000) {
-                map.panTo(offsetTarget);
+                map.panTo(targetPosition);
+                // After pan completes, apply offset
+                setTimeout(() => {
+                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+                    map.panTo(offsetTarget);
+                }, 100);
                 // Simple zoom animation
                 const zoomDiff = targetZoom - startZoom;
                 if (Math.abs(zoomDiff) > 0.1) {
@@ -760,9 +762,9 @@
                     ? 4 * progress * progress * progress 
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 
-                // Interpolate Position (with offset)
-                const curLat = startPos.lat() + (offsetTarget.lat - startPos.lat()) * ease;
-                const curLng = startPos.lng() + (offsetTarget.lng - startPos.lng()) * ease;
+                // Interpolate Position (without offset during flight)
+                const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
                 
                 // Interpolate Zoom (Parabolic arc)
                 let curZoom;
@@ -787,6 +789,10 @@
                 
                 if (progress < 1) {
                     requestAnimationFrame(animate);
+                } else {
+                    // After animation completes, apply offset
+                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+                    map.panTo(offsetTarget);
                 }
             }
             
@@ -794,8 +800,8 @@
         }
         
         // Helper function to offset lat/lng by pixels
-        function offsetLatLng(latLng, offsetPixels) {
-            const scale = Math.pow(2, map.getZoom());
+        function offsetLatLng(latLng, offsetPixels, zoomLevel) {
+            const scale = Math.pow(2, zoomLevel || map.getZoom());
             const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
             
             const pixelOffset = new google.maps.Point(
