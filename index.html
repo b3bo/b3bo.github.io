@@ -51,12 +51,6 @@
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
             z-index: 10000000 !important;
-            position: relative !important;
-        }
-        
-        /* Force info window wrapper to be on top */
-        .gm-style .gm-style-iw {
-            z-index: 10000000 !important;
         }
         
         /* Remove border from info window tip */
@@ -718,6 +712,7 @@
             }
         }
 
+<<<<<<< HEAD
         // Helper to calculate offset center for "visual centering"
         function getOffsetCenter(latLng, zoom, offsetX, offsetY) {
             const scale = Math.pow(2, zoom);
@@ -779,16 +774,20 @@
             
             const visualTarget = getOffsetCenter(targetPosition, targetZoom, offsetX, offsetY);
             
+=======
+        // Smooth camera transition
+        function smoothFlyTo(targetPosition, targetZoom = 15) {
+>>>>>>> parent of 830fe798 (adjsut landing spot)
             const startPos = map.getCenter();
             const startZoom = map.getZoom();
-            const targetLatLng = new google.maps.LatLng(visualTarget);
+            const targetLatLng = new google.maps.LatLng(targetPosition);
             
             // Calculate distance (requires geometry library)
             const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
             
             // If close (< 2km), just standard pan/zoom
             if (distance < 2000) {
-                map.panTo(visualTarget);
+                map.panTo(targetPosition);
                 // Simple zoom animation
                 const zoomDiff = targetZoom - startZoom;
                 if (Math.abs(zoomDiff) > 0.1) {
@@ -828,8 +827,8 @@
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 
                 // Interpolate Position
-                const curLat = startPos.lat() + (visualTarget.lat - startPos.lat()) * ease;
-                const curLng = startPos.lng() + (visualTarget.lng - startPos.lng()) * ease;
+                const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
                 
                 // Interpolate Zoom (Sine Wave for smoother "arc")
                 // This zooms out faster and stays out longer than a linear/quad spike
