@@ -1351,6 +1351,72 @@
             }
         }
 
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('Tab clicked:', this.dataset.tab);
+                // Remove active state from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('border-b-2', 'border-neutral-900', 'text-neutral-900');
+                    b.classList.add('text-neutral-400');
+                    b.classList.remove('active');
+                });
+                
+                // Add active state to clicked tab
+                this.classList.add('border-b-2', 'border-neutral-900', 'text-neutral-900');
+                this.classList.remove('text-neutral-400');
+                this.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected tab content
+                const tabId = 'tab-' + this.dataset.tab;
+                const tabContent = document.getElementById(tabId);
+                if (tabContent) {
+                    tabContent.classList.remove('hidden');
+                } else {
+                    console.error('Tab content not found for:', tabId);
+                }
+            });
+        });
+
+        // Property type toggle (Homes/Condos)
+        document.querySelectorAll('.property-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active state from all buttons
+                document.querySelectorAll('.property-type-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Add active state to clicked button
+                this.classList.add('active');
+                
+                // Apply filters
+                applyFilters();
+            });
+        });
+
+        // Close drawer when clicking on empty space
+        document.getElementById('sidebar').addEventListener('click', function(e) {
+            // Check if the click target is interactive or inside an interactive element
+            if (e.target.closest('button') || 
+                e.target.closest('a') || 
+                e.target.closest('label') || 
+                e.target.closest('input') ||
+                e.target.closest('.tab-btn')) {
+                return;
+            }
+            
+            // Close the drawer by unchecking the toggle
+            const drawerToggle = document.getElementById('drawer-toggle');
+            if (drawerToggle && drawerToggle.checked) {
+                drawerToggle.checked = false;
+            }
+        });
+
         // URL parameter management
         function updateUrlParams(newParams) {
             const params = new URLSearchParams(window.location.search);
