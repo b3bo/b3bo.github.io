@@ -681,27 +681,14 @@
             if (customBoundaries.has(zipCode)) return;
             
             console.log(`Loading custom boundary for ${zipCode}`);
+            customBoundaries.add(zipCode); // Add first to ensure style applies immediately upon load
+
             // Try loading with ZCTA5CE20 (2020 Census) first, then fallback to ZCTA5CE10 (2010 Census)
             map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
-                customBoundaries.add(zipCode);
-                
-                // Style the data layer
-                map.data.setStyle(function(feature) {
-                    // Check for either 2020 or 2010 property
-                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
-                    if (customBoundaries.has(featureZip)) {
-                        const brandColor = getThemeColor('--color-brand');
-                        return {
-                            strokeColor: brandColor,
-                            strokeWeight: 2.5,
-                            strokeOpacity: 0.85,
-                            fillColor: brandColor,
-                            fillOpacity: 0.15,
-                            clickable: false
-                        };
-                    }
-                    return { visible: false };
-                });
+                if (features.length === 0) {
+                    console.warn(`No features loaded for ${zipCode}`);
+                    customBoundaries.delete(zipCode);
+                }
             });
         }
 
@@ -875,6 +862,23 @@
             
             featureLayers = [postalLayer, localityLayer];
             updateFeatureLayerStyle();
+
+            // Global style for Data Layer (Custom GeoJSON)
+            map.data.setStyle(function(feature) {
+                const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                if (customBoundaries.has(featureZip)) {
+                    const brandColor = getThemeColor('--color-brand');
+                    return {
+                        strokeColor: brandColor,
+                        strokeWeight: 2.5,
+                        strokeOpacity: 0.85,
+                        fillColor: brandColor,
+                        fillOpacity: 0.15,
+                        clickable: false
+                    };
+                }
+                return { visible: false };
+            });
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 350 });
             addMarkers();
@@ -1166,7 +1170,7 @@
             });
 
             // Create amenity tags dynamically
-            const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Playground', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
             const defaultSelected = []; // Start with no amenities selected
             
             const amenityContainer = document.getElementById('amenityFilters');
