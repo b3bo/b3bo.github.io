@@ -400,7 +400,7 @@
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="range-fill"></div>
                     <input type="range" min="0" max="41" value="0" id="price-min">
-                    <input type="range" min="0" max="41" value="41" id="price-max">
+                    <input type="range" min="0" max="41" value="0" id="price-max">
                 </div>
             </div>
 
@@ -1212,8 +1212,15 @@
             // Get price range
             const priceMinInput = document.getElementById('price-min');
             const priceMaxInput = document.getElementById('price-max');
-            minPrice = parseInt(priceSteps[priceMinInput.value]);
-            maxPrice = parseInt(priceSteps[priceMaxInput.value]);
+            
+            // Special case: if both are at 0 (min spot), treat as full range
+            if (parseInt(priceMinInput.value) === 0 && parseInt(priceMaxInput.value) === 0) {
+                minPrice = 0;
+                maxPrice = Number.MAX_SAFE_INTEGER;
+            } else {
+                minPrice = parseInt(priceSteps[priceMinInput.value]);
+                maxPrice = parseInt(priceSteps[priceMaxInput.value]);
+            }
 
             // Get beds range
             const bedsMinInput = document.getElementById('beds-min');
