@@ -682,6 +682,24 @@
                 }
                 
                 initializeMap(center, zoom);
+
+                // In single/iframe mode with one neighborhood, immediately apply
+                // the same vertical offset used for flyovers without animating.
+                if (urlParams.mode === 'single' && neighborhoods.length === 1) {
+                    // Wait until the map has rendered tiles so the pan is visible to the user
+                    google.maps.event.addListenerOnce(map, 'tilesloaded', () => {
+                        const offsetTarget = offsetLatLng(center, 150, zoom);
+                        map.panTo(offsetTarget);
+                        // If autoOpen requested, open after the pan completes (next idle)
+                        if (getUrlParams().autoOpen) {
+                            google.maps.event.addListenerOnce(map, 'idle', () => {
+                                if (markers.length > 0) {
+                                    google.maps.event.trigger(markers[0].marker, 'click');
+                                }
+                            });
+                        }
+                    });
+                }
                 
                 // Hide loading screen
                 const loadingScreen = document.getElementById('loading-screen');
@@ -690,7 +708,8 @@
                 }
                 
                 // Auto-open info window if requested via URL parameter
-                if (urlParams.autoOpen && neighborhoods.length === 1) {
+                // In single/iframe mode we handle autoOpen after the pan above
+                if (urlParams.autoOpen && neighborhoods.length === 1 && urlParams.mode !== 'single') {
                     // Wait for markers to be created
                     setTimeout(() => {
                         if (markers.length > 0) {
@@ -810,7 +829,8 @@
             );
             
             const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
-            return { lat: newLatLng.lat(), lng: newLatLng.lng() };
+            // Preserve original longitude to avoid subtle horizontal drift from projection rounding
+            return { lat: newLatLng.lat(), lng: latLng.lng };
         }
 
         function initializeMap(center, zoom) {
