@@ -1027,10 +1027,7 @@
             function updatePriceSlider() {
                 let minVal = parseInt(priceMinInput.value);
                 let maxVal = parseInt(priceMaxInput.value);
-
-                // Calculate maxPct for the fill width early
                 const totalSteps = 41;
-                const maxPct = maxVal / totalSteps;
 
                 // Push behavior
                 if (minVal > maxVal) {
@@ -1066,11 +1063,13 @@
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
 
-                // Update track fill - Anchored to left (0) based on Max value only
-                // This creates the "tail" effect requested, ignoring the Min thumb for visual fill
-                rangeFill.style.left = '0';
-                // Ensure width covers from 0 to the center of the Max thumb
-                rangeFill.style.width = `calc(${maxPct * 100}% + ${21 - maxPct * 42}px)`;
+                // Calculate percentages after values are stabilized
+                const minPct = minVal / totalSteps;
+                const maxPct = maxVal / totalSteps;
+
+                // Update track fill - Between the two thumbs
+                rangeFill.style.left = `calc(${minPct * 100}% + ${21 - minPct * 42}px)`;
+                rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
                 
                 applyFilters();
             }
