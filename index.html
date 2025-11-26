@@ -1140,6 +1140,16 @@
 
             bathsMinInput.addEventListener('input', updateBathsSlider);
 
+            // Area Filters Logic
+            document.querySelectorAll('#areaFilters .amenity-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const zipCode = this.getAttribute('data-zipcode');
+                    toggleZipCodeBoundary(zipCode);
+                    applyFilters();
+                });
+            });
+
             // Create amenity tags dynamically
             const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
             const defaultSelected = []; // Start with no amenities selected
