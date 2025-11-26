@@ -346,25 +346,26 @@
             top: 10px;
             right: 60px;
             margin: 0;
-            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+            box-shadow: 0 1px 4px -1px rgba(0,0,0,0.3);
             border-radius: 2px;
             background-color: white;
-            z-index: 10; /* Lower than InfoWindow */
+            z-index: 10;
             display: flex;
             cursor: pointer;
             user-select: none;
+            height: 40px;
         }
 
         .g-control-button {
-            height: 40px;
             padding: 0 17px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: Roboto, Arial, sans-serif;
-            font-size: 18px;
+            font-size: 15px; /* Smaller text */
             color: #565656;
             transition: background-color 0.1s;
+            font-weight: 500;
         }
 
         .g-control-button:hover {
@@ -516,12 +517,12 @@
             </div>
         </aside>
 
-        /* Main content area with map and sidebar */
+        <!-- Main content area with map and sidebar -->
         <div class="flex flex-1 relative md:flex-row overflow-hidden">
             <!-- Custom Google-like Map Controls -->
-            <div id="custom-map-controls" class="g-control-container">
+            <div id="custom-map-controls" class="g-control-container hidden">
                 <div id="g-map-btn" class="g-control-button active">Map</div>
-                <div class="w-px bg-neutral-200"></div>
+                <div class="w-px bg-gray-300 h-5 self-center mx-0"></div>
                 <div id="g-sat-btn" class="g-control-button">Satellite</div>
             </div>
 
@@ -856,6 +857,28 @@
             setupFilters();
             applyFilters();
             setupMapControls();
+            
+            // Move custom controls into the map container to ensure correct z-indexing
+            // This places them in the same stacking context as the map, allowing InfoWindows (z-index 100+) to cover them
+            const customControls = document.getElementById('custom-map-controls');
+            if (customControls) {
+                customControls.classList.remove('hidden');
+                // We push to the controls array so Google manages the layering
+                // But we want to keep our custom styling/positioning relative to the fullscreen button
+                // If we use map.controls, Google positions it.
+                // Let's try appending to the map div first, as that's what we decided for "just to the left" control
+                // map.getDiv().appendChild(customControls);
+                
+                // Actually, using map.controls is safer for z-index.
+                // Let's try map.controls and see if the position is acceptable.
+                // If we use map.controls, we need to remove absolute positioning from CSS or it might conflict.
+                // But we kept absolute positioning in CSS.
+                // So let's append to the map div directly.
+                const mapDiv = document.getElementById('map');
+                if (mapDiv) {
+                    mapDiv.appendChild(customControls);
+                }
+            }
         }
 
         function setupMapControls() {
