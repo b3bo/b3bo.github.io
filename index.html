@@ -24,12 +24,12 @@
     <style>
         :root {
             /* Theme Colors */
-            --color-brand: #7ca3af;
+            --color-brand: #7ca3af; /* --color-primary-300: */
             --color-brand-light: rgba(124, 163, 175, 0.3);
             --color-brand-hover: rgba(124, 163, 175, 0.4);
             --color-ui-dark: #404040; /* neutral-700 */
             --color-text-primary: #3f3f46; /* zinc-700 */
-            --color-text-secondary: #52525b; /* zinc-600 */
+            --color-text-secondary: #010102; /* zinc-600 */
             --color-border: #d4d4d8; /* zinc-300 */
         }
 
@@ -336,7 +336,7 @@
 
         #sidebar-content::-webkit-scrollbar-thumb,
         #sidebar-scroll-container::-webkit-scrollbar-thumb {
-            background-color: var(--color-brand);
+            background-color: rgba(124, 163, 175, 0.8);
             border-radius: 20px;
         }
     </style>
@@ -368,7 +368,7 @@
                 </svg>
             </label>
             
-            <div id="sidebar-scroll-container" class="flex flex-col h-full w-full">
+            <div id="sidebar-scroll-container" class="h-full w-full overflow-y-auto overscroll-contain">
             <!-- Header -->
             <div class="p-5 border-b border-neutral-200 flex items-center gap-3">
                 <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
@@ -444,7 +444,7 @@
             </div>
 
             <!-- Tab Content -->
-            <div id="sidebar-content" class="flex-1 overflow-y-auto overscroll-contain p-5">
+            <div id="sidebar-content" class="p-5">
                 <!-- Tab 2 Content - Areas -->
                 <div id="tab-2" class="tab-content">
                     <div class="flex flex-wrap gap-2" id="areaFilters">
@@ -496,7 +496,7 @@
         </div>
         
         <!-- Disclaimer (hidden on single neighborhood embeds) -->
-        <div id="map-disclaimer" class="bg-neutral-50 border-t border-neutral-200 px-4 py-3 text-center">
+        <div id="map-disclaimer" class="border-t border-neutral-200 px-4 py-3 text-center" style="background-color: #ffffffb4; backdrop-filter: blur(8px);">
             <p class="text-xs text-neutral-500 leading-relaxed">
                 © <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
             </p>
