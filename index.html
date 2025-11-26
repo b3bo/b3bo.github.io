@@ -1034,7 +1034,7 @@
                 const maxPriceDisplay = priceSteps[maxVal];
 
                 if (minVal === 0 && maxVal === 0) {
-                    priceDisplay.textContent = "$250k - $35M+";
+                    priceDisplay.textContent = "Any";
                 } else {
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
