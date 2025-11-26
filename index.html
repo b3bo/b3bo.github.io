@@ -439,7 +439,7 @@
                     Amenities
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="list">
-                    List
+                    Results
                 </button>
             </div>
 
@@ -579,22 +579,10 @@
             return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
         }
 
-        let featureDebugLogs = 0;
         function handleFeatureLayerStyle(featureStyleOptions) {
             const postalCode = getPostalCodeFromFeature(featureStyleOptions.feature);
-
-            if (activeZipCodes.size > 0 && featureDebugLogs < 30) {
-                console.log('Feature debug', {
-                    displayName: featureStyleOptions.feature?.displayName,
-                    placeId: featureStyleOptions.feature?.placeId,
-                    postalCode,
-                    active: Array.from(activeZipCodes)
-                });
-                featureDebugLogs++;
-            }
             
             if (postalCode && activeZipCodes.has(postalCode)) {
-                console.log('Highlighting postal code feature', postalCode);
                 const brandColor = getThemeColor('--color-brand');
                 return {
                     strokeColor: brandColor,
@@ -632,7 +620,6 @@
             }
             
             activeZipCodes.add(normalizedZip);
-            console.log(`Showing boundary for zip code ${normalizedZip}, active codes:`, Array.from(activeZipCodes));
             updateFeatureLayerStyle();
         }
 
@@ -647,7 +634,6 @@
             }
 
             activeZipCodes.delete(normalizedZip);
-            console.log(`Hiding boundary for zip code ${normalizedZip}, active codes:`, Array.from(activeZipCodes));
             updateFeatureLayerStyle();
         }
 
@@ -679,7 +665,6 @@
         function showCustomBoundary(zipCode) {
             if (customBoundaries.has(zipCode)) return;
             
-            console.log(`Loading custom boundary for ${zipCode}`);
             // Try loading with ZCTA5CE20 (2020 Census) first, then fallback to ZCTA5CE10 (2010 Census)
             map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
                 customBoundaries.add(zipCode);
@@ -766,7 +751,6 @@
         }
 
         async function initMap() {
-            console.log('initMap called');
             try {
                 // Ensure Google Maps is loaded
                 if (typeof google === 'undefined' || !google.maps) {
@@ -1443,7 +1427,6 @@
         // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                console.log('Tab clicked:', this.dataset.tab);
                 // Remove active state from all tabs
                 document.querySelectorAll('.tab-btn').forEach(b => {
                     b.classList.remove('border-b-2', 'border-neutral-900', 'text-neutral-900');
@@ -1532,7 +1515,6 @@
                     
                     // Attempt recovery if Google Maps API is loaded but callback failed
                     if (typeof google !== 'undefined' && google.maps) {
-                        console.log('Google Maps API is loaded. Attempting manual initMap call...');
                         initMap().catch(e => console.error('Manual initMap failed:', e));
                         return;
                     }
@@ -1552,7 +1534,6 @@
 
         // Ensure initMap is globally available
         window.initMap = initMap;
-        console.log('Main script loaded, waiting for Google Maps...');
     </script>
 
     <!-- Google Maps API -->
