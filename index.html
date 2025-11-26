@@ -1056,6 +1056,7 @@
                 // Update track fill - Anchored to left (0) based on Max value only
                 // This creates the "tail" effect requested, ignoring the Min thumb for visual fill
                 rangeFill.style.left = '0';
+                // Ensure width covers from 0 to the center of the Max thumb
                 rangeFill.style.width = `calc(${maxPct * 100}% + ${21 - maxPct * 42}px)`;
                 
                 applyFilters();
@@ -1101,9 +1102,10 @@
             bathsMinInput.addEventListener('input', updateBathsSlider);
             
             // Initialize slider visual state
-            // We need to expose priceSteps to applyFilters or make it global
             window.priceSteps = priceSteps;
             updatePriceSlider();
+            updateBedsSlider();
+            updateBathsSlider();
 
             // Create amenity tags dynamically
             const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
@@ -1364,6 +1366,14 @@
 
             let visibleCount = 0;
             const visibleNeighborhoods = [];
+            
+            // Debug log for initial filter state
+            if (featureDebugLogs < 5) {
+                console.log('Applying Filters:', {
+                    minPrice, maxPrice, minBeds, minBaths,
+                    totalNeighborhoods: neighborhoods.length
+                });
+            }
 
             markers.forEach(({ marker, neighborhood }) => {
                 let showMarker = true;
