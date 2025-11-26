@@ -51,6 +51,12 @@
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
             z-index: 10000000 !important;
+            position: relative !important;
+        }
+        
+        /* Force info window wrapper to be on top */
+        .gm-style .gm-style-iw {
+            z-index: 10000000 !important;
         }
         
         /* Remove border from info window tip */
@@ -712,18 +718,67 @@
             }
         }
 
+        // Helper to calculate offset center for "visual centering"
+        function getOffsetCenter(latLng, zoom, pixelOffset) {
+            const scale = Math.pow(2, zoom);
+            const worldCoordinate = project(latLng);
+            
+            // Shift by pixels (negative y is up/North)
+            const pixelShift = pixelOffset / scale;
+            
+            const newWorldCoordinate = {
+                x: worldCoordinate.x,
+                y: worldCoordinate.y + pixelShift
+            };
+            
+            return unproject(newWorldCoordinate);
+        }
+
+        // The mapping between latitude, longitude and pixels is defined by the web
+        // mercator projection.
+        function project(latLng) {
+            let siny = Math.sin((latLng.lat * Math.PI) / 180);
+
+            // Truncating to 0.9999 effectively limits latitude to 89.189. This is
+            // about a third of a tile past the edge of the world tile.
+            siny = Math.min(Math.max(siny, -0.9999), 0.9999);
+
+            return {
+                x: 256 * (0.5 + latLng.lng / 360),
+                y: 256 * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI))
+            };
+        }
+
+        function unproject(point) {
+            const lng = (point.x / 256 - 0.5) * 360;
+            const n = Math.PI - 2 * Math.PI * point.y / 256;
+            const lat = (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+            return { lat: lat, lng: lng };
+        }
+
         // Smooth camera transition
         function smoothFlyTo(targetPosition, targetZoom = 15) {
+            // Calculate the visual center (offset to account for card height)
+            // We want the marker to be lower in the view, so we center on a point North of it.
+            // Card is approx 350px tall. Center is ~175px up.
+            // So we shift the map center North by ~150px (giving a bit of buffer).
+            // Note: In pixel coords, Y increases downwards. So to shift North (Up), we subtract pixels.
+            // But we are calculating the TARGET center.
+            // If we want the Marker to be at (CenterY + 150), we need the MapCenter to be at (MarkerY - 150).
+            // So we shift the target coordinate UP (Negative Y).
+            
+            const visualTarget = getOffsetCenter(targetPosition, targetZoom, -150);
+            
             const startPos = map.getCenter();
             const startZoom = map.getZoom();
-            const targetLatLng = new google.maps.LatLng(targetPosition);
+            const targetLatLng = new google.maps.LatLng(visualTarget);
             
             // Calculate distance (requires geometry library)
             const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
             
             // If close (< 2km), just standard pan/zoom
             if (distance < 2000) {
-                map.panTo(targetPosition);
+                map.panTo(visualTarget);
                 // Simple zoom animation
                 const zoomDiff = targetZoom - startZoom;
                 if (Math.abs(zoomDiff) > 0.1) {
@@ -757,8 +812,8 @@
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 
                 // Interpolate Position
-                const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
-                const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
+                const curLat = startPos.lat() + (visualTarget.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (visualTarget.lng - startPos.lng()) * ease;
                 
                 // Interpolate Zoom (Parabolic arc)
                 let curZoom;
