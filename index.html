@@ -1019,15 +1019,14 @@
                 let minVal = parseInt(priceMinInput.value);
                 let maxVal = parseInt(priceMaxInput.value);
 
-                // Prevent crossing
-                if (minVal > maxVal - 1) {
-                    const target = this === priceMinInput ? maxVal - 1 : minVal + 1;
-                    if (this === priceMinInput) {
-                        priceMinInput.value = target;
-                        minVal = target;
+                // Push behavior
+                if (minVal > maxVal) {
+                    if (this === priceMaxInput) {
+                        priceMinInput.value = maxVal;
+                        minVal = maxVal;
                     } else {
-                        priceMaxInput.value = target;
-                        maxVal = target;
+                        priceMaxInput.value = minVal;
+                        maxVal = minVal;
                     }
                 }
 
