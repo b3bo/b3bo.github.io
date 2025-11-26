@@ -1053,6 +1053,10 @@
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
 
+                // Calculate maxPct for the fill width
+                const totalSteps = 41;
+                const maxPct = maxVal / totalSteps;
+
                 // Update track fill - Anchored to left (0) based on Max value only
                 // This creates the "tail" effect requested, ignoring the Min thumb for visual fill
                 rangeFill.style.left = '0';
