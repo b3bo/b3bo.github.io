@@ -689,8 +689,8 @@
                     loadingScreen.style.display = 'none';
                 }
                 
-                // Auto-open info window if requested (respect config flag)
-                if (urlParams.autoOpen && neighborhoods.length === 1 && AUTO_OPEN_ON_FLY) {
+                // Auto-open info window if requested via URL parameter
+                if (urlParams.autoOpen && neighborhoods.length === 1) {
                     // Wait for markers to be created
                     setTimeout(() => {
                         if (markers.length > 0) {
