@@ -1532,6 +1532,25 @@
             }
         }, 5000); // Reduced to 5s for faster feedback
 
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        // Bypass with ?debug=true in URL
+        if (!window.location.search.includes('debug=true')) {
+            document.addEventListener('keydown', function(e) {
+                if (
+                    e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+                    (e.ctrlKey && e.key === 'U')
+                ) {
+                    e.preventDefault();
+                }
+            });
+
+            // Disable Right Click
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+        }
+
         // Ensure initMap is globally available
         window.initMap = initMap;
     </script>
