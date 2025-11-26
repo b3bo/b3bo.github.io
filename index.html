@@ -540,31 +540,13 @@
             return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
         }
 
-        function toggleZipCodeBoundary(zipCode) {
-            const normalizedZip = normalizeZip(zipCode);
-            if (!normalizedZip) return false;
-
-            // Check if this is a custom zip code
-            if (customZipCodes.includes(normalizedZip)) {
-                if (customBoundaries.has(normalizedZip)) {
-                    hideCustomBoundary(normalizedZip);
-                    return false;
-                } else {
-                    showCustomBoundary(normalizedZip);
-                    return true;
-                }
-            }
-            return false;
-        }
-
         // Custom Boundary Logic
         function showCustomBoundary(zipCode) {
             if (customBoundaries.has(zipCode)) return;
+            customBoundaries.add(zipCode);
             
             // Try loading with ZCTA5CE20 (2020 Census) first, then fallback to ZCTA5CE10 (2010 Census)
             map.data.loadGeoJson(`./assets/data/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
-                customBoundaries.add(zipCode);
-                
                 // Style the data layer
                 map.data.setStyle(function(feature) {
                     // Check for either 2020 or 2010 property
@@ -1039,8 +1021,6 @@
             document.querySelectorAll('#areaFilters .amenity-tag').forEach(tag => {
                 tag.addEventListener('click', function() {
                     this.classList.toggle('selected');
-                    const zipCode = this.getAttribute('data-zipcode');
-                    toggleZipCodeBoundary(zipCode);
                     applyFilters();
                 });
             });
@@ -1211,11 +1191,24 @@
             // document.getElementById('tab-amenities').classList.add('hidden');
             // document.getElementById('tab-2').classList.remove('hidden');
 
-            // Clear existing markers and boundaries
+            // Clear existing markers
             markers.forEach(m => m.marker.setMap(null));
             markers = [];
-            customBoundaries.clear();
-            map.data.forEach(feature => map.data.remove(feature));
+            
+            // Sync boundaries with selected areas
+            // Remove unselected boundaries
+            customBoundaries.forEach(zip => {
+                if (!selectedAreas.has(zip)) {
+                    hideCustomBoundary(zip);
+                }
+            });
+
+            // Add selected boundaries
+            selectedAreas.forEach(zip => {
+                if (!customBoundaries.has(zip)) {
+                    showCustomBoundary(zip);
+                }
+            });
             
             // Clear list
             const listContainer = document.getElementById('neighborhoodList');
