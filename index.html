@@ -509,25 +509,14 @@
         let infoWindow;
         let neighborhoods = [];
         let activeMarker = null;
-        let featureLayers = []; // Array to hold multiple feature layers
-        let activeZipCodes = new Set(); // Track which zip codes are currently displayed
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
 
         // Pagination state
         let allFilteredNeighborhoods = [];
         let currentRenderCount = 0;
         const BATCH_SIZE = 20;
-
-        // Zip code to Place ID mapping
-        const zipCodeToPlaceId = {
-            '32541': 'ChIJ0V22PNNAkYgRMXln1OdqRP8',
-            '32459': 'ChIJsRLVhWrkk4gRh8aISkRj9QY',
-            '32550': 'ChIJeUkxGAlckYgR7lyiS6S2vaY',
-            // '32461': 'ChIJAWWvHFSNk4gRBuz2t1VPjwU', // Inlet Beach - using custom data now
-            '32413': 'ChIJV2evHFSNk4gRPqNRvoeNIgA'
-        };
         
-        // Zip codes that use custom GeoJSON data instead of Google Maps Feature Layer
+        // Zip codes that use custom GeoJSON data
         const customZipCodes = ['32461', '32541', '32459', '32550', '32413'];
 
         // Global price steps for slider
@@ -539,102 +528,16 @@
             15000000, 20000000, 25000000, 30000000, 35000000
         ];
 
-        const placeIdToZipCode = Object.fromEntries(
-            Object.entries(zipCodeToPlaceId).map(([zip, placeId]) => [placeId, zip])
-        );
-
-        // Zip code boundary management using Google Maps Platform's native boundaries
+        // Zip code boundary management
         function normalizeZip(value) {
             if (!value) return null;
             const digitsMatch = String(value).match(/\d{5}/);
             return digitsMatch ? digitsMatch[0] : null;
         }
 
-        function getPostalCodeFromFeature(feature) {
-            if (!feature) return null;
-
-            // Check known Place IDs first
-            if (feature.placeId && placeIdToZipCode[feature.placeId]) {
-                return placeIdToZipCode[feature.placeId];
-            }
-
-            if (feature.placeId && feature.placeId.includes(':')) {
-                const [type, code] = feature.placeId.split(':');
-                if (type === 'postal_code') {
-                    return normalizeZip(code);
-                }
-            }
-
-            const candidates = [feature.displayName, feature.postalCode];
-            for (const candidate of candidates) {
-                const zip = normalizeZip(candidate);
-                if (zip) return zip;
-            }
-            
-            return null;
-        }
-
         // Helper to get CSS variable value
         function getThemeColor(variable) {
             return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
-        }
-
-        function handleFeatureLayerStyle(featureStyleOptions) {
-            const postalCode = getPostalCodeFromFeature(featureStyleOptions.feature);
-            
-            if (postalCode && activeZipCodes.has(postalCode)) {
-                const brandColor = getThemeColor('--color-brand');
-                return {
-                    strokeColor: brandColor,
-                    strokeWeight: 2.5,
-                    strokeOpacity: 0.85,
-                    fillColor: brandColor,
-                    fillOpacity: 0.15
-                };
-            }
-
-            return { fillOpacity: 0, strokeOpacity: 0 };
-        }
-
-        function updateFeatureLayerStyle() {
-            if (featureLayers.length === 0) return;
-            featureLayers.forEach(layer => {
-                layer.style = null;
-                layer.style = handleFeatureLayerStyle;
-            });
-        }
-
-        function showZipCodeBoundary(zipCode) {
-            const normalizedZip = normalizeZip(zipCode);
-            if (!normalizedZip) return;
-
-            // Check if this is a custom zip code
-            if (customZipCodes.includes(normalizedZip)) {
-                showCustomBoundary(normalizedZip);
-                return;
-            }
-
-            if (featureLayers.length === 0) {
-                console.error('Feature layers not initialized');
-                return;
-            }
-            
-            activeZipCodes.add(normalizedZip);
-            updateFeatureLayerStyle();
-        }
-
-        function hideZipCodeBoundary(zipCode) {
-            const normalizedZip = normalizeZip(zipCode);
-            if (!normalizedZip) return;
-
-            // Check if this is a custom zip code
-            if (customZipCodes.includes(normalizedZip)) {
-                hideCustomBoundary(normalizedZip);
-                return;
-            }
-
-            activeZipCodes.delete(normalizedZip);
-            updateFeatureLayerStyle();
         }
 
         function toggleZipCodeBoundary(zipCode) {
@@ -651,14 +554,7 @@
                     return true;
                 }
             }
-
-            if (activeZipCodes.has(normalizedZip)) {
-                hideZipCodeBoundary(normalizedZip);
-                return false; // Not showing
-            } else {
-                showZipCodeBoundary(normalizedZip);
-                return true; // Now showing
-            }
+            return false;
         }
 
         // Custom Boundary Logic
@@ -850,14 +746,6 @@
                 zoomControl: true,
                 clickableIcons: false
             });
-
-            // Initialize Feature Layers
-            // We need POSTAL_CODE for most, and LOCALITY for Inlet Beach (CDP)
-            const postalLayer = map.getFeatureLayer(google.maps.FeatureType.POSTAL_CODE);
-            const localityLayer = map.getFeatureLayer(google.maps.FeatureType.LOCALITY);
-            
-            featureLayers = [postalLayer, localityLayer];
-            updateFeatureLayerStyle();
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
             addMarkers();
@@ -1326,7 +1214,6 @@
             // Clear existing markers and boundaries
             markers.forEach(m => m.marker.setMap(null));
             markers = [];
-            activeZipCodes.clear();
             customBoundaries.clear();
             map.data.forEach(feature => map.data.remove(feature));
             
