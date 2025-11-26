@@ -793,23 +793,24 @@
             requestAnimationFrame(animate);
         }
         
-        // Helper function to offset lat/lng by pixels
+        // Helper function to offset lat/lng by pixels (vertical only)
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
-            const scale = Math.pow(2, zoomLevel || map.getZoom());
-            const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
+            // Calculate degrees per pixel at this zoom level
+            // At zoom level z, the entire world is 256 * 2^z pixels wide
+            const zoom = zoomLevel || map.getZoom();
+            const scale = 256 * Math.pow(2, zoom);
             
-            const pixelOffset = new google.maps.Point(
-                0,
-                -offsetPixels / scale  // Negative to shift map UP (marker appears lower)
-            );
+            // Earth's circumference in degrees is 360
+            const degreesPerPixel = 360 / scale;
             
-            const newWorldCoordinate = new google.maps.Point(
-                worldCoordinate.x,
-                worldCoordinate.y + pixelOffset.y
-            );
+            // Calculate the latitude degrees to shift
+            // Negative offset pixels = shift map up = marker appears lower
+            const latOffset = -(offsetPixels * degreesPerPixel);
             
-            const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
-            return { lat: newLatLng.lat(), lng: newLatLng.lng() };
+            return { 
+                lat: latLng.lat + latOffset, 
+                lng: latLng.lng  // Keep longitude exactly the same
+            };
         }
 
         function initializeMap(center, zoom) {
