@@ -1362,8 +1362,24 @@
                     
                     // Add click listener to pan to marker and open info window
                     card.addEventListener('click', () => {
+                        // Close current info window
+                        if (infoWindow && infoWindow.getMap()) {
+                            infoWindow.close();
+                        }
+                        // Deactivate current marker ripple
+                        if (activeMarker) {
+                            const ripple = activeMarker.content.querySelector('.ripple');
+                            if (ripple) ripple.classList.remove('active');
+                            activeMarker = null;
+                        }
+                        
+                        // Fly to new location
                         smoothFlyTo(neighborhood.position, 15);
-                        google.maps.event.trigger(marker, 'click');
+                        
+                        // Open info window after animation completes
+                        setTimeout(() => {
+                            google.maps.event.trigger(marker, 'click');
+                        }, 2100); // Wait for 2s animation + 100ms buffer
                         
                         // On mobile, close drawer to show map
                         if (window.innerWidth < 768) {
