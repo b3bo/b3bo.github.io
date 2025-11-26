@@ -531,6 +531,15 @@
         // Zip codes that use custom GeoJSON data instead of Google Maps Feature Layer
         const customZipCodes = ['32461', '32541', '32459', '32550', '32413'];
 
+        // Global price steps for slider
+        const priceSteps = [
+            250000, 300000, 350000, 400000, 450000, 500000, 
+            550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
+            1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
+            6000000, 7000000, 8000000, 9000000, 10000000,
+            15000000, 20000000, 25000000, 30000000, 35000000
+        ];
+
         const placeIdToZipCode = Object.fromEntries(
             Object.entries(zipCodeToPlaceId).map(([zip, placeId]) => [placeId, zip])
         );
@@ -758,6 +767,7 @@
         }
 
         async function initMap() {
+            console.log('initMap called');
             try {
                 // Ensure Google Maps is loaded
                 if (typeof google === 'undefined' || !google.maps) {
@@ -1017,14 +1027,7 @@
             });
         }
 
-        // Global price steps for slider
-        const priceSteps = [
-            250000, 300000, 350000, 400000, 450000, 500000, 
-            550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
-            1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
-            6000000, 7000000, 8000000, 9000000, 10000000,
-            15000000, 20000000, 25000000, 30000000, 35000000
-        ];
+        // priceSteps moved to top
 
         function setupFilters() {
             // Price Slider Logic
@@ -1282,6 +1285,10 @@
                 }
             }
         }, 10000);
+
+        // Ensure initMap is globally available
+        window.initMap = initMap;
+        console.log('Main script loaded, waiting for Google Maps...');
     </script>
 
     <!-- Google Maps API -->
