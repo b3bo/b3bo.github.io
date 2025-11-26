@@ -800,7 +800,7 @@
             
             const pixelOffset = new google.maps.Point(
                 0,
-                offsetPixels / scale
+                -offsetPixels / scale  // Negative to shift map UP (marker appears lower)
             );
             
             const newWorldCoordinate = new google.maps.Point(
