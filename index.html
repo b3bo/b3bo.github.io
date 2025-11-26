@@ -1021,12 +1021,26 @@
 
                 // Push behavior
                 if (minVal > maxVal) {
+                    // Use event.target if available, otherwise infer from values
+                    // If minVal was just moved past maxVal, we push maxVal
+                    // If maxVal was just moved past minVal, we push minVal
+                    // Since we don't track previous values easily here, we rely on the input event source
+                    // But 'this' might be window if called directly.
+                    
+                    // Simple heuristic: if we are here, one of them moved.
+                    // If called from event listener, 'this' is the input.
                     if (this === priceMaxInput) {
                         priceMinInput.value = maxVal;
                         minVal = maxVal;
-                    } else {
+                    } else if (this === priceMinInput) {
                         priceMaxInput.value = minVal;
                         maxVal = minVal;
+                    } else {
+                        // Called programmatically (e.g. loadFilters), just sync them to be safe
+                        // We don't know which one "moved", so we just clamp min to max (or vice versa)
+                        // Let's clamp min to max to be consistent with "pushing right"
+                        priceMinInput.value = maxVal;
+                        minVal = maxVal;
                     }
                 }
 
@@ -1159,6 +1173,9 @@
 
             // Load saved filters
             loadFilters();
+            
+            // Ensure filters are applied at least once after loading
+            applyFilters();
         }
 
         // Helper to parse price strings like "$1.2M", "$500k", or "$500,000"
