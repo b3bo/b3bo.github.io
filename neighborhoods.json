@@ -11,10 +11,10 @@
       "listingCount": 73,
       "avgPrice": 1300553,
       "avgPriceDisplay": "$1,300,553",
-      "medianPrice": 1300553,
+      "medianPrice": 1195000,
       "avgSqft": 3500,
-      "avgPricePerSqFt": 477,
-      "avgDom": 132,
+      "avgPricePerSqFt": 474,
+      "avgDom": 135,
       "priceRange": "$500,000 - $3,695,000",
       "bedsRange": "3 - 6",
       "bathsRange": "2 - 4",
@@ -36,5 +36,43 @@
       "samples": []
     },
     "marketReportUrl": "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=374894"
+  },
+  {
+    "name": "Wild Heron",
+    "propertyType": "homes",
+    "position": {
+      "lat": 30.27841407,
+      "lng": -85.95941012
+    },
+    "zipCode": "32413",
+    "stats": {
+      "listingCount": 16,
+      "avgPrice": 1300554,
+      "avgPriceDisplay": "$1,300,554",
+      "medianPrice": 1156744,
+      "avgSqft": 3500,
+      "avgPricePerSqFt": 440,
+      "avgDom": 132,
+      "priceRange": "$499,000 - $2,649,99",
+      "bedsRange": "4 - 6",
+      "bathsRange": "3 - 4",
+      "yearBuiltRange": "2011 - 2025",
+      "domRange": "17 - 552"
+    },
+    "amenities": [
+      "Fitness",
+      "Gated",
+      "Golf",
+      "No Short-Term",
+      "PCB",
+      "Pool",
+      "Tennis",
+      "Walking Trails"
+    ],
+    "photos": {
+      "hero": "",
+      "samples": []
+    },
+    "marketReportUrl": "https://www.truesouthcoastalhomes.com/property-search/market-update/update/?searchtype=2&searchid=6922929"
   }
 ]
