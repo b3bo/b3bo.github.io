@@ -1027,18 +1027,15 @@
             function updatePriceSlider() {
                 let minVal = parseInt(priceMinInput.value);
                 let maxVal = parseInt(priceMaxInput.value);
+                
+                // Ensure values are numbers
+                if (isNaN(minVal)) minVal = 0;
+                if (isNaN(maxVal)) maxVal = 41;
+
                 const totalSteps = 41;
 
                 // Push behavior
                 if (minVal > maxVal) {
-                    // Use event.target if available, otherwise infer from values
-                    // If minVal was just moved past maxVal, we push maxVal
-                    // If maxVal was just moved past minVal, we push minVal
-                    // Since we don't track previous values easily here, we rely on the input event source
-                    // But 'this' might be window if called directly.
-                    
-                    // Simple heuristic: if we are here, one of them moved.
-                    // If called from event listener, 'this' is the input.
                     if (this === priceMaxInput) {
                         priceMinInput.value = maxVal;
                         minVal = maxVal;
@@ -1046,9 +1043,6 @@
                         priceMaxInput.value = minVal;
                         maxVal = minVal;
                     } else {
-                        // Called programmatically (e.g. loadFilters), just sync them to be safe
-                        // We don't know which one "moved", so we just clamp min to max (or vice versa)
-                        // Let's clamp min to max to be consistent with "pushing right"
                         priceMinInput.value = maxVal;
                         minVal = maxVal;
                     }
@@ -1063,13 +1057,20 @@
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
 
-                // Calculate percentages after values are stabilized
+                // Calculate percentages
                 const minPct = minVal / totalSteps;
                 const maxPct = maxVal / totalSteps;
 
-                // Update track fill - Between the two thumbs
-                rangeFill.style.left = `calc(${minPct * 100}% + ${21 - minPct * 42}px)`;
-                rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
+                // Update track fill
+                // If minVal is 0 (start), anchor to left edge to fill the gap behind the thumb
+                if (minVal === 0) {
+                    rangeFill.style.left = '0';
+                    rangeFill.style.width = `calc(${maxPct * 100}% + ${21 - maxPct * 42}px)`;
+                } else {
+                    // If minVal > 0, detach and fill only between thumbs
+                    rangeFill.style.left = `calc(${minPct * 100}% + ${21 - minPct * 42}px)`;
+                    rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
+                }
                 
                 applyFilters();
             }
