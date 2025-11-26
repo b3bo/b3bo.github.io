@@ -689,8 +689,8 @@
                     loadingScreen.style.display = 'none';
                 }
                 
-                // Auto-open info window if requested
-                if (urlParams.autoOpen && neighborhoods.length === 1) {
+                // Auto-open info window if requested (respect config flag)
+                if (urlParams.autoOpen && neighborhoods.length === 1 && AUTO_OPEN_ON_FLY) {
                     // Wait for markers to be created
                     setTimeout(() => {
                         if (markers.length > 0) {
@@ -832,6 +832,9 @@
                 zoomControl: true,
                 clickableIcons: false
             });
+
+            // Config: control auto-opening behavior of info windows
+            const AUTO_OPEN_ON_FLY = false;
 
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
             addMarkers();
@@ -1366,7 +1369,7 @@
                         </div>
                     `;
                     
-                    // Add click listener to pan to marker and open info window
+                    // Add click listener to pan to marker (do not auto-open card unless enabled)
                     card.addEventListener('click', () => {
                         // Close current info window
                         if (infoWindow && infoWindow.getMap()) {
@@ -1382,10 +1385,12 @@
                         // Fly to new location
                         smoothFlyTo(neighborhood.position, 15);
                         
-                        // Open info window after animation completes
-                        setTimeout(() => {
-                            google.maps.event.trigger(marker, 'click');
-                        }, 2100); // Wait for 2s animation + 100ms buffer
+                        // Optional: auto-open info window after animation completes
+                        if (typeof AUTO_OPEN_ON_FLY !== 'undefined' && AUTO_OPEN_ON_FLY) {
+                            setTimeout(() => {
+                                google.maps.event.trigger(marker, 'click');
+                            }, 2100); // Wait for 2s animation + 100ms buffer
+                        }
                         
                         // On mobile, close drawer to show map
                         if (window.innerWidth < 768) {
