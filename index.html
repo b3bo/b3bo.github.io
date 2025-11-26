@@ -383,7 +383,7 @@
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="range-fill"></div>
                     <input type="range" min="0" max="41" value="0" id="price-min">
-                    <input type="range" min="0" max="41" value="0" id="price-max">
+                    <input type="range" min="0" max="41" value="41" id="price-max">
                 </div>
             </div>
 
@@ -391,12 +391,12 @@
             <div class="px-5 pt-4">
                 <div class="flex justify-between items-baseline mb-1">
                     <span class="text-xs font-semibold text-neutral-500">Beds</span>
-                    <span class="text-sm font-bold text-neutral-800" id="beds-display">Any</span>
+                    <span class="text-sm font-bold text-neutral-800" id="beds-display">1+</span>
                 </div>
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
-                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
-                    <input type="range" min="0" max="6" value="0" step="1" id="beds-min">
+                    <div class="range-track-fill" id="beds-fill" style="width: 16.66%;"></div>
+                    <input type="range" min="0" max="6" value="1" step="1" id="beds-min">
                 </div>
             </div>
 
@@ -404,12 +404,12 @@
             <div class="px-5 pt-4">
                 <div class="flex justify-between items-baseline mb-1">
                     <span class="text-xs font-semibold text-neutral-500">Baths</span>
-                    <span class="text-sm font-bold text-neutral-800" id="baths-display">Any</span>
+                    <span class="text-sm font-bold text-neutral-800" id="baths-display">1+</span>
                 </div>
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
-                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
-                    <input type="range" min="0" max="6" value="0" step="1" id="baths-min">
+                    <div class="range-track-fill" id="baths-fill" style="width: 16.66%;"></div>
+                    <input type="range" min="0" max="6" value="1" step="1" id="baths-min">
                 </div>
             </div>
 
@@ -1215,10 +1215,13 @@
 
         let filtersLoaded = false;
 
+        const PREFS_VERSION = '1.0'; // Increment to force reset defaults
+
         function saveFilters() {
             if (!filtersLoaded) return;
             
             const prefs = {
+                version: PREFS_VERSION,
                 priceMin: document.getElementById('price-min').value,
                 priceMax: document.getElementById('price-max').value,
                 beds: document.getElementById('beds-min').value,
@@ -1236,50 +1239,57 @@
                 try {
                     const prefs = JSON.parse(saved);
                     
-                    // Restore Price
-                    if (prefs.priceMin) document.getElementById('price-min').value = prefs.priceMin;
-                    if (prefs.priceMax) document.getElementById('price-max').value = prefs.priceMax;
-                    
-                    // Restore Beds
-                    if (prefs.beds) document.getElementById('beds-min').value = prefs.beds;
-                    
-                    // Restore Baths
-                    if (prefs.baths) document.getElementById('baths-min').value = prefs.baths;
-                    
-                    // Restore Property Type
-                    if (prefs.propertyType) {
-                        document.querySelectorAll('.property-type-btn').forEach(btn => {
-                            if (btn.id === prefs.propertyType) {
-                                btn.classList.add('active');
-                            } else {
-                                btn.classList.remove('active');
-                            }
-                        });
-                    }
-                    
-                    // Restore Amenities
-                    if (prefs.amenities && Array.isArray(prefs.amenities)) {
-                        document.querySelectorAll('#amenityFilters .amenity-tag').forEach(btn => {
-                            if (prefs.amenities.includes(btn.dataset.amenity)) {
-                                btn.classList.add('selected');
-                            } else {
-                                btn.classList.remove('selected');
-                            }
-                        });
-                    }
-                    
-                    // Restore Areas
-                    if (prefs.areas && Array.isArray(prefs.areas)) {
-                        document.querySelectorAll('#areaFilters .amenity-tag').forEach(btn => {
-                            const zip = btn.dataset.zipcode;
-                            if (prefs.areas.includes(zip)) {
-                                btn.classList.add('selected');
-                                showZipCodeBoundary(zip);
-                            } else {
-                                btn.classList.remove('selected');
-                                hideZipCodeBoundary(zip);
-                            }
-                        });
+                    // Check version - if mismatch, ignore saved prefs to enforce new defaults
+                    if (prefs.version !== PREFS_VERSION) {
+                        console.log('Preferences version mismatch, resetting to defaults.');
+                        localStorage.removeItem('communityFinderPrefs');
+                        // Don't return, just proceed with defaults (which are already in HTML)
+                    } else {
+                        // Restore Price
+                        if (prefs.priceMin) document.getElementById('price-min').value = prefs.priceMin;
+                        if (prefs.priceMax) document.getElementById('price-max').value = prefs.priceMax;
+                        
+                        // Restore Beds
+                        if (prefs.beds) document.getElementById('beds-min').value = prefs.beds;
+                        
+                        // Restore Baths
+                        if (prefs.baths) document.getElementById('baths-min').value = prefs.baths;
+                        
+                        // Restore Property Type
+                        if (prefs.propertyType) {
+                            document.querySelectorAll('.property-type-btn').forEach(btn => {
+                                if (btn.id === prefs.propertyType) {
+                                    btn.classList.add('active');
+                                } else {
+                                    btn.classList.remove('active');
+                                }
+                            });
+                        }
+                        
+                        // Restore Amenities
+                        if (prefs.amenities && Array.isArray(prefs.amenities)) {
+                            document.querySelectorAll('#amenityFilters .amenity-tag').forEach(btn => {
+                                if (prefs.amenities.includes(btn.dataset.amenity)) {
+                                    btn.classList.add('selected');
+                                } else {
+                                    btn.classList.remove('selected');
+                                }
+                            });
+                        }
+                        
+                        // Restore Areas
+                        if (prefs.areas && Array.isArray(prefs.areas)) {
+                            document.querySelectorAll('#areaFilters .amenity-tag').forEach(btn => {
+                                const zip = btn.dataset.zipcode;
+                                if (prefs.areas.includes(zip)) {
+                                    btn.classList.add('selected');
+                                    showZipCodeBoundary(zip);
+                                } else {
+                                    btn.classList.remove('selected');
+                                    hideZipCodeBoundary(zip);
+                                }
+                            });
+                        }
                     }
                 } catch (e) {
                     console.error('Error loading preferences:', e);
