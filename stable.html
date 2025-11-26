@@ -1026,7 +1026,23 @@
             });
 
             // Create amenity tags dynamically
-            const allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            // Extract unique amenities from loaded neighborhoods
+            const extractedAmenities = new Set();
+            neighborhoods.forEach(n => {
+                if (n.amenities && Array.isArray(n.amenities)) {
+                    n.amenities.forEach(a => extractedAmenities.add(a));
+                }
+            });
+            
+            // Convert to array and sort
+            let allAmenities = Array.from(extractedAmenities).sort();
+            
+            // Ensure specific order or grouping if desired, otherwise just alpha sorted
+            // If no amenities found (e.g. data load error), fallback to default list
+            if (allAmenities.length === 0) {
+                allAmenities = ['Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 'Golf', 'Playground', 'Walking Trails', 'Dog Park', 'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'];
+            }
+
             const defaultSelected = []; // Start with no amenities selected
             
             const amenityContainer = document.getElementById('amenityFilters');
