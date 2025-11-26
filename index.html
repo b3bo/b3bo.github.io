@@ -246,8 +246,8 @@
             background-color: white;
             background-clip: content-box;
             
-            /* Visual: Grey border (simulated with inset shadow) */
-            box-shadow: inset 0 0 0 2px var(--color-text-secondary);
+            /* Visual: Brand border (simulated with inset shadow) */
+            box-shadow: inset 0 0 0 2px var(--color-brand);
             
             cursor: grab;
             
@@ -376,7 +376,7 @@
             <!-- Price Range Slider -->
             <div class="px-5 pt-4">
                 <div class="flex justify-between items-baseline mb-1">
-                    <span class="text-xs font-semibold text-neutral-500">Price Range</span>
+                    <span class="text-xs font-semibold text-neutral-500">Price</span>
                     <span class="text-sm font-bold text-neutral-800" id="price-display">$0 - $35M+</span>
                 </div>
                 <div class="range-slider">
@@ -1175,7 +1175,10 @@
             loadFilters();
             
             // Ensure filters are applied at least once after loading
-            applyFilters();
+            // Use a small timeout to ensure DOM is ready and values are set
+            setTimeout(() => {
+                applyFilters();
+            }, 100);
         }
 
         // Helper to parse price strings like "$1.2M", "$500k", or "$500,000"
@@ -1215,7 +1218,7 @@
 
         let filtersLoaded = false;
 
-        const PREFS_VERSION = '1.1'; // Increment to force reset defaults
+        const PREFS_VERSION = '1.2'; // Increment to force reset defaults
 
         function saveFilters() {
             if (!filtersLoaded) return;
@@ -1234,6 +1237,19 @@
         }
 
         function loadFilters() {
+            // Developer Tool: Allow ?reset=true to force a fresh start
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('reset') === 'true') {
+                console.log('Resetting preferences via URL parameter');
+                localStorage.removeItem('communityFinderPrefs');
+                // Clean the URL so a refresh doesn't keep resetting
+                const newUrl = window.location.pathname + window.location.search.replace(/[\?&]reset=true/, '');
+                window.history.replaceState({}, document.title, newUrl);
+                
+                filtersLoaded = true;
+                return; // Stop here, use defaults
+            }
+
             const saved = localStorage.getItem('communityFinderPrefs');
             if (saved) {
                 try {
