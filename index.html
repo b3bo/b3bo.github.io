@@ -810,12 +810,12 @@
             );
             
             const newWorldCoordinate = new google.maps.Point(
-                worldCoordinate.x,  // Keep X unchanged
+                worldCoordinate.x,
                 worldCoordinate.y + pixelOffset.y
             );
             
             const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
-            return { lat: newLatLng.lat(), lng: latLng.lng };  // Use original longitude to avoid drift
+            return { lat: newLatLng.lat(), lng: newLatLng.lng() };
         }
 
         function initializeMap(center, zoom) {
