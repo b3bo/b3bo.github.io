@@ -400,7 +400,7 @@
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="range-fill"></div>
                     <input type="range" min="0" max="41" value="0" id="price-min">
-                    <input type="range" min="0" max="41" value="0" id="price-max">
+                    <input type="range" min="0" max="41" value="41" id="price-max">
                 </div>
             </div>
 
@@ -1109,8 +1109,8 @@
                 const val = parseInt(bedsMinInput.value);
                 bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                let pct = val / 6;
-                pct = Math.min(pct, 1); // Cap at 100%
+                // Calculate percentage for range 1-6
+                const pct = (val - 1) / 5;
                 
                 // Update fill width
                 bedsFill.style.width = `${pct * 100}%`;
@@ -1129,8 +1129,8 @@
                 const val = parseInt(bathsMinInput.value);
                 bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                let pct = val / 6;
-                pct = Math.min(pct, 1); // Cap at 100%
+                // Calculate percentage for range 1-6
+                const pct = (val - 1) / 5;
                 
                 // Update fill width
                 bathsFill.style.width = `${pct * 100}%`;
@@ -1139,6 +1139,12 @@
             }
 
             bathsMinInput.addEventListener('input', updateBathsSlider);
+
+            // Initialize sliders visual state
+            // Note: These will trigger applyFilters(), which is fine for initialization
+            updatePriceSlider();
+            updateBedsSlider();
+            updateBathsSlider();
         }
 
         function applyFilters() {
