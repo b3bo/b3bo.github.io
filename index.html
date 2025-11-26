@@ -1112,8 +1112,8 @@
                 // Normalize to 0-1 range (min 1, max 6)
                 let pct = (val - 1) / 5;
                 
-                // Update fill width
-                bedsFill.style.width = `${pct * 100}%`;
+                // Update fill width with thumb offset correction
+                bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
                 applyFilters();
             }
@@ -1132,8 +1132,8 @@
                 // Normalize to 0-1 range (min 1, max 6)
                 let pct = (val - 1) / 5;
                 
-                // Update fill width
-                bathsFill.style.width = `${pct * 100}%`;
+                // Update fill width with thumb offset correction
+                bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
                 applyFilters();
             }
