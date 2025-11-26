@@ -1109,8 +1109,8 @@
                 const val = parseInt(bedsMinInput.value);
                 bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                // Calculate percentage for range 1-6
-                const pct = (val - 1) / 5;
+                let pct = val / 6;
+                pct = Math.min(pct, 1); // Cap at 100%
                 
                 // Update fill width
                 bedsFill.style.width = `${pct * 100}%`;
@@ -1129,8 +1129,8 @@
                 const val = parseInt(bathsMinInput.value);
                 bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                // Calculate percentage for range 1-6
-                const pct = (val - 1) / 5;
+                let pct = val / 6;
+                pct = Math.min(pct, 1); // Cap at 100%
                 
                 // Update fill width
                 bathsFill.style.width = `${pct * 100}%`;
@@ -1187,8 +1187,9 @@
                 const inSelectedAreas = selectedAreas.size === 0 || selectedAreas.has(neighborhood.zipCode);
                 const hasSelectedAmenities = selectedAmenities.size === 0 || neighborhood.amenities.some(amenity => selectedAmenities.has(amenity));
                 const inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
-                const inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300 && neighborhood.stats.avgSqft <= maxBeds * 300;
-                const inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150 && neighborhood.stats.avgSqft <= maxBaths * 150;
+                // Only check minimum sqft based on beds/baths, ignore upper limit since maxBeds/maxBaths is fixed at 6+
+                const inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300;
+                const inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150;
 
                 return inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
             });
