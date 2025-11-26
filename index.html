@@ -719,15 +719,17 @@
             const startZoom = map.getZoom();
             const targetLatLng = new google.maps.LatLng(targetPosition);
             
-            // Calculate the final offset position at target zoom
-            const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
-            
             // Calculate distance (requires geometry library)
             const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
             
-            // If close (< 2km), just standard pan/zoom to final offset position
+            // If close (< 2km), just standard pan/zoom
             if (distance < 2000) {
-                map.panTo(offsetTarget);
+                map.panTo(targetPosition);
+                // After pan completes, apply offset
+                setTimeout(() => {
+                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+                    map.panTo(offsetTarget);
+                }, 100);
                 // Simple zoom animation
                 const zoomDiff = targetZoom - startZoom;
                 if (Math.abs(zoomDiff) > 0.1) {
@@ -746,7 +748,7 @@
                 return;
             }
 
-            // Long distance flight animation - fly directly to offset position
+            // Long distance flight animation
             const startTime = performance.now();
             const duration = 2000; // 2 seconds
             const minZoom = 11; // Cruising altitude
@@ -760,9 +762,9 @@
                     ? 4 * progress * progress * progress 
                     : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 
-                // Interpolate Position directly to offset target
-                const curLat = startPos.lat() + (offsetTarget.lat - startPos.lat()) * ease;
-                const curLng = startPos.lng() + (offsetTarget.lng - startPos.lng()) * ease;
+                // Interpolate Position (without offset during flight)
+                const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
                 
                 // Interpolate Zoom (Parabolic arc)
                 let curZoom;
@@ -787,30 +789,33 @@
                 
                 if (progress < 1) {
                     requestAnimationFrame(animate);
+                } else {
+                    // After animation completes, apply offset
+                    const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+                    map.panTo(offsetTarget);
                 }
             }
             
             requestAnimationFrame(animate);
         }
         
-        // Helper function to offset lat/lng by pixels (vertical only)
+        // Helper function to offset lat/lng by pixels
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
-            // Calculate degrees per pixel at this zoom level
-            // At zoom level z, the entire world is 256 * 2^z pixels wide
-            const zoom = zoomLevel || map.getZoom();
-            const scale = 256 * Math.pow(2, zoom);
+            const scale = Math.pow(2, zoomLevel || map.getZoom());
+            const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
             
-            // Earth's circumference in degrees is 360
-            const degreesPerPixel = 360 / scale;
+            const pixelOffset = new google.maps.Point(
+                0,
+                -offsetPixels / scale  // Negative to shift map UP (marker appears lower)
+            );
             
-            // Calculate the latitude degrees to shift
-            // Negative offset pixels = shift map up = marker appears lower
-            const latOffset = -(offsetPixels * degreesPerPixel);
+            const newWorldCoordinate = new google.maps.Point(
+                worldCoordinate.x,  // Keep X unchanged
+                worldCoordinate.y + pixelOffset.y
+            );
             
-            return { 
-                lat: latLng.lat + latOffset, 
-                lng: latLng.lng  // Keep longitude exactly the same
-            };
+            const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
+            return { lat: newLatLng.lat(), lng: latLng.lng };  // Use original longitude to avoid drift
         }
 
         function initializeMap(center, zoom) {
