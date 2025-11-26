@@ -350,7 +350,13 @@
             cursor: pointer;
             user-select: none;
             height: 40px;
-            z-index: 1; /* Bottom layer - renders behind other controls */
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+        }
+        
+        .g-control-container.visible {
+            opacity: 1;
         }
 
         .g-control-button {
@@ -864,6 +870,10 @@
             if (customControls) {
                 customControls.classList.remove('hidden');
                 map.controls[google.maps.ControlPosition.TOP_RIGHT].push(customControls);
+                // Fade in after positioning
+                setTimeout(() => {
+                    customControls.classList.add('visible');
+                }, 100);
             }
         }
 
