@@ -50,6 +50,7 @@
             box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
+            z-index: 10000000 !important;
         }
         
         /* Remove border from info window tip */
@@ -729,7 +730,10 @@
                 clickableIcons: false
             });
 
-            infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
+            infoWindow = new google.maps.InfoWindow({ 
+                maxWidth: 280,
+                zIndex: 10000000
+            });
             addMarkers();
             setupFilters();
             applyFilters();
