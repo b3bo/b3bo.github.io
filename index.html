@@ -383,7 +383,7 @@
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="range-fill"></div>
                     <input type="range" min="0" max="41" value="0" id="price-min">
-                    <input type="range" min="0" max="41" value="41" id="price-max">
+                    <input type="range" min="0" max="41" value="0" id="price-max">
                 </div>
             </div>
 
@@ -395,8 +395,8 @@
                 </div>
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
-                    <div class="range-track-fill" id="beds-fill" style="width: 16.66%;"></div>
-                    <input type="range" min="0" max="6" value="1" step="1" id="beds-min">
+                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                    <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
                 </div>
             </div>
 
@@ -408,8 +408,8 @@
                 </div>
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
-                    <div class="range-track-fill" id="baths-fill" style="width: 16.66%;"></div>
-                    <input type="range" min="0" max="6" value="1" step="1" id="baths-min">
+                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                    <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
                 </div>
             </div>
 
@@ -1003,7 +1003,7 @@
 
             function formatPrice(price) {
                 if (price >= 1000000) {
-                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
+                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'm';
                 } else if (price >= 1000) {
                     return '$' + (price / 1000).toFixed(0) + 'k';
                 }
@@ -1048,7 +1048,7 @@
                 const maxPriceDisplay = priceSteps[maxVal];
 
                 if (minVal === 0 && maxVal === 0) {
-                    priceDisplay.textContent = "Any";
+                    priceDisplay.textContent = "$250k - $35m+";
                 } else {
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
@@ -1071,10 +1071,10 @@
 
             function updateBedsSlider() {
                 const val = parseInt(bedsMinInput.value);
-                bedsDisplay.textContent = val === 0 ? 'Any' : (val === 6 ? '6+' : val + '+');
+                bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                // Update track fill
-                const pct = val / 6;
+                // Update track fill (Range 1-6, so 5 steps)
+                const pct = (val - 1) / 5;
                 bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
                 applyFilters();
@@ -1089,10 +1089,10 @@
 
             function updateBathsSlider() {
                 const val = parseInt(bathsMinInput.value);
-                bathsDisplay.textContent = val === 0 ? 'Any' : (val === 6 ? '6+' : val + '+');
+                bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                // Update track fill
-                const pct = val / 6;
+                // Update track fill (Range 1-6, so 5 steps)
+                const pct = (val - 1) / 5;
                 bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
                 
                 applyFilters();
@@ -1215,7 +1215,7 @@
 
         let filtersLoaded = false;
 
-        const PREFS_VERSION = '1.0'; // Increment to force reset defaults
+        const PREFS_VERSION = '1.1'; // Increment to force reset defaults
 
         function saveFilters() {
             if (!filtersLoaded) return;
