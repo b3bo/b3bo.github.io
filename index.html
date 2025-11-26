@@ -50,7 +50,6 @@
             box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
-            z-index: 10000000 !important;
         }
         
         /* Remove border from info window tip */
@@ -340,6 +339,41 @@
             background-color: rgba(124, 163, 175, 0.8);
             border-radius: 20px;
         }
+
+        /* Custom Google Map Controls */
+        .g-control-container {
+            margin: 10px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+            border-radius: 2px;
+            background-color: white;
+            z-index: 10; /* Lower than InfoWindow */
+            display: flex;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .g-control-button {
+            height: 40px;
+            padding: 0 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 18px;
+            color: #565656;
+            transition: background-color 0.1s;
+        }
+
+        .g-control-button:hover {
+            background-color: #ebebeb;
+            color: #000;
+        }
+
+        .g-control-button.active {
+            color: #000;
+            font-weight: 500;
+            background-color: #fff; /* Ensure active state is white */
+        }
     </style>
 </head>
 <body class="h-screen overflow-hidden font-body text-neutral-700">
@@ -481,6 +515,12 @@
 
         <!-- Main content area with map and sidebar -->
         <div class="flex flex-1 relative md:flex-row overflow-hidden">
+            <!-- Custom Google-like Map Controls -->
+            <div id="custom-map-controls" class="absolute top-0 right-0 g-control-container">
+                <div id="g-map-btn" class="g-control-button active">Map</div>
+                <div id="g-sat-btn" class="g-control-button">Satellite</div>
+            </div>
+
             <!-- Map -->
             <div id="map" class="flex-1 bg-neutral-100 relative">
                 <!-- Loading Screen -->
@@ -794,7 +834,7 @@
                 zoom: zoom,
                 center: center,
                 mapId: '92b2f4ea8b2fce54a50ed2e9', // Style ID: a14568cafd921b121b81dcce
-                mapTypeControl: true,
+                mapTypeControl: false,
                 mapTypeControlOptions: {
                     position: google.maps.ControlPosition.TOP_RIGHT
                 },
@@ -807,13 +847,30 @@
                 clickableIcons: false
             });
 
-            infoWindow = new google.maps.InfoWindow({ 
-                maxWidth: 280,
-                zIndex: 10000000
-            });
+            infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
             addMarkers();
             setupFilters();
             applyFilters();
+            setupMapControls();
+        }
+
+        function setupMapControls() {
+            const mapBtn = document.getElementById('g-map-btn');
+            const satBtn = document.getElementById('g-sat-btn');
+            
+            if (!mapBtn || !satBtn) return;
+
+            mapBtn.addEventListener('click', () => {
+                map.setMapTypeId('roadmap');
+                mapBtn.classList.add('active');
+                satBtn.classList.remove('active');
+            });
+            
+            satBtn.addEventListener('click', () => {
+                map.setMapTypeId('hybrid');
+                satBtn.classList.add('active');
+                mapBtn.classList.remove('active');
+            });
         }
 
         function addMarkers() {

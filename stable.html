@@ -50,6 +50,7 @@
             box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
+            z-index: 10000000 !important;
         }
         
         /* Remove border from info window tip */
@@ -711,6 +712,83 @@
             }
         }
 
+        // Smooth camera transition
+        function smoothFlyTo(targetPosition, targetZoom = 15) {
+            const startPos = map.getCenter();
+            const startZoom = map.getZoom();
+            const targetLatLng = new google.maps.LatLng(targetPosition);
+            
+            // Calculate distance (requires geometry library)
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+            
+            // If close (< 2km), just standard pan/zoom
+            if (distance < 2000) {
+                map.panTo(targetPosition);
+                // Simple zoom animation
+                const zoomDiff = targetZoom - startZoom;
+                if (Math.abs(zoomDiff) > 0.1) {
+                    let steps = 20;
+                    let currentStep = 0;
+                    const zoomInterval = setInterval(() => {
+                        currentStep++;
+                        const progress = currentStep / steps;
+                        // EaseOutQuad
+                        const ease = 1 - (1 - progress) * (1 - progress);
+                        const newZoom = startZoom + (zoomDiff * ease);
+                        map.moveCamera({ zoom: newZoom });
+                        if (currentStep >= steps) clearInterval(zoomInterval);
+                    }, 16);
+                }
+                return;
+            }
+
+            // Long distance flight animation
+            const startTime = performance.now();
+            const duration = 2000; // 2 seconds
+            const minZoom = 11; // Cruising altitude
+            
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // EaseInOutCubic for position
+                const ease = progress < 0.5 
+                    ? 4 * progress * progress * progress 
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                
+                // Interpolate Position
+                const curLat = startPos.lat() + (targetPosition.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (targetPosition.lng - startPos.lng()) * ease;
+                
+                // Interpolate Zoom (Parabolic arc)
+                let curZoom;
+                if (progress < 0.5) {
+                    // 0% to 50%: Zoom out from startZoom to minZoom
+                    const zoomProgress = progress * 2; // 0 to 1
+                    // Ease out to slow down as we reach peak
+                    const zoomEase = 1 - Math.pow(1 - zoomProgress, 2); 
+                    curZoom = startZoom + (minZoom - startZoom) * zoomEase;
+                } else {
+                    // 50% to 100%: Zoom in from minZoom to targetZoom
+                    const zoomProgress = (progress - 0.5) * 2; // 0 to 1
+                    // Ease in to speed up as we land
+                    const zoomEase = zoomProgress * zoomProgress;
+                    curZoom = minZoom + (targetZoom - minZoom) * zoomEase;
+                }
+                
+                map.moveCamera({
+                    center: { lat: curLat, lng: curLng },
+                    zoom: curZoom
+                });
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
         function initializeMap(center, zoom) {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: zoom,
@@ -729,7 +807,10 @@
                 clickableIcons: false
             });
 
-            infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
+            infoWindow = new google.maps.InfoWindow({ 
+                maxWidth: 280,
+                zIndex: 10000000
+            });
             addMarkers();
             setupFilters();
             applyFilters();
@@ -1264,8 +1345,7 @@
                     
                     // Add click listener to pan to marker and open info window
                     card.addEventListener('click', () => {
-                        map.panTo(neighborhood.position);
-                        map.setZoom(15);
+                        smoothFlyTo(neighborhood.position, 15);
                         google.maps.event.trigger(marker, 'click');
                         
                         // On mobile, close drawer to show map
@@ -1417,6 +1497,6 @@
     </script>
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker,geometry" async></script>
 </body>
 </html>
