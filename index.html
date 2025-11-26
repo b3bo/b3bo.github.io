@@ -383,7 +383,7 @@
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="range-fill"></div>
                     <input type="range" min="0" max="41" value="0" id="price-min">
-                    <input type="range" min="0" max="41" value="41" id="price-max">
+                    <input type="range" min="0" max="41" value="0" id="price-max">
                 </div>
             </div>
 
@@ -1030,23 +1030,19 @@
                     }
                 }
 
-                const minPrice = priceSteps[minVal];
-                const maxPrice = priceSteps[maxVal];
+                const minPriceDisplay = priceSteps[minVal];
+                const maxPriceDisplay = priceSteps[maxVal];
 
-                if (minVal === 0 && maxVal === 41) {
-                    priceDisplay.textContent = "Any";
+                if (minVal === 0 && maxVal === 0) {
+                    priceDisplay.textContent = "$250k - $35M+";
                 } else {
-                    priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+                    priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
 
-                // Update track fill
-                const totalSteps = 41;
-                const minPct = minVal / totalSteps;
-                const maxPct = maxVal / totalSteps;
-                
-                // Correct for thumb width (42px) to ensure fill aligns with thumb centers
-                rangeFill.style.left = `calc(${minPct * 100}% + ${21 - minPct * 42}px)`;
-                rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
+                // Update track fill - Anchored to left (0) based on Max value only
+                // This creates the "tail" effect requested, ignoring the Min thumb for visual fill
+                rangeFill.style.left = '0';
+                rangeFill.style.width = `calc(${maxPct * 100}% + ${21 - maxPct * 42}px)`;
                 
                 applyFilters();
             }
@@ -1294,12 +1290,21 @@
             let maxPrice = 100000000;
             
             if (window.priceSteps && priceMinInput && priceMaxInput) {
-                minPrice = window.priceSteps[parseInt(priceMinInput.value)];
-                maxPrice = window.priceSteps[parseInt(priceMaxInput.value)];
+                const minVal = parseInt(priceMinInput.value);
+                const maxVal = parseInt(priceMaxInput.value);
                 
-                // If max is at the end, treat as "and above" (effectively infinite for our data)
-                if (parseInt(priceMaxInput.value) === 41) {
-                    maxPrice = 1000000000; // $1B
+                // Special case: 0-0 means "Any" (Show all)
+                if (minVal === 0 && maxVal === 0) {
+                    minPrice = 0;
+                    maxPrice = 1000000000; // Infinity
+                } else {
+                    minPrice = minVal === 0 ? 0 : window.priceSteps[minVal];
+                    maxPrice = window.priceSteps[maxVal];
+                    
+                    // If max is at the end, treat as "and above"
+                    if (maxVal === 41) {
+                        maxPrice = 1000000000; // $1B
+                    }
                 }
             }
 
