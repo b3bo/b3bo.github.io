@@ -394,7 +394,7 @@
             <div class="px-5 pt-4">
                 <div class="flex justify-between items-baseline mb-1">
                     <span class="text-xs font-semibold text-neutral-500">Price</span>
-                    <span class="text-sm font-bold text-neutral-800" id="price-display">$0 - $35M+</span>
+                    <span class="text-sm font-bold text-neutral-800" id="price-display">$250k - $35m+</span>
                 </div>
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
@@ -432,13 +432,13 @@
 
             <!-- Tabs -->
             <div class="px-5 pt-4 flex gap-6 border-b border-neutral-200">
-                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="2">
+                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="2">
                     Areas
                 </button>
                 <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="amenities">
                     Amenities
                 </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-600 tab-btn" data-tab="list">
+                <button class="pb-3 text-sm font-medium text-neutral-900 border-b-2 border-neutral-900 tab-btn active" data-tab="list">
                     List
                 </button>
             </div>
@@ -446,7 +446,7 @@
             <!-- Tab Content -->
             <div id="sidebar-content" class="flex-1 overflow-y-auto overscroll-contain p-5">
                 <!-- Tab 2 Content - Areas -->
-                <div id="tab-2" class="tab-content">
+                <div id="tab-2" class="tab-content hidden">
                     <div class="flex flex-wrap gap-2" id="areaFilters">
                         <button class="amenity-tag" data-zipcode="32541">Destin</button>
                         <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
@@ -464,7 +464,7 @@
                 </div>
                 
                 <!-- List Tab Content -->
-                <div id="tab-list" class="tab-content hidden">
+                <div id="tab-list" class="tab-content">
                     <div id="neighborhoodList" class="space-y-3">
                         <!-- List items will be dynamically generated -->
                     </div>
@@ -1109,8 +1109,8 @@
                 const val = parseInt(bedsMinInput.value);
                 bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                let pct = val / 6;
-                pct = Math.min(pct, 1); // Cap at 100%
+                // Normalize to 0-1 range (min 1, max 6)
+                let pct = (val - 1) / 5;
                 
                 // Update fill width
                 bedsFill.style.width = `${pct * 100}%`;
@@ -1129,8 +1129,8 @@
                 const val = parseInt(bathsMinInput.value);
                 bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                let pct = val / 6;
-                pct = Math.min(pct, 1); // Cap at 100%
+                // Normalize to 0-1 range (min 1, max 6)
+                let pct = (val - 1) / 5;
                 
                 // Update fill width
                 bathsFill.style.width = `${pct * 100}%`;
