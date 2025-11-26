@@ -162,16 +162,16 @@
         /* Landscape mode on mobile devices */
         @media (max-height: 500px) and (orientation: landscape) {
             #sidebar {
-                top: 0 !important;
-                left: 0 !important;
-                height: 100dvh !important;
-                max-height: 100dvh !important;
+                /* Keep floating card style */
+                height: calc(100dvh - 2rem) !important;
+                max-height: calc(100dvh - 2rem) !important;
+                /* Ensure it doesn't get too wide */
                 width: 45% !important;
                 max-width: 350px !important;
-                border-radius: 0 !important;
-                /* No overflow on sidebar itself, so tab stays fixed */
-                overflow: visible !important; 
-                display: flex !important; /* Keep flex layout */
+                /* Maintain rounded corners */
+                border-radius: 1rem !important;
+                /* Keep flex layout */
+                display: flex !important; 
             }
 
             #sidebar-scroll-container {
