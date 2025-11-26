@@ -1274,17 +1274,27 @@
             if (loadingScreen && loadingScreen.style.display !== 'none') {
                 // Check if map is actually empty (initMap might have failed silently)
                 if (!map) {
+                    console.warn('Map load timeout triggered.');
+                    
+                    // Attempt recovery if Google Maps API is loaded but callback failed
+                    if (typeof google !== 'undefined' && google.maps) {
+                        console.log('Google Maps API is loaded. Attempting manual initMap call...');
+                        initMap().catch(e => console.error('Manual initMap failed:', e));
+                        return;
+                    }
+
                     console.error('Map load timeout - initMap was not called or failed to complete');
                     loadingScreen.innerHTML = `
                         <div class="text-center px-4">
                             <p class="text-red-600 font-medium mb-2">Map failed to load.</p>
                             <p class="text-sm text-neutral-500">This may be due to a network issue or configuration error.</p>
+                            <p class="text-xs text-neutral-400 mt-2">Status: ${typeof google !== 'undefined' ? 'API Loaded' : 'API Missing'}</p>
                             <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-neutral-800 text-white rounded-lg text-sm">Refresh Page</button>
                         </div>
                     `;
                 }
             }
-        }, 10000);
+        }, 5000); // Reduced to 5s for faster feedback
 
         // Ensure initMap is globally available
         window.initMap = initMap;
