@@ -1029,6 +1029,21 @@
 
         // priceSteps moved to top
 
+        // Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6"
+        function parseRange(rangeStr) {
+            if (!rangeStr) return null;
+            // Remove '$', ',', and whitespace
+            const cleanStr = rangeStr.replace(/[$,\s]/g, '');
+            const parts = cleanStr.split('-');
+            if (parts.length === 2) {
+                return {
+                    min: parseInt(parts[0]),
+                    max: parseInt(parts[1])
+                };
+            }
+            return null;
+        }
+
         function setupFilters() {
             // Price Slider Logic
 
@@ -1229,7 +1244,12 @@
                 maxPrice = Number.MAX_SAFE_INTEGER;
             } else {
                 minPrice = parseInt(priceSteps[priceMinInput.value]);
-                maxPrice = parseInt(priceSteps[priceMaxInput.value]);
+                // If max slider is at the end, treat as infinity
+                if (parseInt(priceMaxInput.value) === 41) {
+                    maxPrice = Number.MAX_SAFE_INTEGER;
+                } else {
+                    maxPrice = parseInt(priceSteps[priceMaxInput.value]);
+                }
             }
 
             // Get beds range
@@ -1243,12 +1263,44 @@
             maxBaths = 6; // Always 6+ for max
 
             const filteredNeighborhoods = neighborhoods.filter(neighborhood => {
+                // Area Filter
                 const inSelectedAreas = selectedAreas.size === 0 || selectedAreas.has(neighborhood.zipCode);
+                
+                // Amenity Filter
                 const hasSelectedAmenities = selectedAmenities.size === 0 || neighborhood.amenities.some(amenity => selectedAmenities.has(amenity));
-                const inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
-                // Only check minimum sqft based on beds/baths, ignore upper limit since maxBeds/maxBaths is fixed at 6+
-                const inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300;
-                const inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150;
+                
+                // Price Filter
+                let inPriceRange = false;
+                const priceRange = parseRange(neighborhood.stats.priceRange);
+                if (priceRange) {
+                    // Check for overlap: UserMax >= NbMin && UserMin <= NbMax
+                    inPriceRange = maxPrice >= priceRange.min && minPrice <= priceRange.max;
+                } else {
+                    // Fallback to avgPrice if range not available
+                    inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
+                }
+
+                // Beds Filter
+                let inBedsRange = false;
+                const bedsRange = parseRange(neighborhood.stats.bedsRange);
+                if (bedsRange) {
+                     // Check if neighborhood has anything >= minBeds
+                     inBedsRange = bedsRange.max >= minBeds;
+                } else {
+                     // Fallback heuristic
+                     inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300;
+                }
+
+                // Baths Filter
+                let inBathsRange = false;
+                const bathsRange = parseRange(neighborhood.stats.bathsRange);
+                if (bathsRange) {
+                    // Check if neighborhood has anything >= minBaths
+                    inBathsRange = bathsRange.max >= minBaths;
+                } else {
+                    // Fallback heuristic
+                    inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150;
+                }
 
                 return inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
             });
