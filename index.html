@@ -502,7 +502,7 @@
             <!-- Map -->
             <div id="map" class="flex-1 bg-neutral-100 relative">
                 <!-- Custom Fullscreen Toggle (top-right) -->
-                <button id="custom-fullscreen-toggle" aria-label="Toggle fullscreen" class="absolute top-2 right-2 z-30 flex items-center justify-center w-8 h-8 rounded-md bg-white border border-neutral-300 shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-neutral-500">
+                <button id="custom-fullscreen-toggle" aria-label="Toggle fullscreen" class="absolute top-2 right-2 z-50 flex items-center justify-center w-8 h-8 rounded-md bg-white border border-neutral-300 shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-neutral-500" style="pointer-events: auto;">
                     <!-- Icon similar to Google’s fullscreen -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4a5462" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                         <path d="M3 8V5a2 2 0 0 1 2-2h3" />
@@ -943,10 +943,8 @@
                 streetViewControlOptions: {
                     position: google.maps.ControlPosition.RIGHT_BOTTOM
                 },
-                fullscreenControl: true,
-                fullscreenControlOptions: {
-                    position: google.maps.ControlPosition.TOP_RIGHT
-                },
+                // Disable native fullscreen to avoid overlapping controls
+                fullscreenControl: false,
                 zoomControl: true,
                 clickableIcons: false
             });
