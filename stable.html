@@ -47,15 +47,28 @@
         .gm-style .gm-style-iw-c {
             padding: 0 !important;
             border: none !important;
-            box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
+            /* Remove dark outline and minimize shadow */
+            box-shadow: none !important;
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
+            outline: none !important;
+            border-radius: 12px !important;
         }
         
-        /* Remove border from info window tip */
+        /* Remove border/shadow from info window tip */
         .gm-style .gm-style-iw-tc::after {
             background: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Ensure content card has no outer outline */
+        .gm-style .info-window {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            border-radius: 12px !important;
         }
 
         /* Remove default padding from internal content wrapper */
@@ -512,6 +525,8 @@
         let neighborhoods = [];
         let activeMarker = null;
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
+        // Config: control auto-opening behavior of info windows during fly-to in page app
+        let AUTO_OPEN_ON_FLY = true;
 
         // Pagination state
         let allFilteredNeighborhoods = [];
@@ -588,11 +603,14 @@
             const params = new URLSearchParams(window.location.search);
             return {
                 neighborhood: params.get('neighborhood'), // Slug of specific neighborhood
-                mode: params.get('mode'), // 'single' = hide drawer, single neighborhood view
+                mode: params.get('mode') ? params.get('mode').trim() : null, // 'single' = hide drawer, single neighborhood view
                 zoom: params.get('zoom') ? parseInt(params.get('zoom')) : null,
                 lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
                 lng: params.get('lng') ? parseFloat(params.get('lng')) : null,
-                autoOpen: params.get('autoOpen') === 'true'
+                autoOpen: params.get('autoOpen') === 'true',
+                autopan: params.get('autopan') === 'true',
+                offsetPx: params.get('offsetPx') !== null ? parseFloat(params.get('offsetPx')) : null,
+                offsetPct: params.get('offsetPct') !== null ? parseFloat(params.get('offsetPct')) : null
             };
         }
 
@@ -674,14 +692,38 @@
                 } else if (urlParams.neighborhood && neighborhoods.length === 1) {
                     // Center on specific neighborhood
                     center = neighborhoods[0].position;
-                    zoom = urlParams.zoom || 14;
+                    // Default single-neighborhood zoom
+                    // Full app historically used 14; single page prefers one level farther out
+                    zoom = urlParams.zoom || (urlParams.mode === 'single' ? 12 : 14);
                 } else {
                     // Default: center on Watersound Origins area
                     center = { lat: 30.294396274692907, lng: -86.01317525044458 };
                     zoom = urlParams.zoom || 12;
                 }
+
+                // Single (iframe) mode: keep provided/default zoom unchanged (no auto zoom out)
                 
                 initializeMap(center, zoom);
+
+                // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
+                if (urlParams.mode === 'single' && neighborhoods.length === 1) {
+                    google.maps.event.addListenerOnce(map, 'projection_changed', () => {
+                        // Force zoom to 12 if not explicitly provided, to ensure it takes effect
+                        if (!urlParams.zoom) {
+                            map.setZoom(12);
+                        }
+                        
+                        const currentZoom = map.getZoom();
+                        const offsetPixels = computeOffsetPx(currentZoom);
+                        const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
+                        map.setCenter(offsetTarget); // instant center change (no animation)
+                        // Open info window directly without ripple animation.
+                        if (markers.length > 0) {
+                            const first = markers[0];
+                            showInfoWindow(first.marker, first.neighborhood);
+                        }
+                    });
+                }
                 
                 // Hide loading screen
                 const loadingScreen = document.getElementById('loading-screen');
@@ -690,7 +732,8 @@
                 }
                 
                 // Auto-open info window if requested via URL parameter
-                if (urlParams.autoOpen && neighborhoods.length === 1) {
+                // In single/iframe mode we handle autoOpen after the pan above
+                if (urlParams.autoOpen && neighborhoods.length === 1 && urlParams.mode !== 'single') {
                     // Wait for markers to be created
                     setTimeout(() => {
                         if (markers.length > 0) {
@@ -720,7 +763,8 @@
             const targetLatLng = new google.maps.LatLng(targetPosition);
             
             // Calculate the final offset position BEFORE flight
-            const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+            const offsetPixels = computeOffsetPx(targetZoom);
+            const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
             const offsetLatLng_final = new google.maps.LatLng(offsetTarget);
             
             // Calculate distance (requires geometry library)
@@ -794,6 +838,72 @@
             requestAnimationFrame(animate);
         }
         
+        // Heuristic offset computation (scaled-from-baseline)
+        // Returns vertical offset in pixels to center marker + card without measuring DOM.
+        function computeOffsetPx(zoomLevel) {
+            const params = getUrlParams();
+            // URL overrides take precedence
+            if (params.offsetPx != null && !isNaN(params.offsetPx)) {
+                return params.offsetPx;
+            }
+            if (params.offsetPct != null && !isNaN(params.offsetPct)) {
+                const dvh = Math.max(320, window.innerHeight); // dvh approx
+                return clamp((dvh * params.offsetPct) / 100, 120, 250);
+            }
+
+            const baseOffset = 150; // tuned baseline for ~280px card at zoom 14–15
+
+            // Estimated card height by breakpoint
+            // Desktop ~280, tablet ~320, mobile ~340
+            const w = window.innerWidth;
+            let estimatedCardHeightPx = 280;
+            if (w < 640) {
+                estimatedCardHeightPx = 340;
+            } else if (w < 1024) {
+                estimatedCardHeightPx = 320;
+            }
+            const cardScale = estimatedCardHeightPx / 280;
+
+            // Viewport scaling using dvh
+            // If running inside the iframe (single mode), use its exact innerHeight
+            const dvh = Math.max(320, window.innerHeight);
+            const isIframeSingleMode = params.mode === 'single';
+            const viewportHeightPx = dvh; // inside iframe, this equals iframe CSS height
+            const viewportScale = clamp(dvh / 800, 0.85, 1.20);
+
+            // Marker padding to account for visual space under the card
+            const markerPadding = 30;
+
+            // Zoom sensitivity: reduce offset when zoomed out
+            const zoom = zoomLevel || map.getZoom() || 14;
+            const zoomReductionSteps = clamp(15 - zoom, 0, 4); // up to 4 steps when zoom down to ~11
+            const zoomFactor = 1 - zoomReductionSteps * 0.05; // up to ~20% reduction
+
+            // If in iframe single mode, scale offset proportionally to iframe height, favoring a slightly larger offset
+            // Example: for 500px iframe height, target around 180px (within clamp)
+            let iframeScaleBoost = 1;
+            if (isIframeSingleMode) {
+                // Normalize around a 700px baseline
+                iframeScaleBoost = clamp(viewportHeightPx / 700, 0.95, 1.30);
+            }
+
+            let offsetPx = baseOffset * cardScale * viewportScale * zoomFactor * iframeScaleBoost + markerPadding;
+
+            // Add a small fixed boost in single/iframe mode to push center further north
+            // This compensates for map UI controls and typical embed headers.
+            if (isIframeSingleMode) {
+                offsetPx += 24; // fixed boost
+            }
+
+            // Clamp to sane bounds
+            offsetPx = clamp(offsetPx, 120, 250);
+            return offsetPx;
+        }
+
+        function clamp(val, min, max) {
+            return Math.min(max, Math.max(min, val));
+        }
+
         // Helper function to offset lat/lng by pixels
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
             const scale = Math.pow(2, zoomLevel || map.getZoom());
@@ -810,7 +920,8 @@
             );
             
             const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
-            return { lat: newLatLng.lat(), lng: newLatLng.lng() };
+            // Preserve original longitude to avoid subtle horizontal drift from projection rounding
+            return { lat: newLatLng.lat(), lng: latLng.lng };
         }
 
         function initializeMap(center, zoom) {
@@ -820,7 +931,7 @@
                 mapId: '92b2f4ea8b2fce54a50ed2e9',
                 mapTypeControl: true,
                 mapTypeControlOptions: {
-                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
                     position: google.maps.ControlPosition.TOP_RIGHT
                 },
                 streetViewControl: true,
@@ -835,13 +946,12 @@
                 clickableIcons: false
             });
 
-            // Config: control auto-opening behavior of info windows
-            const AUTO_OPEN_ON_FLY = false;
-
-            infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
+            // Disable Google Maps default auto-pan when info windows open
+            infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
             addMarkers();
             setupFilters();
             applyFilters();
+
         }
 
         function addMarkers() {
@@ -1371,7 +1481,7 @@
                         </div>
                     `;
                     
-                    // Add click listener to pan to marker (do not auto-open card unless enabled)
+                    // Add click listener to pan to marker (auto-open after landing when enabled)
                     card.addEventListener('click', () => {
                         // Close current info window
                         if (infoWindow && infoWindow.getMap()) {
@@ -1387,11 +1497,17 @@
                         // Fly to new location
                         smoothFlyTo(neighborhood.position, 15);
                         
-                        // Optional: auto-open info window after animation completes
+                        // Auto-open: start ripple 1s after flight begins, then open
                         if (typeof AUTO_OPEN_ON_FLY !== 'undefined' && AUTO_OPEN_ON_FLY) {
+                            // Ripple cue
+                            setTimeout(() => {
+                                const ripple = marker.content.querySelector('.ripple');
+                                if (ripple) ripple.classList.add('active');
+                            }, 1000);
+                            // Open shortly after landing
                             setTimeout(() => {
                                 google.maps.event.trigger(marker, 'click');
-                            }, 2100); // Wait for 2s animation + 100ms buffer
+                            }, 3100); // Wait for 2s animation + extra 1s delay
                         }
                         
                         // On mobile, close drawer to show map

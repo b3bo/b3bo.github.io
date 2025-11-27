@@ -603,7 +603,7 @@
             const params = new URLSearchParams(window.location.search);
             return {
                 neighborhood: params.get('neighborhood'), // Slug of specific neighborhood
-                mode: params.get('mode'), // 'single' = hide drawer, single neighborhood view
+                mode: params.get('mode') ? params.get('mode').trim() : null, // 'single' = hide drawer, single neighborhood view
                 zoom: params.get('zoom') ? parseInt(params.get('zoom')) : null,
                 lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
                 lng: params.get('lng') ? parseFloat(params.get('lng')) : null,
@@ -708,7 +708,12 @@
                 // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
                     google.maps.event.addListenerOnce(map, 'projection_changed', () => {
-                        const currentZoom = map.getZoom() || zoom;
+                        // Force zoom to 12 if not explicitly provided, to ensure it takes effect
+                        if (!urlParams.zoom) {
+                            map.setZoom(12);
+                        }
+                        
+                        const currentZoom = map.getZoom();
                         const offsetPixels = computeOffsetPx(currentZoom);
                         const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
                         map.setCenter(offsetTarget); // instant center change (no animation)
