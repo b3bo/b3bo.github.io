@@ -32,6 +32,10 @@
             --color-text-secondary: #313842; /* --color-neutral-700 */
             --color-border: #d0d5dc; /* --color-neutral-300 */
         }
+        /* Fullscreen map helper */
+        .fullscreen-map {
+            height: 100dvh !important;
+        }
 
         /* Info window custom styles */
         .gm-style .info-window {
@@ -497,6 +501,16 @@
         <div class="flex flex-1 relative md:flex-row overflow-hidden">
             <!-- Map -->
             <div id="map" class="flex-1 bg-neutral-100 relative">
+                <!-- Custom Fullscreen Toggle (top-right) -->
+                <button id="custom-fullscreen-toggle" aria-label="Toggle fullscreen" class="absolute top-2 right-2 z-30 flex items-center justify-center w-8 h-8 rounded-md bg-white border border-neutral-300 shadow hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-neutral-500">
+                    <!-- Icon similar to Google’s fullscreen -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4a5462" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                        <path d="M3 8V5a2 2 0 0 1 2-2h3" />
+                        <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
+                        <path d="M21 16v3a2 2 0 0 1-2 2h-3" />
+                        <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+                    </svg>
+                </button>
                 <!-- Loading Screen -->
                 <div id="loading-screen" class="absolute inset-0 bg-neutral-100 flex items-center justify-center z-20">
                     <div class="text-center">
@@ -527,6 +541,8 @@
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
         // Config: control auto-opening behavior of info windows during fly-to in page app
         let AUTO_OPEN_ON_FLY = true;
+        // Fullscreen mode state (hides footer/disclaimer)
+        let IS_FULLSCREEN_MODE = false;
 
         // Pagination state
         let allFilteredNeighborhoods = [];
@@ -940,6 +956,44 @@
             addMarkers();
             setupFilters();
             applyFilters();
+
+            // Wire custom fullscreen toggle to hide/show disclaimer/footer
+            const fsBtn = document.getElementById('custom-fullscreen-toggle');
+            if (fsBtn) {
+                fsBtn.addEventListener('click', () => {
+                    IS_FULLSCREEN_MODE = !IS_FULLSCREEN_MODE;
+                    const mapEl = document.getElementById('map');
+                    const disclaimer = document.getElementById('map-disclaimer');
+                    const footer = document.querySelector('.bg-neutral-800');
+                    if (IS_FULLSCREEN_MODE) {
+                        if (mapEl) mapEl.classList.add('fullscreen-map');
+                        if (disclaimer) disclaimer.style.display = 'none';
+                        if (footer) footer.style.display = 'none';
+                        // Update icon to indicate exit fullscreen (optional)
+                        fsBtn.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4a5462" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                <path d="M10 3H7a2 2 0 0 0-2 2v3" />
+                                <path d="M21 10V7a2 2 0 0 0-2-2h-3" />
+                                <path d="M3 14v3a2 2 0 0 0 2 2h3" />
+                                <path d="M14 21h3a2 2 0 0 0 2-2v-3" />
+                            </svg>
+                        `;
+                    } else {
+                        if (mapEl) mapEl.classList.remove('fullscreen-map');
+                        if (disclaimer) disclaimer.style.display = '';
+                        if (footer) footer.style.display = '';
+                        // Restore enter fullscreen icon
+                        fsBtn.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4a5462" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                <path d="M3 8V5a2 2 0 0 1 2-2h3" />
+                                <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
+                                <path d="M21 16v3a2 2 0 0 1-2 2h-3" />
+                                <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+                            </svg>
+                        `;
+                    }
+                });
+            }
         }
 
         function addMarkers() {
