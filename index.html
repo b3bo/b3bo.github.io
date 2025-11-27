@@ -699,31 +699,22 @@
                     zoom = urlParams.zoom || 12;
                 }
 
-                // For single (iframe) mode with one neighborhood, start one level farther out
-                // (unless user explicitly provided a zoom parameter).
-                if (urlParams.mode === 'single' && neighborhoods.length === 1 && !urlParams.zoom) {
-                    zoom = Math.max(zoom - 1, 3);
-                }
+                // Single (iframe) mode: keep provided/default zoom unchanged (no auto zoom out)
                 
                 initializeMap(center, zoom);
 
-                // In single/iframe mode with one neighborhood, always apply heuristic offset
-                // and auto-open sequence without relying on URL flags.
+                // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
-                    // Wait until tiles loaded, then pan with initial (already adjusted) zoom
-                    google.maps.event.addListenerOnce(map, 'tilesloaded', () => {
+                    google.maps.event.addListenerOnce(map, 'projection_changed', () => {
                         const currentZoom = map.getZoom() || zoom;
                         const offsetPixels = computeOffsetPx(currentZoom);
                         const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
-                        map.panTo(offsetTarget);
-                        google.maps.event.addListenerOnce(map, 'idle', () => {
-                            if (markers.length > 0) {
-                                const m = markers[0].marker;
-                                const ripple = m.content.querySelector('.ripple');
-                                if (ripple) ripple.classList.add('active');
-                                google.maps.event.trigger(m, 'click');
-                            }
-                        });
+                        map.setCenter(offsetTarget); // instant center change (no animation)
+                        // Open info window directly without ripple animation.
+                        if (markers.length > 0) {
+                            const first = markers[0];
+                            showInfoWindow(first.marker, first.neighborhood);
+                        }
                     });
                 }
                 
