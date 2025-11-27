@@ -592,7 +592,10 @@
                 zoom: params.get('zoom') ? parseInt(params.get('zoom')) : null,
                 lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
                 lng: params.get('lng') ? parseFloat(params.get('lng')) : null,
-                autoOpen: params.get('autoOpen') === 'true'
+                autoOpen: params.get('autoOpen') === 'true',
+                autopan: params.get('autopan') === 'true',
+                offsetPx: params.get('offsetPx') !== null ? parseFloat(params.get('offsetPx')) : null,
+                offsetPct: params.get('offsetPct') !== null ? parseFloat(params.get('offsetPct')) : null
             };
         }
 
@@ -683,21 +686,32 @@
                 
                 initializeMap(center, zoom);
 
-                // In single/iframe mode with one neighborhood, apply a heuristic
-                // vertical offset after tiles load so the pan is visible.
+                // In single/iframe mode with one neighborhood, optionally apply a heuristic
+                // vertical offset after tiles load so the pan is visible. Controlled by ?autopan=true
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
                     // Wait until the map has rendered tiles so the pan is visible to the user
                     google.maps.event.addListenerOnce(map, 'tilesloaded', () => {
-                        const offsetPixels = computeOffsetPx(zoom);
-                        const offsetTarget = offsetLatLng(center, offsetPixels, zoom);
-                        map.panTo(offsetTarget);
-                        // If autoOpen requested, open after the pan completes (next idle)
-                        if (getUrlParams().autoOpen) {
-                            google.maps.event.addListenerOnce(map, 'idle', () => {
-                                if (markers.length > 0) {
-                                    google.maps.event.trigger(markers[0].marker, 'click');
-                                }
-                            });
+                        if (urlParams.autopan) {
+                            const offsetPixels = computeOffsetPx(zoom);
+                            const offsetTarget = offsetLatLng(center, offsetPixels, zoom);
+                            map.panTo(offsetTarget);
+                            // If autoOpen requested, open after the pan completes (next idle)
+                            if (getUrlParams().autoOpen) {
+                                google.maps.event.addListenerOnce(map, 'idle', () => {
+                                    if (markers.length > 0) {
+                                        google.maps.event.trigger(markers[0].marker, 'click');
+                                    }
+                                });
+                            }
+                        } else {
+                            // No auto-pan; still respect autoOpen if requested
+                            if (getUrlParams().autoOpen) {
+                                google.maps.event.addListenerOnce(map, 'idle', () => {
+                                    if (markers.length > 0) {
+                                        google.maps.event.trigger(markers[0].marker, 'click');
+                                    }
+                                });
+                            }
                         }
                     });
                 }
@@ -820,14 +834,12 @@
         function computeOffsetPx(zoomLevel) {
             const params = getUrlParams();
             // URL overrides take precedence
-            if (params.offsetPx) {
-                const parsed = parseFloat(params.offsetPx);
-                if (!isNaN(parsed)) return parsed;
+            if (params.offsetPx != null && !isNaN(params.offsetPx)) {
+                return params.offsetPx;
             }
-            if (params.offsetPct) {
-                const pct = parseFloat(params.offsetPct);
+            if (params.offsetPct != null && !isNaN(params.offsetPct)) {
                 const dvh = Math.max(320, window.innerHeight); // dvh approx
-                if (!isNaN(pct)) return Math.max(110, Math.min(220, (dvh * pct) / 100));
+                return clamp((dvh * params.offsetPct) / 100, 110, 220);
             }
 
             const baseOffset = 150; // tuned baseline for ~280px card at zoom 14–15
