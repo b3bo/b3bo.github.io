@@ -698,21 +698,24 @@
                     center = { lat: 30.294396274692907, lng: -86.01317525044458 };
                     zoom = urlParams.zoom || 12;
                 }
+
+                // For single (iframe) mode with one neighborhood, start one level farther out
+                // (unless user explicitly provided a zoom parameter).
+                if (urlParams.mode === 'single' && neighborhoods.length === 1 && !urlParams.zoom) {
+                    zoom = Math.max(zoom - 1, 3);
+                }
                 
                 initializeMap(center, zoom);
 
                 // In single/iframe mode with one neighborhood, always apply heuristic offset
                 // and auto-open sequence without relying on URL flags.
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
-                    // Wait until the map has rendered tiles so the pan is visible to the user
+                    // Wait until tiles loaded, then pan with initial (already adjusted) zoom
                     google.maps.event.addListenerOnce(map, 'tilesloaded', () => {
-                        // Zoom out one level to provide slightly broader context
-                        const adjustedZoom = Math.max((map.getZoom() || zoom) - 1, 3);
-                        map.setZoom(adjustedZoom);
-                        const offsetPixels = computeOffsetPx(adjustedZoom);
-                        const offsetTarget = offsetLatLng(center, offsetPixels, adjustedZoom);
+                        const currentZoom = map.getZoom() || zoom;
+                        const offsetPixels = computeOffsetPx(currentZoom);
+                        const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
                         map.panTo(offsetTarget);
-                        // After pan completes (idle), start ripple and open
                         google.maps.event.addListenerOnce(map, 'idle', () => {
                             if (markers.length > 0) {
                                 const m = markers[0].marker;
