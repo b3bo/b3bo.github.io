@@ -694,7 +694,7 @@
                     center = neighborhoods[0].position;
                     // Default single-neighborhood zoom
                     // Full app historically used 14; single page prefers one level farther out
-                    zoom = urlParams.zoom || (urlParams.mode === 'single' ? 12 : 14);
+                    zoom = urlParams.zoom || (urlParams.mode === 'single' ? 11 : 14);
                 } else {
                     // Default: center on Watersound Origins area
                     center = { lat: 30.294396274692907, lng: -86.01317525044458 };
@@ -707,10 +707,11 @@
 
                 // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
+                    console.log('Initializing single mode. Zoom:', zoom, 'Params:', urlParams);
                     google.maps.event.addListenerOnce(map, 'projection_changed', () => {
-                        // Force zoom to 12 if not explicitly provided, to ensure it takes effect
+                        // Force zoom to 11 if not explicitly provided, to ensure it takes effect
                         if (!urlParams.zoom) {
-                            map.setZoom(12);
+                            map.setZoom(11);
                         }
                         
                         const currentZoom = map.getZoom();
