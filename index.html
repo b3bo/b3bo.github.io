@@ -683,12 +683,13 @@
                 
                 initializeMap(center, zoom);
 
-                // In single/iframe mode with one neighborhood, immediately apply
-                // the same vertical offset used for flyovers without animating.
+                // In single/iframe mode with one neighborhood, apply a heuristic
+                // vertical offset after tiles load so the pan is visible.
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
                     // Wait until the map has rendered tiles so the pan is visible to the user
                     google.maps.event.addListenerOnce(map, 'tilesloaded', () => {
-                        const offsetTarget = offsetLatLng(center, 150, zoom);
+                        const offsetPixels = computeOffsetPx(zoom);
+                        const offsetTarget = offsetLatLng(center, offsetPixels, zoom);
                         map.panTo(offsetTarget);
                         // If autoOpen requested, open after the pan completes (next idle)
                         if (getUrlParams().autoOpen) {
@@ -739,7 +740,8 @@
             const targetLatLng = new google.maps.LatLng(targetPosition);
             
             // Calculate the final offset position BEFORE flight
-            const offsetTarget = offsetLatLng(targetPosition, 150, targetZoom);
+            const offsetPixels = computeOffsetPx(targetZoom);
+            const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
             const offsetLatLng_final = new google.maps.LatLng(offsetTarget);
             
             // Calculate distance (requires geometry library)
@@ -813,6 +815,56 @@
             requestAnimationFrame(animate);
         }
         
+        // Heuristic offset computation (scaled-from-baseline)
+        // Returns vertical offset in pixels to center marker + card without measuring DOM.
+        function computeOffsetPx(zoomLevel) {
+            const params = getUrlParams();
+            // URL overrides take precedence
+            if (params.offsetPx) {
+                const parsed = parseFloat(params.offsetPx);
+                if (!isNaN(parsed)) return parsed;
+            }
+            if (params.offsetPct) {
+                const pct = parseFloat(params.offsetPct);
+                const dvh = Math.max(320, window.innerHeight); // dvh approx
+                if (!isNaN(pct)) return Math.max(110, Math.min(220, (dvh * pct) / 100));
+            }
+
+            const baseOffset = 150; // tuned baseline for ~280px card at zoom 14–15
+
+            // Estimated card height by breakpoint
+            // Desktop ~280, tablet ~320, mobile ~340
+            const w = window.innerWidth;
+            let estimatedCardHeightPx = 280;
+            if (w < 640) {
+                estimatedCardHeightPx = 340;
+            } else if (w < 1024) {
+                estimatedCardHeightPx = 320;
+            }
+            const cardScale = estimatedCardHeightPx / 280;
+
+            // Viewport scaling using dvh
+            const dvh = Math.max(320, window.innerHeight);
+            const viewportScale = clamp(dvh / 800, 0.85, 1.15);
+
+            // Marker padding to account for visual space under the card
+            const markerPadding = 30;
+
+            // Zoom sensitivity: reduce offset when zoomed out
+            const zoom = zoomLevel || map.getZoom() || 14;
+            const zoomReductionSteps = clamp(15 - zoom, 0, 4); // up to 4 steps when zoom down to ~11
+            const zoomFactor = 1 - zoomReductionSteps * 0.05; // up to ~20% reduction
+
+            let offsetPx = baseOffset * cardScale * viewportScale * zoomFactor + markerPadding;
+            // Clamp to sane bounds
+            offsetPx = clamp(offsetPx, 110, 220);
+            return offsetPx;
+        }
+
+        function clamp(val, min, max) {
+            return Math.min(max, Math.max(min, val));
+        }
+
         // Helper function to offset lat/lng by pixels
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
             const scale = Math.pow(2, zoomLevel || map.getZoom());
