@@ -692,7 +692,9 @@
                 } else if (urlParams.neighborhood && neighborhoods.length === 1) {
                     // Center on specific neighborhood
                     center = neighborhoods[0].position;
-                    zoom = urlParams.zoom || 14;
+                    // Default single-neighborhood zoom
+                    // Full app historically used 14; single page prefers one level farther out
+                    zoom = urlParams.zoom || (urlParams.mode === 'single' ? 13 : 14);
                 } else {
                     // Default: center on Watersound Origins area
                     center = { lat: 30.294396274692907, lng: -86.01317525044458 };
