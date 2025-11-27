@@ -947,6 +947,10 @@
                 clickableIcons: false
             });
 
+            map.addListener('zoom_changed', () => {
+                console.log('Zoom level changed:', map.getZoom());
+            });
+
             // Disable Google Maps default auto-pan when info windows open
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
             addMarkers();
