@@ -708,9 +708,9 @@
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
                     console.log('Initializing single mode. Zoom:', zoom, 'Params:', urlParams);
                     google.maps.event.addListenerOnce(map, 'projection_changed', () => {
-                        // Force zoom to 11 if not explicitly provided, to ensure it takes effect
+                        // Force zoom to 13 if not explicitly provided, to ensure it takes effect
                         if (!urlParams.zoom) {
-                            map.setZoom(11);
+                            map.setZoom(13);
                         }
                         
                         const currentZoom = map.getZoom();
@@ -953,9 +953,15 @@
             // Disable Google Maps default auto-pan when info windows open
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
             addMarkers();
-            setupFilters();
-            applyFilters();
-
+            
+            // Only setup filters if NOT in single mode.
+            // In single mode, we pre-filter the neighborhoods array and don't want the filter logic
+            // (which runs on a debounce) to clear and re-add markers, potentially closing the info window.
+            const params = getUrlParams();
+            if (params.mode !== 'single') {
+                setupFilters();
+                applyFilters();
+            }
         }
 
         function addMarkers() {
