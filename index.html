@@ -714,7 +714,8 @@
                         }
                         
                         const currentZoom = map.getZoom();
-                        const offsetPixels = computeOffsetPx(currentZoom);
+                        // Initial load: pan 50px North (add to offset) to ensure card visibility
+                        const offsetPixels = computeOffsetPx(currentZoom) + 50;
                         const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
                         map.setCenter(offsetTarget); // instant center change (no animation)
                         // Open info window directly without ripple animation.
