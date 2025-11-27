@@ -47,15 +47,28 @@
         .gm-style .gm-style-iw-c {
             padding: 0 !important;
             border: none !important;
-            box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3) !important;
+            /* Remove dark outline and minimize shadow */
+            box-shadow: none !important;
             background-color: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
+            outline: none !important;
+            border-radius: 12px !important;
         }
         
-        /* Remove border from info window tip */
+        /* Remove border/shadow from info window tip */
         .gm-style .gm-style-iw-tc::after {
             background: #ffffffb4 !important;
             backdrop-filter: blur(8px) !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Ensure content card has no outer outline */
+        .gm-style .info-window {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            border-radius: 12px !important;
         }
 
         /* Remove default padding from internal content wrapper */
@@ -512,6 +525,8 @@
         let neighborhoods = [];
         let activeMarker = null;
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
+        // Config: control auto-opening behavior of info windows during fly-to in page app
+        let AUTO_OPEN_ON_FLY = true;
 
         // Pagination state
         let allFilteredNeighborhoods = [];
@@ -919,9 +934,6 @@
                 zoomControl: true,
                 clickableIcons: false
             });
-
-            // Config: control auto-opening behavior of info windows
-            const AUTO_OPEN_ON_FLY = true;
 
             // Disable Google Maps default auto-pan when info windows open
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
