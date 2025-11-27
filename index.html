@@ -695,14 +695,15 @@
                             const offsetPixels = computeOffsetPx(zoom);
                             const offsetTarget = offsetLatLng(center, offsetPixels, zoom);
                             map.panTo(offsetTarget);
-                            // If autoOpen requested, open after the pan completes (next idle)
-                            if (getUrlParams().autoOpen) {
-                                google.maps.event.addListenerOnce(map, 'idle', () => {
-                                    if (markers.length > 0) {
-                                        google.maps.event.trigger(markers[0].marker, 'click');
-                                    }
-                                });
-                            }
+                            // After pan completes (idle), start ripple and open
+                            google.maps.event.addListenerOnce(map, 'idle', () => {
+                                if (markers.length > 0) {
+                                    const m = markers[0].marker;
+                                    const ripple = m.content.querySelector('.ripple');
+                                    if (ripple) ripple.classList.add('active');
+                                    google.maps.event.trigger(m, 'click');
+                                }
+                            });
                         } else {
                             // No auto-pan; still respect autoOpen if requested
                             if (getUrlParams().autoOpen) {
@@ -920,7 +921,7 @@
             });
 
             // Config: control auto-opening behavior of info windows
-            const AUTO_OPEN_ON_FLY = false;
+            const AUTO_OPEN_ON_FLY = true;
 
             // Disable Google Maps default auto-pan when info windows open
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
@@ -1456,7 +1457,7 @@
                         </div>
                     `;
                     
-                    // Add click listener to pan to marker (do not auto-open card unless enabled)
+                    // Add click listener to pan to marker (auto-open after landing when enabled)
                     card.addEventListener('click', () => {
                         // Close current info window
                         if (infoWindow && infoWindow.getMap()) {
@@ -1472,8 +1473,14 @@
                         // Fly to new location
                         smoothFlyTo(neighborhood.position, 15);
                         
-                        // Optional: auto-open info window after animation completes
+                        // Auto-open: start ripple 1s after flight begins, then open
                         if (typeof AUTO_OPEN_ON_FLY !== 'undefined' && AUTO_OPEN_ON_FLY) {
+                            // Ripple cue
+                            setTimeout(() => {
+                                const ripple = marker.content.querySelector('.ripple');
+                                if (ripple) ripple.classList.add('active');
+                            }, 1000);
+                            // Open shortly after landing
                             setTimeout(() => {
                                 google.maps.event.trigger(marker, 'click');
                             }, 2100); // Wait for 2s animation + 100ms buffer
