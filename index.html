@@ -1059,10 +1059,16 @@
             });
 
             // Log initial zoom level
-            console.log('Initial Zoom level:', map.getZoom());
+            let lastZoom = map.getZoom();
+            console.log('Initial Zoom level:', lastZoom);
 
-            map.addListener('zoom_changed', () => {
-                console.log('Zoom level changed:', map.getZoom());
+            // Only log zoom changes when the map stops moving (idle) to avoid spamming during animation
+            map.addListener('idle', () => {
+                const currentZoom = map.getZoom();
+                if (currentZoom !== lastZoom) {
+                    console.log('Zoom level changed:', currentZoom);
+                    lastZoom = currentZoom;
+                }
             });
 
             // Disable Google Maps default auto-pan when info windows open
