@@ -21,7 +21,7 @@ export const CONFIG = {
     ui: {
         amenities: [
             'Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 
-            'Golf', 'Parks/Playgrounds', 'Walking Trails', 'Dog Park', 
+            'Golf', 'Playgrounds', 'Walking Trails', 'Dog Park', 
             'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'
         ],
         priceSteps: [
