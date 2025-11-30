@@ -6,8 +6,8 @@
  */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
-import { getUrlParams, computeOffsetPx, offsetLatLng } from './utils.js'; // computeOffsetPx needed for single mode
-import { initializeMap } from './map.js';
+import { getUrlParams } from './utils.js';
+import { initializeMap, computeOffsetPx, offsetLatLng } from './map.js'; // computeOffsetPx needed for single mode
 import { loadNeighborhoods, toSlug } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow } from './markers.js';
