@@ -1103,6 +1103,20 @@
                     toggleMarker(marker, neighborhood);
                 });
 
+                // Open on hover (mouseenter)
+                markerContainer.addEventListener('mouseenter', () => {
+                    if (activeMarker !== marker) {
+                        if (activeMarker) {
+                            const oldRipple = activeMarker.content.querySelector('.ripple');
+                            if (oldRipple) oldRipple.classList.remove('active');
+                        }
+                        showInfoWindow(marker, neighborhood);
+                        const newRipple = markerContainer.querySelector('.ripple');
+                        if (newRipple) newRipple.classList.add('active');
+                        activeMarker = marker;
+                    }
+                });
+
                 markers.push({ marker, neighborhood });
             });
         }
@@ -1717,6 +1731,20 @@
 
                 marker.addListener('click', () => {
                     toggleMarker(marker, neighborhood);
+                });
+
+                // Open on hover (mouseenter)
+                markerContainer.addEventListener('mouseenter', () => {
+                    if (activeMarker !== marker) {
+                        if (activeMarker) {
+                            const oldRipple = activeMarker.content.querySelector('.ripple');
+                            if (oldRipple) oldRipple.classList.remove('active');
+                        }
+                        showInfoWindow(marker, neighborhood);
+                        const newRipple = markerContainer.querySelector('.ripple');
+                        if (newRipple) newRipple.classList.add('active');
+                        activeMarker = marker;
+                    }
                 });
 
                 markers.push({ marker, neighborhood });
