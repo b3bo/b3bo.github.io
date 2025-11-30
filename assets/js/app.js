@@ -1,0 +1,187 @@
+import { CONFIG } from './config.js';
+import { STATE } from './state.js';
+import { getUrlParams, computeOffsetPx, offsetLatLng } from './utils.js'; // computeOffsetPx needed for single mode
+import { initializeMap } from './map.js';
+import { loadNeighborhoods, toSlug } from './data.js';
+import { setupUI, navigateNeighborhood } from './ui.js';
+import { showInfoWindow } from './markers.js';
+import { setupFilters, applyFilters } from './filters.js'; // Import setupFilters here
+
+// Expose global functions needed by HTML
+window.navigateNeighborhood = navigateNeighborhood;
+
+async function initMap() {
+    try {
+        // Ensure Google Maps is loaded
+        if (typeof google === 'undefined' || !google.maps) {
+            console.error('Google Maps API not loaded');
+            document.getElementById('loading-screen').innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+            return;
+        }
+        
+        STATE.neighborhoods = await loadNeighborhoods();
+        const urlParams = getUrlParams();
+        
+        // Handle single neighborhood mode
+        if (urlParams.neighborhood) {
+            const targetNeighborhood = STATE.neighborhoods.find(n => toSlug(n.name) === urlParams.neighborhood);
+            if (targetNeighborhood) {
+                // Filter to show only this neighborhood
+                STATE.neighborhoods = [targetNeighborhood];
+            }
+        }
+        
+        // Hide drawer, footer, and disclaimer in single mode
+        if (urlParams.mode === 'single') {
+            const drawer = document.getElementById('sidebar');
+            const drawerToggle = document.getElementById('drawer-toggle');
+            const footer = document.querySelector('.bg-neutral-800');
+            const disclaimer = document.getElementById('map-disclaimer');
+            if (drawer) drawer.style.setProperty('display', 'none', 'important');
+            if (drawerToggle) drawerToggle.style.display = 'none';
+            if (footer) footer.style.display = 'none';
+            if (disclaimer) disclaimer.style.display = 'none';
+            document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
+        }
+        
+        // Determine center and zoom
+        let center, zoom;
+        
+        if (urlParams.lat && urlParams.lng) {
+            // Use explicit coordinates
+            center = { lat: urlParams.lat, lng: urlParams.lng };
+            zoom = urlParams.zoom || 14;
+        } else if (urlParams.neighborhood && STATE.neighborhoods.length === 1) {
+            // Center on specific neighborhood
+            center = STATE.neighborhoods[0].position;
+            // Default zoom single-neighborhood vs full app
+            zoom = urlParams.zoom || (urlParams.mode === 'single' ? CONFIG.map.singleNeighborhoodZoom : 14);
+        } else {
+            // Default: center on Watersound Origins area
+            center = CONFIG.map.defaultCenter;
+            zoom = urlParams.zoom || CONFIG.map.defaultZoom;
+        }
+
+        initializeMap(center, zoom);
+
+        // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
+        if (urlParams.mode === 'single' && STATE.neighborhoods.length === 1) {
+            google.maps.event.addListenerOnce(STATE.map, 'projection_changed', () => {
+                // Force zoom to 13 if not explicitly provided, to ensure it takes effect
+                if (!urlParams.zoom) {
+                    STATE.map.setZoom(13);
+                }
+                
+                const currentZoom = STATE.map.getZoom();
+                // Initial load: pan 50px North (add to offset) to ensure card visibility
+                const offsetPixels = computeOffsetPx(currentZoom) + 50;
+                const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
+                STATE.map.setCenter(offsetTarget); // instant center change (no animation)
+                // Open info window directly without ripple animation.
+                if (STATE.markers.length > 0) {
+                    const first = STATE.markers[0];
+                    showInfoWindow(first.marker, first.neighborhood);
+                }
+            });
+        }
+        
+        // Hide loading screen
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
+        
+        // Auto-open info window if requested via URL parameter
+        if (urlParams.autoOpen && STATE.neighborhoods.length === 1 && urlParams.mode !== 'single') {
+            // Wait for markers to be created
+            setTimeout(() => {
+                if (STATE.markers.length > 0) {
+                    google.maps.event.trigger(STATE.markers[0].marker, 'click');
+                }
+            }, 500);
+        }
+
+        // Setup UI interactions
+        setupUI();
+
+        // Setup Property Type Buttons (moved from ui.js to here/filters.js logic)
+        // Actually, let's add the listener here to call applyFilters
+        document.querySelectorAll('.property-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active state from all buttons
+                document.querySelectorAll('.property-type-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Add active state to clicked button
+                this.classList.add('active');
+                
+                // Apply filters
+                applyFilters();
+            });
+        });
+
+    } catch (error) {
+        console.error('Error initializing map:', error);
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.innerHTML = '<div class="text-center"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+        } else {
+            // Fallback if loading screen is gone (e.g. map initialized)
+            const mapDiv = document.getElementById('map');
+            if (mapDiv) {
+                mapDiv.innerHTML = '<div class="flex items-center justify-center h-full"><p class="text-red-600 font-medium">Error loading map. Please refresh the page.</p></div>';
+            }
+        }
+    }
+}
+
+// Expose initMap to global scope for Google Maps Callback
+window.initMap = initMap;
+
+// Fallback: If Google Maps doesn't load within 10 seconds, show error
+setTimeout(() => {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen && loadingScreen.style.display !== 'none') {
+        // Check if map is actually empty (initMap might have failed silently)
+        if (!STATE.map) {
+            console.warn('Map load timeout triggered.');
+            
+            // Attempt recovery if Google Maps API is loaded but callback failed
+            if (typeof google !== 'undefined' && google.maps) {
+                initMap().catch(e => console.error('Manual initMap failed:', e));
+                return;
+            }
+
+            console.error('Map load timeout - initMap was not called or failed to complete');
+            loadingScreen.innerHTML = `
+                <div class="text-center px-4">
+                    <p class="text-red-600 font-medium mb-2">Map failed to load.</p>
+                    <p class="text-sm text-neutral-500">This may be due to a network issue or configuration error.</p>
+                    <p class="text-xs text-neutral-400 mt-2">Status: ${typeof google !== 'undefined' ? 'API Loaded' : 'API Missing'}</p>
+                    <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-neutral-800 text-white rounded-lg text-sm">Refresh Page</button>
+                </div>
+            `;
+        }
+    }
+}, 5000);
+
+// Disable F12, etc.
+if (!window.location.search.includes('debug=true')) {
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+            (e.ctrlKey && e.key === 'U') ||
+            (e.ctrlKey && (e.key === 's' || e.key === 'S')) ||
+            (e.ctrlKey && (e.key === 'p' || e.key === 'P'))
+        ) {
+            e.preventDefault();
+        }
+    });
+
+    // Disable Right Click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+}
