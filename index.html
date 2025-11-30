@@ -418,13 +418,8 @@
                 </div>
             </div>
 
-            <!-- Results Count -->
-            <div class="px-5 pt-4">
-                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
-            </div>
-
             <!-- Toggle Buttons -->
-            <div class="px-5 pt-2 flex gap-2">
+            <div class="px-5 pt-4 flex gap-2">
                 <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active">
                     Homes
                 </button>
@@ -456,7 +451,7 @@
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
-                    <input type="range" min="1" max="10" value="1" step="1" id="beds-min">
+                    <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
                 </div>
             </div>
 
@@ -469,7 +464,7 @@
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
                     <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
-                    <input type="range" min="1" max="10" value="1" step="1" id="baths-min">
+                    <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
                 </div>
             </div>
 
@@ -514,6 +509,9 @@
                 </div>
             </div>
             
+            <!-- Divider and Results Count -->
+            <div class="border-t border-neutral-200 px-5 py-4">
+                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
             </div>
             </div>
         </aside>
@@ -705,17 +703,6 @@
         }
 
         async function loadNeighborhoods() {
-            // Domain Lock: Prevent running on unauthorized domains
-            // Currently in "Soft Mode" (Logging only) for troubleshooting
-            const allowedDomains = ['b3bo.github.io', 'localhost', '127.0.0.1'];
-            const currentDomain = window.location.hostname;
-            
-            // Log the domain for debugging
-            if (currentDomain && !allowedDomains.some(d => currentDomain.includes(d))) {
-                console.warn('Security Alert: Unauthorized domain detected:', currentDomain);
-                // return []; // Uncomment to enforce lock
-            }
-
             const files = [
                 './neighborhoods/17-30A-West.json.b64',
                 './neighborhoods/18-30A-East.json.b64'
@@ -726,9 +713,7 @@
             try {
                 const promises = files.map(async (file) => {
                     try {
-                        // Add cache buster
-                        const url = `${file}?v=${new Date().getTime()}`;
-                        const response = await fetch(url);
+                        const response = await fetch(file);
                         if (!response.ok) throw new Error(`Failed to load ${file}`);
                         const text = await response.text();
                         // Decode Base64 (handle UTF-8 chars correctly)
@@ -1333,10 +1318,10 @@
 
             function updateBedsSlider() {
                 const val = parseInt(bedsMinInput.value);
-                bedsDisplay.textContent = val === 10 ? '10+' : val + '+';
+                bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                // Normalize to 0-1 range (min 1, max 10)
-                let pct = (val - 1) / 9;
+                // Normalize to 0-1 range (min 1, max 6)
+                let pct = (val - 1) / 5;
                 
                 // Update fill width with thumb offset correction
                 bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
@@ -1353,10 +1338,10 @@
 
             function updateBathsSlider() {
                 const val = parseInt(bathsMinInput.value);
-                bathsDisplay.textContent = val === 10 ? '10+' : val + '+';
+                bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
                 
-                // Normalize to 0-1 range (min 1, max 10)
-                let pct = (val - 1) / 9;
+                // Normalize to 0-1 range (min 1, max 6)
+                let pct = (val - 1) / 5;
                 
                 // Update fill width with thumb offset correction
                 bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
@@ -1464,12 +1449,12 @@
             // Get beds range
             const bedsMinInput = document.getElementById('beds-min');
             minBeds = parseInt(bedsMinInput.value);
-            maxBeds = 10; // Always 10+ for max
+            maxBeds = 6; // Always 6+ for max
 
             // Get baths range
             const bathsMinInput = document.getElementById('baths-min');
             minBaths = parseInt(bathsMinInput.value);
-            maxBaths = 10; // Always 10+ for max
+            maxBaths = 6; // Always 6+ for max
 
             // Get active property type
             const isHomesActive = document.getElementById('btn-homes').classList.contains('active');
