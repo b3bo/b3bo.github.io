@@ -1396,7 +1396,19 @@
             minBaths = parseInt(bathsMinInput.value);
             maxBaths = 6; // Always 6+ for max
 
+            // Get active property type
+            const isHomesActive = document.getElementById('btn-homes').classList.contains('active');
+            const isCondosActive = document.getElementById('btn-condos').classList.contains('active');
+
             const filteredNeighborhoods = neighborhoods.filter(neighborhood => {
+                // Property Type Filter
+                let matchesPropertyType = false;
+                if (isHomesActive) {
+                    matchesPropertyType = neighborhood.propertyType === 'Homes';
+                } else if (isCondosActive) {
+                    matchesPropertyType = neighborhood.propertyType === 'Condos/Townhomes';
+                }
+
                 // Area Filter
                 const inSelectedAreas = selectedAreas.size === 0 || selectedAreas.has(neighborhood.zipCode);
                 
@@ -1447,7 +1459,7 @@
                     inBathsRange = minBaths === 1;
                 }
 
-                return inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
+                return matchesPropertyType && inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
             });
 
             allFilteredNeighborhoods = filteredNeighborhoods; // Update global filtered neighborhoods
