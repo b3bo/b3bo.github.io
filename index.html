@@ -726,7 +726,9 @@
             try {
                 const promises = files.map(async (file) => {
                     try {
-                        const response = await fetch(file);
+                        // Add cache buster
+                        const url = `${file}?v=${new Date().getTime()}`;
+                        const response = await fetch(url);
                         if (!response.ok) throw new Error(`Failed to load ${file}`);
                         const text = await response.text();
                         // Decode Base64 (handle UTF-8 chars correctly)
