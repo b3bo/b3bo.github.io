@@ -601,6 +601,17 @@
             15000000, 20000000, 25000000, 30000000, 35000000
         ];
 
+        // Helper to format price (e.g. $1.25M)
+        function formatPrice(price) {
+            if (!price) return '$0';
+            if (price >= 1000000) {
+                return '$' + (price / 1000000).toFixed(2) + 'M';
+            } else if (price >= 1000) {
+                return '$' + (price / 1000).toFixed(0) + 'k';
+            }
+            return '$' + price.toLocaleString();
+        }
+
         // Zip code boundary management
         function normalizeZip(value) {
             if (!value) return null;
@@ -1099,7 +1110,7 @@
             const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
                 (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
             const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
-            const medianPriceDisplay = `$${medianPrice.toLocaleString()}`;
+            const medianPriceDisplay = formatPrice(medianPrice);
             
             const content = `
                 <div class="info-window p-3 max-w-sm" style="cursor: pointer;">
@@ -1590,12 +1601,7 @@
                     // Format price for card (e.g. $1.3M)
                     // Use Median Price to match Info Window
                     const price = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
-                    let formattedPrice = '$' + price.toLocaleString();
-                    if (price >= 1000000) {
-                        formattedPrice = '$' + (price / 1000000).toFixed(1) + 'M';
-                    } else if (price >= 1000) {
-                        formattedPrice = '$' + (price / 1000).toFixed(0) + 'k';
-                    }
+                    const formattedPrice = formatPrice(price);
 
                     const card = document.createElement('div');
                     card.className = 'bg-white p-4 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer';
