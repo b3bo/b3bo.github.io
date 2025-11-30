@@ -415,6 +415,7 @@
                 <div>
                     <h1 class="text-lg font-semibold text-neutral-900">Community Finder&trade;</h1>
                     <p class="text-xs text-neutral-500">30A & Florida's Emerald Coast</p>
+                    <p id="resultsCount" class="text-xs text-neutral-600 font-medium mt-0.5"></p>
                 </div>
             </div>
 
@@ -507,11 +508,6 @@
                         <!-- List items will be dynamically generated -->
                     </div>
                 </div>
-            </div>
-            
-            <!-- Divider and Results Count -->
-            <div class="border-t border-neutral-200 px-5 py-4">
-                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
             </div>
             </div>
         </aside>
@@ -703,6 +699,21 @@
         }
 
         async function loadNeighborhoods() {
+            // Domain Lock: Prevent running on unauthorized domains
+            // Currently in "Soft Mode" (Logging only) to troubleshoot local environments
+            const allowedDomains = ['b3bo.github.io', 'localhost', '127.0.0.1'];
+            const currentDomain = window.location.hostname;
+            
+            // Log for debugging
+            console.log(`[Security] Current Domain: "${currentDomain}"`);
+
+            // If domain is not empty (not file://) and not in allowed list
+            if (currentDomain && !allowedDomains.some(d => currentDomain.includes(d))) {
+                console.error(`[Security] Unauthorized domain detected: ${currentDomain}. Data loading would be blocked in Strict Mode.`);
+                // In Strict Mode, we would: return [];
+                // For now, we allow it to proceed but log the violation.
+            }
+
             const files = [
                 './neighborhoods/17-30A-West.json.b64',
                 './neighborhoods/18-30A-East.json.b64'
