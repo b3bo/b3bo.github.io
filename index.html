@@ -418,8 +418,13 @@
                 </div>
             </div>
 
+            <!-- Results Count -->
+            <div class="px-5 pt-4">
+                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
+            </div>
+
             <!-- Toggle Buttons -->
-            <div class="px-5 pt-4 flex gap-2">
+            <div class="px-5 pt-2 flex gap-2">
                 <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active">
                     Homes
                 </button>
@@ -509,9 +514,6 @@
                 </div>
             </div>
             
-            <!-- Divider and Results Count -->
-            <div class="border-t border-neutral-200 px-5 py-4">
-                <p id="resultsCount" class="text-sm text-neutral-600 font-medium"></p>
             </div>
             </div>
         </aside>
@@ -703,6 +705,17 @@
         }
 
         async function loadNeighborhoods() {
+            // Domain Lock: Prevent running on unauthorized domains
+            // Currently in "Soft Mode" (Logging only) for troubleshooting
+            const allowedDomains = ['b3bo.github.io', 'localhost', '127.0.0.1'];
+            const currentDomain = window.location.hostname;
+            
+            // Log the domain for debugging
+            if (currentDomain && !allowedDomains.some(d => currentDomain.includes(d))) {
+                console.warn('Security Alert: Unauthorized domain detected:', currentDomain);
+                // return []; // Uncomment to enforce lock
+            }
+
             const files = [
                 './neighborhoods/17-30A-West.json.b64',
                 './neighborhoods/18-30A-East.json.b64'
