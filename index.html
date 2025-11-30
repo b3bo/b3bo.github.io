@@ -1136,7 +1136,30 @@
             }
         }
 
+        window.navigateNeighborhood = function(direction) {
+            if (event) event.stopPropagation();
+            if (!window.currentNeighborhood || !allFilteredNeighborhoods.length) return;
+            
+            const currentIndex = allFilteredNeighborhoods.indexOf(window.currentNeighborhood);
+            if (currentIndex === -1) return;
+            
+            let newIndex = currentIndex + direction;
+            // Wrap around
+            if (newIndex < 0) newIndex = allFilteredNeighborhoods.length - 1;
+            if (newIndex >= allFilteredNeighborhoods.length) newIndex = 0;
+            
+            const nextNeighborhood = allFilteredNeighborhoods[newIndex];
+            const markerObj = markers.find(m => m.neighborhood === nextNeighborhood);
+            
+            if (markerObj) {
+                toggleMarker(markerObj.marker, nextNeighborhood);
+            }
+        };
+
         function showInfoWindow(marker, neighborhood) {
+            // Store current neighborhood for navigation
+            window.currentNeighborhood = neighborhood;
+
             // Use avgPricePerSqFt from data or calculate if not available
             const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
                 (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
@@ -1180,19 +1203,31 @@
                     </div>
                     ` : ''}
                     
-                    <div class="pt-3 border-t border-neutral-200">
+                    <div class="pt-3 border-t border-neutral-200 flex items-center gap-2">
+                        ${allFilteredNeighborhoods.length > 1 ? `
+                        <button onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full hover:bg-neutral-100 text-neutral-600 transition-colors flex-shrink-0" title="Previous Community">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        ` : ''}
+
                         ${neighborhood.marketReportUrl ? `
                         <a href="${neighborhood.marketReportUrl}" 
                            target="_blank" 
-                           class="view-listings-btn"
+                           class="view-listings-btn flex-1 text-center justify-center"
                            onclick="event.stopPropagation();">
                             View Market Report
                         </a>
                         ` : `
-                        <button class="view-listings-btn opacity-50 cursor-not-allowed" disabled>
-                            Market Report Unavailable
+                        <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
+                            Unavailable
                         </button>
                         `}
+
+                        ${allFilteredNeighborhoods.length > 1 ? `
+                        <button onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full hover:bg-neutral-100 text-neutral-600 transition-colors flex-shrink-0" title="Next Community">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                        ` : ''}
                     </div>
                 </div>
             `;
@@ -1205,8 +1240,8 @@
                 const infoWindowDiv = document.querySelector('.gm-style-iw-d');
                 if (infoWindowDiv) {
                     infoWindowDiv.addEventListener('click', (e) => {
-                        // Don't close if clicking the link
-                        if (e.target.tagName !== 'A' && !e.target.closest('a')) {
+                        // Don't close if clicking the link or buttons
+                        if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
                             infoWindow.close();
                             if (activeMarker) {
                                 const ripple = activeMarker.content.querySelector('.ripple');
