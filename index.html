@@ -627,10 +627,39 @@
         }
 
         async function loadNeighborhoods() {
+            const files = [
+                './neighborhoods/17-30A-West.json.b64',
+                './neighborhoods/18-30A-East.json.b64'
+            ];
+            
+            let allNeighborhoods = [];
+
             try {
-                const response = await fetch('./neighborhoods.json');
-                neighborhoods = await response.json();
+                const promises = files.map(async (file) => {
+                    try {
+                        const response = await fetch(file);
+                        if (!response.ok) throw new Error(`Failed to load ${file}`);
+                        const text = await response.text();
+                        // Decode Base64 (handle UTF-8 chars correctly)
+                        const jsonStr = new TextDecoder().decode(Uint8Array.from(atob(text), c => c.charCodeAt(0)));
+                        // Parse JSON
+                        const data = JSON.parse(jsonStr);
+                        return data.neighborhoods || [];
+                    } catch (e) {
+                        console.error(`Error loading ${file}:`, e);
+                        return [];
+                    }
+                });
+
+                const results = await Promise.all(promises);
+                allNeighborhoods = results.flat();
+                
+                // Sort alphabetically by name
+                allNeighborhoods.sort((a, b) => a.name.localeCompare(b.name));
+                
+                neighborhoods = allNeighborhoods;
                 return neighborhoods;
+
             } catch (error) {
                 console.error('Error loading neighborhoods:', error);
                 return [
@@ -1067,20 +1096,28 @@
                         </div>
                     </div>
                     
+                    ${neighborhood.amenities && neighborhood.amenities.length > 0 ? `
                     <div class="mb-3">
                         <div class="bg-white p-3 rounded-lg border border-neutral-200">
                             <div class="text-sm font-semibold text-neutral-700 mb-1">Amenities</div>
                             <div class="text-xs text-neutral-600 leading-relaxed">${neighborhood.amenities.join(', ')}</div>
                         </div>
                     </div>
+                    ` : ''}
                     
                     <div class="pt-3 border-t border-neutral-200">
+                        ${neighborhood.marketReportUrl ? `
                         <a href="${neighborhood.marketReportUrl}" 
                            target="_blank" 
                            class="view-listings-btn"
                            onclick="event.stopPropagation();">
                             View Market Report
                         </a>
+                        ` : `
+                        <button class="view-listings-btn opacity-50 cursor-not-allowed" disabled>
+                            Market Report Unavailable
+                        </button>
+                        `}
                     </div>
                 </div>
             `;
@@ -1374,7 +1411,12 @@
                     inPriceRange = maxPrice >= priceRange.min && minPrice <= priceRange.max;
                 } else {
                     // Fallback to avgPrice if range not available
-                    inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
+                    if (neighborhood.stats.avgPrice > 0) {
+                        inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
+                    } else {
+                        // No price data (Sold Only / Masked). Include if minPrice is 0 (default).
+                        inPriceRange = minPrice === 0;
+                    }
                 }
 
                 // Beds Filter
@@ -1383,9 +1425,12 @@
                 if (bedsRange) {
                      // Check if neighborhood has anything >= minBeds
                      inBedsRange = bedsRange.max >= minBeds;
-                } else {
+                } else if (neighborhood.stats.avgSqft > 0) {
                      // Fallback heuristic
                      inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300;
+                } else {
+                    // No data available. Include if filter is at minimum (1).
+                    inBedsRange = minBeds === 1;
                 }
 
                 // Baths Filter
@@ -1394,9 +1439,12 @@
                 if (bathsRange) {
                     // Check if neighborhood has anything >= minBaths
                     inBathsRange = bathsRange.max >= minBaths;
-                } else {
+                } else if (neighborhood.stats.avgSqft > 0) {
                     // Fallback heuristic
                     inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150;
+                } else {
+                    // No data available. Include if filter is at minimum (1).
+                    inBathsRange = minBaths === 1;
                 }
 
                 return inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
