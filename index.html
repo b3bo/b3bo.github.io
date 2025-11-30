@@ -1712,6 +1712,25 @@
             });
         });
 
+        // Infinite Scroll
+        const scrollContainer = document.getElementById('sidebar-scroll-container');
+        if (scrollContainer) {
+            scrollContainer.addEventListener('scroll', () => {
+                const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+                
+                // Load more when within 200px of bottom
+                if (scrollTop + clientHeight >= scrollHeight - 200) {
+                    if (currentRenderCount < allFilteredNeighborhoods.length) {
+                        const nextBatch = allFilteredNeighborhoods.slice(currentRenderCount, currentRenderCount + BATCH_SIZE);
+                        if (nextBatch.length > 0) {
+                            renderListItems(nextBatch);
+                            currentRenderCount += BATCH_SIZE;
+                        }
+                    }
+                }
+            });
+        }
+
         // Close drawer when clicking on empty space
         document.getElementById('sidebar').addEventListener('click', function(e) {
             // Check if the click target is interactive or inside an interactive element
