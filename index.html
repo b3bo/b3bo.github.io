@@ -433,8 +433,10 @@
                 </button>
             </div>
 
+            <h3 class="px-5 pt-6 text-xs font-bold text-neutral-400 uppercase tracking-wider">Property Details</h3>
+
             <!-- Price Range Slider -->
-            <div class="px-5 pt-4">
+            <div class="px-5 pt-2">
                 <div class="flex justify-between items-baseline mb-1">
                     <span class="text-xs font-semibold text-neutral-500">Price</span>
                     <span class="text-sm font-bold text-neutral-800" id="price-display">$250K - $35M+</span>
@@ -594,6 +596,7 @@
         let map;
         let markers = [];
         let infoWindow;
+        let hoverInfoWindow; // Secondary info window for hover scouting
         let neighborhoods = [];
         let activeMarker = null;
         let customBoundaries = new Set(); // Track which custom boundaries are displayed
@@ -1073,6 +1076,7 @@
 
             // Disable Google Maps default auto-pan when info windows open
             infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
+            hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
             addMarkers();
             
             // Only setup filters if NOT in single mode.
@@ -1109,17 +1113,16 @@
                     toggleMarker(marker, neighborhood);
                 });
 
-                // Open on hover (mouseenter)
+                // Open on hover (mouseenter) - Secondary Window
                 markerContainer.addEventListener('mouseenter', () => {
-                    if (activeMarker !== marker) {
-                        if (activeMarker) {
-                            const oldRipple = activeMarker.content.querySelector('.ripple');
-                            if (oldRipple) oldRipple.classList.remove('active');
-                        }
-                        showInfoWindow(marker, neighborhood);
-                        const newRipple = markerContainer.querySelector('.ripple');
-                        if (newRipple) newRipple.classList.add('active');
-                        activeMarker = marker;
+                    // Open secondary info window without affecting active state
+                    showInfoWindow(marker, neighborhood, hoverInfoWindow);
+                });
+
+                // Close on hover out (mouseleave)
+                markerContainer.addEventListener('mouseleave', () => {
+                    if (hoverInfoWindow) {
+                        hoverInfoWindow.close();
                     }
                 });
 
@@ -1222,9 +1225,11 @@
             }
         };
 
-        function showInfoWindow(marker, neighborhood) {
-            // Store current neighborhood for navigation
-            window.currentNeighborhood = neighborhood;
+        function showInfoWindow(marker, neighborhood, targetInfoWindow = infoWindow) {
+            // Store current neighborhood for navigation ONLY if this is the primary window
+            if (targetInfoWindow === infoWindow) {
+                window.currentNeighborhood = neighborhood;
+            }
 
             // Use avgPricePerSqFt from data or calculate if not available
             const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
@@ -1298,36 +1303,39 @@
                 </div>
             `;
 
-            infoWindow.setContent(content);
-            infoWindow.open(map, marker);
+            targetInfoWindow.setContent(content);
+            targetInfoWindow.open(map, marker);
             
             // Add click listener to close info window when clicking the card
-            google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
-                const infoWindowDiv = document.querySelector('.gm-style-iw-d');
-                if (infoWindowDiv) {
-                    infoWindowDiv.addEventListener('click', (e) => {
-                        // Don't close if clicking the link or buttons
-                        if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
-                            infoWindow.close();
-                            if (activeMarker) {
-                                const ripple = activeMarker.content.querySelector('.ripple');
-                                if (ripple) ripple.classList.remove('active');
+            // Only for the primary window, as hover window closes on mouseleave
+            if (targetInfoWindow === infoWindow) {
+                google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+                    const infoWindowDiv = document.querySelector('.gm-style-iw-d');
+                    if (infoWindowDiv) {
+                        infoWindowDiv.addEventListener('click', (e) => {
+                            // Don't close if clicking the link or buttons
+                            if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
+                                infoWindow.close();
+                                if (activeMarker) {
+                                    const ripple = activeMarker.content.querySelector('.ripple');
+                                    if (ripple) ripple.classList.remove('active');
+                                }
+                                activeMarker = null;
                             }
-                            activeMarker = null;
-                        }
-                    });
-                }
-            });
-            
-            // Listen for info window close to deactivate ripple
-            google.maps.event.clearListeners(infoWindow, 'closeclick');
-            infoWindow.addListener('closeclick', () => {
-                if (activeMarker) {
-                    const ripple = activeMarker.content.querySelector('.ripple');
-                    if (ripple) ripple.classList.remove('active');
-                }
-                activeMarker = null;
-            });
+                        });
+                    }
+                });
+                
+                // Listen for info window close to deactivate ripple
+                google.maps.event.clearListeners(infoWindow, 'closeclick');
+                infoWindow.addListener('closeclick', () => {
+                    if (activeMarker) {
+                        const ripple = activeMarker.content.querySelector('.ripple');
+                        if (ripple) ripple.classList.remove('active');
+                    }
+                    activeMarker = null;
+                });
+            }
         }
 
         // Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6"
@@ -1739,17 +1747,16 @@
                     toggleMarker(marker, neighborhood);
                 });
 
-                // Open on hover (mouseenter)
+                // Open on hover (mouseenter) - Secondary Window
                 markerContainer.addEventListener('mouseenter', () => {
-                    if (activeMarker !== marker) {
-                        if (activeMarker) {
-                            const oldRipple = activeMarker.content.querySelector('.ripple');
-                            if (oldRipple) oldRipple.classList.remove('active');
-                        }
-                        showInfoWindow(marker, neighborhood);
-                        const newRipple = markerContainer.querySelector('.ripple');
-                        if (newRipple) newRipple.classList.add('active');
-                        activeMarker = marker;
+                    // Open secondary info window without affecting active state
+                    showInfoWindow(marker, neighborhood, hoverInfoWindow);
+                });
+
+                // Close on hover out (mouseleave)
+                markerContainer.addEventListener('mouseleave', () => {
+                    if (hoverInfoWindow) {
+                        hoverInfoWindow.close();
                     }
                 });
 
