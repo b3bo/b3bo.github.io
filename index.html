@@ -703,17 +703,6 @@
         }
 
         async function loadNeighborhoods() {
-            // Domain Lock: Prevent running on unauthorized domains (e.g. local file system or scraper sites)
-            // Allow localhost for development
-            const allowedDomains = ['b3bo.github.io', 'localhost', '127.0.0.1'];
-            const currentDomain = window.location.hostname;
-            
-            // If domain is empty (file://) or not in allowed list, return empty
-            if (currentDomain && !allowedDomains.some(d => currentDomain.includes(d))) {
-                console.error('Unauthorized domain');
-                return [];
-            }
-
             const files = [
                 './neighborhoods/17-30A-West.json.b64',
                 './neighborhoods/18-30A-East.json.b64'
