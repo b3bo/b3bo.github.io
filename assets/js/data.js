@@ -1,3 +1,9 @@
+/**
+ * @file data.js
+ * @description Handles loading and parsing of neighborhood data.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 import { CONFIG } from './config.js';
 
 export async function loadNeighborhoods() {

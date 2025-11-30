@@ -1,3 +1,9 @@
+/**
+ * @file map.js
+ * @description Core map initialization and camera movement logic.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, clamp, getThemeColor } from './utils.js';

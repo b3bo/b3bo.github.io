@@ -1,3 +1,9 @@
+/**
+ * @file markers.js
+ * @description Logic for creating markers and handling InfoWindows.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 import { STATE } from './state.js';
 import { CONFIG } from './config.js';
 import { formatPrice } from './utils.js';

@@ -1,3 +1,9 @@
+/**
+ * @file state.js
+ * @description Centralized state management for the application.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 export const STATE = {
     map: null,
     markers: [],

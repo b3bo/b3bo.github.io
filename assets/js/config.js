@@ -1,3 +1,9 @@
+/**
+ * @file config.js
+ * @description Configuration settings for the Community Finder Map.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 export const CONFIG = {
     // Map Settings
     map: {

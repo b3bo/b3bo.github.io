@@ -1,3 +1,9 @@
+/**
+ * @file utils.js
+ * @description Utility functions for formatting, URL parsing, and helpers.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 

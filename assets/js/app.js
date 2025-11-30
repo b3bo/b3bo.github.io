@@ -1,3 +1,9 @@
+/**
+ * @file app.js
+ * @description Main application entry point and orchestration.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, computeOffsetPx, offsetLatLng } from './utils.js'; // computeOffsetPx needed for single mode

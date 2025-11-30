@@ -1,3 +1,9 @@
+/**
+ * @file filters.js
+ * @description Logic for filtering neighborhoods by price, amenities, etc.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ * @author John Bauman
+ */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { formatSliderPrice, parseRange, updateUrlParams } from './utils.js';
