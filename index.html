@@ -432,7 +432,7 @@
             <div class="px-5 pt-4">
                 <div class="flex justify-between items-baseline mb-1">
                     <span class="text-xs font-semibold text-neutral-500">Price</span>
-                    <span class="text-sm font-bold text-neutral-800" id="price-display">$250k - $35m+</span>
+                    <span class="text-sm font-bold text-neutral-800" id="price-display">$250K - $35M+</span>
                 </div>
                 <div class="range-slider">
                     <div class="range-track-bg"></div>
@@ -1256,9 +1256,9 @@
 
             function formatPrice(price) {
                 if (price >= 1000000) {
-                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'm';
+                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
                 } else if (price >= 1000) {
-                    return '$' + (price / 1000).toFixed(0) + 'k';
+                    return '$' + (price / 1000).toFixed(0) + 'K';
                 }
                 return '$' + price;
             }
@@ -1296,7 +1296,7 @@
                 const maxPriceDisplay = priceSteps[maxVal];
 
                 if (minVal === 0 && maxVal === 0) {
-                    priceDisplay.textContent = "$250k - $35m+";
+                    priceDisplay.textContent = "$250K - $35M+";
                 } else {
                     priceDisplay.textContent = `${formatPrice(minPriceDisplay)} - ${formatPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
                 }
@@ -1504,30 +1504,45 @@
 
                 // Beds Filter
                 let inBedsRange = false;
-                const bedsRange = parseRange(neighborhood.stats.bedsRange);
-                if (bedsRange) {
+                // Use explicit min/max if available, otherwise parse range string
+                const nbMinBeds = neighborhood.stats.minBeds !== undefined ? parseFloat(neighborhood.stats.minBeds) : null;
+                const nbMaxBeds = neighborhood.stats.maxBeds !== undefined ? parseFloat(neighborhood.stats.maxBeds) : null;
+                
+                if (nbMinBeds !== null && nbMaxBeds !== null && !isNaN(nbMinBeds) && !isNaN(nbMaxBeds)) {
                      // Check if neighborhood has anything >= minBeds
-                     inBedsRange = bedsRange.max >= minBeds;
-                } else if (neighborhood.stats.avgSqft > 0) {
-                     // Fallback heuristic
-                     inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300;
+                     inBedsRange = nbMaxBeds >= minBeds;
                 } else {
-                    // No data available. Include if filter is at minimum (1).
-                    inBedsRange = minBeds === 1;
+                    const bedsRange = parseRange(neighborhood.stats.bedsRange);
+                    if (bedsRange) {
+                         inBedsRange = bedsRange.max >= minBeds;
+                    } else if (neighborhood.stats.avgSqft > 0) {
+                         // Fallback heuristic
+                         inBedsRange = neighborhood.stats.avgSqft >= minBeds * 300;
+                    } else {
+                        // No data available. Include if filter is at minimum (1).
+                        inBedsRange = minBeds === 1;
+                    }
                 }
 
                 // Baths Filter
                 let inBathsRange = false;
-                const bathsRange = parseRange(neighborhood.stats.bathsRange);
-                if (bathsRange) {
+                const nbMinBaths = neighborhood.stats.minBaths !== undefined ? parseFloat(neighborhood.stats.minBaths) : null;
+                const nbMaxBaths = neighborhood.stats.maxBaths !== undefined ? parseFloat(neighborhood.stats.maxBaths) : null;
+
+                if (nbMinBaths !== null && nbMaxBaths !== null && !isNaN(nbMinBaths) && !isNaN(nbMaxBaths)) {
                     // Check if neighborhood has anything >= minBaths
-                    inBathsRange = bathsRange.max >= minBaths;
-                } else if (neighborhood.stats.avgSqft > 0) {
-                    // Fallback heuristic
-                    inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150;
+                    inBathsRange = nbMaxBaths >= minBaths;
                 } else {
-                    // No data available. Include if filter is at minimum (1).
-                    inBathsRange = minBaths === 1;
+                    const bathsRange = parseRange(neighborhood.stats.bathsRange);
+                    if (bathsRange) {
+                        inBathsRange = bathsRange.max >= minBaths;
+                    } else if (neighborhood.stats.avgSqft > 0) {
+                        // Fallback heuristic
+                        inBathsRange = neighborhood.stats.avgSqft >= minBaths * 150;
+                    } else {
+                        // No data available. Include if filter is at minimum (1).
+                        inBathsRange = minBaths === 1;
+                    }
                 }
 
                 return matchesPropertyType && inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
