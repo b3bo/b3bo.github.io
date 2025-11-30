@@ -6,17 +6,10 @@
  */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
-import { getUrlParams, clamp, getThemeColor } from './utils.js';
+import { getUrlParams, clamp, getThemeColor, toSlug } from './utils.js';
 import { addMarkers, showInfoWindow } from './markers.js';
 import { setupFilters, applyFilters } from './filters.js';
-import { loadNeighborhoods, toSlug } from './data.js'; // Wait, loadNeighborhoods is in data.js, toSlug in utils.js
-
-// Need to fix imports in map.js as I write it.
-// toSlug is in utils.js
-// loadNeighborhoods is in data.js
-
-// Re-importing correctly
-import { toSlug } from './utils.js';
+import { loadNeighborhoods } from './data.js';
 
 export function initializeMap(center, zoom) {
     STATE.map = new google.maps.Map(document.getElementById('map'), {
