@@ -6,9 +6,9 @@
  */
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
-import { getUrlParams } from './utils.js';
+import { getUrlParams, toSlug } from './utils.js';
 import { initializeMap, computeOffsetPx, offsetLatLng } from './map.js'; // computeOffsetPx needed for single mode
-import { loadNeighborhoods, toSlug } from './data.js';
+import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow } from './markers.js';
 import { setupFilters, applyFilters } from './filters.js'; // Import setupFilters here
