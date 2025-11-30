@@ -597,6 +597,12 @@
         })();
     </script>
 
+    <script>
+        // Shim to handle Google Maps callback before module loads
+        window.initMap = function() {
+            window.googleMapsReady = true;
+        };
+    </script>
     <script type="module" src="./assets/js/app.js"></script>
 
     <!-- Google Maps API -->

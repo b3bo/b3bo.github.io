@@ -145,6 +145,11 @@ async function initMap() {
 // Expose initMap to global scope for Google Maps Callback
 window.initMap = initMap;
 
+// Check if Google Maps loaded before this module
+if (window.googleMapsReady) {
+    initMap();
+}
+
 // Fallback: If Google Maps doesn't load within 10 seconds, show error
 setTimeout(() => {
     const loadingScreen = document.getElementById('loading-screen');
