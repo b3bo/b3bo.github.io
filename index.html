@@ -1488,17 +1488,25 @@
                 
                 // Price Filter
                 let inPriceRange = false;
-                const priceRange = parseRange(neighborhood.stats.priceRange);
-                if (priceRange) {
+                const nbMinPrice = neighborhood.stats.minPrice !== undefined ? parseFloat(neighborhood.stats.minPrice) : null;
+                const nbMaxPrice = neighborhood.stats.maxPrice !== undefined ? parseFloat(neighborhood.stats.maxPrice) : null;
+
+                if (nbMinPrice !== null && nbMaxPrice !== null && !isNaN(nbMinPrice) && !isNaN(nbMaxPrice)) {
                     // Check for overlap: UserMax >= NbMin && UserMin <= NbMax
-                    inPriceRange = maxPrice >= priceRange.min && minPrice <= priceRange.max;
+                    inPriceRange = maxPrice >= nbMinPrice && minPrice <= nbMaxPrice;
                 } else {
-                    // Fallback to avgPrice if range not available
-                    if (neighborhood.stats.avgPrice > 0) {
-                        inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
+                    const priceRange = parseRange(neighborhood.stats.priceRange);
+                    if (priceRange) {
+                        // Check for overlap: UserMax >= NbMin && UserMin <= NbMax
+                        inPriceRange = maxPrice >= priceRange.min && minPrice <= priceRange.max;
                     } else {
-                        // No price data (Sold Only / Masked). Include if minPrice is 0 (default).
-                        inPriceRange = minPrice === 0;
+                        // Fallback to avgPrice if range not available
+                        if (neighborhood.stats.avgPrice > 0) {
+                            inPriceRange = neighborhood.stats.avgPrice >= minPrice && neighborhood.stats.avgPrice <= maxPrice;
+                        } else {
+                            // No price data (Sold Only / Masked). Include if minPrice is 0 (default).
+                            inPriceRange = minPrice === 0;
+                        }
                     }
                 }
 
