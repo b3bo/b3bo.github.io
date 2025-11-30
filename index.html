@@ -1588,7 +1588,8 @@
                 // Create List Item
                 if (listContainer) {
                     // Format price for card (e.g. $1.3M)
-                    const price = neighborhood.stats.avgPrice;
+                    // Use Median Price to match Info Window
+                    const price = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
                     let formattedPrice = '$' + price.toLocaleString();
                     if (price >= 1000000) {
                         formattedPrice = '$' + (price / 1000000).toFixed(1) + 'M';
