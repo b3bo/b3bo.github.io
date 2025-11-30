@@ -1152,7 +1152,50 @@
             const markerObj = markers.find(m => m.neighborhood === nextNeighborhood);
             
             if (markerObj) {
-                toggleMarker(markerObj.marker, nextNeighborhood);
+                const marker = markerObj.marker;
+                
+                // Close current info window
+                if (infoWindow && infoWindow.getMap()) {
+                    infoWindow.close();
+                }
+                // Deactivate current marker ripple
+                if (activeMarker) {
+                    const ripple = activeMarker.content.querySelector('.ripple');
+                    if (ripple) ripple.classList.remove('active');
+                    activeMarker = null;
+                }
+
+                // Calculate distance to determine animation timing
+                const startPos = map.getCenter();
+                const targetLatLng = new google.maps.LatLng(nextNeighborhood.position);
+                const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                const isShortHop = distance < 2000;
+
+                // Fly to new location
+                smoothFlyTo(nextNeighborhood.position, 15);
+                
+                if (isShortHop) {
+                    // Short hop: fast animation
+                    setTimeout(() => {
+                        const ripple = marker.content.querySelector('.ripple');
+                        if (ripple) ripple.classList.add('active');
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        google.maps.event.trigger(marker, 'click');
+                    }, 450);
+                } else {
+                    // Long flight: 2s animation
+                    // Ripple cue
+                    setTimeout(() => {
+                        const ripple = marker.content.querySelector('.ripple');
+                        if (ripple) ripple.classList.add('active');
+                    }, 1000);
+                    // Open shortly after landing
+                    setTimeout(() => {
+                        google.maps.event.trigger(marker, 'click');
+                    }, 2200);
+                }
             }
         };
 
