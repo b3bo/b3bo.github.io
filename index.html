@@ -709,11 +709,11 @@
             const currentDomain = window.location.hostname;
             
             // Log for debugging
-            console.log(`[Security] Current Domain: "${currentDomain}"`);
+            // console.log(`[Security] Current Domain: "${currentDomain}"`);
 
             // If domain is not empty (not file://) and not in allowed list
             if (currentDomain && !allowedDomains.some(d => currentDomain.includes(d))) {
-                console.error(`[Security] Unauthorized domain detected: ${currentDomain}. Data loading would be blocked in Strict Mode.`);
+                // console.error(`[Security] Unauthorized domain detected: ${currentDomain}. Data loading would be blocked in Strict Mode.`);
                 // In Strict Mode, we would: return [];
                 // For now, we allow it to proceed but log the violation.
             }
@@ -749,7 +749,7 @@
                 allNeighborhoods.sort((a, b) => a.name.localeCompare(b.name));
                 
                 neighborhoods = allNeighborhoods;
-                console.log(`Loaded ${neighborhoods.length} neighborhoods.`);
+                // console.log(`Loaded ${neighborhoods.length} neighborhoods.`);
                 
                 return neighborhoods;
 
@@ -817,7 +817,7 @@
 
                 // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
                 if (urlParams.mode === 'single' && neighborhoods.length === 1) {
-                    console.log('Initializing single mode. Zoom:', zoom, 'Params:', urlParams);
+                    // console.log('Initializing single mode. Zoom:', zoom, 'Params:', urlParams);
                     google.maps.event.addListenerOnce(map, 'projection_changed', () => {
                         // Force zoom to 13 if not explicitly provided, to ensure it takes effect
                         if (!urlParams.zoom) {
@@ -1057,6 +1057,9 @@
                 zoomControl: true,
                 clickableIcons: false
             });
+
+            // Log initial zoom level
+            console.log('Initial Zoom level:', map.getZoom());
 
             map.addListener('zoom_changed', () => {
                 console.log('Zoom level changed:', map.getZoom());
