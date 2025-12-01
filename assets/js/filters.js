@@ -378,10 +378,9 @@ export function applyFilters() {
 
     if (areasChanged && filteredNeighborhoods.length > 0) {
         console.log('Triggering auto-pan...');
-        // Wait for map to be idle before fitting bounds (ensures markers are rendered)
-        google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
-            console.log('Map idle, calling fitBoundsToNeighborhoods');
-
+        // Small delay to ensure markers are rendered, then fit bounds
+        setTimeout(() => {
+            console.log('Calling fitBoundsToNeighborhoods');
             // Fit bounds with minimal padding for tighter zoom
             fitBoundsToNeighborhoods(filteredNeighborhoods, 20);
 
@@ -394,7 +393,7 @@ export function applyFilters() {
                     }
                 }, 100);
             }
-        });
+        }, 200);
     }
 
     // Update previous areas for next comparison
