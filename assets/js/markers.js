@@ -132,6 +132,29 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
     const medianPriceDisplay = formatPrice(medianPrice);
     
+    // Dynamically construct market report URL from searchId based on property type
+    let marketReportUrl = neighborhood.marketReportUrl;
+    let searchId = null;
+    
+    if (!marketReportUrl) {
+        // Determine which searchId to use based on property type
+        const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
+        
+        if (propertyType === 'condos' || propertyType === 'condo' || propertyType === 'townhomes' || propertyType === 'townhome') {
+            searchId = neighborhood.searchIdCondos || neighborhood.searchId;
+        } else if (propertyType === 'lots' || propertyType === 'lot' || propertyType === 'land') {
+            searchId = neighborhood.searchIdLots || neighborhood.searchId;
+        } else {
+            // Default to homes
+            searchId = neighborhood.searchIdHomes || neighborhood.searchId;
+        }
+        
+        // Construct URL if we have a searchId
+        if (searchId) {
+            marketReportUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}`;
+        }
+    }
+    
     const content = `
         <div class="info-window p-3 max-w-sm" style="cursor: pointer;">
             <h3 class="text-lg font-semibold ${CONFIG.colors.text.primary} mb-2">
@@ -176,8 +199,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 </button>
                 ` : ''}
 
-                ${neighborhood.marketReportUrl ? `
-                <a href="${neighborhood.marketReportUrl}" 
+                ${marketReportUrl ? `
+                <a href="${marketReportUrl}" 
                    target="_blank" 
                    class="view-listings-btn flex-1 text-center justify-center"
                    onclick="event.stopPropagation();">
