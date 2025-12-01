@@ -133,7 +133,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     const medianPriceDisplay = formatPrice(medianPrice);
     
     // Dynamically construct listings URL from searchId based on property type
-    let listingsUrl = neighborhood.listingsUrl;
+    let listingsUrl = neighborhood.listingsUrl || neighborhood.marketReportUrl;
     let searchId = null;
     
     if (!listingsUrl) {
