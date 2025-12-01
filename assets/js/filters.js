@@ -59,6 +59,10 @@ export function setupFilters() {
         const minPriceDisplay = CONFIG.ui.priceSteps[minVal];
         const maxPriceDisplay = CONFIG.ui.priceSteps[maxVal];
 
+        // Update STATE for URL slug generation
+        STATE.filters.priceMin = minPriceDisplay;
+        STATE.filters.priceMax = maxPriceDisplay;
+
         if (minVal === 0 && maxVal === 0) {
             priceDisplay.textContent = "$250K - $35M+";
         } else {

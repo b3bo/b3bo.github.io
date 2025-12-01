@@ -17,7 +17,7 @@ export const STATE = {
     filters: {
         bedsMin: 1,
         bathsMin: 1,
-        priceMin: 0,
-        priceMax: 41
+        priceMin: 250000,  // Actual price value
+        priceMax: 35000000  // Actual price value
     }
 };
