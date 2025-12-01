@@ -146,11 +146,11 @@ export function setupUI() {
     // Property type toggle (Homes/Condos) - now handled in filters.js
     // Note: The event listeners for property type buttons are set up in filters.js
 
-    // Infinite Scroll
-    const scrollContainer = document.getElementById('sidebar-scroll-container');
-    if (scrollContainer) {
-        scrollContainer.addEventListener('scroll', () => {
-            const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+    // Infinite Scroll - attach to Results panel content
+    const resultsPanel = document.querySelector('#results-panel .panel-content');
+    if (resultsPanel) {
+        resultsPanel.addEventListener('scroll', () => {
+            const { scrollTop, scrollHeight, clientHeight } = resultsPanel;
             
             // Load more when within 200px of bottom
             if (scrollTop + clientHeight >= scrollHeight - 200) {
