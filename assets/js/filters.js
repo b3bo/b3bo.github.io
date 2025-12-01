@@ -371,9 +371,16 @@ export function applyFilters() {
     const areasChanged = selectedAreas.size !== previousSelectedAreas.size ||
                          ![...selectedAreas].every(area => previousSelectedAreas.has(area));
 
+    console.log('Areas changed:', areasChanged);
+    console.log('Selected areas:', Array.from(selectedAreas));
+    console.log('Previous areas:', Array.from(previousSelectedAreas));
+    console.log('Filtered neighborhoods count:', filteredNeighborhoods.length);
+
     if (areasChanged && filteredNeighborhoods.length > 0) {
+        console.log('Triggering auto-pan...');
         // Wait for map to be idle before fitting bounds (ensures markers are rendered)
         google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
+            console.log('Map idle, calling fitBoundsToNeighborhoods');
             fitBoundsToNeighborhoods(filteredNeighborhoods, 80);
         });
     }
