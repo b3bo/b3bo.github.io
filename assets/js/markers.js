@@ -157,8 +157,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         
         // Construct URL if we have a searchId
         if (searchId) {
-            // Get current beds filter value
-            const bedsMin = STATE.filters.bedsMin || 1;
+            // Get current beds filter value (safe check for STATE.filters)
+            const bedsMin = (STATE.filters && STATE.filters.bedsMin) || 1;
             const bedsSlug = bedsMin > 1 ? `#beds_${bedsMin}/` : '';
             listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${bedsSlug}`;
         }

@@ -13,5 +13,11 @@ export const STATE = {
     allFilteredNeighborhoods: [],
     activeMarker: null,
     customBoundaries: new Set(),
-    currentRenderCount: 0
+    currentRenderCount: 0,
+    filters: {
+        bedsMin: 1,
+        bathsMin: 1,
+        priceMin: 0,
+        priceMax: 41
+    }
 };
