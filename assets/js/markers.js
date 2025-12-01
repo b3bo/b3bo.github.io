@@ -134,44 +134,44 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     
     const content = `
         <div class="info-window p-3 max-w-sm" style="cursor: pointer;">
-            <h3 class="text-lg font-semibold text-neutral-900 mb-2">
+            <h3 class="text-lg font-semibold ${CONFIG.colors.text.primary} mb-2">
                 ${neighborhood.name}
             </h3>
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs text-neutral-500 mb-0.5">Listings</div>
-                    <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.listingCount}</div>
+                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Listings</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.listingCount}</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs text-neutral-500 mb-0.5">Med List Price</div>
-                    <div class="text-sm font-semibold text-neutral-900">${medianPriceDisplay}</div>
+                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Med List Price</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${medianPriceDisplay}</div>
                 </div>
             </div>
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs text-neutral-500 mb-0.5">Avg $/Sq Ft</div>
-                    <div class="text-sm font-semibold text-neutral-900">$${pricePerSqFt.toLocaleString()}</div>
+                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Avg $/Sq Ft</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">$${pricePerSqFt.toLocaleString()}</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs text-neutral-500 mb-0.5">Avg DOM</div>
-                    <div class="text-sm font-semibold text-neutral-900">${neighborhood.stats.avgDom}</div>
+                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Avg DOM</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.avgDom}</div>
                 </div>
             </div>
             
             ${neighborhood.amenities && neighborhood.amenities.length > 0 ? `
             <div class="mb-3">
                 <div class="bg-white p-3 rounded-lg border border-neutral-200">
-                    <div class="text-sm font-semibold text-neutral-700 mb-1">Amenities</div>
-                    <div class="text-xs text-neutral-600 leading-relaxed">${neighborhood.amenities.join(', ')}</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-1">Amenities</div>
+                    <div class="text-xs ${CONFIG.colors.text.secondary} leading-relaxed">${neighborhood.amenities.join(', ')}</div>
                 </div>
             </div>
             ` : ''}
             
             <div class="pt-3 border-t border-neutral-200 flex items-center gap-2">
                 ${STATE.allFilteredNeighborhoods.length > 1 ? `
-                <button onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full hover:bg-neutral-100 text-neutral-600 transition-colors flex-shrink-0" title="Previous Community">
+                <button onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full hover:bg-neutral-100 ${CONFIG.colors.text.secondary} transition-colors flex-shrink-0" title="Previous Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
                 ` : ''}

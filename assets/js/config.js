@@ -37,5 +37,14 @@ export const CONFIG = {
             6000000, 7000000, 8000000, 9000000, 10000000,
             15000000, 20000000, 25000000, 30000000, 35000000
         ]
+    },
+    // Color Palette (Centralized for easy updates)
+    colors: {
+        text: {
+            primary: 'text-neutral-700',   // High emphasis (Headers, Values)
+            secondary: 'text-neutral-500', // Medium emphasis (Labels, Subtitles)
+            tertiary: 'text-neutral-400',  // Low emphasis (Inactive, Placeholders)
+            error: 'text-red-600'
+        }
     }
 };

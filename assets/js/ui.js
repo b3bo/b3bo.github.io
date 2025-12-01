@@ -28,11 +28,11 @@ export function renderListItems(neighborhoodsToRender) {
             card.className = 'bg-white p-4 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer';
             card.innerHTML = `
                 <div class="flex justify-between items-start mb-1">
-                    <h3 class="text-base font-bold text-neutral-900">${neighborhood.name}</h3>
-                    <span class="text-sm font-semibold text-neutral-900">${formattedPrice}</span>
+                    <h3 class="text-base font-bold ${CONFIG.colors.text.primary}">${neighborhood.name}</h3>
+                    <span class="text-sm font-semibold ${CONFIG.colors.text.primary}">${formattedPrice}</span>
                 </div>
-                <div class="text-xs text-neutral-500 mb-3">${neighborhood.stats.listingCount} Listings</div>
-                <div class="text-xs text-neutral-500 leading-relaxed">
+                <div class="text-xs ${CONFIG.colors.text.secondary} mb-3">${neighborhood.stats.listingCount} Listings</div>
+                <div class="text-xs ${CONFIG.colors.text.secondary} leading-relaxed">
                     ${neighborhood.amenities.join(', ')}
                 </div>
             `;
@@ -148,14 +148,14 @@ export function setupUI() {
         btn.addEventListener('click', function() {
             // Remove active state from all tabs
             document.querySelectorAll('.tab-btn').forEach(b => {
-                b.classList.remove('border-b-2', 'border-neutral-900', 'text-neutral-900');
-                b.classList.add('text-neutral-400');
+                b.classList.remove('border-b-2', 'border-neutral-900', CONFIG.colors.text.primary);
+                b.classList.add(CONFIG.colors.text.tertiary);
                 b.classList.remove('active');
             });
             
             // Add active state to clicked tab
-            this.classList.add('border-b-2', 'border-neutral-900', 'text-neutral-900');
-            this.classList.remove('text-neutral-400');
+            this.classList.add('border-b-2', 'border-neutral-900', CONFIG.colors.text.primary);
+            this.classList.remove(CONFIG.colors.text.tertiary);
             this.classList.add('active');
             
             // Hide all tab content
