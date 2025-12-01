@@ -148,6 +148,123 @@
         #drawer-toggle:checked ~ aside .tab-icon-open {
             display: block;
         }
+
+        /* Tesla-style sliding panel navigation */
+        .sliding-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(224, 245, 248);
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            border-radius: 1rem;
+            overflow: hidden;
+            will-change: transform;
+        }
+        
+        .sliding-panel.active {
+            transform: translateX(0);
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-radius: 0.5rem;
+            margin: 0.25rem 0;
+        }
+        
+        @media (hover: hover) {
+            .menu-item:hover {
+                background-color: rgba(76, 143, 150, 0.1);
+            }
+        }
+        
+        .menu-item:active {
+            background-color: rgba(76, 143, 150, 0.15);
+        }
+        
+        .menu-item-label {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+        
+        .menu-item-chevron {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--color-neutral-500);
+        }
+        
+        .panel-header {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem;
+            border-bottom: 1px solid rgba(208, 213, 220, 0.5);
+            flex-shrink: 0;
+        }
+        
+        .panel-back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: -0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        
+        @media (hover: hover) {
+            .panel-back-btn:hover {
+                background-color: rgba(76, 143, 150, 0.1);
+            }
+        }
+        
+        .panel-back-btn:active {
+            background-color: rgba(76, 143, 150, 0.15);
+        }
+        
+        .panel-back-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 1.25rem;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Ensure panel content has proper scrolling */
+        .panel-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .panel-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .panel-content::-webkit-scrollbar-thumb {
+            background-color: rgba(124, 163, 175, 0.8);
+            border-radius: 20px;
+        }
         
         /* Ripple marker animation */
         .ripple-marker {
@@ -207,7 +324,7 @@
                 /* Maintain rounded corners */
                 border-radius: 1rem !important;
                 /* Keep flex layout */
-                display: flex !important; 
+                display: flex !important;
             }
 
             #sidebar-scroll-container {
@@ -216,27 +333,27 @@
                 width: 100% !important;
                 display: block !important;
             }
-            
+
             /* Disable internal scrolling for content */
             #sidebar-content {
                 overflow: visible !important;
                 height: auto !important;
                 flex: none !important;
             }
-            
+
             /* Compact spacing for landscape */
             #sidebar .p-5 {
                 padding: 0.75rem 1rem !important;
             }
-            
+
             #sidebar .pt-4 {
                 padding-top: 0.5rem !important;
             }
-            
+
             #sidebar .gap-6 {
                 gap: 1rem !important;
             }
-            
+
             #sidebar .pb-3 {
                 padding-bottom: 0.5rem !important;
             }
@@ -361,17 +478,20 @@
 
         /* Custom Scrollbar for Sidebar */
         #sidebar-content::-webkit-scrollbar,
-        #sidebar-scroll-container::-webkit-scrollbar {
+        #sidebar-scroll-container::-webkit-scrollbar,
+        #main-menu::-webkit-scrollbar {
             width: 6px;
         }
 
         #sidebar-content::-webkit-scrollbar-track,
-        #sidebar-scroll-container::-webkit-scrollbar-track {
-            background: transparent; 
+        #sidebar-scroll-container::-webkit-scrollbar-track,
+        #main-menu::-webkit-scrollbar-track {
+            background: transparent;
         }
 
         #sidebar-content::-webkit-scrollbar-thumb,
-        #sidebar-scroll-container::-webkit-scrollbar-thumb {
+        #sidebar-scroll-container::-webkit-scrollbar-thumb,
+        #main-menu::-webkit-scrollbar-thumb {
             background-color: rgba(124, 163, 175, 0.8);
             border-radius: 20px;
         }
@@ -385,7 +505,7 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" />
         
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem); background-color: rgba(224, 245, 248, 0.95); backdrop-filter: blur(8px);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem); background-color: rgb(224, 245, 248);">
             <style>
                 @media (min-width: 768px) {
                     #sidebar {
@@ -407,7 +527,7 @@
             </label>
             
             <!-- Fixed Header Section -->
-            <div class="flex-shrink-0 w-full">
+            <div class="flex-shrink-0 w-full overflow-x-hidden">
                 <!-- Header -->
                 <div>
                     <div class="p-5 pb-4 flex items-center gap-3">
@@ -428,108 +548,165 @@
                 </div>
 
                 <div class="mx-8 border-t border-neutral-200"></div>
-
-                <!-- Toggle Buttons -->
-                <div class="px-5 pt-6 pb-6 flex gap-2">
-                    <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active">
-                        Homes
-                    </button>
-                    <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn">
-                        Condos
-                    </button>
-                </div>
             </div>
 
-            <div id="sidebar-scroll-container" class="flex-1 w-full overflow-y-auto overscroll-contain">
-            <!-- Property Details Section -->
-            <div class="px-5 pt-6 pb-6">
-                <h3 class="text-sm font-medium text-neutral-700 mb-4">Desired Property</h3>
-                <div class="border-t border-neutral-200 pb-6"></div>
-                <div class="space-y-6">
-                    <!-- Price Range Slider -->
-                    <div>
-                        <div class="flex justify-between items-baseline mb-1">
-                            <span class="text-xs font-medium text-neutral-500">Price</span>
-                            <span class="text-sm font-semibold text-neutral-700" id="price-display">$250K - $35M+</span>
+            <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
+                <!-- Main Menu -->
+                <div id="main-menu" class="py-5 h-full overflow-y-auto overflow-x-hidden overscroll-contain">
+                    <div class="space-y-2">
+                        <!-- Criteria Menu Item -->
+                        <div class="menu-item" data-panel="property">
+                            <span class="menu-item-label">Criteria</span>
+                            <svg class="menu-item-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
                         </div>
-                        <div class="range-slider">
-                            <div class="range-track-bg"></div>
-                            <div class="range-track-fill" id="range-fill"></div>
-                            <input type="range" min="0" max="41" value="0" id="price-min">
-                            <input type="range" min="0" max="41" value="0" id="price-max">
+                        
+                        <!-- Areas Menu Item -->
+                        <div class="menu-item" data-panel="areas">
+                            <span class="menu-item-label">Areas</span>
+                            <svg class="menu-item-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
                         </div>
-                    </div>
-
-                    <!-- Beds Slider -->
-                    <div>
-                        <div class="flex justify-between items-baseline mb-1">
-                            <span class="text-xs font-medium text-neutral-500">Beds</span>
-                            <span class="text-sm font-semibold text-neutral-700" id="beds-display">1+</span>
+                        
+                        <!-- Amenities Menu Item -->
+                        <div class="menu-item" data-panel="amenities">
+                            <span class="menu-item-label">Amenities</span>
+                            <svg class="menu-item-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
                         </div>
-                        <div class="range-slider">
-                            <div class="range-track-bg"></div>
-                            <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
-                            <input type="range" min="1" max="10" value="1" step="1" id="beds-min">
-                        </div>
-                    </div>
-
-                    <!-- Baths Slider -->
-                    <div>
-                        <div class="flex justify-between items-baseline mb-1">
-                            <span class="text-xs font-medium text-neutral-500">Baths</span>
-                            <span class="text-sm font-semibold text-neutral-700" id="baths-display">1+</span>
-                        </div>
-                        <div class="range-slider">
-                            <div class="range-track-bg"></div>
-                            <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
-                            <input type="range" min="1" max="10" value="1" step="1" id="baths-min">
+                        
+                        <!-- Results Menu Item -->
+                        <div class="menu-item" data-panel="results">
+                            <span class="menu-item-label">Results</span>
+                            <svg class="menu-item-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mx-8 border-t border-neutral-200"></div>
+                <!-- Property Panel -->
+                <div id="property-panel" class="sliding-panel">
+                    <div class="panel-header">
+                        <button class="panel-back-btn" data-close-panel="property">
+                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Criteria</span>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <!-- Toggle Buttons -->
+                        <div class="flex gap-2 pb-6">
+                            <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn active">
+                                Homes
+                            </button>
+                            <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn">
+                                Condos
+                            </button>
+                        </div>
 
-            <!-- Tabs -->
-            <div class="px-5 pt-6 flex gap-6">
-                <button class="pb-3 text-sm font-medium text-neutral-700 border-b-2 border-neutral-700 tab-btn active" data-tab="2">
-                    Areas
-                </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-500 tab-btn" data-tab="amenities">
-                    Amenities
-                </button>
-                <button class="pb-3 text-sm font-medium text-neutral-400 hover:text-neutral-500 tab-btn" data-tab="list">
-                    Results
-                </button>
-            </div>
+                        <div class="space-y-6">
+                            <!-- Price Range Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500">Price</span>
+                                    <span class="text-sm font-semibold text-neutral-700" id="price-display">$250K - $35M+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="range-fill"></div>
+                                    <input type="range" min="0" max="41" value="0" id="price-min">
+                                    <input type="range" min="0" max="41" value="0" id="price-max">
+                                </div>
+                            </div>
 
-            <!-- Tab Content -->
-            <div id="sidebar-content" class="p-5">
-                <!-- Tab 2 Content - Areas -->
-                <div id="tab-2" class="tab-content">
-                    <div class="flex flex-wrap gap-2" id="areaFilters">
-                        <button class="amenity-tag" data-zipcode="32541">Destin</button>
-                        <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
-                        <button class="amenity-tag" data-zipcode="32550">Miramar Beach</button>
-                        <button class="amenity-tag" data-zipcode="32461">Inlet Beach</button>
-                        <button class="amenity-tag" data-zipcode="32413">Panama City Beach</button>
+                            <!-- Beds Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500">Beds</span>
+                                    <span class="text-sm font-semibold text-neutral-700" id="beds-display">1+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="10" value="1" step="1" id="beds-min">
+                                </div>
+                            </div>
+
+                            <!-- Baths Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500">Baths</span>
+                                    <span class="text-sm font-semibold text-neutral-700" id="baths-display">1+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="10" value="1" step="1" id="baths-min">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Amenities Tab -->
-                <div id="tab-amenities" class="tab-content hidden">
-                    <div class="flex flex-wrap gap-2" id="amenityFilters">
-                        <!-- Tags will be dynamically generated -->
+                <!-- Areas Panel -->
+                <div id="areas-panel" class="sliding-panel">
+                    <div class="panel-header">
+                        <button class="panel-back-btn" data-close-panel="areas">
+                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Areas</span>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="flex flex-wrap gap-2" id="areaFilters">
+                            <button class="amenity-tag" data-zipcode="32541">Destin</button>
+                            <button class="amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
+                            <button class="amenity-tag" data-zipcode="32550">Miramar Beach</button>
+                            <button class="amenity-tag" data-zipcode="32461">Inlet Beach</button>
+                            <button class="amenity-tag" data-zipcode="32413">Panama City Beach</button>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- List Tab Content -->
-                <div id="tab-list" class="tab-content hidden">
-                    <div id="neighborhoodList" class="space-y-3">
-                        <!-- List items will be dynamically generated -->
+
+                <!-- Amenities Panel -->
+                <div id="amenities-panel" class="sliding-panel">
+                    <div class="panel-header">
+                        <button class="panel-back-btn" data-close-panel="amenities">
+                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Amenities</span>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="flex flex-wrap gap-2" id="amenityFilters">
+                            <!-- Tags will be dynamically generated -->
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- Results Panel -->
+                <div id="results-panel" class="sliding-panel">
+                    <div class="panel-header">
+                        <button class="panel-back-btn" data-close-panel="results">
+                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Results</span>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <div id="neighborhoodList" class="space-y-3">
+                            <!-- List items will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </aside>
 
@@ -613,6 +790,56 @@
             window.googleMapsReady = true;
         };
     </script>
+    
+    <script>
+        // Sliding panel navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all menu items
+            const menuItems = document.querySelectorAll('.menu-item');
+            const backButtons = document.querySelectorAll('.panel-back-btn');
+            const mainMenu = document.getElementById('main-menu');
+
+            // Handle menu item clicks
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const panelName = this.getAttribute('data-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        // Reset panel scroll position before opening
+                        const panelContent = panel.querySelector('.panel-content');
+                        if (panelContent) {
+                            panelContent.scrollTop = 0;
+                        }
+
+                        // Add active class to slide in
+                        panel.classList.add('active');
+                    }
+                });
+            });
+
+            // Handle back button clicks
+            backButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const panelName = this.getAttribute('data-close-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        // Remove active class to slide out
+                        panel.classList.remove('active');
+
+                        // Reset main menu scroll position after panel closes
+                        setTimeout(() => {
+                            if (mainMenu && !document.querySelector('.sliding-panel.active')) {
+                                mainMenu.scrollTop = 0;
+                            }
+                        }, 300); // Match transition duration
+                    }
+                });
+            });
+        });
+    </script>
+    
     <script type="module" src="./assets/js/app.js"></script>
 
     <!-- Google Maps API -->

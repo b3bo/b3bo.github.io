@@ -9,7 +9,7 @@ import { STATE } from './state.js';
 import { formatSliderPrice, parseRange, updateUrlParams } from './utils.js';
 import { createMarkers } from './markers.js';
 import { renderListItems } from './ui.js';
-import { showCustomBoundary, hideCustomBoundary } from './map.js';
+import { showCustomBoundary, hideCustomBoundary, fitBoundsToNeighborhoods } from './map.js';
 
 // Debounce helper for performance
 function debounce(func, wait) {
@@ -21,6 +21,9 @@ function debounce(func, wait) {
 }
 
 const debouncedApplyFilters = debounce(() => applyFilters(), 100);
+
+// Track previous areas to detect changes
+let previousSelectedAreas = new Set();
 
 export function setupFilters() {
     // Price Slider Logic
@@ -363,4 +366,18 @@ export function applyFilters() {
     if (resultsCount) {
         resultsCount.textContent = `${STATE.allFilteredNeighborhoods.length} ${STATE.allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found!`;
     }
+
+    // Auto-pan when areas are updated
+    const areasChanged = selectedAreas.size !== previousSelectedAreas.size ||
+                         ![...selectedAreas].every(area => previousSelectedAreas.has(area));
+
+    if (areasChanged && filteredNeighborhoods.length > 0) {
+        // Wait for map to be idle before fitting bounds (ensures markers are rendered)
+        google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
+            fitBoundsToNeighborhoods(filteredNeighborhoods, 80);
+        });
+    }
+
+    // Update previous areas for next comparison
+    previousSelectedAreas = new Set(selectedAreas);
 }
