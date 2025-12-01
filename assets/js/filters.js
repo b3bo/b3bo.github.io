@@ -381,7 +381,19 @@ export function applyFilters() {
         // Wait for map to be idle before fitting bounds (ensures markers are rendered)
         google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
             console.log('Map idle, calling fitBoundsToNeighborhoods');
-            fitBoundsToNeighborhoods(filteredNeighborhoods, 80);
+
+            // Fit bounds with minimal padding for tighter zoom
+            fitBoundsToNeighborhoods(filteredNeighborhoods, 20);
+
+            // Then ensure minimum zoom level for single-area selections
+            if (selectedAreas.size === 1) {
+                setTimeout(() => {
+                    const currentZoom = STATE.map.getZoom();
+                    if (currentZoom < 13) {
+                        STATE.map.setZoom(13);
+                    }
+                }, 100);
+            }
         });
     }
 
