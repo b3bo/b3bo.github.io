@@ -177,12 +177,11 @@ setTimeout(() => {
     }
 }, 5000);
 
-// Disable F12, etc.
 if (!window.location.search.includes('debug=true')) {
     document.addEventListener('keydown', function(e) {
         if (
-            e.key === 'F12' || 
-            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+            e.key === 'F12' ||
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
             (e.ctrlKey && e.key === 'U') ||
             (e.ctrlKey && (e.key === 's' || e.key === 'S')) ||
             (e.ctrlKey && (e.key === 'p' || e.key === 'P'))
@@ -191,7 +190,6 @@ if (!window.location.search.includes('debug=true')) {
         }
     });
 
-    // Disable Right Click
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
     });
