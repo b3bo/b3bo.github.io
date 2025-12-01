@@ -143,63 +143,8 @@ export function navigateNeighborhood(direction) {
 }
 
 export function setupUI() {
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active state from all tabs
-            document.querySelectorAll('.tab-btn').forEach(b => {
-                b.classList.remove('border-b-2', 'border-neutral-900', CONFIG.colors.text.primary);
-                b.classList.add(CONFIG.colors.text.tertiary);
-                b.classList.remove('active');
-            });
-            
-            // Add active state to clicked tab
-            this.classList.add('border-b-2', 'border-neutral-900', CONFIG.colors.text.primary);
-            this.classList.remove(CONFIG.colors.text.tertiary);
-            this.classList.add('active');
-            
-            // Hide all tab content
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Show selected tab content
-            const tabId = 'tab-' + this.dataset.tab;
-            const tabContent = document.getElementById(tabId);
-            if (tabContent) {
-                tabContent.classList.remove('hidden');
-            } else {
-                console.error('Tab content not found for:', tabId);
-            }
-        });
-    });
-
-    // Property type toggle (Homes/Condos)
-    document.querySelectorAll('.property-type-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active state from all buttons
-            document.querySelectorAll('.property-type-btn').forEach(b => {
-                b.classList.remove('active');
-            });
-            
-            // Add active state to clicked button
-            this.classList.add('active');
-            
-            // Apply filters (imported dynamically to avoid circular dependency if needed, but here we assume it's fine)
-            // We need to import applyFilters. Since it's a setup function, we can pass it in or import it.
-            // For now, let's assume the event listener in filters.js handles the logic? 
-            // No, filters.js sets up sliders. We need to trigger applyFilters here.
-            // We will dispatch a custom event or call it directly.
-            // Let's import applyFilters in this file.
-            
-            // Actually, let's dispatch an event that filters.js listens to, OR just import applyFilters.
-            // Importing applyFilters from filters.js creates a circular dependency: filters -> ui -> filters.
-            // Solution: Move applyFilters to a separate logic file or inject it.
-            // Or, simpler: Just trigger the click on a hidden element or use a custom event.
-            // Better yet: Move the event listener setup for these buttons TO filters.js.
-            // I will remove this listener here and let filters.js handle it.
-        });
-    });
+    // Property type toggle (Homes/Condos) - now handled in filters.js
+    // Note: The event listeners for property type buttons are set up in filters.js
 
     // Infinite Scroll
     const scrollContainer = document.getElementById('sidebar-scroll-container');
@@ -227,7 +172,7 @@ export function setupUI() {
             e.target.closest('a') || 
             e.target.closest('label') || 
             e.target.closest('input') ||
-            e.target.closest('.tab-btn')) {
+            e.target.closest('.menu-item')) {
             return;
         }
         
