@@ -270,7 +270,6 @@ export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
     console.log('fitBoundsToNeighborhoods called with', neighborhoods.length, 'neighborhoods, padding:', padding);
     if (!neighborhoods || neighborhoods.length === 0) return;
 
-    const currentZoom = STATE.map.getZoom();
     const bounds = new google.maps.LatLngBounds();
 
     // Extend bounds to include all neighborhoods
@@ -285,27 +284,10 @@ export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
     const sw = bounds.getSouthWest();
     console.log('Calculated bounds - NE:', ne.lat(), ne.lng(), 'SW:', sw.lat(), sw.lng());
     console.log('Current map center before fitBounds:', STATE.map.getCenter().lat(), STATE.map.getCenter().lng());
-    console.log('Current zoom before fitBounds:', currentZoom);
+    console.log('Current zoom before fitBounds:', STATE.map.getZoom());
 
     // Fit map to bounds with padding
     STATE.map.fitBounds(bounds, padding);
-
-    // If already zoomed in (zoom >= 13), limit zoom changes to be more subtle
-    if (currentZoom >= 13) {
-        google.maps.event.addListenerOnce(STATE.map, 'bounds_changed', () => {
-            const newZoom = STATE.map.getZoom();
-            const zoomDiff = Math.abs(newZoom - currentZoom);
-
-            // If zoom change is dramatic (> 2 levels), limit it
-            if (zoomDiff > 2) {
-                const limitedZoom = currentZoom > newZoom
-                    ? Math.max(newZoom, currentZoom - 2)  // Limit zoom out
-                    : Math.min(newZoom, currentZoom + 2); // Limit zoom in
-                STATE.map.setZoom(limitedZoom);
-                console.log('Limited zoom change from', currentZoom, 'to', limitedZoom, '(would have been', newZoom, ')');
-            }
-        });
-    }
 
     console.log('fitBounds called');
 }
