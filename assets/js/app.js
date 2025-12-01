@@ -34,6 +34,8 @@ async function initMap() {
             const matchingNeighborhoods = STATE.neighborhoods.filter(n => toSlug(n.name) === urlParams.neighborhood);
             let targetNeighborhood;
             
+            console.log('Matching neighborhoods:', matchingNeighborhoods.map(n => ({ name: n.name, propertyType: n.propertyType, stats: n.stats?.listingCount })));
+            
             if (matchingNeighborhoods.length > 0) {
                 if (urlParams.propertyType) {
                     // Explicit propertyType specified - find exact match
@@ -45,6 +47,7 @@ async function initMap() {
                     targetNeighborhood = matchingNeighborhoods.find(n => 
                         n.propertyType && n.propertyType.toLowerCase().includes('home')
                     ) || matchingNeighborhoods[0]; // Fallback to first if no Homes entry exists
+                    console.log('Selected neighborhood:', { name: targetNeighborhood.name, propertyType: targetNeighborhood.propertyType, stats: targetNeighborhood.stats?.listingCount });
                 }
                 
                 // Filter to show only this neighborhood
