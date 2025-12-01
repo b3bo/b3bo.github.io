@@ -139,11 +139,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     const medianPriceDisplay = formatPrice(medianPrice);
     
     // Dynamically construct listings URLs from searchId based on property type
-    let listingsUrl = neighborhood.listingsUrl || neighborhood.marketReportUrl;
+    let listingsUrlMap = neighborhood.listingsUrlMap || neighborhood.listingsUrl || neighborhood.marketReportUrl; // Map View (backwards compatible)
     let listingsUrlList = neighborhood.listingsUrlList; // List View URL
     let searchId = null;
     
-    if (!listingsUrl) {
+    if (!listingsUrlMap) {
         // Determine which searchId to use based on property type
         const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
         
@@ -175,7 +175,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             const slugPart = `#${allSlugs}`;
             
             // Map View (searchtype=3)
-            listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
+            listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
             // List View (searchtype=2) - only create if we don't have a custom listingsUrlList
             if (!listingsUrlList) {
                 listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${slugPart}`;
@@ -227,27 +227,18 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 </button>
                 ` : ''}
 
-                ${listingsUrl ? `
-                <a href="${listingsUrl}" 
+                ${listingsUrlMap ? `
+                <a href="${listingsUrlMap}" 
                    target="_blank" 
                    class="view-listings-btn flex-1 text-center justify-center"
                    onclick="event.stopPropagation();">
-                    Map View
+                    Matching Listings
                 </a>
                 ` : `
                 <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
                     Unavailable
                 </button>
                 `}
-                
-                ${listingsUrlList ? `
-                <a href="${listingsUrlList}" 
-                   target="_blank" 
-                   class="view-listings-btn flex-1 text-center justify-center"
-                   onclick="event.stopPropagation();">
-                    List View
-                </a>
-                ` : ''}
 
                 ${STATE.allFilteredNeighborhoods.length > 1 ? `
                 <button onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full hover:bg-neutral-100 text-neutral-600 transition-colors flex-shrink-0" title="Next Community">
