@@ -93,6 +93,9 @@ export function setupFilters() {
         const val = parseInt(bedsMinInput.value);
         bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
         
+        // Update STATE for URL slug generation
+        STATE.filters.bedsMin = val;
+        
         // Normalize to 0-1 range (min 1, max 6)
         let pct = (val - 1) / 5;
         
@@ -112,6 +115,9 @@ export function setupFilters() {
     function updateBathsSlider() {
         const val = parseInt(bathsMinInput.value);
         bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
+        
+        // Update STATE for future use
+        STATE.filters.bathsMin = val;
         
         // Normalize to 0-1 range (min 1, max 6)
         let pct = (val - 1) / 5;

@@ -172,7 +172,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Listings</div>
+                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">All Active</div>
                     <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.listingCount}</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
