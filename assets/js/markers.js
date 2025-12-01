@@ -166,12 +166,12 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             // Build URL slugs
             const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
             const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-            const priceMinSlug = priceMin > 250000 ? `lprice_${priceMin}/` : '';
+            const priceMinSlug = `lprice_${priceMin}/`; // Always send minimum price to prevent showing listings under $250K
             const priceMaxSlug = priceMax < 35000000 ? `uprice_${priceMax}/` : '';
             
-            // Combine all slugs and add # prefix if any exist
+            // Combine all slugs and add # prefix
             const allSlugs = bedsSlug + bathsSlug + priceMinSlug + priceMaxSlug;
-            const slugPart = allSlugs ? `#${allSlugs}` : '';
+            const slugPart = `#${allSlugs}`;
             
             listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
         }
