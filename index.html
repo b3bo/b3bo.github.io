@@ -315,23 +315,16 @@
         /* Landscape mode on mobile devices */
         @media (max-height: 500px) and (orientation: landscape) {
             #sidebar {
-                /* Slide panel upward to hide header */
-                transform: translateY(-80px) !important;
-                /* Extend height to compensate */
-                height: calc(100dvh - 2rem + 80px) !important;
-                max-height: calc(100dvh - 2rem + 80px) !important;
-                /* Narrower width for landscape */
-                width: 16rem !important;
-                max-width: 256px !important;
-                /* Round only bottom corners (top is hidden) */
-                border-radius: 0 0 1rem 1rem !important;
+                /* Keep floating card style */
+                height: calc(100dvh - 2rem) !important;
+                max-height: calc(100dvh - 2rem) !important;
+                /* Ensure it doesn't get too wide - match w-72 (288px) */
+                width: 18rem !important;
+                max-width: 288px !important;
+                /* Maintain rounded corners */
+                border-radius: 1rem !important;
                 /* Keep flex layout */
                 display: flex !important;
-            }
-
-            /* Adjust toggle tab for slid-up panel */
-            #sidebar > label[for="drawer-toggle"] {
-                transform: translateY(80px) !important;
             }
 
             #sidebar-scroll-container {
