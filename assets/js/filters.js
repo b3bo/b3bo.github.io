@@ -242,9 +242,9 @@ export function applyFilters() {
 
     const filteredNeighborhoods = STATE.neighborhoods.filter(neighborhood => {
         // Property Type Filter
-        let matchesPropertyType = false;
+        let matchesPropertyType = true; // Default to true (show all)
         if (isHomesActive) {
-            matchesPropertyType = neighborhood.propertyType === 'Homes';
+            matchesPropertyType = neighborhood.propertyType === 'Homes' || neighborhood.propertyType === 'Vacant Land';
         } else if (isCondosActive) {
             matchesPropertyType = neighborhood.propertyType === 'Condos' || neighborhood.propertyType === 'Townhomes';
         }
