@@ -25,14 +25,14 @@ export function renderListItems(neighborhoodsToRender) {
             const formattedPrice = formatPrice(price);
 
             const card = document.createElement('div');
-            card.className = 'bg-white p-4 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer';
+            card.className = 'bg-white p-4 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer overflow-hidden';
             card.innerHTML = `
                 <div class="flex justify-between items-start mb-1">
-                    <h3 class="text-base font-semibold ${CONFIG.colors.text.primary}">${neighborhood.name}</h3>
-                    <span class="text-sm font-semibold ${CONFIG.colors.text.primary}">${formattedPrice}</span>
+                    <h3 class="text-base font-semibold ${CONFIG.colors.text.primary} break-words">${neighborhood.name}</h3>
+                    <span class="text-sm font-semibold ${CONFIG.colors.text.primary} whitespace-nowrap">${formattedPrice}</span>
                 </div>
                 <div class="text-xs ${CONFIG.colors.text.secondary} mb-3">${neighborhood.stats.listingCount} Listings</div>
-                <div class="text-xs ${CONFIG.colors.text.secondary} leading-relaxed">
+                <div class="text-xs ${CONFIG.colors.text.secondary} leading-relaxed break-words">
                     ${neighborhood.amenities.join(', ')}
                 </div>
             `;
