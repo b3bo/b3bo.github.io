@@ -267,6 +267,7 @@ export function offsetLatLng(latLng, offsetPixels, zoomLevel) {
  * @param {number} padding - Optional padding in pixels (default: 50)
  */
 export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
+    console.log('fitBoundsToNeighborhoods called with', neighborhoods.length, 'neighborhoods, padding:', padding);
     if (!neighborhoods || neighborhoods.length === 0) return;
 
     const bounds = new google.maps.LatLngBounds();
@@ -279,6 +280,14 @@ export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
         ));
     });
 
+    const ne = bounds.getNorthEast();
+    const sw = bounds.getSouthWest();
+    console.log('Calculated bounds - NE:', ne.lat(), ne.lng(), 'SW:', sw.lat(), sw.lng());
+    console.log('Current map center before fitBounds:', STATE.map.getCenter().lat(), STATE.map.getCenter().lng());
+    console.log('Current zoom before fitBounds:', STATE.map.getZoom());
+
     // Fit map to bounds with padding
     STATE.map.fitBounds(bounds, padding);
+
+    console.log('fitBounds called');
 }
