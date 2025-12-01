@@ -148,15 +148,22 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
         
         if (propertyType.includes('condo') || propertyType.includes('townhome')) {
-            searchId = neighborhood.searchIdCondos || neighborhood.searchId;
+            // Use property-specific searchId, only fall back to legacy searchId if property-specific doesn't exist (undefined/null)
+            searchId = neighborhood.searchIdCondos !== undefined && neighborhood.searchIdCondos !== '' 
+                ? neighborhood.searchIdCondos 
+                : (neighborhood.searchId || null);
         } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
-            searchId = neighborhood.searchIdLots || neighborhood.searchId;
+            searchId = neighborhood.searchIdLots !== undefined && neighborhood.searchIdLots !== '' 
+                ? neighborhood.searchIdLots 
+                : (neighborhood.searchId || null);
         } else {
             // Default to homes
-            searchId = neighborhood.searchIdHomes || neighborhood.searchId;
+            searchId = neighborhood.searchIdHomes !== undefined && neighborhood.searchIdHomes !== '' 
+                ? neighborhood.searchIdHomes 
+                : (neighborhood.searchId || null);
         }
         
-        // Construct URLs if we have a searchId
+        // Construct URLs if we have a valid searchId (not null, not empty string)
         if (searchId) {
             // Get current filter values (safe check for STATE.filters)
             const bedsMin = (STATE.filters && STATE.filters.bedsMin) || 1;
