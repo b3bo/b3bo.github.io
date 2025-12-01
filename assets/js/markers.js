@@ -204,7 +204,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                    target="_blank" 
                    class="view-listings-btn flex-1 text-center justify-center"
                    onclick="event.stopPropagation();">
-                    View Market Report
+                    View Listings
                 </a>
                 ` : `
                 <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
