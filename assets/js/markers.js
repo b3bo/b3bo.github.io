@@ -173,14 +173,15 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             // Get current filter values (safe check for STATE.filters)
             const bedsMin = (STATE.filters && STATE.filters.bedsMin) || 1;
             const bathsMin = (STATE.filters && STATE.filters.bathsMin) || 1;
-            const priceMin = (STATE.filters && STATE.filters.priceMin) || 250000;
-            const priceMax = (STATE.filters && STATE.filters.priceMax) || 35000000;
+            const priceMin = STATE.filters && STATE.filters.priceMin;
+            const priceMax = STATE.filters && STATE.filters.priceMax;
             
             // Build URL slugs
             const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
             const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-            const priceMinSlug = `lprice_${priceMin}/`; // Always send minimum price to prevent showing listings under $250K
-            const priceMaxSlug = priceMax < 35000000 ? `uprice_${priceMax}/` : '';
+            // Only add price filters if they exist (not null)
+            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : '';
+            const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
             
             // Combine all slugs and add # prefix
             const allSlugs = bedsSlug + bathsSlug + priceMinSlug + priceMaxSlug;
