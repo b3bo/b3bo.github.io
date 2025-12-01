@@ -30,8 +30,23 @@ async function initMap() {
         
         // Handle single neighborhood mode
         if (urlParams.neighborhood) {
-            const targetNeighborhood = STATE.neighborhoods.find(n => toSlug(n.name) === urlParams.neighborhood);
-            if (targetNeighborhood) {
+            // If propertyType is not specified in URL, prefer "Homes" entry (find all matches first)
+            const matchingNeighborhoods = STATE.neighborhoods.filter(n => toSlug(n.name) === urlParams.neighborhood);
+            let targetNeighborhood;
+            
+            if (matchingNeighborhoods.length > 0) {
+                if (urlParams.propertyType) {
+                    // Explicit propertyType specified - find exact match
+                    targetNeighborhood = matchingNeighborhoods.find(n => 
+                        n.propertyType && n.propertyType.toLowerCase().includes(urlParams.propertyType.toLowerCase())
+                    ) || matchingNeighborhoods[0]; // Fallback to first if no match
+                } else {
+                    // No propertyType specified - prefer "Homes" entry
+                    targetNeighborhood = matchingNeighborhoods.find(n => 
+                        n.propertyType && n.propertyType.toLowerCase().includes('home')
+                    ) || matchingNeighborhoods[0]; // Fallback to first if no Homes entry exists
+                }
+                
                 // Filter to show only this neighborhood
                 STATE.neighborhoods = [targetNeighborhood];
             }
