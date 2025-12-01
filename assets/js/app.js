@@ -39,13 +39,24 @@ async function initMap() {
             if (matchingNeighborhoods.length > 0) {
                 if (urlParams.propertyType) {
                     // Explicit propertyType specified - find exact match
-                    targetNeighborhood = matchingNeighborhoods.find(n => 
-                        n.propertyType && n.propertyType.toLowerCase().includes(urlParams.propertyType.toLowerCase())
-                    ) || matchingNeighborhoods[0]; // Fallback to first if no match
+                    const searchTerm = urlParams.propertyType.toLowerCase();
+                    targetNeighborhood = matchingNeighborhoods.find(n => {
+                        if (!n.propertyType) return false;
+                        const propType = n.propertyType.toLowerCase();
+                        // Check for exact match or specific keywords
+                        if (searchTerm === 'homes' || searchTerm === 'home') {
+                            return propType === 'homes' || propType === 'home';
+                        } else if (searchTerm === 'condos' || searchTerm === 'condo') {
+                            return propType.includes('condo') || propType.includes('townhome');
+                        } else if (searchTerm === 'lots' || searchTerm === 'lot') {
+                            return propType.includes('lot') || propType.includes('land') || propType.includes('vacant');
+                        }
+                        return propType.includes(searchTerm);
+                    }) || matchingNeighborhoods[0]; // Fallback to first if no match
                 } else {
                     // No propertyType specified - prefer "Homes" entry
                     targetNeighborhood = matchingNeighborhoods.find(n => 
-                        n.propertyType && n.propertyType.toLowerCase().includes('home')
+                        n.propertyType && (n.propertyType.toLowerCase() === 'homes' || n.propertyType.toLowerCase() === 'home')
                     ) || matchingNeighborhoods[0]; // Fallback to first if no Homes entry exists
                     console.log('Selected neighborhood:', { name: targetNeighborhood.name, propertyType: targetNeighborhood.propertyType, stats: targetNeighborhood.stats?.listingCount });
                 }
