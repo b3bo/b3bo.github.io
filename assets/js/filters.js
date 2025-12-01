@@ -91,10 +91,10 @@ export function setupFilters() {
 
     function updateBedsSlider() {
         const val = parseInt(bedsMinInput.value);
-        bedsDisplay.textContent = val === 10 ? '10+' : val + '+';
+        bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
         
-        // Normalize to 0-1 range (min 1, max 10)
-        let pct = (val - 1) / 9;
+        // Normalize to 0-1 range (min 1, max 6)
+        let pct = (val - 1) / 5;
         
         // Update fill width with thumb offset correction
         bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
@@ -111,10 +111,10 @@ export function setupFilters() {
 
     function updateBathsSlider() {
         const val = parseInt(bathsMinInput.value);
-        bathsDisplay.textContent = val === 10 ? '10+' : val + '+';
+        bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
         
-        // Normalize to 0-1 range (min 1, max 10)
-        let pct = (val - 1) / 9;
+        // Normalize to 0-1 range (min 1, max 6)
+        let pct = (val - 1) / 5;
         
         // Update fill width with thumb offset correction
         bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
@@ -381,8 +381,8 @@ export function applyFilters() {
         // Small delay to ensure markers are rendered, then fit bounds
         setTimeout(() => {
             console.log('Calling fitBoundsToNeighborhoods');
-            // Fit bounds with minimal padding for tighter zoom
-            fitBoundsToNeighborhoods(filteredNeighborhoods, 20);
+            // Fit bounds with comfortable padding
+            fitBoundsToNeighborhoods(filteredNeighborhoods, 80);
 
             // Then ensure minimum zoom level for single-area selections
             if (selectedAreas.size === 1) {

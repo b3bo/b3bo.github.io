@@ -132,11 +132,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
     const medianPriceDisplay = formatPrice(medianPrice);
     
-    // Dynamically construct market report URL from searchId based on property type
-    let marketReportUrl = neighborhood.marketReportUrl;
+    // Dynamically construct listings URL from searchId based on property type
+    let listingsUrl = neighborhood.listingsUrl;
     let searchId = null;
     
-    if (!marketReportUrl) {
+    if (!listingsUrl) {
         // Determine which searchId to use based on property type
         const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
         
@@ -151,7 +151,10 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         
         // Construct URL if we have a searchId
         if (searchId) {
-            marketReportUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}`;
+            // Get current beds filter value
+            const bedsMin = STATE.filters.bedsMin || 1;
+            const bedsSlug = bedsMin > 1 ? `#beds_${bedsMin}/` : '';
+            listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${bedsSlug}`;
         }
     }
     
@@ -199,12 +202,12 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 </button>
                 ` : ''}
 
-                ${marketReportUrl ? `
-                <a href="${marketReportUrl}" 
+                ${listingsUrl ? `
+                <a href="${listingsUrl}" 
                    target="_blank" 
                    class="view-listings-btn flex-1 text-center justify-center"
                    onclick="event.stopPropagation();">
-                    View Listings
+                    Matching Listings
                 </a>
                 ` : `
                 <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
