@@ -315,16 +315,24 @@
         /* Landscape mode on mobile devices */
         @media (max-height: 500px) and (orientation: landscape) {
             #sidebar {
-                /* Keep floating card style */
-                height: calc(100dvh - 2rem) !important;
-                max-height: calc(100dvh - 2rem) !important;
-                /* Ensure it doesn't get too wide - match w-72 (288px) */
-                width: 18rem !important;
-                max-width: 288px !important;
-                /* Maintain rounded corners */
-                border-radius: 1rem !important;
+                /* Slide panel upward - push header out of view */
+                top: -80px !important;
+                left: 0.5rem !important;
+                /* Extend height to compensate for upward slide */
+                height: calc(100dvh + 80px) !important;
+                max-height: calc(100dvh + 80px) !important;
+                /* Narrower width for landscape */
+                width: 16rem !important;
+                max-width: 256px !important;
+                /* Maintain rounded corners only on visible bottom */
+                border-radius: 0 0 1rem 1rem !important;
                 /* Keep flex layout */
-                display: flex !important; 
+                display: flex !important;
+            }
+
+            /* Adjust toggle tab position for slid-up panel */
+            #sidebar label[for="drawer-toggle"] {
+                top: calc(50% + 40px) !important;
             }
 
             #sidebar-scroll-container {
@@ -333,27 +341,27 @@
                 width: 100% !important;
                 display: block !important;
             }
-            
+
             /* Disable internal scrolling for content */
             #sidebar-content {
                 overflow: visible !important;
                 height: auto !important;
                 flex: none !important;
             }
-            
+
             /* Compact spacing for landscape */
             #sidebar .p-5 {
                 padding: 0.75rem 1rem !important;
             }
-            
+
             #sidebar .pt-4 {
                 padding-top: 0.5rem !important;
             }
-            
+
             #sidebar .gap-6 {
                 gap: 1rem !important;
             }
-            
+
             #sidebar .pb-3 {
                 padding-bottom: 0.5rem !important;
             }
