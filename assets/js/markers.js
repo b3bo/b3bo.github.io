@@ -243,7 +243,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 </a>
                 ` : `
                 <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
-                    Unavailable
+                    Coming Soon!
                 </button>
                 `}
 
