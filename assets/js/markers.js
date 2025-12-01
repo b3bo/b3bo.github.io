@@ -126,6 +126,12 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         window.currentNeighborhood = neighborhood;
     }
 
+    // Safety check for stats object
+    if (!neighborhood.stats) {
+        console.error('No stats data for neighborhood:', neighborhood.name);
+        return;
+    }
+
     // Use avgPricePerSqFt from data or calculate if not available
     const pricePerSqFt = neighborhood.stats.avgPricePerSqFt || 
         (neighborhood.stats.avgSqft > 0 ? Math.round(neighborhood.stats.avgPrice / neighborhood.stats.avgSqft) : 0);
@@ -140,9 +146,9 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         // Determine which searchId to use based on property type
         const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
         
-        if (propertyType === 'condos' || propertyType === 'condo' || propertyType === 'townhomes' || propertyType === 'townhome') {
+        if (propertyType.includes('condo') || propertyType.includes('townhome')) {
             searchId = neighborhood.searchIdCondos || neighborhood.searchId;
-        } else if (propertyType === 'lots' || propertyType === 'lot' || propertyType === 'land') {
+        } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
             searchId = neighborhood.searchIdLots || neighborhood.searchId;
         } else {
             // Default to homes
