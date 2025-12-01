@@ -258,3 +258,26 @@ export function offsetLatLng(latLng, offsetPixels, zoomLevel) {
     // Preserve original longitude to avoid subtle horizontal drift from projection rounding
     return { lat: newLatLng.lat(), lng: latLng.lng };
 }
+
+/**
+ * Fits map viewport to show all neighborhoods optimally.
+ * Automatically calculates center point and zoom level based on bounds.
+ * @param {Array} neighborhoods - Array of neighborhood objects with position {lat, lng}
+ * @param {number} padding - Optional padding in pixels (default: 50)
+ */
+export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
+    if (!neighborhoods || neighborhoods.length === 0) return;
+
+    const bounds = new google.maps.LatLngBounds();
+
+    // Extend bounds to include all neighborhoods
+    neighborhoods.forEach(neighborhood => {
+        bounds.extend(new google.maps.LatLng(
+            neighborhood.position.lat,
+            neighborhood.position.lng
+        ));
+    });
+
+    // Fit map to bounds with padding
+    STATE.map.fitBounds(bounds, padding);
+}

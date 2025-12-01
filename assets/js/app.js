@@ -7,7 +7,7 @@
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, toSlug } from './utils.js';
-import { initializeMap, computeOffsetPx, offsetLatLng } from './map.js'; // computeOffsetPx needed for single mode
+import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods } from './map.js'; // computeOffsetPx needed for single mode
 import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow } from './markers.js';
@@ -69,6 +69,13 @@ async function initMap() {
         }
 
         initializeMap(center, zoom);
+
+        // Auto-fit map to all neighborhoods (unless in single mode or explicit coords provided)
+        if (!urlParams.mode && !urlParams.lat && !urlParams.lng && STATE.neighborhoods.length > 1) {
+            google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
+                fitBoundsToNeighborhoods(STATE.neighborhoods, 80);
+            });
+        }
 
         // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
         if (urlParams.mode === 'single' && STATE.neighborhoods.length === 1) {
