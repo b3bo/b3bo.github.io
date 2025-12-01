@@ -63,7 +63,7 @@ export function setupFilters() {
         STATE.filters.priceMin = minPriceDisplay;
         STATE.filters.priceMax = maxPriceDisplay;
 
-        if (minVal === 0 && maxVal === 41) {
+        if (minVal === 0 && maxVal === 0) {
             priceDisplay.textContent = "$250K - $35M+";
         } else {
             priceDisplay.textContent = `${formatSliderPrice(minPriceDisplay)} - ${formatSliderPrice(maxPriceDisplay)}${maxVal === 41 ? '+' : ''}`;
@@ -212,8 +212,8 @@ export function applyFilters() {
     const priceMinInput = document.getElementById('price-min');
     const priceMaxInput = document.getElementById('price-max');
     
-    // Special case: if slider is at full range (0 to 41), show all
-    if (parseInt(priceMinInput.value) === 0 && parseInt(priceMaxInput.value) === 41) {
+    // Special case: if both sliders are at 0 (stacked on left), show all
+    if (parseInt(priceMinInput.value) === 0 && parseInt(priceMaxInput.value) === 0) {
         minPrice = 0;
         maxPrice = Number.MAX_SAFE_INTEGER;
     } else {
