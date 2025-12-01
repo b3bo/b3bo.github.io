@@ -88,10 +88,10 @@ export function setupFilters() {
 
     function updateBedsSlider() {
         const val = parseInt(bedsMinInput.value);
-        bedsDisplay.textContent = val === 6 ? '6+' : val + '+';
+        bedsDisplay.textContent = val === 10 ? '10+' : val + '+';
         
-        // Normalize to 0-1 range (min 1, max 6)
-        let pct = (val - 1) / 5;
+        // Normalize to 0-1 range (min 1, max 10)
+        let pct = (val - 1) / 9;
         
         // Update fill width with thumb offset correction
         bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
@@ -108,10 +108,10 @@ export function setupFilters() {
 
     function updateBathsSlider() {
         const val = parseInt(bathsMinInput.value);
-        bathsDisplay.textContent = val === 6 ? '6+' : val + '+';
+        bathsDisplay.textContent = val === 10 ? '10+' : val + '+';
         
-        // Normalize to 0-1 range (min 1, max 6)
-        let pct = (val - 1) / 5;
+        // Normalize to 0-1 range (min 1, max 10)
+        let pct = (val - 1) / 9;
         
         // Update fill width with thumb offset correction
         bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
