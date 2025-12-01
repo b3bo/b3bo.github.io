@@ -46,8 +46,10 @@ async function initMap() {
                         // Check for exact match or specific keywords
                         if (searchTerm === 'homes' || searchTerm === 'home') {
                             return propType === 'homes' || propType === 'home';
+                        } else if (searchTerm === 'townhomes' || searchTerm === 'townhome') {
+                            return propType.includes('townhome');
                         } else if (searchTerm === 'condos' || searchTerm === 'condo') {
-                            return propType.includes('condo') || propType.includes('townhome');
+                            return propType.includes('condo');
                         } else if (searchTerm === 'lots' || searchTerm === 'lot') {
                             return propType.includes('lot') || propType.includes('land') || propType.includes('vacant');
                         }

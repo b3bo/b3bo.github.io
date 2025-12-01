@@ -147,8 +147,13 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         // Determine which searchId to use based on property type
         const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
         
-        if (propertyType.includes('condo') || propertyType.includes('townhome')) {
-            // Use property-specific searchId, only fall back to legacy searchId if property-specific doesn't exist (undefined/null)
+        if (propertyType.includes('townhome')) {
+            // Townhomes
+            searchId = neighborhood.searchIdTownhomes !== undefined && neighborhood.searchIdTownhomes !== '' 
+                ? neighborhood.searchIdTownhomes 
+                : (neighborhood.searchId || null);
+        } else if (propertyType.includes('condo')) {
+            // Condos only
             searchId = neighborhood.searchIdCondos !== undefined && neighborhood.searchIdCondos !== '' 
                 ? neighborhood.searchIdCondos 
                 : (neighborhood.searchId || null);
