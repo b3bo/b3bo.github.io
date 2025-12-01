@@ -246,7 +246,7 @@ export function applyFilters() {
         if (isHomesActive) {
             matchesPropertyType = neighborhood.propertyType === 'Homes';
         } else if (isCondosActive) {
-            matchesPropertyType = neighborhood.propertyType === 'Condos/Townhomes';
+            matchesPropertyType = neighborhood.propertyType === 'Condos' || neighborhood.propertyType === 'Townhomes';
         }
 
         // Area Filter
