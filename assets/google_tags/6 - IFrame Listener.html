@@ -1,43 +1,60 @@
 <script>
-
 (function () {
-  const CF_IFRAME_ID = 'communityFinderFrame';
-  const CF_ORIGIN = 'https://neighborhoods.truesouthcoastalhomes.com';
+  var CF_IFRAME_ID = 'communityFinderFrame';
+  var CF_ORIGIN = 'https://neighborhoods.truesouthcoastalhomes.com';
 
-  const frame = document.getElementById(CF_IFRAME_ID);
-  if (!frame || !frame.contentWindow) return;
+  function getFrame() {
+    return document.getElementById(CF_IFRAME_ID);
+  }
 
-  const sendMessage = (type, payload = {}) => {
-    frame.contentWindow.postMessage({ type, ...payload }, CF_ORIGIN);
-  };
+  function sendMessage(frame, type, payload) {
+    if (!frame || !frame.contentWindow) { return; }
+    var message = payload || {};
+    message.type = type;
+    frame.contentWindow.postMessage(message, CF_ORIGIN);
+  }
 
-  const bindButton = (selector, messageType) => {
-    const btn = document.querySelector(selector);
-    if (!btn) return;
-    btn.addEventListener('click', () => sendMessage(messageType));
-  };
+  function bindButton(selector, messageType) {
+    var btn = document.querySelector(selector);
+    if (!btn) { return; }
+    btn.addEventListener('click', function () {
+      sendMessage(getFrame(), messageType);
+    });
+  }
 
-  bindButton('[data-map-fullscreen="enter"]', 'enterFullscreen');
-  bindButton('[data-map-fullscreen="exit"]', 'exitFullscreen');
-
-  // Optional: respond to child state updates
-  window.addEventListener('message', (event) => {
-    if (event.origin !== CF_ORIGIN || !event.data) return;
-
-    switch (event.data.type) {
-      case 'fullscreenChanged':
-        document.body.classList.toggle('cf-hostfullscreen', Boolean(event.data.active));
-        const enterBtn = document.querySelector('[data-map-fullscreen="enter"]');
-        const exitBtn = document.querySelector('[data-map-fullscreen="exit"]');
-        if (enterBtn && exitBtn) {
-          enterBtn.disabled = Boolean(event.data.active);
-          exitBtn.disabled = !Boolean(event.data.active);
-        }
-        break;
-      case 'drawerState':
-        console.log('Drawer state:', event.data.open ? 'open' : 'closed');
-        break;
+  function init() {
+    if (!getFrame()) {
+      console.warn('[CF Fullscreen] iframe not found');
+      return;
     }
-  });
+
+    bindButton('[data-map-fullscreen="enter"]', 'enterFullscreen');
+    bindButton('[data-map-fullscreen="exit"]', 'exitFullscreen');
+
+    console.log('[CF Fullscreen] Host listener initialized');
+
+    window.addEventListener('message', function (event) {
+      if (event.origin !== CF_ORIGIN || !event.data) { return; }
+      var data = event.data;
+      if (data.type === 'fullscreenChanged') {
+        var isActive = !!data.active;
+        if (document.body && document.body.classList) {
+          document.body.classList.toggle('cf-hostfullscreen', isActive);
+        }
+        var enterBtn = document.querySelector('[data-map-fullscreen="enter"]');
+        var exitBtn = document.querySelector('[data-map-fullscreen="exit"]');
+        if (enterBtn) { enterBtn.disabled = isActive; }
+        if (exitBtn) { exitBtn.disabled = !isActive; }
+      } else if (data.type === 'drawerState') {
+        console.log('Drawer state:', data.open ? 'open' : 'closed');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>

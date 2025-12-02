@@ -94,7 +94,6 @@ export function initializeMap(center, zoom) {
         }
     });
     
-    // Add custom fullscreen button for mobile
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const mapLayout = document.getElementById('map-layout');
@@ -108,6 +107,16 @@ export function initializeMap(center, zoom) {
             <path d="M6 18 18 6M6 6l12 12" />
         </svg>
     `;
+
+    const notifyHostFullscreen = (active) => {
+        try {
+            window.parent.postMessage({ type: 'fullscreenChanged', active }, '*');
+        } catch (err) {
+            console.warn('postMessage to host failed', err);
+        }
+    };
+
+    let toggleMobileFullscreenFromMessage = null;
 
     if (isMobile && mapLayout) {
         const mobileFullscreenBtn = document.createElement('button');
@@ -157,23 +166,26 @@ export function initializeMap(center, zoom) {
             applyButtonPosition(isActive);
         };
 
+        const setFauxFullscreen = (isActive) => {
+            document.body.classList.toggle('mobile-faux-fullscreen', isActive);
+            updateButtonIcon(isActive);
+            if (isActive) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            const drawerToggle = document.getElementById('drawer-toggle');
+            if (drawerToggle) {
+                drawerToggle.checked = !isActive && drawerToggle.checked;
+            }
+            notifyHostFullscreen(isActive);
+        };
+
         mobileFullscreenBtn.addEventListener('click', async (e) => {
             e.stopPropagation();
             e.preventDefault();
 
             if (isIOS) {
                 const willActivate = !document.body.classList.contains('mobile-faux-fullscreen');
-                document.body.classList.toggle('mobile-faux-fullscreen', willActivate);
-                updateButtonIcon(willActivate);
-
-                if (willActivate) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-
-                const drawerToggle = document.getElementById('drawer-toggle');
-                if (drawerToggle) {
-                    drawerToggle.checked = !willActivate && drawerToggle.checked;
-                }
+                setFauxFullscreen(willActivate);
                 return;
             }
 
@@ -198,14 +210,67 @@ export function initializeMap(center, zoom) {
 
         document.addEventListener('fullscreenchange', () => {
             if (!isIOS) {
-                updateButtonIcon(Boolean(document.fullscreenElement));
+                const active = Boolean(document.fullscreenElement);
+                updateButtonIcon(active);
+                notifyHostFullscreen(active);
             } else if (!document.body.classList.contains('mobile-faux-fullscreen')) {
                 updateButtonIcon(false);
+                notifyHostFullscreen(false);
             }
         });
 
+        toggleMobileFullscreenFromMessage = async (shouldEnter) => {
+            if (typeof shouldEnter === 'undefined') {
+                shouldEnter = !document.body.classList.contains('mobile-faux-fullscreen') && !document.fullscreenElement;
+            }
+
+            if (isIOS) {
+                setFauxFullscreen(shouldEnter);
+                return;
+            }
+
+            try {
+                if (shouldEnter && !document.fullscreenElement) {
+                    if (mapLayout.requestFullscreen) {
+                        await mapLayout.requestFullscreen();
+                    } else if (mapLayout.webkitRequestFullscreen) {
+                        await mapLayout.webkitRequestFullscreen();
+                    }
+                } else if (!shouldEnter && document.fullscreenElement) {
+                    if (document.exitFullscreen) {
+                        await document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        await document.webkitExitFullscreen();
+                    }
+                }
+            } catch (error) {
+                console.error('Fullscreen error:', error);
+            }
+        };
+
         document.body.appendChild(mobileFullscreenBtn);
     }
+
+    const allowedHostOrigins = [
+        'https://www.truesouthcoastalhomes.com',
+        'https://truesouthcoastalhomes.com'
+    ];
+
+    window.addEventListener('message', (event) => {
+        if (!event.data || !allowedHostOrigins.includes(event.origin)) {
+            return;
+        }
+
+        if (!toggleMobileFullscreenFromMessage) {
+            return;
+        }
+
+        if (event.data.type === 'enterFullscreen') {
+            toggleMobileFullscreenFromMessage(true);
+        } else if (event.data.type === 'exitFullscreen') {
+            toggleMobileFullscreenFromMessage(false);
+        }
+    });
     
     addMarkers();
     
