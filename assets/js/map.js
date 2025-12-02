@@ -19,7 +19,7 @@ export function initializeMap(center, zoom) {
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: google.maps.ControlPosition.TOP_RIGHT
+            position: google.maps.ControlPosition.TOP_CENTER
         },
         streetViewControl: true,
         streetViewControlOptions: {
