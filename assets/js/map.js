@@ -86,7 +86,7 @@ export function initializeMap(center, zoom) {
         // Nudge map type control to the left using transform
         const mapTypeControl = document.querySelector('.gm-style-mtc');
         if (mapTypeControl) {
-            mapTypeControl.style.transform = 'translateX(-50px)';
+            mapTypeControl.style.setProperty('transform', 'translateX(-50px)', 'important');
         }
     }, 1000);
     
