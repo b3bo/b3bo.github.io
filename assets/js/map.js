@@ -123,32 +123,12 @@ export function initializeMap(center, zoom) {
             color: #666;
         `;
         
-        mobileFullscreenBtn.addEventListener('click', async () => {
-            console.log('Fullscreen button clicked');
-            try {
-                if (!document.fullscreenElement) {
-                    // Try standard fullscreen API
-                    const elem = document.documentElement;
-                    if (elem.requestFullscreen) {
-                        await elem.requestFullscreen();
-                    } else if (elem.webkitRequestFullscreen) { // Safari
-                        await elem.webkitRequestFullscreen();
-                    } else if (elem.mozRequestFullScreen) { // Firefox
-                        await elem.mozRequestFullScreen();
-                    } else if (elem.msRequestFullscreen) { // IE/Edge
-                        await elem.msRequestFullscreen();
-                    }
-                    console.log('Entered fullscreen');
-                } else {
-                    if (document.exitFullscreen) {
-                        await document.exitFullscreen();
-                    } else if (document.webkitExitFullscreen) {
-                        await document.webkitExitFullscreen();
-                    }
-                    console.log('Exited fullscreen');
-                }
-            } catch (err) {
-                console.error('Fullscreen error:', err);
+        mobileFullscreenBtn.addEventListener('click', () => {
+            // Toggle the sidebar drawer on mobile (iOS doesn't support fullscreen API)
+            const drawerToggle = document.getElementById('drawer-toggle');
+            if (drawerToggle) {
+                drawerToggle.checked = !drawerToggle.checked;
+                console.log('Drawer toggled:', drawerToggle.checked ? 'open' : 'closed');
             }
         });
         
