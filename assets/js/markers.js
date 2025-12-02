@@ -263,10 +263,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             // Single mode: Link to Community Finder with pop-out icon
                             return `
                             <a href="https://neighborhoods.truesouthcoastalhomes.com" 
-                               class="view-listings-btn flex-1 text-center justify-center flex items-center gap-2"
+                               class="view-listings-btn"
+                               style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex: 1;"
                                onclick="event.stopPropagation();">
                                 Community Finder
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg style="width: 1rem; height: 1rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>
                             </a>
