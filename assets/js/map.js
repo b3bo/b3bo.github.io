@@ -94,12 +94,12 @@ export function initializeMap(center, zoom) {
         }
     });
     
-    // Add custom fullscreen button for mobile (decorative - iOS doesn't support fullscreen)
+    // Add custom fullscreen button for mobile (toggles drawer since iOS doesn't support fullscreen)
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
         const mobileFullscreenBtn = document.createElement('button');
         mobileFullscreenBtn.className = 'mobile-fullscreen-btn';
-        mobileFullscreenBtn.title = 'Fullscreen';
+        mobileFullscreenBtn.title = 'Toggle Menu';
         mobileFullscreenBtn.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
@@ -121,9 +121,27 @@ export function initializeMap(center, zoom) {
             align-items: center;
             justify-content: center;
             color: #666;
-            pointer-events: none;
-            opacity: 0.6;
+            pointer-events: auto;
         `;
+        
+        mobileFullscreenBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            const drawerToggle = document.getElementById('drawer-toggle');
+            const sidebar = document.getElementById('sidebar');
+            
+            if (drawerToggle && sidebar) {
+                drawerToggle.checked = !drawerToggle.checked;
+                
+                // Force the sidebar transform directly
+                if (drawerToggle.checked) {
+                    sidebar.style.transform = 'translateX(0)';
+                } else {
+                    sidebar.style.transform = 'translateX(-100%)';
+                }
+            }
+        }, true);
         
         document.body.appendChild(mobileFullscreenBtn);
     }
