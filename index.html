@@ -761,60 +761,6 @@
         </div>
     </div>
 
-    <div id="debug-console" style="position: fixed; bottom: 0; left: 0; right: 0; height: 150px; background: rgba(0,0,0,0.9); color: #0f0; font-family: monospace; font-size: 11px; overflow-y: auto; z-index: 10000; padding: 10px; display: none; pointer-events: auto;">
-        <div style="position: sticky; top: 0; background: #333; padding: 2px 5px; margin-bottom: 5px; display: flex; justify-content: space-between; color: white;">
-            <span>Debug Log</span>
-            <button onclick="this.parentElement.parentElement.style.display='none'" style="background: #555; border: none; color: white; padding: 2px 8px; cursor: pointer;">Close</button>
-        </div>
-        <div id="debug-content"></div>
-    </div>
-    <button id="debug-toggle" onclick="document.getElementById('debug-console').style.display='block'" style="position: fixed; bottom: 10px; right: 10px; z-index: 10000; background: #dc2626; color: white; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: none; cursor: pointer; display: none;">
-        Show Debug Log
-    </button>
-
-    <script>
-        // Show debug UI only when debug=true is in URL
-        if (window.location.search.includes('debug=true')) {
-            document.getElementById('debug-toggle').style.display = 'block';
-        }
-
-        // Capture console output
-        (function() {
-            const oldLog = console.log;
-            const oldError = console.error;
-            
-            function appendLog(msg, color) {
-                const content = document.getElementById('debug-content');
-                if (content) {
-                    const div = document.createElement('div');
-                    div.style.color = color;
-                    div.style.marginBottom = '2px';
-                    div.style.borderBottom = '1px solid #333';
-                    // Handle objects
-                    if (typeof msg === 'object') {
-                        try {
-                            msg = JSON.stringify(msg);
-                        } catch(e) {}
-                    }
-                    div.textContent = msg;
-                    content.appendChild(div);
-                    const container = document.getElementById('debug-console');
-                    container.scrollTop = container.scrollHeight;
-                }
-            }
-
-            console.log = function(...args) {
-                appendLog('[LOG] ' + args.join(' '), '#4ade80');
-                oldLog.apply(console, args);
-            };
-
-            console.error = function(...args) {
-                appendLog('[ERR] ' + args.join(' '), '#f87171');
-                oldError.apply(console, args);
-            };
-        })();
-    </script>
-
     <script>
         // Shim to handle Google Maps callback before module loads
         window.initMap = function() {
