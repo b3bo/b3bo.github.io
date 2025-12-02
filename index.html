@@ -109,6 +109,18 @@
             transform: translateX(-20px) !important;
         }
         
+        /* Mobile: adjust map type control position */
+        @media (max-width: 767px) {
+            .gm-style-mtc {
+                transform: translateX(-10px) !important;
+            }
+            
+            /* Ensure fullscreen button is visible on mobile */
+            .gm-control-active.gm-fullscreen-control {
+                display: block !important;
+            }
+        }
+        
         /* Amenity tag styles - matching Sierra site tags */
         .amenity-tag {
             border: 1px solid var(--color-border);
