@@ -179,8 +179,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             // Build URL slugs
             const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
             const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-            // Only add price filters if they exist (not null)
-            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : '';
+            // Always include lprice (default 250000), but only include uprice if it's been set and is not at max
+            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
             const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
             
             // Combine all slugs and add # prefix
@@ -203,7 +203,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                     ${neighborhood.name}
                 </h3>
                 ${neighborhood.urlSlug ? `
-                <a href="${neighborhood.urlSlug}" 
+                <a href="https://www.truesouthcoastalhomes.com${neighborhood.urlSlug}" 
                    target="_blank"
                    class="text-[#4c8f96] hover:text-[#3a6d73] transition-colors"
                    onclick="event.stopPropagation();"
