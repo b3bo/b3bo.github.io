@@ -58,6 +58,22 @@ export function initializeMap(center, zoom) {
         }
     });
     
+    // Show sidebar when entering fullscreen
+    document.addEventListener('fullscreenchange', () => {
+        const sidebar = document.getElementById('sidebar');
+        const drawerToggle = document.getElementById('drawer-toggle');
+        
+        if (document.fullscreenElement) {
+            // Entering fullscreen - show sidebar
+            if (sidebar && params.mode !== 'single') {
+                sidebar.style.removeProperty('display');
+            }
+            if (drawerToggle && params.mode !== 'single') {
+                drawerToggle.checked = true; // Open the drawer
+            }
+        }
+    });
+    
     addMarkers();
     
     // Only setup filters if NOT in single mode.
