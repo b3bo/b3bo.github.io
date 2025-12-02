@@ -150,33 +150,44 @@ async function initMap() {
         // Auto-open specific marker if specified (shows all neighborhoods but opens one)
         if (urlParams.marker) {
             console.log('Marker parameter detected:', urlParams.marker);
+            
+            const openMarker = () => {
+                const markerSlug = urlParams.marker.toLowerCase();
+                const propertyType = urlParams.propertyType;
+                
+                console.log('Auto-opening marker:', markerSlug, 'propertyType:', propertyType);
+                console.log('Total markers available:', STATE.markers.length);
+                console.log('Available markers:', STATE.markers.map(m => ({ name: toSlug(m.neighborhood.name), type: m.neighborhood.propertyType })));
+                
+                // Find matching marker
+                const targetMarker = STATE.markers.find(m => {
+                    const nameMatch = toSlug(m.neighborhood.name) === markerSlug;
+                    if (!propertyType) return nameMatch;
+                    // If propertyType specified, match both name and type
+                    return nameMatch && m.neighborhood.propertyType === propertyType;
+                });
+                
+                if (targetMarker) {
+                    console.log('Found target marker, triggering click:', targetMarker.neighborhood.name);
+                    // Trigger click to open info window with animation
+                    google.maps.event.trigger(targetMarker.marker, 'click');
+                } else {
+                    console.log('Target marker not found');
+                }
+            };
+            
             // Wait for map to finish fitting bounds and markers to be ready
             google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
-                setTimeout(() => {
-                    const markerSlug = urlParams.marker.toLowerCase();
-                    const propertyType = urlParams.propertyType;
-                    
-                    console.log('Auto-opening marker:', markerSlug, 'propertyType:', propertyType);
-                    console.log('Total markers available:', STATE.markers.length);
-                    console.log('Available markers:', STATE.markers.map(m => ({ name: toSlug(m.neighborhood.name), type: m.neighborhood.propertyType })));
-                    
-                    // Find matching marker
-                    const targetMarker = STATE.markers.find(m => {
-                        const nameMatch = toSlug(m.neighborhood.name) === markerSlug;
-                        if (!propertyType) return nameMatch;
-                        // If propertyType specified, match both name and type
-                        return nameMatch && m.neighborhood.propertyType === propertyType;
-                    });
-                    
-                    if (targetMarker) {
-                        console.log('Found target marker, triggering click:', targetMarker.neighborhood.name);
-                        // Trigger click to open info window with animation
-                        google.maps.event.trigger(targetMarker.marker, 'click');
-                    } else {
-                        console.log('Target marker not found');
-                    }
-                }, 300);
+                setTimeout(openMarker, 300);
             });
+            
+            // Fallback: If idle doesn't fire within 3 seconds, try anyway
+            setTimeout(() => {
+                if (STATE.markers.length > 0 && !STATE.infoWindow.getMap()) {
+                    console.log('Fallback: Opening marker after timeout');
+                    openMarker();
+                }
+            }, 3000);
         }
 
         // Setup UI interactions
