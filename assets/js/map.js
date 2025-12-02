@@ -19,7 +19,7 @@ export function initializeMap(center, zoom) {
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: google.maps.ControlPosition.TOP_CENTER
+            position: google.maps.ControlPosition.TOP_RIGHT
         },
         streetViewControl: true,
         streetViewControlOptions: {
@@ -82,6 +82,12 @@ export function initializeMap(center, zoom) {
                 }
             }, true); // Capture phase to intercept before Google's handler
         });
+        
+        // Nudge map type control to the left
+        const mapTypeControl = document.querySelector('.gm-style-mtc');
+        if (mapTypeControl) {
+            mapTypeControl.style.marginRight = '50px';
+        }
     }, 1000);
     
     addMarkers();
