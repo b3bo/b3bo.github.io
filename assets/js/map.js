@@ -137,19 +137,19 @@ export function initializeMap(center, zoom) {
             const drawerToggle = document.getElementById('drawer-toggle');
             const sidebar = document.getElementById('sidebar');
             
+            alert('Toggle: ' + (drawerToggle ? 'FOUND' : 'NOT FOUND') + '\nSidebar: ' + (sidebar ? 'FOUND' : 'NOT FOUND'));
+            
             if (drawerToggle && sidebar) {
                 drawerToggle.checked = !drawerToggle.checked;
                 
                 // Force the sidebar transform directly
                 if (drawerToggle.checked) {
                     sidebar.style.transform = 'translateX(0)';
-                    console.log('Opening drawer');
+                    alert('Opened drawer!');
                 } else {
                     sidebar.style.transform = 'translateX(-100%)';
-                    console.log('Closing drawer');
+                    alert('Closed drawer!');
                 }
-            } else {
-                console.error('drawer-toggle or sidebar not found!');
             }
         }, true);
         
