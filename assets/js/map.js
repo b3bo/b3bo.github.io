@@ -127,11 +127,31 @@ export function initializeMap(center, zoom) {
             e.stopPropagation();
             e.preventDefault();
             
+            // Visual feedback
+            mobileFullscreenBtn.style.backgroundColor = '#FF0000';
+            setTimeout(() => {
+                mobileFullscreenBtn.style.backgroundColor = '#4CAF50';
+            }, 200);
+            
             // Toggle the sidebar drawer on mobile (iOS doesn't support fullscreen API)
             const drawerToggle = document.getElementById('drawer-toggle');
             if (drawerToggle) {
+                const wasChecked = drawerToggle.checked;
                 drawerToggle.checked = !drawerToggle.checked;
-                console.log('Drawer toggled:', drawerToggle.checked ? 'open' : 'closed');
+                console.log('Drawer toggled from', wasChecked, 'to', drawerToggle.checked);
+                
+                // Try triggering change event
+                drawerToggle.dispatchEvent(new Event('change', { bubbles: true }));
+                
+                // Also try clicking the label
+                const label = document.querySelector('label[for="drawer-toggle"]');
+                if (label) {
+                    console.log('Found label, clicking it');
+                    label.click();
+                }
+            } else {
+                console.error('drawer-toggle not found!');
+                alert('drawer-toggle not found!');
             }
         }, true);
         
