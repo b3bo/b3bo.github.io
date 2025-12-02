@@ -106,7 +106,7 @@ export function initializeMap(center, zoom) {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 99999;
+            z-index: 999999;
             background: red;
             border: 4px solid yellow;
             border-radius: 10px;
@@ -120,15 +120,23 @@ export function initializeMap(center, zoom) {
             color: white;
             font-size: 24px;
             font-weight: bold;
+            pointer-events: auto;
         `;
         
-        mobileFullscreenBtn.addEventListener('click', async () => {
-            console.log('Fullscreen button clicked');
+        // Add onclick directly to the element too
+        mobileFullscreenBtn.onclick = function() {
+            alert('🎉 ONCLICK WORKS!!!');
+        };
+        
+        mobileFullscreenBtn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('Fullscreen button clicked via addEventListener');
             
             // SILLY TEST TO PROVE CLICK WORKS!
-            mobileFullscreenBtn.style.backgroundColor = '#ff0000';
+            mobileFullscreenBtn.style.backgroundColor = '#00ff00';
             setTimeout(() => {
-                mobileFullscreenBtn.style.backgroundColor = 'white';
+                mobileFullscreenBtn.style.backgroundColor = 'red';
             }, 500);
             alert('🎉 CLICK DETECTED! Button works, but iOS blocks fullscreen API 😢');
             
@@ -157,9 +165,9 @@ export function initializeMap(center, zoom) {
             } catch (err) {
                 console.error('Fullscreen error:', err);
             }
-        });
+        }, true); // Use capture phase
         
-        document.getElementById('map').appendChild(mobileFullscreenBtn);
+        document.body.appendChild(mobileFullscreenBtn);
     }
     
     addMarkers();
