@@ -451,8 +451,28 @@
             border: 1px solid var(--color-border);
             border-radius: 0.5rem;
             transition: all 0.2s;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
-        
+
+        /* Only apply hover effects on devices that support hover */
+        @media (hover: hover) {
+            .property-type-btn:hover {
+                background: var(--color-brand-light);
+                color: var(--color-text-primary);
+            }
+
+            .property-type-btn.active:hover {
+                background: var(--color-brand-hover);
+                border-color: var(--color-brand);
+            }
+        }
+
+        /* Active state for touch feedback */
+        .property-type-btn:active {
+            background: var(--color-brand-hover);
+        }
+
         .property-type-btn.active {
             background: var(--color-brand-light);
             color: var(--color-text-primary);
