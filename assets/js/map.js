@@ -50,11 +50,11 @@ export function initializeMap(center, zoom) {
     STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
     STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
     
-    // Set higher z-index for hover info window when it opens
+    // Set higher z-index for hover info window to appear above clicked info windows
     google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
         const iwOuter = document.querySelector('.gm-style-iw-c');
         if (iwOuter && STATE.hoverInfoWindow.getMap()) {
-            iwOuter.parentElement.style.zIndex = '200';
+            iwOuter.parentElement.style.zIndex = '100';
         }
     });
     
