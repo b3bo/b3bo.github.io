@@ -109,15 +109,10 @@
             transform: translateX(-20px) !important;
         }
         
-        /* Mobile: no offset needed since fullscreen doesn't work on iOS */
+        /* Mobile: move map/sat buttons further left to avoid overlap with fullscreen */
         @media (max-width: 767px) {
             .gm-style-mtc {
-                transform: translateX(0) !important;
-            }
-            
-            /* Hide custom fullscreen button on mobile if it's not working */
-            .mobile-fullscreen-btn {
-                display: none !important;
+                transform: translateX(-50px) !important;
             }
         }
         
