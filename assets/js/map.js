@@ -251,6 +251,32 @@ export function initializeMap(center, zoom) {
         document.body.appendChild(mobileFullscreenBtn);
     }
 
+    if (!toggleMobileFullscreenFromMessage && mapLayout) {
+        toggleMobileFullscreenFromMessage = async (shouldEnter) => {
+            const desiredState = typeof shouldEnter === 'boolean'
+                ? shouldEnter
+                : !document.fullscreenElement;
+
+            try {
+                if (desiredState && !document.fullscreenElement) {
+                    if (mapLayout.requestFullscreen) {
+                        await mapLayout.requestFullscreen();
+                    } else if (mapLayout.webkitRequestFullscreen) {
+                        await mapLayout.webkitRequestFullscreen();
+                    }
+                } else if (!desiredState && document.fullscreenElement) {
+                    if (document.exitFullscreen) {
+                        await document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        await document.webkitExitFullscreen();
+                    }
+                }
+            } catch (error) {
+                console.error('Fullscreen error:', error);
+            }
+        };
+    }
+
     const allowedHostOrigins = [
         'https://www.truesouthcoastalhomes.com',
         'https://truesouthcoastalhomes.com',
