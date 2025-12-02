@@ -182,8 +182,15 @@ async function initMap() {
                         }
                     }
                     
+                    // Pan map to ensure marker is visible with card open
+                    // Offset the center slightly up so marker isn't hidden behind card
+                    const markerPos = targetMarker.neighborhood.position;
+                    STATE.map.panTo(markerPos);
+                    
                     // Trigger click to open info window with animation
-                    google.maps.event.trigger(targetMarker.marker, 'click');
+                    setTimeout(() => {
+                        google.maps.event.trigger(targetMarker.marker, 'click');
+                    }, 100);
                 } else {
                     console.log('Target marker not found');
                 }
