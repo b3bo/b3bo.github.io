@@ -54,7 +54,7 @@ export function initializeMap(center, zoom) {
     google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
         const iwOuter = document.querySelector('.gm-style-iw-c');
         if (iwOuter && STATE.hoverInfoWindow.getMap()) {
-            iwOuter.parentElement.style.zIndex = '9999';
+            iwOuter.parentElement.style.zIndex = '200';
         }
     });
     
