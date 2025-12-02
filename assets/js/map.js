@@ -123,27 +123,16 @@ export function initializeMap(center, zoom) {
             pointer-events: auto;
         `;
         
-        mobileFullscreenBtn.onclick = (e) => {
-            if (e) {
-                e.stopPropagation();
-                e.preventDefault();
-            }
-            alert('Button clicked!');
+        mobileFullscreenBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            
             // Toggle the sidebar drawer on mobile (iOS doesn't support fullscreen API)
             const drawerToggle = document.getElementById('drawer-toggle');
             if (drawerToggle) {
                 drawerToggle.checked = !drawerToggle.checked;
-                alert('Drawer toggled to: ' + (drawerToggle.checked ? 'OPEN' : 'CLOSED'));
                 console.log('Drawer toggled:', drawerToggle.checked ? 'open' : 'closed');
-            } else {
-                alert('ERROR: drawer-toggle element not found!');
             }
-        };
-        
-        mobileFullscreenBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            alert('addEventListener fired!');
         }, true);
         
         document.body.appendChild(mobileFullscreenBtn);
