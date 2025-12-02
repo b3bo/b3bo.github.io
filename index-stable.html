@@ -38,6 +38,10 @@
             --color-text-primary: #4a5462; /* --color-neutral-600 */
             --color-text-secondary: #313842; /* --color-neutral-700 */
             --color-border: #d0d5dc; /* --color-neutral-300 */
+            /* Background Colors */
+            --bg-sidebar: rgb(255, 255, 255); /* Main sidebar background */
+            --bg-panel: rgb(255, 255, 255); /* Sliding panel backgrounds (Areas, Amenities, Results) */
+            --bg-card: rgb(255, 255, 255); /* Card/button backgrounds */
         }
 
         /* Prevent text selection to discourage copying */
@@ -100,6 +104,11 @@
             overflow: hidden !important;
         }
         
+        /* Position map type control to the left of fullscreen button */
+        .gm-style-mtc {
+            transform: translateX(-20px) !important;
+        }
+        
         /* Amenity tag styles - matching Sierra site tags */
         .amenity-tag {
             border: 1px solid var(--color-border);
@@ -112,7 +121,7 @@
             text-decoration: none;
             transition: all 0.2s;
             cursor: pointer;
-            background: white;
+            background: var(--bg-card);
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
         
@@ -156,7 +165,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgb(224, 245, 248);
+            background-color: var(--bg-panel);
             transform: translateX(100%);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 10;
@@ -372,6 +381,7 @@
             bottom: 0;
             width: 100%;
             height: 24px;
+            appearance: none;
             -webkit-appearance: none;
             pointer-events: none;
             background: none;
@@ -386,6 +396,7 @@
         }
         
         .range-slider input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
             -webkit-appearance: none;
             pointer-events: auto;
             /* Hit area: 18px + 24px border = 42px */
@@ -447,8 +458,28 @@
             border: 1px solid var(--color-border);
             border-radius: 0.5rem;
             transition: all 0.2s;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
-        
+
+        /* Only apply hover effects on devices that support hover */
+        @media (hover: hover) {
+            .property-type-btn:hover {
+                background: var(--color-brand-light);
+                color: var(--color-text-primary);
+            }
+
+            .property-type-btn.active:hover {
+                background: var(--color-brand-hover);
+                border-color: var(--color-brand);
+            }
+        }
+
+        /* Active state for touch feedback */
+        .property-type-btn:active {
+            background: var(--color-brand-hover);
+        }
+
         .property-type-btn.active {
             background: var(--color-brand-light);
             color: var(--color-text-primary);
@@ -505,7 +536,7 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" />
         
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem); background-color: rgb(224, 245, 248);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem); background-color: rgb(255, 255, 255);">
             <style>
                 @media (min-width: 768px) {
                     #sidebar {
@@ -578,8 +609,8 @@
                             </svg>
                         </div>
                         
-                        <!-- Results Menu Item -->
-                        <div class="menu-item" data-panel="results">
+                        <!-- Results Menu Item / Community Finder Link -->
+                        <div id="results-menu-item" class="menu-item" data-panel="results">
                             <span class="menu-item-label">Results</span>
                             <svg class="menu-item-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -735,55 +766,6 @@
         </div>
     </div>
 
-    <div id="debug-console" style="position: fixed; bottom: 0; left: 0; right: 0; height: 150px; background: rgba(0,0,0,0.9); color: #0f0; font-family: monospace; font-size: 11px; overflow-y: auto; z-index: 10000; padding: 10px; display: none; pointer-events: auto;">
-        <div style="position: sticky; top: 0; background: #333; padding: 2px 5px; margin-bottom: 5px; display: flex; justify-content: space-between; color: white;">
-            <span>Debug Log</span>
-            <button onclick="this.parentElement.parentElement.style.display='none'" style="background: #555; border: none; color: white; padding: 2px 8px; cursor: pointer;">Close</button>
-        </div>
-        <div id="debug-content"></div>
-    </div>
-    <button id="debug-toggle" onclick="document.getElementById('debug-console').style.display='block'" style="position: fixed; bottom: 10px; right: 10px; z-index: 10000; background: #dc2626; color: white; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: none; cursor: pointer;">
-        Show Debug Log
-    </button>
-
-    <script>
-        // Capture console output
-        (function() {
-            const oldLog = console.log;
-            const oldError = console.error;
-            
-            function appendLog(msg, color) {
-                const content = document.getElementById('debug-content');
-                if (content) {
-                    const div = document.createElement('div');
-                    div.style.color = color;
-                    div.style.marginBottom = '2px';
-                    div.style.borderBottom = '1px solid #333';
-                    // Handle objects
-                    if (typeof msg === 'object') {
-                        try {
-                            msg = JSON.stringify(msg);
-                        } catch(e) {}
-                    }
-                    div.textContent = msg;
-                    content.appendChild(div);
-                    const container = document.getElementById('debug-console');
-                    container.scrollTop = container.scrollHeight;
-                }
-            }
-
-            console.log = function(...args) {
-                appendLog('[LOG] ' + args.join(' '), '#4ade80');
-                oldLog.apply(console, args);
-            };
-
-            console.error = function(...args) {
-                appendLog('[ERR] ' + args.join(' '), '#f87171');
-                oldError.apply(console, args);
-            };
-        })();
-    </script>
-
     <script>
         // Shim to handle Google Maps callback before module loads
         window.initMap = function() {
@@ -840,7 +822,7 @@
         });
     </script>
     
-    <script type="module" src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/app.js?v=202501"></script>
 
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker,geometry" async></script>
