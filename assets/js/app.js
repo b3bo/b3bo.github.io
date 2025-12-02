@@ -7,7 +7,7 @@
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, toSlug } from './utils.js?v=202501';
-import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods } from './map.js'; // computeOffsetPx needed for single mode
+import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods, smoothFlyTo } from './map.js'; // computeOffsetPx needed for single mode
 import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow } from './markers.js';
@@ -182,15 +182,14 @@ async function initMap() {
                         }
                     }
                     
-                    // Pan map to ensure marker is visible with card open
-                    // Offset the center slightly up so marker isn't hidden behind card
+                    // Use smoothFlyTo to center the marker with proper offset for the card
                     const markerPos = targetMarker.neighborhood.position;
-                    STATE.map.panTo(markerPos);
+                    smoothFlyTo(markerPos, 15);
                     
-                    // Trigger click to open info window with animation
+                    // Trigger click after flight animation starts
                     setTimeout(() => {
                         google.maps.event.trigger(targetMarker.marker, 'click');
-                    }, 100);
+                    }, 500);
                 } else {
                     console.log('Target marker not found');
                 }
