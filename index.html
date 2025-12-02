@@ -534,6 +534,45 @@
             border-radius: 20px;
         }
 
+        /* Mobile faux fullscreen state */
+        body.mobile-faux-fullscreen {
+            overflow: hidden;
+            background-color: #f5f5f4;
+        }
+
+        body.mobile-faux-fullscreen #map-layout {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1050;
+            background-color: #f5f5f4;
+        }
+
+        body.mobile-faux-fullscreen #map {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        body.mobile-faux-fullscreen #sidebar {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-120%) !important;
+        }
+
+        body.mobile-faux-fullscreen label[for="drawer-toggle"] {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body.mobile-faux-fullscreen .mobile-fullscreen-btn {
+            position: fixed !important;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1100;
+            opacity: 0.9;
+        }
+
 
     </style>
 </head>
@@ -749,7 +788,7 @@
         </aside>
 
         <!-- Main content area with map and sidebar -->
-        <div class="flex flex-1 relative md:flex-row overflow-hidden">
+        <div id="map-layout" class="flex flex-1 relative md:flex-row overflow-hidden">
             <!-- Map -->
             <div id="map" class="flex-1 bg-neutral-100 relative">
                 <!-- Loading Screen -->
