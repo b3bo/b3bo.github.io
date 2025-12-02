@@ -148,6 +148,7 @@ async function initMap() {
         }
 
         // Auto-open specific marker if specified (shows all neighborhoods but opens one)
+        console.log('About to check urlParams.marker. Value:', urlParams.marker, 'Full urlParams:', urlParams);
         if (urlParams.marker) {
             console.log('Marker parameter detected:', urlParams.marker);
             
