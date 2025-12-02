@@ -151,6 +151,9 @@ async function initMap() {
                 const markerSlug = urlParams.marker.toLowerCase();
                 const propertyType = urlParams.propertyType;
                 
+                console.log('Auto-opening marker:', markerSlug, 'propertyType:', propertyType);
+                console.log('Available markers:', STATE.markers.map(m => ({ name: toSlug(m.neighborhood.name), type: m.neighborhood.propertyType })));
+                
                 // Find matching marker
                 const targetMarker = STATE.markers.find(m => {
                     const nameMatch = toSlug(m.neighborhood.name) === markerSlug;
@@ -160,8 +163,11 @@ async function initMap() {
                 });
                 
                 if (targetMarker) {
+                    console.log('Found target marker, triggering click:', targetMarker.neighborhood.name);
                     // Trigger click to open info window with animation
                     google.maps.event.trigger(targetMarker.marker, 'click');
+                } else {
+                    console.log('Target marker not found');
                 }
             }, 500);
         }
