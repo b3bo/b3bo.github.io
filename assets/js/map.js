@@ -25,10 +25,7 @@ export function initializeMap(center, zoom) {
         streetViewControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
-        fullscreenControl: true,
-        fullscreenControlOptions: {
-            position: google.maps.ControlPosition.TOP_RIGHT
-        },
+        fullscreenControl: false, // Disable default, we'll add custom one
         zoomControl: true,
         clickableIcons: false
     });
@@ -58,18 +55,52 @@ export function initializeMap(center, zoom) {
         }
     });
     
+    // Add custom fullscreen button
+    const fullscreenButton = document.createElement('button');
+    fullscreenButton.className = 'custom-fullscreen-btn';
+    fullscreenButton.title = 'Toggle fullscreen';
+    fullscreenButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+        </svg>
+    `;
+    fullscreenButton.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        background: white;
+        border: none;
+        border-radius: 2px;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    `;
+    
+    fullscreenButton.addEventListener('click', () => {
+        const container = document.body;
+        if (!document.fullscreenElement) {
+            container.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    });
+    
+    document.getElementById('map').appendChild(fullscreenButton);
+    
     // Show sidebar when entering fullscreen
     document.addEventListener('fullscreenchange', () => {
-        const sidebar = document.getElementById('sidebar');
         const drawerToggle = document.getElementById('drawer-toggle');
         
-        if (document.fullscreenElement) {
-            // Entering fullscreen - show sidebar
-            if (sidebar && params.mode !== 'single') {
-                sidebar.style.removeProperty('display');
-            }
-            if (drawerToggle && params.mode !== 'single') {
-                drawerToggle.checked = true; // Open the drawer
+        if (document.fullscreenElement && params.mode !== 'single') {
+            // Entering fullscreen - open the drawer
+            if (drawerToggle) {
+                drawerToggle.checked = true;
             }
         }
     });
