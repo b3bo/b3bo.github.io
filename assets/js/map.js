@@ -84,6 +84,16 @@ export function initializeMap(center, zoom) {
         });
     }, 1000);
     
+    // Also listen for fullscreen changes in case button intercept doesn't work
+    document.addEventListener('fullscreenchange', () => {
+        const drawerToggle = document.getElementById('drawer-toggle');
+        if (document.fullscreenElement && params.mode !== 'single') {
+            if (drawerToggle) {
+                drawerToggle.checked = true;
+            }
+        }
+    });
+    
     addMarkers();
     
     // Only setup filters if NOT in single mode.
