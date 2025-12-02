@@ -821,33 +821,6 @@
     </script>
     
     <script>
-        // Single mode: Convert Results button to Community Finder link
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const isSingleMode = urlParams.get('mode') === 'single';
-
-            if (isSingleMode) {
-                const resultsMenuItem = document.getElementById('results-menu-item');
-                if (resultsMenuItem) {
-                    // Change to Community Finder link
-                    resultsMenuItem.innerHTML = `
-                        <span class="menu-item-label">Community Finder</span>
-                        <svg class="menu-item-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                    `;
-                    
-                    // Remove data-panel attribute and add click handler to navigate
-                    resultsMenuItem.removeAttribute('data-panel');
-                    resultsMenuItem.addEventListener('click', function() {
-                        window.location.href = 'https://neighborhoods.truesouthcoastalhomes.com';
-                    });
-                }
-            }
-        });
-    </script>
-    
-    <script>
         // Sliding panel navigation
         document.addEventListener('DOMContentLoaded', function() {
             // Get all menu items

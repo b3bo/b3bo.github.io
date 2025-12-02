@@ -6,7 +6,7 @@
  */
 import { STATE } from './state.js';
 import { CONFIG } from './config.js';
-import { formatPrice } from './utils.js';
+import { formatPrice, getUrlParams } from './utils.js';
 import { smoothFlyTo } from './map.js';
 
 export function addMarkers() {
@@ -254,18 +254,42 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 </button>
                 ` : ''}
 
-                ${listingsUrlMap ? `
-                <a href="${listingsUrlMap}" 
-                   target="_blank" 
-                   class="view-listings-btn flex-1 text-center justify-center"
-                   onclick="event.stopPropagation();">
-                    Matching Listings
-                </a>
-                ` : `
-                <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
-                    Coming Soon!
-                </button>
-                `}
+                ${(() => {
+                    const urlParams = getUrlParams();
+                    const isSingleMode = urlParams.mode === 'single';
+                    
+                    if (listingsUrlMap) {
+                        if (isSingleMode) {
+                            // Single mode: Link to Community Finder with pop-out icon
+                            return `
+                            <a href="https://neighborhoods.truesouthcoastalhomes.com" 
+                               class="view-listings-btn flex-1 text-center justify-center flex items-center gap-2"
+                               onclick="event.stopPropagation();">
+                                Community Finder
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            `;
+                        } else {
+                            // Normal mode: Link to listings
+                            return `
+                            <a href="${listingsUrlMap}" 
+                               target="_blank" 
+                               class="view-listings-btn flex-1 text-center justify-center"
+                               onclick="event.stopPropagation();">
+                                Matching Listings
+                            </a>
+                            `;
+                        }
+                    } else {
+                        return `
+                        <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
+                            Coming Soon!
+                        </button>
+                        `;
+                    }
+                })()}
 
                 ${STATE.allFilteredNeighborhoods.length > 1 ? `
                 <button onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full hover:bg-neutral-100 text-neutral-600 transition-colors flex-shrink-0" title="Next Community">
