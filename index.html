@@ -766,11 +766,16 @@
         </div>
         <div id="debug-content"></div>
     </div>
-    <button id="debug-toggle" onclick="document.getElementById('debug-console').style.display='block'" style="position: fixed; bottom: 10px; right: 10px; z-index: 10000; background: #dc2626; color: white; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: none; cursor: pointer;">
+    <button id="debug-toggle" onclick="document.getElementById('debug-console').style.display='block'" style="position: fixed; bottom: 10px; right: 10px; z-index: 10000; background: #dc2626; color: white; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: none; cursor: pointer; display: none;">
         Show Debug Log
     </button>
 
     <script>
+        // Show debug UI only when debug=true is in URL
+        if (window.location.search.includes('debug=true')) {
+            document.getElementById('debug-toggle').style.display = 'block';
+        }
+
         // Capture console output
         (function() {
             const oldLog = console.log;
