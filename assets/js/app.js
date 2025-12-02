@@ -18,6 +18,8 @@ window.navigateNeighborhood = navigateNeighborhood;
 
 async function initMap() {
     try {
+        console.log('initMap started, URL params:', window.location.search);
+        
         // Ensure Google Maps is loaded
         if (typeof google === 'undefined' || !google.maps) {
             console.error('Google Maps API not loaded');
