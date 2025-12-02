@@ -6,7 +6,7 @@
  */
 import { STATE } from './state.js';
 import { CONFIG } from './config.js';
-import { formatPrice, getUrlParams } from './utils.js';
+import { formatPrice, getUrlParams, toSlug } from './utils.js';
 import { smoothFlyTo } from './map.js';
 
 export function addMarkers() {
@@ -260,9 +260,12 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                     
                     if (listingsUrlMap) {
                         if (isSingleMode) {
-                            // Single mode: Link to Community Finder with pop-out icon
+                            // Single mode: Link to Community Finder with neighborhood parameter
+                            const neighborhoodSlug = toSlug(neighborhood.name);
+                            const propertyTypeParam = neighborhood.propertyType ? `&propertyType=${encodeURIComponent(neighborhood.propertyType)}` : '';
+                            const finderUrl = `https://neighborhoods.truesouthcoastalhomes.com?neighborhood=${neighborhoodSlug}${propertyTypeParam}&autoOpen=true`;
                             return `
-                            <a href="https://neighborhoods.truesouthcoastalhomes.com" 
+                            <a href="${finderUrl}" 
                                class="view-listings-btn"
                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex: 1;"
                                onclick="event.stopPropagation();">
