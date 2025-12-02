@@ -123,11 +123,40 @@ export function initializeMap(center, zoom) {
             color: #666;
         `;
         
-        mobileFullscreenBtn.addEventListener('click', () => {
-            // iOS doesn't support fullscreen API well, so just close the drawer for more map space
-            const drawerToggle = document.getElementById('drawer-toggle');
-            if (drawerToggle) {
-                drawerToggle.checked = false; // Close the drawer
+        mobileFullscreenBtn.addEventListener('click', async () => {
+            console.log('Fullscreen button clicked');
+            
+            // SILLY TEST TO PROVE CLICK WORKS!
+            mobileFullscreenBtn.style.backgroundColor = '#ff0000';
+            setTimeout(() => {
+                mobileFullscreenBtn.style.backgroundColor = 'white';
+            }, 500);
+            alert('🎉 CLICK DETECTED! Button works, but iOS blocks fullscreen API 😢');
+            
+            try {
+                if (!document.fullscreenElement) {
+                    // Try standard fullscreen API
+                    const elem = document.documentElement;
+                    if (elem.requestFullscreen) {
+                        await elem.requestFullscreen();
+                    } else if (elem.webkitRequestFullscreen) { // Safari
+                        await elem.webkitRequestFullscreen();
+                    } else if (elem.mozRequestFullScreen) { // Firefox
+                        await elem.mozRequestFullScreen();
+                    } else if (elem.msRequestFullscreen) { // IE/Edge
+                        await elem.msRequestFullscreen();
+                    }
+                    console.log('Entered fullscreen');
+                } else {
+                    if (document.exitFullscreen) {
+                        await document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        await document.webkitExitFullscreen();
+                    }
+                    console.log('Exited fullscreen');
+                }
+            } catch (err) {
+                console.error('Fullscreen error:', err);
             }
         });
         
