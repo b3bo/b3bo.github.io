@@ -25,7 +25,10 @@ export function initializeMap(center, zoom) {
         streetViewControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
-        fullscreenControl: false, // Disable default, we'll add custom one
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
         zoomControl: true,
         clickableIcons: false
     });
@@ -55,55 +58,31 @@ export function initializeMap(center, zoom) {
         }
     });
     
-    // Add custom fullscreen button
-    const fullscreenButton = document.createElement('button');
-    fullscreenButton.className = 'custom-fullscreen-btn';
-    fullscreenButton.title = 'Toggle fullscreen';
-    fullscreenButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-        </svg>
-    `;
-    fullscreenButton.style.cssText = `
-        position: absolute;
-        top: 10px;
-        right: 50px;
-        z-index: 10;
-        background: white;
-        border: none;
-        border-radius: 2px;
-        width: 40px;
-        height: 40px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #666;
-    `;
-    
-    fullscreenButton.addEventListener('click', () => {
-        const container = document.body;
-        if (!document.fullscreenElement) {
-            container.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    });
-    
-    document.getElementById('map').appendChild(fullscreenButton);
-    
-    // Show sidebar when entering fullscreen
-    document.addEventListener('fullscreenchange', () => {
-        const drawerToggle = document.getElementById('drawer-toggle');
-        
-        if (document.fullscreenElement && params.mode !== 'single') {
-            // Entering fullscreen - open the drawer
-            if (drawerToggle) {
-                drawerToggle.checked = true;
-            }
-        }
-    });
+    // Override Google Maps fullscreen to include sidebar
+    // Wait for fullscreen button to be added to DOM
+    setTimeout(() => {
+        const fullscreenButtons = document.querySelectorAll('button[title*="fullscreen" i], button[aria-label*="fullscreen" i]');
+        fullscreenButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Use our custom fullscreen logic
+                if (!document.fullscreenElement) {
+                    document.body.requestFullscreen();
+                    // Open drawer in fullscreen
+                    const drawerToggle = document.getElementById('drawer-toggle');
+                    if (drawerToggle && params.mode !== 'single') {
+                        setTimeout(() => {
+                            drawerToggle.checked = true;
+                        }, 100);
+                    }
+                } else {
+                    document.exitFullscreen();
+                }
+            }, true); // Capture phase to intercept before Google's handler
+        });
+    }, 1000);
     
     addMarkers();
     
