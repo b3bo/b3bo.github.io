@@ -67,7 +67,7 @@ export function initializeMap(center, zoom) {
     fullscreenButton.style.cssText = `
         position: absolute;
         top: 10px;
-        right: 150px;
+        right: 50px;
         z-index: 10;
         background: white;
         border: none;
