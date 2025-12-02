@@ -47,8 +47,9 @@ export const CONFIG = {
             error: 'text-red-600'
         },
         background: {
-            sidebar: 'rgb(255, 255, 255)',    // Sidebar/filter panel background
-            card: 'rgb(255, 255, 255)',       // Info window card background (matching sidebar)
+            sidebar: 'rgb(255, 255, 255)',    // Main sidebar background
+            panel: 'rgb(255, 255, 255)',      // Sliding panels (Areas, Amenities, Results)
+            card: 'rgb(255, 255, 255)',       // Info window card background
             cardInner: 'bg-white',            // Inner stat boxes
             primary: 'bg-neutral-100'         // General background
         },

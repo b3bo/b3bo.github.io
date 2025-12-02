@@ -38,6 +38,10 @@
             --color-text-primary: #4a5462; /* --color-neutral-600 */
             --color-text-secondary: #313842; /* --color-neutral-700 */
             --color-border: #d0d5dc; /* --color-neutral-300 */
+            /* Background Colors */
+            --bg-sidebar: rgb(255, 255, 255); /* Main sidebar background */
+            --bg-panel: rgb(255, 255, 255); /* Sliding panel backgrounds (Areas, Amenities, Results) */
+            --bg-card: rgb(255, 255, 255); /* Card/button backgrounds */
         }
 
         /* Prevent text selection to discourage copying */
@@ -112,7 +116,7 @@
             text-decoration: none;
             transition: all 0.2s;
             cursor: pointer;
-            background: white;
+            background: var(--bg-card);
             -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
         
@@ -156,7 +160,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgb(224, 245, 248);
+            background-color: var(--bg-panel);
             transform: translateX(100%);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 10;
