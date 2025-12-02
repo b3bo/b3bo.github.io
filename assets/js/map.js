@@ -94,6 +94,46 @@ export function initializeMap(center, zoom) {
         }
     });
     
+    // Add custom fullscreen button for mobile (Google hides theirs on actual devices)
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        const mobileFullscreenBtn = document.createElement('button');
+        mobileFullscreenBtn.className = 'mobile-fullscreen-btn';
+        mobileFullscreenBtn.title = 'Toggle fullscreen';
+        mobileFullscreenBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+        `;
+        mobileFullscreenBtn.style.cssText = `
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            background: white;
+            border: none;
+            border-radius: 2px;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        `;
+        
+        mobileFullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.body.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        });
+        
+        document.getElementById('map').appendChild(mobileFullscreenBtn);
+    }
+    
     addMarkers();
     
     // Only setup filters if NOT in single mode.
