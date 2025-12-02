@@ -94,64 +94,36 @@ export function initializeMap(center, zoom) {
         }
     });
     
-    // Add custom fullscreen button for mobile (Google hides theirs on actual devices)
+    // Add custom fullscreen button for mobile (decorative - iOS doesn't support fullscreen)
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
         const mobileFullscreenBtn = document.createElement('button');
         mobileFullscreenBtn.className = 'mobile-fullscreen-btn';
-        mobileFullscreenBtn.title = 'Toggle fullscreen';
-        mobileFullscreenBtn.innerHTML = `TOGGLE SIDEBAR`;
+        mobileFullscreenBtn.title = 'Fullscreen';
+        mobileFullscreenBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+        `;
         mobileFullscreenBtn.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 999999;
-            background: #4CAF50;
-            border: 4px solid #2196F3;
-            border-radius: 10px;
-            width: 200px;
-            height: 100px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+            background: white;
+            border: none;
+            border-radius: 2px;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            pointer-events: auto;
+            color: #666;
+            pointer-events: none;
+            opacity: 0.6;
         `;
-        
-        mobileFullscreenBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            
-            // Visual feedback
-            mobileFullscreenBtn.style.backgroundColor = '#FF0000';
-            setTimeout(() => {
-                mobileFullscreenBtn.style.backgroundColor = '#4CAF50';
-            }, 200);
-            
-            // Toggle the sidebar drawer on mobile (iOS doesn't support fullscreen API)
-            const drawerToggle = document.getElementById('drawer-toggle');
-            const sidebar = document.getElementById('sidebar');
-            
-            alert('Toggle: ' + (drawerToggle ? 'FOUND' : 'NOT FOUND') + '\nSidebar: ' + (sidebar ? 'FOUND' : 'NOT FOUND'));
-            
-            if (drawerToggle && sidebar) {
-                drawerToggle.checked = !drawerToggle.checked;
-                
-                // Force the sidebar transform directly
-                if (drawerToggle.checked) {
-                    sidebar.style.transform = 'translateX(0)';
-                    alert('Opened drawer!');
-                } else {
-                    sidebar.style.transform = 'translateX(-100%)';
-                    alert('Closed drawer!');
-                }
-            }
-        }, true);
         
         document.body.appendChild(mobileFullscreenBtn);
     }
