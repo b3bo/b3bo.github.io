@@ -83,10 +83,10 @@ export function initializeMap(center, zoom) {
             }, true); // Capture phase to intercept before Google's handler
         });
         
-        // Nudge map type control to the left
+        // Nudge map type control to the left using transform
         const mapTypeControl = document.querySelector('.gm-style-mtc');
         if (mapTypeControl) {
-            mapTypeControl.style.marginRight = '50px';
+            mapTypeControl.style.transform = 'translateX(-50px)';
         }
     }, 1000);
     
