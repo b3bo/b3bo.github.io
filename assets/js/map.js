@@ -253,7 +253,8 @@ export function initializeMap(center, zoom) {
 
     const allowedHostOrigins = [
         'https://www.truesouthcoastalhomes.com',
-        'https://truesouthcoastalhomes.com'
+        'https://truesouthcoastalhomes.com',
+        'https://neighborhoods.truesouthcoastalhomes.com'
     ];
 
     window.addEventListener('message', (event) => {
