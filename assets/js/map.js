@@ -133,9 +133,28 @@ export function initializeMap(center, zoom) {
             color: #666;
         `;
 
+        const applyButtonPosition = (isActive) => {
+            if (isActive) {
+                mobileFullscreenBtn.style.position = 'fixed';
+                mobileFullscreenBtn.style.top = '1rem';
+                mobileFullscreenBtn.style.right = '1rem';
+                mobileFullscreenBtn.style.zIndex = '1100';
+                mobileFullscreenBtn.style.opacity = '0.95';
+            } else {
+                mobileFullscreenBtn.style.position = 'absolute';
+                mobileFullscreenBtn.style.top = '10px';
+                mobileFullscreenBtn.style.right = '10px';
+                mobileFullscreenBtn.style.zIndex = '10';
+                mobileFullscreenBtn.style.opacity = '1';
+            }
+        };
+
+        applyButtonPosition(false);
+
         const updateButtonIcon = (isActive) => {
             mobileFullscreenBtn.innerHTML = isActive ? fullscreenExitIcon : fullscreenEnterIcon;
             mobileFullscreenBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            applyButtonPosition(isActive);
         };
 
         mobileFullscreenBtn.addEventListener('click', async (e) => {
