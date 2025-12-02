@@ -52,7 +52,9 @@ export function getUrlParams() {
         autoOpen: params.get('autoOpen') === 'true',
         autopan: params.get('autopan') === 'true',
         offsetPx: params.get('offsetPx') !== null ? parseFloat(params.get('offsetPx')) : null,
-        offsetPct: params.get('offsetPct') !== null ? parseFloat(params.get('offsetPct')) : null
+        offsetPct: params.get('offsetPct') !== null ? parseFloat(params.get('offsetPct')) : null,
+        marker: params.get('marker'), // Marker to auto-open
+        propertyType: params.get('propertyType') // Property type filter for marker
     };
 }
 
