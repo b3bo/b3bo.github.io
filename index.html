@@ -109,15 +109,15 @@
             transform: translateX(-20px) !important;
         }
         
-        /* Mobile: adjust map type control position */
+        /* Mobile: no offset needed since fullscreen doesn't work on iOS */
         @media (max-width: 767px) {
             .gm-style-mtc {
-                transform: translateX(-10px) !important;
+                transform: translateX(0) !important;
             }
             
-            /* Ensure fullscreen button is visible on mobile */
-            .gm-control-active.gm-fullscreen-control {
-                display: block !important;
+            /* Hide custom fullscreen button on mobile if it's not working */
+            .mobile-fullscreen-btn {
+                display: none !important;
             }
         }
         
