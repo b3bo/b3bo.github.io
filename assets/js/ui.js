@@ -7,7 +7,7 @@
 import { STATE } from './state.js';
 import { CONFIG } from './config.js';
 import { formatPrice } from './utils.js';
-import { smoothFlyTo } from './map.js';
+import { smoothFlyTo } from './map.js?v=202501';
 
 export function renderListItems(neighborhoodsToRender) {
     const listContainer = document.getElementById('neighborhoodList');

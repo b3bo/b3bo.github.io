@@ -7,7 +7,7 @@
 import { STATE } from './state.js';
 import { CONFIG } from './config.js';
 import { formatPrice, getUrlParams, toSlug } from './utils.js';
-import { smoothFlyTo } from './map.js';
+import { smoothFlyTo } from './map.js?v=202501';
 
 export function addMarkers() {
     STATE.markers.forEach(m => m.marker.setMap(null));

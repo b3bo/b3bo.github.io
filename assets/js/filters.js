@@ -9,7 +9,7 @@ import { STATE } from './state.js';
 import { formatSliderPrice, parseRange, updateUrlParams } from './utils.js';
 import { createMarkers } from './markers.js';
 import { renderListItems } from './ui.js';
-import { showCustomBoundary, hideCustomBoundary, fitBoundsToNeighborhoods } from './map.js';
+import { showCustomBoundary, hideCustomBoundary, fitBoundsToNeighborhoods } from './map.js?v=202501';
 
 // Debounce helper for performance
 function debounce(func, wait) {

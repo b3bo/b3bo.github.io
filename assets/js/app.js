@@ -7,7 +7,7 @@
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, toSlug } from './utils.js?v=202501';
-import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods, smoothFlyTo } from './map.js'; // computeOffsetPx needed for single mode
+import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods, smoothFlyTo } from './map.js?v=202501'; // computeOffsetPx needed for single mode
 import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow } from './markers.js';
