@@ -170,6 +170,18 @@ async function initMap() {
                 
                 if (targetMarker) {
                     console.log('Found target marker, triggering click:', targetMarker.neighborhood.name);
+                    
+                    // Auto-select the zip code filter for this neighborhood
+                    const zipCode = targetMarker.neighborhood.zipCode;
+                    if (zipCode) {
+                        console.log('Auto-selecting zip code filter:', zipCode);
+                        const zipTag = document.querySelector(`#areaFilters .amenity-tag[data-zipcode="${zipCode}"]`);
+                        if (zipTag && !zipTag.classList.contains('selected')) {
+                            zipTag.classList.add('selected');
+                            applyFilters(); // This will zoom to the filtered area
+                        }
+                    }
+                    
                     // Trigger click to open info window with animation
                     google.maps.event.trigger(targetMarker.marker, 'click');
                 } else {
