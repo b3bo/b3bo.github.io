@@ -50,6 +50,14 @@ export function initializeMap(center, zoom) {
     STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
     STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
     
+    // Set higher z-index for hover info window when it opens
+    google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
+        const iwOuter = document.querySelector('.gm-style-iw-c');
+        if (iwOuter && STATE.hoverInfoWindow.getMap()) {
+            iwOuter.parentElement.style.zIndex = '9999';
+        }
+    });
+    
     addMarkers();
     
     // Only setup filters if NOT in single mode.
