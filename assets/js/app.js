@@ -145,6 +145,27 @@ async function initMap() {
             }, 500);
         }
 
+        // Auto-open specific marker if specified (shows all neighborhoods but opens one)
+        if (urlParams.marker) {
+            setTimeout(() => {
+                const markerSlug = urlParams.marker.toLowerCase();
+                const propertyType = urlParams.propertyType;
+                
+                // Find matching marker
+                const targetMarker = STATE.markers.find(m => {
+                    const nameMatch = toSlug(m.neighborhood.name) === markerSlug;
+                    if (!propertyType) return nameMatch;
+                    // If propertyType specified, match both name and type
+                    return nameMatch && m.neighborhood.propertyType === propertyType;
+                });
+                
+                if (targetMarker) {
+                    // Trigger click to open info window with animation
+                    google.maps.event.trigger(targetMarker.marker, 'click');
+                }
+            }, 500);
+        }
+
         // Setup UI interactions
         setupUI();
 

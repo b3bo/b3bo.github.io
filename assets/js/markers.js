@@ -260,10 +260,10 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                     
                     if (listingsUrlMap) {
                         if (isSingleMode) {
-                            // Single mode: Link to Community Finder with neighborhood parameter
+                            // Single mode: Link to Community Finder with marker parameter to auto-open this neighborhood
                             const neighborhoodSlug = toSlug(neighborhood.name);
                             const propertyTypeParam = neighborhood.propertyType ? `&propertyType=${encodeURIComponent(neighborhood.propertyType)}` : '';
-                            const finderUrl = `https://neighborhoods.truesouthcoastalhomes.com?neighborhood=${neighborhoodSlug}${propertyTypeParam}&autoOpen=true`;
+                            const finderUrl = `https://neighborhoods.truesouthcoastalhomes.com?marker=${neighborhoodSlug}${propertyTypeParam}`;
                             return `
                             <a href="${finderUrl}" 
                                class="view-listings-btn"
