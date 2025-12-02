@@ -135,23 +135,21 @@ export function initializeMap(center, zoom) {
             
             // Toggle the sidebar drawer on mobile (iOS doesn't support fullscreen API)
             const drawerToggle = document.getElementById('drawer-toggle');
-            if (drawerToggle) {
-                const wasChecked = drawerToggle.checked;
+            const sidebar = document.getElementById('sidebar');
+            
+            if (drawerToggle && sidebar) {
                 drawerToggle.checked = !drawerToggle.checked;
-                console.log('Drawer toggled from', wasChecked, 'to', drawerToggle.checked);
                 
-                // Try triggering change event
-                drawerToggle.dispatchEvent(new Event('change', { bubbles: true }));
-                
-                // Also try clicking the label
-                const label = document.querySelector('label[for="drawer-toggle"]');
-                if (label) {
-                    console.log('Found label, clicking it');
-                    label.click();
+                // Force the sidebar transform directly
+                if (drawerToggle.checked) {
+                    sidebar.style.transform = 'translateX(0)';
+                    console.log('Opening drawer');
+                } else {
+                    sidebar.style.transform = 'translateX(-100%)';
+                    console.log('Closing drawer');
                 }
             } else {
-                console.error('drawer-toggle not found!');
-                alert('drawer-toggle not found!');
+                console.error('drawer-toggle or sidebar not found!');
             }
         }, true);
         
