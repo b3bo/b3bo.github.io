@@ -45,6 +45,21 @@ export const CONFIG = {
             secondary: 'text-neutral-500', // Medium emphasis (Labels, Subtitles)
             tertiary: 'text-neutral-400',  // Low emphasis (Inactive, Placeholders)
             error: 'text-red-600'
+        },
+        background: {
+            sidebar: 'rgb(255, 255, 255)',    // Sidebar/filter panel background
+            card: 'rgb(255, 255, 255)',       // Info window card background (matching sidebar)
+            cardInner: 'bg-white',            // Inner stat boxes
+            primary: 'bg-neutral-100'         // General background
+        },
+        brand: {
+            primary: '#4c8f96',               // Main brand color (buttons, links)
+            primaryHover: '#3a6d73',          // Hover state
+            primaryLight: 'rgba(76, 143, 150, 0.3)'  // Light variant
+        },
+        border: {
+            default: 'border-neutral-300',    // Default borders
+            light: 'border-neutral-200'       // Light borders
         }
     }
 };

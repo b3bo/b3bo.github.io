@@ -197,7 +197,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     }
     
     const content = `
-        <div class="info-window p-3 max-w-sm" style="cursor: pointer;">
+        <div class="info-window p-3 max-w-sm" style="cursor: pointer; background-color: ${CONFIG.colors.background.card};">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <h3 class="text-lg font-semibold ${CONFIG.colors.text.primary}">
                     ${neighborhood.name}
