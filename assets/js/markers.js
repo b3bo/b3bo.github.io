@@ -198,9 +198,23 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     
     const content = `
         <div class="info-window p-3 max-w-sm" style="cursor: pointer;">
-            <h3 class="text-lg font-semibold ${CONFIG.colors.text.primary} mb-2">
-                ${neighborhood.name}
-            </h3>
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <h3 class="text-lg font-semibold ${CONFIG.colors.text.primary}">
+                    ${neighborhood.name}
+                </h3>
+                ${neighborhood.urlSlug ? `
+                <a href="${neighborhood.urlSlug}" 
+                   target="_blank"
+                   class="text-[#4c8f96] hover:text-[#3a6d73] transition-colors"
+                   onclick="event.stopPropagation();"
+                   title="View Neighborhood Page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                </a>
+                ` : ''}
+            </div>
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
