@@ -123,7 +123,11 @@ export function initializeMap(center, zoom) {
             pointer-events: auto;
         `;
         
-        mobileFullscreenBtn.onclick = () => {
+        mobileFullscreenBtn.onclick = (e) => {
+            if (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
             alert('Button clicked!');
             // Toggle the sidebar drawer on mobile (iOS doesn't support fullscreen API)
             const drawerToggle = document.getElementById('drawer-toggle');
@@ -135,6 +139,12 @@ export function initializeMap(center, zoom) {
                 alert('ERROR: drawer-toggle element not found!');
             }
         };
+        
+        mobileFullscreenBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            alert('addEventListener fired!');
+        }, true);
         
         document.body.appendChild(mobileFullscreenBtn);
     }
