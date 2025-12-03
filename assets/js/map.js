@@ -188,8 +188,20 @@ export function initializeMap(center, zoom) {
             e.preventDefault();
 
             if (isIOS) {
-                // iOS: Open full version in new window
-                window.open('https://neighborhoods.truesouthcoastalhomes.com', '_blank');
+                // iOS: Open full version in new window with current community
+                let url = 'https://neighborhoods.truesouthcoastalhomes.com';
+
+                // If there's a current neighborhood, add it as a marker parameter
+                if (window.currentNeighborhood) {
+                    const neighborhoodSlug = toSlug(window.currentNeighborhood.name);
+                    const propertyType = window.currentNeighborhood.propertyType;
+                    url += `?marker=${neighborhoodSlug}`;
+                    if (propertyType) {
+                        url += `&propertyType=${encodeURIComponent(propertyType)}`;
+                    }
+                }
+
+                window.open(url, '_blank');
                 return;
             }
 
