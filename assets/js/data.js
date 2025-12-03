@@ -32,10 +32,8 @@ export async function loadNeighborhoods() {
                 const response = await fetch(file);
                 if (!response.ok) throw new Error(`Failed to load ${file}`);
                 const text = await response.text();
-                // Decode Base64 (handle UTF-8 chars correctly)
-                const jsonStr = new TextDecoder().decode(Uint8Array.from(atob(text), c => c.charCodeAt(0)));
-                // Parse JSON
-                const data = JSON.parse(jsonStr);
+                // Parse JSON directly (no longer base64 encoded)
+                const data = JSON.parse(text);
                 return data.neighborhoods || [];
             } catch (e) {
                 console.error(`Error loading ${file}:`, e);
