@@ -338,6 +338,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         </div>
     `;
 
+    // Ensure clean state by closing first, then set content and open with anchor
+    targetInfoWindow.close();
     targetInfoWindow.setContent(content);
     targetInfoWindow.open({
         map: STATE.map,
