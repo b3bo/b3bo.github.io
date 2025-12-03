@@ -43,7 +43,7 @@ export const CONFIG = {
             { id: 'price-asc', label: 'Price: Low to High', field: 'price', order: 'asc' },
             { id: 'price-desc', label: 'Price: High to Low', field: 'price', order: 'desc' },
             { id: 'listings-desc', label: 'Most Listings', field: 'listingCount', order: 'desc' },
-            { id: 'dom-asc', label: 'Days on Market: Low to High', field: 'avgDom', order: 'asc' }
+            { id: 'dom-asc', label: 'DOM: Low to High', field: 'avgDom', order: 'asc' }
         ]
     },
     // Color Palette (Centralized for easy updates)
