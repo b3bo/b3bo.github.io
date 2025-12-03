@@ -342,12 +342,9 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
 
-    // Open InfoWindow anchored to AdvancedMarkerElement
-    // For Advanced Markers, use the object syntax with anchor property
-    targetInfoWindow.open({
-        map: STATE.map,
-        anchor: marker
-    });
+    // Open InfoWindow with AdvancedMarkerElement using backwards-compatible syntax
+    // This worked originally before the troubleshooting attempts
+    targetInfoWindow.open(STATE.map, marker);
     
     // Add click listener to close info window when clicking the card
     // Only for the primary window, as hover window closes on mouseleave
