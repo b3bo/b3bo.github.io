@@ -31,33 +31,30 @@ export function addMarkers() {
             markerClass += ' no-data';       // neutral-300
         }
         
-        // Create the marker content structure directly
-        const markerContainer = document.createElement('div');
-        markerContainer.className = markerClass;
-        markerContainer.innerHTML = `
-            <div class="ripple"></div>
-            <div class="ripple-icon"></div>
-        `;
-
-        const marker = new google.maps.marker.AdvancedMarkerElement({
+        // NUCLEAR OPTION: Classic Marker with 100% reliable InfoWindow anchoring
+        const marker = new google.maps.Marker({
             position: neighborhood.position,
             map: STATE.map,
             title: neighborhood.name,
-            content: markerContainer
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8,
+                fillColor: hasUrlSlug ? '#4c8f96' : (hasSearchId ? '#4a5462' : '#9ca3af'),
+                fillOpacity: 1,
+                strokeColor: '#ffffff',
+                strokeWeight: 2
+            }
         });
 
         marker.addListener('click', () => {
             toggleMarker(marker, neighborhood);
         });
 
-        // Open on hover (mouseenter) - Secondary Window
-        markerContainer.addEventListener('mouseenter', () => {
-            // Open secondary info window without affecting active state
+        marker.addListener('mouseover', () => {
             showInfoWindow(marker, neighborhood, STATE.hoverInfoWindow);
         });
 
-        // Close on hover out (mouseleave)
-        markerContainer.addEventListener('mouseleave', () => {
+        marker.addListener('mouseout', () => {
             if (STATE.hoverInfoWindow) {
                 STATE.hoverInfoWindow.close();
             }
@@ -86,33 +83,30 @@ export function createMarkers(neighborhoodsToMap) {
             markerClass += ' no-data';       // neutral-300
         }
         
-        // Create the marker content structure directly
-        const markerContainer = document.createElement('div');
-        markerContainer.className = markerClass;
-        markerContainer.innerHTML = `
-            <div class="ripple"></div>
-            <div class="ripple-icon"></div>
-        `;
-
-        const marker = new google.maps.marker.AdvancedMarkerElement({
+        // NUCLEAR OPTION: Classic Marker with 100% reliable InfoWindow anchoring
+        const marker = new google.maps.Marker({
             position: neighborhood.position,
             map: STATE.map,
             title: neighborhood.name,
-            content: markerContainer
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8,
+                fillColor: hasUrlSlug ? '#4c8f96' : (hasSearchId ? '#4a5462' : '#9ca3af'),
+                fillOpacity: 1,
+                strokeColor: '#ffffff',
+                strokeWeight: 2
+            }
         });
 
         marker.addListener('click', () => {
             toggleMarker(marker, neighborhood);
         });
 
-        // Open on hover (mouseenter) - Secondary Window
-        markerContainer.addEventListener('mouseenter', () => {
-            // Open secondary info window without affecting active state
+        marker.addListener('mouseover', () => {
             showInfoWindow(marker, neighborhood, STATE.hoverInfoWindow);
         });
 
-        // Close on hover out (mouseleave)
-        markerContainer.addEventListener('mouseleave', () => {
+        marker.addListener('mouseout', () => {
             if (STATE.hoverInfoWindow) {
                 STATE.hoverInfoWindow.close();
             }
@@ -123,33 +117,17 @@ export function createMarkers(neighborhoodsToMap) {
 }
 
 export function toggleMarker(marker, neighborhood) {
-    // Helper to get ripple element from marker content
-    const getRipple = (m) => m.content.querySelector('.ripple');
-
-    // If clicking the same marker, toggle info window and ripple
+    // If clicking the same marker, toggle info window
     if (STATE.activeMarker === marker) {
         if (STATE.infoWindow && STATE.infoWindow.getMap()) {
             STATE.infoWindow.close();
-            const ripple = getRipple(marker);
-            if (ripple) ripple.classList.remove('active');
             STATE.activeMarker = null;
         } else {
             showInfoWindow(marker, neighborhood);
-            const ripple = getRipple(marker);
-            if (ripple) ripple.classList.add('active');
         }
     } else {
-        // Clicking different marker - deactivate old, activate new
-        if (STATE.activeMarker) {
-            const oldRipple = getRipple(STATE.activeMarker);
-            if (oldRipple) oldRipple.classList.remove('active');
-        }
-        
+        // Clicking different marker - open new info window
         showInfoWindow(marker, neighborhood);
-        
-        const newRipple = getRipple(marker);
-        if (newRipple) newRipple.classList.add('active');
-        
         STATE.activeMarker = marker;
     }
 }
@@ -338,22 +316,10 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         </div>
     `;
 
-    // Close any existing InfoWindow
+    // Classic Marker + InfoWindow - the rock-solid, battle-tested approach
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
-
-    // Critical: Set pixelOffset to 0,0 to prevent InfoWindow drift with AdvancedMarkerElement
-    // Without this, the InfoWindow position can become detached during map panning
-    targetInfoWindow.setOptions({
-        pixelOffset: new google.maps.Size(0, 0)
-    });
-
-    // Open with proper anchor - AdvancedMarkerElement requires object syntax
-    targetInfoWindow.open({
-        map: STATE.map,
-        anchor: marker,
-        shouldFocus: false
-    });
+    targetInfoWindow.open(STATE.map, marker);
     
     // Add click listener to close info window when clicking the card
     // Only for the primary window, as hover window closes on mouseleave
