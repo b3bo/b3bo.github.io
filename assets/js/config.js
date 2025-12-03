@@ -19,8 +19,8 @@ export const CONFIG = {
         batchSize: 20,
         customZipCodes: ['32461', '32541', '32459', '32550', '32413'],
         neighborhoodFiles: [
-            './jsons/7ea1bf14d884d192.json.b64',
-            './jsons/d2ea7fdfc87ff3e7.json.b64'
+            './../../../assets/jsons/7ea1bf14d884d192.json.b64',
+            './../../../assets/jsons/d2ea7fdfc87ff3e7.json.b64'
         ]
     },
     // UI Lists & Ranges
