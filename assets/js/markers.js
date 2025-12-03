@@ -23,10 +23,10 @@ export function addMarkers() {
         const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
         
         let markerClass = 'ripple-marker';
-        if (hasSearchId) {
-            markerClass += ' has-searchid';  // neutral-700 (default)
-        } else if (hasUrlSlug) {
-            markerClass += ' has-urlslug';   // primary-500
+        if (hasUrlSlug) {
+            markerClass += ' has-urlslug';   // primary-500 (takes priority)
+        } else if (hasSearchId) {
+            markerClass += ' has-searchid';  // neutral-700
         } else {
             markerClass += ' no-data';       // neutral-300
         }
@@ -78,10 +78,10 @@ export function createMarkers(neighborhoodsToMap) {
         const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
         
         let markerClass = 'ripple-marker';
-        if (hasSearchId) {
-            markerClass += ' has-searchid';  // neutral-700 (default)
-        } else if (hasUrlSlug) {
-            markerClass += ' has-urlslug';   // primary-500
+        if (hasUrlSlug) {
+            markerClass += ' has-urlslug';   // primary-500 (takes priority)
+        } else if (hasSearchId) {
+            markerClass += ' has-searchid';  // neutral-700
         } else {
             markerClass += ' no-data';       // neutral-300
         }
