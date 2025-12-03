@@ -18,14 +18,14 @@ function createMarkerIcon(color, isActive = false) {
     const svg = `
         <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
             ${isActive ? `
-                <!-- Animated ripple ring -->
-                <circle cx="${size/2}" cy="${size/2}" r="${size/2 - 2}"
+                <!-- Animated ripple - starts from marker edge and pulses outward -->
+                <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
                     fill="none"
                     stroke="${color}"
                     stroke-width="2"
-                    opacity="0.4">
+                    opacity="0.6">
                     <animate attributeName="r"
-                        from="${size/2 - 4}"
+                        from="${dotSize}"
                         to="${size/2 - 2}"
                         dur="1.5s"
                         repeatCount="indefinite"/>
@@ -36,7 +36,7 @@ function createMarkerIcon(color, isActive = false) {
                         repeatCount="indefinite"/>
                 </circle>
             ` : ''}
-            <!-- Outer circle with white stroke -->
+            <!-- Main marker circle with white stroke -->
             <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
                 fill="${color}"
                 stroke="white"
