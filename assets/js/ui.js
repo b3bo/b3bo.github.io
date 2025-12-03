@@ -130,10 +130,9 @@ export function navigateNeighborhood(direction) {
 function setupSortDropdown() {
     const sortButton = document.getElementById('sort-button');
     const sortMenu = document.getElementById('sort-menu');
-    const currentSortLabel = document.getElementById('current-sort-label');
 
-    if (!sortButton || !sortMenu || !currentSortLabel) {
-        console.warn('Sort dropdown elements not found:', { sortButton, sortMenu, currentSortLabel });
+    if (!sortButton || !sortMenu) {
+        console.warn('Sort dropdown elements not found:', { sortButton, sortMenu });
         return;
     }
 
@@ -175,9 +174,6 @@ function setupSortDropdown() {
         if (option) {
             // Update state
             STATE.currentSort = sortId;
-
-            // Update button label
-            currentSortLabel.textContent = option.label;
 
             // Update active state in menu
             sortMenu.querySelectorAll('.sort-option').forEach(opt => {
