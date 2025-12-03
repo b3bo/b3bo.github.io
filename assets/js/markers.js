@@ -40,7 +40,7 @@ export function createMarkerIcon(color, isActive = false) {
             <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
                 fill="${color}"
                 stroke="white"
-                stroke-opacity="0.5"
+                stroke-opacity="0.75"
                 stroke-width="${strokeWidth}"/>
         </svg>
     `;
