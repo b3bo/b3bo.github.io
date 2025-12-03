@@ -342,11 +342,25 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
 
-    // Use marker position for more reliable InfoWindow placement
+    // Position InfoWindow at marker location and track map movements
+    const updateInfoWindowPosition = () => {
+        const markerPosition = marker.position;
+        targetInfoWindow.setPosition(markerPosition);
+    };
+
+    // Open InfoWindow at marker position
+    updateInfoWindowPosition();
     targetInfoWindow.open({
         map: STATE.map,
-        position: marker.position,
         anchor: marker
+    });
+
+    // Track map movements to keep InfoWindow anchored
+    const mapMoveListener = google.maps.event.addListener(STATE.map, 'bounds_changed', updateInfoWindowPosition);
+
+    // Clean up listener when InfoWindow closes
+    google.maps.event.addListener(targetInfoWindow, 'closeclick', () => {
+        google.maps.event.removeListener(mapMoveListener);
     });
     
     // Add click listener to close info window when clicking the card
