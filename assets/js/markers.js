@@ -321,7 +321,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             </div>
             ` : ''}
             
-            <div class="sidebar-divider mb-3"></div>
+            <div class="sidebar-divider mb-4"></div>
             <div class="pt-3 flex items-center gap-2">
                 ${STATE.allFilteredNeighborhoods.length > 1 ? `
                 <button onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full hover:bg-neutral-100 ${CONFIG.colors.text.secondary} transition-colors flex-shrink-0" title="Previous Community">
