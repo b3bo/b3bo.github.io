@@ -165,6 +165,7 @@ function setupSortDropdown() {
 
     // Handle sort option selection
     sortMenu.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
         const sortOption = e.target.closest('.sort-option');
         if (!sortOption) return;
 
