@@ -338,17 +338,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         </div>
     `;
 
-    // Close first to ensure clean state, then reopen
-    targetInfoWindow.close();
     targetInfoWindow.setContent(content);
-    
-    // Use setTimeout to ensure the close operation completes before reopening
-    setTimeout(() => {
-        targetInfoWindow.open({
-            map: STATE.map,
-            anchor: marker
-        });
-    }, 0);
+    targetInfoWindow.open({
+        map: STATE.map,
+        anchor: marker
+    });
     
     // Add click listener to close info window when clicking the card
     // Only for the primary window, as hover window closes on mouseleave
