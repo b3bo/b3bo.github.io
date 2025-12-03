@@ -45,27 +45,24 @@ export function renderListItems(neighborhoodsToRender) {
                 if (STATE.infoWindow && STATE.infoWindow.getMap()) {
                     STATE.infoWindow.close();
                 }
-                // Deactivate current marker ripple
-                if (STATE.activeMarker) {
-                    const ripple = STATE.activeMarker.content.querySelector('.ripple');
-                    if (ripple) ripple.classList.remove('active');
-                    STATE.activeMarker = null;
-                }
-                
+                // Clear active marker
+                STATE.activeMarker = null;
+
+                // Calculate distance to determine animation timing
+                const startPos = STATE.map.getCenter();
+                const targetLatLng = new google.maps.LatLng(neighborhood.position);
+                const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                const isShortHop = distance < 2000;
+
                 // Fly to new location
                 smoothFlyTo(neighborhood.position, 15);
-                
-                // Auto-open: start ripple 1s after flight begins, then open
+
+                // Auto-open after flight completes
                 if (CONFIG.map.autoOpenOnFly) {
-                    // Ripple cue
-                    setTimeout(() => {
-                        const ripple = marker.content.querySelector('.ripple');
-                        if (ripple) ripple.classList.add('active');
-                    }, 1000);
-                    // Open shortly after landing
+                    const delay = isShortHop ? 450 : 2200;
                     setTimeout(() => {
                         google.maps.event.trigger(marker, 'click');
-                    }, 3100); // Wait for 2s animation + extra 1s delay
+                    }, delay);
                 }
                 
                 // On mobile, close drawer to show map
