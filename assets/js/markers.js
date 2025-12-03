@@ -342,26 +342,9 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
 
-    // Position InfoWindow at marker location and track map movements
-    const updateInfoWindowPosition = () => {
-        const markerPosition = marker.position;
-        targetInfoWindow.setPosition(markerPosition);
-    };
-
-    // Open InfoWindow at marker position
-    updateInfoWindowPosition();
-    targetInfoWindow.open({
-        map: STATE.map,
-        anchor: marker
-    });
-
-    // Track map movements to keep InfoWindow anchored
-    const mapMoveListener = google.maps.event.addListener(STATE.map, 'bounds_changed', updateInfoWindowPosition);
-
-    // Clean up listener when InfoWindow closes
-    google.maps.event.addListener(targetInfoWindow, 'closeclick', () => {
-        google.maps.event.removeListener(mapMoveListener);
-    });
+    // Open InfoWindow properly anchored to marker using standard Google Maps API
+    // The second parameter anchors the InfoWindow to the marker
+    targetInfoWindow.open(STATE.map, marker);
     
     // Add click listener to close info window when clicking the card
     // Only for the primary window, as hover window closes on mouseleave
