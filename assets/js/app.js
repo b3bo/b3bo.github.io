@@ -119,8 +119,8 @@ async function initMap() {
                 }
                 
                 const currentZoom = STATE.map.getZoom();
-                // Initial load: pan 50px North (add to offset) to ensure card visibility
-                const offsetPixels = computeOffsetPx(currentZoom) + 50;
+                // Use geometric calculation for precise centering (same as full mode)
+                const offsetPixels = computeOffsetPx(currentZoom);
                 const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
                 STATE.map.setCenter(offsetTarget); // instant center change (no animation)
                 // Open info window directly without ripple animation.
