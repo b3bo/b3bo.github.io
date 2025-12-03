@@ -140,10 +140,11 @@ export function initializeMap(center, zoom) {
         `;
 
         const applyButtonPosition = (isActive) => {
+            // Keep consistent positioning in both states - only change position type and z-index
             if (isActive) {
                 mobileFullscreenBtn.style.position = 'fixed';
-                mobileFullscreenBtn.style.top = '1rem';
-                mobileFullscreenBtn.style.right = '1rem';
+                mobileFullscreenBtn.style.top = '10px';
+                mobileFullscreenBtn.style.right = '10px';
                 mobileFullscreenBtn.style.zIndex = '1100';
                 mobileFullscreenBtn.style.opacity = '0.95';
             } else {
