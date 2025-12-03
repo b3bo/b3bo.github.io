@@ -15,10 +15,12 @@ export function addMarkers() {
 
     STATE.neighborhoods.forEach((neighborhood, index) => {
         // Determine marker color based on searchId and urlSlug
-        const hasSearchId = neighborhood.searchIdHomes || neighborhood.searchIdCondos || 
-                           neighborhood.searchIdTownhomes || neighborhood.searchIdLots || 
-                           neighborhood.searchId;
-        const hasUrlSlug = neighborhood.urlSlug;
+        const hasSearchId = (neighborhood.searchIdHomes && neighborhood.searchIdHomes !== '') || 
+                           (neighborhood.searchIdCondos && neighborhood.searchIdCondos !== '') || 
+                           (neighborhood.searchIdTownhomes && neighborhood.searchIdTownhomes !== '') || 
+                           (neighborhood.searchIdLots && neighborhood.searchIdLots !== '') || 
+                           (neighborhood.searchId && neighborhood.searchId !== '');
+        const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
         
         let markerClass = 'ripple-marker';
         if (hasSearchId) {
@@ -68,10 +70,12 @@ export function addMarkers() {
 export function createMarkers(neighborhoodsToMap) {
     neighborhoodsToMap.forEach(neighborhood => {
         // Determine marker color based on searchId and urlSlug
-        const hasSearchId = neighborhood.searchIdHomes || neighborhood.searchIdCondos || 
-                           neighborhood.searchIdTownhomes || neighborhood.searchIdLots || 
-                           neighborhood.searchId;
-        const hasUrlSlug = neighborhood.urlSlug;
+        const hasSearchId = (neighborhood.searchIdHomes && neighborhood.searchIdHomes !== '') || 
+                           (neighborhood.searchIdCondos && neighborhood.searchIdCondos !== '') || 
+                           (neighborhood.searchIdTownhomes && neighborhood.searchIdTownhomes !== '') || 
+                           (neighborhood.searchIdLots && neighborhood.searchIdLots !== '') || 
+                           (neighborhood.searchId && neighborhood.searchId !== '');
+        const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
         
         let markerClass = 'ripple-marker';
         if (hasSearchId) {
