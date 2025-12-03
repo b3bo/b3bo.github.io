@@ -1,0 +1,114 @@
+/**
+ * Theme Manager - Light/Dark Mode
+ *
+ * Handles theme switching with localStorage persistence
+ * and system preference detection
+ *
+ * Last Updated: December 3, 2025
+ */
+
+export const ThemeManager = {
+  /**
+   * Initialize theme system
+   * - Check localStorage for saved preference
+   * - Fall back to system preference
+   * - Listen for system preference changes
+   */
+  init() {
+    // Check localStorage first, then system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+    // Disable transitions on initial load to prevent flashing
+    document.documentElement.classList.add('no-transitions');
+
+    this.setTheme(theme, false);
+
+    // Re-enable transitions after a brief delay
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.documentElement.classList.remove('no-transitions');
+      }, 100);
+    });
+
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      // Only auto-switch if user hasn't manually set a preference
+      if (!localStorage.getItem('theme')) {
+        this.setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  },
+
+  /**
+   * Set theme (light or dark)
+   * @param {string} theme - 'light' or 'dark'
+   * @param {boolean} persist - Whether to save to localStorage (default: true)
+   */
+  setTheme(theme, persist = true) {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    if (persist) {
+      localStorage.setItem('theme', theme);
+    }
+
+    this.updateToggleButton(theme);
+    this.updateMapTheme(theme);
+  },
+
+  /**
+   * Toggle between light and dark themes
+   */
+  toggle() {
+    const isDark = document.documentElement.classList.contains('dark');
+    this.setTheme(isDark ? 'light' : 'dark');
+  },
+
+  /**
+   * Update theme toggle button icon and aria-label
+   * @param {string} theme - Current theme
+   */
+  updateToggleButton(theme) {
+    const button = document.getElementById('theme-toggle');
+    if (button) {
+      // Show sun when in dark mode (click for light)
+      // Show moon when in light mode (click for dark)
+      button.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      button.setAttribute(
+        'aria-label',
+        `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`
+      );
+    }
+  },
+
+  /**
+   * Update Google Maps theme
+   * @param {string} theme - Current theme
+   */
+  updateMapTheme(theme) {
+    // This will be called from map.js after the map is initialized
+    // Dispatch custom event for map.js to listen to
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
+  },
+
+  /**
+   * Get current theme
+   * @returns {string} 'light' or 'dark'
+   */
+  getCurrentTheme() {
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  },
+};
+
+// Auto-initialize on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => ThemeManager.init());
+} else {
+  ThemeManager.init();
+}
