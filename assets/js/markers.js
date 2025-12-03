@@ -339,10 +339,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             const propertyTypeParam = neighborhood.propertyType ? `&propertyType=${encodeURIComponent(neighborhood.propertyType)}` : '';
                             const finderUrl = `https://neighborhoods.truesouthcoastalhomes.com?marker=${neighborhoodSlug}${propertyTypeParam}`;
                             return `
-                            <a href="${finderUrl}" 
+                            <a href="${finderUrl}"
                                class="view-listings-btn"
                                style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex: 1;"
-                               onclick="event.stopPropagation();">
+                               onclick="event.stopPropagation();"
+                               title="Open ${neighborhood.name} in Community Finder">
                                 Community Finder
                                 <svg style="width: 1rem; height: 1rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -352,17 +353,20 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                         } else {
                             // Normal mode: Link to listings
                             return `
-                            <a href="${listingsUrlMap}" 
-                               target="_blank" 
+                            <a href="${listingsUrlMap}"
+                               target="_blank"
                                class="view-listings-btn flex-1 text-center justify-center"
-                               onclick="event.stopPropagation();">
+                               onclick="event.stopPropagation();"
+                               title="View all ${neighborhood.name} ${neighborhood.propertyType} for sale">
                                 Matching Listings
                             </a>
                             `;
                         }
                     } else {
                         return `
-                        <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center" disabled>
+                        <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center"
+                                disabled
+                                title="MLS listings coming soon for ${neighborhood.name}">
                             Coming Soon!
                         </button>
                         `;
