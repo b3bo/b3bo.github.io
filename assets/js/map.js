@@ -104,6 +104,11 @@ export function initializeMap(center, zoom) {
             <path d="M6 18 18 6M6 6l12 12" />
         </svg>
     `;
+    const popoutIcon = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+    `;
 
     const notifyHostFullscreen = (active) => {
         try {
@@ -118,9 +123,10 @@ export function initializeMap(center, zoom) {
     if (isMobile && mapLayout) {
         const mobileFullscreenBtn = document.createElement('button');
         mobileFullscreenBtn.className = 'mobile-fullscreen-btn';
-        mobileFullscreenBtn.title = 'Toggle fullscreen';
+        // iOS gets popout icon, Android gets fullscreen icon
+        mobileFullscreenBtn.title = isIOS ? 'Open full version' : 'Toggle fullscreen';
         mobileFullscreenBtn.setAttribute('aria-pressed', 'false');
-        mobileFullscreenBtn.innerHTML = fullscreenEnterIcon;
+        mobileFullscreenBtn.innerHTML = isIOS ? popoutIcon : fullscreenEnterIcon;
         mobileFullscreenBtn.style.cssText = `
             position: absolute;
             top: 10px;
@@ -182,11 +188,12 @@ export function initializeMap(center, zoom) {
             e.preventDefault();
 
             if (isIOS) {
-                const willActivate = !document.body.classList.contains('mobile-faux-fullscreen');
-                setFauxFullscreen(willActivate);
+                // iOS: Open full version in new window
+                window.open('https://neighborhoods.truesouthcoastalhomes.com', '_blank');
                 return;
             }
 
+            // Android: Use native fullscreen
             try {
                 if (!document.fullscreenElement) {
                     if (mapLayout.requestFullscreen) {
