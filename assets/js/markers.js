@@ -338,15 +338,17 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         </div>
     `;
 
-    // Fully reset InfoWindow state before opening
+    // Close any existing InfoWindow
     targetInfoWindow.close();
-
-    // Clear any previous anchor by opening with null, then immediately closing
-    // This ensures the InfoWindow is completely detached before re-anchoring
     targetInfoWindow.setContent(content);
 
-    // Use object notation which is the correct method for AdvancedMarkerElement
-    // According to Google Maps docs, AdvancedMarkerElement requires anchor property
+    // Critical: Set pixelOffset to 0,0 to prevent InfoWindow drift with AdvancedMarkerElement
+    // Without this, the InfoWindow position can become detached during map panning
+    targetInfoWindow.setOptions({
+        pixelOffset: new google.maps.Size(0, 0)
+    });
+
+    // Open with proper anchor - AdvancedMarkerElement requires object syntax
     targetInfoWindow.open({
         map: STATE.map,
         anchor: marker,
