@@ -12,7 +12,7 @@ import { smoothFlyTo } from './map.js?v=202501';
 // Professional SVG marker icons with ripple effects
 export function createMarkerIcon(color, isActive = false) {
     const size = isActive ? 44 : 32;
-    const dotSize = isActive ? 12 : 8;
+    const dotSize = isActive ? 10 : 6;
     const strokeWidth = isActive ? 3 : 2;
 
     const svg = `
@@ -291,22 +291,22 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">All Active</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">All Active</div>
                     <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.listingCount}</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Med List Price</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">Med List Price</div>
                     <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${medianPriceDisplay}</div>
                 </div>
             </div>
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Avg $/Sq Ft</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">Avg $/Sq Ft</div>
                     <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">$${pricePerSqFt.toLocaleString()}</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-xs ${CONFIG.colors.text.secondary} mb-0.5">Avg DOM</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">Avg DOM</div>
                     <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.avgDom}</div>
                 </div>
             </div>
