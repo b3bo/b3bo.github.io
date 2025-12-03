@@ -8,6 +8,7 @@ import { STATE } from './state.js';
 import { CONFIG } from './config.js';
 import { formatPrice } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
+import { applyFilters } from './filters.js';
 
 export function renderListItems(neighborhoodsToRender) {
     const listContainer = document.getElementById('neighborhoodList');
@@ -126,7 +127,102 @@ export function navigateNeighborhood(direction) {
     }
 }
 
+function setupSortDropdown() {
+    const sortButton = document.getElementById('sort-button');
+    const sortMenu = document.getElementById('sort-menu');
+    const currentSortLabel = document.getElementById('current-sort-label');
+
+    if (!sortButton || !sortMenu || !currentSortLabel) return;
+
+    // Generate sort options dynamically
+    sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
+        const isActive = STATE.currentSort === option.id;
+        return `
+            <button class="sort-option ${isActive ? 'active' : ''}" data-sort-id="${option.id}"
+                style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem; cursor: pointer;
+                       display: flex; align-items: center; justify-content: space-between;
+                       background-color: ${isActive ? 'rgb(249, 250, 251)' : 'transparent'};
+                       color: ${isActive ? 'rgb(55, 65, 81)' : 'rgb(75, 85, 99)'};
+                       font-weight: ${isActive ? '500' : '400'};">
+                <span>${option.label}</span>
+                ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
+            </button>
+        `;
+    }).join('');
+
+    // Toggle dropdown on button click
+    sortButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sortMenu.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!sortButton.contains(e.target) && !sortMenu.contains(e.target)) {
+            sortMenu.classList.add('hidden');
+        }
+    });
+
+    // Handle sort option selection
+    sortMenu.addEventListener('click', (e) => {
+        const sortOption = e.target.closest('.sort-option');
+        if (!sortOption) return;
+
+        const sortId = sortOption.getAttribute('data-sort-id');
+        const option = CONFIG.ui.sortOptions.find(opt => opt.id === sortId);
+
+        if (option) {
+            // Update state
+            STATE.currentSort = sortId;
+
+            // Update button label
+            currentSortLabel.textContent = option.label;
+
+            // Update active state in menu
+            sortMenu.querySelectorAll('.sort-option').forEach(opt => {
+                const isActive = opt.getAttribute('data-sort-id') === sortId;
+                opt.classList.toggle('active', isActive);
+                opt.style.backgroundColor = isActive ? 'rgb(249, 250, 251)' : 'transparent';
+                opt.style.color = isActive ? 'rgb(55, 65, 81)' : 'rgb(75, 85, 99)';
+                opt.style.fontWeight = isActive ? '500' : '400';
+
+                // Add/remove checkmark
+                const checkmark = opt.querySelector('svg');
+                if (isActive && !checkmark) {
+                    opt.innerHTML += '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+                } else if (!isActive && checkmark) {
+                    checkmark.remove();
+                }
+            });
+
+            // Close dropdown
+            sortMenu.classList.add('hidden');
+
+            // Re-apply filters (which now includes sorting)
+            applyFilters();
+        }
+    });
+
+    // Hover effect for sort options
+    sortMenu.addEventListener('mouseover', (e) => {
+        const sortOption = e.target.closest('.sort-option');
+        if (sortOption && !sortOption.classList.contains('active')) {
+            sortOption.style.backgroundColor = 'rgb(249, 250, 251)';
+        }
+    });
+
+    sortMenu.addEventListener('mouseout', (e) => {
+        const sortOption = e.target.closest('.sort-option');
+        if (sortOption && !sortOption.classList.contains('active')) {
+            sortOption.style.backgroundColor = 'transparent';
+        }
+    });
+}
+
 export function setupUI() {
+    // Setup sort dropdown
+    setupSortDropdown();
+
     // Property type toggle (Homes/Condos) - now handled in filters.js
     // Note: The event listeners for property type buttons are set up in filters.js
 

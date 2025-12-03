@@ -26,16 +26,24 @@ export const CONFIG = {
     // UI Lists & Ranges
     ui: {
         amenities: [
-            'Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis', 
-            'Golf', 'Playgrounds', 'Walking Trails', 'Dog Park', 
+            'Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis',
+            'Golf', 'Playgrounds', 'Walking Trails', 'Dog Park',
             'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'
         ],
         priceSteps: [
-            250000, 300000, 350000, 400000, 450000, 500000, 
+            250000, 300000, 350000, 400000, 450000, 500000,
             550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
             1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
             6000000, 7000000, 8000000, 9000000, 10000000,
             15000000, 20000000, 25000000, 30000000, 35000000
+        ],
+        sortOptions: [
+            { id: 'name-asc', label: 'Name (A-Z)', field: 'name', order: 'asc' },
+            { id: 'name-desc', label: 'Name (Z-A)', field: 'name', order: 'desc' },
+            { id: 'price-asc', label: 'Price: Low to High', field: 'price', order: 'asc' },
+            { id: 'price-desc', label: 'Price: High to Low', field: 'price', order: 'desc' },
+            { id: 'listings-desc', label: 'Most Listings', field: 'listingCount', order: 'desc' },
+            { id: 'dom-asc', label: 'Days on Market: Low to High', field: 'avgDom', order: 'asc' }
         ]
     },
     // Color Palette (Centralized for easy updates)

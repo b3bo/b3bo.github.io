@@ -14,6 +14,7 @@ export const STATE = {
     activeMarker: null,
     customBoundaries: new Set(),
     currentRenderCount: 0,
+    currentSort: 'name-asc',
     filters: {
         bedsMin: 1,
         bathsMin: 1,

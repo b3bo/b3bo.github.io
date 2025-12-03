@@ -22,6 +22,48 @@ function debounce(func, wait) {
 
 const debouncedApplyFilters = debounce(() => applyFilters(), 100);
 
+// Apply sorting to neighborhoods array
+export function applySorting(neighborhoods, sortId) {
+    const sortOption = CONFIG.ui.sortOptions.find(opt => opt.id === sortId);
+    if (!sortOption) return neighborhoods;
+
+    const sorted = [...neighborhoods]; // Don't mutate original
+    const { field, order } = sortOption;
+
+    sorted.sort((a, b) => {
+        let valA, valB;
+
+        // Get comparison values based on field
+        switch(field) {
+            case 'name':
+                valA = a.name;
+                valB = b.name;
+                return order === 'asc'
+                    ? valA.localeCompare(valB)
+                    : valB.localeCompare(valA);
+
+            case 'price':
+                valA = a.stats.medianPrice || a.stats.avgPrice || 0;
+                valB = b.stats.medianPrice || b.stats.avgPrice || 0;
+                break;
+
+            case 'listingCount':
+                valA = a.stats.listingCount || 0;
+                valB = b.stats.listingCount || 0;
+                break;
+
+            case 'avgDom':
+                valA = a.stats.avgDom || 999; // High default for missing data
+                valB = b.stats.avgDom || 999;
+                break;
+        }
+
+        return order === 'asc' ? valA - valB : valB - valA;
+    });
+
+    return sorted;
+}
+
 // Track previous areas to detect changes
 let previousSelectedAreas = new Set();
 
@@ -327,7 +369,10 @@ export function applyFilters() {
         return matchesPropertyType && inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
     });
 
-    STATE.allFilteredNeighborhoods = filteredNeighborhoods; // Update global filtered neighborhoods
+    // Apply sorting
+    const sortedNeighborhoods = applySorting(filteredNeighborhoods, STATE.currentSort);
+
+    STATE.allFilteredNeighborhoods = sortedNeighborhoods; // Update global filtered neighborhoods
     STATE.currentRenderCount = 0; // Reset render count
 
     // Reset UI
@@ -357,19 +402,19 @@ export function applyFilters() {
     if (listContainer) listContainer.innerHTML = '';
 
     // Show all neighborhoods initially
-    if (filteredNeighborhoods.length === 0) {
+    if (sortedNeighborhoods.length === 0) {
         // No results found - show message
         document.getElementById('resultsCount').textContent = 'No communities found matching your criteria.';
     } else {
         // Update URL with new filters
         const newUrl = updateUrlParams({ areas: Array.from(selectedAreas), amenities: Array.from(selectedAmenities) });
         history.replaceState(null, '', newUrl);
-        
+
         // Create markers for ALL filtered neighborhoods
-        createMarkers(filteredNeighborhoods);
+        createMarkers(sortedNeighborhoods);
 
         // Paginate and render list items
-        renderListItems(filteredNeighborhoods.slice(STATE.currentRenderCount, STATE.currentRenderCount + CONFIG.data.batchSize));
+        renderListItems(sortedNeighborhoods.slice(STATE.currentRenderCount, STATE.currentRenderCount + CONFIG.data.batchSize));
         STATE.currentRenderCount += CONFIG.data.batchSize;
     }
 
@@ -384,12 +429,12 @@ export function applyFilters() {
                          ![...selectedAreas].every(area => previousSelectedAreas.has(area));
 
 
-    if (areasChanged && filteredNeighborhoods.length > 0) {
+    if (areasChanged && sortedNeighborhoods.length > 0) {
         // Small delay to ensure markers are rendered, then fit bounds
         setTimeout(() => {
             console.log('Calling fitBoundsToNeighborhoods');
             // Fit bounds with comfortable padding
-            fitBoundsToNeighborhoods(filteredNeighborhoods, 80);
+            fitBoundsToNeighborhoods(sortedNeighborhoods, 80);
 
             // Then ensure minimum zoom level for single-area selections
             if (selectedAreas.size === 1) {
