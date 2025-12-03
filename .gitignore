@@ -29,7 +29,6 @@ assets/css/custom - Copy.css
 **/*.key
 **/.env
 **/.env.local
-**/.env.neighborhoods
 
 # Separate repositories (managed outside this repo)
 .claude/
