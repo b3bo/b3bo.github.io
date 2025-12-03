@@ -246,9 +246,9 @@ export function applyFilters() {
         // Property Type Filter
         let matchesPropertyType = true; // Default to true (show all)
         if (isHomesActive) {
-            matchesPropertyType = neighborhood.propertyType === 'Homes' || neighborhood.propertyType === 'Vacant Land';
+            matchesPropertyType = neighborhood.propertyType === 'Homes' || neighborhood.propertyType === 'Townhomes';
         } else if (isCondosActive) {
-            matchesPropertyType = neighborhood.propertyType === 'Condos' || neighborhood.propertyType === 'Townhomes';
+            matchesPropertyType = neighborhood.propertyType === 'Condos';
         }
 
         // Area Filter
