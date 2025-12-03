@@ -20,7 +20,6 @@ postcss.config.js
 generate-critical.js
 
 # Misc
-/assets/google tags
 assets/css/custom - Copy.css
 
 # Sensitive files
