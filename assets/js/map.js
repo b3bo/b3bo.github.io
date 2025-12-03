@@ -43,9 +43,9 @@ export function initializeMap(center, zoom) {
         }
     });
 
-    // Disable Google Maps default auto-pan when info windows open
-    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
-    STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
+    // Create info windows with auto-pan enabled for proper anchoring
+    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
+    STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
     
     // Set higher z-index for hover info window to appear above clicked info windows
     google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {

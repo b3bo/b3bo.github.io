@@ -342,12 +342,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
 
-    // Use requestAnimationFrame to ensure marker is fully rendered before anchoring
-    requestAnimationFrame(() => {
-        targetInfoWindow.open({
-            map: STATE.map,
-            anchor: marker
-        });
+    // Use marker position for more reliable InfoWindow placement
+    targetInfoWindow.open({
+        map: STATE.map,
+        position: marker.position,
+        anchor: marker
     });
     
     // Add click listener to close info window when clicking the card
