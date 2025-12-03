@@ -64,6 +64,29 @@ export function applySorting(neighborhoods, sortId) {
     return sorted;
 }
 
+// Apply sorting only (without recreating markers) - for when only sort order changes
+export function applySortOnly() {
+    // Sort the current filtered neighborhoods
+    const sortedNeighborhoods = applySorting(STATE.allFilteredNeighborhoods, STATE.currentSort);
+    STATE.allFilteredNeighborhoods = sortedNeighborhoods;
+    STATE.currentRenderCount = 0;
+
+    // Clear and re-render list only
+    const listContainer = document.getElementById('neighborhoodList');
+    if (listContainer) listContainer.innerHTML = '';
+
+    if (sortedNeighborhoods.length > 0) {
+        renderListItems(sortedNeighborhoods.slice(0, CONFIG.data.batchSize));
+        STATE.currentRenderCount = CONFIG.data.batchSize;
+    }
+
+    // Update results count
+    const resultsCount = document.getElementById('resultsCount');
+    if (resultsCount) {
+        resultsCount.textContent = `${STATE.allFilteredNeighborhoods.length} ${STATE.allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found!`;
+    }
+}
+
 // Track previous areas to detect changes
 let previousSelectedAreas = new Set();
 

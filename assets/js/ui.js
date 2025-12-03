@@ -8,7 +8,7 @@ import { STATE } from './state.js';
 import { CONFIG } from './config.js';
 import { formatPrice } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
-import { applyFilters } from './filters.js';
+import { applySortOnly } from './filters.js';
 
 export function renderListItems(neighborhoodsToRender) {
     const listContainer = document.getElementById('neighborhoodList');
@@ -202,8 +202,8 @@ function setupSortDropdown() {
             // Close dropdown
             sortMenu.classList.add('hidden');
 
-            // Re-apply filters (which now includes sorting)
-            applyFilters();
+            // Re-sort and re-render list only (don't recreate markers)
+            applySortOnly();
         }
     });
 }
