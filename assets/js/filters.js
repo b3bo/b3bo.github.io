@@ -383,13 +383,8 @@ export function applyFilters() {
     const areasChanged = selectedAreas.size !== previousSelectedAreas.size ||
                          ![...selectedAreas].every(area => previousSelectedAreas.has(area));
 
-    console.log('Areas changed:', areasChanged);
-    console.log('Selected areas:', Array.from(selectedAreas));
-    console.log('Previous areas:', Array.from(previousSelectedAreas));
-    console.log('Filtered neighborhoods count:', filteredNeighborhoods.length);
 
     if (areasChanged && filteredNeighborhoods.length > 0) {
-        console.log('Triggering auto-pan...');
         // Small delay to ensure markers are rendered, then fit bounds
         setTimeout(() => {
             console.log('Calling fitBoundsToNeighborhoods');

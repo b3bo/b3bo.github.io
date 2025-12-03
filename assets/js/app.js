@@ -18,7 +18,7 @@ window.navigateNeighborhood = navigateNeighborhood;
 
 async function initMap() {
     try {
-        console.log('initMap started, URL params:', window.location.search);
+
         
         // Ensure Google Maps is loaded
         if (typeof google === 'undefined' || !google.maps) {
@@ -36,7 +36,7 @@ async function initMap() {
             const matchingNeighborhoods = STATE.neighborhoods.filter(n => toSlug(n.name) === urlParams.neighborhood);
             let targetNeighborhood;
             
-            console.log('Matching neighborhoods:', matchingNeighborhoods.map(n => ({ name: n.name, propertyType: n.propertyType, stats: n.stats?.listingCount })));
+
             
             if (matchingNeighborhoods.length > 0) {
                 if (urlParams.propertyType) {
@@ -62,7 +62,7 @@ async function initMap() {
                     targetNeighborhood = matchingNeighborhoods.find(n => 
                         n.propertyType && (n.propertyType.toLowerCase() === 'homes' || n.propertyType.toLowerCase() === 'home')
                     ) || matchingNeighborhoods[0]; // Fallback to first if no Homes entry exists
-                    console.log('Selected neighborhood:', { name: targetNeighborhood.name, propertyType: targetNeighborhood.propertyType, stats: targetNeighborhood.stats?.listingCount });
+
                 }
                 
                 // Filter to show only this neighborhood
@@ -148,7 +148,7 @@ async function initMap() {
         }
 
         // Auto-open specific marker if specified (shows all neighborhoods but opens one)
-        console.log('About to check urlParams.marker. Value:', urlParams.marker, 'Full urlParams:', urlParams);
+
         if (urlParams.marker) {
             console.log('Marker parameter detected:', urlParams.marker);
             
@@ -171,20 +171,20 @@ async function initMap() {
                 if (targetMarker) {
                     console.log('Found target marker, triggering click:', targetMarker.neighborhood.name);
                     
-                    // Auto-select the zip code filter for this neighborhood
+                    // Auto-select the zip code filter for this neighborhood (visual only, no filtering)
                     const zipCode = targetMarker.neighborhood.zipCode;
                     if (zipCode) {
                         console.log('Auto-selecting zip code filter:', zipCode);
                         const zipTag = document.querySelector(`#areaFilters .amenity-tag[data-zipcode="${zipCode}"]`);
                         if (zipTag && !zipTag.classList.contains('selected')) {
                             zipTag.classList.add('selected');
-                            applyFilters(); // This will zoom to the filtered area
+                            // Don't call applyFilters() - we want to stay at zoom 13, not auto-zoom to fit bounds
                         }
                     }
                     
-                    // Use smoothFlyTo to center the marker with proper offset for the card
+                    // Use smoothFlyTo to center the marker with zoom 13 (not 15)
                     const markerPos = targetMarker.neighborhood.position;
-                    smoothFlyTo(markerPos, 15);
+                    smoothFlyTo(markerPos, 13);
                     
                     // Trigger click after flight animation starts
                     setTimeout(() => {

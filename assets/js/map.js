@@ -33,15 +33,12 @@ export function initializeMap(center, zoom) {
         clickableIcons: false
     });
 
-    // Log initial zoom level
+    // Track zoom level changes
     let lastZoom = STATE.map.getZoom();
-    console.log('Initial Zoom level:', lastZoom);
 
-    // Only log zoom changes when the map stops moving (idle) to avoid spamming during animation
     STATE.map.addListener('idle', () => {
         const currentZoom = STATE.map.getZoom();
         if (currentZoom !== lastZoom) {
-            console.log('Zoom level changed:', currentZoom);
             lastZoom = currentZoom;
         }
     });
@@ -516,7 +513,7 @@ export function offsetLatLng(latLng, offsetPixels, zoomLevel) {
  * @param {number} padding - Optional padding in pixels (default: 50)
  */
 export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
-    console.log('fitBoundsToNeighborhoods called with', neighborhoods.length, 'neighborhoods, padding:', padding);
+
     if (!neighborhoods || neighborhoods.length === 0) return;
 
     const bounds = new google.maps.LatLngBounds();
