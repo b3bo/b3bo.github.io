@@ -251,17 +251,7 @@
             display: flex;
             align-items: center;
             padding: 1.25rem;
-            border-bottom: 1px solid rgba(208, 213, 220, 0.5);
             flex-shrink: 0;
-        }
-
-        /* Results panel: keep divider inset (not full-bleed) */
-        #results-panel .panel-header {
-            border-bottom: none !important; /* prevent full-width line */
-        }
-        .results-divider {
-            border-top: 1px solid #d0d5dc;
-            margin: 0 1rem; /* inset to align with cards */
         }
         
         .panel-back-btn {
@@ -748,14 +738,14 @@
                         </div>
                     </div>
                     
-                    <div class="mx-8 border-t border-neutral-200"></div>
+                    <div class="sidebar-divider"></div>
 
                     <div class="px-5 py-4">
                         <p id="resultsCount" class="text-sm text-neutral-500 font-medium text-center"></p>
                     </div>
                 </div>
 
-                <div class="mx-8 border-t border-neutral-200"></div>
+                <div class="sidebar-divider"></div>
             </div>
 
             <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
@@ -806,6 +796,7 @@
                             <span>Criteria</span>
                         </button>
                     </div>
+                    <div class="sidebar-divider"></div>
                     <div class="panel-content">
                         <!-- Toggle Buttons -->
                         <div class="flex gap-2 pb-6">
@@ -871,6 +862,7 @@
                             <span>Areas</span>
                         </button>
                     </div>
+                    <div class="sidebar-divider"></div>
                     <div class="panel-content">
                         <div class="flex flex-wrap gap-2" id="areaFilters">
                             <button class="amenity-tag" data-zipcode="32541">Destin</button>
@@ -892,6 +884,7 @@
                             <span>Amenities</span>
                         </button>
                     </div>
+                    <div class="sidebar-divider"></div>
                     <div class="panel-content">
                         <div class="flex flex-wrap gap-2" id="amenityFilters">
                             <!-- Tags will be dynamically generated -->
@@ -919,7 +912,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="results-divider"></div>
+                    <div class="sidebar-divider"></div>
                     <div class="panel-content">
                         <div id="neighborhoodList" class="space-y-4">
                             <!-- List items will be dynamically generated -->
