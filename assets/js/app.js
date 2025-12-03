@@ -70,17 +70,24 @@ async function initMap() {
             }
         }
         
-        // Hide drawer, footer, and disclaimer in single mode
+        // Check if we're in an iframe
+        const isInIframe = window.self !== window.top;
+
+        // Hide drawer, footer in single mode
         if (urlParams.mode === 'single') {
             const drawer = document.getElementById('sidebar');
             const drawerToggle = document.getElementById('drawer-toggle');
             const footer = document.querySelector('.bg-neutral-800');
-            const disclaimer = document.getElementById('map-disclaimer');
             if (drawer) drawer.style.setProperty('display', 'none', 'important');
             if (drawerToggle) drawerToggle.style.display = 'none';
             if (footer) footer.style.display = 'none';
-            if (disclaimer) disclaimer.style.display = 'none';
             document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
+        }
+
+        // Hide disclaimer only if in iframe (regardless of single/full mode)
+        if (isInIframe) {
+            const disclaimer = document.getElementById('map-disclaimer');
+            if (disclaimer) disclaimer.style.display = 'none';
         }
         
         // Determine center and zoom
