@@ -132,7 +132,12 @@ function setupSortDropdown() {
     const sortMenu = document.getElementById('sort-menu');
     const currentSortLabel = document.getElementById('current-sort-label');
 
-    if (!sortButton || !sortMenu || !currentSortLabel) return;
+    if (!sortButton || !sortMenu || !currentSortLabel) {
+        console.warn('Sort dropdown elements not found:', { sortButton, sortMenu, currentSortLabel });
+        return;
+    }
+
+    console.log('Setting up sort dropdown');
 
     // Generate sort options dynamically
     sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
