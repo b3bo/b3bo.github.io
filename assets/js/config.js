@@ -48,10 +48,6 @@ export const CONFIG = {
         },
         background: {
             sidebar: 'rgb(255, 255, 255)',    // Main sidebar background
-        },
-        marker: {
-            dot: '#313842',      // neutral-700 for marker center dot
-            ripple: '#313842'    // neutral-700 for ripple animation
         }
     }
 };

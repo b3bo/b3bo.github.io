@@ -14,9 +14,24 @@ export function addMarkers() {
     STATE.markers = [];
 
     STATE.neighborhoods.forEach((neighborhood, index) => {
+        // Determine marker color based on searchId and urlSlug
+        const hasSearchId = neighborhood.searchIdHomes || neighborhood.searchIdCondos || 
+                           neighborhood.searchIdTownhomes || neighborhood.searchIdLots || 
+                           neighborhood.searchId;
+        const hasUrlSlug = neighborhood.urlSlug;
+        
+        let markerClass = 'ripple-marker';
+        if (hasSearchId) {
+            markerClass += ' has-searchid';  // neutral-700 (default)
+        } else if (hasUrlSlug) {
+            markerClass += ' has-urlslug';   // primary-500
+        } else {
+            markerClass += ' no-data';       // neutral-300
+        }
+        
         // Create the marker content structure directly
         const markerContainer = document.createElement('div');
-        markerContainer.className = 'ripple-marker';
+        markerContainer.className = markerClass;
         markerContainer.innerHTML = `
             <div class="ripple"></div>
             <div class="ripple-icon"></div>
@@ -52,9 +67,24 @@ export function addMarkers() {
 
 export function createMarkers(neighborhoodsToMap) {
     neighborhoodsToMap.forEach(neighborhood => {
+        // Determine marker color based on searchId and urlSlug
+        const hasSearchId = neighborhood.searchIdHomes || neighborhood.searchIdCondos || 
+                           neighborhood.searchIdTownhomes || neighborhood.searchIdLots || 
+                           neighborhood.searchId;
+        const hasUrlSlug = neighborhood.urlSlug;
+        
+        let markerClass = 'ripple-marker';
+        if (hasSearchId) {
+            markerClass += ' has-searchid';  // neutral-700 (default)
+        } else if (hasUrlSlug) {
+            markerClass += ' has-urlslug';   // primary-500
+        } else {
+            markerClass += ' no-data';       // neutral-300
+        }
+        
         // Create the marker content structure directly
         const markerContainer = document.createElement('div');
-        markerContainer.className = 'ripple-marker';
+        markerContainer.className = markerClass;
         markerContainer.innerHTML = `
             <div class="ripple"></div>
             <div class="ripple-icon"></div>
