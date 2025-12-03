@@ -36,5 +36,18 @@
 /* Optional: Scan files for classes */
 @source "./*.html", "./components/**/*.html";
 
+/* Force include missing utilities */
+@layer utilities {
+  .w-64 {
+    width: calc(var(--spacing, 0.25rem) * 64);
+  }
+
+  :where(.space-y-4>:not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing, 0.25rem) * 4) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing, 0.25rem) * 4) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+
 /* Include custom.css */
 @import "./custom.css";
