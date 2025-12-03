@@ -143,12 +143,7 @@ function setupSortDropdown() {
     sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
         const isActive = STATE.currentSort === option.id;
         return `
-            <button class="sort-option ${isActive ? 'active' : ''}" data-sort-id="${option.id}"
-                style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem; cursor: pointer;
-                       display: flex; align-items: center; justify-content: space-between;
-                       background-color: ${isActive ? 'rgb(249, 250, 251)' : 'transparent'};
-                       color: ${isActive ? 'rgb(55, 65, 81)' : 'rgb(75, 85, 99)'};
-                       font-weight: ${isActive ? '500' : '400'};">
+            <button class="sort-option w-full px-4 py-2 text-sm cursor-pointer flex items-center justify-between hover:bg-neutral-50 ${isActive ? 'active bg-neutral-50 text-neutral-800 font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}">
                 <span>${option.label}</span>
                 ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
             </button>
@@ -186,10 +181,14 @@ function setupSortDropdown() {
             // Update active state in menu
             sortMenu.querySelectorAll('.sort-option').forEach(opt => {
                 const isActive = opt.getAttribute('data-sort-id') === sortId;
+
+                // Toggle Tailwind classes
                 opt.classList.toggle('active', isActive);
-                opt.style.backgroundColor = isActive ? 'rgb(249, 250, 251)' : 'transparent';
-                opt.style.color = isActive ? 'rgb(55, 65, 81)' : 'rgb(75, 85, 99)';
-                opt.style.fontWeight = isActive ? '500' : '400';
+                opt.classList.toggle('bg-neutral-50', isActive);
+                opt.classList.toggle('text-neutral-800', isActive);
+                opt.classList.toggle('font-medium', isActive);
+                opt.classList.toggle('text-neutral-600', !isActive);
+                opt.classList.toggle('font-normal', !isActive);
 
                 // Add/remove checkmark
                 const checkmark = opt.querySelector('svg');
@@ -205,21 +204,6 @@ function setupSortDropdown() {
 
             // Re-apply filters (which now includes sorting)
             applyFilters();
-        }
-    });
-
-    // Hover effect for sort options
-    sortMenu.addEventListener('mouseover', (e) => {
-        const sortOption = e.target.closest('.sort-option');
-        if (sortOption && !sortOption.classList.contains('active')) {
-            sortOption.style.backgroundColor = 'rgb(249, 250, 251)';
-        }
-    });
-
-    sortMenu.addEventListener('mouseout', (e) => {
-        const sortOption = e.target.closest('.sort-option');
-        if (sortOption && !sortOption.classList.contains('active')) {
-            sortOption.style.backgroundColor = 'transparent';
         }
     });
 }
