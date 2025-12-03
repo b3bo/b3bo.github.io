@@ -338,13 +338,20 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         </div>
     `;
 
-    // Ensure clean state by closing first, then set content and open with anchor
+    // Fully reset InfoWindow state before opening
     targetInfoWindow.close();
+
+    // Clear any previous anchor by opening with null, then immediately closing
+    // This ensures the InfoWindow is completely detached before re-anchoring
     targetInfoWindow.setContent(content);
 
-    // Open InfoWindow with AdvancedMarkerElement using backwards-compatible syntax
-    // This worked originally before the troubleshooting attempts
-    targetInfoWindow.open(STATE.map, marker);
+    // Use object notation which is the correct method for AdvancedMarkerElement
+    // According to Google Maps docs, AdvancedMarkerElement requires anchor property
+    targetInfoWindow.open({
+        map: STATE.map,
+        anchor: marker,
+        shouldFocus: false
+    });
     
     // Add click listener to close info window when clicking the card
     // Only for the primary window, as hover window closes on mouseleave
