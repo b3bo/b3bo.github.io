@@ -16,7 +16,7 @@ export function addMarkers() {
     STATE.neighborhoods.forEach((neighborhood, index) => {
         // Create the marker content structure directly
         const markerContainer = document.createElement('div');
-        const hasSearchId = neighborhood.listingsUrlMap && neighborhood.listingsUrlMap.trim() !== '';
+        const hasSearchId = neighborhood.searchIdHomes || neighborhood.searchIdCondos || neighborhood.searchIdTownhomes || neighborhood.searchIdLots || neighborhood.searchId;
         markerContainer.className = `ripple-marker ${hasSearchId ? 'has-search-id' : 'no-search-id'}`;
         markerContainer.innerHTML = `
             <div class="ripple"></div>
