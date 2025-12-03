@@ -291,23 +291,23 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">All Active</div>
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.listingCount}</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">${neighborhood.stats.listingCount}</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">All Active</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">Med List Price</div>
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${medianPriceDisplay}</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">${medianPriceDisplay}</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">Med List Price</div>
                 </div>
             </div>
             
             <div class="grid grid-cols-2 gap-2 mb-2">
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">Avg $/Sq Ft</div>
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">$${pricePerSqFt.toLocaleString()}</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">Avg $/Sq Ft</div>
                 </div>
                 <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary} mb-0.5">Avg DOM</div>
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary}">${neighborhood.stats.avgDom}</div>
+                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">${neighborhood.stats.avgDom}</div>
+                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">Avg DOM</div>
                 </div>
             </div>
             
