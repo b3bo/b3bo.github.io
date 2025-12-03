@@ -9,6 +9,55 @@ import { CONFIG } from './config.js';
 import { formatPrice, getUrlParams, toSlug } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
 
+// Professional SVG marker icons with ripple effects
+function createMarkerIcon(color, isActive = false) {
+    const size = isActive ? 44 : 32;
+    const dotSize = isActive ? 12 : 10;
+    const strokeWidth = isActive ? 3 : 2;
+
+    const svg = `
+        <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+            ${isActive ? `
+                <!-- Animated ripple ring -->
+                <circle cx="${size/2}" cy="${size/2}" r="${size/2 - 2}"
+                    fill="none"
+                    stroke="${color}"
+                    stroke-width="2"
+                    opacity="0.4">
+                    <animate attributeName="r"
+                        from="${size/2 - 4}"
+                        to="${size/2 - 2}"
+                        dur="1.5s"
+                        repeatCount="indefinite"/>
+                    <animate attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        repeatCount="indefinite"/>
+                </circle>
+            ` : ''}
+            <!-- Outer circle with white stroke -->
+            <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
+                fill="${color}"
+                stroke="white"
+                stroke-width="${strokeWidth}"/>
+        </svg>
+    `;
+
+    return {
+        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+        scaledSize: new google.maps.Size(size, size),
+        anchor: new google.maps.Point(size/2, size/2)
+    };
+}
+
+// Marker color palette
+const MARKER_COLORS = {
+    urlSlug: '#4c8f96',    // Teal - has URL slug (primary)
+    searchId: '#4a5462',   // Dark gray - has search ID
+    noData: '#9ca3af'      // Light gray - no data
+};
+
 export function addMarkers() {
     STATE.markers.forEach(m => m.marker.setMap(null));
     STATE.markers = [];
@@ -31,20 +80,21 @@ export function addMarkers() {
             markerClass += ' no-data';       // neutral-300
         }
         
-        // NUCLEAR OPTION: Classic Marker with 100% reliable InfoWindow anchoring
+        // Determine marker color based on data availability
+        const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
+                           (hasSearchId ? MARKER_COLORS.searchId : MARKER_COLORS.noData);
+
+        // Create marker with professional SVG icon
         const marker = new google.maps.Marker({
             position: neighborhood.position,
             map: STATE.map,
             title: neighborhood.name,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 8,
-                fillColor: hasUrlSlug ? '#4c8f96' : (hasSearchId ? '#4a5462' : '#9ca3af'),
-                fillOpacity: 1,
-                strokeColor: '#ffffff',
-                strokeWeight: 2
-            }
+            icon: createMarkerIcon(markerColor, false),
+            optimized: false // Required for SVG animations
         });
+
+        // Store marker color for later use
+        marker.markerColor = markerColor;
 
         marker.addListener('click', () => {
             toggleMarker(marker, neighborhood);
@@ -83,20 +133,21 @@ export function createMarkers(neighborhoodsToMap) {
             markerClass += ' no-data';       // neutral-300
         }
         
-        // NUCLEAR OPTION: Classic Marker with 100% reliable InfoWindow anchoring
+        // Determine marker color based on data availability
+        const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
+                           (hasSearchId ? MARKER_COLORS.searchId : MARKER_COLORS.noData);
+
+        // Create marker with professional SVG icon
         const marker = new google.maps.Marker({
             position: neighborhood.position,
             map: STATE.map,
             title: neighborhood.name,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                scale: 8,
-                fillColor: hasUrlSlug ? '#4c8f96' : (hasSearchId ? '#4a5462' : '#9ca3af'),
-                fillOpacity: 1,
-                strokeColor: '#ffffff',
-                strokeWeight: 2
-            }
+            icon: createMarkerIcon(markerColor, false),
+            optimized: false // Required for SVG animations
         });
+
+        // Store marker color for later use
+        marker.markerColor = markerColor;
 
         marker.addListener('click', () => {
             toggleMarker(marker, neighborhood);
@@ -121,13 +172,23 @@ export function toggleMarker(marker, neighborhood) {
     if (STATE.activeMarker === marker) {
         if (STATE.infoWindow && STATE.infoWindow.getMap()) {
             STATE.infoWindow.close();
+            // Deactivate ripple
+            marker.setIcon(createMarkerIcon(marker.markerColor, false));
             STATE.activeMarker = null;
         } else {
             showInfoWindow(marker, neighborhood);
+            // Activate ripple
+            marker.setIcon(createMarkerIcon(marker.markerColor, true));
         }
     } else {
-        // Clicking different marker - open new info window
+        // Deactivate previous marker ripple
+        if (STATE.activeMarker) {
+            STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
+        }
+
+        // Clicking different marker - open new info window with ripple
         showInfoWindow(marker, neighborhood);
+        marker.setIcon(createMarkerIcon(marker.markerColor, true));
         STATE.activeMarker = marker;
     }
 }
@@ -331,15 +392,21 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                     // Don't close if clicking the link or buttons
                     if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
                         STATE.infoWindow.close();
+                        if (STATE.activeMarker) {
+                            STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
+                        }
                         STATE.activeMarker = null;
                     }
                 });
             }
         });
         
-        // Listen for info window close to clear active marker
+        // Listen for info window close to deactivate ripple and clear active marker
         google.maps.event.clearListeners(STATE.infoWindow, 'closeclick');
         STATE.infoWindow.addListener('closeclick', () => {
+            if (STATE.activeMarker) {
+                STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
+            }
             STATE.activeMarker = null;
         });
     }

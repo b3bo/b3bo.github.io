@@ -94,12 +94,14 @@ export function navigateNeighborhood(direction) {
     if (markerObj) {
         const marker = markerObj.marker;
         
-        // Close current info window
+        // Close current info window and deactivate ripple
         if (STATE.infoWindow && STATE.infoWindow.getMap()) {
             STATE.infoWindow.close();
         }
-        // Clear active marker
-        STATE.activeMarker = null;
+        if (STATE.activeMarker) {
+            // Import createMarkerIcon is not available here, so we'll let the click handler manage it
+            STATE.activeMarker = null;
+        }
 
         // Calculate distance to determine animation timing
         const startPos = STATE.map.getCenter();
