@@ -342,9 +342,12 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
 
-    // Open InfoWindow properly anchored to marker using standard Google Maps API
-    // The second parameter anchors the InfoWindow to the marker
-    targetInfoWindow.open(STATE.map, marker);
+    // Open InfoWindow anchored to AdvancedMarkerElement
+    // For Advanced Markers, use the object syntax with anchor property
+    targetInfoWindow.open({
+        map: STATE.map,
+        anchor: marker
+    });
     
     // Add click listener to close info window when clicking the card
     // Only for the primary window, as hover window closes on mouseleave

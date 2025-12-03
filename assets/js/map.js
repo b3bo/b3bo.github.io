@@ -43,9 +43,9 @@ export function initializeMap(center, zoom) {
         }
     });
 
-    // Create info windows with auto-pan enabled for proper anchoring
-    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
-    STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
+    // Create info windows with auto-pan disabled for AdvancedMarkerElement compatibility
+    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
+    STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
     
     // Set higher z-index for hover info window to appear above clicked info windows
     google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
