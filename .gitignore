@@ -21,6 +21,7 @@ generate-critical.js
 
 # Misc
 assets/css/custom - Copy.css
+assets/css/archive/
 
 # Sensitive files
 **/service_account.json
