@@ -101,12 +101,8 @@ export function navigateNeighborhood(direction) {
         if (STATE.infoWindow && STATE.infoWindow.getMap()) {
             STATE.infoWindow.close();
         }
-        // Deactivate current marker ripple
-        if (STATE.activeMarker) {
-            const ripple = STATE.activeMarker.content.querySelector('.ripple');
-            if (ripple) ripple.classList.remove('active');
-            STATE.activeMarker = null;
-        }
+        // Clear active marker
+        STATE.activeMarker = null;
 
         // Calculate distance to determine animation timing
         const startPos = STATE.map.getCenter();
@@ -116,25 +112,14 @@ export function navigateNeighborhood(direction) {
 
         // Fly to new location
         smoothFlyTo(nextNeighborhood.position, 15);
-        
+
         if (isShortHop) {
-            // Short hop: fast animation
-            setTimeout(() => {
-                const ripple = marker.content.querySelector('.ripple');
-                if (ripple) ripple.classList.add('active');
-            }, 100);
-            
+            // Short hop: fast animation - trigger click after brief delay
             setTimeout(() => {
                 google.maps.event.trigger(marker, 'click');
             }, 450);
         } else {
-            // Long flight: 2s animation
-            // Ripple cue
-            setTimeout(() => {
-                const ripple = marker.content.querySelector('.ripple');
-                if (ripple) ripple.classList.add('active');
-            }, 1000);
-            // Open shortly after landing
+            // Long flight: 2s animation - trigger click after flight completes
             setTimeout(() => {
                 google.maps.event.trigger(marker, 'click');
             }, 2200);

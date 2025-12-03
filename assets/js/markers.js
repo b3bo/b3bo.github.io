@@ -331,23 +331,15 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                     // Don't close if clicking the link or buttons
                     if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
                         STATE.infoWindow.close();
-                        if (STATE.activeMarker) {
-                            const ripple = STATE.activeMarker.content.querySelector('.ripple');
-                            if (ripple) ripple.classList.remove('active');
-                        }
                         STATE.activeMarker = null;
                     }
                 });
             }
         });
         
-        // Listen for info window close to deactivate ripple
+        // Listen for info window close to clear active marker
         google.maps.event.clearListeners(STATE.infoWindow, 'closeclick');
         STATE.infoWindow.addListener('closeclick', () => {
-            if (STATE.activeMarker) {
-                const ripple = STATE.activeMarker.content.querySelector('.ripple');
-                if (ripple) ripple.classList.remove('active');
-            }
             STATE.activeMarker = null;
         });
     }
