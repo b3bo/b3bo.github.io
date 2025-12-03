@@ -10,7 +10,7 @@ import { getUrlParams, toSlug } from './utils.js?v=202501';
 import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods, smoothFlyTo } from './map.js?v=202501'; // computeOffsetPx needed for single mode
 import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
-import { showInfoWindow } from './markers.js';
+import { showInfoWindow, createMarkerIcon } from './markers.js';
 import { setupFilters, applyFilters } from './filters.js'; // Import setupFilters here
 
 // Expose global functions needed by HTML
@@ -123,10 +123,18 @@ async function initMap() {
                 const offsetPixels = computeOffsetPx(currentZoom);
                 const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
                 STATE.map.setCenter(offsetTarget); // instant center change (no animation)
-                // Open info window directly without ripple animation.
+                // Open info window with active ripple in single mode
                 if (STATE.markers.length > 0) {
                     const first = STATE.markers[0];
-                    showInfoWindow(first.marker, first.neighborhood);
+                    const marker = first.marker;
+                    const neighborhood = first.neighborhood;
+
+                    // Activate ripple
+                    marker.setIcon(createMarkerIcon(marker.markerColor, true));
+                    STATE.activeMarker = marker;
+
+                    // Show info window
+                    showInfoWindow(marker, neighborhood);
                 }
             });
         }

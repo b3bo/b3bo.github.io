@@ -10,7 +10,7 @@ import { formatPrice, getUrlParams, toSlug } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
 
 // Professional SVG marker icons with ripple effects
-function createMarkerIcon(color, isActive = false) {
+export function createMarkerIcon(color, isActive = false) {
     const size = isActive ? 44 : 32;
     const dotSize = isActive ? 12 : 8;
     const strokeWidth = isActive ? 3 : 2;
