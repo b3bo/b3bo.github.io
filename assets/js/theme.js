@@ -79,11 +79,21 @@ export const ThemeManager = {
    * @param {string} theme - Current theme
    */
   updateToggleButton(theme) {
+    const lightIcon = document.querySelector('.theme-icon-light');
+    const darkIcon = document.querySelector('.theme-icon-dark');
+
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+
     const button = document.getElementById('theme-toggle');
     if (button) {
-      // Show sun when in dark mode (click for light)
-      // Show moon when in light mode (click for dark)
-      button.innerHTML = theme === 'dark' ? '☀️' : '🌙';
       button.setAttribute(
         'aria-label',
         `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`

@@ -371,24 +371,19 @@
                             <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
                             <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
                         </div>
-                        <button id="theme-toggle"
-                                class="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors text-2xl shrink-0"
-                                aria-label="Toggle theme">
-                            🌙
-                        </button>
                     </div>
-                    
-                    <div class="p-5">
-                        <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
+
+                    <div class="px-5">
+                        <div class="border-t border-neutral-200 dark:border-dark-border"></div>
                         <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4"></p>
-                        <div class="border-t border-neutral-200 dark:border-dark-border mx-4 mb-3"></div>
+                        <div class="border-t border-neutral-200 dark:border-dark-border"></div>
                     </div>
                 </div>
             </div>
 
             <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
                 <!-- Main Menu -->
-                <div id="main-menu" class="py-5 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
+                <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
                     <div class="space-y-2">
                         <!-- Criteria Menu Item -->
                         <div class="flex items-center justify-between px-5 py-4 cursor-pointer transition-colors rounded-lg my-1 hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item" data-panel="property">
@@ -421,6 +416,19 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </div>
+
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="flex items-center justify-between w-full px-5 py-4 cursor-pointer transition-colors rounded-lg my-1 hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            </div>
+                        </button>
                     </div>
                 </div>
 
@@ -533,27 +541,27 @@
 
                 <!-- Results Panel -->
                 <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
-                    <div class="panel-header justify-between">
+                    <div class="flex items-center justify-between pt-8 px-5 pb-4 flex-shrink-0">
                         <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="results">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <span>Results</span>
                         </button>
-                        <div class="sort-dropdown-container relative mr-2">
-                            <button id="sort-button" class="sort-button flex items-center justify-center p-2 rounded-lg border border-neutral-300 bg-white hover:bg-neutral-50 transition-colors">
+                        <div class="sort-dropdown-container relative">
+                            <button id="sort-button" class="sort-button flex items-center justify-center p-2 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-neutral-50 dark:hover:bg-dark-bg-elevated-2 transition-colors">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                                 </svg>
                             </button>
-                            <div id="sort-menu" class="sort-menu hidden absolute top-full right-0 mt-2 w-50 bg-white rounded-lg shadow-lg border border-neutral-200 py-1 z-50">
+                            <div id="sort-menu" class="sort-menu hidden absolute top-full right-0 mt-2 w-50 bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border py-1 z-50">
                                 <!-- Options dynamically generated by ui.js -->
                             </div>
                         </div>
                     </div>
                     <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
                     <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 overscroll-contain -webkit-overflow-scrolling-touch panel-content">
-                        <div id="neighborhoodList" class="space-y-4">
+                        <div id="neighborhoodList" class="space-y-3">
                             <!-- List items will be dynamically generated -->
                         </div>
                     </div>
