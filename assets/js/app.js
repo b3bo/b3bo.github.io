@@ -227,17 +227,31 @@ async function initMap() {
         // Setup UI interactions
         setupUI();
 
-        // Setup Property Type Buttons (moved from ui.js to here/filters.js logic)
-        // Actually, let's add the listener here to call applyFilters
+        // Setup Property Type Buttons
+        const activeClasses = ['bg-brand-500', 'text-white', 'border-brand-500', 'hover:bg-brand-600', 'active:bg-brand-700', 'dark:bg-brand-dark', 'dark:text-white', 'dark:border-brand-dark', 'dark:hover:bg-brand-dark-hover'];
+        const inactiveClasses = ['bg-white', 'text-neutral-700', 'border-neutral-300', 'hover:bg-brand-100', 'hover:text-brand-700', 'active:bg-brand-200', 'dark:bg-dark-bg-elevated-2', 'dark:text-dark-text-primary', 'dark:border-dark-border', 'dark:hover:bg-brand-dark/20', 'dark:hover:text-brand-dark', 'dark:active:bg-brand-dark/30'];
+
+        const updateButtonState = (btn, isActive) => {
+            if (isActive) {
+                btn.classList.remove(...inactiveClasses);
+                btn.classList.add(...activeClasses);
+            } else {
+                btn.classList.remove(...activeClasses);
+                btn.classList.add(...inactiveClasses);
+            }
+        };
+
         document.querySelectorAll('.property-type-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 // Remove active state from all buttons
                 document.querySelectorAll('.property-type-btn').forEach(b => {
                     b.classList.remove('active');
+                    updateButtonState(b, false);
                 });
                 
                 // Add active state to clicked button
                 this.classList.add('active');
+                updateButtonState(this, true);
                 
                 // Apply filters
                 applyFilters();
