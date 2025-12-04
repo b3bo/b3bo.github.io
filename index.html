@@ -736,21 +736,43 @@
     <script type="module">
         import { CONFIG } from './assets/js/config.js';
 
-        // Apply panel slide duration from config to internal sliding panels
-        document.querySelectorAll('.sliding-panel').forEach(panel => {
-            panel.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
-        });
+        function applyAnimationConfig() {
+            console.log('Applying animation duration:', CONFIG.animations.panelSlideDuration + 'ms');
 
-        // Apply same duration to main sidebar drawer
-        const sidebar = document.getElementById('sidebar');
-        if (sidebar) {
-            sidebar.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
+            // Apply panel slide duration from config to internal sliding panels
+            // Must set full transition property to target transform, not just generic transitionDuration
+            const panels = document.querySelectorAll('.sliding-panel');
+            console.log('Found sliding panels:', panels.length);
+            panels.forEach(panel => {
+                panel.style.transition = `transform ${CONFIG.animations.panelSlideDuration}ms ${CONFIG.animations.panelSlideEasing}`;
+                console.log('Applied transform transition to panel:', panel.id);
+            });
+
+            // Apply same duration to main sidebar drawer (uses translate)
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar) {
+                sidebar.style.transition = `transform ${CONFIG.animations.panelSlideDuration}ms ${CONFIG.animations.panelSlideEasing}`;
+                console.log('Applied transform transition to sidebar');
+            } else {
+                console.log('Sidebar not found');
+            }
+
+            // Apply backdrop fade duration to match (uses opacity)
+            const backdrop = document.querySelector('label[for="drawer-toggle"].fixed');
+            if (backdrop) {
+                backdrop.style.transition = `opacity ${CONFIG.animations.panelSlideDuration}ms ${CONFIG.animations.panelSlideEasing}`;
+                console.log('Applied opacity transition to backdrop');
+            } else {
+                console.log('Backdrop not found');
+            }
         }
 
-        // Apply backdrop fade duration to match
-        const backdrop = document.querySelector('label[for="drawer-toggle"].fixed');
-        if (backdrop) {
-            backdrop.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
+        // Apply immediately
+        applyAnimationConfig();
+
+        // Also apply after DOM is fully loaded (in case elements weren't ready)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyAnimationConfig);
         }
     </script>
 
