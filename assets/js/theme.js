@@ -13,9 +13,33 @@ export const ThemeManager = {
    * - Check localStorage for saved preference
    * - Fall back to system preference
    * - Listen for system preference changes
+   * - Force light mode in single mode (embedded view)
    */
   init() {
-    // Check localStorage first, then system preference
+    // Check if in single mode (embedded view)
+    const urlParams = new URLSearchParams(window.location.search);
+    const isSingleMode = urlParams.get('mode') === 'single';
+
+    // Force light mode in single mode
+    if (isSingleMode) {
+      const theme = 'light';
+
+      // Disable transitions on initial load to prevent flashing
+      document.documentElement.classList.add('no-transitions');
+
+      this.setTheme(theme, false);
+
+      // Re-enable transitions after a brief delay
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          document.documentElement.classList.remove('no-transitions');
+        }, 100);
+      });
+
+      return; // Exit early, no need to check localStorage or system preference
+    }
+
+    // Normal mode: Check localStorage first, then system preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
