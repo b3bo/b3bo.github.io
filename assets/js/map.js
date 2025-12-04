@@ -117,7 +117,8 @@ export function initializeMap(center, zoom) {
     STATE.map = new google.maps.Map(document.getElementById('map'), {
         zoom: zoom,
         center: center,
-        mapId: CONFIG.map.mapId,
+        // Don't use mapId - we need custom styles for dark mode
+        // mapId: CONFIG.map.mapId,
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
