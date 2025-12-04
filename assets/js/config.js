@@ -93,7 +93,7 @@ export const CONFIG = {
     animations: {
         // Sliding panel transition speed (ms)
         // Used for Criteria, Areas, Amenities, Results panels
-        panelSlideDuration: 1500,
+        panelSlideDuration: 3000,
 
         // Panel transition timing function
         panelSlideEasing: 'ease-out'
