@@ -1,10 +1,50 @@
 # Neighborhood Finder Style Guide
 
-**For AI Agents Working on This Project**
+**For AI Agents/LLMs Working on This Project**
 
 This guide explains the design system, spacing conventions, and styling rules for the Neighborhood Finder application.
 
-Never change a line of code unless explicitly requested to.
+---
+
+## Before You Start
+
+**REQUIRED READING:**
+
+1. **Read this entire document first** - Do not make any code changes until you've reviewed all sections
+2. **Read `TAILWIND_BUILD.md`** - Understand the build system and folder structure
+3. **Only modify code when explicitly requested** - Never make changes proactively
+
+**After reading, follow these steps for ANY code modification:**
+
+### Step 1: Understand the Request
+- Read the user's request carefully
+- Identify which files need changes
+- Determine if changes affect HTML, CSS, or JavaScript
+
+### Step 2: Read Existing Code
+- **ALWAYS use the Read tool** to examine files before editing
+- Understand the current structure and patterns
+- Look for similar existing components to match
+
+### Step 3: Plan Your Changes
+- Identify which Tailwind classes to use (refer to Component Patterns section)
+- Ensure ALL color classes have `dark:` variants
+- Verify spacing follows 8px base unit (use `space-y-*`, `px-*`, `py-*`)
+- Check that no inline styles or hard-coded colors will be introduced
+
+### Step 4: Make Changes
+- Use Edit tool with exact string matching
+- Follow existing code style and indentation
+- Add dark mode variants to ALL background, text, and border classes
+- Test that changes match the design patterns in this guide
+
+### Step 5: Build & Test
+- Run `npm run build:neighborhoods` to compile Tailwind CSS
+- Test in both light and dark modes
+- Verify responsive behavior at mobile (375px) and desktop (1920px) widths
+- Check hover states and interactive elements
+
+**IMPORTANT:** If you're unsure about any change, ask the user for clarification before proceeding.
 
 ---
 
