@@ -1,35 +1,73 @@
 /**
  * @file config.js
  * @description Configuration settings for the Community Finder Map.
+ *
+ * This file contains all configurable settings for the application including:
+ * - Map initialization and behavior
+ * - Data loading and pagination
+ * - UI options (filters, sorting, amenities)
+ * - Animation speeds and transitions
+ * - Color palette references
+ *
+ * To customize the application, modify values in this file rather than
+ * hard-coding them throughout the codebase.
+ *
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  * @author John Bauman
  */
 export const CONFIG = {
-    // Map Settings
+    // ===================================================================
+    // MAP SETTINGS
+    // ===================================================================
     map: {
+        // Default map center coordinates (Emerald Coast)
         defaultCenter: { lat: 30.294396274692907, lng: -86.01317525044458 },
+
+        // Default zoom level for map view
         defaultZoom: 12,
+
+        // Zoom level when displaying single neighborhood
         singleNeighborhoodZoom: 13,
+
+        // Duration (ms) for map camera fly-to animation
         flyToDuration: 2000,
+
+        // Auto-open info window after flying to location
         autoOpenOnFly: true,
+
+        // Google Maps Cloud mapId for styling
         mapId: '92b2f4ea8b2fce54a50ed2e9'
     },
-    // Data Settings
+
+    // ===================================================================
+    // DATA SETTINGS
+    // ===================================================================
     data: {
+        // Number of neighborhood cards to render per batch (infinite scroll)
         batchSize: 20,
+
+        // Custom zip codes for area filtering
         customZipCodes: ['32461', '32541', '32459', '32550', '32413'],
+
+        // Paths to neighborhood JSON data files (base64 encoded)
         neighborhoodFiles: [
             './../../../assets/jsons/7ea1bf14d884d192.json.b64',
             './../../../assets/jsons/d2ea7fdfc87ff3e7.json.b64'
         ]
     },
-    // UI Lists & Ranges
+
+    // ===================================================================
+    // UI LISTS & RANGES
+    // ===================================================================
     ui: {
+        // Available amenities for filtering
         amenities: [
             'Pool', 'Beach Access', 'Fitness', 'Pickleball', 'Tennis',
             'Golf', 'Playgrounds', 'Walking Trails', 'Dog Park',
             'Gated', 'Waterfront', 'Short-Term', 'No Short-Term'
         ],
+
+        // Price range steps for slider (in dollars)
         priceSteps: [
             250000, 300000, 350000, 400000, 450000, 500000,
             550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
@@ -37,6 +75,8 @@ export const CONFIG = {
             6000000, 7000000, 8000000, 9000000, 10000000,
             15000000, 20000000, 25000000, 30000000, 35000000
         ],
+
+        // Sort options for results list
         sortOptions: [
             { id: 'name-asc', label: 'Name (A-Z)', field: 'name', order: 'asc' },
             { id: 'name-desc', label: 'Name (Z-A)', field: 'name', order: 'desc' },
@@ -45,6 +85,18 @@ export const CONFIG = {
             { id: 'listings-desc', label: 'Most Listings', field: 'listingCount', order: 'desc' },
             { id: 'dom-asc', label: 'DOM: Low to High', field: 'avgDom', order: 'asc' }
         ]
+    },
+
+    // ===================================================================
+    // ANIMATION & TRANSITIONS
+    // ===================================================================
+    animations: {
+        // Sliding panel transition speed (ms)
+        // Used for Criteria, Areas, Amenities, Results panels
+        panelSlideDuration: 1000,
+
+        // Panel transition timing function
+        panelSlideEasing: 'ease-out'
     },
     // Color Palette (Centralized for easy updates)
     colors: {
