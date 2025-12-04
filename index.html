@@ -732,6 +732,16 @@
 
     <script type="module" src="./assets/js/app.js?v=202503"></script>
 
+    <!-- Apply animation config to sliding panels -->
+    <script type="module">
+        import { CONFIG } from './assets/js/config.js';
+
+        // Apply panel slide duration from config
+        document.querySelectorAll('.sliding-panel').forEach(panel => {
+            panel.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
+        });
+    </script>
+
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker,geometry" async></script>
 </body>

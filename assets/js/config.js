@@ -98,7 +98,11 @@ export const CONFIG = {
         // Panel transition timing function
         panelSlideEasing: 'ease-out'
     },
-    // Color Palette (Centralized for easy updates)
+    // ===================================================================
+    // COLOR PALETTE
+    // ===================================================================
+    // Note: Primary brand colors are defined in assets/css/neighborhoods/styles.css
+    // These are Tailwind utility class references for easy application
     colors: {
         text: {
             primary: 'text-neutral-700',   // High emphasis (Headers, Values)
@@ -107,7 +111,7 @@ export const CONFIG = {
             error: 'text-red-600'
         },
         background: {
-            sidebar: 'rgb(255, 255, 255)',    // Main sidebar background
+            sidebar: 'rgb(255, 255, 255)'  // Main sidebar background
         }
     }
 };
