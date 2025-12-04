@@ -732,14 +732,26 @@
 
     <script type="module" src="./assets/js/app.js?v=202503"></script>
 
-    <!-- Apply animation config to sliding panels -->
+    <!-- Apply animation config to sliding panels and sidebar drawer -->
     <script type="module">
         import { CONFIG } from './assets/js/config.js';
 
-        // Apply panel slide duration from config
+        // Apply panel slide duration from config to internal sliding panels
         document.querySelectorAll('.sliding-panel').forEach(panel => {
             panel.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
         });
+
+        // Apply same duration to main sidebar drawer
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) {
+            sidebar.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
+        }
+
+        // Apply backdrop fade duration to match
+        const backdrop = document.querySelector('label[for="drawer-toggle"].fixed');
+        if (backdrop) {
+            backdrop.style.transitionDuration = `${CONFIG.animations.panelSlideDuration}ms`;
+        }
     </script>
 
     <!-- Google Maps API -->
