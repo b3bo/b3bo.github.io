@@ -219,7 +219,7 @@ export function setupFilters() {
         
         allAmenities.forEach(amenity => {
             const tag = document.createElement('button');
-            tag.className = 'amenity-tag' + (defaultSelected.includes(amenity) ? ' selected' : '');
+            tag.className = 'inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag' + (defaultSelected.includes(amenity) ? ' selected' : '');
             tag.textContent = amenity;
             tag.setAttribute('data-amenity', amenity); 
             
