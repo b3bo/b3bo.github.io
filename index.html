@@ -374,9 +374,9 @@
                     </div>
                     
                     <div class="p-5">
-                        <div class="sidebar-divider"></div>
+                        <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
                         <p id="resultsCount" class="text-sm text-neutral-500 font-medium text-center py-4"></p>
-                        <div class="sidebar-divider mb-3"></div>
+                        <div class="border-t border-neutral-200 dark:border-dark-border mx-4 mb-3"></div>
                     </div>
                 </div>
             </div>
@@ -420,27 +420,27 @@
                 </div>
 
                 <!-- Property Panel -->
-                <div id="property-panel" class="sliding-panel sidebar-content">
-                    <div class="panel-header">
-                        <button class="panel-back-btn" data-close-panel="property">
-                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated transform translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center pt-8 px-5 pb-4 flex-shrink-0">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="property">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <span>Criteria</span>
                         </button>
                     </div>
-                    <div class="sidebar-divider"></div>
-                    <div class="panel-content">
+                    <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 overscroll-contain -webkit-overflow-scrolling-touch">
                         <!-- Toggle Buttons -->
                         <div class="flex gap-2 pb-6">
-                            <button id="btn-homes" class="flex-1 py-2 text-sm font-medium property-type-btn">
+                            <button id="btn-homes" class="flex-1 py-2 text-sm font-medium bg-white dark:bg-dark-bg-elevated-2 text-neutral-700 dark:text-dark-text-primary border border-neutral-300 dark:border-dark-border rounded-lg transition-all cursor-pointer hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark active:bg-brand-200 dark:active:bg-brand-dark/30 property-type-btn">
                                 Homes
                             </button>
-                            <button id="btn-condos" class="flex-1 py-2 text-sm font-medium property-type-btn">
+                            <button id="btn-condos" class="flex-1 py-2 text-sm font-medium bg-white dark:bg-dark-bg-elevated-2 text-neutral-700 dark:text-dark-text-primary border border-neutral-300 dark:border-dark-border rounded-lg transition-all cursor-pointer hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark active:bg-brand-200 dark:active:bg-brand-dark/30 property-type-btn">
                                 Condos
                             </button>
                         </div>
-                        <div class="sidebar-divider mb-3"></div>
+                        <div class="border-t border-neutral-200 dark:border-dark-border mx-4 mb-3"></div>
 
                         <div class="space-y-6">
                             <!-- Price Range Slider -->
@@ -496,7 +496,7 @@
                             <span>Areas</span>
                         </button>
                     </div>
-                    <div class="sidebar-divider"></div>
+                    <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
                     <div class="panel-content">
                         <div class="flex flex-wrap gap-2" id="areaFilters">
                             <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32541">Destin</button>
@@ -518,7 +518,7 @@
                             <span>Amenities</span>
                         </button>
                     </div>
-                    <div class="sidebar-divider"></div>
+                    <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
                     <div class="panel-content">
                         <div class="flex flex-wrap gap-2" id="amenityFilters">
                             <!-- Tags will be dynamically generated -->
@@ -546,7 +546,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sidebar-divider"></div>
+                    <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
                     <div class="panel-content">
                         <div id="neighborhoodList" class="space-y-4">
                             <!-- List items will be dynamically generated -->
