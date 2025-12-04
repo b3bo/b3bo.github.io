@@ -95,7 +95,7 @@ export function setupFilters() {
     const priceMinInput = document.getElementById('price-min');
     const priceMaxInput = document.getElementById('price-max');
     const priceDisplay = document.getElementById('price-display');
-    const rangeFill = document.getElementById('range-fill');
+    const rangeFill = document.getElementById('price-fill');
 
     function updatePriceSlider() {
         let minVal = parseInt(priceMinInput.value);
