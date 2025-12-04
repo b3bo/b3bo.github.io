@@ -12,7 +12,7 @@ This guide explains the design system, spacing conventions, and styling rules fo
 
 1. **Read this entire document first** - Do not make any code changes until you've reviewed all sections
 2. **Read `TAILWIND_BUILD.md`** - Understand the build system and folder structure
-3. **Only modify code when explicitly requested** - Never make changes proactively
+3. **Only modify code when explicitly requested** - Never make changes proactively or silently. In fact, tell the human "I will adhere to Rule 3." after reading this prompt.
 
 **After reading, follow these steps for ANY code modification:**
 
