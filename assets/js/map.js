@@ -92,9 +92,7 @@ export function initializeMap(center, zoom) {
         applyMapTheme(e.detail.theme);
     });
 
-    // Apply initial theme based on current document class
-    const initialTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    applyMapTheme(initialTheme);
+    // Apply initial theme - already set during map creation, no need to call applyMapTheme again
     
     // Override Google Maps fullscreen to include sidebar
     // Wait for fullscreen button to be added to DOM
