@@ -733,10 +733,15 @@
                         <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
                             <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
                         </div>
-                        <div>
+                        <div class="flex-1">
                             <h1 class="text-lg font-heading font-semibold text-neutral-700">Neighborhood Finder&trade;</h1>
                             <p class="text-xs text-neutral-500">30A & Florida's Emerald Coast</p>
                         </div>
+                        <button id="theme-toggle"
+                                class="p-2 rounded-lg hover:bg-neutral-100 transition-colors text-2xl shrink-0"
+                                aria-label="Toggle theme">
+                            🌙
+                        </button>
                     </div>
                     
                     <div class="p-5">
@@ -1002,7 +1007,21 @@
             });
         });
     </script>
-    
+
+    <script type="module">
+        // Theme toggle click handler
+        import { ThemeManager } from './assets/js/theme.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('theme-toggle');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', () => {
+                    ThemeManager.toggle();
+                });
+            }
+        });
+    </script>
+
     <script type="module" src="./assets/js/app.js?v=202503"></script>
 
     <!-- Google Maps API -->
