@@ -40,10 +40,14 @@ function applyMapTheme(theme) {
 }
 
 export function initializeMap(center, zoom) {
+    // Check initial theme to set colorScheme on map creation
+    const initialTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
     STATE.map = new google.maps.Map(document.getElementById('map'), {
         zoom: zoom,
         center: center,
         mapId: CONFIG.map.mapId,
+        colorScheme: initialTheme === 'dark' ? 'DARK' : 'LIGHT',
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
