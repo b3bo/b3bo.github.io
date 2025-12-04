@@ -137,6 +137,11 @@
             display: block;
         }
 
+        /* Sliding panel active state */
+        .sliding-panel.active {
+            transform: translateX(0);
+        }
+
         /* Ripple marker animation */
         @keyframes ripple-animation {
             0% {
@@ -363,11 +368,11 @@
                             <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
                         </div>
                         <div class="flex-1">
-                            <h1 class="text-lg font-heading font-semibold text-neutral-700">Neighborhood Finder&trade;</h1>
-                            <p class="text-xs text-neutral-500">30A & Florida's Emerald Coast</p>
+                            <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
+                            <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
                         </div>
                         <button id="theme-toggle"
-                                class="p-2 rounded-lg hover:bg-neutral-100 transition-colors text-2xl shrink-0"
+                                class="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors text-2xl shrink-0"
                                 aria-label="Toggle theme">
                             🌙
                         </button>
@@ -375,7 +380,7 @@
                     
                     <div class="p-5">
                         <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
-                        <p id="resultsCount" class="text-sm text-neutral-500 font-medium text-center py-4"></p>
+                        <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4"></p>
                         <div class="border-t border-neutral-200 dark:border-dark-border mx-4 mb-3"></div>
                     </div>
                 </div>
