@@ -23,124 +23,18 @@ function applyMapTheme(theme) {
 
     console.log('Applying map theme:', theme);
 
-    if (theme === 'dark') {
-        // Google Maps dark mode styles
-        STATE.map.setOptions({
-            styles: [
-                { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
-                { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-                { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-                {
-                    featureType: "administrative.locality",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#d59563" }]
-                },
-                {
-                    featureType: "poi",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#d59563" }]
-                },
-                {
-                    featureType: "poi.park",
-                    elementType: "geometry",
-                    stylers: [{ color: "#263c3f" }]
-                },
-                {
-                    featureType: "poi.park",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#6b9a76" }]
-                },
-                {
-                    featureType: "road",
-                    elementType: "geometry",
-                    stylers: [{ color: "#38414e" }]
-                },
-                {
-                    featureType: "road",
-                    elementType: "geometry.stroke",
-                    stylers: [{ color: "#212a37" }]
-                },
-                {
-                    featureType: "road",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#9ca5b3" }]
-                },
-                {
-                    featureType: "road.highway",
-                    elementType: "geometry",
-                    stylers: [{ color: "#746855" }]
-                },
-                {
-                    featureType: "road.highway",
-                    elementType: "geometry.stroke",
-                    stylers: [{ color: "#1f2835" }]
-                },
-                {
-                    featureType: "road.highway",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#f3d19c" }]
-                },
-                {
-                    featureType: "transit",
-                    elementType: "geometry",
-                    stylers: [{ color: "#2f3948" }]
-                },
-                {
-                    featureType: "transit.station",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#d59563" }]
-                },
-                {
-                    featureType: "water",
-                    elementType: "geometry",
-                    stylers: [{ color: "#17263c" }]
-                },
-                {
-                    featureType: "water",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#515c6d" }]
-                },
-                {
-                    featureType: "water",
-                    elementType: "labels.text.stroke",
-                    stylers: [{ color: "#17263c" }]
-                }
-            ]
-        });
-    } else {
-        // Light mode - clean, minimalist style (similar to mapId theme)
-        STATE.map.setOptions({
-            styles: [
-                {
-                    featureType: "poi",
-                    elementType: "labels",
-                    stylers: [{ visibility: "off" }]
-                },
-                {
-                    featureType: "poi.business",
-                    stylers: [{ visibility: "off" }]
-                },
-                {
-                    featureType: "transit",
-                    elementType: "labels.icon",
-                    stylers: [{ visibility: "off" }]
-                },
-                {
-                    featureType: "water",
-                    elementType: "geometry",
-                    stylers: [{ color: "#a5d6dd" }]
-                }
-            ]
-        });
-    }
+    // Use Google Maps colorScheme API to switch between cloud-configured themes
+    // The mapId in Google Cloud Console should have both LIGHT and DARK styles configured
+    STATE.map.setOptions({
+        colorScheme: theme === 'dark' ? 'DARK' : 'LIGHT'
+    });
 }
 
 export function initializeMap(center, zoom) {
     STATE.map = new google.maps.Map(document.getElementById('map'), {
         zoom: zoom,
         center: center,
-        // Don't use mapId - we need custom styles for dark mode
-        // mapId: CONFIG.map.mapId,
+        mapId: CONFIG.map.mapId,
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
