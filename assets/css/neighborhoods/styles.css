@@ -198,6 +198,16 @@
   transition: none !important;
 }
 
+/* Custom Divider - Light/Dark theme flexible */
+hr.divider {
+  border-color: var(--color-neutral-200);
+  margin: 0;
+}
+
+.dark hr.divider {
+  border-color: var(--color-dark-border);
+}
+
 /* Optional: Scan files for classes */
 @source "../../../index.html";
 @source "../../../assets/js/*.js";
