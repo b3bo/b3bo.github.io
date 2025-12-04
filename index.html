@@ -733,8 +733,13 @@
     <script type="module" src="./assets/js/app.js?v=202503"></script>
 
     <!-- Apply animation config to sliding panels and sidebar drawer -->
-    <script type="module">
-        import { CONFIG } from './assets/js/config.js';
+    <script>
+        const CONFIG = {
+            animations: {
+                panelSlideDuration: 3000,
+                panelSlideEasing: 'ease-out'
+            }
+        };
 
         function applyAnimationConfig() {
             console.log('Applying animation duration:', CONFIG.animations.panelSlideDuration + 'ms');
