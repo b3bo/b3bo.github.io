@@ -48,11 +48,15 @@ export const ThemeManager = {
    * @param {boolean} persist - Whether to save to localStorage (default: true)
    */
   setTheme(theme, persist = true) {
+    console.log('setTheme called with:', theme);
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      console.log('Added dark class to html');
     } else {
       document.documentElement.classList.remove('dark');
+      console.log('Removed dark class from html');
     }
+    console.log('HTML classes now:', document.documentElement.className);
 
     if (persist) {
       localStorage.setItem('theme', theme);

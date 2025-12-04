@@ -614,6 +614,8 @@
                     const panel = document.getElementById(panelName + '-panel');
 
                     if (panel) {
+                        console.log('Panel found:', panel.id);
+                        console.log('Panel classes before:', panel.className);
                         // Reset panel scroll position before opening
                         const panelContent = panel.querySelector('.panel-content');
                         if (panelContent) {
@@ -622,6 +624,10 @@
 
                         // Add active class to slide in
                         panel.classList.add('active');
+                        console.log('Panel classes after:', panel.className);
+                        console.log('Panel computed transform:', getComputedStyle(panel).transform);
+                    } else {
+                        console.log('Panel NOT found for:', panelName);
                     }
                 });
             });
