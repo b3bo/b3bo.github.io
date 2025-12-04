@@ -16,7 +16,12 @@ import { loadNeighborhoods } from './data.js';
  * @param {string} theme - 'light' or 'dark'
  */
 function applyMapTheme(theme) {
-    if (!STATE.map) return;
+    if (!STATE.map) {
+        console.log('applyMapTheme called but map not initialized yet');
+        return;
+    }
+
+    console.log('Applying map theme:', theme);
 
     if (theme === 'dark') {
         // Google Maps dark mode styles
