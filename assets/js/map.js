@@ -25,9 +25,18 @@ function applyMapTheme(theme) {
 
     // Use Google Maps colorScheme API to switch between cloud-configured themes
     // The mapId in Google Cloud Console should have both LIGHT and DARK styles configured
-    STATE.map.setOptions({
-        colorScheme: theme === 'dark' ? 'DARK' : 'LIGHT'
-    });
+    try {
+        STATE.map.setOptions({
+            colorScheme: theme === 'dark' ? google.maps.ColorScheme.DARK : google.maps.ColorScheme.LIGHT
+        });
+        console.log('Map colorScheme set to:', theme === 'dark' ? 'DARK' : 'LIGHT');
+    } catch (error) {
+        console.error('Error setting map colorScheme:', error);
+        console.log('Attempting alternative approach with string values...');
+        STATE.map.setOptions({
+            colorScheme: theme === 'dark' ? 'DARK' : 'LIGHT'
+        });
+    }
 }
 
 export function initializeMap(center, zoom) {
