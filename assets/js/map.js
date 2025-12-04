@@ -108,8 +108,30 @@ function applyMapTheme(theme) {
             ]
         });
     } else {
-        // Light mode - reset to default Google Maps styling
-        STATE.map.setOptions({ styles: null });
+        // Light mode - clean, minimalist style (similar to mapId theme)
+        STATE.map.setOptions({
+            styles: [
+                {
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [{ visibility: "off" }]
+                },
+                {
+                    featureType: "poi.business",
+                    stylers: [{ visibility: "off" }]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "labels.icon",
+                    stylers: [{ visibility: "off" }]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [{ color: "#a5d6dd" }]
+                }
+            ]
+        });
     }
 }
 
