@@ -383,7 +383,7 @@
 
             <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
                 <!-- Main Menu -->
-                <div id="main-menu" class="py-5 h-full overflow-y-auto overflow-x-hidden overscroll-contain sidebar-content">
+                <div id="main-menu" class="py-5 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
                     <div class="space-y-2">
                         <!-- Criteria Menu Item -->
                         <div class="flex items-center justify-between px-5 py-4 cursor-pointer transition-colors rounded-lg my-1 hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item" data-panel="property">
@@ -487,17 +487,17 @@
                 </div>
 
                 <!-- Areas Panel -->
-                <div id="areas-panel" class="sliding-panel sidebar-content">
-                    <div class="panel-header">
-                        <button class="panel-back-btn" data-close-panel="areas">
-                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated transform translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center pt-8 px-5 pb-4 flex-shrink-0">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="areas">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <span>Areas</span>
                         </button>
                     </div>
                     <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
-                    <div class="panel-content">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 overscroll-contain -webkit-overflow-scrolling-touch">
                         <div class="flex flex-wrap gap-2" id="areaFilters">
                             <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32541">Destin</button>
                             <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
@@ -509,17 +509,17 @@
                 </div>
 
                 <!-- Amenities Panel -->
-                <div id="amenities-panel" class="sliding-panel sidebar-content">
-                    <div class="panel-header">
-                        <button class="panel-back-btn" data-close-panel="amenities">
-                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated transform translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center pt-8 px-5 pb-4 flex-shrink-0">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="amenities">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <span>Amenities</span>
                         </button>
                     </div>
                     <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
-                    <div class="panel-content">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 overscroll-contain -webkit-overflow-scrolling-touch">
                         <div class="flex flex-wrap gap-2" id="amenityFilters">
                             <!-- Tags will be dynamically generated -->
                         </div>
@@ -527,10 +527,10 @@
                 </div>
 
                 <!-- Results Panel -->
-                <div id="results-panel" class="sliding-panel sidebar-content">
+                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated transform translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
                     <div class="panel-header justify-between">
-                        <button class="panel-back-btn" data-close-panel="results">
-                            <svg class="panel-back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="results">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <span>Results</span>
@@ -547,7 +547,7 @@
                         </div>
                     </div>
                     <div class="border-t border-neutral-200 dark:border-dark-border mx-4"></div>
-                    <div class="panel-content">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 overscroll-contain -webkit-overflow-scrolling-touch">
                         <div id="neighborhoodList" class="space-y-4">
                             <!-- List items will be dynamically generated -->
                         </div>
