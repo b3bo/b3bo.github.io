@@ -199,7 +199,11 @@
 }
 
 /* Optional: Scan files for classes */
-@source "./index.html";
+@source "../../../index.html";
+@source "../../../assets/js/*.js";
 
 /* Tailwind base, components, utilities */
 @import "tailwindcss";
+
+/* Configure dark mode to use class strategy instead of prefers-color-scheme */
+@variant dark (.dark &);
