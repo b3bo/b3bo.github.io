@@ -11,6 +11,103 @@ import { addMarkers, showInfoWindow } from './markers.js';
 import { setupFilters, applyFilters } from './filters.js';
 import { loadNeighborhoods } from './data.js';
 
+/**
+ * Apply dark or light theme to Google Maps
+ * @param {string} theme - 'light' or 'dark'
+ */
+function applyMapTheme(theme) {
+    if (!STATE.map) return;
+
+    if (theme === 'dark') {
+        // Google Maps dark mode styles
+        STATE.map.setOptions({
+            styles: [
+                { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+                { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+                { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+                {
+                    featureType: "administrative.locality",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#d59563" }]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#d59563" }]
+                },
+                {
+                    featureType: "poi.park",
+                    elementType: "geometry",
+                    stylers: [{ color: "#263c3f" }]
+                },
+                {
+                    featureType: "poi.park",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#6b9a76" }]
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry",
+                    stylers: [{ color: "#38414e" }]
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [{ color: "#212a37" }]
+                },
+                {
+                    featureType: "road",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#9ca5b3" }]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry",
+                    stylers: [{ color: "#746855" }]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.stroke",
+                    stylers: [{ color: "#1f2835" }]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#f3d19c" }]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry",
+                    stylers: [{ color: "#2f3948" }]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#d59563" }]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [{ color: "#17263c" }]
+                },
+                {
+                    featureType: "water",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#515c6d" }]
+                },
+                {
+                    featureType: "water",
+                    elementType: "labels.text.stroke",
+                    stylers: [{ color: "#17263c" }]
+                }
+            ]
+        });
+    } else {
+        // Light mode - reset to default Google Maps styling
+        STATE.map.setOptions({ styles: null });
+    }
+}
+
 export function initializeMap(center, zoom) {
     STATE.map = new google.maps.Map(document.getElementById('map'), {
         zoom: zoom,
@@ -46,7 +143,7 @@ export function initializeMap(center, zoom) {
     // Create info windows with auto-pan disabled for AdvancedMarkerElement compatibility
     STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
     STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
-    
+
     // Set higher z-index for hover info window to appear above clicked info windows
     google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
         const iwOuter = document.querySelector('.gm-style-iw-c');
@@ -54,6 +151,15 @@ export function initializeMap(center, zoom) {
             iwOuter.parentElement.style.zIndex = '100';
         }
     });
+
+    // Listen for theme changes and update map styling
+    window.addEventListener('themechange', (e) => {
+        applyMapTheme(e.detail.theme);
+    });
+
+    // Apply initial theme based on current document class
+    const initialTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    applyMapTheme(initialTheme);
     
     // Override Google Maps fullscreen to include sidebar
     // Wait for fullscreen button to be added to DOM
