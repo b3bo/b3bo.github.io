@@ -4,6 +4,8 @@
 
 This guide explains the design system, spacing conventions, and styling rules for the Neighborhood Finder application.
 
+Never change a line of code unless explicitly requested to.
+
 ---
 
 ## Core Principles
