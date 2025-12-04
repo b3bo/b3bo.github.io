@@ -594,16 +594,22 @@
     </script>
     
     <script>
+        console.log('Script loading started');
         // Sliding panel navigation
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded fired - sliding panels initializing');
             // Get all menu items
             const menuItems = document.querySelectorAll('.menu-item');
             const backButtons = document.querySelectorAll('.panel-back-btn');
             const mainMenu = document.getElementById('main-menu');
 
+            console.log('Found menu items:', menuItems.length);
+            console.log('Found back buttons:', backButtons.length);
+
             // Handle menu item clicks
             menuItems.forEach(item => {
                 item.addEventListener('click', function() {
+                    console.log('Menu item clicked:', this.getAttribute('data-panel'));
                     const panelName = this.getAttribute('data-panel');
                     const panel = document.getElementById(panelName + '-panel');
 
@@ -645,12 +651,16 @@
     <script type="module" src="./assets/js/theme.js"></script>
     <script type="module">
         // Theme toggle click handler
+        console.log('Theme module script loading');
         import { ThemeManager } from './assets/js/theme.js';
 
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('Theme DOMContentLoaded fired');
             const toggleButton = document.getElementById('theme-toggle');
+            console.log('Theme toggle button found:', !!toggleButton);
             if (toggleButton) {
                 toggleButton.addEventListener('click', () => {
+                    console.log('Theme toggle clicked!');
                     ThemeManager.toggle();
                 });
             }
