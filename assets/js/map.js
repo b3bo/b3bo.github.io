@@ -23,20 +23,54 @@ function applyMapTheme(theme) {
 
     console.log('Applying map theme:', theme);
 
-    // Use Google Maps colorScheme API to switch between cloud-configured themes
-    // The mapId in Google Cloud Console should have both LIGHT and DARK styles configured
-    try {
-        STATE.map.setOptions({
-            colorScheme: theme === 'dark' ? google.maps.ColorScheme.DARK : google.maps.ColorScheme.LIGHT
-        });
-        console.log('Map colorScheme set to:', theme === 'dark' ? 'DARK' : 'LIGHT');
-    } catch (error) {
-        console.error('Error setting map colorScheme:', error);
-        console.log('Attempting alternative approach with string values...');
-        STATE.map.setOptions({
-            colorScheme: theme === 'dark' ? 'DARK' : 'LIGHT'
-        });
-    }
+    // colorScheme can only be set at map initialization, not changed dynamically
+    // So we need to recreate the map with the new colorScheme
+    const currentCenter = STATE.map.getCenter();
+    const currentZoom = STATE.map.getZoom();
+
+    // Store current markers and info windows
+    const markers = STATE.markers;
+    const infoWindow = STATE.infoWindow;
+    const hoverInfoWindow = STATE.hoverInfoWindow;
+
+    // Destroy current map
+    STATE.map = null;
+
+    // Recreate map with new colorScheme
+    STATE.map = new google.maps.Map(document.getElementById('map'), {
+        zoom: currentZoom,
+        center: currentCenter,
+        mapId: CONFIG.map.mapId,
+        colorScheme: theme === 'dark' ? 'DARK' : 'LIGHT',
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
+        },
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
+        zoomControl: true,
+        clickableIcons: false
+    });
+
+    // Restore info windows
+    STATE.infoWindow = infoWindow;
+    STATE.hoverInfoWindow = hoverInfoWindow;
+
+    // Reattach markers to new map
+    markers.forEach(markerObj => {
+        if (markerObj.marker) {
+            markerObj.marker.map = STATE.map;
+        }
+    });
+
+    console.log('Map recreated with colorScheme:', theme === 'dark' ? 'DARK' : 'LIGHT');
 }
 
 export function initializeMap(center, zoom) {
