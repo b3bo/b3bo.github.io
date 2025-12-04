@@ -462,37 +462,42 @@
                                 <span class="text-sm font-semibold text-neutral-600 dark:text-dark-text-secondary" id="price-display">$250K - $35M+</span>
                             </div>
                             <div class="px-5">
-                            <div class="range-slider">
-                                <div class="range-track-bg"></div>
-                                <div class="range-track-fill" id="range-fill"></div>
-                                <input type="range" min="0" max="41" value="0" id="price-min">
-                                <input type="range" min="0" max="41" value="0" id="price-max">
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="price-fill" style="left: 0%; width: 0%;"></div>
+                                    <input type="range" min="0" max="41" value="0" id="price-min">
+                                    <input type="range" min="0" max="41" value="0" id="price-max">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Beds Slider -->
-                        <div class="px-5">
-                            <div class="flex justify-between items-center py-4">
+                        <div>
+                            <div class="flex justify-between items-center px-5 py-4 rounded-lg my-1">
                                 <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Beds</span>
                                 <span class="text-sm font-semibold text-neutral-600 dark:text-dark-text-secondary" id="beds-display">1+</span>
                             </div>
-                            <div class="range-slider">
-                                <div class="range-track-bg"></div>
-                                <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
-                                <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
+                            <div class="px-5">
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
+                                </div>
                             </div>
                         </div>
 
                         <!-- Baths Slider -->
-                        <div class="px-5">
-                            <div class="flex justify-between items-center py-4">
+                        <div>
+                            <div class="flex justify-between items-center px-5 py-4 rounded-lg my-1">
                                 <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Baths</span>
                                 <span class="text-sm font-semibold text-neutral-600 dark:text-dark-text-secondary" id="baths-display">1+</span>
                             </div>
-                            <div class="range-slider">
-                                <div class="range-track-bg"></div>
-                                <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
-                                <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
+                            <div class="px-5">
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
+                                </div>
                             </div>
                         </div>
                     </div>
