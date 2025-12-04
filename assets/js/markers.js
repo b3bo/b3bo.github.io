@@ -271,15 +271,15 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     }
     
     const content = `
-        <div class="info-window p-3 max-w-sm" style="cursor: pointer; background-color: ${CONFIG.colors.background.card};">
+        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;">
             <div class="flex items-center justify-center gap-2 mb-2">
-                <h3 class="text-lg font-semibold ${CONFIG.colors.text.primary}">
+                <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">
                     ${neighborhood.name}
                 </h3>
                 ${neighborhood.urlSlug ? `
-                <a href="https://www.truesouthcoastalhomes.com${neighborhood.urlSlug}" 
+                <a href="https://www.truesouthcoastalhomes.com${neighborhood.urlSlug}"
                    target="_blank"
-                   class="text-[#4c8f96] hover:text-[#3a6d73] transition-colors"
+                   class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors"
                    onclick="event.stopPropagation();"
                    title="View Neighborhood Page">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -289,42 +289,42 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 </a>
                 ` : ''}
             </div>
-            
+
             <div class="grid grid-cols-2 gap-2 mb-2">
-                <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">${neighborhood.stats.listingCount}</div>
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">All Active</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${neighborhood.stats.listingCount}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">All Active</div>
                 </div>
-                <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">${medianPriceDisplay}</div>
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">Med List Price</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
                 </div>
             </div>
-            
+
             <div class="grid grid-cols-2 gap-2 mb-2">
-                <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">Avg $/Sq Ft</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
                 </div>
-                <div class="bg-white px-3 py-2 rounded-lg border border-neutral-300">
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-0.5">${neighborhood.stats.avgDom}</div>
-                    <div style="font-size: 0.625rem;" class="${CONFIG.colors.text.secondary}">Avg DOM</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${neighborhood.stats.avgDom}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
                 </div>
             </div>
-            
+
             ${neighborhood.amenities && neighborhood.amenities.length > 0 ? `
             <div class="mb-3">
-                <div class="bg-white p-3 rounded-lg border border-neutral-200">
-                    <div class="text-sm font-semibold ${CONFIG.colors.text.primary} mb-1">Amenities</div>
-                    <div class="text-xs ${CONFIG.colors.text.secondary} leading-relaxed">${neighborhood.amenities.join(', ')}</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed">${neighborhood.amenities.join(', ')}</div>
                 </div>
             </div>
             ` : ''}
-            
-            <div class="sidebar-divider mb-4"></div>
+
+            <div class="border-t border-neutral-200 dark:border-dark-border mb-3"></div>
             <div class="pt-3 flex items-center gap-2">
                 ${STATE.allFilteredNeighborhoods.length > 1 ? `
-                <button onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full hover:bg-neutral-100 ${CONFIG.colors.text.secondary} transition-colors flex-shrink-0" title="Previous Community">
+                <button onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0" title="Previous Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
                 ` : ''}
@@ -332,7 +332,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 ${(() => {
                     const urlParams = getUrlParams();
                     const isSingleMode = urlParams.mode === 'single';
-                    
+
                     if (listingsUrlMap) {
                         if (isSingleMode) {
                             // Single mode: Link to Community Finder with marker parameter to auto-open this neighborhood
@@ -341,8 +341,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             const finderUrl = `https://neighborhoods.truesouthcoastalhomes.com?marker=${neighborhoodSlug}${propertyTypeParam}`;
                             return `
                             <a href="${finderUrl}"
-                               class="view-listings-btn"
-                               style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex: 1;"
+                               class="flex items-center justify-center gap-2 flex-1 bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
                                onclick="event.stopPropagation();"
                                title="Open ${neighborhood.name} in Community Finder">
                                 Community Finder
@@ -356,7 +355,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             return `
                             <a href="${listingsUrlMap}"
                                target="_blank"
-                               class="view-listings-btn flex-1 text-center justify-center"
+                               class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
                                onclick="event.stopPropagation();"
                                title="View all ${neighborhood.name} ${neighborhood.propertyType} for sale">
                                 Matching Listings
@@ -365,7 +364,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                         }
                     } else {
                         return `
-                        <button class="view-listings-btn flex-1 opacity-50 cursor-not-allowed justify-center"
+                        <button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed"
                                 disabled
                                 title="MLS listings coming soon for ${neighborhood.name}">
                             Coming Soon!
@@ -375,7 +374,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 })()}
 
                 ${STATE.allFilteredNeighborhoods.length > 1 ? `
-                <button onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full hover:bg-neutral-100 text-neutral-600 transition-colors flex-shrink-0" title="Next Community">
+                <button onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0" title="Next Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
                 ` : ''}
