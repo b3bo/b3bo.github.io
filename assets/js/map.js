@@ -66,7 +66,7 @@ function applyMapTheme(theme) {
     // Reattach markers to new map
     markers.forEach(markerObj => {
         if (markerObj.marker) {
-            markerObj.marker.map = STATE.map;
+            markerObj.marker.setMap(STATE.map);
         }
     });
 
