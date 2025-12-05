@@ -155,7 +155,14 @@
                                             {{ sermon.stats.scripture_references }} manna
                                         </span>
                                     </div>
-                                    <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 truncate">{{ sermon.channel }}</p>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 truncate">
+                                        {{ sermon.channel }}{% if sermon.processed_at %}
+                                        {% set date_parts = sermon.processed_at[:10].split('-') %}
+                                        {% set month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %}
+                                        {% set month_idx = date_parts[1]|int - 1 %}
+                                        , {{ month_names[month_idx] }} {{ date_parts[2] }}, {{ date_parts[0] }}
+                                        {% endif %}
+                                    </p>
                                 </a>
                             </li>
                             {% endfor %}
@@ -326,9 +333,16 @@
                                             </div>
                                         </div>
                                         <div class="mt-2 flex items-center text-sm text-neutral-600 dark:text-neutral-400">
-                                            <p class="truncate">{{ video.channel }}</p>
+                                            <p class="truncate">
+                                                {{ video.channel }}{% if video.processed_at %} 
+                                                {% set date_parts = video.processed_at[:10].split('-') %}
+                                                {% set month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %}
+                                                {% set month_idx = date_parts[1]|int - 1 %}
+                                                , {{ month_names[month_idx] }} {{ date_parts[2] }}, {{ date_parts[0] }}
+                                                {% endif %}
+                                            </p>
                                             <span class="mx-2">•</span>
-                                            <p>{{ video.processed_at[:19] if video.processed_at else 'Unknown' }}</p>
+                                            <p>{{ video.processed_at[11:19] if video.processed_at else 'Unknown' }}</p>
                                         </div>
                                     </div>
                                     <div class="flex-shrink-0">

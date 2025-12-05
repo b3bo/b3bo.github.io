@@ -102,6 +102,12 @@
             }
         }
 
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+        }
+
         function renderDashboard() {
             const videos = Object.values(videosData).sort((a, b) => new Date(b.processed_at || 0) - new Date(a.processed_at || 0));
 
@@ -203,9 +209,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-2 flex items-center text-sm text-gray-400">
-                                        <p class="truncate">${video.channel}</p>
-                                        <span class="mx-2">•</span>
-                                        <p>${video.processed_at ? new Date(video.processed_at).toLocaleDateString() : 'Unknown'}</p>
+                                        <p class="truncate">${video.channel}${video.processed_at ? ', ' + formatDate(video.processed_at) : ''}</p>
                                     </div>
                                 </div>
                                 <div class="flex-shrink-0">
