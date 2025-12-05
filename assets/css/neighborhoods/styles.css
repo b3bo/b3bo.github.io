@@ -185,7 +185,8 @@
 }
 
 /* Smooth theme transitions */
-* {
+/* Apply to elements without explicit transitions defined */
+*:not(.sliding-panel):not(#sidebar):not([class*="duration-"]) {
   transition-property: background-color, border-color, color;
   transition-duration: var(--transition-base);
   transition-timing-function: ease-in-out;
