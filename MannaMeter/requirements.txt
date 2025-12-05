@@ -1,4 +1,0 @@
-youtube-transcript-api
-requests
-flask
-gunicorn
