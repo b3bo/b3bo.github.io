@@ -304,4 +304,7 @@ def api_videos():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+    app.config['DEBUG'] = False
+    app.config['TESTING'] = False
+    os.environ['FLASK_ENV'] = 'production'
     app.run(host='0.0.0.0', port=port, debug=False)
