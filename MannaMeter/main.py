@@ -165,7 +165,7 @@ def get_transcript(video_id):
             logs.append(f"{datetime.now()}: Attempt {attempt + 1} with rotating proxy: {proxy_url}")
             print(f"Attempt {attempt + 1} with rotating proxy: {proxy_url}")
             try:
-                api = YouTubeTranscriptApi(proxies={'http': proxy_url, 'https': proxy_url})
+                api = YouTubeTranscriptApi(proxy=proxy_url)
                 transcript_list = api.list(video_id)
                 transcript = transcript_list.find_transcript(['en'])
                 transcript_snippets = transcript.fetch()
@@ -191,7 +191,7 @@ def get_transcript(video_id):
             logs.append(f"{datetime.now()}: Trying proxy: {proxy_url}")
             print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
             try:
-                api = YouTubeTranscriptApi(proxies={'http': proxy_url, 'https': proxy_url})
+                api = YouTubeTranscriptApi(proxy=proxy_url)
                 transcript_list = api.list(video_id)
                 transcript = transcript_list.find_transcript(['en'])
                 transcript_snippets = transcript.fetch()
