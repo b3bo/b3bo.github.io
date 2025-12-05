@@ -151,26 +151,61 @@ def validate_channel_is_sermon(channel_url):
 
 def get_transcript(video_id):
     """Get transcript for the video."""
-    proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
+    rotating_proxy = os.getenv('ROTATING_PROXY', '')
     tried_proxies = []
     logs = []
     
-    for proxy_url in proxy_list:
-        proxy_url = proxy_url.strip()
-        if not proxy_url:
-            continue
-        proxies = {
-            'http': proxy_url,
-            'https': proxy_url
-        }
-        logs.append(f"{datetime.now()}: Trying proxy: {proxy_url}")
-        print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
-        try:
-            proxy_config = GenericProxyConfig(http_url=proxy_url, https_url=proxy_url)
-            api = YouTubeTranscriptApi(proxy_config=proxy_config)
-            transcript_list = api.list(video_id)
-            transcript = transcript_list.find_transcript(['en'])
-            transcript_snippets = transcript.fetch()
+    if rotating_proxy:
+        # Use rotating proxy, try up to 10 times
+        max_attempts = 10
+        for attempt in range(max_attempts):
+            proxy_url = rotating_proxy.strip()
+            if not proxy_url:
+                continue
+            proxies = {'http': proxy_url, 'https': proxy_url}
+            logs.append(f"{datetime.now()}: Attempt {attempt + 1} with rotating proxy: {proxy_url}")
+            print(f"Attempt {attempt + 1} with rotating proxy: {proxy_url}")
+            try:
+                proxy_config = GenericProxyConfig(http_url=proxy_url, https_url=proxy_url)
+                api = YouTubeTranscriptApi(proxy_config=proxy_config)
+                transcript_list = api.list(video_id)
+                transcript = transcript_list.find_transcript(['en'])
+                transcript_snippets = transcript.fetch()
+                transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
+                logs.append(f"{datetime.now()}: Success with rotating proxy on attempt {attempt + 1}: {proxy_url}")
+                return transcript_text, transcript_snippets, logs
+            except Exception as e:
+                tried_proxies.append(proxy_url)
+                logs.append(f"{datetime.now()}: Rotating proxy attempt {attempt + 1} failed: {e}")
+                print(f"Rotating proxy attempt {attempt + 1} failed: {e}")
+                continue
+    else:
+        # Fallback to static proxy list
+        proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
+        for proxy_url in proxy_list:
+            proxy_url = proxy_url.strip()
+            if not proxy_url:
+                continue
+            proxies = {
+                'http': proxy_url,
+                'https': proxy_url
+            }
+            logs.append(f"{datetime.now()}: Trying proxy: {proxy_url}")
+            print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
+            try:
+                proxy_config = GenericProxyConfig(http_url=proxy_url, https_url=proxy_url)
+                api = YouTubeTranscriptApi(proxy_config=proxy_config)
+                transcript_list = api.list(video_id)
+                transcript = transcript_list.find_transcript(['en'])
+                transcript_snippets = transcript.fetch()
+                transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
+                logs.append(f"{datetime.now()}: Success with proxy: {proxy_url}")
+                return transcript_text, transcript_snippets, logs
+            except Exception as e:
+                tried_proxies.append(proxy_url)
+                logs.append(f"{datetime.now()}: Proxy {proxy_url} failed: {e}")
+                print(f"Proxy {proxy_url} failed: {e}")
+                continue
             transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
             logs.append(f"{datetime.now()}: Success with proxy: {proxy_url}")
             return transcript_text, transcript_snippets, logs
