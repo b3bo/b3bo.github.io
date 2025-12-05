@@ -91,7 +91,12 @@ def analyze():
             }), 400
         
         location = get_channel_location(channel_url)
-        transcript_text, transcript_snippets = get_transcript(video_id)
+        try:
+            transcript_text, transcript_snippets = get_transcript(video_id)
+        except Exception as e:
+            return jsonify({
+                'error': 'Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.'
+            }), 400
         counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
         
         # Save results to JSON
@@ -152,7 +157,10 @@ def video_detail(video_id):
                 return f'Channel validation failed: {description}', 400
             
             location = get_channel_location(channel_url)
-            transcript_text, transcript_snippets = get_transcript(video_id)
+            try:
+                transcript_text, transcript_snippets = get_transcript(video_id)
+            except Exception as e:
+                return f"Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.", 400
             counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
             
             # Prepare data
