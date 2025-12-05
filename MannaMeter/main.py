@@ -171,7 +171,7 @@ def get_transcript(video_id):
                 transcript_list = api.list(video_id)
                 transcript = transcript_list.find_transcript(['en'])
                 transcript_snippets = transcript.fetch()
-                transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
+                transcript_text = ' '.join([entry.text for entry in transcript_snippets])
                 logs.append(f"{datetime.now()}: Success with rotating proxy on attempt {attempt + 1}: {proxy_url}")
                 return transcript_text, transcript_snippets, logs
             except Exception as e:
@@ -198,7 +198,7 @@ def get_transcript(video_id):
                 transcript_list = api.list(video_id)
                 transcript = transcript_list.find_transcript(['en'])
                 transcript_snippets = transcript.fetch()
-                transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
+                transcript_text = ' '.join([entry.text for entry in transcript_snippets])
                 logs.append(f"{datetime.now()}: Success with proxy: {proxy_url}")
                 return transcript_text, transcript_snippets, logs
             except Exception as e:
