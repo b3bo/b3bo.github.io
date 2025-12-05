@@ -57,7 +57,7 @@
                 <div class="flex items-center min-w-0 flex-1">
                     <img src="/static/logo.svg" alt="MannaMeter Logo" class="w-10 h-10 mr-4 flex-shrink-0">
                     <div class="min-w-0">
-                        <h1 class="text-xl font-semibold dark:font-normal text-primary-400 break-words">Manna_Meter™</h1>
+                        <h1 class="text-2xl font-semibold dark:font-normal text-primary-400 break-words">Manna_Meter™</h1>
                         <p class="text-sm text-neutral-600 dark:text-neutral-400 break-words">The Nutrition Facts Label for Every Sermon.</p>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                                             <p class="text-sm font-semibold dark:font-medium text-primary-400 break-words">{{ sermon.title }}</p>
                                         </div>
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
-                                            {{ sermon.stats.scripture_references }} refs
+                                            {{ sermon.stats.scripture_references }} manna
                                         </span>
                                     </div>
                                     <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 truncate">{{ sermon.channel }}</p>
@@ -178,7 +178,7 @@
                                         {% endif %}
                                     </div>
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
-                                        {{ church.refs }} refs
+                                        {{ church.refs }} manna
                                     </span>
                                 </div>
                                 {% if church.location %}
@@ -201,7 +201,7 @@
                             <div class="flex items-center justify-between min-w-0">
                                 <h4 class="text-sm font-medium text-neutral-700 dark:text-neutral-300 break-words">{{ book }}</h4>
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
-                                    {{ count }} refs
+                                    {{ count }} manna
                                 </span>
                             </div>
                         </div>
@@ -320,7 +320,7 @@
                                             <p class="text-sm font-semibold dark:font-medium text-primary-400 truncate">{{ video.title }}</p>
                                             <div class="ml-2 flex-shrink-0 flex">
                                                 <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-primary-100 text-primary-800">
-                                                    {{ video.stats.scripture_references }} refs
+                                                    {{ video.stats.scripture_references }} manna
                                                 </p>
                                             </div>
                                         </div>
