@@ -104,11 +104,11 @@
                         <div class="space-y-4">
                             <div class="border-l-4 border-primary-400 pl-4">
                                 <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Total Sermons</dt>
-                                <dd class="text-2xl font-bold text-primary-400">{{ videos|length }} Sermons</dd>
+                                <dd class="text-2xl font-semibold dark:font-normal text-primary-400">{{ videos|length }} Sermons</dd>
                             </div>
                             <div class="border-l-4 border-primary-400 pl-4">
                                 <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Unique Churches</dt>
-                                <dd class="text-2xl font-bold text-primary-400">
+                                <dd class="text-2xl font-semibold dark:font-normal text-primary-400">
                                     {% set churches = [] %}
                                     {% for video in videos %}
                                         {% if video.channel not in churches %}
@@ -120,7 +120,7 @@
                             </div>
                             <div class="border-l-4 border-primary-300 pl-4">
                                 <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Total References</dt>
-                                <dd class="text-2xl font-bold text-primary-300">
+                                <dd class="text-2xl font-semibold dark:font-normal text-primary-300">
                                     {% set ns = namespace(total=0) %}
                                     {% for video in videos %}
                                         {% if video.stats and video.stats.total_matches %}
