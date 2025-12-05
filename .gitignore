@@ -19,6 +19,12 @@ tailwind.config.js
 postcss.config.js
 generate-critical.js
 
+# Other projects
+RealEstateApps/
+StockTonePrototype/
+.claude/
+assets/css/archive/
+
 # Misc
 assets/css/custom - Copy.css
 assets/css/archive/
