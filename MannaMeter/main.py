@@ -165,7 +165,7 @@ def get_transcript(video_id):
         logs.append(f"Trying proxy: {proxy_url}")
         print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
         try:
-            transcript_snippets = YouTubeTranscriptApi().get_transcript(video_id, proxies=proxies)
+            transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
             transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
             logs.append(f"Success with proxy: {proxy_url}")
             return transcript_text, transcript_snippets, logs
