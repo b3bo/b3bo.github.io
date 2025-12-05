@@ -7,6 +7,9 @@ from main import extract_video_id, get_video_info, get_transcript, count_keyword
 
 app = Flask(__name__)
 
+# Version information
+VERSION = "1.0.0"
+
 CACHE_FILE = 'cache.json'
 RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
 MAX_CACHE = 10
@@ -85,7 +88,7 @@ def index():
     # Get top 10 sermons by scripture references
     top_sermons = sorted(videos, key=lambda x: x.get('stats', {}).get('scripture_references', 0), reverse=True)[:10]
     
-    return render_template('index.html', videos=videos, top_books=top_books, top_churches=top_churches, top_sermons=top_sermons)
+    return render_template('index.html', videos=videos, top_books=top_books, top_churches=top_churches, top_sermons=top_sermons, version=VERSION)
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
@@ -396,7 +399,7 @@ def video_detail(video_id):
             for book, refs in all_refs_by_book.items():
                 refs.sort(key=lambda x: x.get('start', 0))
         
-        return render_template('video.html', video=video_data, reprocessed=reprocessed, all_refs_by_book=all_refs_by_book)
+        return render_template('video.html', video=video_data, reprocessed=reprocessed, all_refs_by_book=all_refs_by_book, version=VERSION)
     except Exception as e:
         return f"Error rendering video page: {str(e)}", 500
 
