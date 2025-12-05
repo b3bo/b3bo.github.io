@@ -83,66 +83,122 @@ def analyze():
         return jsonify({'error': 'No URL provided'}), 400
     
     keywords = BIBLE_BOOKS
+    logs = []
     
     try:
-        video_id = extract_video_id(url)
-        title, channel, channel_url = get_video_info(video_id)
+        logs.append("Starting video analysis...")
         
-        # Validate channel is sermon-related
-        is_sermon_channel, description = validate_channel_is_sermon(channel_url)
-        if not is_sermon_channel:
-            return jsonify({
-                'error': f'Channel validation failed. The channel "{channel}" does not appear to be sermon-related. Channel description does not contain keywords: church, Christ, or Jesus.'
-            }), 400
+        # Step 1: Extract video ID
+        try:
+            video_id = extract_video_id(url)
+            logs.append(f"Extracted video ID: {video_id}")
+        except Exception as e:
+            logs.append(f"Failed to extract video ID: {str(e)}")
+            return jsonify({'error': f'Invalid YouTube URL: {str(e)}', 'logs': logs}), 400
         
-        location = get_channel_location(channel_url)
-        transcript_text, transcript_snippets, logs = get_transcript(video_id)
-        if transcript_text is None:
+        # Step 2: Get video info
+        try:
+            title, channel, channel_url = get_video_info(video_id)
+            logs.append(f"Retrieved video info - Title: {title}, Channel: {channel}")
+        except Exception as e:
+            logs.append(f"Failed to get video info: {str(e)}")
+            return jsonify({'error': f'Unable to retrieve video information: {str(e)}', 'logs': logs}), 400
+        
+        # Step 3: Validate channel
+        try:
+            is_sermon_channel, description = validate_channel_is_sermon(channel_url)
+            if not is_sermon_channel:
+                logs.append(f"Channel validation failed: {description}")
+                return jsonify({
+                    'error': f'Channel validation failed. The channel "{channel}" does not appear to be sermon-related. Channel description does not contain keywords: church, Christ, or Jesus.',
+                    'logs': logs
+                }), 400
+            logs.append("Channel validation passed")
+        except Exception as e:
+            logs.append(f"Channel validation error: {str(e)}")
+            # Allow processing to continue even if validation fails
+            logs.append("Continuing despite validation error...")
+        
+        # Step 4: Get channel location
+        try:
+            location = get_channel_location(channel_url)
+            logs.append(f"Retrieved channel location: {location}")
+        except Exception as e:
+            logs.append(f"Failed to get channel location: {str(e)}")
+            location = ""
+        
+        # Step 5: Get transcript
+        try:
+            transcript_text, transcript_snippets, transcript_logs = get_transcript(video_id)
+            logs.extend(transcript_logs)
+            if transcript_text is None:
+                logs.append("Transcript retrieval failed")
+                return jsonify({
+                    'error': 'Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.',
+                    'logs': logs
+                }), 400
+            logs.append(f"Retrieved transcript: {len(transcript_text)} characters")
+        except Exception as e:
+            logs.append(f"Transcript retrieval error: {str(e)}")
             return jsonify({
-                'error': 'Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.',
+                'error': f'Unable to retrieve transcript: {str(e)}',
                 'logs': logs
             }), 400
-        counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
         
-        # Save results to JSON
-        results_file = 'results.json'
-        if os.path.exists(results_file):
-            with open(results_file, 'r') as f:
-                all_results = json.load(f)
-        else:
-            all_results = {}
+        # Step 6: Analyze keywords
+        try:
+            counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
+            logs.append(f"Analysis complete - Found {stats['scripture_references']} confirmed references")
+        except Exception as e:
+            logs.append(f"Analysis error: {str(e)}")
+            return jsonify({'error': f'Error analyzing transcript: {str(e)}', 'logs': logs}), 500
         
-        # Prepare counts for all 66 books
-        full_counts = {book: counts.get(book, 0) for book in BIBLE_BOOKS}
-        full_suspect_counts = {book: suspect_counts.get(book, 0) for book in BIBLE_BOOKS}
-        
-        video_data = {
-            'video_id': video_id,
-            'title': title,
-            'channel': channel,
-            'channel_url': channel_url,
-            'location': location,
-            'transcript_length': len(transcript_text),
-            'processed_at': str(datetime.now()),
-            'stats': stats,
-            'counts': full_counts,
-            'suspect_counts': full_suspect_counts,
-            'positions': positions,
-            'logs': logs
-        }
-        
-        # Check if this is a reprocessing
-        is_reprocessing = video_id in all_results
-        
-        all_results[video_id] = video_data
-        
-        with open(results_file, 'w') as f:
-            json.dump(all_results, f, indent=2)
+        # Step 7: Save results
+        try:
+            results_file = 'results.json'
+            if os.path.exists(results_file):
+                with open(results_file, 'r') as f:
+                    all_results = json.load(f)
+            else:
+                all_results = {}
+            
+            # Prepare counts for all 66 books
+            full_counts = {book: counts.get(book, 0) for book in BIBLE_BOOKS}
+            full_suspect_counts = {book: suspect_counts.get(book, 0) for book in BIBLE_BOOKS}
+            
+            video_data = {
+                'video_id': video_id,
+                'title': title,
+                'channel': channel,
+                'channel_url': channel_url,
+                'location': location,
+                'transcript_length': len(transcript_text),
+                'processed_at': str(datetime.now()),
+                'stats': stats,
+                'counts': full_counts,
+                'suspect_counts': full_suspect_counts,
+                'positions': positions,
+                'logs': logs
+            }
+            
+            # Check if this is a reprocessing
+            is_reprocessing = video_id in all_results
+            
+            all_results[video_id] = video_data
+            
+            with open(results_file, 'w') as f:
+                json.dump(all_results, f, indent=2)
+            
+            logs.append("Results saved successfully")
+        except Exception as e:
+            logs.append(f"Failed to save results: {str(e)}")
+            return jsonify({'error': f'Error saving results: {str(e)}', 'logs': logs}), 500
         
         redirect_url = url_for('video_detail', video_id=video_id)
         if is_reprocessing:
             redirect_url += '?reprocessed=1'
         
+        logs.append("Analysis complete!")
         return jsonify({
             'success': True,
             'redirect_url': redirect_url,
@@ -150,7 +206,13 @@ def analyze():
         })
     
     except Exception as e:
-        return jsonify({'error': f"Error analyzing video: {str(e)}"}), 500
+        # This should catch any unhandled exceptions
+        import traceback
+        error_details = traceback.format_exc()
+        return jsonify({
+            'error': f'Unexpected error: {str(e)}', 
+            'logs': logs + [f'Error details: {error_details}']
+        }), 500
 
 @app.route('/video/<video_id>')
 def video_detail(video_id):
