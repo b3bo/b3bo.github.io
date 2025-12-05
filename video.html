@@ -12,10 +12,30 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#eff6ff',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            900: '#1e3a8a'
+                            50: '#f3ffe8',
+                            100: '#e5fecf',
+                            200: '#ccfd9c',
+                            300: '#b5fd5d',
+                            400: '#92e800',
+                            500: '#7dcf00',
+                            600: '#61a500',
+                            700: '#4b7d00',
+                            800: '#3c6300',
+                            900: '#36530f',
+                            950: '#1a2e00'
+                        },
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a1a1a1',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#0a0a0a'
                         }
                     }
                 }
@@ -24,13 +44,13 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen">
+<body class="bg-neutral-900 text-white min-h-screen">
     <!-- Header -->
-    <header class="bg-gray-800 shadow-lg">
+    <header class="bg-neutral-800 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-6">
                 <div class="flex items-center">
-                    <a href="./index.html" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                    <a href="./index.html" class="flex items-center text-neutral-400 hover:text-white transition-colors">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
@@ -38,7 +58,7 @@
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-700 hover:bg-neutral-600 transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
@@ -75,8 +95,8 @@
                 if (!videoData) {
                     document.getElementById('content').innerHTML = `
                         <div class="text-center">
-                            <h1 class="text-2xl font-bold text-red-400 mb-4">Video Not Found</h1>
-                            <p class="text-gray-400">The requested video could not be found in the results.</p>
+                            <h1 class="text-2xl font-bold text-neutral-400 mb-4">Video Not Found</h1>
+                            <p class="text-neutral-400">The requested video could not be found in the results.</p>
                             <a href="./index.html" class="mt-4 inline-block text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
                         </div>
                     `;
@@ -88,8 +108,8 @@
                 console.error('Error loading data:', error);
                 document.getElementById('content').innerHTML = `
                     <div class="text-center">
-                        <h1 class="text-2xl font-bold text-red-400 mb-4">Error Loading Data</h1>
-                        <p class="text-gray-400">Make sure results.json exists and is accessible.</p>
+                        <h1 class="text-2xl font-bold text-neutral-400 mb-4">Error Loading Data</h1>
+                        <p class="text-neutral-400">Make sure results.json exists and is accessible.</p>
                     </div>
                 `;
             }
@@ -100,21 +120,21 @@
 
             content.innerHTML = `
                 <!-- Video Info -->
-                <div class="bg-gray-800 shadow overflow-hidden sm:rounded-lg mb-6">
+                <div class="bg-neutral-800 shadow overflow-hidden sm:rounded-lg mb-6">
                     <div class="px-4 py-5 sm:p-6">
                         <h1 class="text-2xl font-bold text-white mb-2">${videoData.title}</h1>
-                        <p class="text-gray-400 mb-4">${videoData.channel}</p>
+                        <p class="text-neutral-400 mb-4">${videoData.channel}</p>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                             <div>
-                                <span class="text-gray-400">Video ID:</span>
+                                <span class="text-neutral-400">Video ID:</span>
                                 <span class="text-white ml-2">${videoData.video_id}</span>
                             </div>
                             <div>
-                                <span class="text-gray-400">Processed:</span>
+                                <span class="text-neutral-400">Processed:</span>
                                 <span class="text-white ml-2">${videoData.processed_at ? new Date(videoData.processed_at).toLocaleString() : 'Unknown'}</span>
                             </div>
                             <div>
-                                <span class="text-gray-400">Transcript Length:</span>
+                                <span class="text-neutral-400">Transcript Length:</span>
                                 <span class="text-white ml-2">${videoData.transcript_length} characters</span>
                             </div>
                         </div>
@@ -123,17 +143,17 @@
 
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                    <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <svg class="h-6 w-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v3M6 4h12M6 4v12a2 2 0 002 2h8a2 2 0 002-2V4"></path>
                                     </svg>
                                 </div>
                                 <div class="ml-5 w-0 flex-1">
                                     <dl>
-                                        <dt class="text-sm font-medium text-gray-400 truncate">Total Matches</dt>
+                                        <dt class="text-sm font-medium text-neutral-400 truncate">Total Matches</dt>
                                         <dd class="text-lg font-medium text-white">${videoData.stats.total_matches}</dd>
                                     </dl>
                                 </div>
@@ -141,17 +161,17 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                    <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <svg class="h-6 w-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
                                 <div class="ml-5 w-0 flex-1">
                                     <dl>
-                                        <dt class="text-sm font-medium text-gray-400 truncate">Confirmed References</dt>
+                                        <dt class="text-sm font-medium text-neutral-400 truncate">Confirmed References</dt>
                                         <dd class="text-lg font-medium text-white">${videoData.stats.scripture_references}</dd>
                                     </dl>
                                 </div>
@@ -159,17 +179,17 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                    <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <svg class="h-6 w-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
                                     </svg>
                                 </div>
                                 <div class="ml-5 w-0 flex-1">
                                     <dl>
-                                        <dt class="text-sm font-medium text-gray-400 truncate">Suspect References</dt>
+                                        <dt class="text-sm font-medium text-neutral-400 truncate">Suspect References</dt>
                                         <dd class="text-lg font-medium text-white">${videoData.stats.suspect_references}</dd>
                                     </dl>
                                 </div>
@@ -177,17 +197,17 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                    <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <svg class="h-6 w-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="h-6 w-6 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                     </svg>
                                 </div>
                                 <div class="ml-5 w-0 flex-1">
                                     <dl>
-                                        <dt class="text-sm font-medium text-gray-400 truncate">False Positives</dt>
+                                        <dt class="text-sm font-medium text-neutral-400 truncate">False Positives</dt>
                                         <dd class="text-lg font-medium text-white">${videoData.stats.false_positives}</dd>
                                     </dl>
                                 </div>
@@ -260,14 +280,14 @@
                     datasets: [{
                         label: 'Confirmed References',
                         data: confirmedData,
-                        backgroundColor: 'rgba(34, 197, 94, 0.8)',
-                        borderColor: 'rgba(34, 197, 94, 1)',
+                        backgroundColor: 'rgba(125, 207, 0, 0.8)',
+                        borderColor: 'rgba(125, 207, 0, 1)',
                         borderWidth: 1
                     }, {
                         label: 'Suspect References',
                         data: suspectData,
-                        backgroundColor: 'rgba(251, 191, 36, 0.8)',
-                        borderColor: 'rgba(251, 191, 36, 1)',
+                        backgroundColor: 'rgba(181, 253, 93, 0.8)',
+                        borderColor: 'rgba(181, 253, 93, 1)',
                         borderWidth: 1
                     }]
                 },
@@ -277,25 +297,25 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                color: '#9ca3af'
+                                color: '#a1a1a1'
                             },
                             grid: {
-                                color: '#374151'
+                                color: '#404040'
                             }
                         },
                         x: {
                             ticks: {
-                                color: '#9ca3af'
+                                color: '#a1a1a1'
                             },
                             grid: {
-                                color: '#374151'
+                                color: '#404040'
                             }
                         }
                     },
                     plugins: {
                         legend: {
                             labels: {
-                                color: '#9ca3af'
+                                color: '#a1a1a1'
                             }
                         }
                     }

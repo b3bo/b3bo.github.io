@@ -10,10 +10,30 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#eff6ff',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            900: '#1e3a8a'
+                            50: '#f3ffe8',
+                            100: '#e5fecf',
+                            200: '#ccfd9c',
+                            300: '#b5fd5d',
+                            400: '#92e800',
+                            500: '#7dcf00',
+                            600: '#61a500',
+                            700: '#4b7d00',
+                            800: '#3c6300',
+                            900: '#36530f',
+                            950: '#1a2e00'
+                        },
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a1a1a1',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#0a0a0a'
                         }
                     }
                 }
@@ -21,9 +41,9 @@
         }
     </script>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen">
+<body class="bg-neutral-900 text-white min-h-screen">
     <!-- Header -->
-    <header class="bg-gray-800 shadow-lg">
+    <header class="bg-neutral-800 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-6">
                 <div class="flex items-center">
@@ -32,7 +52,7 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-700 hover:bg-neutral-600 transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
@@ -51,12 +71,12 @@
             </div>
 
             <!-- Videos List -->
-            <div class="bg-gray-800 shadow overflow-hidden sm:rounded-md" id="videos-section">
+            <div class="bg-neutral-800 shadow overflow-hidden sm:rounded-md" id="videos-section">
                 <div class="px-4 py-5 sm:px-6">
                     <h3 class="text-lg leading-6 font-medium text-white">Processed Videos</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-400">Click on a video to see detailed Scripture reference analysis.</p>
+                    <p class="mt-1 max-w-2xl text-sm text-neutral-400">Click on a video to see detailed Scripture reference analysis.</p>
                 </div>
-                <ul role="list" class="divide-y divide-gray-700" id="videos-list">
+                <ul role="list" class="divide-y divide-neutral-700" id="videos-list">
                     <!-- Videos will be populated by JavaScript -->
                 </ul>
             </div>
@@ -76,7 +96,7 @@
                 console.error('Error loading data:', error);
                 document.getElementById('videos-section').innerHTML = `
                     <div class="px-4 py-5 sm:px-6">
-                        <p class="text-red-400">Error loading data. Make sure results.json exists.</p>
+                        <p class="text-neutral-400">Error loading data. Make sure results.json exists.</p>
                     </div>
                 `;
             }
@@ -93,17 +113,17 @@
 
             // Render stats
             document.getElementById('stats-grid').innerHTML = `
-                <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                     <div class="p-5">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                                 </svg>
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-400 truncate">Total Videos</dt>
+                                    <dt class="text-sm font-medium text-neutral-400 truncate">Total Videos</dt>
                                     <dd class="text-lg font-medium text-white">${totalVideos}</dd>
                                 </dl>
                             </div>
@@ -111,17 +131,17 @@
                     </div>
                 </div>
 
-                <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                     <div class="p-5">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-400 truncate">Total References</dt>
+                                    <dt class="text-sm font-medium text-neutral-400 truncate">Total References</dt>
                                     <dd class="text-lg font-medium text-white">${totalRefs}</dd>
                                 </dl>
                             </div>
@@ -129,17 +149,17 @@
                     </div>
                 </div>
 
-                <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                     <div class="p-5">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
                                 </svg>
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-400 truncate">Suspect References</dt>
+                                    <dt class="text-sm font-medium text-neutral-400 truncate">Suspect References</dt>
                                     <dd class="text-lg font-medium text-white">${totalSuspect}</dd>
                                 </dl>
                             </div>
@@ -147,17 +167,17 @@
                     </div>
                 </div>
 
-                <div class="bg-gray-800 overflow-hidden shadow rounded-lg">
+                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
                     <div class="p-5">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-6 w-6 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-400 truncate">False Positives</dt>
+                                    <dt class="text-sm font-medium text-neutral-400 truncate">False Positives</dt>
                                     <dd class="text-lg font-medium text-white">${totalFP}</dd>
                                 </dl>
                             </div>

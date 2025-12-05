@@ -52,6 +52,10 @@ BOOK_CHAPTERS = {
 
 def extract_video_id(url):
     """Extract video ID from YouTube URL."""
+    # Check if it's already a video ID
+    if len(url) == 11 and re.match(r'[a-zA-Z0-9_-]{11}', url):
+        return url
+    
     patterns = [
         r'(?:https?://)?(?:www\.)?youtube\.com/watch\?v=([a-zA-Z0-9_-]{11})',
         r'(?:https?://)?(?:www\.)?youtu\.be/([a-zA-Z0-9_-]{11})',
@@ -83,9 +87,31 @@ def get_video_info(video_id):
             channel_match = re.search(r'<link itemprop="name" content="([^"]+)">', html)
         channel = channel_match.group(1).strip() if channel_match else 'Unknown Channel'
         
-        return title, channel
+        # Extract channel URL
+        channel_id_match = re.search(r'"channelId":"([^"]+)"', html)
+        channel_url = f"https://www.youtube.com/channel/{channel_id_match.group(1)}" if channel_id_match else ""
+        
+        return title, channel, channel_url
     except Exception as e:
-        return 'Unknown Title', 'Unknown Channel'
+        return 'Unknown Title', 'Unknown Channel', ''
+
+
+def get_channel_location(channel_url):
+    """Get channel location from YouTube about page."""
+    if not channel_url:
+        return ""
+    about_url = channel_url + "/about"
+    try:
+        response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        html = response.text
+        # Extract location
+        location_match = re.search(r'<td[^>]*>Location</td>\s*<td[^>]*>([^<]+)</td>', html, re.IGNORECASE)
+        if location_match:
+            return location_match.group(1).strip()
+        else:
+            return ""
+    except Exception as e:
+        return ""
 
 
 def get_transcript(video_id):
@@ -190,7 +216,8 @@ def count_keywords(transcript_text, keywords, transcript_snippets):
                 if cumulative_len + snippet_len > pos:
                     snippet_info = {
                         'start': snippet.start,
-                        'context': f"...{transcript_text[max(0, pos-50):pos+50]}..."
+                        'context': f"...{transcript_text[max(0, pos-50):pos+50]}...",
+                        'text': snippet.text
                     }
                     break
                 cumulative_len += snippet_len
@@ -238,9 +265,11 @@ def main():
         video_id = extract_video_id(args.url)
         print(f"Video ID: {video_id}")
 
-        title, channel = get_video_info(video_id)
+        title, channel, channel_url = get_video_info(video_id)
+        location = get_channel_location(channel_url)
         print(f"Title: {title}")
         print(f"Channel: {channel}")
+        print(f"Location: {location}")
 
         transcript_text, transcript_snippets = get_transcript(video_id)
         print(f"Transcript length: {len(transcript_text)} characters")
@@ -265,11 +294,14 @@ def main():
             'video_id': video_id,
             'title': title,
             'channel': channel,
+            'channel_url': channel_url,
+            'location': location,
             'transcript_length': len(transcript_text),
             'processed_at': str(datetime.now()),
             'stats': stats,
             'counts': full_counts,
-            'suspect_counts': full_suspect_counts
+            'suspect_counts': full_suspect_counts,
+            'positions': positions
         }
         
         all_results[video_id] = video_data
