@@ -151,26 +151,32 @@ def validate_channel_is_sermon(channel_url):
 def get_transcript(video_id):
     """Get transcript for the video."""
     proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
-    proxies = None
-    proxy_url = None
-    if proxy_list:
-        proxy_url = random.choice(proxy_list).strip()
-        if proxy_url:
-            proxies = {
-                'http': proxy_url,
-                'https': proxy_url
-            }
-            print(f"Using proxy: {proxy_url}")  # Log which proxy is being used
-    try:
-        transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
-        transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
-        return transcript_text, transcript_snippets
-    except Exception as e:
-        error_msg = f"Could not retrieve transcript: {e}"
-        if proxy_url:
-            error_msg += f" (Tried with proxy: {proxy_url})"
-        print(f"Transcript retrieval failed: {error_msg}")  # Log the error
-        raise Exception(error_msg)
+    tried_proxies = []
+    
+    for proxy_url in proxy_list:
+        proxy_url = proxy_url.strip()
+        if not proxy_url:
+            continue
+        proxies = {
+            'http': proxy_url,
+            'https': proxy_url
+        }
+        print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
+        try:
+            transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
+            transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
+            return transcript_text, transcript_snippets
+        except Exception as e:
+            tried_proxies.append(proxy_url)
+            print(f"Proxy {proxy_url} failed: {e}")
+            continue
+    
+    # If all proxies failed
+    error_msg = "Could not retrieve transcript after trying all proxies."
+    if tried_proxies:
+        error_msg += f" Tried proxies: {', '.join(tried_proxies)}"
+    print(f"Transcript retrieval failed: {error_msg}")
+    raise Exception(error_msg)
 
 
 def count_keywords(transcript_text, keywords, transcript_snippets):
