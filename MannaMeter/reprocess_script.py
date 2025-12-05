@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Reprocess all videos in results.json"""
+import os
+RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
 
 import json
 import os
@@ -9,7 +11,7 @@ from main import get_video_info, get_transcript, count_keywords, BIBLE_BOOKS, ge
 
 def main():
     try:
-        results_file = 'results.json'
+        results_file = RESULTS_FILE
         
         print("=" * 50)
         print("MannaMeter Video Reprocessing")

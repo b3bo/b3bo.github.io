@@ -51,6 +51,9 @@ BOOK_CHAPTERS = {
     "2 John": 1, "3 John": 1, "Jude": 1, "Revelation": 22
 }
 
+import os
+RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
+
 
 def extract_video_id(url):
     """Extract video ID from YouTube URL."""
@@ -486,7 +489,7 @@ def main():
         # Save results to JSON
         import json
         import os
-        results_file = 'results.json'
+        results_file = RESULTS_FILE
         if os.path.exists(results_file):
             with open(results_file, 'r') as f:
                 all_results = json.load(f)

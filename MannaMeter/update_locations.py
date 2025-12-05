@@ -2,13 +2,15 @@
 """
 Update existing results.json with location data for channels.
 """
+import os
+RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
 
 import json
 import os
 from main import get_video_info, get_channel_location
 
 def update_locations():
-    results_file = 'results.json'
+    results_file = RESULTS_FILE
     if not os.path.exists(results_file):
         print("No results.json found.")
         return
