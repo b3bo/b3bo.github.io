@@ -91,11 +91,11 @@ def analyze():
             }), 400
         
         location = get_channel_location(channel_url)
-        try:
-            transcript_text, transcript_snippets = get_transcript(video_id)
-        except Exception as e:
+        transcript_text, transcript_snippets, logs = get_transcript(video_id)
+        if transcript_text is None:
             return jsonify({
-                'error': 'Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.'
+                'error': 'Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.',
+                'logs': logs
             }), 400
         counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
         
@@ -122,7 +122,8 @@ def analyze():
             'stats': stats,
             'counts': full_counts,
             'suspect_counts': full_suspect_counts,
-            'positions': positions
+            'positions': positions,
+            'logs': logs
         }
         
         # Check if this is a reprocessing
@@ -157,10 +158,9 @@ def video_detail(video_id):
                 return f'Channel validation failed: {description}', 400
             
             location = get_channel_location(channel_url)
-            try:
-                transcript_text, transcript_snippets = get_transcript(video_id)
-            except Exception as e:
-                return f"Unable to retrieve transcript. This may be due to YouTube restrictions on automated requests. Please try a different video or check back later.", 400
+            transcript_text, transcript_snippets, logs = get_transcript(video_id)
+            if transcript_text is None:
+                return f"Unable to retrieve transcript. Logs: {'; '.join(logs)}", 400
             counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
             
             # Prepare data
@@ -178,7 +178,8 @@ def video_detail(video_id):
                 'stats': stats,
                 'counts': full_counts,
                 'suspect_counts': full_suspect_counts,
-                'positions': positions
+                'positions': positions,
+                'logs': logs
             }
             
             cache_video(video_id, video_data)

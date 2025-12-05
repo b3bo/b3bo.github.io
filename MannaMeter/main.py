@@ -152,6 +152,7 @@ def get_transcript(video_id):
     """Get transcript for the video."""
     proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
     tried_proxies = []
+    logs = []
     
     for proxy_url in proxy_list:
         proxy_url = proxy_url.strip()
@@ -161,13 +162,16 @@ def get_transcript(video_id):
             'http': proxy_url,
             'https': proxy_url
         }
+        logs.append(f"Trying proxy: {proxy_url}")
         print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
         try:
             transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
             transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
-            return transcript_text, transcript_snippets
+            logs.append(f"Success with proxy: {proxy_url}")
+            return transcript_text, transcript_snippets, logs
         except Exception as e:
             tried_proxies.append(proxy_url)
+            logs.append(f"Proxy {proxy_url} failed: {e}")
             print(f"Proxy {proxy_url} failed: {e}")
             continue
     
@@ -175,8 +179,9 @@ def get_transcript(video_id):
     error_msg = "Could not retrieve transcript after trying all proxies."
     if tried_proxies:
         error_msg += f" Tried proxies: {', '.join(tried_proxies)}"
+    logs.append(f"Transcript retrieval failed: {error_msg}")
     print(f"Transcript retrieval failed: {error_msg}")
-    raise Exception(error_msg)
+    return None, None, logs
 
 
 def count_keywords(transcript_text, keywords, transcript_snippets):
