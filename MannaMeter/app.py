@@ -150,7 +150,7 @@ def analyze():
         })
     
     except Exception as e:
-        return f"Error analyzing video: {str(e)}", 500
+        return jsonify({'error': f"Error analyzing video: {str(e)}"}), 500
 
 @app.route('/video/<video_id>')
 def video_detail(video_id):
