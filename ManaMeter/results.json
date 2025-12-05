@@ -1,0 +1,941 @@
+{
+  "AFhG09L0LXA": {
+    "video_id": "AFhG09L0LXA",
+    "title": "John 5:24 - From Death to Life: The Present Verdict of the Believer",
+    "channel": "5 Bridges Church",
+    "channel_url": "https://www.youtube.com/channel/UChu1m0MNNmHZRhBUDxAJKaA",
+    "location": "",
+    "transcript_length": 65244,
+    "processed_at": "2025-12-05 01:45:08.885681",
+    "stats": {
+      "total_matches": 75,
+      "capitalized_matches": 70,
+      "scripture_references": 68,
+      "suspect_references": 3,
+      "false_positives": 2,
+      "not_counted": 2
+    },
+    "counts": {
+      "Genesis": 0,
+      "Exodus": 0,
+      "Leviticus": 0,
+      "Numbers": 0,
+      "Deuteronomy": 1,
+      "Joshua": 0,
+      "Judges": 0,
+      "Ruth": 0,
+      "1 Samuel": 0,
+      "2 Samuel": 0,
+      "1 Kings": 0,
+      "2 Kings": 0,
+      "1 Chronicles": 0,
+      "2 Chronicles": 0,
+      "Ezra": 0,
+      "Nehemiah": 0,
+      "Esther": 0,
+      "Job": 0,
+      "Psalms": 0,
+      "Proverbs": 0,
+      "Ecclesiastes": 0,
+      "Song of Solomon": 0,
+      "Isaiah": 3,
+      "Jeremiah": 0,
+      "Lamentations": 0,
+      "Ezekiel": 0,
+      "Daniel": 0,
+      "Hosea": 0,
+      "Joel": 0,
+      "Amos": 0,
+      "Obadiah": 0,
+      "Jonah": 0,
+      "Micah": 0,
+      "Nahum": 0,
+      "Habakkuk": 0,
+      "Zephaniah": 0,
+      "Haggai": 0,
+      "Zechariah": 0,
+      "Malachi": 0,
+      "Matthew": 3,
+      "Mark": 0,
+      "Luke": 0,
+      "John": 45,
+      "Acts": 0,
+      "Romans": 3,
+      "1 Corinthians": 0,
+      "2 Corinthians": 5,
+      "Galatians": 0,
+      "Ephesians": 2,
+      "Philippians": 0,
+      "Colossians": 2,
+      "1 Thessalonians": 0,
+      "2 Thessalonians": 0,
+      "1 Timothy": 0,
+      "2 Timothy": 0,
+      "Titus": 0,
+      "Philemon": 0,
+      "Hebrews": 0,
+      "James": 1,
+      "1 Peter": 0,
+      "2 Peter": 0,
+      "1 John": 2,
+      "2 John": 0,
+      "3 John": 0,
+      "Jude": 0,
+      "Revelation": 1
+    },
+    "suspect_counts": {
+      "Genesis": 0,
+      "Exodus": 0,
+      "Leviticus": 0,
+      "Numbers": 0,
+      "Deuteronomy": 0,
+      "Joshua": 0,
+      "Judges": 1,
+      "Ruth": 0,
+      "1 Samuel": 0,
+      "2 Samuel": 0,
+      "1 Kings": 0,
+      "2 Kings": 0,
+      "1 Chronicles": 0,
+      "2 Chronicles": 0,
+      "Ezra": 0,
+      "Nehemiah": 0,
+      "Esther": 0,
+      "Job": 0,
+      "Psalms": 0,
+      "Proverbs": 0,
+      "Ecclesiastes": 0,
+      "Song of Solomon": 0,
+      "Isaiah": 0,
+      "Jeremiah": 0,
+      "Lamentations": 0,
+      "Ezekiel": 0,
+      "Daniel": 0,
+      "Hosea": 0,
+      "Joel": 0,
+      "Amos": 0,
+      "Obadiah": 0,
+      "Jonah": 0,
+      "Micah": 0,
+      "Nahum": 0,
+      "Habakkuk": 0,
+      "Zephaniah": 0,
+      "Haggai": 0,
+      "Zechariah": 0,
+      "Malachi": 0,
+      "Matthew": 0,
+      "Mark": 1,
+      "Luke": 0,
+      "John": 0,
+      "Acts": 0,
+      "Romans": 0,
+      "1 Corinthians": 0,
+      "2 Corinthians": 0,
+      "Galatians": 0,
+      "Ephesians": 0,
+      "Philippians": 0,
+      "Colossians": 0,
+      "1 Thessalonians": 0,
+      "2 Thessalonians": 0,
+      "1 Timothy": 0,
+      "2 Timothy": 0,
+      "Titus": 0,
+      "Philemon": 0,
+      "Hebrews": 0,
+      "James": 0,
+      "1 Peter": 0,
+      "2 Peter": 0,
+      "1 John": 0,
+      "2 John": 0,
+      "3 John": 0,
+      "Jude": 0,
+      "Revelation": 1
+    },
+    "positions": {
+      "Genesis": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Exodus": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Leviticus": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Numbers": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Deuteronomy": {
+        "valid": [
+          {
+            "start": 2460.72,
+            "context": "...not the violation of the Sabbath that we found in Deuteronomy. The Jews understood that Jesus or exc...",
+            "text": "even true, that if you were to touch"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Joshua": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Judges": {
+        "valid": [],
+        "suspect": [
+          {
+            "start": 2716.16,
+            "context": "...what it says in verse 22. For not even the father judges anyone. Why? But he has given all judgment ...",
+            "text": "God. He who does not honor the son does"
+          }
+        ],
+        "false_positive": [],
+        "not_counted": [
+          {
+            "start": 2316.8,
+            "context": "...s life to whom he wishes. For not even the Father judges anyone, but he has given all judgment to th...",
+            "text": "inspiration of the Holy Spirit given to"
+          }
+        ]
+      },
+      "Ruth": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Samuel": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Samuel": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Kings": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Kings": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Chronicles": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Chronicles": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Ezra": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Nehemiah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Esther": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Job": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": [
+          {
+            "start": 3155.76,
+            "context": ".... I have no doubt that you were doing a fantastic job expositing God's word, but one, I was an unbel...",
+            "text": "is who he says he is. That Jesus is not"
+          }
+        ]
+      },
+      "Psalms": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Proverbs": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Ecclesiastes": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Song of Solomon": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Isaiah": {
+        "valid": [
+          {
+            "start": 682.48,
+            "context": "...we said we were going to be starting our study in Isaiah this morning. That is incorrect. I forgot t...",
+            "text": "John one more time and then next week"
+          },
+          {
+            "start": 695.519,
+            "context": "... starting off our Christmas series in the book of Isaiah. But before we do that, now this is the fir...",
+            "text": "Advent for this morning."
+          },
+          {
+            "start": 2212.0,
+            "context": "... the rest of the month of December in the book of Isaiah. Uh I'm very excited about that sermon seri...",
+            "text": "to look at this section of verses 17 to"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Jeremiah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Lamentations": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Ezekiel": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Daniel": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Hosea": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Joel": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Amos": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Obadiah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Jonah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Micah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Nahum": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Habakkuk": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Zephaniah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Haggai": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Zechariah": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Malachi": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Matthew": {
+        "valid": [
+          {
+            "start": 1858.96,
+            "context": "... morning, I want to just read for us a section of Matthew chapter 5. We have a lot to be thankful fo...",
+            "text": "Blessed are those who hunger and thirst"
+          },
+          {
+            "start": 1870.159,
+            "context": "... our our hearts and minds on rejoicing even more. Matthew chapter 5:es 32 3-10 says, \"Our Lord Jesus...",
+            "text": "heart, for they shall see God. Blessed"
+          },
+          {
+            "start": 5444.159,
+            "context": "...d idea of what salvation truly is. You might be a Matthew 7:21 false believer, a self-deceived indiv...",
+            "text": "emotions to overshadow and to overtake"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Mark": {
+        "valid": [],
+        "suspect": [
+          {
+            "start": 1153.44,
+            "context": "...ot in judgment with you. For if you, Lord, should mark iniquities, oh Lord, who shall abide it? Amen...",
+            "text": "be a confessing and repenting people."
+          }
+        ],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Luke": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "John": {
+        "valid": [
+          {
+            "start": 688.64,
+            "context": "...unday in the month of November. So, we will be in John one more time and then next week we'll be sta...",
+            "text": "we do that, now this is the first Sunday"
+          },
+          {
+            "start": 2201.28,
+            "context": "...Lord. Amen. You can be seated. Opening them up to John chapter 5. This will be our last sermon for [...",
+            "text": "when we just camp out in one verse. But"
+          },
+          {
+            "start": 2206.64,
+            "context": "...will be our last sermon for [snorts] this year in John's gospel. and we will spend the next well the...",
+            "text": "to finish from verse 24 to verse 30. So"
+          },
+          {
+            "start": 2219.599,
+            "context": "...or Ben will be preaching you through. We'll be in John chapter 5 specifically. We're going to look a...",
+            "text": "entitled From Death to Life, the present"
+          },
+          {
+            "start": 2262.72,
+            "context": "...his morning and then we will jump into our study. John chapter 5, starting in verse 17. But he answe...",
+            "text": "the Son also does in the same manner."
+          },
+          {
+            "start": 2414.64,
+            "context": "..., again, remember when you hear this reference in John's gospel when he says the Jews, it's not talk...",
+            "text": "Jesus. Now, the Sabbath was not the"
+          },
+          {
+            "start": 2662.16,
+            "context": "...ing down into verse 20, we get a hint as to where John is taking us, as to what Jesus is taking his ...",
+            "text": "at what it says in verse 22. For not"
+          },
+          {
+            "start": 2807.04,
+            "context": "...here in verse 24. Truly, truly. Now if you see in John's gospel you see there's a few times in which...",
+            "text": "He is saying what I am about to teach"
+          },
+          {
+            "start": 2809.2,
+            "context": "...ohn's gospel you see there's a few times in which John uses this truly truly or some of your version...",
+            "text": "you in this verse in verse 24 and"
+          },
+          {
+            "start": 3262.4,
+            "context": "...it shows in your obedience. Now, when we see that John uses this word hearing, and he uses this thro...",
+            "text": "it wants to do. We see this all the time"
+          },
+          {
+            "start": 3283.44,
+            "context": "...aring. I'm going to define that here in a second. John uses this in John 10:3. It says, \"To him the ...",
+            "text": "you. Repeat back to me what I just said."
+          },
+          {
+            "start": 3286.319,
+            "context": "...o define that here in a second. John uses this in John 10:3. It says, \"To him the doorkeeper opens. ...",
+            "text": "You said to go um I don't know actually."
+          },
+          {
+            "start": 3296.96,
+            "context": "... calls his own sheep by name and leads them out.\" John 10:27, \"My sheep hear my voice and I know the...",
+            "text": "Sitting on the couch watching the Eagles"
+          },
+          {
+            "start": 3451.68,
+            "context": "...follow after him. Because what does Jesus said in John 10 and John verse 3 and 27? When we hear the ...",
+            "text": "times there's many of us in our life, we"
+          },
+          {
+            "start": 3451.68,
+            "context": "... him. Because what does Jesus said in John 10 and John verse 3 and 27? When we hear the voice of our...",
+            "text": "times there's many of us in our life, we"
+          },
+          {
+            "start": 3463.44,
+            "context": "...lowing to. And oftent times it's for our benefit. John 8:47 says, \"He who is of God hears the words ...",
+            "text": "he is, if you're in Christ, would you"
+          },
+          {
+            "start": 3478.0,
+            "context": "... you are not of God. So that verse right there in John 8, understand or we should help understand wh...",
+            "text": "church fellowship, who think that by"
+          },
+          {
+            "start": 3658.079,
+            "context": "...ning the word of God. It says back to verse 24 of John 5. He who hears my words conjunction and agai...",
+            "text": "share in the same article in the"
+          },
+          {
+            "start": 3810.4,
+            "context": "... believe in the father as the sender. Remember in John 3:16, his only begotten, not created, not mad...",
+            "text": "you have eternal life, we we take"
+          },
+          {
+            "start": 3828.559,
+            "context": "...erent persons, the same essence, the same nature. John 3:16-17, the father sends the son. John 5:23,...",
+            "text": "But did you know that since this is a"
+          },
+          {
+            "start": 3830.799,
+            "context": "...e nature. John 3:16-17, the father sends the son. John 5:23, Jesus is saying, he who does not honor ...",
+            "text": "present active indicative you currently"
+          },
+          {
+            "start": 3836.0,
+            "context": "...r the son does not honor the father who sent him. John 12:44 says, \"He who believes in me believes n...",
+            "text": "Christ eternal life it's not you will"
+          },
+          {
+            "start": 3968.64,
+            "context": "...re in Christ, you currently possess eternal life. John 3:36 says, \"He who believes in the Son has,\" ...",
+            "text": "live even if he dies."
+          },
+          {
+            "start": 4059.44,
+            "context": "... is not how God works. That is not how God works. John 6:47, truly truly I say to you, he who believ...",
+            "text": "It's only asleep for the body until the"
+          },
+          {
+            "start": 4068.0,
+            "context": "...d I think this verse is a very paradoxical verse. John 11 verse 25- 26. Jesus said to her, listen to...",
+            "text": "Jesus continues on. My sheep hear. There"
+          },
+          {
+            "start": 4121.199,
+            "context": "...ritually you will live. Jesus is demonstrating in John 11:25-26. He brings this verse 524 to a beaut...",
+            "text": "You can't take your eternal life from"
+          },
+          {
+            "start": 4124.0,
+            "context": "...ings this verse 524 to a beautiful climax here in John 11 that salvation brings eternal life and not...",
+            "text": "yourself. Why? Because you didn't give"
+          },
+          {
+            "start": 4165.839,
+            "context": "...ody until the resurrection unto life. I love what John 10:27-28 says that Jesus continues on. My she...",
+            "text": "What a glorious gift that is. But we"
+          },
+          {
+            "start": 4183.52,
+            "context": "...ey hear his voice and they follow me. Verse 28 of John 10. And I give eternal life to them. And list...",
+            "text": "unbiblical doctrine."
+          },
+          {
+            "start": 4194.48,
+            "context": "...on this morning, if you need a promise, listen to John 10:28. and I give them eternal life to them a...",
+            "text": "hand. If God imparts eternal life to"
+          },
+          {
+            "start": 4344.8,
+            "context": "... us and no one can take that from us. I love what John also writes in 1 John 5:11-13. And the witnes...",
+            "text": "They're not leaning on their own"
+          },
+          {
+            "start": 4344.8,
+            "context": "...e that from us. I love what John also writes in 1 John 5:11-13. And the witness is this that God her...",
+            "text": "They're not leaning on their own"
+          },
+          {
+            "start": 4606.8,
+            "context": "...u will never stand before in Christ. That is what John is saying here that Jesus is saying. You will...",
+            "text": "judgment, this next phrase or this next"
+          },
+          {
+            "start": 4652.48,
+            "context": "...s has set you free from the law of sin and death. John's already introduced us to this concept in Jo...",
+            "text": "longing, our desire. We have as our"
+          },
+          {
+            "start": 4658.0,
+            "context": ".... John's already introduced us to this concept in John 3:18 where he says, \"He who believes in him i...",
+            "text": "at home or absent to be what? Pleasing"
+          },
+          {
+            "start": 4847.679,
+            "context": "... who do not believe into the eternal lake of fire John 5:24 in connecting it with John or in 2 Corin...",
+            "text": "it on the screen here. The Beimma seat"
+          },
+          {
+            "start": 4850.159,
+            "context": "...rnal lake of fire John 5:24 in connecting it with John or in 2 Corinthians 5:10 Jesus is saying for ...",
+            "text": "is the judgment seat of Christ. That is"
+          },
+          {
+            "start": 4888.159,
+            "context": "... condemnation. We have been resurrected. And what John says here, if you go back to John, we don't h...",
+            "text": "present possession, not merely something"
+          },
+          {
+            "start": 4890.64,
+            "context": "...ected. And what John says here, if you go back to John, we don't have time to get into all of this, ...",
+            "text": "in the future. Believers have already"
+          },
+          {
+            "start": 4982.96,
+            "context": "...e or one unto death. Now look back at verse 24 of John 5. He who hears, believes, has sent me has et...",
+            "text": "believes in him who sent me, and has a"
+          },
+          {
+            "start": 5038.88,
+            "context": "... looking for. Flip over to verse 28 very briefly. John 5:28. Do not marvel at this, for an hour is c...",
+            "text": "father that everyone who sees the son"
+          },
+          {
+            "start": 5089.52,
+            "context": "... now. Jesus is describing a person in verse 24 of John 5 is describing a person answering these thre...",
+            "text": "transferred us into the kingdom of the"
+          },
+          {
+            "start": 5161.28,
+            "context": "...oughts and understanding of hearing and believing John 6:40 for this is the will of my father that e...",
+            "text": "been given, it's a complete realm"
+          },
+          {
+            "start": 5178.4,
+            "context": "...ast day that's going back to verse 21 verse 22 of John chapter 5. We hear and believe and we have th...",
+            "text": "You cannot merely believe Jesus alone in"
+          },
+          {
+            "start": 5231.04,
+            "context": "...se of Jesus, you have eternal life. >> Amen. >> 1 John 5:11-12 again. And the witness is this that G...",
+            "text": "out of death into life. Christian and"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [
+          {
+            "start": 4700.64,
+            "context": "...us to understand regarding judgment. Because when John is introducing us to does not come into judgm...",
+            "text": "to him? The answer is in verse 10. We"
+          },
+          {
+            "start": 5152.0,
+            "context": "...tion and it's a theme that we will see throughout John that we can learn from and study but also imp...",
+            "text": "salvation. Only responding to his word."
+          }
+        ],
+        "not_counted": []
+      },
+      "Acts": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Romans": {
+        "valid": [
+          {
+            "start": 3614.079,
+            "context": "...It never is neutral. And I love what Paul says in Romans 10:17. So faith comes from what? hearing, n...",
+            "text": "because if you believe in me, you'll"
+          },
+          {
+            "start": 4623.84,
+            "context": "... describing the doctrine of justification. Solid. Romans 8 1-2 Paul says there is therefore listen t...",
+            "text": "beam seat, the great great white throne"
+          },
+          {
+            "start": 4682.88,
+            "context": "...because they have not believed in the son of God. Romans 5:1 says, \"Therefore, having been justified...",
+            "text": "does that word pleasing mean?"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Corinthians": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Corinthians": {
+        "valid": [
+          {
+            "start": 4710.4,
+            "context": "...ut two resurrections. Turn with me if you will to 2 Corinthians very briefly here. 2 Corinthians cha...",
+            "text": "word and believes should have which"
+          },
+          {
+            "start": 4713.04,
+            "context": "...e if you will to 2 Corinthians very briefly here. 2 Corinthians chapter 5 because I want us to under...",
+            "text": "should motivate us in giving us in"
+          },
+          {
+            "start": 4729.92,
+            "context": "...e going to unpack that very briefly here. Look at 2 Corinthians chapter 5 verse 9-10. If you need mo...",
+            "text": "judgment seat of Christ this refers to"
+          },
+          {
+            "start": 4850.159,
+            "context": "...f fire John 5:24 in connecting it with John or in 2 Corinthians 5:10 Jesus is saying for those who h...",
+            "text": "is the judgment seat of Christ. That is"
+          },
+          {
+            "start": 4873.12,
+            "context": "...one of judgment Why? Because we, as accordance to 2 Corinthians 5:10, we will appear before Christ, ...",
+            "text": "He who hears, believes, has sent me has"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Galatians": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Ephesians": {
+        "valid": [
+          {
+            "start": 2959.2,
+            "context": "...s, we were talking about the mystery of Christ in Ephesians. In the Old Testament, the mystery of Ch...",
+            "text": "Now, he says, I say to you, the you here"
+          },
+          null
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Philippians": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Colossians": {
+        "valid": [
+          {
+            "start": 1754.96,
+            "context": "...ith that in mind I'd like to read two verses from Colossians chapter 1 verse 16 and 17 say this. For...",
+            "text": "in Christ all things hold together. That"
+          },
+          {
+            "start": 5191.44,
+            "context": "...ferred into a new status into a future direction. Colossians 1:12-14 giving thanks to the father who...",
+            "text": "of encouragement."
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Thessalonians": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Thessalonians": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Timothy": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Timothy": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Titus": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Philemon": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Hebrews": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "James": {
+        "valid": [
+          {
+            "start": 3434.079,
+            "context": "...gives me. But we do this all the time, do we not? James even says, \"Don't be merely what?\" Hearers. ...",
+            "text": "that I sounded like I was really paying"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 Peter": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 Peter": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "1 John": {
+        "valid": [
+          {
+            "start": 4344.8,
+            "context": "...ake that from us. I love what John also writes in 1 John 5:11-13. And the witness is this that God h...",
+            "text": "They're not leaning on their own"
+          },
+          {
+            "start": 5231.04,
+            "context": "...ause of Jesus, you have eternal life. >> Amen. >> 1 John 5:11-12 again. And the witness is this that...",
+            "text": "out of death into life. Christian and"
+          }
+        ],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "2 John": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "3 John": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Jude": {
+        "valid": [],
+        "suspect": [],
+        "false_positive": [],
+        "not_counted": []
+      },
+      "Revelation": {
+        "valid": [
+          {
+            "start": 4841.84,
+            "context": "...the great great white throne of judgment found in Revelation 20 11-15 that is the final judgment cas...",
+            "text": "two resurrections. The second"
+          }
+        ],
+        "suspect": [
+          {
+            "start": 4863.12,
+            "context": "...f judgment the poor judgment you will not see the revelation 20 judgment the great white throne of j...",
+            "text": "between one or two judgments. One unto"
+          }
+        ],
+        "false_positive": [],
+        "not_counted": []
+      }
+    }
+  }
+}
