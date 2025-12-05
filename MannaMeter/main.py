@@ -350,6 +350,8 @@ def count_keywords(transcript_text, keywords, transcript_snippets):
         counts[keyword] = scripture_count
         suspect_counts[keyword] = suspect_count
     
+    stats['total_matches'] = stats['scripture_references'] + stats['suspect_references'] + stats['false_positives']
+    
     return counts, suspect_counts, positions, stats
 
 
