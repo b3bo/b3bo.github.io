@@ -46,11 +46,14 @@ def index():
     # Sort by processed_at descending
     videos.sort(key=lambda x: x.get('processed_at', ''), reverse=True)
     
-    # Aggregate top referenced books
+    # Aggregate top referenced books (including both confirmed and suspect references)
     book_totals = {}
     for video in videos:
         counts = video.get('counts', {})
+        suspect_counts = video.get('suspect_counts', {})
         for book, count in counts.items():
+            book_totals[book] = book_totals.get(book, 0) + count
+        for book, count in suspect_counts.items():
             book_totals[book] = book_totals.get(book, 0) + count
     
     # Get top 10 referenced books
