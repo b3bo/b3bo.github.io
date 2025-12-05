@@ -36,10 +36,15 @@ def cache_video(video_id, video_data):
 
 @app.route('/')
 def index():
-    cache = load_cache()
-    videos = list(cache.values())
-    # Sort by cached_at descending
-    videos.sort(key=lambda x: x.get('cached_at', ''), reverse=True)
+    results_file = 'results.json'
+    if os.path.exists(results_file):
+        with open(results_file, 'r') as f:
+            all_results = json.load(f)
+        videos = list(all_results.values())
+    else:
+        videos = []
+    # Sort by processed_at descending
+    videos.sort(key=lambda x: x.get('processed_at', ''), reverse=True)
     
     # Aggregate top referenced books
     book_totals = {}
