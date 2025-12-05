@@ -150,23 +150,27 @@ def validate_channel_is_sermon(channel_url):
 
 def get_transcript(video_id):
     """Get transcript for the video."""
+    proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
+    proxies = None
+    proxy_url = None
+    if proxy_list:
+        proxy_url = random.choice(proxy_list).strip()
+        if proxy_url:
+            proxies = {
+                'http': proxy_url,
+                'https': proxy_url
+            }
+            print(f"Using proxy: {proxy_url}")  # Log which proxy is being used
     try:
-        proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
-        proxies = None
-        if proxy_list:
-            proxy_url = random.choice(proxy_list).strip()
-            if proxy_url:
-                proxies = {
-                    'http': proxy_url,
-                    'https': proxy_url
-                }
-                print(f"Using proxy: {proxy_url}")  # Log which proxy is being used
         transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
         transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
         return transcript_text, transcript_snippets
     except Exception as e:
-        print(f"Transcript retrieval failed: {e}")  # Log the error
-        raise Exception(f"Could not retrieve transcript: {e}")
+        error_msg = f"Could not retrieve transcript: {e}"
+        if proxy_url:
+            error_msg += f" (Tried with proxy: {proxy_url})"
+        print(f"Transcript retrieval failed: {error_msg}")  # Log the error
+        raise Exception(error_msg)
 
 
 def count_keywords(transcript_text, keywords, transcript_snippets):
