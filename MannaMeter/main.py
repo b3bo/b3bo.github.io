@@ -9,6 +9,7 @@ import argparse
 import re
 from collections import Counter
 from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.proxies import GenericProxyConfig
 import requests
 from datetime import datetime
 import os
@@ -165,7 +166,8 @@ def get_transcript(video_id):
         logs.append(f"{datetime.now()}: Trying proxy: {proxy_url}")
         print(f"Trying proxy: {proxy_url}")  # Log which proxy is being tried
         try:
-            api = YouTubeTranscriptApi(proxy_config=proxies)
+            proxy_config = GenericProxyConfig(http_url=proxy_url, https_url=proxy_url)
+            api = YouTubeTranscriptApi(proxy_config=proxy_config)
             transcript_list = api.list(video_id)
             transcript = transcript_list.find_transcript(['en'])
             transcript_snippets = transcript.fetch()
