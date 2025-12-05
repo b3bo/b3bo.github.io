@@ -17,6 +17,10 @@ __pycache__/
 *.pyc
 **/*.pyc
 
+# MannaMeter data files
+MannaMeter/results.json
+MannaMeter/cache.json
+
 # Build-time files (not deployed)
 components/
 package.json
