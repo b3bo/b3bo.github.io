@@ -80,7 +80,7 @@ def analyze():
     url = request.form.get('url')
     
     if not url:
-        return "No URL provided", 400
+        return jsonify({'error': 'No URL provided'}), 400
     
     keywords = BIBLE_BOOKS
     
