@@ -11,6 +11,12 @@ node_modules/
 **/.next/
 **/.cache/
 
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+**/*.pyc
+
 # Build-time files (not deployed)
 components/
 package.json
