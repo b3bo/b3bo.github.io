@@ -195,7 +195,9 @@ export function initializeMap(center, zoom) {
 
     if (isMobile && mapLayout) {
         const mobileFullscreenBtn = document.createElement('button');
-        mobileFullscreenBtn.className = 'mobile-fullscreen-btn absolute top-2.5 right-2.5 z-10 bg-white dark:bg-dark-bg-elevated border-none rounded-sm w-10 h-10 shadow-md cursor-pointer flex items-center justify-center text-neutral-600 dark:text-dark-text-secondary hover:bg-neutral-50 dark:hover:bg-dark-bg-elevated-2 transition-colors';
+        // Match Google Maps control styling
+        mobileFullscreenBtn.className = 'mobile-fullscreen-btn absolute top-2.5 right-2.5 z-10 bg-white dark:bg-dark-bg-elevated border border-transparent rounded w-10 h-10 cursor-pointer flex items-center justify-center text-neutral-700 dark:text-dark-text-primary hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors';
+        mobileFullscreenBtn.style.cssText = 'box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;';
         // iOS gets popout icon, Android gets fullscreen icon
         mobileFullscreenBtn.title = isIOS ? 'Open full version' : 'Toggle fullscreen';
         mobileFullscreenBtn.setAttribute('aria-pressed', 'false');
