@@ -57,8 +57,8 @@
                 <div class="flex items-center min-w-0 flex-1">
                     <img src="/static/logo.svg" alt="MannaMeter Logo" class="w-10 h-10 mr-4 flex-shrink-0">
                     <div class="min-w-0">
-                        <h1 class="text-xl font-semibold dark:font-normal text-primary-400 truncate">Manna_Meter™</h1>
-                        <p class="text-sm text-neutral-600 dark:text-neutral-400 truncate">The Nutrition Facts Label for Every Sermon.</p>
+                        <h1 class="text-xl font-semibold dark:font-normal text-primary-400 break-words">Manna_Meter™</h1>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 break-words">The Nutrition Facts Label for Every Sermon.</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -148,7 +148,7 @@
                                     <div class="flex items-center justify-between min-w-0">
                                         <div class="flex items-center min-w-0 flex-1">
                                             <span class="text-primary-400 font-bold mr-2 flex-shrink-0">#{{ loop.index }}</span>
-                                            <p class="text-sm font-semibold dark:font-medium text-primary-400 truncate">{{ sermon.title }}</p>
+                                            <p class="text-sm font-semibold dark:font-medium text-primary-400 break-words">{{ sermon.title }}</p>
                                         </div>
                                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
                                             {{ sermon.stats.scripture_references }} refs
@@ -172,9 +172,9 @@
                                     <div class="flex items-center min-w-0 flex-1">
                                         <span class="text-primary-400 font-bold mr-2 flex-shrink-0">#{{ loop.index }}</span>
                                         {% if church.url %}
-                                        <a href="{{ church.url }}" class="text-sm font-semibold dark:font-medium text-primary-400 hover:underline truncate">{{ church.name }}</a>
+                                        <a href="{{ church.url }}" class="text-sm font-semibold dark:font-medium text-primary-400 hover:underline break-words">{{ church.name }}</a>
                                         {% else %}
-                                        <p class="text-neutral-950 dark:text-neutral-300 truncate">{{ church.name }}</p>
+                                        <p class="text-neutral-950 dark:text-neutral-300 break-words">{{ church.name }}</p>
                                         {% endif %}
                                     </div>
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
@@ -199,7 +199,7 @@
                         {% for book, count in top_books %}
                         <div class="bg-neutral-200 dark:bg-neutral-700 rounded-lg p-4 overflow-hidden">
                             <div class="flex items-center justify-between min-w-0">
-                                <h4 class="text-sm font-medium text-neutral-700 dark:text-neutral-300 truncate">{{ book }}</h4>
+                                <h4 class="text-sm font-medium text-neutral-700 dark:text-neutral-300 break-words">{{ book }}</h4>
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
                                     {{ count }} refs
                                 </span>
