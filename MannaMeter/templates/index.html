@@ -54,15 +54,11 @@
     <header class="bg-neutral-100 dark:bg-neutral-800 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-6">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                    <div class="flex items-center">
-                        <img src="/static/logo.svg" alt="MannaMeter Logo" class="w-10 h-10 mr-4 flex-shrink-0">
-                        <div>
-                            <h1 class="text-xl font-semibold dark:font-normal text-primary-400">Manna_Meter™</h1>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400">The Nutrition Facts Label for Every Sermon.</p>
-                        </div>
-                    </div>
+                <div class="flex items-center min-w-0 flex-1">
+                    <img src="/static/logo.svg" alt="MannaMeter Logo" class="w-10 h-10 mr-4 flex-shrink-0">
+                    <div class="min-w-0">
+                        <h1 class="text-xl font-semibold dark:font-normal text-primary-400 truncate">Manna_Meter™</h1>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 truncate">The Nutrition Facts Label for Every Sermon.</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -147,18 +143,18 @@
                         <h3 class="text-base leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Top 10 Sermons</h3>
                         <ul role="list" class="divide-y divide-neutral-300 dark:divide-neutral-700">
                             {% for sermon in top_sermons %}
-                            <li class="py-3">
+                            <li class="py-3 overflow-hidden">
                                 <a href="/video/{{ sermon.video_id }}" class="block hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center">
-                                            <span class="text-primary-400 font-bold mr-2">#{{ loop.index }}</span>
+                                    <div class="flex items-center justify-between min-w-0">
+                                        <div class="flex items-center min-w-0 flex-1">
+                                            <span class="text-primary-400 font-bold mr-2 flex-shrink-0">#{{ loop.index }}</span>
                                             <p class="text-sm font-semibold dark:font-medium text-primary-400 truncate">{{ sermon.title }}</p>
                                         </div>
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
                                             {{ sermon.stats.scripture_references }} refs
                                         </span>
                                     </div>
-                                    <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">{{ sermon.channel }}</p>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 truncate">{{ sermon.channel }}</p>
                                 </a>
                             </li>
                             {% endfor %}
@@ -171,22 +167,22 @@
                         <h3 class="text-base leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Top 10 Churches</h3>
                         <ul role="list" class="divide-y divide-neutral-300 dark:divide-neutral-700">
                             {% for church in top_churches %}
-                            <li class="py-3">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <span class="text-primary-400 font-bold mr-2">#{{ loop.index }}</span>
+                            <li class="py-3 overflow-hidden">
+                                <div class="flex items-center justify-between min-w-0">
+                                    <div class="flex items-center min-w-0 flex-1">
+                                        <span class="text-primary-400 font-bold mr-2 flex-shrink-0">#{{ loop.index }}</span>
                                         {% if church.url %}
-                                        <a href="{{ church.url }}" class="text-sm font-semibold dark:font-medium text-primary-400 hover:underline">{{ church.name }}</a>
+                                        <a href="{{ church.url }}" class="text-sm font-semibold dark:font-medium text-primary-400 hover:underline truncate">{{ church.name }}</a>
                                         {% else %}
-                                        <p class="text-neutral-950 dark:text-neutral-300">{{ church.name }}</p>
+                                        <p class="text-neutral-950 dark:text-neutral-300 truncate">{{ church.name }}</p>
                                         {% endif %}
                                     </div>
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
                                         {{ church.refs }} refs
                                     </span>
                                 </div>
                                 {% if church.location %}
-                                <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">{{ church.location }}</p>
+                                <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 truncate">{{ church.location }}</p>
                                 {% endif %}
                             </li>
                             {% endfor %}
@@ -201,10 +197,10 @@
                     <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Top Referenced Books</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {% for book, count in top_books %}
-                        <div class="bg-neutral-200 dark:bg-neutral-700 rounded-lg p-4">
-                            <div class="flex items-center justify-between">
-                                <h4 class="text-sm font-medium text-neutral-700 dark:text-neutral-300">{{ book }}</h4>
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                        <div class="bg-neutral-200 dark:bg-neutral-700 rounded-lg p-4 overflow-hidden">
+                            <div class="flex items-center justify-between min-w-0">
+                                <h4 class="text-sm font-medium text-neutral-700 dark:text-neutral-300 truncate">{{ book }}</h4>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0 ml-2">
                                     {{ count }} refs
                                 </span>
                             </div>
