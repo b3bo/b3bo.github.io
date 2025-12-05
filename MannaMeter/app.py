@@ -143,7 +143,11 @@ def analyze():
         if is_reprocessing:
             redirect_url += '?reprocessed=1'
         
-        return redirect(redirect_url)
+        return jsonify({
+            'success': True,
+            'redirect_url': redirect_url,
+            'logs': logs
+        })
     
     except Exception as e:
         return f"Error analyzing video: {str(e)}", 500
@@ -193,120 +197,123 @@ def video_detail(video_id):
     
     reprocessed = request.args.get('reprocessed') == '1'
     
-    # Process positions into all_refs_by_book
-    all_refs_by_book = {}
-    last_chapter = {}  # Track last known chapter per book
-    if 'positions' in video_data and video_data['positions']:
-        for book, pos_dict in video_data['positions'].items():
-            if pos_dict:
-                for category in ['valid', 'suspect', 'false_positive']:
-                    if category in pos_dict and pos_dict[category]:
-                        for ref in pos_dict[category]:
-                            if ref:  # Check if ref is not None
-                                ref_with_type = dict(ref)
-                                if category == 'valid':
-                                    ref_with_type['type'] = 'confirmed'
-                                elif category == 'suspect':
-                                    ref_with_type['type'] = 'suspect'
-                                else:
-                                    ref_with_type['type'] = 'false_positive'
-                                
-                                # Extract verse - prefer the matched pattern if it's a verse reference
-                                import re
-                                matched_pattern = ref_with_type.get('matched_pattern', '')
-                                
-                                # If matched_pattern is a verse reference, use it
-                                verse_match = re.search(r'\b(\d+:\d+)\b', matched_pattern)
-                                if verse_match:
-                                    ref_with_type['verse'] = verse_match.group(1)
-                                else:
-                                    # Check for chapter references like "chapter 5"
-                                    chapter_match = re.search(r'chapter\s+(\d+)', matched_pattern, re.IGNORECASE)
-                                    if chapter_match:
-                                        ref_with_type['verse'] = chapter_match.group(1)
+    try:
+        # Process positions into all_refs_by_book
+        all_refs_by_book = {}
+        last_chapter = {}  # Track last known chapter per book
+        if 'positions' in video_data and video_data['positions']:
+            for book, pos_dict in video_data['positions'].items():
+                if pos_dict:
+                    for category in ['valid', 'suspect', 'false_positive']:
+                        if category in pos_dict and pos_dict[category]:
+                            for ref in pos_dict[category]:
+                                if ref:  # Check if ref is not None
+                                    ref_with_type = dict(ref)
+                                    if category == 'valid':
+                                        ref_with_type['type'] = 'confirmed'
+                                    elif category == 'suspect':
+                                        ref_with_type['type'] = 'suspect'
                                     else:
-                                        # Check for verse references like "verse 24"
-                                        verse_only_match = re.search(r'verse\s+(\d+)', matched_pattern, re.IGNORECASE)
-                                        if verse_only_match:
-                                            ref_with_type['verse'] = verse_only_match.group(1)
-                                        else:
-                                            # Otherwise find the first verse in context
-                                            verse_match = re.search(r'\b\d+:\d+\b', ref_with_type.get('context', ''))
-                                            ref_with_type['verse'] = verse_match.group(0) if verse_match else 'N/A'
-                                
-                                # If verse doesn't contain ':', try to find chapter in context
-                                if ref_with_type.get('verse') and ref_with_type['verse'] != 'N/A' and ':' not in str(ref_with_type['verse']):
-                                    if 'chapter' in matched_pattern.lower():
-                                        # It's already a chapter reference, don't prepend
-                                        pass
+                                        ref_with_type['type'] = 'false_positive'
+                                    
+                                    # Extract verse - prefer the matched pattern if it's a verse reference
+                                    import re
+                                    matched_pattern = ref_with_type.get('matched_pattern', '')
+                                    
+                                    # If matched_pattern is a verse reference, use it
+                                    verse_match = re.search(r'\b(\d+:\d+)\b', matched_pattern)
+                                    if verse_match:
+                                        ref_with_type['verse'] = verse_match.group(1)
                                     else:
-                                        context = ref_with_type.get('context', '')
-                                        # Look for book chapter:verse in context
-                                        chapter_verse_match = re.search(r'\b' + re.escape(book) + r'\s+(\d+):(\d+)\b', context, re.IGNORECASE)
-                                        if chapter_verse_match:
-                                            ref_with_type['verse'] = f"{chapter_verse_match.group(1)}:{chapter_verse_match.group(2)}"
+                                        # Check for chapter references like "chapter 5"
+                                        chapter_match = re.search(r'chapter\s+(\d+)', matched_pattern, re.IGNORECASE)
+                                        if chapter_match:
+                                            ref_with_type['verse'] = chapter_match.group(1)
                                         else:
-                                            # Look for chapter reference in context
-                                            chapter_match = re.search(r'\b' + re.escape(book) + r'\s+(\d+)\b', context, re.IGNORECASE)
-                                            if chapter_match:
-                                                ref_with_type['verse'] = f"{chapter_match.group(1)}:{ref_with_type['verse']}"
-                                            elif last_chapter.get(book):
-                                                ref_with_type['verse'] = f"{last_chapter[book]}:{ref_with_type['verse']}"
-                                
-                                # If verse is still 'N/A' but we have last_chapter, use it
-                                if ref_with_type.get('verse') == 'N/A' and last_chapter.get(book):
-                                    ref_with_type['verse'] = last_chapter[book]
-                                
-                                # Update last known chapter for this book
-                                if ref_with_type.get('verse') and ref_with_type['verse'] != 'N/A':
-                                    if ':' in str(ref_with_type['verse']):
-                                        chapter = ref_with_type['verse'].split(':')[0]
-                                        last_chapter[book] = chapter
-                                    elif 'chapter' in matched_pattern.lower():
-                                        last_chapter[book] = ref_with_type['verse']
-                                
-                                # Highlight book name and underline matched pattern in context
-                                
-                                # Highlight book name and underline matched pattern in context
-                                context = ref_with_type.get('context', '')
-                                matched_pattern = ref_with_type.get('matched_pattern', '')
-                                
-                                # First, underline the matched pattern if it exists
-                                if matched_pattern:
-                                    # Find all occurrences of the pattern
-                                    pattern_matches = list(re.finditer(re.escape(matched_pattern), context, re.IGNORECASE))
-                                    if pattern_matches:
-                                        # Find the occurrence closest to the book name
-                                        book_pos = context.lower().find(book.lower())
-                                        if book_pos >= 0:
-                                            closest_match = min(pattern_matches, key=lambda m: abs(book_pos - m.start()))
-                                            # Replace only that specific occurrence
-                                            start_pos = closest_match.start()
-                                            end_pos = closest_match.end()
-                                            context = (
-                                                context[:start_pos] + 
-                                                '<span class="underline">' + context[start_pos:end_pos] + '</span>' + 
-                                                context[end_pos:]
-                                            )
-                                
-                                # Then highlight book name in primary color
-                                highlighted_context = re.sub(
-                                    r'\b(' + re.escape(book) + r')\b',
-                                    r'<span class="text-primary-400 font-semibold dark:font-medium">\1</span>',
-                                    context,
-                                    flags=re.IGNORECASE
-                                )
-                                ref_with_type['context_html'] = highlighted_context
-                                
-                                if book not in all_refs_by_book:
-                                    all_refs_by_book[book] = []
-                                all_refs_by_book[book].append(ref_with_type)
+                                            # Check for verse references like "verse 24"
+                                            verse_only_match = re.search(r'verse\s+(\d+)', matched_pattern, re.IGNORECASE)
+                                            if verse_only_match:
+                                                ref_with_type['verse'] = verse_only_match.group(1)
+                                            else:
+                                                # Otherwise find the first verse in context
+                                                verse_match = re.search(r'\b\d+:\d+\b', ref_with_type.get('context', ''))
+                                                ref_with_type['verse'] = verse_match.group(0) if verse_match else 'N/A'
+                                    
+                                    # If verse doesn't contain ':', try to find chapter in context
+                                    if ref_with_type.get('verse') and ref_with_type['verse'] != 'N/A' and ':' not in str(ref_with_type['verse']):
+                                        if 'chapter' in matched_pattern.lower():
+                                            # It's already a chapter reference, don't prepend
+                                            pass
+                                        else:
+                                            context = ref_with_type.get('context', '')
+                                            # Look for book chapter:verse in context
+                                            chapter_verse_match = re.search(r'\b' + re.escape(book) + r'\s+(\d+):(\d+)\b', context, re.IGNORECASE)
+                                            if chapter_verse_match:
+                                                ref_with_type['verse'] = f"{chapter_verse_match.group(1)}:{chapter_verse_match.group(2)}"
+                                            else:
+                                                # Look for chapter reference in context
+                                                chapter_match = re.search(r'\b' + re.escape(book) + r'\s+(\d+)\b', context, re.IGNORECASE)
+                                                if chapter_match:
+                                                    ref_with_type['verse'] = f"{chapter_match.group(1)}:{ref_with_type['verse']}"
+                                                elif last_chapter.get(book):
+                                                    ref_with_type['verse'] = f"{last_chapter[book]}:{ref_with_type['verse']}"
+                                    
+                                    # If verse is still 'N/A' but we have last_chapter, use it
+                                    if ref_with_type.get('verse') == 'N/A' and last_chapter.get(book):
+                                        ref_with_type['verse'] = last_chapter[book]
+                                    
+                                    # Update last known chapter for this book
+                                    if ref_with_type.get('verse') and ref_with_type['verse'] != 'N/A':
+                                        if ':' in str(ref_with_type['verse']):
+                                            chapter = ref_with_type['verse'].split(':')[0]
+                                            last_chapter[book] = chapter
+                                        elif 'chapter' in matched_pattern.lower():
+                                            last_chapter[book] = ref_with_type['verse']
+                                    
+                                    # Highlight book name and underline matched pattern in context
+                                    
+                                    # Highlight book name and underline matched pattern in context
+                                    context = ref_with_type.get('context', '')
+                                    matched_pattern = ref_with_type.get('matched_pattern', '')
+                                    
+                                    # First, underline the matched pattern if it exists
+                                    if matched_pattern:
+                                        # Find all occurrences of the pattern
+                                        pattern_matches = list(re.finditer(re.escape(matched_pattern), context, re.IGNORECASE))
+                                        if pattern_matches:
+                                            # Find the occurrence closest to the book name
+                                            book_pos = context.lower().find(book.lower())
+                                            if book_pos >= 0:
+                                                closest_match = min(pattern_matches, key=lambda m: abs(book_pos - m.start()))
+                                                # Replace only that specific occurrence
+                                                start_pos = closest_match.start()
+                                                end_pos = closest_match.end()
+                                                context = (
+                                                    context[:start_pos] + 
+                                                    '<span class="underline">' + context[start_pos:end_pos] + '</span>' + 
+                                                    context[end_pos:]
+                                                )
+                                    
+                                    # Then highlight book name in primary color
+                                    highlighted_context = re.sub(
+                                        r'\b(' + re.escape(book) + r')\b',
+                                        r'<span class="text-primary-400 font-semibold dark:font-medium">\1</span>',
+                                        context,
+                                        flags=re.IGNORECASE
+                                    )
+                                    ref_with_type['context_html'] = highlighted_context
+                                    
+                                    if book not in all_refs_by_book:
+                                        all_refs_by_book[book] = []
+                                    all_refs_by_book[book].append(ref_with_type)
+            
+            # Sort each book's refs by start time
+            for book, refs in all_refs_by_book.items():
+                refs.sort(key=lambda x: x.get('start', 0))
         
-        # Sort each book's refs by start time
-        for book, refs in all_refs_by_book.items():
-            refs.sort(key=lambda x: x.get('start', 0))
-    
-    return render_template('video.html', video=video_data, reprocessed=reprocessed, all_refs_by_book=all_refs_by_book)
+        return render_template('video.html', video=video_data, reprocessed=reprocessed, all_refs_by_book=all_refs_by_book)
+    except Exception as e:
+        return f"Error rendering video page: {str(e)}", 500
 
 @app.route('/api/videos')
 def api_videos():

@@ -393,28 +393,25 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(form);
+                logContent.textContent = 'Processing... Please wait.';
+                modal.classList.remove('hidden');
                 fetch('/analyze', {
                     method: 'POST',
                     body: formData
                 })
-                .then(response => {
-                    if (response.headers.get('content-type').includes('application/json')) {
-                        return response.json();
-                    } else {
-                        // Assume redirect on success
-                        window.location.reload();
-                        return null;
-                    }
-                })
+                .then(response => response.json())
                 .then(data => {
-                    if (data && data.error) {
+                    if (data.success) {
+                        logContent.textContent = 'Success! Redirecting...\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available');
+                        setTimeout(() => {
+                            window.location.href = data.redirect_url;
+                        }, 2000);
+                    } else {
                         logContent.textContent = data.error + '\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available');
-                        modal.classList.remove('hidden');
                     }
                 })
                 .catch(error => {
                     logContent.textContent = 'An error occurred: ' + error.message;
-                    modal.classList.remove('hidden');
                 });
             });
         });
