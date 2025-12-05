@@ -160,10 +160,12 @@ def get_transcript(video_id):
                     'http': proxy_url,
                     'https': proxy_url
                 }
+                print(f"Using proxy: {proxy_url}")  # Log which proxy is being used
         transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
         transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
         return transcript_text, transcript_snippets
     except Exception as e:
+        print(f"Transcript retrieval failed: {e}")  # Log the error
         raise Exception(f"Could not retrieve transcript: {e}")
 
 
