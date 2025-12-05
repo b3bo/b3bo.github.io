@@ -195,42 +195,21 @@ export function initializeMap(center, zoom) {
 
     if (isMobile && mapLayout) {
         const mobileFullscreenBtn = document.createElement('button');
-        mobileFullscreenBtn.className = 'mobile-fullscreen-btn';
+        mobileFullscreenBtn.className = 'mobile-fullscreen-btn absolute top-2.5 right-2.5 z-10 bg-white dark:bg-dark-bg-elevated border-none rounded-sm w-10 h-10 shadow-md cursor-pointer flex items-center justify-center text-neutral-600 dark:text-dark-text-secondary hover:bg-neutral-50 dark:hover:bg-dark-bg-elevated-2 transition-colors';
         // iOS gets popout icon, Android gets fullscreen icon
         mobileFullscreenBtn.title = isIOS ? 'Open full version' : 'Toggle fullscreen';
         mobileFullscreenBtn.setAttribute('aria-pressed', 'false');
         mobileFullscreenBtn.innerHTML = isIOS ? popoutIcon : fullscreenEnterIcon;
-        mobileFullscreenBtn.style.cssText = `
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-            background: white;
-            border: none;
-            border-radius: 2px;
-            width: 40px;
-            height: 40px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        `;
 
         const applyButtonPosition = (isActive) => {
             // Keep consistent positioning in both states - only change position type and z-index
             if (isActive) {
-                mobileFullscreenBtn.style.position = 'fixed';
-                mobileFullscreenBtn.style.top = '10px';
-                mobileFullscreenBtn.style.right = '10px';
-                mobileFullscreenBtn.style.zIndex = '1100';
+                mobileFullscreenBtn.classList.remove('absolute', 'z-10');
+                mobileFullscreenBtn.classList.add('fixed', 'z-[1100]');
                 mobileFullscreenBtn.style.opacity = '0.95';
             } else {
-                mobileFullscreenBtn.style.position = 'absolute';
-                mobileFullscreenBtn.style.top = '10px';
-                mobileFullscreenBtn.style.right = '10px';
-                mobileFullscreenBtn.style.zIndex = '10';
+                mobileFullscreenBtn.classList.remove('fixed', 'z-[1100]');
+                mobileFullscreenBtn.classList.add('absolute', 'z-10');
                 mobileFullscreenBtn.style.opacity = '1';
             }
         };
