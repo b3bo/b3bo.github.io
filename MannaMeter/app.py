@@ -315,13 +315,13 @@ def video_detail(video_id):
     except Exception as e:
         return f"Error rendering video page: {str(e)}", 500
 
-@app.route('/api/videos')
-def api_videos():
+@app.route('/rebuild')
+def rebuild_database():
+    """Secret route to clear the results database."""
     results_file = 'results.json'
     if os.path.exists(results_file):
-        with open(results_file, 'r') as f:
-            return jsonify(json.load(f))
-    return jsonify({})
+        os.remove(results_file)
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

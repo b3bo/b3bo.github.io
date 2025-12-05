@@ -54,6 +54,9 @@
     <script type="application/json" id="video-data">
         {{ video|tojson }}
     </script>
+    <script type="application/json" id="refs-data">
+        {{ all_refs_by_book|tojson }}
+    </script>
 </head>
 <body class="bg-white text-neutral-950 dark:bg-neutral-900 dark:text-white min-h-screen">
     <!-- Header -->
@@ -214,6 +217,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Timeline Button -->
+            <div class="mb-6">
+                <button id="timeline-btn" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    View Timeline
+                </button>
             </div>
 
             <!-- Chart -->
@@ -523,7 +536,107 @@
                 }
             });
         });
+
+        // Timeline modal functionality
+        const timelineBtn = document.getElementById('timeline-btn');
+        const timelineModal = document.getElementById('timeline-modal');
+        const closeTimelineModal = document.getElementById('close-timeline-modal');
+        const timelineContent = document.getElementById('timeline-content');
+
+        timelineBtn.addEventListener('click', () => {
+            // Get refs data
+            const allRefsByBook = JSON.parse(document.getElementById('refs-data').textContent);
+
+            // Collect all references
+            const allRefs = [];
+            Object.keys(allRefsByBook).forEach(book => {
+                allRefsByBook[book].forEach(ref => {
+                    allRefs.push({
+                        ...ref,
+                        book: book
+                    });
+                });
+            });
+
+            // Sort by start time
+            allRefs.sort((a, b) => a.start - b.start);
+
+            // Generate timeline HTML
+            let timelineHtml = '<div class="space-y-4">';
+            if (allRefs.length === 0) {
+                timelineHtml += '<p class="text-center text-gray-500">No scripture references found in this video.</p>';
+            } else {
+                allRefs.forEach((ref, index) => {
+                    const totalSeconds = Math.round(ref.start);
+                    const hours = Math.floor(totalSeconds / 3600);
+                    const minutes = Math.floor((totalSeconds % 3600) / 60);
+                    const seconds = totalSeconds % 60;
+                    const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                    const typeClass = ref.type === 'confirmed' ? 'bg-primary-100 text-primary-800' :
+                                    ref.type === 'suspect' ? 'bg-yellow-100 text-yellow-800' :
+                                    'bg-gray-100 text-gray-800';
+
+                    timelineHtml += `
+                        <div class="flex items-start space-x-4 p-4 bg-neutral-50 dark:bg-neutral-700 rounded-lg">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                    ${index + 1}
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <span class="text-sm font-medium text-primary-400">${timeStr}</span>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${typeClass}">
+                                        ${ref.type === 'confirmed' ? 'Confirmed' : ref.type === 'suspect' ? 'Suspect' : 'False Positive'}
+                                    </span>
+                                </div>
+                                <div class="text-sm text-neutral-700 dark:text-neutral-300 mb-1">
+                                    <strong>${ref.book}</strong> ${ref.verse || 'N/A'}
+                                </div>
+                                <div class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    "${ref.context || 'No context available'}"
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            timelineHtml += '</div>';
+
+            timelineContent.innerHTML = timelineHtml;
+            timelineModal.classList.remove('hidden');
+        });
+
+        closeTimelineModal.addEventListener('click', () => {
+            timelineModal.classList.add('hidden');
+        });
+
+        timelineModal.addEventListener('click', (e) => {
+            if (e.target === timelineModal) {
+                timelineModal.classList.add('hidden');
+            }
+        });
     </script>
+
+    <!-- Timeline Modal -->
+    <div id="timeline-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-4xl shadow-lg rounded-md bg-white dark:bg-neutral-800">
+            <div class="mt-3">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-neutral-950 dark:text-white">Scripture References Timeline</h3>
+                    <button id="close-timeline-modal" class="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="timeline-content" class="max-h-96 overflow-y-auto">
+                    <!-- Timeline content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-100 dark:bg-gray-800 mt-12">

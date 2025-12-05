@@ -76,7 +76,15 @@ def get_video_info(video_id):
     """Get video title and channel name from YouTube page."""
     url = f"https://www.youtube.com/watch?v={video_id}"
     try:
-        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        # Use proxy if available
+        proxy_url = os.getenv('WEBSHARE_PROXY')
+        if proxy_url:
+            session = requests.Session()
+            session.proxies = {'http': proxy_url, 'https': proxy_url}
+            response = session.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        else:
+            response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        
         html = response.text
         
         # Extract title
@@ -104,7 +112,15 @@ def get_channel_location(channel_url):
         return ""
     about_url = channel_url + "/about"
     try:
-        response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        # Use proxy if available
+        proxy_url = os.getenv('WEBSHARE_PROXY')
+        if proxy_url:
+            session = requests.Session()
+            session.proxies = {'http': proxy_url, 'https': proxy_url}
+            response = session.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        else:
+            response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        
         html = response.text
         # Extract location
         location_match = re.search(r'<td[^>]*>Location</td>\s*<td[^>]*>([^<]+)</td>', html, re.IGNORECASE)
@@ -122,7 +138,15 @@ def get_channel_description(channel_url):
         return ""
     about_url = channel_url + "/about"
     try:
-        response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        # Use proxy if available
+        proxy_url = os.getenv('WEBSHARE_PROXY')
+        if proxy_url:
+            session = requests.Session()
+            session.proxies = {'http': proxy_url, 'https': proxy_url}
+            response = session.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        else:
+            response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        
         html = response.text
         # Extract description from meta tag
         description_match = re.search(r'"description":"([^"]+)"', html)
