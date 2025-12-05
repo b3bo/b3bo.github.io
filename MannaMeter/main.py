@@ -76,12 +76,24 @@ def get_video_info(video_id):
     """Get video title and channel name from YouTube page."""
     url = f"https://www.youtube.com/watch?v={video_id}"
     try:
-        # Use proxy if available
-        proxy_url = os.getenv('WEBSHARE_PROXY')
-        if proxy_url:
+        # Use proxy if available (same logic as get_transcript)
+        rotating_proxy = os.getenv('ROTATING_PROXY', '')
+        proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
+        
+        if rotating_proxy:
+            # Use rotating proxy
             session = requests.Session()
-            session.proxies = {'http': proxy_url, 'https': proxy_url}
+            session.proxies = {'http': rotating_proxy, 'https': rotating_proxy}
             response = session.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+        elif proxy_list:
+            # Try first proxy from list
+            proxy_url = proxy_list[0].strip()
+            if proxy_url:
+                session = requests.Session()
+                session.proxies = {'http': proxy_url, 'https': proxy_url}
+                response = session.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+            else:
+                response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         else:
             response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
         
@@ -112,12 +124,24 @@ def get_channel_location(channel_url):
         return ""
     about_url = channel_url + "/about"
     try:
-        # Use proxy if available
-        proxy_url = os.getenv('WEBSHARE_PROXY')
-        if proxy_url:
+        # Use proxy if available (same logic as get_transcript)
+        rotating_proxy = os.getenv('ROTATING_PROXY', '')
+        proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
+        
+        if rotating_proxy:
+            # Use rotating proxy
             session = requests.Session()
-            session.proxies = {'http': proxy_url, 'https': proxy_url}
+            session.proxies = {'http': rotating_proxy, 'https': rotating_proxy}
             response = session.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        elif proxy_list:
+            # Try first proxy from list
+            proxy_url = proxy_list[0].strip()
+            if proxy_url:
+                session = requests.Session()
+                session.proxies = {'http': proxy_url, 'https': proxy_url}
+                response = session.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+            else:
+                response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
         else:
             response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
         
@@ -138,12 +162,24 @@ def get_channel_description(channel_url):
         return ""
     about_url = channel_url + "/about"
     try:
-        # Use proxy if available
-        proxy_url = os.getenv('WEBSHARE_PROXY')
-        if proxy_url:
+        # Use proxy if available (same logic as get_transcript)
+        rotating_proxy = os.getenv('ROTATING_PROXY', '')
+        proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
+        
+        if rotating_proxy:
+            # Use rotating proxy
             session = requests.Session()
-            session.proxies = {'http': proxy_url, 'https': proxy_url}
+            session.proxies = {'http': rotating_proxy, 'https': rotating_proxy}
             response = session.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+        elif proxy_list:
+            # Try first proxy from list
+            proxy_url = proxy_list[0].strip()
+            if proxy_url:
+                session = requests.Session()
+                session.proxies = {'http': proxy_url, 'https': proxy_url}
+                response = session.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
+            else:
+                response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
         else:
             response = requests.get(about_url, headers={'User-Agent': 'Mozilla/5.0'})
         
