@@ -104,7 +104,7 @@
                         <div class="space-y-4">
                             <div class="border-l-4 border-primary-400 pl-4">
                                 <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Total Sermons</dt>
-                                <dd class="text-2xl font-bold text-primary-400">{{ videos|length }}</dd>
+                                <dd class="text-2xl font-bold text-primary-400">{{ videos|length }} Sermons</dd>
                             </div>
                             <div class="border-l-4 border-primary-400 pl-4">
                                 <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Unique Churches</dt>
@@ -115,7 +115,7 @@
                                             {% set _ = churches.append(video.channel) %}
                                         {% endif %}
                                     {% endfor %}
-                                    {{ churches|length }}
+                                    {{ churches|length }} Churches
                                 </dd>
                             </div>
                             <div class="border-l-4 border-primary-300 pl-4">
@@ -127,7 +127,7 @@
                                             {% set ns.total = ns.total + video.stats.scripture_references %}
                                         {% endif %}
                                     {% endfor %}
-                                    {{ ns.total }}
+                                    {{ ns.total }} References
                                 </dd>
                             </div>
                         </div>
