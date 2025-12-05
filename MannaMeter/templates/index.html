@@ -90,7 +90,7 @@
                                        class="mt-1 block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-sm bg-white dark:bg-neutral-700 text-neutral-950 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                                        placeholder="https://www.youtube.com/watch?v=...">
                             </div>
-                            <button type="submit" 
+                            <button type="button" id="submitBtn"
                                     class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
                                 Analyze Video
                             </button>
@@ -381,17 +381,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form[action="/analyze"]');
+            const submitBtn = document.getElementById('submitBtn');
             const modal = document.getElementById('logModal');
             const logContent = document.getElementById('logContent');
             const closeModal = document.getElementById('closeModal');
+            const form = document.querySelector('form[action="/analyze"]');
 
             closeModal.addEventListener('click', function() {
                 modal.classList.add('hidden');
             });
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+            submitBtn.addEventListener('click', function() {
                 const formData = new FormData(form);
                 logContent.textContent = 'Processing... Please wait.';
                 modal.classList.remove('hidden');
@@ -412,6 +412,7 @@
                 })
                 .catch(error => {
                     logContent.textContent = 'An error occurred: ' + error.message;
+                    modal.classList.remove('hidden');
                 });
             });
         });
