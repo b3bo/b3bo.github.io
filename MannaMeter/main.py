@@ -206,14 +206,6 @@ def get_transcript(video_id):
                 logs.append(f"{datetime.now()}: Proxy {proxy_url} failed: {e}")
                 print(f"Proxy {proxy_url} failed: {e}")
                 continue
-            transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
-            logs.append(f"{datetime.now()}: Success with proxy: {proxy_url}")
-            return transcript_text, transcript_snippets, logs
-        except Exception as e:
-            tried_proxies.append(proxy_url)
-            logs.append(f"{datetime.now()}: Proxy {proxy_url} failed: {e}")
-            print(f"Proxy {proxy_url} failed: {e}")
-            continue
     
     # If all proxies failed
     error_msg = "Could not retrieve transcript after trying all proxies."
