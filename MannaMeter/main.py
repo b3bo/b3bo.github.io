@@ -11,6 +11,7 @@ from collections import Counter
 from youtube_transcript_api import YouTubeTranscriptApi
 import requests
 from datetime import datetime
+import os
 
 
 # List of 66 books of the Bible
@@ -149,8 +150,15 @@ def validate_channel_is_sermon(channel_url):
 def get_transcript(video_id):
     """Get transcript for the video."""
     try:
-        transcript_snippets = YouTubeTranscriptApi().fetch(video_id)
-        transcript_text = ' '.join([entry.text for entry in transcript_snippets])
+        proxy_url = os.getenv('PROXY_URL')
+        proxies = None
+        if proxy_url:
+            proxies = {
+                'http': proxy_url,
+                'https': proxy_url
+            }
+        transcript_snippets = YouTubeTranscriptApi.get_transcript(video_id, proxies=proxies)
+        transcript_text = ' '.join([entry['text'] for entry in transcript_snippets])
         return transcript_text, transcript_snippets
     except Exception as e:
         raise Exception(f"Could not retrieve transcript: {e}")
