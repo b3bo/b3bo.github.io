@@ -490,7 +490,15 @@ def main():
         import json
         import os
         results_file = RESULTS_FILE
-        if os.path.exists(results_file):
+        if os.path.exists(results_file + '.b64'):
+            # Load from base64 file
+            import base64
+            with open(results_file + '.b64', 'r') as f:
+                encoded_data = f.read()
+            decoded_data = base64.b64decode(encoded_data).decode()
+            all_results = json.loads(decoded_data)
+        elif os.path.exists(results_file):
+            # Fallback to plain JSON if exists
             with open(results_file, 'r') as f:
                 all_results = json.load(f)
         else:
@@ -516,10 +524,13 @@ def main():
         
         all_results[video_id] = video_data
         
-        with open(results_file, 'w') as f:
-            json.dump(all_results, f, indent=2)
+        # Save as base64
+        import base64
+        encoded_data = base64.b64encode(json.dumps(all_results, separators=(',', ':')).encode()).decode()
+        with open(results_file + '.b64', 'w') as f:
+            f.write(encoded_data)
         
-        print(f"Results saved to {results_file}")
+        print(f"Results saved to {results_file}.b64")
         
         print("\nScripture Reference Analysis:")
         print(f"Total word matches: {stats['total_matches']}")

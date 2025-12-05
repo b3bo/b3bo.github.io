@@ -18,19 +18,27 @@ def main():
         print("=" * 50)
         print()
         
-        if not os.path.exists(results_file):
-            print(f"ERROR: {results_file} not found!")
+        if os.path.exists(results_file + '.b64'):
+            # Load from base64 file
+            import base64
+            with open(results_file + '.b64', 'r') as f:
+                encoded_data = f.read()
+            decoded_data = base64.b64decode(encoded_data).decode()
+            all_results = json.loads(decoded_data)
+        elif os.path.exists(results_file):
+            # Fallback to plain JSON if exists
+            with open(results_file, 'r') as f:
+                all_results = json.load(f)
+        else:
+            print(f"ERROR: {results_file} or {results_file}.b64 not found!")
             return False
-        
-        with open(results_file, 'r') as f:
-            all_results = json.load(f)
         
         total = len(all_results)
         print(f"Found {total} videos to reprocess")
         print()
         
         if total == 0:
-            print("No videos found in results.json")
+            print("No videos found in results file")
             return False
         
         current = 0
@@ -100,8 +108,10 @@ def main():
         # Save updated results
         print()
         print("Saving results...", end=" ", flush=True)
-        with open(results_file, 'w') as f:
-            json.dump(all_results, f, indent=2)
+        import base64
+        encoded_data = base64.b64encode(json.dumps(all_results, separators=(',', ':')).encode()).decode()
+        with open(results_file + '.b64', 'w') as f:
+            f.write(encoded_data)
         print("OK")
         
         print()

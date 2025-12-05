@@ -11,12 +11,20 @@ from main import get_video_info, get_channel_location
 
 def update_locations():
     results_file = RESULTS_FILE
-    if not os.path.exists(results_file):
-        print("No results.json found.")
+    if os.path.exists(results_file + '.b64'):
+        # Load from base64 file
+        import base64
+        with open(results_file + '.b64', 'r') as f:
+            encoded_data = f.read()
+        decoded_data = base64.b64decode(encoded_data).decode()
+        all_results = json.loads(decoded_data)
+    elif os.path.exists(results_file):
+        # Fallback to plain JSON if exists
+        with open(results_file, 'r') as f:
+            all_results = json.load(f)
+    else:
+        print("No results.json or results.json.b64 found.")
         return
-
-    with open(results_file, 'r') as f:
-        all_results = json.load(f)
 
     updated = False
     for video_id, video_data in all_results.items():
@@ -37,9 +45,11 @@ def update_locations():
                     video_data['location'] = ""
 
     if updated:
-        with open(results_file, 'w') as f:
-            json.dump(all_results, f, indent=2)
-        print("Updated results.json with location data.")
+        import base64
+        encoded_data = base64.b64encode(json.dumps(all_results, separators=(',', ':')).encode()).decode()
+        with open(results_file + '.b64', 'w') as f:
+            f.write(encoded_data)
+        print("Updated results.json.b64 with location data.")
     else:
         print("No updates needed.")
 

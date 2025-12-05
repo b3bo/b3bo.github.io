@@ -19,6 +19,7 @@ __pycache__/
 
 # MannaMeter data files
 MannaMeter/results.json
+MannaMeter/results.json.b64
 MannaMeter/cache.json
 
 # Build-time files (not deployed)

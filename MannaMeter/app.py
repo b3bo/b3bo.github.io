@@ -8,6 +8,7 @@ from main import extract_video_id, get_video_info, get_transcript, count_keyword
 app = Flask(__name__)
 
 CACHE_FILE = 'cache.json'
+RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
 MAX_CACHE = 10
 
 def load_cache():
@@ -36,10 +37,18 @@ def cache_video(video_id, video_data):
 
 @app.route('/')
 def index():
-    results_file = 'results.json'
+    results_file = RESULTS_FILE
     if os.path.exists(results_file):
         with open(results_file, 'r') as f:
             all_results = json.load(f)
+        videos = list(all_results.values())
+    elif os.path.exists(results_file + '.b64'):
+        # Try base64 encoded file
+        import base64
+        with open(results_file + '.b64', 'r') as f:
+            encoded_data = f.read()
+        decoded_data = base64.b64decode(encoded_data).decode()
+        all_results = json.loads(decoded_data)
         videos = list(all_results.values())
     else:
         videos = []
@@ -158,8 +167,16 @@ def analyze():
         
         # Step 7: Save results
         try:
-            results_file = 'results.json'
-            if os.path.exists(results_file):
+            results_file = RESULTS_FILE
+            if os.path.exists(results_file + '.b64'):
+                # Load from base64 file
+                import base64
+                with open(results_file + '.b64', 'r') as f:
+                    encoded_data = f.read()
+                decoded_data = base64.b64decode(encoded_data).decode()
+                all_results = json.loads(decoded_data)
+            elif os.path.exists(results_file):
+                # Fallback to plain JSON if exists
                 with open(results_file, 'r') as f:
                     all_results = json.load(f)
             else:
@@ -189,8 +206,11 @@ def analyze():
             
             all_results[video_id] = video_data
             
-            with open(results_file, 'w') as f:
-                json.dump(all_results, f, indent=2)
+            # Save as base64
+            import base64
+            encoded_data = base64.b64encode(json.dumps(all_results, separators=(',', ':')).encode()).decode()
+            with open(results_file + '.b64', 'w') as f:
+                f.write(encoded_data)
             
             logs.append("Results saved successfully")
         except Exception as e:
@@ -383,9 +403,16 @@ def video_detail(video_id):
 @app.route('/rebuild')
 def rebuild_database():
     """Secret route to clear the results database."""
-    results_file = 'results.json'
-    if os.path.exists(results_file):
-        os.remove(results_file)
+    results_file = RESULTS_FILE
+    b64_file = results_file + '.b64'
+    json_file = results_file
+    
+    # Remove both files if they exist
+    if os.path.exists(b64_file):
+        os.remove(b64_file)
+    if os.path.exists(json_file):
+        os.remove(json_file)
+    
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
