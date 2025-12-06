@@ -391,6 +391,54 @@ def rebuild_database():
         db.session.rollback()
         return f"Error clearing database: {str(e)}"
 
+@app.route('/migrate')
+def migrate_database():
+    """Migrate videos from file to database."""
+    try:
+        import os
+        import base64
+        import json
+        import html
+        from datetime import datetime
+        
+        if not os.path.exists('results.json.b64'):
+            return "No backup file found"
+        
+        with open('results.json.b64', 'r') as f:
+            encoded = f.read()
+        decoded = base64.b64decode(encoded).decode()
+        old_data = json.loads(decoded)
+        
+        migrated_count = 0
+        for video_id, video_data in old_data.items():
+            existing_video = Video.query.filter_by(video_id=video_id).first()
+            if not existing_video:
+                title = html.unescape(video_data.get('title', 'Unknown Title'))
+                new_video = Video(
+                    video_id=video_id,
+                    title=title,
+                    channel=video_data.get('channel', 'Unknown Channel'),
+                    channel_url=video_data.get('channel_url', ''),
+                    location=video_data.get('location', ''),
+                    transcript_length=video_data.get('transcript_length', 0),
+                    processed_at=datetime.fromisoformat(video_data['processed_at']) if 'processed_at' in video_data else datetime.now(),
+                    stats_scripture_references=video_data['stats']['scripture_references'],
+                    stats_suspect_references=video_data['stats']['suspect_references'],
+                    stats_false_positives=video_data['stats']['false_positives'],
+                    stats_total_matches=video_data['stats']['total_matches'],
+                    counts_data=json.dumps(video_data['counts']),
+                    suspect_counts_data=json.dumps(video_data['suspect_counts']),
+                    positions_data=json.dumps(video_data['positions']),
+                    logs_data=json.dumps(video_data.get('logs', []))
+                )
+                db.session.add(new_video)
+                migrated_count += 1
+        db.session.commit()
+        return f"Migrated {migrated_count} videos successfully"
+    except Exception as e:
+        db.session.rollback()
+        return f"Error migrating database: {str(e)}"
+
 # Backup routes
 
 @app.route('/backup')
