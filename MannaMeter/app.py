@@ -388,18 +388,6 @@ def video_detail(video_id):
     except Exception as e:
         return f"Error rendering video page: {str(e)}", 500
 
-@app.route('/rebuild')
-def rebuild_database():
-    """Secret route to clear the results database."""
-    try:
-        # Clear all videos from database
-        Video.query.delete()
-        db.session.commit()
-        return "Database cleared successfully"
-    except Exception as e:
-        db.session.rollback()
-        return f"Error clearing database: {str(e)}"
-
 @app.route('/migrate')
 def migrate_database():
     """Migrate videos from file to database."""
