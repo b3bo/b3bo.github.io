@@ -255,7 +255,7 @@ def analyze():
                 existing_video.channel_url = channel_url
                 existing_video.location = location
                 existing_video.transcript_length = len(transcript_text)
-                existing_video.processed_at = datetime.now()
+                existing_video.processed_at = datetime.utcnow()
                 existing_video.stats_scripture_references = stats['scripture_references']
                 existing_video.stats_suspect_references = stats['suspect_references']
                 existing_video.stats_false_positives = stats['false_positives']
@@ -273,7 +273,7 @@ def analyze():
                     channel_url=channel_url,
                     location=location,
                     transcript_length=len(transcript_text),
-                    processed_at=datetime.now(),
+                    processed_at=datetime.utcnow(),
                     stats_scripture_references=stats['scripture_references'],
                     stats_suspect_references=stats['suspect_references'],
                     stats_false_positives=stats['false_positives'],
@@ -287,6 +287,13 @@ def analyze():
             
             db.session.commit()
             logs.append("Results saved successfully")
+            
+            # Debug: Verify the save actually worked
+            if existing_video:
+                verify_video = Video.query.filter_by(video_id=video_id).first()
+                logs.append(f"Verification: video exists={verify_video is not None}")
+                if verify_video:
+                    logs.append(f"Verification: references={verify_video.stats_scripture_references}, processed_at={verify_video.processed_at}")
         except Exception as e:
             db.session.rollback()
             logs.append(f"Failed to save results: {str(e)}")
