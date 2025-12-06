@@ -1,243 +1,743 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<!-- 
+  index.html
+  
+  Main entry point for the Community Finder application. 
+  Contains the Google Maps interface, sidebar navigation, filtering logic, 
+  and neighborhood data display.
+-->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ManaMeter Dashboard</title>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f3ffe8',
-                            100: '#e5fecf',
-                            200: '#ccfd9c',
-                            300: '#b5fd5d',
-                            400: '#92e800',
-                            500: '#7dcf00',
-                            600: '#61a500',
-                            700: '#4b7d00',
-                            800: '#3c6300',
-                            900: '#36530f',
-                            950: '#1a2e00'
-                        },
-                        neutral: {
-                            50: '#fafafa',
-                            100: '#f5f5f5',
-                            200: '#e5e5e5',
-                            300: '#d4d4d4',
-                            400: '#a1a1a1',
-                            500: '#737373',
-                            600: '#525252',
-                            700: '#404040',
-                            800: '#262626',
-                            900: '#171717',
-                            950: '#0a0a0a'
-                        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Emerald Coast Neighborhood Finder™ | Interactive Tool for 30A Home Buyers</title>
+    <meta name="description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://neighborhoods.truesouthcoastalhomes.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
+    <meta property="og:title" content="Emerald Coast Neighborhood Finder™ | Interactive Tool for 30A Home Buyers">
+    <meta property="og:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
+    <meta property="og:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="True South Coastal Homes">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
+    <meta name="twitter:title" content="Emerald Coast Neighborhood Finder™ | Interactive Tool for 30A Home Buyers">
+    <meta name="twitter:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location.">
+    <meta name="twitter:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="30A neighborhoods, Destin homes, Miramar Beach communities, Emerald Coast real estate, Florida beach communities, Watersound, Alys Beach, Rosemary Beach, Seaside Florida">
+    <meta name="author" content="Kimberly Bauman, P.A. - True South Coastal Homes">
+    <meta name="geo.region" content="US-FL">
+    <meta name="geo.placename" content="Santa Rosa Beach, Florida">
+    <meta name="geo.position" content="30.294396;-86.013175">
+    <meta name="ICBM" content="30.294396, -86.013175">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./assets/css/tailwind_neighborhoods.css">
+    
+    <!-- Google Maps API moved to end of body to prevent race condition -->
+    
+    <style>
+        /* Prevent text selection to discourage copying */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Allow selection in inputs */
+        input, textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        /* Info window custom styles */
+        .gm-style .info-window {
+            font-family: var(--font-body);
+        }
+        
+        /* Hide the default close button */
+        .gm-style-iw-chr {
+            display: none !important;
+        }
+        
+        /* Remove padding/margin from the info window container */
+        .gm-style .gm-style-iw-c {
+            padding: 0 !important;
+            border: none !important;
+            /* Remove dark outline and minimize shadow */
+            box-shadow: none !important;
+            background-color: #fff !important;
+            outline: none !important;
+            border-radius: 12px !important;
+        }
+        
+        /* Remove border/shadow from info window tip */
+        .gm-style .gm-style-iw-tc::after {
+            background: #fff !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Ensure content card has no outer outline */
+        .gm-style .info-window {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            border-radius: 12px !important;
+        }
+
+        /* Remove default padding from internal content wrapper */
+        .gm-style .gm-style-iw-d {
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Position map type control to the left of fullscreen button */
+        .gm-style-mtc {
+            transform: translateX(-20px) !important;
+        }
+        
+        /* Mobile: move map/sat buttons further left to avoid overlap with fullscreen */
+        @media (max-width: 767px) {
+            .gm-style-mtc {
+                transform: translateX(-55px) !important;
+            }
+        }
+
+        /* Tab icon switching */
+        #drawer-toggle:checked ~ aside .tab-icon-closed {
+            display: none;
+        }
+
+        #drawer-toggle:checked ~ aside .tab-icon-open {
+            display: block;
+        }
+
+        /* Sliding panel active state */
+        .sliding-panel.active {
+            translate: 0 0;
+        }
+
+        /* Ripple marker animation */
+        @keyframes ripple-animation {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Landscape mode on mobile devices */
+        @media (max-height: 500px) and (orientation: landscape) {
+            #sidebar {
+                /* Keep floating card style */
+                height: calc(100dvh - 2rem) !important;
+                max-height: calc(100dvh - 2rem) !important;
+                /* Ensure it doesn't get too wide - match w-72 (288px) */
+                width: 18rem !important;
+                max-width: 288px !important;
+                /* Maintain rounded corners */
+                border-radius: 1rem !important;
+                /* Keep flex layout */
+                display: flex !important;
+            }
+
+            #sidebar-scroll-container {
+                overflow-y: auto !important;
+                height: 100% !important;
+                width: 100% !important;
+                display: block !important;
+            }
+
+            /* Disable internal scrolling for content */
+            #sidebar-content {
+                overflow: visible !important;
+                height: auto !important;
+                flex: none !important;
+            }
+
+            /* Compact spacing for landscape */
+            #sidebar .p-5 {
+                padding: 0.75rem 1rem !important;
+            }
+
+            #sidebar .pt-4 {
+                padding-top: 0.5rem !important;
+            }
+
+            #sidebar .gap-6 {
+                gap: 1rem !important;
+            }
+
+            #sidebar .pb-3 {
+                padding-bottom: 0.5rem !important;
+            }
+        }
+
+
+        /* Custom Scrollbar for Sidebar */
+        #sidebar-content::-webkit-scrollbar,
+        #sidebar-scroll-container::-webkit-scrollbar,
+        #main-menu::-webkit-scrollbar,
+        .panel-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #sidebar-content::-webkit-scrollbar-track,
+        #sidebar-scroll-container::-webkit-scrollbar-track,
+        #main-menu::-webkit-scrollbar-track,
+        .panel-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #sidebar-content::-webkit-scrollbar-thumb,
+        #sidebar-scroll-container::-webkit-scrollbar-thumb,
+        #main-menu::-webkit-scrollbar-thumb,
+        .panel-content::-webkit-scrollbar-thumb {
+            background-color: #4c8f96;
+            opacity: 0.5;
+            border-radius: 20px;
+        }
+
+        #sidebar-content::-webkit-scrollbar-thumb:hover,
+        #sidebar-scroll-container::-webkit-scrollbar-thumb:hover,
+        #main-menu::-webkit-scrollbar-thumb:hover,
+        .panel-content::-webkit-scrollbar-thumb:hover {
+            background-color: #3a7179;
+            opacity: 0.7;
+        }
+
+        #sidebar-content::-webkit-scrollbar-thumb:active,
+        #sidebar-scroll-container::-webkit-scrollbar-thumb:active,
+        #main-menu::-webkit-scrollbar-thumb:active,
+        .panel-content::-webkit-scrollbar-thumb:active {
+            background-color: #3a7179;
+            opacity: 1;
+        }
+
+        /* Dark mode scrollbar */
+        .dark #sidebar-content::-webkit-scrollbar-thumb,
+        .dark #sidebar-scroll-container::-webkit-scrollbar-thumb,
+        .dark #main-menu::-webkit-scrollbar-thumb,
+        .dark .panel-content::-webkit-scrollbar-thumb {
+            background-color: #5ba3ab;
+            opacity: 0.5;
+        }
+
+        .dark #sidebar-content::-webkit-scrollbar-thumb:hover,
+        .dark #sidebar-scroll-container::-webkit-scrollbar-thumb:hover,
+        .dark #main-menu::-webkit-scrollbar-thumb:hover,
+        .dark .panel-content::-webkit-scrollbar-thumb:hover {
+            background-color: #6bb5be;
+            opacity: 0.7;
+        }
+
+        .dark #sidebar-content::-webkit-scrollbar-thumb:active,
+        .dark #sidebar-scroll-container::-webkit-scrollbar-thumb:active,
+        .dark #main-menu::-webkit-scrollbar-thumb:active,
+        .dark .panel-content::-webkit-scrollbar-thumb:active {
+            background-color: #6bb5be;
+            opacity: 1;
+        }
+
+        /* Mobile faux fullscreen state */
+        body.mobile-faux-fullscreen {
+            overflow: hidden;
+            background-color: #f5f5f4;
+        }
+
+        body.mobile-faux-fullscreen #map-layout {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1050;
+            background-color: #f5f5f4;
+        }
+
+        body.mobile-faux-fullscreen #map {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        body.mobile-faux-fullscreen #sidebar {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-120%) !important;
+        }
+
+        body.mobile-faux-fullscreen label[for="drawer-toggle"] {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body.mobile-faux-fullscreen .mobile-fullscreen-btn {
+            position: fixed !important;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1100;
+            opacity: 0.9;
+        }
+
+    </style>
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Emerald Coast Neighborhood Finder",
+        "description": "Interactive neighborhood search tool for Florida's Emerald Coast including 30A, Destin, and Miramar Beach communities",
+        "url": "https://neighborhoods.truesouthcoastalhomes.com/",
+        "applicationCategory": "Real Estate",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Kimberly Bauman, P.A.",
+            "brand": "True South Coastal Homes",
+            "url": "https://truesouthcoastalhomes.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Santa Rosa Beach",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+            },
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Santa Rosa Beach",
+                    "containedIn": {
+                        "@type": "State",
+                        "name": "Florida"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Destin",
+                    "containedIn": {
+                        "@type": "State",
+                        "name": "Florida"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Miramar Beach",
+                    "containedIn": {
+                        "@type": "State",
+                        "name": "Florida"
                     }
                 }
-            }
+            ]
+        },
+        "featureList": [
+            "Interactive neighborhood maps",
+            "Real-time pricing data",
+            "Community amenities filtering",
+            "Multiple property types (homes, condos, townhomes)",
+            "Sortable search results",
+            "Mobile-friendly interface"
+        ],
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.294396",
+            "longitude": "-86.013175"
         }
+    }
     </script>
 </head>
-<body class="bg-neutral-900 text-white min-h-screen">
-    <!-- Header -->
-    <header class="bg-neutral-800 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-6">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h1 class="text-2xl font-bold text-white">📖 ManaMeter</h1>
+<body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
+    <div class="flex flex-col h-dvh">
+        <!-- Hidden checkbox controls drawer state -->
+        <input type="checkbox" id="drawer-toggle" class="hidden peer" />
+        
+        <!-- Drawer Sidebar with attached tab -->
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000] peer-checked:translate-x-0 z-40 flex flex-col md:w-72 md:max-w-xs bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+            <style>
+                @media (min-width: 768px) {
+                    #sidebar {
+                        height: calc(100dvh - 5.5rem) !important;
+                        max-height: calc(100dvh - 5.5rem) !important;
+                    }
+                }
+            </style>
+            <!-- Tab attached to drawer edge -->
+            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
+                <!-- Hamburger icon (shows when closed) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!-- X icon (shows when open) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-open hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </label>
+            
+            <!-- Fixed Header Section -->
+            <div class="flex-shrink-0 w-full overflow-x-hidden">
+                <!-- Header -->
+                <div>
+                    <div class="p-5 pb-4 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
+                            <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
+                        </div>
+                        <div class="flex-1">
+                            <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
+                            <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
+                        </div>
+                    </div>
+
+                    <div class="px-5">
+                        <hr class="divider">
+                        <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4"></p>
+                        <hr class="divider">
                     </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-neutral-700 hover:bg-neutral-600 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="px-4 py-6 sm:px-0">
-            <!-- Stats Overview -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8" id="stats-grid">
-                <!-- Stats will be populated by JavaScript -->
             </div>
 
-            <!-- Videos List -->
-            <div class="bg-neutral-800 shadow overflow-hidden sm:rounded-md" id="videos-section">
-                <div class="px-4 py-5 sm:px-6">
-                    <h3 class="text-lg leading-6 font-medium text-white">Processed Videos</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-neutral-400">Click on a video to see detailed Scripture reference analysis.</p>
+            <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
+                <!-- Main Menu -->
+                <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
+                    <div class="space-y-2">
+                        <!-- Criteria Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Criteria</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Areas Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Areas</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Amenities Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Amenities</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Results Menu Item / Community Finder Link -->
+                        <div id="results-menu-item" class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Results</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-                <ul role="list" class="divide-y divide-neutral-700" id="videos-list">
-                    <!-- Videos will be populated by JavaScript -->
-                </ul>
+
+                <hr class="divider">
+                <p class="text-xs text-neutral-500 dark:text-dark-text-secondary text-center py-2">Version 1.0.0<br>Last Updated: December 6, 2025</p>
+
+                <!-- Property Panel -->
+                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center flex-shrink-0 py-4">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="property">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Criteria</span>
+                        </button>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
+                        <!-- Toggle Buttons -->
+                        <div class="flex gap-2 pb-6">
+                            <button id="btn-homes" class="flex-1 py-2 text-sm font-medium bg-white dark:bg-dark-bg-elevated-2 text-neutral-700 dark:text-dark-text-primary border border-neutral-300 dark:border-dark-border rounded-lg transition-all cursor-pointer hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark active:bg-brand-200 dark:active:bg-brand-dark/30 property-type-btn">
+                                Homes
+                            </button>
+                            <button id="btn-condos" class="flex-1 py-2 text-sm font-medium bg-white dark:bg-dark-bg-elevated-2 text-neutral-700 dark:text-dark-text-primary border border-neutral-300 dark:border-dark-border rounded-lg transition-all cursor-pointer hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark active:bg-brand-200 dark:active:bg-brand-dark/30 property-type-btn">
+                                Condos
+                            </button>
+                        </div>
+                        <hr class="divider mx-4">
+
+                        <!-- Price Range Slider -->
+                        <div>
+                            <div class="flex justify-between items-center px-5 py-4 rounded-lg my-1">
+                                <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Price</span>
+                                <span class="text-sm font-semibold text-neutral-600 dark:text-dark-text-secondary" id="price-display">$250K - $35M+</span>
+                            </div>
+                            <div class="px-5">
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="price-fill" style="left: 0%; width: 0%;"></div>
+                                    <input type="range" min="0" max="41" value="0" id="price-min">
+                                    <input type="range" min="0" max="41" value="0" id="price-max">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beds Slider -->
+                        <div>
+                            <div class="flex justify-between items-center px-5 py-4 rounded-lg my-1">
+                                <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Beds</span>
+                                <span class="text-sm font-semibold text-neutral-600 dark:text-dark-text-secondary" id="beds-display">1+</span>
+                            </div>
+                            <div class="px-5">
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Baths Slider -->
+                        <div>
+                            <div class="flex justify-between items-center px-5 py-4 rounded-lg my-1">
+                                <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Baths</span>
+                                <span class="text-sm font-semibold text-neutral-600 dark:text-dark-text-secondary" id="baths-display">1+</span>
+                            </div>
+                            <div class="px-5">
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Areas Panel -->
+                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center flex-shrink-0 py-4">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="areas">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Areas</span>
+                        </button>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
+                        <div class="flex flex-wrap gap-2" id="areaFilters">
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32541">Destin</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32550">Miramar Beach</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32461">Inlet Beach</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32413">Panama City Beach</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amenities Panel -->
+                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center flex-shrink-0 py-4">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="amenities">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Amenities</span>
+                        </button>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
+                        <div class="flex flex-wrap gap-2" id="amenityFilters">
+                            <!-- Tags will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 sliding-panel">
+                    <div class="flex items-center justify-between pt-8 px-5 pb-4 flex-shrink-0">
+                        <button class="flex items-center gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer p-2 -ml-2 rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn" data-close-panel="results">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Results</span>
+                        </button>
+                        <div class="sort-dropdown-container relative">
+                            <button id="sort-button" class="sort-button flex items-center justify-center p-2 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-neutral-50 dark:hover:bg-dark-bg-elevated-2 transition-colors">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                </svg>
+                            </button>
+                            <div id="sort-menu" class="sort-menu hidden absolute top-full right-0 mt-2 w-56 bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border py-1 z-50">
+                                <!-- Options dynamically generated by ui.js -->
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
+                        <div id="neighborhoodList" class="space-y-3">
+                            <!-- List items will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
             </div>
+        </aside>
+
+        <!-- Main content area with map and sidebar -->
+        <div id="map-layout" class="flex flex-1 relative md:flex-row overflow-hidden">
+            <!-- Map -->
+            <div id="map" class="flex-1 bg-neutral-100 relative">
+                <!-- Loading Screen -->
+                <div id="loading-screen" class="absolute inset-0 bg-neutral-100 flex items-center justify-center z-20">
+                    <div class="text-center">
+                        <div class="w-12 h-12 border-4 border-neutral-300 border-t-neutral-700 rounded-full animate-spin mx-auto"></div>
+                        <p class="text-neutral-600 font-medium">Loading Community Finder...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backdrop overlay -->
+            <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
         </div>
-    </main>
+        
+        <!-- Disclaimer (hidden on single neighborhood embeds) -->
+        <div id="map-disclaimer" class="border-t border-neutral-200 dark:border-dark-border px-4 py-3 text-center bg-white/70 dark:bg-dark-bg-elevated/70 backdrop-blur-md">
+            <p class="text-xs text-neutral-500 leading-relaxed">
+                © <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
+            </p>
+        </div>
+    </div>
 
     <script>
-        let videosData = {};
-
-        // Load data
-        async function loadData() {
-            try {
-                const response = await fetch('./results.json');
-                videosData = await response.json();
-                renderDashboard();
-            } catch (error) {
-                console.error('Error loading data:', error);
-                document.getElementById('videos-section').innerHTML = `
-                    <div class="px-4 py-5 sm:px-6">
-                        <p class="text-neutral-400">Error loading data. Make sure results.json exists.</p>
-                    </div>
-                `;
-            }
-        }
-
-        function renderDashboard() {
-            const videos = Object.values(videosData).sort((a, b) => new Date(b.processed_at || 0) - new Date(a.processed_at || 0));
-
-            // Calculate totals
-            const totalVideos = videos.length;
-            const totalRefs = videos.reduce((sum, v) => sum + v.stats.scripture_references, 0);
-            const totalSuspect = videos.reduce((sum, v) => sum + v.stats.suspect_references, 0);
-            const totalFP = videos.reduce((sum, v) => sum + v.stats.false_positives, 0);
-
-            // Render stats
-            document.getElementById('stats-grid').innerHTML = `
-                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
-                    <div class="p-5">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="ml-5 w-0 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-neutral-400 truncate">Total Videos</dt>
-                                    <dd class="text-lg font-medium text-white">${totalVideos}</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
-                    <div class="p-5">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <div class="ml-5 w-0 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-neutral-400 truncate">Total References</dt>
-                                    <dd class="text-lg font-medium text-white">${totalRefs}</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
-                    <div class="p-5">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
-                                </svg>
-                            </div>
-                            <div class="ml-5 w-0 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-neutral-400 truncate">Suspect References</dt>
-                                    <dd class="text-lg font-medium text-white">${totalSuspect}</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-neutral-800 overflow-hidden shadow rounded-lg">
-                    <div class="p-5">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <svg class="h-6 w-6 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </div>
-                            <div class="ml-5 w-0 flex-1">
-                                <dl>
-                                    <dt class="text-sm font-medium text-neutral-400 truncate">False Positives</dt>
-                                    <dd class="text-lg font-medium text-white">${totalFP}</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Render videos list
-            const videosList = document.getElementById('videos-list');
-            videosList.innerHTML = videos.map(video => `
-                <li>
-                    <a href="./video.html?id=${video.video_id}" class="block hover:bg-gray-700 transition-colors">
-                        <div class="px-4 py-4 sm:px-6">
-                            <div class="flex items-center justify-between">
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-center justify-between">
-                                        <p class="text-sm font-medium text-blue-400 truncate">${video.title}</p>
-                                        <div class="ml-2 flex-shrink-0 flex">
-                                            <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                ${video.stats.scripture_references} refs
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 flex items-center text-sm text-gray-400">
-                                        <p class="truncate">${video.channel}</p>
-                                        <span class="mx-2">•</span>
-                                        <p>${video.processed_at ? new Date(video.processed_at).toLocaleDateString() : 'Unknown'}</p>
-                                    </div>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            `).join('');
-        }
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            html.classList.remove('dark');
-        }
-
-        // Load data on page load
-        loadData();
+        // Shim to handle Google Maps callback before module loads
+        window.initMap = function() {
+            window.googleMapsReady = true;
+        };
     </script>
+    
+    <script>
+        console.log('Script loading started');
+        // Sliding panel navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded fired - sliding panels initializing');
+            // Get all menu items
+            const menuItems = document.querySelectorAll('.menu-item');
+            const backButtons = document.querySelectorAll('.panel-back-btn');
+            const mainMenu = document.getElementById('main-menu');
+
+            console.log('Found menu items:', menuItems.length);
+            console.log('Found back buttons:', backButtons.length);
+
+            // Handle menu item clicks
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    console.log('Menu item clicked:', this.getAttribute('data-panel'));
+                    const panelName = this.getAttribute('data-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        console.log('Panel found:', panel.id);
+                        console.log('Panel classes before:', panel.className);
+                        // Reset panel scroll position before opening
+                        const panelContent = panel.querySelector('.panel-content');
+                        if (panelContent) {
+                            panelContent.scrollTop = 0;
+                        }
+
+                        // Add active class to slide in
+                        panel.classList.add('active');
+                        console.log('Panel classes after:', panel.className);
+                        console.log('Panel computed transform:', getComputedStyle(panel).transform);
+                    } else {
+                        console.log('Panel NOT found for:', panelName);
+                    }
+                });
+            });
+
+            // Handle back button clicks
+            backButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const panelName = this.getAttribute('data-close-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        // Remove active class to slide out
+                        panel.classList.remove('active');
+
+                        // Reset main menu scroll position after panel closes
+                        setTimeout(() => {
+                            if (mainMenu && !document.querySelector('.sliding-panel.active')) {
+                                mainMenu.scrollTop = 0;
+                            }
+                        }, 300); // Match transition duration
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script type="module" src="./assets/js/theme.js"></script>
+    <script type="module">
+        // Theme toggle click handler
+        console.log('Theme module script loading');
+        import { ThemeManager } from './assets/js/theme.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Theme DOMContentLoaded fired');
+            const toggleButton = document.getElementById('theme-toggle');
+            console.log('Theme toggle button found:', !!toggleButton);
+            if (toggleButton) {
+                toggleButton.addEventListener('click', () => {
+                    console.log('Theme toggle clicked!');
+                    ThemeManager.toggle();
+                });
+            }
+        });
+    </script>
+
+    <script type="module" src="./assets/js/app.js?v=202503"></script>
+
+
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&loading=async&v=weekly&libraries=marker,geometry" async></script>
 </body>
 </html>
