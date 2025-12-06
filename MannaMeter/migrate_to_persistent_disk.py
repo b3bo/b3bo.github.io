@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Migrate data from PostgreSQL to persistent disk SQLite
 
@@ -14,6 +15,13 @@ import sys
 import json
 import base64
 from datetime import datetime
+
+# Fix Windows console encoding for emojis
+if sys.platform == 'win32':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except:
+        pass
 
 def migrate_database():
     """
