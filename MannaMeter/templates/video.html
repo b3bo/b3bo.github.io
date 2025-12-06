@@ -646,7 +646,10 @@
                                     </span>
                                 </div>
                                 <div class="text-sm text-neutral-700 dark:text-neutral-300 mb-1">
-                                    <strong>${ref.book}</strong> ${ref.verse || 'N/A'}
+                                    <a href="https://read.lsbible.org/?q=${ref.book.replace(/ /g, '+')}+${ref.verse ? ref.verse.replace(/:/g, '%3A') : '1'}" target="_blank" class="text-primary-400 font-medium hover:underline underline">
+                                        ${ref.book}
+                                    </a>
+                                    <span class="text-neutral-500"> ${ref.verse || 'N/A'}</span>
                                 </div>
                                 <div class="text-sm text-neutral-600 dark:text-neutral-400">
                                     "${ref.context || 'No context available'}"
