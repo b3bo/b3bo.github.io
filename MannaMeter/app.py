@@ -267,8 +267,9 @@ def analyze():
             }
 
             # Save using data manager (includes backups, verification, auto-export)
+            # Pass app/db instances to avoid circular import
             logs.append("Saving video data with safety backups...")
-            save_successful = save_to_database(video_data)
+            save_successful = save_to_database(video_data, app, db, Video)
 
             if save_successful:
                 logs.append("Results saved successfully with backups")

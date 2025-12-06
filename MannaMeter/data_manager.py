@@ -191,7 +191,7 @@ def emergency_save_to_json(video_data, results_file='results.json'):
             return False
 
 
-def save_to_database(video_data):
+def save_to_database(video_data, app_instance=None, db_instance=None, video_model=None):
     """
     Save video data to PostgreSQL/SQLite database
 
@@ -200,20 +200,25 @@ def save_to_database(video_data):
 
     Args:
         video_data: Dictionary containing video analysis data
+        app_instance: Flask app instance (optional, will import if not provided)
+        db_instance: SQLAlchemy db instance (optional)
+        video_model: Video model class (optional)
 
     Returns:
         bool: True if save succeeded
     """
     try:
-        # Import here to avoid circular imports
-        from app import app, Video, db
         import json
 
-        with app.app_context():
+        # Import or use provided instances
+        if app_instance is None or db_instance is None or video_model is None:
+            from app import app as app_instance, Video as video_model, db as db_instance
+
+        with app_instance.app_context():
             # Start transaction
             try:
                 # Check if video exists
-                video = Video.query.filter_by(video_id=video_data['video_id']).first()
+                video = video_model.query.filter_by(video_id=video_data['video_id']).first()
 
                 if video:
                     # Update existing
@@ -235,7 +240,7 @@ def save_to_database(video_data):
                 else:
                     # Create new
                     print(f"➕ Creating new video: {video_data['video_id']}")
-                    video = Video(
+                    video = video_model(
                         video_id=video_data['video_id'],
                         title=video_data['title'],
                         channel=video_data['channel'],
@@ -252,25 +257,25 @@ def save_to_database(video_data):
                         positions_data=json.dumps(video_data.get('positions', {})),
                         logs_data=json.dumps(video_data.get('logs', []))
                     )
-                    db.session.add(video)
+                    db_instance.session.add(video)
 
                 # Commit transaction
-                db.session.commit()
+                db_instance.session.commit()
 
                 # VERIFY write succeeded
-                verify = Video.query.filter_by(video_id=video_data['video_id']).first()
+                verify = video_model.query.filter_by(video_id=video_data['video_id']).first()
                 if not verify:
                     raise Exception("Write verification failed - video not in database after commit")
 
                 print(f"✅ Video saved to database: {video_data['video_id']}")
 
                 # Now export database to JSON as backup
-                export_database_to_json()
+                export_database_to_json(app_instance, video_model)
 
                 return True
 
             except Exception as e:
-                db.session.rollback()
+                db_instance.session.rollback()
                 print(f"❌ ERROR saving to database: {e}")
                 raise
 
@@ -282,21 +287,28 @@ def save_to_database(video_data):
         return safe_save_to_json(video_data)
 
 
-def export_database_to_json():
+def export_database_to_json(app_instance=None, video_model=None):
     """
     Export entire database to results.json.b64 and results.json
 
     Creates both base64-encoded and plain JSON files for:
     - Base64: Consistent with backup format
     - Plain JSON: For GitHub Pages static site
+
+    Args:
+        app_instance: Flask app instance (optional)
+        video_model: Video model class (optional)
     """
     try:
-        from app import app, Video
         import json
         import base64
 
-        with app.app_context():
-            videos = Video.query.all()
+        # Import if not provided
+        if app_instance is None or video_model is None:
+            from app import app as app_instance, Video as video_model
+
+        with app_instance.app_context():
+            videos = video_model.query.all()
             all_results = {v.video_id: v.to_dict() for v in videos}
 
             # Write to results.json.b64 (base64 encoded)
