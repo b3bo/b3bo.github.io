@@ -138,6 +138,13 @@
                                 <span class="text-white ml-2">${videoData.transcript_length} characters</span>
                             </div>
                         </div>
+                        ${videoData.logs && videoData.logs.length > 0 ? `
+                        <div class="mt-4">
+                            <button onclick="showLogsModal()" class="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors">
+                                View Processing Logs
+                            </button>
+                        </div>
+                        ` : ''}
                     </div>
                 </div>
 
@@ -367,8 +374,79 @@
             html.classList.remove('dark');
         }
 
+        // Modal functions
+        function showLogsModal() {
+            const logsContent = document.getElementById('logsContent');
+            logsContent.textContent = videoData.logs.join('\n');
+            document.getElementById('logsModal').classList.remove('hidden');
+        }
+
+        function closeLogsModal() {
+            document.getElementById('logsModal').classList.add('hidden');
+        }
+
+        function copyLogs() {
+            const logsContent = document.getElementById('logsContent');
+            navigator.clipboard.writeText(logsContent.textContent).then(() => {
+                // Show temporary success feedback
+                const copyBtn = event.target.closest('button');
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = `
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Copied!
+                `;
+                copyBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+                copyBtn.classList.remove('bg-primary-600', 'hover:bg-primary-700');
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    copyBtn.classList.add('bg-primary-600', 'hover:bg-primary-700');
+                }, 2000);
+            });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('logsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLogsModal();
+            }
+        });
+
         // Load data on page load
         loadData();
     </script>
+
+    <!-- Logs Modal -->
+    <div id="logsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-neutral-800 rounded-lg shadow-xl w-full max-w-md">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-4 border-b border-neutral-700">
+                <h3 class="text-lg font-semibold text-white">Processing Logs</h3>
+                <button onclick="closeLogsModal()" class="text-neutral-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-4">
+                <div class="mb-4">
+                    <button onclick="copyLogs()" class="flex items-center px-3 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy Logs
+                    </button>
+                </div>
+                <div id="logsContent" class="bg-neutral-900 rounded p-3 text-sm font-mono text-neutral-300 max-h-96 overflow-y-auto whitespace-pre-wrap">
+                    <!-- Logs will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
