@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:sierra": "tailwindcss -i assets/css/sierra/styles.css -o assets/css/tailwind.css --minify",
-    "build:neighborhoods": "tailwindcss -i assets/css/neighborhoods/styles.css -o assets/css/tailwind_neighborhoods.css --minify",
+    "build:sierra": "tailwindcss -i assets/css/sierra/styles.css -o assets/css/sierra/tailwind_sierra.css --minify",
+    "build:neighborhoods": "tailwindcss -i assets/css/neighborhoods/styles.css -o assets/css/neighborhoods/tailwind_neighborhoods.css --minify",
     "build:critical": "node generate-critical.js",
     "build": "npm run build:sierra && npm run build:neighborhoods && npm run build:critical",
-    "watch:sierra": "tailwindcss -i assets/css/sierra/styles.css -o assets/css/tailwind.css --watch",
-    "watch:neighborhoods": "tailwindcss -i assets/css/neighborhoods/styles.css -o assets/css/tailwind_neighborhoods.css --watch"
+    "watch:sierra": "tailwindcss -i assets/css/sierra/styles.css -o assets/css/sierra/tailwind_sierra.css --watch",
+    "watch:neighborhoods": "tailwindcss -i assets/css/neighborhoods/styles.css -o assets/css/neighborhoods/tailwind_neighborhoods.css --watch"
   },
   "repository": {
     "type": "git",
