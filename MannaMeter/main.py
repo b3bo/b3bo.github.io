@@ -13,6 +13,7 @@ import requests
 from datetime import datetime
 import os
 import random
+import html
 
 
 # List of 66 books of the Bible
@@ -105,6 +106,9 @@ def get_video_info(video_id):
         # Extract title
         title_match = re.search(r'<title>([^<]+)</title>', html)
         title = title_match.group(1).replace(' - YouTube', '').strip() if title_match else 'Unknown Title'
+        
+        # Decode HTML entities in title
+        title = html.unescape(title)
         
         # Extract channel name (from meta tag or link)
         channel_match = re.search(r'"author":"([^"]+)"', html)
