@@ -447,6 +447,14 @@
             submitBtn.addEventListener('click', function() {
                 const formData = new FormData(form);
                 
+                // Update button state to show analyzing
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></span>Analyzing...';
+                
+                // Disable close button during processing
+                closeModal.disabled = true;
+                closeModal.classList.add('opacity-50', 'cursor-not-allowed');
+                
                 // Reset modal state
                 resetProgressTimeline();
                 logContent.textContent = '';
@@ -464,6 +472,14 @@
                     // Stop animation and show final state
                     stopProgressAnimation();
                     
+                    // Restore button state
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Analyze Video';
+                    
+                    // Re-enable close button
+                    closeModal.disabled = false;
+                    closeModal.classList.remove('opacity-50', 'cursor-not-allowed');
+                    
                     if (data.success) {
                         updateProgress(100, 'Complete! Video processed successfully.');
                         showLogsSection('Success! Video processed and saved.\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available'), data.redirect_url);
@@ -474,6 +490,15 @@
                 })
                 .catch(error => {
                     stopProgressAnimation();
+                    
+                    // Restore button state
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Analyze Video';
+                    
+                    // Re-enable close button
+                    closeModal.disabled = false;
+                    closeModal.classList.remove('opacity-50', 'cursor-not-allowed');
+                    
                     updateProgress(0, 'Error occurred');
                     logContent.textContent = 'An error occurred: ' + error.message;
                 });
@@ -604,7 +629,7 @@
                 <!-- Modal Header -->
                 <div class="flex justify-between items-center p-4 border-b border-neutral-700">
                     <h3 class="text-lg font-semibold text-white">Processing Video</h3>
-                    <button id="closeModal" class="text-neutral-400 hover:text-white transition-colors">
+                    <button id="closeModal" type="button" class="text-neutral-400 hover:text-white transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
