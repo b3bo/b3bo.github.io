@@ -202,16 +202,34 @@ def get_channel_description(channel_url):
 
 
 def validate_channel_is_sermon(channel_url):
-    """Check if channel description contains church/Christ/Jesus keywords."""
-    description = get_channel_description(channel_url)
+    """Check if channel description contains church/Christ/Jesus keywords or is in whitelist."""
+    # Whitelist of approved channels that don't need keyword validation
+    whitelist = [
+        "living waters",  # Living Waters ministry
+    ]
+
+    # Extract channel name from URL for whitelist check
+    channel_name = ""
+    if "youtube.com/channel/" in channel_url:
+        # Try to get channel name from URL or description
+        description = get_channel_description(channel_url)
+        # Look for channel name in description (usually at the top)
+        lines = description.split('\n')
+        if lines:
+            channel_name = lines[0].strip().lower()
+
+    # Check whitelist first
+    for allowed_channel in whitelist:
+        if allowed_channel.lower() in channel_name.lower():
+            return True, f"Whitelisted channel: {channel_name}"
+
+    # Then check keywords
     keywords = ["church", "christ", "jesus"]
-    
-    # Case-insensitive check
     description_lower = description.lower()
     for keyword in keywords:
         if keyword in description_lower:
             return True, description
-    
+
     return False, description
 
 
