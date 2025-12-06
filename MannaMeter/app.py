@@ -238,65 +238,54 @@ def analyze():
             logs.append(f"Analysis error: {str(e)}")
             return jsonify({'error': f'Error analyzing transcript: {str(e)}', 'logs': logs}), 500
         
-        # Step 7: Save results
+        # Step 7: Save results using safe data manager
         try:
+            from data_manager import save_to_database
+
             # Prepare counts for all 66 books
             full_counts = {book: counts.get(book, 0) for book in BIBLE_BOOKS}
             full_suspect_counts = {book: suspect_counts.get(book, 0) for book in BIBLE_BOOKS}
-            
-            # Check if video already exists
+
+            # Check if video already exists (for UI feedback)
             existing_video = Video.query.filter_by(video_id=video_id).first()
             is_reprocessing = existing_video is not None
-            
-            if existing_video:
-                # Update existing video
-                existing_video.title = title
-                existing_video.channel = channel
-                existing_video.channel_url = channel_url
-                existing_video.location = location
-                existing_video.transcript_length = len(transcript_text)
-                existing_video.processed_at = datetime.utcnow()
-                existing_video.stats_scripture_references = stats['scripture_references']
-                existing_video.stats_suspect_references = stats['suspect_references']
-                existing_video.stats_false_positives = stats['false_positives']
-                existing_video.stats_total_matches = stats['total_matches']
-                existing_video.counts_data = json.dumps(full_counts)
-                existing_video.suspect_counts_data = json.dumps(full_suspect_counts)
-                existing_video.positions_data = json.dumps(positions)
-                existing_video.logs_data = json.dumps(logs)
+
+            # Prepare video data
+            video_data = {
+                'video_id': video_id,
+                'title': title,
+                'channel': channel,
+                'channel_url': channel_url,
+                'location': location,
+                'transcript_length': len(transcript_text),
+                'processed_at': str(datetime.utcnow()),
+                'stats': stats,
+                'counts': full_counts,
+                'suspect_counts': full_suspect_counts,
+                'positions': positions,
+                'logs': logs
+            }
+
+            # Save using data manager (includes backups, verification, auto-export)
+            logs.append("Saving video data with safety backups...")
+            save_successful = save_to_database(video_data)
+
+            if save_successful:
+                logs.append("Results saved successfully with backups")
+                logs.append("Auto-exported to JSON for GitHub Pages")
             else:
-                # Create new video
-                new_video = Video(
-                    video_id=video_id,
-                    title=title,
-                    channel=channel,
-                    channel_url=channel_url,
-                    location=location,
-                    transcript_length=len(transcript_text),
-                    processed_at=datetime.utcnow(),
-                    stats_scripture_references=stats['scripture_references'],
-                    stats_suspect_references=stats['suspect_references'],
-                    stats_false_positives=stats['false_positives'],
-                    stats_total_matches=stats['total_matches'],
-                    counts_data=json.dumps(full_counts),
-                    suspect_counts_data=json.dumps(full_suspect_counts),
-                    positions_data=json.dumps(positions),
-                    logs_data=json.dumps(logs)
-                )
-                db.session.add(new_video)
-            
-            db.session.commit()
-            logs.append("Results saved successfully")
-            
-            # Debug: Verify the save actually worked
-            if existing_video:
-                verify_video = Video.query.filter_by(video_id=video_id).first()
-                logs.append(f"Verification: video exists={verify_video is not None}")
-                if verify_video:
-                    logs.append(f"Verification: references={verify_video.stats_scripture_references}, processed_at={verify_video.processed_at}")
+                logs.append("Warning: Save had issues but data preserved in backups")
+
+            # Verification
+            verify_video = Video.query.filter_by(video_id=video_id).first()
+            if verify_video:
+                logs.append(f"Verification: {verify_video.stats_scripture_references} references saved")
+            else:
+                logs.append("Warning: Verification failed - check backups folder")
+
         except Exception as e:
-            db.session.rollback()
-            logs.append(f"Failed to save results: {str(e)}")
+            logs.append(f"Save error: {str(e)}")
+            logs.append("Check backups folder for emergency saves")
             return jsonify({'error': f'Error saving results: {str(e)}', 'logs': logs}), 500
         
         redirect_url = url_for('video_detail', video_id=video_id)
@@ -558,14 +547,32 @@ def restore_backup(backup_name):
         backup_path = os.path.join(SCRIPT_DIR, 'backups', backup_name)
         if not os.path.exists(backup_path):
             return jsonify({'success': False, 'message': f'Backup file not found: {backup_name}'})
-        
+
+        # SAFETY: Create backup of current state BEFORE restore
+        print("🔒 Creating safety backup before restore...")
+        current_videos = Video.query.all()
+        current_data = {v.video_id: v.to_dict() for v in current_videos}
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        safety_backup_name = f"database_backup_before_restore_{timestamp}.json.b64"
+        safety_backup_path = os.path.join(SCRIPT_DIR, 'backups', safety_backup_name)
+
+        safety_encoded = base64.b64encode(
+            json.dumps(current_data, separators=(',', ':')).encode()
+        ).decode()
+
+        with open(safety_backup_path, 'w') as f:
+            f.write(safety_encoded)
+
+        print(f"✅ Safety backup created: {safety_backup_name}")
+
         # Load backup data
         import base64
         with open(backup_path, 'r') as f:
             encoded_data = f.read()
         decoded_data = base64.b64decode(encoded_data).decode()
         backup_data = json.loads(decoded_data)
-        
+
         # Clear existing data
         Video.query.delete()
         

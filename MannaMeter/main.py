@@ -583,28 +583,14 @@ def main():
 
         counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
         
-        # Save results to JSON
+        # Prepare video data for saving
         import json
-        import os
-        results_file = RESULTS_FILE
-        if os.path.exists(results_file + '.b64'):
-            # Load from base64 file
-            import base64
-            with open(results_file + '.b64', 'r') as f:
-                encoded_data = f.read()
-            decoded_data = base64.b64decode(encoded_data).decode()
-            all_results = json.loads(decoded_data)
-        elif os.path.exists(results_file):
-            # Fallback to plain JSON if exists
-            with open(results_file, 'r') as f:
-                all_results = json.load(f)
-        else:
-            all_results = {}
-        
+        from data_manager import save_to_database, safe_save_to_json
+
         # Prepare counts for all 66 books
         full_counts = {book: counts.get(book, 0) for book in BIBLE_BOOKS}
         full_suspect_counts = {book: suspect_counts.get(book, 0) for book in BIBLE_BOOKS}
-        
+
         video_data = {
             'video_id': video_id,
             'title': title,
@@ -618,16 +604,23 @@ def main():
             'suspect_counts': full_suspect_counts,
             'positions': positions
         }
-        
-        all_results[video_id] = video_data
-        
-        # Save as base64
-        import base64
-        encoded_data = base64.b64encode(json.dumps(all_results, separators=(',', ':')).encode()).decode()
-        with open(results_file + '.b64', 'w') as f:
-            f.write(encoded_data)
-        
-        print(f"Results saved to {results_file}.b64")
+
+        # Save to database (preferred) with automatic JSON backup
+        # If database fails, automatically falls back to JSON-only save
+        print("\n" + "="*60)
+        print("💾 SAVING VIDEO DATA...")
+        print("="*60)
+
+        save_successful = save_to_database(video_data)
+
+        if save_successful:
+            print("="*60)
+            print("✅ SAVE COMPLETE - DATA IS SAFE")
+            print("="*60 + "\n")
+        else:
+            print("="*60)
+            print("⚠️  SAVE HAD ISSUES - CHECK BACKUPS FOLDER")
+            print("="*60 + "\n")
         
         print("\nScripture Reference Analysis:")
         print(f"Total word matches: {stats['total_matches']}")
