@@ -66,6 +66,10 @@ class Video(db.Model):
             'logs': json.loads(self.logs_data) if self.logs_data else []
         }
 
+# Create database tables
+with app.app_context():
+    db.create_all()
+
 # Configuration
 RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -105,9 +109,6 @@ def cache_video(video_id, video_data):
 
 @app.route('/')
 def index():
-    # Ensure database tables exist
-    db.create_all()
-    
     # Load all videos from database
     videos_db = Video.query.order_by(Video.processed_at.desc()).all()
     videos = [video.to_dict() for video in videos_db]
