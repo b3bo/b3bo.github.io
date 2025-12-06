@@ -18,7 +18,9 @@ if DATABASE_URL:
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 else:
     # Fallback to SQLite for local development
-    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'instance', 'mannameter.db')
+    db_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'instance')
+    os.makedirs(db_dir, exist_ok=True)
+    db_path = os.path.join(db_dir, 'mannameter.db')
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
