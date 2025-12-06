@@ -338,8 +338,8 @@ def api_video_detail(video_id):
 def video_detail(video_id):
     video_data = get_cached_video(video_id)
     if not video_data:
-        # Video not found - redirect to analyze it
-        return redirect(url_for('analyze', url=f'https://www.youtube.com/watch?v={video_id}'))
+        # Video not found - redirect to home page
+        return redirect(url_for('index'))
     
     reprocessed = request.args.get('reprocessed') == '1'
     
