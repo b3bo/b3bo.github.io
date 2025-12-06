@@ -1,4 +1,7 @@
 youtube-transcript-api==1.2.3
 requests
 flask
+flask-sqlalchemy
 gunicorn
+psycopg2-binary
+sqlalchemy

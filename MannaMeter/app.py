@@ -4,17 +4,70 @@ import os
 from datetime import datetime
 from collections import OrderedDict
 from main import extract_video_id, get_video_info, get_transcript, count_keywords, BIBLE_BOOKS, get_channel_location, validate_channel_is_sermon
-from backup_util import MannaMeterBackup
+from flask_sqlalchemy import SQLAlchemy
+import base64
 
 app = Flask(__name__)
 
 # Version information
-VERSION = "1.0.4"
+VERSION = "1.0.5"
+
+# Database configuration
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+else:
+    # Fallback to SQLite for local development
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mannameter.db'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# Database Models
+class Video(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    video_id = db.Column(db.String(20), unique=True, nullable=False)
+    title = db.Column(db.Text, nullable=False)
+    channel = db.Column(db.Text, nullable=False)
+    channel_url = db.Column(db.Text)
+    location = db.Column(db.Text)
+    transcript_length = db.Column(db.Integer)
+    processed_at = db.Column(db.DateTime, default=datetime.utcnow)
+    stats_scripture_references = db.Column(db.Integer, default=0)
+    stats_suspect_references = db.Column(db.Integer, default=0)
+    stats_false_positives = db.Column(db.Integer, default=0)
+    stats_total_matches = db.Column(db.Integer, default=0)
+    counts_data = db.Column(db.Text)  # JSON string
+    suspect_counts_data = db.Column(db.Text)  # JSON string
+    positions_data = db.Column(db.Text)  # JSON string
+    logs_data = db.Column(db.Text)  # JSON string
+
+    def to_dict(self):
+        return {
+            'video_id': self.video_id,
+            'title': self.title,
+            'channel': self.channel,
+            'channel_url': self.channel_url,
+            'location': self.location,
+            'transcript_length': self.transcript_length,
+            'processed_at': self.processed_at.isoformat() if self.processed_at else None,
+            'stats': {
+                'scripture_references': self.stats_scripture_references,
+                'suspect_references': self.stats_suspect_references,
+                'false_positives': self.stats_false_positives,
+                'total_matches': self.stats_total_matches
+            },
+            'counts': json.loads(self.counts_data) if self.counts_data else {},
+            'suspect_counts': json.loads(self.suspect_counts_data) if self.suspect_counts_data else {},
+            'positions': json.loads(self.positions_data) if self.positions_data else {},
+            'logs': json.loads(self.logs_data) if self.logs_data else []
+        }
+
+# Configuration
+RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 CACHE_FILE = 'cache.json'
-# Use absolute path based on script location to avoid issues when run from different directories
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-RESULTS_FILE = os.getenv('RESULTS_FILE', os.path.join(SCRIPT_DIR, 'results.json'))
 MAX_CACHE = 10
 
 def load_cache():
@@ -28,6 +81,12 @@ def save_cache(cache):
         json.dump(cache, f)
 
 def get_cached_video(video_id):
+    # First check database
+    video = Video.query.filter_by(video_id=video_id).first()
+    if video:
+        return video.to_dict()
+    
+    # Fallback to file cache for any legacy data
     cache = load_cache()
     return cache.get(video_id)
 
@@ -43,23 +102,9 @@ def cache_video(video_id, video_data):
 
 @app.route('/')
 def index():
-    results_file = RESULTS_FILE
-    if os.path.exists(results_file):
-        with open(results_file, 'r') as f:
-            all_results = json.load(f)
-        videos = list(all_results.values())
-    elif os.path.exists(results_file + '.b64'):
-        # Try base64 encoded file
-        import base64
-        with open(results_file + '.b64', 'r') as f:
-            encoded_data = f.read()
-        decoded_data = base64.b64decode(encoded_data).decode()
-        all_results = json.loads(decoded_data)
-        videos = list(all_results.values())
-    else:
-        videos = []
-    # Sort by processed_at descending
-    videos.sort(key=lambda x: x.get('processed_at', ''), reverse=True)
+    # Load all videos from database
+    videos_db = Video.query.order_by(Video.processed_at.desc()).all()
+    videos = [video.to_dict() for video in videos_db]
     
     # Aggregate top referenced books (including both confirmed and suspect references)
     book_totals = {}
@@ -173,53 +218,55 @@ def analyze():
         
         # Step 7: Save results
         try:
-            results_file = RESULTS_FILE
-            if os.path.exists(results_file + '.b64'):
-                # Load from base64 file
-                import base64
-                with open(results_file + '.b64', 'r') as f:
-                    encoded_data = f.read()
-                decoded_data = base64.b64decode(encoded_data).decode()
-                all_results = json.loads(decoded_data)
-            elif os.path.exists(results_file):
-                # Fallback to plain JSON if exists
-                with open(results_file, 'r') as f:
-                    all_results = json.load(f)
-            else:
-                all_results = {}
-            
             # Prepare counts for all 66 books
             full_counts = {book: counts.get(book, 0) for book in BIBLE_BOOKS}
             full_suspect_counts = {book: suspect_counts.get(book, 0) for book in BIBLE_BOOKS}
             
-            video_data = {
-                'video_id': video_id,
-                'title': title,
-                'channel': channel,
-                'channel_url': channel_url,
-                'location': location,
-                'transcript_length': len(transcript_text),
-                'processed_at': str(datetime.now()),
-                'stats': stats,
-                'counts': full_counts,
-                'suspect_counts': full_suspect_counts,
-                'positions': positions,
-                'logs': logs
-            }
+            # Check if video already exists
+            existing_video = Video.query.filter_by(video_id=video_id).first()
+            is_reprocessing = existing_video is not None
             
-            # Check if this is a reprocessing
-            is_reprocessing = video_id in all_results
+            if existing_video:
+                # Update existing video
+                existing_video.title = title
+                existing_video.channel = channel
+                existing_video.channel_url = channel_url
+                existing_video.location = location
+                existing_video.transcript_length = len(transcript_text)
+                existing_video.processed_at = datetime.now()
+                existing_video.stats_scripture_references = stats['scripture_references']
+                existing_video.stats_suspect_references = stats['suspect_references']
+                existing_video.stats_false_positives = stats['false_positives']
+                existing_video.stats_total_matches = stats['total_matches']
+                existing_video.counts_data = json.dumps(full_counts)
+                existing_video.suspect_counts_data = json.dumps(full_suspect_counts)
+                existing_video.positions_data = json.dumps(positions)
+                existing_video.logs_data = json.dumps(logs)
+            else:
+                # Create new video
+                new_video = Video(
+                    video_id=video_id,
+                    title=title,
+                    channel=channel,
+                    channel_url=channel_url,
+                    location=location,
+                    transcript_length=len(transcript_text),
+                    processed_at=datetime.now(),
+                    stats_scripture_references=stats['scripture_references'],
+                    stats_suspect_references=stats['suspect_references'],
+                    stats_false_positives=stats['false_positives'],
+                    stats_total_matches=stats['total_matches'],
+                    counts_data=json.dumps(full_counts),
+                    suspect_counts_data=json.dumps(full_suspect_counts),
+                    positions_data=json.dumps(positions),
+                    logs_data=json.dumps(logs)
+                )
+                db.session.add(new_video)
             
-            all_results[video_id] = video_data
-            
-            # Save as base64
-            import base64
-            encoded_data = base64.b64encode(json.dumps(all_results, separators=(',', ':')).encode()).decode()
-            with open(results_file + '.b64', 'w') as f:
-                f.write(encoded_data)
-            
+            db.session.commit()
             logs.append("Results saved successfully")
         except Exception as e:
+            db.session.rollback()
             logs.append(f"Failed to save results: {str(e)}")
             return jsonify({'error': f'Error saving results: {str(e)}', 'logs': logs}), 500
         
@@ -247,44 +294,8 @@ def analyze():
 def video_detail(video_id):
     video_data = get_cached_video(video_id)
     if not video_data:
-        # Process on demand
-        try:
-            keywords = BIBLE_BOOKS
-            title, channel, channel_url = get_video_info(video_id)
-            
-            # Validate channel
-            is_sermon_channel, description = validate_channel_is_sermon(channel_url)
-            if not is_sermon_channel:
-                return f'Channel validation failed: {description}', 400
-            
-            location = get_channel_location(channel_url)
-            transcript_text, transcript_snippets, logs = get_transcript(video_id)
-            if transcript_text is None:
-                return f"Unable to retrieve transcript. Logs: {'; '.join(logs)}", 400
-            counts, suspect_counts, positions, stats = count_keywords(transcript_text, keywords, transcript_snippets)
-            
-            # Prepare data
-            full_counts = {book: counts.get(book, 0) for book in BIBLE_BOOKS}
-            full_suspect_counts = {book: suspect_counts.get(book, 0) for book in BIBLE_BOOKS}
-            
-            video_data = {
-                'video_id': video_id,
-                'title': title,
-                'channel': channel,
-                'channel_url': channel_url,
-                'location': location,
-                'transcript_length': len(transcript_text),
-                'processed_at': str(datetime.now()),
-                'stats': stats,
-                'counts': full_counts,
-                'suspect_counts': full_suspect_counts,
-                'positions': positions,
-                'logs': logs
-            }
-            
-            cache_video(video_id, video_data)
-        except Exception as e:
-            return f"Error processing video: {str(e)}", 500
+        # Video not found - redirect to analyze it
+        return redirect(url_for('analyze', url=f'https://www.youtube.com/watch?v={video_id}'))
     
     reprocessed = request.args.get('reprocessed') == '1'
     
@@ -409,107 +420,237 @@ def video_detail(video_id):
 @app.route('/rebuild')
 def rebuild_database():
     """Secret route to clear the results database."""
-    results_file = RESULTS_FILE
-    b64_file = results_file + '.b64'
-    json_file = results_file
-    
-    # Remove both files if they exist
-    if os.path.exists(b64_file):
-        os.remove(b64_file)
-    if os.path.exists(json_file):
-        os.remove(json_file)
-    
-    return redirect(url_for('index'))
+    try:
+        # Clear all videos from database
+        Video.query.delete()
+        db.session.commit()
+        return "Database cleared successfully"
+    except Exception as e:
+        db.session.rollback()
+        return f"Error clearing database: {str(e)}"
 
 # Backup routes
-backup_util = MannaMeterBackup(SCRIPT_DIR)
 
 @app.route('/backup')
 def backup_page():
     """Show backup management page."""
-    backups = backup_util.list_backups()
-    stats = backup_util.get_backup_stats()
+    # Get backup list and stats via API calls
+    try:
+        backup_dir = os.path.join(SCRIPT_DIR, 'backups')
+        if not os.path.exists(backup_dir):
+            backups = []
+            stats = {'total_backups': 0, 'total_size': 0, 'oldest': None, 'newest': None}
+        else:
+            # Get all database backup files
+            backup_files = []
+            for filename in os.listdir(backup_dir):
+                if filename.startswith('database_backup_') and filename.endswith('.json.b64'):
+                    filepath = os.path.join(backup_dir, filename)
+                    mtime = os.path.getmtime(filepath)
+                    size = os.path.getsize(filepath)
+                    backup_files.append({
+                        'name': filename,
+                        'path': filepath,
+                        'size': size,
+                        'created': datetime.fromtimestamp(mtime).isoformat(),
+                        'created_human': datetime.fromtimestamp(mtime).strftime('%Y-%m-%d %H:%M:%S')
+                    })
+            
+            # Sort by creation time, newest first
+            backup_files.sort(key=lambda x: x['created'], reverse=True)
+            backups = backup_files
+            
+            if not backup_files:
+                stats = {'total_backups': 0, 'total_size': 0, 'oldest': None, 'newest': None}
+            else:
+                total_size = sum(b['size'] for b in backup_files)
+                oldest = min(backup_files, key=lambda x: x['created'])
+                newest = max(backup_files, key=lambda x: x['created'])
+                
+                stats = {
+                    'total_backups': len(backup_files),
+                    'total_size': total_size,
+                    'total_size_mb': round(total_size/1024/1024, 2),
+                    'oldest': oldest,
+                    'newest': newest
+                }
+    except Exception as e:
+        backups = []
+        stats = {'total_backups': 0, 'total_size': 0, 'oldest': None, 'newest': None}
+    
     return render_template('backup.html', backups=backups, version=VERSION)
 
 @app.route('/api/backup/create', methods=['POST'])
 def create_backup():
-    """Create a new backup."""
+    """Create a new backup of the database."""
     try:
-        backup_path = backup_util.create_backup()
-        if backup_path:
-            return jsonify({'success': True, 'message': f'Backup created: {backup_path.name}'})
-        else:
-            return jsonify({'success': False, 'message': 'Failed to create backup'})
+        # Get all videos from database
+        videos = Video.query.all()
+        backup_data = {}
+        
+        for video in videos:
+            backup_data[video.video_id] = video.to_dict()
+        
+        # Create backup filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_name = f"database_backup_{timestamp}.json"
+        backup_path = os.path.join(SCRIPT_DIR, 'backups', backup_name)
+        
+        # Ensure backups directory exists
+        os.makedirs(os.path.dirname(backup_path), exist_ok=True)
+        
+        # Save backup as base64 encoded JSON
+        import base64
+        encoded_data = base64.b64encode(json.dumps(backup_data, separators=(',', ':')).encode()).decode()
+        with open(backup_path + '.b64', 'w') as f:
+            f.write(encoded_data)
+        
+        return jsonify({'success': True, 'message': f'Backup created: {backup_name}.b64'})
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 
 @app.route('/api/backup/list')
 def list_backups_api():
-    """Get list of backups via API."""
+    """Get list of database backups via API."""
     try:
-        backups = backup_util.list_backups()
-        backup_info = []
-        for backup in backups:
-            mtime = datetime.fromtimestamp(backup.stat().st_mtime)
-            backup_info.append({
-                'name': backup.name,
-                'path': str(backup),
-                'size': backup.stat().st_size,
-                'created': mtime.isoformat(),
-                'created_human': mtime.strftime('%Y-%m-%d %H:%M:%S')
-            })
-        return jsonify({'success': True, 'backups': backup_info})
+        backup_dir = os.path.join(SCRIPT_DIR, 'backups')
+        if not os.path.exists(backup_dir):
+            return jsonify({'success': True, 'backups': []})
+        
+        backups = []
+        for filename in os.listdir(backup_dir):
+            if filename.startswith('database_backup_') and filename.endswith('.json.b64'):
+                filepath = os.path.join(backup_dir, filename)
+                mtime = datetime.fromtimestamp(os.path.getmtime(filepath))
+                backups.append({
+                    'name': filename,
+                    'path': filepath,
+                    'size': os.path.getsize(filepath),
+                    'created': mtime.isoformat(),
+                    'created_human': mtime.strftime('%Y-%m-%d %H:%M:%S')
+                })
+        
+        # Sort by creation time, newest first
+        backups.sort(key=lambda x: x['created'], reverse=True)
+        
+        return jsonify({'success': True, 'backups': backups})
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 
 @app.route('/api/backup/restore/<backup_name>', methods=['POST'])
 def restore_backup(backup_name):
-    """Restore from a specific backup."""
+    """Restore from a specific database backup."""
     try:
-        success = backup_util.restore_backup(backup_name=backup_name)
-        if success:
-            return jsonify({'success': True, 'message': f'Restored from backup: {backup_name}'})
-        else:
-            return jsonify({'success': False, 'message': 'Failed to restore backup'})
+        backup_path = os.path.join(SCRIPT_DIR, 'backups', backup_name)
+        if not os.path.exists(backup_path):
+            return jsonify({'success': False, 'message': f'Backup file not found: {backup_name}'})
+        
+        # Load backup data
+        import base64
+        with open(backup_path, 'r') as f:
+            encoded_data = f.read()
+        decoded_data = base64.b64decode(encoded_data).decode()
+        backup_data = json.loads(decoded_data)
+        
+        # Clear existing data
+        Video.query.delete()
+        
+        # Restore videos from backup
+        for video_id, video_data in backup_data.items():
+            new_video = Video(
+                video_id=video_id,
+                title=video_data['title'],
+                channel=video_data['channel'],
+                channel_url=video_data.get('channel_url'),
+                location=video_data.get('location'),
+                transcript_length=video_data.get('transcript_length', 0),
+                processed_at=datetime.fromisoformat(video_data['processed_at']) if video_data.get('processed_at') else datetime.now(),
+                stats_scripture_references=video_data['stats']['scripture_references'],
+                stats_suspect_references=video_data['stats']['suspect_references'],
+                stats_false_positives=video_data['stats']['false_positives'],
+                stats_total_matches=video_data['stats']['total_matches'],
+                counts_data=json.dumps(video_data['counts']),
+                suspect_counts_data=json.dumps(video_data['suspect_counts']),
+                positions_data=json.dumps(video_data['positions']),
+                logs_data=json.dumps(video_data['logs'])
+            )
+            db.session.add(new_video)
+        
+        db.session.commit()
+        return jsonify({'success': True, 'message': f'Restored from backup: {backup_name}'})
     except Exception as e:
+        db.session.rollback()
         return jsonify({'success': False, 'message': str(e)})
 
 @app.route('/api/backup/cleanup', methods=['POST'])
 def cleanup_backups():
-    """Clean up old backups."""
+    """Clean up old database backups."""
     try:
-        backup_util.cleanup_old_backups()
-        return jsonify({'success': True, 'message': 'Backup cleanup completed'})
+        backup_dir = os.path.join(SCRIPT_DIR, 'backups')
+        if not os.path.exists(backup_dir):
+            return jsonify({'success': True, 'message': 'No backup directory found'})
+        
+        # Get all database backup files
+        backup_files = []
+        for filename in os.listdir(backup_dir):
+            if filename.startswith('database_backup_') and filename.endswith('.json.b64'):
+                filepath = os.path.join(backup_dir, filename)
+                mtime = os.path.getmtime(filepath)
+                backup_files.append((filepath, mtime))
+        
+        # Sort by modification time, oldest first
+        backup_files.sort(key=lambda x: x[1])
+        
+        # Keep the 5 most recent backups, delete the rest
+        if len(backup_files) > 5:
+            deleted_count = 0
+            for filepath, _ in backup_files[:-5]:
+                os.remove(filepath)
+                deleted_count += 1
+            
+            return jsonify({'success': True, 'message': f'Cleaned up {deleted_count} old backups'})
+        else:
+            return jsonify({'success': True, 'message': 'No old backups to clean up'})
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 
 @app.route('/api/backup/stats')
 def backup_stats():
-    """Get backup statistics."""
+    """Get database backup statistics."""
     try:
-        # This is a bit hacky since get_backup_stats prints to console
-        # We'll capture the output or recreate the logic
-        backups = list(backup_util.backup_dir.glob("results_backup_*.json.b64"))
-        if not backups:
+        backup_dir = os.path.join(SCRIPT_DIR, 'backups')
+        if not os.path.exists(backup_dir):
             stats = {'total_backups': 0, 'total_size': 0, 'oldest': None, 'newest': None}
         else:
-            total_size = sum(b.stat().st_size for b in backups)
-            oldest = min(backups, key=lambda x: x.stat().st_mtime)
-            newest = max(backups, key=lambda x: x.stat().st_mtime)
-
-            stats = {
-                'total_backups': len(backups),
-                'total_size': total_size,
-                'total_size_mb': round(total_size/1024/1024, 2),
-                'oldest': {
-                    'name': oldest.name,
-                    'date': datetime.fromtimestamp(oldest.stat().st_mtime).isoformat()
-                },
-                'newest': {
-                    'name': newest.name,
-                    'date': datetime.fromtimestamp(newest.stat().st_mtime).isoformat()
+            # Get all database backup files
+            backup_files = []
+            for filename in os.listdir(backup_dir):
+                if filename.startswith('database_backup_') and filename.endswith('.json.b64'):
+                    filepath = os.path.join(backup_dir, filename)
+                    mtime = os.path.getmtime(filepath)
+                    size = os.path.getsize(filepath)
+                    backup_files.append((filename, filepath, mtime, size))
+            
+            if not backup_files:
+                stats = {'total_backups': 0, 'total_size': 0, 'oldest': None, 'newest': None}
+            else:
+                total_size = sum(size for _, _, _, size in backup_files)
+                oldest = min(backup_files, key=lambda x: x[2])
+                newest = max(backup_files, key=lambda x: x[2])
+                
+                stats = {
+                    'total_backups': len(backup_files),
+                    'total_size': total_size,
+                    'total_size_mb': round(total_size/1024/1024, 2),
+                    'oldest': {
+                        'name': oldest[0],
+                        'date': datetime.fromtimestamp(oldest[2]).isoformat()
+                    },
+                    'newest': {
+                        'name': newest[0],
+                        'date': datetime.fromtimestamp(newest[2]).isoformat()
+                    }
                 }
-            }
         return jsonify({'success': True, 'stats': stats})
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
