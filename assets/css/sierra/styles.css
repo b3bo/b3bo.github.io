@@ -34,7 +34,17 @@
 }
 
 /* Optional: Scan files for classes */
-@source "./*.html", "./components/**/*.html";
+@source "../../../*.html";
+@source "../../../assets/js/*.js";
+@source "../../../components/**/*.html";
+@source "../../../MannaMeter/**/*.html";
+@source "../../../StockTonePrototype/**/*.html";
+
+/* Tailwind base, components, utilities */
+@import "tailwindcss";
+
+/* Configure dark mode to use class strategy instead of prefers-color-scheme */
+@variant dark (.dark &);
 
 /* Force include missing utilities */
 @layer utilities {
