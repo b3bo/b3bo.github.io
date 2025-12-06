@@ -4,11 +4,12 @@ import os
 from datetime import datetime
 from collections import OrderedDict
 from main import extract_video_id, get_video_info, get_transcript, count_keywords, BIBLE_BOOKS, get_channel_location, validate_channel_is_sermon
+from backup_util import MannaMeterBackup
 
 app = Flask(__name__)
 
 # Version information
-VERSION = "1.0.2"
+VERSION = "1.0.3"
 
 CACHE_FILE = 'cache.json'
 RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
@@ -417,6 +418,99 @@ def rebuild_database():
         os.remove(json_file)
     
     return redirect(url_for('index'))
+
+# Backup routes
+backup_util = MannaMeterBackup()
+
+@app.route('/backup')
+def backup_page():
+    """Show backup management page."""
+    backups = backup_util.list_backups()
+    stats = backup_util.get_backup_stats()
+    return render_template('backup.html', backups=backups, version=VERSION)
+
+@app.route('/api/backup/create', methods=['POST'])
+def create_backup():
+    """Create a new backup."""
+    try:
+        backup_path = backup_util.create_backup()
+        if backup_path:
+            return jsonify({'success': True, 'message': f'Backup created: {backup_path.name}'})
+        else:
+            return jsonify({'success': False, 'message': 'Failed to create backup'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
+
+@app.route('/api/backup/list')
+def list_backups_api():
+    """Get list of backups via API."""
+    try:
+        backups = backup_util.list_backups()
+        backup_info = []
+        for backup in backups:
+            mtime = datetime.fromtimestamp(backup.stat().st_mtime)
+            backup_info.append({
+                'name': backup.name,
+                'path': str(backup),
+                'size': backup.stat().st_size,
+                'created': mtime.isoformat(),
+                'created_human': mtime.strftime('%Y-%m-%d %H:%M:%S')
+            })
+        return jsonify({'success': True, 'backups': backup_info})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
+
+@app.route('/api/backup/restore/<backup_name>', methods=['POST'])
+def restore_backup(backup_name):
+    """Restore from a specific backup."""
+    try:
+        success = backup_util.restore_backup(backup_name=backup_name)
+        if success:
+            return jsonify({'success': True, 'message': f'Restored from backup: {backup_name}'})
+        else:
+            return jsonify({'success': False, 'message': 'Failed to restore backup'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
+
+@app.route('/api/backup/cleanup', methods=['POST'])
+def cleanup_backups():
+    """Clean up old backups."""
+    try:
+        backup_util.cleanup_old_backups()
+        return jsonify({'success': True, 'message': 'Backup cleanup completed'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
+
+@app.route('/api/backup/stats')
+def backup_stats():
+    """Get backup statistics."""
+    try:
+        # This is a bit hacky since get_backup_stats prints to console
+        # We'll capture the output or recreate the logic
+        backups = list(backup_util.backup_dir.glob("results_backup_*.json.b64"))
+        if not backups:
+            stats = {'total_backups': 0, 'total_size': 0, 'oldest': None, 'newest': None}
+        else:
+            total_size = sum(b.stat().st_size for b in backups)
+            oldest = min(backups, key=lambda x: x.stat().st_mtime)
+            newest = max(backups, key=lambda x: x.stat().st_mtime)
+
+            stats = {
+                'total_backups': len(backups),
+                'total_size': total_size,
+                'total_size_mb': round(total_size/1024/1024, 2),
+                'oldest': {
+                    'name': oldest.name,
+                    'date': datetime.fromtimestamp(oldest.stat().st_mtime).isoformat()
+                },
+                'newest': {
+                    'name': newest.name,
+                    'date': datetime.fromtimestamp(newest.stat().st_mtime).isoformat()
+                }
+            }
+        return jsonify({'success': True, 'stats': stats})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
