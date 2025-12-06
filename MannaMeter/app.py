@@ -312,6 +312,14 @@ def analyze():
             'logs': logs + [f'Error details: {error_details}']
         }), 500
 
+@app.route('/api/video/<video_id>')
+def api_video_detail(video_id):
+    video = Video.query.filter_by(video_id=video_id).first()
+    if not video:
+        return jsonify({'error': 'Video not found'}), 404
+    
+    return jsonify(video.to_dict())
+
 @app.route('/video/<video_id>')
 def video_detail(video_id):
     video_data = get_cached_video(video_id)

@@ -87,29 +87,22 @@
         // Load data
         async function loadData() {
             try {
-                const response = await fetch('./results.json');
-                const allData = await response.json();
                 const videoId = getVideoId();
-                videoData = allData[videoId];
-
-                if (!videoData) {
-                    document.getElementById('content').innerHTML = `
-                        <div class="text-center">
-                            <h1 class="text-2xl font-bold text-neutral-400 mb-4">Video Not Found</h1>
-                            <p class="text-neutral-400">The requested video could not be found in the results.</p>
-                            <a href="./index.html" class="mt-4 inline-block text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
-                        </div>
-                    `;
-                    return;
+                const response = await fetch(`/api/video/${videoId}`);
+                if (!response.ok) {
+                    throw new Error('Video not found');
                 }
+                const data = await response.json();
+                videoData = data;
 
                 renderVideoDetails();
             } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById('content').innerHTML = `
                     <div class="text-center">
-                        <h1 class="text-2xl font-bold text-neutral-400 mb-4">Error Loading Data</h1>
-                        <p class="text-neutral-400">Make sure results.json exists and is accessible.</p>
+                        <h1 class="text-2xl font-bold text-neutral-400 mb-4">Video Not Found</h1>
+                        <p class="text-neutral-400">The requested video could not be found in the database.</p>
+                        <a href="./" class="mt-4 inline-block text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
                     </div>
                 `;
             }
