@@ -261,7 +261,7 @@
             </div>
 
             <!-- Stats Overview -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 w-full">
                 <div class="bg-neutral-100 dark:bg-neutral-800 overflow-hidden shadow rounded-lg">
                     <div class="p-5">
                         <div class="flex items-center">
@@ -292,10 +292,6 @@
                                 <dl>
                                     <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400 truncate">Total References</dt>
                                     <dd class="text-lg font-semibold text-neutral-950 dark:text-white">
-                                        {% set total_refs = 0 %}
-                                        {% for video in videos %}
-                                            {% set total_refs = total_refs + video.stats.scripture_references %}
-                                        {% endfor %}
                                         {{ total_refs }}
                                     </dd>
                                 </dl>
@@ -316,10 +312,6 @@
                                 <dl>
                                     <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400 truncate">Suspect References</dt>
                                     <dd class="text-lg font-semibold text-neutral-950 dark:text-white">
-                                        {% set total_suspect = 0 %}
-                                        {% for video in videos %}
-                                            {% set total_suspect = total_suspect + video.stats.suspect_references %}
-                                        {% endfor %}
                                         {{ total_suspect }}
                                     </dd>
                                 </dl>
@@ -340,10 +332,6 @@
                                 <dl>
                                     <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400 truncate">False Positives</dt>
                                     <dd class="text-lg font-semibold text-neutral-950 dark:text-white">
-                                        {% set total_fp = 0 %}
-                                        {% for video in videos %}
-                                            {% set total_fp = total_fp + video.stats.false_positives %}
-                                        {% endfor %}
                                         {{ total_fp }}
                                     </dd>
                                 </dl>

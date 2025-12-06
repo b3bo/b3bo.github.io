@@ -106,6 +106,12 @@ def index():
     videos_db = Video.query.order_by(Video.processed_at.desc()).all()
     videos = [video.to_dict() for video in videos_db]
     
+    # Calculate total stats
+    total_refs = sum(video.get('stats', {}).get('scripture_references', 0) for video in videos)
+    total_suspect = sum(video.get('stats', {}).get('suspect_references', 0) for video in videos)
+    total_fp = sum(video.get('stats', {}).get('false_positives', 0) for video in videos)
+    total_matches = sum(video.get('stats', {}).get('total_matches', 0) for video in videos)
+    
     # Aggregate top referenced books (including both confirmed and suspect references)
     book_totals = {}
     for video in videos:
@@ -136,7 +142,16 @@ def index():
     # Get top 10 sermons by scripture references
     top_sermons = sorted(videos, key=lambda x: x.get('stats', {}).get('scripture_references', 0), reverse=True)[:10]
     
-    return render_template('index.html', videos=videos, top_books=top_books, top_churches=top_churches, top_sermons=top_sermons, version=VERSION)
+    return render_template('index.html', 
+                          videos=videos, 
+                          top_books=top_books, 
+                          top_churches=top_churches, 
+                          top_sermons=top_sermons, 
+                          total_refs=total_refs,
+                          total_suspect=total_suspect,
+                          total_fp=total_fp,
+                          total_matches=total_matches,
+                          version=VERSION)
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
