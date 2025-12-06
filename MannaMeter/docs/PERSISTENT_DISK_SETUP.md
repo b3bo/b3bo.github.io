@@ -7,6 +7,16 @@
 
 ---
 
+## ⚠️ CRITICAL REMINDER
+
+**After persistent disk is working, DELETE the `DATABASE_URL` environment variable immediately!**
+
+Without this step, you will be charged $7/month for PostgreSQL after your 90-day trial ends, even though you're not using it anymore.
+
+See **Phase 2, Step 3** below for the complete checklist.
+
+---
+
 ## Why Persistent Disk?
 
 ### Problem with PostgreSQL on Render (Free Tier):
@@ -110,18 +120,29 @@ git push origin main
    - **Value:** `/mnt/data`
 4. Click **"Save Changes"**
 
-**3. (Optional) Remove PostgreSQL:**
+**3. ⚠️ IMPORTANT: Remove PostgreSQL to Avoid Charges**
 
-**To save $7/month after trial:**
+**REQUIRED to save $7/month after 90-day trial:**
 
-1. In "Environment" tab
-2. Find `DATABASE_URL` variable
-3. Click **"Delete"**
-4. Confirm deletion
+1. **After persistent disk is confirmed working** (wait for step 5 verification below)
+2. Go to "Environment" tab
+3. Find `DATABASE_URL` variable
+4. Click **"Delete"**
+5. Confirm deletion
+6. This removes the PostgreSQL addon from your service
 
-**OR keep both:**
-- App will prefer persistent disk if `PERSISTENT_DISK_PATH` is set
-- PostgreSQL will be ignored (but you'll still be charged after trial)
+**⚠️ DO NOT SKIP THIS STEP** - You will be charged $7/month after your trial ends if you keep `DATABASE_URL`
+
+**Verification checklist before deleting DATABASE_URL:**
+- ✅ Persistent disk is mounted and visible in Disks tab
+- ✅ `PERSISTENT_DISK_PATH` environment variable is set
+- ✅ Latest deployment shows "Using persistent disk SQLite" in logs
+- ✅ Videos are visible on live site
+- ✅ Process a test video successfully
+
+**Once verified, DELETE `DATABASE_URL` immediately** to avoid future charges.
+
+**Note:** If you keep both variables, the app will prefer persistent disk, but PostgreSQL will remain attached and you'll be charged after trial.
 
 **4. Deploy:**
 
