@@ -9,10 +9,12 @@ from backup_util import MannaMeterBackup
 app = Flask(__name__)
 
 # Version information
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 
 CACHE_FILE = 'cache.json'
-RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
+# Use absolute path based on script location to avoid issues when run from different directories
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_FILE = os.getenv('RESULTS_FILE', os.path.join(SCRIPT_DIR, 'results.json'))
 MAX_CACHE = 10
 
 def load_cache():
@@ -420,7 +422,7 @@ def rebuild_database():
     return redirect(url_for('index'))
 
 # Backup routes
-backup_util = MannaMeterBackup()
+backup_util = MannaMeterBackup(SCRIPT_DIR)
 
 @app.route('/backup')
 def backup_page():
