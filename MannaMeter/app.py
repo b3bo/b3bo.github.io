@@ -70,6 +70,13 @@ class Video(db.Model):
 with app.app_context():
     db.create_all()
 
+# Initialize database from JSON backup if empty (for Render deployments)
+try:
+    from init_database import init_database_from_json
+    init_database_from_json()
+except Exception as e:
+    print(f"Database initialization skipped: {e}")
+
 # Configuration
 RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
