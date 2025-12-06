@@ -84,25 +84,60 @@ def get_video_info(video_id):
         rotating_proxy = os.getenv('ROTATING_PROXY', '')
         proxy_list = os.getenv('PROXY_LIST', '').split(',') if os.getenv('PROXY_LIST') else []
         
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+        }
+        
         if rotating_proxy:
             # Use rotating proxy
             session = requests.Session()
             session.proxies = {'http': rotating_proxy, 'https': rotating_proxy}
-            response = session.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+            session.headers.update(headers)
+            response = session.get(url, timeout=10)
         elif proxy_list:
             # Try first proxy from list
             proxy_url = proxy_list[0].strip()
             if proxy_url:
                 session = requests.Session()
                 session.proxies = {'http': proxy_url, 'https': proxy_url}
-                response = session.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+                session.headers.update(headers)
+                response = session.get(url, timeout=10)
             else:
-                response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+                response = requests.get(url, headers=headers, timeout=10)
         else:
-            response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+            response = requests.get(url, headers=headers, timeout=10)
         
-        html = response.text
+        html_content = response.text
         
+        # Try to extract from JSON-LD first (most reliable)
+        import json
+        json_ld_match = re.search(r'<script type="application/ld\+json">(.*?)</script>', html_content, re.DOTALL)
+        if json_ld_match:
+            try:
+                json_data = json.loads(json_ld_match.group(1))
+                if isinstance(json_data, list):
+                    for item in json_data:
+                        if item.get('@type') == 'VideoObject':
+                            title = item.get('name', 'Unknown Title')
+                            # Decode HTML entities
+                            title = html.unescape(title)
+                            # Extract channel info
+                            author = item.get('author', {})
+                            if isinstance(author, dict):
+                                channel = author.get('name', 'Unknown Channel')
+                            else:
+                                channel = str(author) if author else 'Unknown Channel'
+                            channel_url = ""
+                            return title, channel, channel_url
+            except:
+                pass
+        
+        # Fallback to regex patterns
         # Extract title - try multiple patterns
         title = 'Unknown Title'
         title_patterns = [
@@ -113,7 +148,7 @@ def get_video_info(video_id):
         ]
 
         for pattern in title_patterns:
-            title_match = re.search(pattern, html)
+            title_match = re.search(pattern, html_content)
             if title_match:
                 title = title_match.group(1).strip()
                 break
@@ -135,7 +170,7 @@ def get_video_info(video_id):
         ]
 
         for pattern in channel_patterns:
-            channel_match = re.search(pattern, html)
+            channel_match = re.search(pattern, html_content)
             if channel_match:
                 channel = channel_match.group(1).strip()
                 break
@@ -150,7 +185,7 @@ def get_video_info(video_id):
         ]
 
         for pattern in channel_id_patterns:
-            channel_id_match = re.search(pattern, html)
+            channel_id_match = re.search(pattern, html_content)
             if channel_id_match:
                 channel_id = channel_id_match.group(1)
                 if channel_id.startswith('UC'):  # Standard channel ID
@@ -160,12 +195,11 @@ def get_video_info(video_id):
                 else:
                     channel_url = f"https://www.youtube.com/{channel_id}"
                 break
-        
+
         return title, channel, channel_url
     except Exception as e:
+        print(f"Error getting video info for {video_id}: {e}")
         return 'Unknown Title', 'Unknown Channel', ''
-
-
 def get_channel_location(channel_url):
     """Get channel location from YouTube about page."""
     if not channel_url:
