@@ -47,8 +47,46 @@
         }
     </script>
     <style>
+        :root {
+            --scrollbar-track-light: rgb(245 245 245 / 0.5);
+            --scrollbar-track-dark: rgb(31 41 55 / 0.5);
+            --scrollbar-thumb: rgb(125 207 0 / 0.5);
+            --scrollbar-thumb-hover: rgb(97 165 0 / 0.5);
+        }
+        
         body {
             font-family: 'Courier New', monospace;
+        }
+        
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background-color: var(--scrollbar-track-light);
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background-color: var(--scrollbar-track-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbar-thumb);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--scrollbar-thumb-hover);
+        }
+        
+        ::-webkit-scrollbar-corner {
+            background-color: var(--scrollbar-track-light);
+        }
+        
+        .dark ::-webkit-scrollbar-corner {
+            background-color: var(--scrollbar-track-dark);
         }
     </style>
     <script type="application/json" id="video-data">
