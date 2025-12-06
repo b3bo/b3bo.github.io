@@ -8,7 +8,7 @@ from main import extract_video_id, get_video_info, get_transcript, count_keyword
 app = Flask(__name__)
 
 # Version information
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 CACHE_FILE = 'cache.json'
 RESULTS_FILE = os.getenv('RESULTS_FILE', 'results.json')
