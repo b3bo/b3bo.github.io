@@ -36,7 +36,7 @@
 /* Optional: Scan files for classes */
 @source "../../../*.html";
 @source "../../../assets/js/*.js";
-@source "../../../components/**/*.html";
+@source "./components/**/*.html";
 @source "../../../MannaMeter/**/*.html";
 @source "../../../StockTonePrototype/**/*.html";
 
@@ -48,6 +48,10 @@
 
 /* Force include missing utilities */
 @layer utilities {
+  .h-1 {
+    height: calc(var(--spacing, 0.25rem) * 1);
+  }
+
   .w-64 {
     width: calc(var(--spacing, 0.25rem) * 64);
   }
