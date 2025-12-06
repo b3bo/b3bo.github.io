@@ -18,10 +18,14 @@ if DATABASE_URL:
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 else:
     # Fallback to SQLite for local development
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mannameter.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/mannameter.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+# Create database tables
+with app.app_context():
+    db.create_all()
 
 # Database Models
 class Video(db.Model):
