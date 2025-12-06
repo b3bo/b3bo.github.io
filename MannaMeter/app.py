@@ -14,8 +14,18 @@ VERSION = "1.0.5"
 
 # Database configuration
 DATABASE_URL = os.environ.get('DATABASE_URL')
-if DATABASE_URL:
+
+# Check if running on Render with persistent disk
+PERSISTENT_DISK_PATH = os.environ.get('PERSISTENT_DISK_PATH')
+
+if DATABASE_URL and not PERSISTENT_DISK_PATH:
+    # Use PostgreSQL (existing Render setup)
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+elif PERSISTENT_DISK_PATH:
+    # Use SQLite on persistent disk (Render with disk mount)
+    db_path = os.path.join(PERSISTENT_DISK_PATH, 'mannameter.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+    print(f"✅ Using persistent disk SQLite: {db_path}")
 else:
     # Fallback to SQLite for local development
     db_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'instance')
