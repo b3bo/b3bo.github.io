@@ -696,6 +696,24 @@ def backup_stats():
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 
+@app.route('/api/export/database')
+def export_database():
+    """
+    Export entire database as JSON
+    Used to sync Render database back to local/GitHub
+    """
+    try:
+        videos = Video.query.all()
+        all_results = {v.video_id: v.to_dict() for v in videos}
+
+        return jsonify({
+            'success': True,
+            'count': len(all_results),
+            'videos': all_results
+        })
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.config['DEBUG'] = False
