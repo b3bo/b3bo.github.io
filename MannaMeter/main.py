@@ -103,22 +103,63 @@ def get_video_info(video_id):
         
         html = response.text
         
-        # Extract title
-        title_match = re.search(r'<title>([^<]+)</title>', html)
-        title = title_match.group(1).replace(' - YouTube', '').strip() if title_match else 'Unknown Title'
-        
+        # Extract title - try multiple patterns
+        title = 'Unknown Title'
+        title_patterns = [
+            r'<title>([^<]+)</title>',
+            r'"title":"([^"]+)"',
+            r'<meta property="og:title" content="([^"]+)"',
+            r'<meta name="title" content="([^"]+)"'
+        ]
+
+        for pattern in title_patterns:
+            title_match = re.search(pattern, html)
+            if title_match:
+                title = title_match.group(1).strip()
+                break
+
+        # Clean up YouTube-specific suffixes
+        title = re.sub(r'\s*-\s*YouTube$', '', title)
+        title = re.sub(r'\s*\|\s*YouTube$', '', title)
+
         # Decode HTML entities in title
         title = html.unescape(title)
         
-        # Extract channel name (from meta tag or link)
-        channel_match = re.search(r'"author":"([^"]+)"', html)
-        if not channel_match:
-            channel_match = re.search(r'<link itemprop="name" content="([^"]+)">', html)
-        channel = channel_match.group(1).strip() if channel_match else 'Unknown Channel'
+        # Extract channel name - try multiple patterns
+        channel = 'Unknown Channel'
+        channel_patterns = [
+            r'"author":"([^"]+)"',
+            r'<link itemprop="name" content="([^"]+)"',
+            r'"channel":"([^"]+)"',
+            r'<meta property="og:site_name" content="([^"]+)"'
+        ]
+
+        for pattern in channel_patterns:
+            channel_match = re.search(pattern, html)
+            if channel_match:
+                channel = channel_match.group(1).strip()
+                break
         
-        # Extract channel URL
-        channel_id_match = re.search(r'"channelId":"([^"]+)"', html)
-        channel_url = f"https://www.youtube.com/channel/{channel_id_match.group(1)}" if channel_id_match else ""
+        # Extract channel URL - try multiple patterns
+        channel_url = ""
+        channel_id_patterns = [
+            r'"channelId":"([^"]+)"',
+            r'"channelId":\s*"([^"]+)"',
+            r'channel/([^/?"]+)',
+            r'/@([^/?"]+)'
+        ]
+
+        for pattern in channel_id_patterns:
+            channel_id_match = re.search(pattern, html)
+            if channel_id_match:
+                channel_id = channel_id_match.group(1)
+                if channel_id.startswith('UC'):  # Standard channel ID
+                    channel_url = f"https://www.youtube.com/channel/{channel_id}"
+                elif not channel_id.startswith('@'):  # Handle @ usernames
+                    channel_url = f"https://www.youtube.com/@{channel_id}"
+                else:
+                    channel_url = f"https://www.youtube.com/{channel_id}"
+                break
         
         return title, channel, channel_url
     except Exception as e:
