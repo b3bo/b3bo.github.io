@@ -86,6 +86,7 @@ We recommend starting with **Enhanced Error Handling & User Experience** (item #
 - **v1.0.1**: Added version display above footer
 - **v1.0.2**: Added comprehensive development roadmap documentation
 - **v1.0.3**: Added automated backup system with CLI and web interface
+- **v1.0.4**: Fixed data persistence by using absolute paths to prevent data loss when app is run from different directories
 
 ## Contributing
 When implementing new features, follow the established version numbering:
