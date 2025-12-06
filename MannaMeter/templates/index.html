@@ -48,6 +48,37 @@
         body {
             font-family: 'Courier New', monospace;
         }
+        
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; /* neutral-100 */
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #1f2937; /* neutral-800 */
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #7dcf00; /* primary-500 */
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #61a500; /* primary-600 */
+        }
+        
+        ::-webkit-scrollbar-corner {
+            background: #f1f5f9; /* neutral-100 */
+        }
+        
+        .dark ::-webkit-scrollbar-corner {
+            background: #1f2937; /* neutral-800 */
+        }
     </style>
 </head>
 <body class="bg-white text-neutral-950 dark:bg-neutral-900 dark:text-white min-h-screen">
@@ -82,7 +113,7 @@
                 <div class="lg:col-span-2 bg-neutral-100 dark:bg-neutral-800 shadow rounded-lg">
                     <div class="px-4 py-5 sm:p-6">
                         <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-2">Analyze New Video</h3>
-                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Paste a YouTube link to any sermon to analyze how many times books of the Bible are referenced. MannaMeter™ will count confirmed references, suspect matches, and false positives.</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Fuel your spiritual journey! Drop a YouTube sermon link and watch MannaMeter™ extract the nutritional potency - counting confirmed scripture references, suspect matches, and filtering out false positives. Each serving delivers pure biblical mana!</p>
                         <form action="/analyze" method="post" class="space-y-4">
                             <div>
                                 <label for="url" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300">YouTube Video URL</label>
@@ -104,8 +135,8 @@
                         <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Today's Manna</h3>
                         <div class="space-y-4">
                             <div class="border-l-4 border-primary-400 pl-4">
-                                <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Total Sermons</dt>
-                                <dd class="text-2xl font-semibold dark:font-normal text-primary-400">{{ videos|length }} Sermons</dd>
+                                <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Total Servings</dt>
+                                <dd class="text-2xl font-semibold dark:font-normal text-primary-400">{{ videos|length }} Servings</dd>
                             </div>
                             <div class="border-l-4 border-primary-400 pl-4">
                                 <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Unique Churches</dt>
@@ -120,7 +151,7 @@
                                 </dd>
                             </div>
                             <div class="border-l-4 border-primary-300 pl-4">
-                                <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Total References</dt>
+                                <dt class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Avg Mana per Serving</dt>
                                 <dd class="text-2xl font-semibold dark:font-normal text-primary-300">
                                     {% set ns = namespace(total=0) %}
                                     {% for video in videos %}
@@ -128,7 +159,11 @@
                                             {% set ns.total = ns.total + video.stats.total_matches %}
                                         {% endif %}
                                     {% endfor %}
-                                    {{ ns.total }} Manna
+                                    {% if videos|length > 0 %}
+                                        {{ (ns.total / videos|length)|round(1) }} Mana
+                                    {% else %}
+                                        0 Mana
+                                    {% endif %}
                                 </dd>
                             </div>
                         </div>
@@ -141,7 +176,7 @@
                 <!-- Top Sermons (left, 2/3 width) -->
                 <div class="bg-neutral-100 dark:bg-neutral-800 shadow rounded-lg md:col-span-2 order-1 md:order-1">
                     <div class="px-4 py-5 sm:p-6">
-                        <h3 class="text-base leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Top 10 Sermons</h3>
+                        <h3 class="text-base leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Top 10 Servings</h3>
                         <ul role="list" class="divide-y divide-neutral-300 dark:divide-neutral-700">
                             {% for sermon in top_sermons %}
                             <li class="py-3 overflow-hidden">
@@ -214,6 +249,47 @@
                             </div>
                         </div>
                         {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scripture References Timeline -->
+            <div class="bg-neutral-100 dark:bg-neutral-800 shadow rounded-lg mb-8">
+                <div class="px-4 py-5 sm:p-6">
+                    <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Scripture References Timeline</h3>
+                    
+                    <!-- Processing Timeline -->
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                            </div>
+                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Extracting video ID</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                            </div>
+                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Fetching video information</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                            </div>
+                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Retrieving transcript</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                            </div>
+                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Analyzing scripture references</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                            </div>
+                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Saving results</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -502,30 +578,11 @@
                 document.getElementById('progressBar').style.width = percent + '%';
                 document.getElementById('progressPercent').textContent = percent + '%';
                 document.getElementById('progressText').textContent = text;
-                
-                // Update step indicators based on progress
-                const steps = [
-                    { percent: 20, step: 1, text: 'Extracting video ID' },
-                    { percent: 40, step: 2, text: 'Fetching video information' },
-                    { percent: 60, step: 3, text: 'Retrieving transcript' },
-                    { percent: 80, step: 4, text: 'Analyzing scripture references' },
-                    { percent: 100, step: 5, text: 'Saving results' }
-                ];
-                
-                steps.forEach(stepInfo => {
-                    if (percent >= stepInfo.percent) {
-                        const stepElement = document.getElementById(`step${stepInfo.step}`);
-                        stepElement.classList.remove('opacity-50');
-                        const indicator = stepElement.querySelector('div > div');
-                        indicator.classList.remove('bg-gray-300', 'dark:bg-neutral-600');
-                        indicator.classList.add('bg-primary-500');
-                    }
-                });
             }
         });
     </script>
 
-    <!-- Modal for processing timeline -->
+    <!-- Modal for processing progress -->
     <div id="logModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
         <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white dark:bg-neutral-800">
             <div class="mt-3">
@@ -539,40 +596,6 @@
                     </div>
                     <div class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2">
                         <div id="progressBar" class="bg-primary-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <!-- Processing Timeline -->
-                <div class="space-y-3 mb-4">
-                    <div id="step1" class="flex items-center space-x-3 opacity-50">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
-                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 dark:text-neutral-400">Extracting video ID</span>
-                    </div>
-                    <div id="step2" class="flex items-center space-x-3 opacity-50">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
-                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 dark:text-neutral-400">Fetching video information</span>
-                    </div>
-                    <div id="step3" class="flex items-center space-x-3 opacity-50">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
-                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 dark:text-neutral-400">Retrieving transcript</span>
-                    </div>
-                    <div id="step4" class="flex items-center space-x-3 opacity-50">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
-                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 dark:text-neutral-400">Analyzing scripture references</span>
-                    </div>
-                    <div id="step5" class="flex items-center space-x-3 opacity-50">
-                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
-                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
-                        </div>
-                        <span class="text-sm text-gray-600 dark:text-neutral-400">Saving results</span>
                     </div>
                 </div>
 
