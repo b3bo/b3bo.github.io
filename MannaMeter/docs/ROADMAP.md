@@ -14,6 +14,7 @@ This document outlines the planned development roadmap for MannaMeter once the c
 ### 2. Data Management Features
 - **Export functionality**: CSV/JSON export of analysis results
 - **Import functionality**: Bulk import of video URLs for batch processing
+- **✅ Automated backups**: CLI and web interface for data backup/restore
 - **Data backup/restore**: Easy way to backup and restore the results database
 - **Search & filtering**: Find videos by title, channel, date, or scripture references
 
@@ -84,6 +85,7 @@ We recommend starting with **Enhanced Error Handling & User Experience** (item #
 - **v1.0.0**: Initial stable release with base64 data storage
 - **v1.0.1**: Added version display above footer
 - **v1.0.2**: Added comprehensive development roadmap documentation
+- **v1.0.3**: Added automated backup system with CLI and web interface
 
 ## Contributing
 When implementing new features, follow the established version numbering:
