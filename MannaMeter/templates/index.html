@@ -113,7 +113,7 @@
                 <div class="lg:col-span-2 bg-neutral-100 dark:bg-neutral-800 shadow rounded-lg">
                     <div class="px-4 py-5 sm:p-6">
                         <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-2">Analyze New Video</h3>
-                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Fuel your spiritual journey! Drop a YouTube sermon link and watch MannaMeter™ extract the nutritional potency - counting confirmed scripture references, suspect matches, and filtering out false positives. Each serving delivers pure biblical mana!</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">Fuel your spiritual journey! Drop a YouTube sermon link and watch MannaMeter™ extract the nutritional potency by counting confirmed scripture references. Each serving delivers pure biblical mana!</p>
                         <form action="/analyze" method="post" class="space-y-4">
                             <div>
                                 <label for="url" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300">YouTube Video URL</label>
@@ -520,7 +520,14 @@
             }
             
             function resetProgressTimeline() {
-                // Reset progress bar
+                // Reset all steps to inactive
+                for (let i = 1; i <= 5; i++) {
+                    const step = document.getElementById(`step${i}`);
+                    step.classList.add('opacity-50');
+                    const indicator = step.querySelector('div > div');
+                    indicator.classList.remove('bg-primary-500');
+                    indicator.classList.add('bg-gray-300', 'dark:bg-neutral-600');
+                }
                 document.getElementById('progressBar').style.width = '0%';
                 document.getElementById('progressPercent').textContent = '0%';
                 document.getElementById('progressText').textContent = 'Initializing...';
@@ -530,11 +537,30 @@
                 document.getElementById('progressBar').style.width = percent + '%';
                 document.getElementById('progressPercent').textContent = percent + '%';
                 document.getElementById('progressText').textContent = text;
+                
+                // Update step indicators based on progress
+                const steps = [
+                    { percent: 20, step: 1, text: 'Extracting video ID' },
+                    { percent: 40, step: 2, text: 'Fetching video information' },
+                    { percent: 60, step: 3, text: 'Retrieving transcript' },
+                    { percent: 80, step: 4, text: 'Analyzing scripture references' },
+                    { percent: 100, step: 5, text: 'Saving results' }
+                ];
+                
+                steps.forEach(stepInfo => {
+                    if (percent >= stepInfo.percent) {
+                        const stepElement = document.getElementById(`step${stepInfo.step}`);
+                        stepElement.classList.remove('opacity-50');
+                        const indicator = stepElement.querySelector('div > div');
+                        indicator.classList.remove('bg-gray-300', 'dark:bg-neutral-600');
+                        indicator.classList.add('bg-primary-500');
+                    }
+                });
             }
         });
     </script>
 
-    <!-- Modal for processing progress -->
+    <!-- Modal for processing timeline -->
     <div id="logModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
         <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white dark:bg-neutral-800">
             <div class="mt-3">
@@ -548,6 +574,40 @@
                     </div>
                     <div class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2">
                         <div id="progressBar" class="bg-primary-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Processing Timeline -->
+                <div class="space-y-3 mb-4">
+                    <div id="step1" class="flex items-center space-x-3 opacity-50">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
+                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-neutral-400">Extracting video ID</span>
+                    </div>
+                    <div id="step2" class="flex items-center space-x-3 opacity-50">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
+                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-neutral-400">Fetching video information</span>
+                    </div>
+                    <div id="step3" class="flex items-center space-x-3 opacity-50">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
+                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-neutral-400">Retrieving transcript</span>
+                    </div>
+                    <div id="step4" class="flex items-center space-x-3 opacity-50">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
+                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-neutral-400">Analyzing scripture references</span>
+                    </div>
+                    <div id="step5" class="flex items-center space-x-3 opacity-50">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-neutral-600 flex items-center justify-center">
+                            <div class="w-3 h-3 bg-gray-300 dark:bg-neutral-600 rounded-full"></div>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-neutral-400">Saving results</span>
                     </div>
                 </div>
 
