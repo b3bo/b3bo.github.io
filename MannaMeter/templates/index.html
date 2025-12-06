@@ -436,7 +436,12 @@
             const form = document.querySelector('form[action="/analyze"]');
 
             closeModal.addEventListener('click', function() {
-                modal.classList.add('hidden');
+                // If we have a redirect URL (successful processing), go to video page
+                if (closeModal.dataset.redirectUrl) {
+                    window.location.href = closeModal.dataset.redirectUrl;
+                } else {
+                    modal.classList.add('hidden');
+                }
             });
 
             submitBtn.addEventListener('click', function() {
@@ -461,11 +466,10 @@
                     
                     if (data.success) {
                         updateProgress(100, 'Complete! Video processed successfully.');
-                        logContent.textContent = 'Success! Video processed and saved.\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available');
-                        // Don't redirect automatically - let user see logs and close manually
+                        showLogsSection('Success! Video processed and saved.\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available'), data.redirect_url);
                     } else {
                         updateProgress(0, 'Error occurred');
-                        logContent.textContent = data.error + '\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available');
+                        showLogsSection(data.error + '\n\nLogs:\n' + (data.logs ? data.logs.join('\n') : 'No logs available'));
                     }
                 })
                 .catch(error => {
@@ -557,24 +561,30 @@
         });
 
         // Modal functions
+        function showLogsSection(logText, redirectUrl = null) {
+            const logsSection = document.getElementById('logsSection');
+            const logContent = document.getElementById('logContent');
+            const closeModal = document.getElementById('closeModal');
+            
+            logContent.textContent = logText;
+            logsSection.classList.remove('hidden');
+            
+            // Store redirect URL for close button
+            if (redirectUrl) {
+                closeModal.dataset.redirectUrl = redirectUrl;
+            }
+        }
+
         function copyLogs() {
             const logContent = document.getElementById('logContent');
             navigator.clipboard.writeText(logContent.textContent).then(() => {
-                // Show temporary success feedback
+                // Show temporary success feedback on the icon
                 const copyBtn = event.target.closest('button');
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = `
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Copied!
-                `;
-                copyBtn.classList.add('bg-green-600', 'hover:bg-green-700');
-                copyBtn.classList.remove('bg-primary-600', 'hover:bg-primary-700');
+                const originalColor = copyBtn.className;
+                copyBtn.classList.remove('text-neutral-400', 'hover:text-white');
+                copyBtn.classList.add('text-green-400');
                 setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                    copyBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
-                    copyBtn.classList.add('bg-primary-600', 'hover:bg-primary-700');
+                    copyBtn.className = originalColor;
                 }, 2000);
             });
         }
@@ -648,18 +658,21 @@
                         </div>
                     </div>
 
-                    <!-- Copy Button -->
-                    <div class="mb-4">
-                        <button onclick="copyLogs()" class="flex items-center px-3 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                            </svg>
-                            Copy Logs
-                        </button>
-                    </div>
+                    <!-- Logs Section (initially hidden) -->
+                    <div id="logsSection" class="hidden">
+                        <!-- Logs Header with Copy Icon -->
+                        <div class="flex justify-between items-center mb-3 border-b border-neutral-700 pb-2">
+                            <h4 class="text-sm font-medium text-neutral-300">Processing Logs</h4>
+                            <button onclick="copyLogs()" class="text-neutral-400 hover:text-white transition-colors p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </button>
+                        </div>
 
-                    <!-- Log Content -->
-                    <div id="logContent" class="text-sm text-neutral-300 max-h-96 overflow-y-auto whitespace-pre-wrap bg-neutral-900 rounded p-3 font-mono"></div>
+                        <!-- Log Content -->
+                        <div id="logContent" class="text-sm text-neutral-300 max-h-96 overflow-y-auto whitespace-pre-wrap bg-neutral-900 rounded p-3 font-mono"></div>
+                    </div>
                 </div>
             </div>
         </div>
