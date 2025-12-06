@@ -253,47 +253,6 @@
                 </div>
             </div>
 
-            <!-- Scripture References Timeline -->
-            <div class="bg-neutral-100 dark:bg-neutral-800 shadow rounded-lg mb-8">
-                <div class="px-4 py-5 sm:p-6">
-                    <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Scripture References Timeline</h3>
-                    
-                    <!-- Processing Timeline -->
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-3">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
-                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
-                            </div>
-                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Extracting video ID</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
-                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
-                            </div>
-                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Fetching video information</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
-                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
-                            </div>
-                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Retrieving transcript</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
-                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
-                            </div>
-                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Analyzing scripture references</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-primary-500 flex items-center justify-center">
-                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
-                            </div>
-                            <span class="text-sm text-neutral-600 dark:text-neutral-400">Saving results</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Stats Overview -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div class="bg-neutral-100 dark:bg-neutral-800 overflow-hidden shadow rounded-lg">
@@ -561,14 +520,7 @@
             }
             
             function resetProgressTimeline() {
-                // Reset all steps to inactive
-                for (let i = 1; i <= 5; i++) {
-                    const step = document.getElementById(`step${i}`);
-                    step.classList.add('opacity-50');
-                    const indicator = step.querySelector('div > div');
-                    indicator.classList.remove('bg-primary-500');
-                    indicator.classList.add('bg-gray-300', 'dark:bg-neutral-600');
-                }
+                // Reset progress bar
                 document.getElementById('progressBar').style.width = '0%';
                 document.getElementById('progressPercent').textContent = '0%';
                 document.getElementById('progressText').textContent = 'Initializing...';
