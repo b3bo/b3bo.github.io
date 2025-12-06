@@ -36,7 +36,7 @@
 /* Optional: Scan files for classes */
 @source "../../../*.html";
 @source "../../../assets/js/*.js";
-@source "./components/**/*.html";
+@source "./components/sierra/*.html";
 @source "../../../MannaMeter/**/*.html";
 @source "../../../StockTonePrototype/**/*.html";
 
