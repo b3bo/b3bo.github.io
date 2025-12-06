@@ -277,6 +277,10 @@ async function initMap() {
 window.initMap = initMap;
 
 // Check if Google Maps loaded before this module
+// Expose initMap globally for Google Maps callback
+window.appInitMap = initMap;
+
+// Check if Google Maps is already ready (in case app.js loaded after Maps API)
 if (window.googleMapsReady) {
     initMap();
 }

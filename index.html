@@ -650,6 +650,10 @@
         // Shim to handle Google Maps callback before module loads
         window.initMap = function() {
             window.googleMapsReady = true;
+            // If app.js has already loaded and exposed initMap, call it
+            if (window.appInitMap) {
+                window.appInitMap();
+            }
         };
     </script>
     
