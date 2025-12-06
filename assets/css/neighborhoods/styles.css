@@ -290,6 +290,7 @@ hr.divider {
 @source "../../../index.html";
 @source "../../../assets/js/*.js";
 
+
 /* Tailwind base, components, utilities */
 @import "tailwindcss";
 

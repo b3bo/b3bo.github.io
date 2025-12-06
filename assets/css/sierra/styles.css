@@ -37,8 +37,6 @@
 @source "../../../*.html";
 @source "../../../assets/js/*.js";
 @source "./components/sierra/*.html";
-@source "../../../MannaMeter/**/*.html";
-@source "../../../StockTonePrototype/**/*.html";
 
 /* Tailwind base, components, utilities */
 @import "tailwindcss";
