@@ -279,164 +279,169 @@
                 </div>
             </div>
 
-            <!-- Top Books Table -->
-            <div class="bg-neutral-100 dark:bg-neutral-800 shadow overflow-hidden sm:rounded-lg mb-6">
-                <div class="px-4 py-5 sm:px-6">
-                    <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white">Top Referenced Books</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Books with the most Scripture references in this video. Click the arrow to expand and see references in context.</p>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
-                        <thead class="bg-neutral-200 dark:bg-neutral-700">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider w-16"></th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Book</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Confirmed</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Suspect</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">False Positives</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-neutral-100 dark:bg-neutral-800 divide-y divide-neutral-300 dark:divide-neutral-700">
-                            {% set book_data = [] %}
-                            {% for book in video.counts %}
-                                {% set total = video.counts[book] + video.suspect_counts[book] %}
-                                {% set fp_count = video.positions.get(book, {}).get('false_positive', [])|length if video.positions else 0 %}
-                                {% if total > 0 %}
-                                    {% set _ = book_data.append({'book': book, 'confirmed': video.counts[book], 'suspect': video.suspect_counts[book], 'false_positives': fp_count, 'total': total}) %}
-                                {% endif %}
-                            {% endfor %}
-                            {% set sorted_books = book_data|sort(attribute='total', reverse=True) %}
-                            
-                            <tr class="bg-neutral-100 dark:bg-neutral-800">
-                                <td></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-neutral-950 dark:text-white">Total</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-400">{{ video.stats.scripture_references }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-300">{{ video.stats.suspect_references }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-400">{{ video.stats.false_positives }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-400">{{ video.stats.total_matches }}</td>
-                            </tr>
-                            
-                            {% for book_info in sorted_books %}
-                            <tr class="book-row" data-book="{{ book_info.book }}">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                    <button class="expand-btn text-primary-400 hover:text-primary-300 transition-colors">
-                                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-950 dark:text-white">{{ book_info.book }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-400">{{ book_info.confirmed }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-300">{{ book_info.suspect }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-400">{{ book_info.false_positives }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-400">{{ book_info.total }}</td>
-                            </tr>
-                            <tr class="references-row hidden" data-book="{{ book_info.book }}">
-                                <td colspan="6" class="px-6 py-4">
-                                    <div class="overflow-x-auto">
-                                        <table class="min-w-full divide-y divide-neutral-400 dark:divide-neutral-600">
-                                            <thead class="bg-neutral-300 dark:bg-neutral-600">
-                                                <tr>
-                                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">#</th>
-                                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Time</th>
-                                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Book</th>
-                                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Ch/V</th>
-                                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Context</th>
-                                                    <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Type</th>
-                                                </tr>
-                                            </thead>
-                                            {% set book_refs = all_refs_by_book.get(book_info.book, []) %}
-                                            <tbody class="bg-neutral-200 dark:bg-neutral-700 divide-y divide-neutral-400 dark:divide-neutral-600">
-                                                {% for ref in book_refs %}
-                                                <tr>
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                                                        {{ loop.index }}
-                                                    </td>
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
-                                                        {% set total_seconds = ref.get('start', 0)|round|int %}
-                                                        {% set hours = total_seconds // 3600 %}
-                                                        {% set minutes = (total_seconds % 3600) // 60 %}
-                                                        {% set seconds = total_seconds % 60 %}
-                                                        {{ "%02d"|format(hours) }}:{{ "%02d"|format(minutes) }}:{{ "%02d"|format(seconds) }}
-                                                    </td>
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-primary-400">
-                                                        {% set chapter = '1' %}
-                                                        {% if ref.get('verse') and ref.get('verse') != 'N/A' %}
-                                                            {% if ':' in ref.get('verse') %}
-                                                                {% set verse_parts = ref.get('verse').split(':') %}
-                                                                {% set chapter = verse_parts[0] %}
-                                                            {% else %}
-                                                                {% set chapter = ref.get('verse') %}
+            <!-- Books and Timeline Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Top Books Table -->
+                <div class="bg-neutral-100 dark:bg-neutral-800 shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white">Top Referenced Books</h3>
+                        <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Books with the most Scripture references in this video. Click the arrow to expand and see references in context.</p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
+                            <thead class="bg-neutral-200 dark:bg-neutral-700">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider w-16"></th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Book</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Confirmed</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Suspect</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">False Positives</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-neutral-100 dark:bg-neutral-800 divide-y divide-neutral-300 dark:divide-neutral-700">
+                                {% set book_data = [] %}
+                                {% for book in video.counts %}
+                                    {% set total = video.counts[book] + video.suspect_counts[book] %}
+                                    {% set fp_count = video.positions.get(book, {}).get('false_positive', [])|length if video.positions else 0 %}
+                                    {% if total > 0 %}
+                                        {% set _ = book_data.append({'book': book, 'confirmed': video.counts[book], 'suspect': video.suspect_counts[book], 'false_positives': fp_count, 'total': total}) %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% set sorted_books = book_data|sort(attribute='total', reverse=True) %}
+                                
+                                <tr class="bg-neutral-100 dark:bg-neutral-800">
+                                    <td></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-neutral-950 dark:text-white">Total</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-400">{{ video.stats.scripture_references }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-300">{{ video.stats.suspect_references }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-400">{{ video.stats.false_positives }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-400">{{ video.stats.total_matches }}</td>
+                                </tr>
+                                
+                                {% for book_info in sorted_books %}
+                                <tr class="book-row" data-book="{{ book_info.book }}">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="expand-btn text-primary-400 hover:text-primary-300 transition-colors">
+                                            <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </button>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-neutral-950 dark:text-white">{{ book_info.book }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-400">{{ book_info.confirmed }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-300">{{ book_info.suspect }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-400">{{ book_info.false_positives }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-400">{{ book_info.total }}</td>
+                                </tr>
+                                <tr class="references-row hidden" data-book="{{ book_info.book }}">
+                                    <td colspan="6" class="px-6 py-4">
+                                        <div class="overflow-x-auto">
+                                            <table class="min-w-full divide-y divide-neutral-400 dark:divide-neutral-600">
+                                                <thead class="bg-neutral-300 dark:bg-neutral-600">
+                                                    <tr>
+                                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">#</th>
+                                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Time</th>
+                                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Book</th>
+                                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Ch/V</th>
+                                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Context</th>
+                                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-neutral-700 dark:text-neutral-300 uppercase tracking-wider">Type</th>
+                                                    </tr>
+                                                </thead>
+                                                {% set book_refs = all_refs_by_book.get(book_info.book, []) %}
+                                                <tbody class="bg-neutral-200 dark:bg-neutral-700 divide-y divide-neutral-400 dark:divide-neutral-600">
+                                                    {% for ref in book_refs %}
+                                                    <tr>
+                                                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                                                            {{ loop.index }}
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                                                            {% set total_seconds = ref.get('start', 0)|round|int %}
+                                                            {% set hours = total_seconds // 3600 %}
+                                                            {% set minutes = (total_seconds % 3600) // 60 %}
+                                                            {% set seconds = total_seconds % 60 %}
+                                                            {{ "%02d"|format(hours) }}:{{ "%02d"|format(minutes) }}:{{ "%02d"|format(seconds) }}
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-primary-400">
+                                                            {% set chapter = '1' %}
+                                                            {% if ref.get('verse') and ref.get('verse') != 'N/A' %}
+                                                                {% if ':' in ref.get('verse') %}
+                                                                    {% set verse_parts = ref.get('verse').split(':') %}
+                                                                    {% set chapter = verse_parts[0] %}
+                                                                {% else %}
+                                                                    {% set chapter = ref.get('verse') %}
+                                                                {% endif %}
                                                             {% endif %}
-                                                        {% endif %}
-                                                        <a href="https://read.lsbible.org/?q={{ book_info.book|replace(' ', '+') }}{{ '+' }}{{ chapter }}" target="_blank" class="hover:underline">
-                                                            {{ book_info.book }}
-                                                        </a>
-                                                    </td>
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-neutral-700 dark:text-neutral-300">
-                                                        {% if ref.get('verse') and ref.get('verse') != 'N/A' %}
-                                                        <a href="https://read.lsbible.org/?q={{ book_info.book|replace(' ', '+') }}{{ '+' }}{{ ref.get('verse')|replace(':', '%3A') }}" target="_blank" class="text-primary-400 hover:underline">
-                                                            {{ ref.get('verse') }}
-                                                        </a>
-                                                        {% else %}
-                                                        <a href="https://read.lsbible.org/?q={{ book_info.book|replace(' ', '+') }}{{ '+' }}{{ chapter }}" target="_blank" class="text-primary-400 hover:underline">
-                                                            {{ chapter }}
-                                                        </a>
-                                                        {% endif %}
-                                                    </td>
-                                                    <td class="px-4 py-4 text-sm text-neutral-700 dark:text-neutral-300 max-w-2xl whitespace-normal break-words">
-                                                        "{{ ref.get('context_html', ref.get('context', 'No context available'))|safe }}"
-                                                    </td>
-                                                    <td class="px-4 py-4 whitespace-nowrap">
-                                                        {% if ref.get('type') == 'confirmed' %}
-                                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-                                                            Confirmed
-                                                        </span>
-                                                        {% elif ref.get('type') == 'suspect' %}
-                                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-                                                            Suspect
-                                                        </span>
-                                                        {% elif ref.get('type') == 'false_positive' %}
-                                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-300 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
-                                                            False Positive
-                                                        </span>
-                                                        {% else %}
-                                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-300 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
-                                                            Unknown
-                                                        </span>
-                                                        {% endif %}
-                                                    </td>
-                                                </tr>
-                                                {% endfor %}
-                                                {% if not book_refs %}
-                                                <tr>
-                                                    <td colspan="6" class="px-4 py-8 text-center text-sm text-gray-400">
-                                                        Position data not available for this book. Please re-analyze the video to see detailed scripture references with timestamps and context.
-                                                    </td>
-                                                </tr>
-                                                {% endif %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                                                            <a href="https://read.lsbible.org/?q={{ book_info.book|replace(' ', '+') }}{{ '+' }}{{ chapter }}" target="_blank" class="hover:underline">
+                                                                {{ book_info.book }}
+                                                            </a>
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap text-sm text-neutral-700 dark:text-neutral-300">
+                                                            {% if ref.get('verse') and ref.get('verse') != 'N/A' %}
+                                                            <a href="https://read.lsbible.org/?q={{ book_info.book|replace(' ', '+') }}{{ '+' }}{{ ref.get('verse')|replace(':', '%3A') }}" target="_blank" class="text-primary-400 hover:underline">
+                                                                {{ ref.get('verse') }}
+                                                            </a>
+                                                            {% else %}
+                                                            <a href="https://read.lsbible.org/?q={{ book_info.book|replace(' ', '+') }}{{ '+' }}{{ chapter }}" target="_blank" class="text-primary-400 hover:underline">
+                                                                {{ chapter }}
+                                                            </a>
+                                                            {% endif %}
+                                                        </td>
+                                                        <td class="px-4 py-4 text-sm text-neutral-700 dark:text-neutral-300 max-w-2xl whitespace-normal break-words">
+                                                            "{{ ref.get('context_html', ref.get('context', 'No context available'))|safe }}"
+                                                        </td>
+                                                        <td class="px-4 py-4 whitespace-nowrap">
+                                                            {% if ref.get('type') == 'confirmed' %}
+                                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                                                                Confirmed
+                                                            </span>
+                                                            {% elif ref.get('type') == 'suspect' %}
+                                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                                                                Suspect
+                                                            </span>
+                                                            {% elif ref.get('type') == 'false_positive' %}
+                                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-300 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
+                                                                False Positive
+                                                            </span>
+                                                            {% else %}
+                                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-300 text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200">
+                                                                Unknown
+                                                            </span>
+                                                            {% endif %}
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    {% if not book_refs %}
+                                                    <tr>
+                                                        <td colspan="6" class="px-4 py-8 text-center text-sm text-gray-400">
+                                                            Position data not available for this book. Please re-analyze the video to see detailed scripture references with timestamps and context.
+                                                        </td>
+                                                    </tr>
+                                                    {% endif %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Scripture References Timeline -->
-            <div class="bg-neutral-100 dark:bg-neutral-800 shadow overflow-hidden sm:rounded-lg mb-6">
-                <div class="px-4 py-5 sm:p-6">
-                    <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Scripture References Timeline</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400 mb-4">All scripture references in chronological order from the video.</p>
-                    <div id="timeline-content" class="space-y-4 max-h-96 overflow-y-auto">
-                        <!-- Timeline content will be populated by JavaScript -->
+                <!-- Scripture References Timeline -->
+                <div class="bg-neutral-100 dark:bg-neutral-800 shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <h3 class="text-lg leading-6 font-semibold text-neutral-950 dark:text-white mb-4">Scripture References Timeline</h3>
+                        <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400 mb-4">All scripture references in chronological order from the video.</p>
+                        <div id="timeline-content" class="space-y-4 max-h-96 overflow-y-auto">
+                            <!-- Timeline content will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </main>
         </div>
     </main>
 
