@@ -26,7 +26,11 @@ export function renderListItems(neighborhoodsToRender) {
             const formattedPrice = formatPrice(price);
 
             const card = document.createElement('div');
-            card.className = 'bg-white dark:bg-dark-bg-elevated p-4 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden';
+            // Use the same brand-hover/active visual language as the sidebar menu items.
+            // Also add focus-visible ring and keyboard support for accessibility.
+            card.className = 'bg-white dark:bg-dark-bg-elevated p-4 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark';
+            card.setAttribute('role', 'button');
+            card.tabIndex = 0;
             card.innerHTML = `
                 <div class="flex justify-between items-start mb-1">
                     <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${neighborhood.name}</h3>
@@ -69,6 +73,14 @@ export function renderListItems(neighborhoodsToRender) {
                 // On mobile, close drawer to show map
                 if (window.innerWidth < 768) {
                     document.getElementById('drawer-toggle').checked = false;
+                }
+            });
+
+            // Support keyboard activation (Enter / Space) for accessibility
+            card.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    ev.preventDefault();
+                    card.click();
                 }
             });
 
