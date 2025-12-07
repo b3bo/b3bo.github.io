@@ -143,7 +143,7 @@ function setupSortDropdown() {
     sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
         const isActive = STATE.currentSort === option.id;
         return `
-            <button class="sort-option w-full px-3 py-3 text-sm cursor-pointer flex items-center justify-start gap-2 text-left hover:bg-neutral-50 ${isActive ? 'active bg-neutral-50 text-neutral-800 font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}">
+            <button class="sort-option w-full px-2 py-2 text-sm cursor-pointer flex items-center justify-start gap-2 text-left hover:bg-neutral-50 ${isActive ? 'active bg-neutral-50 text-neutral-800 font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}">
                 <span>${option.label}</span>
                 ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
             </button>
