@@ -87,12 +87,16 @@ export const CONFIG = {
         ]
         ,
         // Horizontal offset (pixels) to nudge the portalled sort menu.
-        // This allows tuning per breakpoint without editing index.html.
+        // Positive values move the menu to the right; negative values move it to the left.
+        // This allows tuning per breakpoint without editing `index.html`.
         // Values can be adjusted for desktop / tablet / mobile layouts.
         sortMenuOffset: {
-            desktop: 110, // default desktop offset (px)
-            tablet: 48,   // medium-width devices (px)
-            mobile: 8     // small devices (px)
+            // Desktop: typically larger offset to align with wide layout. (px)
+            desktop: 110,
+            // Tablet: medium offset for medium-width viewports. (px)
+            tablet: 48,
+            // Mobile: small offset to avoid overflowing on small screens. (px)
+            mobile: 8
         }
     },
 
