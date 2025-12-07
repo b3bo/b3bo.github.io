@@ -95,9 +95,9 @@ export const CONFIG = {
             x: {
                 // Horizontal shift from button's right edge. Positive -> right, negative -> left.
                 // Set to -28 so the menu moves left 28px across breakpoints.
-                desktop: -28,
-                tablet: -28,
-                mobile: -28
+                desktop: 0,
+                tablet: 0,
+                mobile: 0
             },
             y: {
                 desktop: 8, // vertical gap between button bottom and menu top (px)
