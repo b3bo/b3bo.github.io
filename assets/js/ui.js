@@ -140,12 +140,15 @@ function setupSortDropdown() {
 
     // Generate sort options dynamically
     // This generates the sort options padding.
+    // Render sort options as content-driven rows.
+    // Each button is sized by its contents (not forced full-width) so the container padding (p-6)
+    // applied in `index.html` is visible. We keep `py-2` to preserve vertical spacing between items.
     sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
         const isActive = STATE.currentSort === option.id;
         return `
-            <button class="sort-option w-full px-2 py-2 text-sm cursor-pointer flex items-center justify-start gap-2 text-left hover:bg-neutral-50 ${isActive ? 'active bg-neutral-50 text-neutral-800 font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}">
-                <span>${option.label}</span>
-                ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
+            <button class="sort-option inline-flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-neutral-50 ${isActive ? 'active bg-neutral-50 text-neutral-800 font-medium' : 'text-neutral-600 font-normal'} min-w-[140px] max-w-[80vw]" data-sort-id="${option.id}" type="button">
+                <span class="truncate">${option.label}</span>
+                ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
             </button>
         `;
     }).join('');
