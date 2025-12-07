@@ -26,7 +26,7 @@ export function renderListItems(neighborhoodsToRender) {
             const formattedPrice = formatPrice(price);
 
             const card = document.createElement('div');
-            card.className = 'bg-white dark:bg-dark-bg-elevated p-4 rounded-xl border border-neutral-200 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow cursor-pointer overflow-hidden';
+            card.className = 'bg-white dark:bg-dark-bg-elevated p-4 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden';
             card.innerHTML = `
                 <div class="flex justify-between items-start mb-1">
                     <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${neighborhood.name}</h3>
