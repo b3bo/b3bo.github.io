@@ -146,7 +146,7 @@ function setupSortDropdown() {
     sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
         const isActive = STATE.currentSort === option.id;
         return `
-            <button class="sort-option w-full flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-neutral-50 ${isActive ? 'active bg-neutral-50 text-neutral-800 font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}" type="button">
+            <button class="sort-option w-full flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-brand-100 dark:hover:bg-brand-dark/20 ${isActive ? 'active bg-brand-200 dark:bg-brand-dark/30 text-brand-700 dark:text-brand-dark font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}" type="button">
                 <span class="truncate">${option.label}</span>
                 ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
             </button>
@@ -189,8 +189,10 @@ function setupSortDropdown() {
 
                 // Toggle Tailwind classes
                 opt.classList.toggle('active', isActive);
-                opt.classList.toggle('bg-neutral-50', isActive);
-                opt.classList.toggle('text-neutral-800', isActive);
+                opt.classList.toggle('bg-brand-200', isActive);
+                opt.classList.toggle('dark:bg-brand-dark/30', isActive);
+                opt.classList.toggle('text-brand-700', isActive);
+                opt.classList.toggle('dark:text-brand-dark', isActive);
                 opt.classList.toggle('font-medium', isActive);
                 opt.classList.toggle('text-neutral-600', !isActive);
                 opt.classList.toggle('font-normal', !isActive);
