@@ -1,0 +1,16 @@
+# Treat common web files as text to avoid false binary detection and normalize line endings
+*.html text eol=lf
+*.htm text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+.github/* text=auto
+
+# Keep binary files explicit
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
