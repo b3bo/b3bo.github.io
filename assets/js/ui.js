@@ -209,24 +209,7 @@ export function setupUI() {
     // Setup sort dropdown
     setupSortDropdown();
 
-    // Setup filter button (open Criteria/property panel)
-    const filterButton = document.getElementById('filter-button');
-    if (filterButton) {
-        filterButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const panel = document.getElementById('property-panel');
-            const mainMenu = document.getElementById('main-menu');
-            if (!panel) return;
-
-            // Reset panel scroll
-            const panelContent = panel.querySelector('.panel-content');
-            if (panelContent) panelContent.scrollTop = 0;
-
-            // Hide main menu and open panel (match other behavior)
-            if (mainMenu) mainMenu.style.display = 'none';
-            panel.style.transform = 'translateX(0)';
-        });
-    }
+    // (no filter button - sort button is used to toggle the dropdown)
 
     // Property type toggle (Homes/Condos) - now handled in filters.js
     // Note: The event listeners for property type buttons are set up in filters.js
