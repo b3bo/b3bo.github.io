@@ -85,6 +85,15 @@ export const CONFIG = {
             { id: 'listings-desc', label: 'Most Listings', field: 'listingCount', order: 'desc' },
             { id: 'dom-asc', label: 'DOM: Low to High', field: 'avgDom', order: 'asc' }
         ]
+        ,
+        // Horizontal offset (pixels) to nudge the portalled sort menu.
+        // This allows tuning per breakpoint without editing index.html.
+        // Values can be adjusted for desktop / tablet / mobile layouts.
+        sortMenuOffset: {
+            desktop: 110, // default desktop offset (px)
+            tablet: 48,   // medium-width devices (px)
+            mobile: 8     // small devices (px)
+        }
     },
 
     // ===================================================================
@@ -115,3 +124,14 @@ export const CONFIG = {
         }
     }
 };
+
+// Expose CONFIG on window for inline scripts (index.html) to read when the module bundle
+// hasn't executed yet in some load scenarios. This makes CONFIG available globally.
+if (typeof window !== 'undefined') {
+    // Avoid overwriting an existing global object unless necessary
+    try {
+        window.CONFIG = window.CONFIG || CONFIG;
+    } catch (e) {
+        // ignore if assignment fails in restricted environments
+    }
+}
