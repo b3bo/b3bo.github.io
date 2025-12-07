@@ -150,10 +150,14 @@ function setupSortDropdown() {
     }).join('');
 
     // Toggle dropdown on button click
-    sortButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sortMenu.classList.toggle('hidden');
-    });
+    // If we moved the menu to a portal and a separate handler is controlling toggling,
+    // don't add a duplicate toggle handler here (prevents double-toggle).
+    if (!sortMenu.dataset || sortMenu.dataset.portal !== 'true') {
+        sortButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sortMenu.classList.toggle('hidden');
+        });
+    }
 
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
