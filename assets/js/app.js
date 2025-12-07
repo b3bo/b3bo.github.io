@@ -241,19 +241,17 @@ async function initMap() {
             }
         };
 
+        // Property type buttons are toggleable (multi-select). Clicking each will toggle its
+        // active state independently so users can select Homes, Condos, both, or neither.
         document.querySelectorAll('.property-type-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // Remove active state from all buttons
-                document.querySelectorAll('.property-type-btn').forEach(b => {
-                    b.classList.remove('active');
-                    updateButtonState(b, false);
-                });
-                
-                // Add active state to clicked button
-                this.classList.add('active');
-                updateButtonState(this, true);
-                
-                // Apply filters
+                const nextActive = !this.classList.contains('active');
+
+                // Toggle active class & update visual state
+                this.classList.toggle('active', nextActive);
+                updateButtonState(this, nextActive);
+
+                // Apply filters after toggling (supports both/none/one active)
                 applyFilters();
             });
         });

@@ -303,17 +303,27 @@ export function applyFilters() {
     minBaths = parseInt(bathsMinInput.value);
     maxBaths = 6; // Always 6+ for max
 
-    // Get active property type
+    // Get active property type (buttons are toggleable: both/one/none)
     const isHomesActive = document.getElementById('btn-homes').classList.contains('active');
     const isCondosActive = document.getElementById('btn-condos').classList.contains('active');
 
     const filteredNeighborhoods = STATE.neighborhoods.filter(neighborhood => {
-        // Property Type Filter
-        let matchesPropertyType = true; // Default to true (show all)
-        if (isHomesActive) {
-            matchesPropertyType = neighborhood.propertyType === 'Homes' || neighborhood.propertyType === 'Townhomes';
-        } else if (isCondosActive) {
-            matchesPropertyType = neighborhood.propertyType === 'Condos';
+        // Property Type Filter: support multi-select
+        // - none active => show all
+        // - homes active only => match Homes/Townhomes
+        // - condos active only => match Condos
+        // - both active => match any
+        let matchesPropertyType = true; // default: no property-type filtering
+        if (isHomesActive || isCondosActive) {
+            matchesPropertyType = false; // we'll check conditions below
+
+            if (isHomesActive && (neighborhood.propertyType === 'Homes' || neighborhood.propertyType === 'Townhomes')) {
+                matchesPropertyType = true;
+            }
+
+            if (isCondosActive && neighborhood.propertyType === 'Condos') {
+                matchesPropertyType = true;
+            }
         }
 
         // Area Filter
