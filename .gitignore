@@ -17,11 +17,8 @@ __pycache__/
 *.pyc
 **/*.pyc
 
-# MannaMeter data files
-MannaMeter/results.json
-MannaMeter/results.json.b64
-MannaMeter/cache.json
-MannaMeter/instance/mannameter.db
+# MannaMeter - entire directory is private
+MannaMeter/
 
 # Build-time files (not deployed)
 components/
