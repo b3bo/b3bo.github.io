@@ -86,17 +86,23 @@ export const CONFIG = {
             { id: 'dom-asc', label: 'DOM: Low to High', field: 'avgDom', order: 'asc' }
         ]
         ,
-        // Horizontal offset (pixels) to nudge the portalled sort menu.
-        // Positive values move the menu to the right; negative values move it to the left.
-        // This allows tuning per breakpoint without editing `index.html`.
-        // Values can be adjusted for desktop / tablet / mobile layouts.
+        // Per-breakpoint offsets (pixels) for the portalled sort menu.
+        // We anchor the menu's TOP-RIGHT to the button's BOTTOM-RIGHT.
+        // Positive x values move the menu to the RIGHT; negative x move to the LEFT.
+        // Positive y values move the menu DOWN; negative y move UP.
+        // Structure: { x: { desktop, tablet, mobile }, y: { desktop, tablet, mobile } }
         sortMenuOffset: {
-            // Desktop: typically larger offset to align with wide layout. (px)
-            desktop: 110,
-            // Tablet: medium offset for medium-width viewports. (px)
-            tablet: 48,
-            // Mobile: small offset to avoid overflowing on small screens. (px)
-            mobile: 8
+            x: {
+                // Horizontal shift from button's right edge. Positive -> right, negative -> left.
+                desktop: 28, // move right ~28px to match wider panel
+                tablet: 28,
+                mobile: 12
+            },
+            y: {
+                desktop: 8, // vertical gap between button bottom and menu top (px)
+                tablet: 8,
+                mobile: 6
+            }
         }
     },
 
