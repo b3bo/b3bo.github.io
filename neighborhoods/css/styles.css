@@ -194,7 +194,7 @@
 
 /* Sidebar peer-checked styles (Tailwind peer utility) */
 #drawer-toggle:checked ~ #sidebar {
-  transform: translateX(0) !important;
+  translate: 0 0 !important;
 }
 
 /* Disable transitions during theme initialization */
