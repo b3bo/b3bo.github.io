@@ -317,8 +317,10 @@ export function applyFilters() {
     maxBaths = 6; // Always 6+ for max
 
     // Get active property type (buttons are toggleable: both/one/none)
-    const isHomesActive = document.getElementById('btn-homes').classList.contains('active');
-    const isCondosActive = document.getElementById('btn-condos').classList.contains('active');
+    const homesBtn = document.getElementById('btn-homes');
+    const condosBtn = document.getElementById('btn-condos');
+    const isHomesActive = homesBtn ? homesBtn.classList.contains('active') : false;
+    const isCondosActive = condosBtn ? condosBtn.classList.contains('active') : false;
 
     const filteredNeighborhoods = STATE.neighborhoods.filter(neighborhood => {
         // Property Type Filter: support multi-select
