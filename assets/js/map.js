@@ -376,7 +376,7 @@ export function initializeMap(center, zoom) {
     const params = getUrlParams();
     if (params.mode !== 'single') {
         // setupFilters(); // Commented out - filter elements removed
-        applyFilters();
+        // applyFilters(); // Commented out - filter elements removed
     }
 }
 
