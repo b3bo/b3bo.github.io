@@ -279,28 +279,41 @@ export function applyFilters() {
     const priceMinInput = document.getElementById('price-min');
     const priceMaxInput = document.getElementById('price-max');
     
-    // Special case: if both sliders are at 0 (stacked on left), show all
-    if (parseInt(priceMinInput.value) === 0 && parseInt(priceMaxInput.value) === 0) {
-        minPrice = 0;
-        maxPrice = Number.MAX_SAFE_INTEGER;
-    } else {
-        minPrice = parseInt(CONFIG.ui.priceSteps[priceMinInput.value]);
-        // If max slider is at the end, treat as infinity
-        if (parseInt(priceMaxInput.value) === 41) {
+    if (priceMinInput && priceMaxInput) {
+        // Special case: if both sliders are at 0 (stacked on left), show all
+        if (parseInt(priceMinInput.value) === 0 && parseInt(priceMaxInput.value) === 0) {
+            minPrice = 0;
             maxPrice = Number.MAX_SAFE_INTEGER;
         } else {
-            maxPrice = parseInt(CONFIG.ui.priceSteps[priceMaxInput.value]);
+            minPrice = parseInt(CONFIG.ui.priceSteps[priceMinInput.value]);
+            // If max slider is at the end, treat as infinity
+            if (parseInt(priceMaxInput.value) === 41) {
+                maxPrice = Number.MAX_SAFE_INTEGER;
+            } else {
+                maxPrice = parseInt(CONFIG.ui.priceSteps[priceMaxInput.value]);
+            }
         }
+    } else {
+        minPrice = 0;
+        maxPrice = Number.MAX_SAFE_INTEGER;
     }
 
     // Get beds range
     const bedsMinInput = document.getElementById('beds-min');
-    minBeds = parseInt(bedsMinInput.value);
+    if (bedsMinInput) {
+        minBeds = parseInt(bedsMinInput.value);
+    } else {
+        minBeds = 0;
+    }
     maxBeds = 6; // Always 6+ for max
 
     // Get baths range
     const bathsMinInput = document.getElementById('baths-min');
-    minBaths = parseInt(bathsMinInput.value);
+    if (bathsMinInput) {
+        minBaths = parseInt(bathsMinInput.value);
+    } else {
+        minBaths = 0;
+    }
     maxBaths = 6; // Always 6+ for max
 
     // Get active property type (buttons are toggleable: both/one/none)
