@@ -5,13 +5,15 @@
   Main entry point for the Community Finder application. 
   Contains the Google Maps interface, sidebar navigation, filtering logic, 
   and neighborhood data display.
+
+  restored
 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title>Emerald Coast Neighborhood FinderGäó | Interactive Tool for 30A Home Buyers</title>
+    <title>Emerald Coast Neighborhood FinderGï¿½ï¿½ | Interactive Tool for 30A Home Buyers</title>
     <meta name="description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
 
     <!-- Canonical URL -->
@@ -20,7 +22,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
-    <meta property="og:title" content="Emerald Coast Neighborhood FinderGäó | Interactive Tool for 30A Home Buyers">
+    <meta property="og:title" content="Emerald Coast Neighborhood FinderGï¿½ï¿½ | Interactive Tool for 30A Home Buyers">
     <meta property="og:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
     <meta property="og:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -31,7 +33,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
-    <meta name="twitter:title" content="Emerald Coast Neighborhood FinderGäó | Interactive Tool for 30A Home Buyers">
+    <meta name="twitter:title" content="Emerald Coast Neighborhood FinderGï¿½ï¿½ | Interactive Tool for 30A Home Buyers">
     <meta name="twitter:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location.">
     <meta name="twitter:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
 
@@ -51,10 +53,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./neighborhoods/css/styles.css">
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./neighborhoods/css/tailwind_neighborhoods.css">
-    
+
     <!-- Google Maps API moved to end of body to prevent race condition -->
     
     <style>
@@ -168,7 +172,7 @@
         @media (max-height: 500px) and (orientation: landscape) {
             #sidebar {
                 /* Keep floating card style. Do NOT change width at this height breakpoint
-                   — changing the sidebar width here caused the Results sliding-panel to
+                   ï¿½ changing the sidebar width here caused the Results sliding-panel to
                    shrink and introduce layout/scroll regressions on short viewports. */
                 height: calc(100dvh - 2rem) !important;
                 max-height: calc(100dvh - 2rem) !important;
@@ -240,7 +244,7 @@
               Desired mapping:
               - default (inactive): lighter brand (brand-100)
               - hover: same as default (brand-100)
-              - active (pressed): darker brand (brand-200) — same as active buttons like Homes/Condos
+              - active (pressed): darker brand (brand-200) ï¿½ same as active buttons like Homes/Condos
               Dark mode uses translucent variants (20% default/hover, 30% active). */
         #sidebar-content::-webkit-scrollbar-thumb,
         #sidebar-scroll-container::-webkit-scrollbar-thumb,
@@ -252,7 +256,7 @@
             transition: background-color 180ms ease, opacity 180ms ease;
         }
 
-        /* Light mode — hover should match the inactive/default color */
+        /* Light mode ï¿½ hover should match the inactive/default color */
         #sidebar-content::-webkit-scrollbar-thumb:hover,
         #sidebar-scroll-container::-webkit-scrollbar-thumb:hover,
         #main-menu::-webkit-scrollbar-thumb:hover,
@@ -273,10 +277,10 @@
 
         /* Add small inner padding on Results panel so scrollbar doesn't sit tight against list items */
         #results-panel .panel-content {
-            padding-right: 0.75rem; /* 12px — small visual buffer for the scrollbar */
+            padding-right: 0.75rem; /* 12px ï¿½ small visual buffer for the scrollbar */
         }
 
-        /* Dark mode scrollbar — use brand RGB token for translucent variants */
+        /* Dark mode scrollbar ï¿½ use brand RGB token for translucent variants */
         .dark #sidebar-content::-webkit-scrollbar-thumb,
         .dark #sidebar-scroll-container::-webkit-scrollbar-thumb,
         .dark #main-menu::-webkit-scrollbar-thumb,
@@ -347,7 +351,7 @@
             width: 100%;
         }
 
-          /* (reverted) panel-open toggling removed — previously attempted to prevent
+          /* (reverted) panel-open toggling removed ï¿½ previously attempted to prevent
               a double-scrollbar effect; this change has been undone. */
 
     </style>
@@ -424,10 +428,10 @@
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
     <div class="flex flex-col h-dvh">
         <!-- Hidden checkbox controls drawer state -->
-        <input type="checkbox" id="drawer-toggle" class="hidden peer" />
-        
+        <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
+
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] peer-checked:translate-x-0 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
             <!-- Keep sidebar height constant across breakpoints; removed md-specific height override so it won't shrink on larger viewports -->
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
@@ -440,7 +444,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </label>
-            
+
             <!-- Fixed Header Section -->
             <div class="flex-shrink-0 w-full overflow-x-hidden">
                 <!-- Header -->
@@ -526,7 +530,58 @@
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content pr-3">
-                        <p class="p-5 text-neutral-600 dark:text-dark-text-secondary">Criteria filters will be added here.</p>
+                        <!-- Toggle Buttons -->
+                        <div class="flex gap-2 pb-6 px-3">
+                            <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
+                                Homes
+                            </button>
+                            <button id="btn-condos" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
+                                Condos
+                            </button>
+                        </div>
+                        <hr class="divider mx-4 mb-3">
+
+                        <div class="space-y-6 px-3">
+                            <!-- Price Range Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Price</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="price-display">$250K - $35M+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="price-fill"></div>
+                                    <input type="range" min="0" max="41" value="0" id="price-min">
+                                    <input type="range" min="0" max="41" value="0" id="price-max">
+                                </div>
+                            </div>
+
+                            <!-- Beds Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Beds</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="beds-display">1+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
+                                </div>
+                            </div>
+
+                            <!-- Baths Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Baths</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="baths-display">1+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -635,13 +690,13 @@
             </div>
 
             <!-- Backdrop overlay -->
-            <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
+            <label for="drawer-toggle" id="sidebar-backdrop" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
         </div>
         
         <!-- Disclaimer (hidden on single neighborhood embeds) -->
         <div id="map-disclaimer" class="border-t border-neutral-200 dark:border-dark-border px-4 py-3 text-center bg-white/70 dark:bg-dark-bg-elevated/70 backdrop-blur-md">
             <p class="text-xs text-neutral-500 leading-relaxed">
-                -¬ <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
+                -ï¿½ <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
             </p>
         </div>
     </div>
@@ -938,7 +993,7 @@
             window.addEventListener('hashchange', openPanelFromLocation);
             window.addEventListener('popstate', openPanelFromLocation);
 
-            // Keyboard shortcuts — only when user holds CTRL+ALT to avoid
+            // Keyboard shortcuts ï¿½ only when user holds CTRL+ALT to avoid
             // accidental triggers. Map: P (property/criteria), A (areas), M (amenities), R (results)
             document.addEventListener('keydown', function (e) {
                 if (!(e.ctrlKey && e.altKey)) return;
@@ -1144,7 +1199,7 @@
             }
         })();
         
-        // Floating menu removed — keep page clean for testing (debug removed)
+        // Floating menu removed ï¿½ keep page clean for testing (debug removed)
     </script>
 
     <script type="module" src="./neighborhoods/js/theme.js"></script>
