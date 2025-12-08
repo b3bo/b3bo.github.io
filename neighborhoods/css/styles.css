@@ -192,6 +192,11 @@
   transition-timing-function: ease-in-out;
 }
 
+/* Sidebar peer-checked styles (Tailwind peer utility) */
+#drawer-toggle:checked ~ #sidebar {
+  transform: translateX(0) !important;
+}
+
 /* Disable transitions during theme initialization */
 .no-transitions *,
 .no-transitions *::before,
