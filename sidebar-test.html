@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Test</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&v=weekly&libraries=marker,geometry"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-80 bg-white dark:bg-gray-900 shadow-lg transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col h-full">
+            <!-- Main Menu -->
+            <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
+                <div class="space-y-2">
+                    <!-- Criteria Menu Item -->
+                    <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property">
+                        <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Criteria</span>
+                        <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+
+                    <!-- Areas Menu Item -->
+                    <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas">
+                        <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Areas</span>
+                        <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+
+                    <!-- Amenities Menu Item -->
+                    <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities">
+                        <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Amenities</span>
+                        <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+
+                    <!-- Results Menu Item -->
+                    <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
+                        <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Results</span>
+                        <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sliding Panels -->
+            <div class="relative flex-1 overflow-hidden">
+                <!-- Property Panel -->
+                <div id="property-panel" class="sliding-panel fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-gray-900 transform translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="flex flex-col h-full">
+                        <div class="flex items-center flex-shrink-0 py-3 px-5">
+                            <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-lg font-semibold cursor-pointer" data-close-panel="property">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                                <span>Criteria</span>
+                            </button>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-5">
+                            <p class="text-neutral-600 dark:text-dark-text-secondary">Criteria filters will be added here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Areas Panel -->
+                <div id="areas-panel" class="sliding-panel fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-gray-900 transform translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="flex flex-col h-full">
+                        <div class="flex items-center flex-shrink-0 py-3 px-5">
+                            <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-lg font-semibold cursor-pointer" data-close-panel="areas">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                                <span>Areas</span>
+                            </button>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-5">
+                            <p class="text-neutral-600 dark:text-dark-text-secondary">Area filters will be added here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amenities Panel -->
+                <div id="amenities-panel" class="sliding-panel fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-gray-900 transform translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="flex flex-col h-full">
+                        <div class="flex items-center flex-shrink-0 py-3 px-5">
+                            <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-lg font-semibold cursor-pointer" data-close-panel="amenities">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                                <span>Amenities</span>
+                            </button>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-5">
+                            <p class="text-neutral-600 dark:text-dark-text-secondary">Amenities filters will be added here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div id="results-panel" class="sliding-panel fixed inset-y-0 left-0 z-50 w-80 bg-white dark:bg-gray-900 transform translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="flex flex-col h-full">
+                        <div class="flex items-center flex-shrink-0 py-3 px-5">
+                            <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-lg font-semibold cursor-pointer" data-close-panel="results">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                                <span>Results</span>
+                            </button>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-5">
+                            <div id="neighborhoodList" class="space-y-2">
+                                <!-- Neighborhoods will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Version info -->
+            <div class="flex-shrink-0 w-full">
+                <div class="px-5">
+                    <hr class="divider">
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Sidebar Test Version</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <div id="map-layout" class="flex flex-1 relative md:flex-row overflow-hidden">
+        <div id="map" class="flex-1 bg-neutral-100 relative">
+            <div id="loading-screen" class="absolute inset-0 bg-neutral-100 flex items-center justify-center z-20">
+                <div class="text-center">
+                    <div class="w-12 h-12 border-4 border-neutral-300 border-t-neutral-700 rounded-full animate-spin mx-auto"></div>
+                    <p class="text-neutral-600 font-medium">Loading Map...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sliding Panel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainMenu = document.getElementById('main-menu');
+
+            // Handle menu item clicks
+            document.addEventListener('click', function(e) {
+                const menuItem = e.target.closest('.menu-item');
+                if (menuItem) {
+                    const panel = menuItem.dataset.panel;
+                    if (panel) {
+                        // Hide all panels
+                        document.querySelectorAll('.sliding-panel').forEach(p => p.classList.add('translate-x-full'));
+                        // Show selected panel
+                        const panelEl = document.getElementById(panel + '-panel');
+                        if (panelEl) {
+                            panelEl.classList.remove('translate-x-full');
+                            // Hide main menu
+                            if (mainMenu) mainMenu.style.display = 'none';
+                        }
+                    }
+                }
+
+                // Handle back buttons
+                const backBtn = e.target.closest('[data-close-panel]');
+                if (backBtn) {
+                    const panel = backBtn.dataset.closePanel;
+                    const panelEl = document.getElementById(panel + '-panel');
+                    if (panelEl) {
+                        panelEl.classList.add('translate-x-full');
+                        // Show main menu
+                        if (mainMenu) mainMenu.style.display = '';
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/map.js"></script>
+    <script src="./assets/js/filters.js"></script>
+    <script src="./assets/js/ui.js"></script>
+</body>
+</html>
