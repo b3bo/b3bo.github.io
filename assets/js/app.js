@@ -227,6 +227,9 @@ async function initMap() {
         // Setup UI interactions
         setupUI();
 
+        // Apply initial filters to show communities count
+        applyFilters();
+
         // Setup Property Type Buttons
         const activeClasses = ['bg-brand-500', 'text-white', 'border-brand-500', 'hover:bg-brand-600', 'active:bg-brand-700', 'dark:bg-brand-dark', 'dark:text-white', 'dark:border-brand-dark', 'dark:hover:bg-brand-dark-hover'];
         const inactiveClasses = ['bg-white', 'text-neutral-700', 'border-neutral-300', 'hover:bg-brand-100', 'hover:text-brand-700', 'active:bg-brand-200', 'dark:bg-dark-bg-elevated-2', 'dark:text-dark-text-primary', 'dark:border-dark-border', 'dark:hover:bg-brand-dark/20', 'dark:hover:text-brand-dark', 'dark:active:bg-brand-dark/30'];
