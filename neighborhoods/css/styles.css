@@ -197,6 +197,13 @@
   translate: 0 0 !important;
 }
 
+/* Allow map clicks through backdrop - fix marker click issue */
+#map {
+  position: relative;
+  z-index: 31 !important; /* Higher than backdrop (z-30) */
+  pointer-events: auto !important;
+}
+
 /* Disable transitions during theme initialization */
 .no-transitions *,
 .no-transitions *::before,

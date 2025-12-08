@@ -227,6 +227,9 @@ async function initMap() {
         // Setup UI interactions
         setupUI();
 
+        // Setup filter event listeners and generate amenity tags
+        setupFilters();
+
         // Apply initial filters to show communities count
         applyFilters();
 

@@ -530,7 +530,58 @@
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content pr-3">
-                        <p class="p-5 text-neutral-600 dark:text-dark-text-secondary">Criteria filters will be added here.</p>
+                        <!-- Toggle Buttons -->
+                        <div class="flex gap-2 pb-6 px-3">
+                            <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
+                                Homes
+                            </button>
+                            <button id="btn-condos" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
+                                Condos
+                            </button>
+                        </div>
+                        <hr class="divider mx-4 mb-3">
+
+                        <div class="space-y-6 px-3">
+                            <!-- Price Range Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Price</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="price-display">$250K - $35M+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="price-fill"></div>
+                                    <input type="range" min="0" max="41" value="0" id="price-min">
+                                    <input type="range" min="0" max="41" value="0" id="price-max">
+                                </div>
+                            </div>
+
+                            <!-- Beds Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Beds</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="beds-display">1+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="beds-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="beds-min">
+                                </div>
+                            </div>
+
+                            <!-- Baths Slider -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Baths</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="baths-display">1+</span>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="range-track-bg"></div>
+                                    <div class="range-track-fill" id="baths-fill" style="width: 0%;"></div>
+                                    <input type="range" min="1" max="6" value="1" step="1" id="baths-min">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -639,7 +690,7 @@
             </div>
 
             <!-- Backdrop overlay -->
-            <label for="drawer-toggle" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
+            <label for="drawer-toggle" id="sidebar-backdrop" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
         </div>
         
         <!-- Disclaimer (hidden on single neighborhood embeds) -->
