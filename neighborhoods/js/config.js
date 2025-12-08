@@ -51,8 +51,8 @@ export const CONFIG = {
 
         // Paths to neighborhood JSON data files (base64 encoded)
         neighborhoodFiles: [
-            './../../../assets/jsons/7ea1bf14d884d192.json.b64',
-            './../../../assets/jsons/d2ea7fdfc87ff3e7.json.b64'
+            '././data/7ea1bf14d884d192.json',
+            '././data/d2ea7fdfc87ff3e7.json'
         ]
     },
 
