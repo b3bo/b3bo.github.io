@@ -49,10 +49,10 @@ export const CONFIG = {
         // Custom zip codes for area filtering
         customZipCodes: ['32461', '32541', '32459', '32550', '32413'],
 
-        // Paths to neighborhood JSON data files (base64 encoded)
+        // Paths to neighborhood JSON data files
         neighborhoodFiles: [
-            './data/7ea1bf14d884d192.json',
-            './data/d2ea7fdfc87ff3e7.json'
+            '../data/7ea1bf14d884d192.json',
+            '../data/d2ea7fdfc87ff3e7.json'
         ]
     },
 
