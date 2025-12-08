@@ -1,0 +1,63 @@
+// IFrame Listener for Community Finder Fullscreen and Drawer State
+// Did not work.
+
+<script>
+(function () {
+  var CF_IFRAME_ID = 'communityFinderFrame';
+  var CF_ORIGIN = 'https://neighborhoods.truesouthcoastalhomes.com';
+
+  function getFrame() {
+    return document.getElementById(CF_IFRAME_ID);
+  }
+
+  function sendMessage(frame, type, payload) {
+    if (!frame || !frame.contentWindow) { return; }
+    var message = payload || {};
+    message.type = type;
+    frame.contentWindow.postMessage(message, CF_ORIGIN);
+  }
+
+  function bindButton(selector, messageType) {
+    var btn = document.querySelector(selector);
+    if (!btn) { return; }
+    btn.addEventListener('click', function () {
+      sendMessage(getFrame(), messageType);
+    });
+  }
+
+  function init() {
+    if (!getFrame()) {
+      console.warn('[CF Fullscreen] iframe not found');
+      return;
+    }
+
+    bindButton('[data-map-fullscreen="enter"]', 'enterFullscreen');
+    bindButton('[data-map-fullscreen="exit"]', 'exitFullscreen');
+
+    console.log('[CF Fullscreen] Host listener initialized');
+
+    window.addEventListener('message', function (event) {
+      if (event.origin !== CF_ORIGIN || !event.data) { return; }
+      var data = event.data;
+      if (data.type === 'fullscreenChanged') {
+        var isActive = !!data.active;
+        if (document.body && document.body.classList) {
+          document.body.classList.toggle('cf-hostfullscreen', isActive);
+        }
+        var enterBtn = document.querySelector('[data-map-fullscreen="enter"]');
+        var exitBtn = document.querySelector('[data-map-fullscreen="exit"]');
+        if (enterBtn) { enterBtn.disabled = isActive; }
+        if (exitBtn) { exitBtn.disabled = !isActive; }
+      } else if (data.type === 'drawerState') {
+        console.log('Drawer state:', data.open ? 'open' : 'closed');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
