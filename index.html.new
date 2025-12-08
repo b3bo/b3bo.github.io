@@ -5,15 +5,13 @@
   Main entry point for the Community Finder application. 
   Contains the Google Maps interface, sidebar navigation, filtering logic, 
   and neighborhood data display.
-
-  restored
 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title>Emerald Coast Neighborhood FinderGï¿½ï¿½ | Interactive Tool for 30A Home Buyers</title>
+    <title>Emerald Coast Neighborhood FinderGäó | Interactive Tool for 30A Home Buyers</title>
     <meta name="description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
 
     <!-- Canonical URL -->
@@ -22,7 +20,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
-    <meta property="og:title" content="Emerald Coast Neighborhood FinderGï¿½ï¿½ | Interactive Tool for 30A Home Buyers">
+    <meta property="og:title" content="Emerald Coast Neighborhood FinderGäó | Interactive Tool for 30A Home Buyers">
     <meta property="og:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
     <meta property="og:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -33,7 +31,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
-    <meta name="twitter:title" content="Emerald Coast Neighborhood FinderGï¿½ï¿½ | Interactive Tool for 30A Home Buyers">
+    <meta name="twitter:title" content="Emerald Coast Neighborhood FinderGäó | Interactive Tool for 30A Home Buyers">
     <meta name="twitter:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location.">
     <meta name="twitter:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
 
@@ -170,7 +168,7 @@
         @media (max-height: 500px) and (orientation: landscape) {
             #sidebar {
                 /* Keep floating card style. Do NOT change width at this height breakpoint
-                   ï¿½ changing the sidebar width here caused the Results sliding-panel to
+                   — changing the sidebar width here caused the Results sliding-panel to
                    shrink and introduce layout/scroll regressions on short viewports. */
                 height: calc(100dvh - 2rem) !important;
                 max-height: calc(100dvh - 2rem) !important;
@@ -242,7 +240,7 @@
               Desired mapping:
               - default (inactive): lighter brand (brand-100)
               - hover: same as default (brand-100)
-              - active (pressed): darker brand (brand-200) ï¿½ same as active buttons like Homes/Condos
+              - active (pressed): darker brand (brand-200) — same as active buttons like Homes/Condos
               Dark mode uses translucent variants (20% default/hover, 30% active). */
         #sidebar-content::-webkit-scrollbar-thumb,
         #sidebar-scroll-container::-webkit-scrollbar-thumb,
@@ -254,7 +252,7 @@
             transition: background-color 180ms ease, opacity 180ms ease;
         }
 
-        /* Light mode ï¿½ hover should match the inactive/default color */
+        /* Light mode — hover should match the inactive/default color */
         #sidebar-content::-webkit-scrollbar-thumb:hover,
         #sidebar-scroll-container::-webkit-scrollbar-thumb:hover,
         #main-menu::-webkit-scrollbar-thumb:hover,
@@ -275,10 +273,10 @@
 
         /* Add small inner padding on Results panel so scrollbar doesn't sit tight against list items */
         #results-panel .panel-content {
-            padding-right: 0.75rem; /* 12px ï¿½ small visual buffer for the scrollbar */
+            padding-right: 0.75rem; /* 12px — small visual buffer for the scrollbar */
         }
 
-        /* Dark mode scrollbar ï¿½ use brand RGB token for translucent variants */
+        /* Dark mode scrollbar — use brand RGB token for translucent variants */
         .dark #sidebar-content::-webkit-scrollbar-thumb,
         .dark #sidebar-scroll-container::-webkit-scrollbar-thumb,
         .dark #main-menu::-webkit-scrollbar-thumb,
@@ -349,7 +347,7 @@
             width: 100%;
         }
 
-          /* (reverted) panel-open toggling removed ï¿½ previously attempted to prevent
+          /* (reverted) panel-open toggling removed — previously attempted to prevent
               a double-scrollbar effect; this change has been undone. */
 
     </style>
@@ -643,7 +641,7 @@
         <!-- Disclaimer (hidden on single neighborhood embeds) -->
         <div id="map-disclaimer" class="border-t border-neutral-200 dark:border-dark-border px-4 py-3 text-center bg-white/70 dark:bg-dark-bg-elevated/70 backdrop-blur-md">
             <p class="text-xs text-neutral-500 leading-relaxed">
-                -ï¿½ <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
+                -¬ <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
             </p>
         </div>
     </div>
@@ -940,7 +938,7 @@
             window.addEventListener('hashchange', openPanelFromLocation);
             window.addEventListener('popstate', openPanelFromLocation);
 
-            // Keyboard shortcuts ï¿½ only when user holds CTRL+ALT to avoid
+            // Keyboard shortcuts — only when user holds CTRL+ALT to avoid
             // accidental triggers. Map: P (property/criteria), A (areas), M (amenities), R (results)
             document.addEventListener('keydown', function (e) {
                 if (!(e.ctrlKey && e.altKey)) return;
@@ -1146,7 +1144,7 @@
             }
         })();
         
-        // Floating menu removed ï¿½ keep page clean for testing (debug removed)
+        // Floating menu removed — keep page clean for testing (debug removed)
     </script>
 
     <script type="module" src="./neighborhoods/js/theme.js"></script>
