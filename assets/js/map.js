@@ -375,7 +375,7 @@ export function initializeMap(center, zoom) {
     // Only setup filters if NOT in single mode.
     const params = getUrlParams();
     if (params.mode !== 'single') {
-        setupFilters();
+        // setupFilters(); // Commented out - filter elements removed
         applyFilters();
     }
 }
