@@ -431,7 +431,7 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[var(--panel-duration)] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
             <!-- Keep sidebar height constant across breakpoints; removed md-specific height override so it won't shrink on larger viewports -->
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
@@ -519,7 +519,7 @@
                 </div>
 
                 <!-- Property Panel -->
-                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000ms] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="property">
                             <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -586,7 +586,7 @@
                 </div>
 
                 <!-- Areas Panel -->
-                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000ms] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="areas">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -608,7 +608,7 @@
                 </div>
 
                 <!-- Amenities Panel -->
-                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000ms] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="amenities">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -626,7 +626,7 @@
                 </div>
 
                 <!-- Results Panel -->
-                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[3000ms] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
                     <div class="flex items-center justify-between py-4 flex-shrink-0">
                         <button class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4 relative z-10" data-close-panel="results">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -166,6 +166,7 @@
   --transition-fast: 150ms;
   --transition-base: 200ms;
   --transition-slow: 300ms;
+  --panel-duration: 1000ms;  /* Set by CONFIG.animations.panelSlideDuration */
 
   /* === Z-INDEX SCALE === */
 

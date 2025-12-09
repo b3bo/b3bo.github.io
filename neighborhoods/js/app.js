@@ -18,8 +18,9 @@ window.navigateNeighborhood = navigateNeighborhood;
 
 async function initMap() {
     try {
+        // Set CSS variable from config for panel animations
+        document.documentElement.style.setProperty('--panel-duration', CONFIG.animations.panelSlideDuration + 'ms');
 
-        
         // Ensure Google Maps is loaded
         if (typeof google === 'undefined' || !google.maps) {
             console.error('Google Maps API not loaded');
@@ -221,7 +222,7 @@ async function initMap() {
                     console.log('Fallback: Opening marker after timeout');
                     openMarker();
                 }
-            }, 3000);
+            }, CONFIG.animations.panelSlideDuration);
         }
 
         // Setup UI interactions
