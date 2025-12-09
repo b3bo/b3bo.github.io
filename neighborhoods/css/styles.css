@@ -387,3 +387,20 @@ hr.divider {
   --tw-translate-x: 0 !important;
   --tw-translate-y: 0 !important;
 }
+
+/* Property type & amenity button active/selected state */
+#btn-homes.active,
+#btn-condos.active,
+.amenity-tag.selected {
+  background-color: var(--color-brand-base);
+  border-color: var(--color-brand-base);
+  color: white;
+}
+
+.dark #btn-homes.active,
+.dark #btn-condos.active,
+.dark .amenity-tag.selected {
+  background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  color: white;
+}

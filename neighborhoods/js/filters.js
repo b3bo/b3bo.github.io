@@ -249,6 +249,24 @@ export function setupFilters() {
         });
     }
 
+    // Property Type Buttons (Homes/Condos)
+    const homesBtn = document.getElementById('btn-homes');
+    const condosBtn = document.getElementById('btn-condos');
+
+    if (homesBtn) {
+        homesBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            applyFilters();
+        });
+    }
+
+    if (condosBtn) {
+        condosBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            applyFilters();
+        });
+    }
+
     // Initialize sliders visual state
     updatePriceSlider();
     updateBedsSlider();
