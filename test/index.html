@@ -430,22 +430,17 @@
         <!-- Hidden checkbox controls drawer state -->
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
-        <!-- CENTERED MENU BUTTON -->
-        <label for="drawer-toggle" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: #313842; color: white; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); font-size: 16px;">
-            ☰ Menu
-        </label>
-
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 inset-x-0 mx-auto w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
             <!-- Keep sidebar height constant across breakpoints; removed md-specific height override so it won't shrink on larger viewports -->
-            <!-- Tab attached to drawer edge - DARK BUTTON -->
-            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-lg" style="background: #313842; padding: 12px 10px; margin-left: 2px;">
+            <!-- Tab attached to drawer edge -->
+            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
                 <!-- Hamburger icon (shows when closed) -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white" class="w-6 h-6 tab-icon-closed">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
                 <!-- X icon (shows when open) -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white" class="w-6 h-6 tab-icon-open hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-open hidden">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </label>
@@ -534,7 +529,7 @@
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content py-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content pr-3">
                         <!-- Toggle Buttons -->
                         <div class="flex gap-2 pb-6 px-3">
                             <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
@@ -1210,7 +1205,7 @@
     <script type="module" src="../neighborhoods/js/theme.js"></script>
     <script type="module">
         // Theme toggle click handler
-        import { ThemeManager } from '../neighborhoods/js/theme.js';
+        import { ThemeManager } from './neighborhoods/js/theme.js';
 
         document.addEventListener('DOMContentLoaded', () => {
             // theme DOMContentLoaded
