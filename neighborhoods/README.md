@@ -6,16 +6,25 @@ This folder contains **public-facing files** for the Neighborhood Finder applica
 Files are generated and deployed from the private **NeighborhoodFinder** repository.
 
 ## Contents
-- **HTML files**: Map iframes and index pages
-- **JSON files**: Generated neighborhood data
-- **Images**: Map assets and screenshots
-- **Google Tags**: Analytics and tracking scripts
-- **Snazzy Maps**: Custom map styles
+
+| Folder | Purpose |
+|--------|---------|
+| `js/` | Application JavaScript (deployed from NF) |
+| `css/` | Compiled Tailwind CSS (`tailwind_neighborhoods.css`) |
+| `jsons/` | b64 marker data + GeoJSON boundaries |
+| `google_tags/` | ClickFunnels integration scripts |
+| `img/` | Favicons and static images for CF |
 
 ## Deployment
-Files are deployed using `deploy_to_public.bat` from the NeighborhoodFinder repo.
+Files are deployed using `scripts/csv_pathway/3_deploy_map.bat` from the NeighborhoodFinder repo.
 
-⚠️ **Do not edit these files directly** - they are generated automatically.
+**Deployment copies:**
+- `assets/html/index.html` → `/index.html` (root)
+- `assets/js/*.js` → `/neighborhoods/js/`
+- `assets/css/tailwind_neighborhoods.css` → `/neighborhoods/css/`
+- `assets/jsons/*.json` → `/neighborhoods/jsons/`
+
+**Do not edit these files directly** - they are deployed from the private repo.
 
 ---
 
