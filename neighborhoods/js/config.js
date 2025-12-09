@@ -53,7 +53,10 @@ export const CONFIG = {
         neighborhoodFiles: [
             './neighborhoods/jsons/7ea1bf14d884d192.json.b64',
             './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64'
-        ]
+        ],
+
+        // Path to geojson boundary files (zip code boundaries)
+        geojsonPath: './neighborhoods/jsons/'
     },
 
     // ===================================================================

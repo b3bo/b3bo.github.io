@@ -386,7 +386,7 @@ export function showCustomBoundary(zipCode) {
     STATE.customBoundaries.add(zipCode);
     
     // Try loading with ZCTA5CE20 (2020 Census) first, then fallback to ZCTA5CE10 (2010 Census)
-    STATE.map.data.loadGeoJson(`./assets/jsons/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
+    STATE.map.data.loadGeoJson(`${CONFIG.data.geojsonPath}${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
         // Style the data layer
         STATE.map.data.setStyle(function(feature) {
             // Check for either 2020 or 2010 property
