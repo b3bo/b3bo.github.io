@@ -734,6 +734,11 @@
             // or elements are added after initialization). We look for an element with
             // `data-panel` or the `menu-item` class and use closest() to find it.
             document.addEventListener('click', function (e) {
+                // Skip if clicking inside an already-open sliding panel (e.g., area/amenity filter buttons)
+                // to prevent accidental panel switches when selecting filters
+                const insidePanel = e.target.closest('.sliding-panel:not(.translate-x-full)');
+                if (insidePanel && !e.target.closest('.panel-back-btn')) return;
+
                 // Try to locate the most likely menu candidate. Prefer explicit
                 // menu-item/data-panel nodes, but fall back to anchors, buttons,
                 // or other likely nav elements so embedded DOMs are handled.
