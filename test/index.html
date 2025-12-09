@@ -343,6 +343,28 @@
             opacity: 0.9;
         }
 
+        /* TEST ONLY - force the drawer tab placement for the test page so the
+           tab is always vertically centered and flush with the right edge of
+           the sidebar (matches the screenshot). Scoped to #sidebar to avoid
+           affecting production `index.html`. */
+        #sidebar > label[for="drawer-toggle"] {
+            position: absolute !important;
+            right: -20px !important; /* pull tab outside sidebar edge */
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 44px !important;
+            height: 44px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0 !important;
+            z-index: 60 !important; /* above sidebar content */
+            border-radius: 8px !important;
+            background: #2d3748 !important; /* neutral-700 fallback */
+        }
+
+        #sidebar > label[for="drawer-toggle"] svg { width: 18px !important; height: 18px !important; }
+
         /* Ensure all sliding panels match the sidebar's inner width and
            use consistent box-sizing so padding does not change layout width. */
         .sliding-panel {
@@ -433,7 +455,7 @@
         <aside id="sidebar" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 max-w-xs shadow-2xl rounded-2xl transition-all duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: min(100dvh - 2rem, 90vh); max-height: min(100dvh - 2rem, 90vh);">
             <!-- Centered sidebar using top-1/2 left-1/2 -translate with modern viewport units -->
             <!-- Tab attached to drawer edge - now positioned relative to centered sidebar -->
-            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
+            <label id="drawer-tab" for="drawer-toggle" role="button" aria-controls="sidebar" aria-expanded="true" tabindex="0" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
                 <!-- Hamburger icon (shows when closed) -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -442,6 +464,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-open hidden">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
+                <span class="sr-only">Toggle sidebar</span>
             </label>
 
             <!-- Fixed Header Section -->
@@ -1260,6 +1283,38 @@ ontentLoaded', initSortMenuPortal);
     </script>
 
     <script type="module" src="../assets/js/app.js?v=202503"></script>
+
+    <!-- TEST ONLY: small helper to sync aria-expanded and keyboard interactions for the drawer tab -->
+    <script>
+        (function () {
+            const toggle = document.getElementById('drawer-toggle');
+            const tab = document.getElementById('drawer-tab');
+            if (!toggle || !tab) return;
+
+            function syncTab() {
+                tab.setAttribute('aria-expanded', String(toggle.checked));
+                const closedIcon = tab.querySelector('.tab-icon-closed');
+                const openIcon = tab.querySelector('.tab-icon-open');
+                if (toggle.checked) {
+                    if (closedIcon) closedIcon.style.display = 'none';
+                    if (openIcon) openIcon.style.display = 'block';
+                } else {
+                    if (closedIcon) closedIcon.style.display = 'block';
+                    if (openIcon) openIcon.style.display = 'none';
+                }
+            }
+
+            syncTab();
+            toggle.addEventListener('change', syncTab);
+
+            tab.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle.click();
+                }
+            });
+        })();
+    </script>
 
 
 
