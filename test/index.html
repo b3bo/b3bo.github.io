@@ -434,7 +434,8 @@
         <aside id="sidebar" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 max-w-xs shadow-2xl rounded-2xl transition-all duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: min(100dvh - 2rem, 90vh); max-height: min(100dvh - 2rem, 90vh);">
             <!-- Centered sidebar using top-1/2 left-1/2 -translate with modern viewport units -->
             <!-- Tab attached to drawer edge - now positioned relative to centered sidebar -->
-            <label for="drawer-toggle" class="absolute -left-12 top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-l-lg">
+            <!-- Drawer tab: moved to the right edge of the panel and centered vertically -->
+            <label for="drawer-toggle" id="drawer-toggle-btn" class="absolute -right-12 top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-700 px-3 py-3 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-600 transition-colors rounded-r-lg z-50 flex items-center justify-center" aria-label="Toggle sidebar" aria-controls="sidebar" tabindex="0" role="button" aria-expanded="true">
                 <!-- Hamburger icon (shows when closed) -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -1226,5 +1227,30 @@
 
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&v=weekly&libraries=marker,geometry"></script>
+    <script>
+        // Small helper for the drawer toggle on the test page
+        (function(){
+            const drawer = document.getElementById('drawer-toggle');
+            const btn = document.getElementById('drawer-toggle-btn');
+            if (!drawer || !btn) return;
+
+            // initialize aria-expanded
+            btn.setAttribute('aria-expanded', drawer.checked ? 'true' : 'false');
+
+            // update when checkbox changes
+            drawer.addEventListener('change', () => {
+                btn.setAttribute('aria-expanded', drawer.checked ? 'true' : 'false');
+            });
+
+            // ensure keyboard toggles the drawer when label has focus
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    drawer.checked = !drawer.checked;
+                    drawer.dispatchEvent(new Event('change', {bubbles:true}));
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
