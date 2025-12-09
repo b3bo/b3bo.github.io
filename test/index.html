@@ -431,10 +431,10 @@
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
         <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
-            <!-- Keep sidebar height constant across breakpoints; removed md-specific height override so it won't shrink on larger viewports -->
-            <!-- Tab attached to drawer edge -->
-            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
+        <aside id="sidebar" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 max-w-xs shadow-2xl rounded-2xl transition-all duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: min(100dvh - 2rem, 90vh); max-height: min(100dvh - 2rem, 90vh);">
+            <!-- Centered sidebar using top-1/2 left-1/2 -translate with modern viewport units -->
+            <!-- Tab attached to drawer edge - now positioned relative to centered sidebar -->
+            <label for="drawer-toggle" class="absolute -left-12 top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-l-lg">
                 <!-- Hamburger icon (shows when closed) -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
