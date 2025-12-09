@@ -9,10 +9,9 @@ Files are generated and deployed from the private **NeighborhoodFinder** reposit
 
 | Folder | Purpose |
 |--------|---------|
-| `js/` | Application JavaScript (deployed from NF) |
-| `css/` | Compiled Tailwind CSS (`tailwind_neighborhoods.css`) |
-| `jsons/` | b64 marker data + GeoJSON boundaries |
-| `google_tags/` | ClickFunnels integration scripts |
+| `js/` | Application JavaScript (10 files, deployed from NF) |
+| `css/` | Compiled CSS (`styles.css` + `tailwind_neighborhoods.css`) |
+| `jsons/` | b64 encoded marker data + geojson boundary data |
 | `img/` | Favicons and static images for CF |
 
 ## Deployment
@@ -21,8 +20,9 @@ Files are deployed using `scripts/csv_pathway/3_deploy_map.bat` from the Neighbo
 **Deployment copies:**
 - `assets/html/index.html` → `/index.html` (root)
 - `assets/js/*.js` → `/neighborhoods/js/`
-- `assets/css/tailwind_neighborhoods.css` → `/neighborhoods/css/`
-- `assets/jsons/*.json` → `/neighborhoods/jsons/`
+- `assets/css/*.css` → `/neighborhoods/css/`
+- `assets/jsons/*.json.b64` → `/neighborhoods/jsons/`
+- `assets/jsons/*.geojson` → `/neighborhoods/jsons/`
 
 **Do not edit these files directly** - they are deployed from the private repo.
 
