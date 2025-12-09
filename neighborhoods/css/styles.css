@@ -192,16 +192,75 @@
   transition-timing-function: ease-in-out;
 }
 
-/* Sidebar peer-checked styles (Tailwind peer utility) */
-#drawer-toggle:checked ~ #sidebar {
-  translate: 0 0 !important;
-}
-
 /* Allow map clicks through backdrop - fix marker click issue */
 #map {
   position: relative;
   z-index: 31 !important; /* Higher than backdrop (z-30) */
   pointer-events: auto !important;
+}
+
+/* Google Maps Info Window Styling */
+.gm-style-iw-container {
+  padding: 0 !important;
+  max-width: 320px !important;
+}
+
+.gm-style-iw {
+  padding: 0 !important;
+}
+
+.gm-style-iw-d {
+  overflow: auto !important;
+  max-height: 400px !important;
+}
+
+/* Info window content wrapper */
+.info-window-content {
+  padding: 1rem;
+  font-family: var(--font-sans);
+}
+
+.info-window-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.dark .info-window-content h3 {
+  color: var(--color-dark-text-primary);
+}
+
+.info-window-content p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.dark .info-window-content p {
+  color: var(--color-dark-text-secondary);
+}
+
+.info-window-content .amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.info-window-content .amenity-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--color-brand-light);
+  color: var(--color-brand-base);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.dark .info-window-content .amenity-tag {
+  background-color: rgba(var(--color-brand-rgb), 0.2);
+  color: var(--color-brand-dark);
 }
 
 /* Disable transitions during theme initialization */
@@ -308,3 +367,22 @@ hr.divider {
 
 /* Configure dark mode to use class strategy instead of prefers-color-scheme */
 @variant dark (.dark &);
+
+/* ============================================
+   POST-TAILWIND OVERRIDES
+   These must come AFTER @import to avoid being processed/optimized by Tailwind
+   ============================================ */
+
+/* Missing Tailwind classes - manually defined (NOT processed by Tailwind) */
+.-translate-x-full {
+  translate: -100% 0 !important;
+  transform: translate(-100%, 0) !important;
+}
+
+/* Sidebar peer-checked override (NOT processed by Tailwind) */
+#drawer-toggle:checked ~ #sidebar {
+  translate: 0 0 !important;
+  transform: translate(0, 0) !important;
+  --tw-translate-x: 0 !important;
+  --tw-translate-y: 0 !important;
+}
