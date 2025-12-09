@@ -426,12 +426,14 @@
     </script>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
-    <!-- BIG X TEST MARKER -->
-    <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 200px; color: red; z-index: 9999; font-weight: bold; pointer-events: none;">X</div>
-
     <div class="flex flex-col h-dvh">
         <!-- Hidden checkbox controls drawer state -->
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
+
+        <!-- CENTERED MENU BUTTON -->
+        <label for="drawer-toggle" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: #313842; color: white; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); font-size: 16px;">
+            ☰ Menu
+        </label>
 
         <!-- Drawer Sidebar with attached tab -->
         <aside id="sidebar" class="fixed top-4 inset-x-0 mx-auto w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full transition-transform duration-[3000ms] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
