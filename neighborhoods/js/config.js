@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.9',
+    version: '1.0.10',
 
     // ===================================================================
     // MAP SETTINGS
@@ -146,7 +146,8 @@ export const CONFIG = {
             error: 'text-red-600'
         },
         background: {
-            sidebar: 'rgb(255, 255, 255)'  // Main sidebar background
+            sidebar: 'rgb(255, 255, 255)',  // Main sidebar background
+            disclaimer: '#8FC7CC'           // Disclaimer bar (water/teal)
         }
     }
 };
