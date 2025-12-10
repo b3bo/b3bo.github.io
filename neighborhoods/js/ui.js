@@ -28,7 +28,7 @@ export function renderListItems(neighborhoodsToRender) {
             const card = document.createElement('div');
             // Use the same brand-hover/active visual language as the sidebar menu items.
             // Also add focus-visible ring and keyboard support for accessibility.
-            card.className = 'bg-white dark:bg-dark-bg-elevated p-4 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark';
+            card.className = 'bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark';
             card.setAttribute('role', 'button');
             card.tabIndex = 0;
             card.innerHTML = `
