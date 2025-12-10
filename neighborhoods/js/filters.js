@@ -209,8 +209,19 @@ export function setupFilters() {
         });
     });
 
-    // Create amenity tags dynamically
-    const allAmenities = CONFIG.ui.amenities;
+    // Create amenity tags dynamically from loaded neighborhood data
+    const amenitySet = new Set();
+    STATE.neighborhoods.forEach(n => {
+        if (n.amenities && Array.isArray(n.amenities)) {
+            n.amenities.forEach(a => amenitySet.add(a));
+        }
+    });
+    // Convert to sorted array (special items like Short-Term/No Short-Term go last)
+    const specialAmenities = ['Short-Term', 'No Short-Term'];
+    const allAmenities = Array.from(amenitySet)
+        .filter(a => !specialAmenities.includes(a))
+        .sort((a, b) => a.localeCompare(b))
+        .concat(specialAmenities.filter(a => amenitySet.has(a)));
     const defaultSelected = []; 
     
     const amenityContainer = document.getElementById('amenityFilters');

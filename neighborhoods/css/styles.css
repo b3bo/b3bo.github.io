@@ -386,16 +386,22 @@ hr.divider {
   transform: translate(100%, 0) !important;
 }
 
-/* Force hidden panels to be invisible (position:fixed ignores parent overflow) */
+/* Sliding panel visibility with delayed hide for close animation */
+.sliding-panel {
+  transition: transform var(--panel-duration) ease-out, visibility 0s linear var(--panel-duration) !important;
+}
+
+/* Force hidden panels to be invisible AFTER animation completes */
 .sliding-panel.translate-x-full {
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
-/* Make panels visible when NOT translated (opened) */
+/* Make panels visible immediately when opening (no delay) */
 .sliding-panel:not(.translate-x-full) {
   visibility: visible !important;
   pointer-events: auto !important;
+  transition-delay: 0s !important;
 }
 
 /* Sidebar peer-checked override (NOT processed by Tailwind) */
