@@ -392,29 +392,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.setContent(content);
     targetInfoWindow.open(STATE.map, marker);
 
-    // Add click-to-close and handle close events for primary window
+    // Handle close events for primary window
     if (targetInfoWindow === STATE.infoWindow) {
-        // Click anywhere on card body (not links/buttons) to close
-        google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
-            const infoWindowContent = document.querySelector('.info-window');
-            if (infoWindowContent) {
-                const closeHandler = (e) => {
-                    // Don't close if clicking links, buttons, or nav arrows
-                    if (e.target.tagName === 'A' || e.target.closest('a') ||
-                        e.target.closest('button') || e.target.closest('.nav-arrow')) {
-                        return;
-                    }
-                    STATE.infoWindow.close();
-                    if (STATE.activeMarker) {
-                        STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
-                    }
-                    STATE.activeMarker = null;
-                };
-                // Use click for cross-platform support (fires on both mouse and touch)
-                infoWindowContent.addEventListener('click', closeHandler);
-            }
-        });
-
         // Listen for X button close to deactivate ripple and clear active marker
         google.maps.event.clearListeners(STATE.infoWindow, 'closeclick');
         STATE.infoWindow.addListener('closeclick', () => {

@@ -33,6 +33,29 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Click-to-close for info window (document-level delegation for reliability)
+document.addEventListener('click', (e) => {
+    // Only act when info window is open
+    if (!STATE.infoWindow || !STATE.infoWindow.getMap()) return;
+
+    // Check if click is inside .info-window
+    const infoWindow = e.target.closest('.info-window');
+    if (!infoWindow) return;
+
+    // Don't close if clicking links, buttons, or nav arrows
+    if (e.target.tagName === 'A' || e.target.closest('a') ||
+        e.target.closest('button') || e.target.closest('.nav-arrow')) {
+        return;
+    }
+
+    // Close the info window
+    STATE.infoWindow.close();
+    if (STATE.activeMarker) {
+        STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
+    }
+    STATE.activeMarker = null;
+});
+
 async function initMap() {
     try {
         // Set CSS variable from config for panel animations

@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T15:41:42.407186",
+  "updated": "2025-12-10T15:57:05.948950",
   "neighborhoods": [
     {
       "name": "Abacos Condos",
@@ -3826,11 +3826,11 @@
       "urlSlug": "/30a/ridgewalk/"
     },
     {
-      "name": "Rolling Dunes",
+      "name": "Rolling Dunes Estates",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.343702,
+        "lat": 30.34241,
         "lng": -86.202086
       },
       "location": {
@@ -3840,61 +3840,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 2610000,
-        "avgPriceDisplay": "$2,610,000",
-        "medianPrice": 2995000,
-        "avgSqft": 2776,
-        "avgPricePerSqFt": 940,
-        "avgDom": 24,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
-      "name": "Rolling Dunes Estates",
-      "area": "17 - 30A West",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.342406,
-        "lng": -86.201917
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 4,
-        "avgPrice": 2168375,
-        "avgPriceDisplay": "$2,168,375",
-        "medianPrice": 1900000,
-        "avgSqft": 3455,
-        "avgPricePerSqFt": 628,
-        "avgDom": 242,
+        "listingCount": 5,
+        "avgPrice": 2256700,
+        "avgPriceDisplay": "$2,256,700",
+        "medianPrice": 2225000,
+        "avgSqft": 3320,
+        "avgPricePerSqFt": 680,
+        "avgDom": 198,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
