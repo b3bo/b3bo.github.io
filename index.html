@@ -180,8 +180,8 @@
                 border-radius: 1rem !important;
                 /* Keep flex layout */
                 display: flex !important;
-                /* CRITICAL: Clip translated panels so they don't show outside sidebar */
-                overflow: hidden !important;
+                /* NOTE: Do NOT use overflow:hidden here - it clips the drawer tab.
+                   Panel hiding is handled by visibility:hidden in styles.css */
             }
 
             #sidebar-scroll-container {
