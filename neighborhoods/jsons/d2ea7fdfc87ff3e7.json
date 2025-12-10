@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-10T13:47:51.109901",
+  "updated": "2025-12-10T14:32:25.949292",
   "neighborhoods": [
     {
       "name": "30A Townhomes",
@@ -2325,7 +2325,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7100514"
     },
     {
       "name": "Gulfside Estates",
@@ -2375,7 +2376,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100512"
     },
     {
       "name": "Gulfview Estates",
@@ -2423,7 +2425,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100512"
     },
     {
       "name": "Hammocks At Seagrove",
@@ -2528,7 +2531,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "3579875"
     },
     {
       "name": "Heron At Inlet Beach",
@@ -2577,7 +2581,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100510"
     },
     {
       "name": "Herons Watch Condos",
@@ -2735,7 +2740,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "4024482",
+      "urlSlug": "/30a/high-pointe-resort/"
     },
     {
       "name": "Inlet Beach",
@@ -2784,6 +2791,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "385749",
+      "searchIdLots": "385755",
       "urlSlug": "/30a/inlet-beach/"
     },
     {
@@ -2834,7 +2843,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100500"
     },
     {
       "name": "Inlet Heights",
@@ -2885,7 +2895,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100499"
     },
     {
       "name": "Inlet Palms",
@@ -2933,7 +2944,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100498"
     },
     {
       "name": "Inn At Seacrest Beach Condos",
@@ -2983,7 +2995,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100493"
     },
     {
       "name": "Ivy At Inlet Beach",
@@ -3032,7 +3045,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100490"
     },
     {
       "name": "Jasmine Dunes",
@@ -3648,7 +3662,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdHomes": "7100419"
+      "searchIdHomes": "7100419",
+      "urlSlug": "/30a/lupin-beach/"
     },
     {
       "name": "Magnolia Cottages",
@@ -3799,7 +3814,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100465"
     },
     {
       "name": "Naturewalk At Seagrove",
