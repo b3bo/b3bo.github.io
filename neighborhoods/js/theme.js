@@ -153,7 +153,19 @@ export const ThemeManager = {
 
 // Auto-initialize on DOM ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => ThemeManager.init());
+  document.addEventListener('DOMContentLoaded', () => {
+    ThemeManager.init();
+    // Set up toggle button click handler
+    const toggleButton = document.getElementById('theme-toggle');
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => ThemeManager.toggle());
+    }
+  });
 } else {
   ThemeManager.init();
+  // Set up toggle button click handler
+  const toggleButton = document.getElementById('theme-toggle');
+  if (toggleButton) {
+    toggleButton.addEventListener('click', () => ThemeManager.toggle());
+  }
 }

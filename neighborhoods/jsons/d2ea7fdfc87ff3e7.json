@@ -1,0 +1,6250 @@
+{
+  "area": "18 - 30A East",
+  "updated": "2025-12-10T09:06:34.601106",
+  "neighborhoods": [
+    {
+      "name": "30A Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.313545,
+        "lng": -86.097625
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 829500,
+        "avgPriceDisplay": "$829,500",
+        "medianPrice": 839500,
+        "avgSqft": 1900,
+        "avgPricePerSqFt": 437,
+        "avgDom": 376,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7092752"
+    },
+    {
+      "name": "Alexander At Palm Court",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.283333,
+        "lng": -86.024136
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1322000,
+        "avgPriceDisplay": "$1,322,000",
+        "medianPrice": 1249000,
+        "avgSqft": 1630,
+        "avgPricePerSqFt": 811,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7092759"
+    },
+    {
+      "name": "Alys Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.285085,
+        "lng": -86.027742
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 14,
+        "avgPrice": 3634035,
+        "avgPriceDisplay": "$3,634,035",
+        "medianPrice": 3341817,
+        "avgSqft": 1694,
+        "avgPricePerSqFt": 2145,
+        "avgDom": 143,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385744",
+      "searchIdCondos": "385745",
+      "searchIdTownhomes": "385746",
+      "searchIdLots": "385747",
+      "urlSlug": "/30a/alys-beach/"
+    },
+    {
+      "name": "Alys Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.286005,
+        "lng": -86.030379
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 18,
+        "avgPrice": 8106976,
+        "avgPriceDisplay": "$8,106,976",
+        "medianPrice": 6650000,
+        "avgSqft": 3738,
+        "avgPricePerSqFt": 2169,
+        "avgDom": 119,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385744",
+      "searchIdCondos": "385745",
+      "searchIdTownhomes": "385746",
+      "searchIdLots": "385747",
+      "urlSlug": "/30a/alys-beach/"
+    },
+    {
+      "name": "Alys Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.286378,
+        "lng": -86.027642
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4791250,
+        "avgPriceDisplay": "$4,791,250",
+        "medianPrice": 4995000,
+        "avgSqft": 2650,
+        "avgPricePerSqFt": 1808,
+        "avgDom": 117,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385744",
+      "searchIdCondos": "385745",
+      "searchIdTownhomes": "385746",
+      "searchIdLots": "385747",
+      "urlSlug": "/30a/alys-beach/"
+    },
+    {
+      "name": "Beachfront 2",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.305563,
+        "lng": -86.08742
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 422500,
+        "avgPriceDisplay": "$422,500",
+        "medianPrice": 430000,
+        "avgSqft": 504,
+        "avgPricePerSqFt": 838,
+        "avgDom": 193,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7092782",
+      "searchIdLots": "7092784"
+    },
+    {
+      "name": "Beachfront Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.304369,
+        "lng": -86.08742
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1350000,
+        "avgPriceDisplay": "$1,350,000",
+        "medianPrice": 1350000,
+        "avgSqft": 1189,
+        "avgPricePerSqFt": 1135,
+        "avgDom": 176,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7092785"
+    },
+    {
+      "name": "Beachside Villas",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.306058,
+        "lng": -86.091469
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 653556,
+        "avgPriceDisplay": "$653,556",
+        "medianPrice": 659000,
+        "avgSqft": 1014,
+        "avgPricePerSqFt": 644,
+        "avgDom": 261,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "4033421"
+    },
+    {
+      "name": "Beachwood Villas",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.313385,
+        "lng": -86.11356
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 374867,
+        "avgPriceDisplay": "$374,867",
+        "medianPrice": 375000,
+        "avgSqft": 727,
+        "avgPricePerSqFt": 516,
+        "avgDom": 331,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "4032690"
+    },
+    {
+      "name": "Bluffs Of Inlet",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.275917,
+        "lng": -86.010591
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 5150000,
+        "avgPriceDisplay": "$5,150,000",
+        "medianPrice": 5150000,
+        "avgSqft": 3941,
+        "avgPricePerSqFt": 1307,
+        "avgDom": 16,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092815"
+    },
+    {
+      "name": "Booth Bay Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.291196,
+        "lng": -86.053415
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2295000,
+        "avgPriceDisplay": "$2,295,000",
+        "medianPrice": 2295000,
+        "avgSqft": 1280,
+        "avgPricePerSqFt": 1793,
+        "avgDom": 398,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7092816"
+    },
+    {
+      "name": "Bungalows At Seagrove Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.315785,
+        "lng": -86.112187
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 650000,
+        "avgPriceDisplay": "$650,000",
+        "medianPrice": 650000,
+        "avgSqft": 1008,
+        "avgPricePerSqFt": 645,
+        "avgDom": 226,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092821"
+    },
+    {
+      "name": "Camp Creek Lake",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.293847,
+        "lng": -86.057319
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 4259833,
+        "avgPriceDisplay": "$4,259,833",
+        "medianPrice": 2889000,
+        "avgSqft": 3370,
+        "avgPricePerSqFt": 1264,
+        "avgDom": 229,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092896",
+      "searchIdLots": "7092968"
+    },
+    {
+      "name": "Camp Creek Point",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.293851,
+        "lng": -86.059043
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 10472500,
+        "avgPriceDisplay": "$10,472,500",
+        "medianPrice": 11950000,
+        "avgSqft": 5693,
+        "avgPricePerSqFt": 1840,
+        "avgDom": 105,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089049"
+    },
+    {
+      "name": "Camp Creek Village",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.297194,
+        "lng": -86.057388
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 949500,
+        "avgPriceDisplay": "$949,500",
+        "medianPrice": 949500,
+        "avgSqft": 870,
+        "avgPricePerSqFt": 1091,
+        "avgDom": 169,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7092976"
+    },
+    {
+      "name": "Capistrano",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.288098,
+        "lng": -86.044323
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1080000,
+        "avgPriceDisplay": "$1,080,000",
+        "medianPrice": 1160000,
+        "avgSqft": 1160,
+        "avgPricePerSqFt": 931,
+        "avgDom": 22,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7089767"
+    },
+    {
+      "name": "Cassine Gardens Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.311735,
+        "lng": -86.106868
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 527362,
+        "avgPriceDisplay": "$527,362",
+        "medianPrice": 535000,
+        "avgSqft": 1165,
+        "avgPricePerSqFt": 453,
+        "avgDom": 274,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7088298"
+    },
+    {
+      "name": "Costera",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.309806,
+        "lng": -86.106624
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 8500000,
+        "avgPriceDisplay": "$8,500,000",
+        "medianPrice": 8500000,
+        "avgSqft": 3944,
+        "avgPricePerSqFt": 2155,
+        "avgDom": 526,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7093008",
+      "searchIdTownhomes": "7093009"
+    },
+    {
+      "name": "Costera",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.309806,
+        "lng": -86.106624
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 5850000,
+        "avgPriceDisplay": "$5,850,000",
+        "medianPrice": 5850000,
+        "avgSqft": 3688,
+        "avgPricePerSqFt": 1586,
+        "avgDom": 526,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7093008",
+      "searchIdTownhomes": "7093009"
+    },
+    {
+      "name": "Cote D'Azur",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.311012,
+        "lng": -86.106755
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 2898000,
+        "avgPriceDisplay": "$2,898,000",
+        "medianPrice": 2795000,
+        "avgSqft": 3983,
+        "avgPricePerSqFt": 728,
+        "avgDom": 396,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Cottages At Camp Creek",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.28837,
+        "lng": -86.042525
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1266333,
+        "avgPriceDisplay": "$1,266,333",
+        "medianPrice": 1299000,
+        "avgSqft": 1857,
+        "avgPricePerSqFt": 682,
+        "avgDom": 224,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7093010"
+    },
+    {
+      "name": "Cottages At Eastern Lake",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.309868,
+        "lng": -86.088644
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1624780,
+        "avgPriceDisplay": "$1,624,780",
+        "medianPrice": 1590000,
+        "avgSqft": 2416,
+        "avgPricePerSqFt": 672,
+        "avgDom": 189,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "4033432",
+      "urlSlug": "/30a/cottages-at-eastern-lake/"
+    },
+    {
+      "name": "Cottages At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.272426,
+        "lng": -86.001057
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3546667,
+        "avgPriceDisplay": "$3,546,667",
+        "medianPrice": 3500000,
+        "avgSqft": 3776,
+        "avgPricePerSqFt": 939,
+        "avgDom": 169,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7093013"
+    },
+    {
+      "name": "Cottages At Seagrove",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.31395,
+        "lng": -86.108859
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1585000,
+        "avgPriceDisplay": "$1,585,000",
+        "medianPrice": 1595000,
+        "avgSqft": 3019,
+        "avgPricePerSqFt": 525,
+        "avgDom": 204,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7093014",
+      "searchIdLots": "7093013"
+    },
+    {
+      "name": "Dunes Of Seagrove",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.304506,
+        "lng": -86.088594
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1130000,
+        "avgPriceDisplay": "$1,130,000",
+        "medianPrice": 1185000,
+        "avgSqft": 1394,
+        "avgPricePerSqFt": 811,
+        "avgDom": 607,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "4024495"
+    },
+    {
+      "name": "Eastern Lake",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.31278,
+        "lng": -86.095579
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3272000,
+        "avgPriceDisplay": "$3,272,000",
+        "medianPrice": 3895000,
+        "avgSqft": 4450,
+        "avgPricePerSqFt": 735,
+        "avgDom": 174,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Eastern Lake Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.307451,
+        "lng": -86.089933
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2275000,
+        "avgPriceDisplay": "$2,275,000",
+        "medianPrice": 2850000,
+        "avgSqft": 1910,
+        "avgPricePerSqFt": 1191,
+        "avgDom": 340,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Eastern Lake Village",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.313095,
+        "lng": -86.091336
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 800000,
+        "avgPriceDisplay": "$800,000",
+        "medianPrice": 800000,
+        "avgSqft": 2768,
+        "avgPricePerSqFt": 289,
+        "avgDom": 227,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Hill Gulf Front",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.312012,
+        "lng": -86.114623
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2099000,
+        "avgPriceDisplay": "$2,099,000",
+        "medianPrice": 2099000,
+        "avgSqft": 1603,
+        "avgPricePerSqFt": 1309,
+        "avgDom": 260,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Grace Point",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.302106,
+        "lng": -86.066738
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3329500,
+        "avgPriceDisplay": "$3,329,500",
+        "medianPrice": 3484000,
+        "avgSqft": 2432,
+        "avgPricePerSqFt": 1369,
+        "avgDom": 350,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076729",
+      "searchIdCondos": "7076731",
+      "urlSlug": "/30a/grace-point/"
+    },
+    {
+      "name": "Grace Point",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.299517,
+        "lng": -86.066628
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 5985000,
+        "avgPriceDisplay": "$5,985,000",
+        "medianPrice": 4300000,
+        "avgSqft": 5458,
+        "avgPricePerSqFt": 1097,
+        "avgDom": 116,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076729",
+      "searchIdCondos": "7076731",
+      "urlSlug": "/30a/grace-point/"
+    },
+    {
+      "name": "Grand Inlet",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.273757,
+        "lng": -86.00115
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 6095000,
+        "avgPriceDisplay": "$6,095,000",
+        "medianPrice": 6295000,
+        "avgSqft": 6438,
+        "avgPricePerSqFt": 947,
+        "avgDom": 706,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7093141"
+    },
+    {
+      "name": "Grande Pointe At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.277044,
+        "lng": -85.996509
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 1470052,
+        "avgPriceDisplay": "$1,470,052",
+        "medianPrice": 1245000,
+        "avgSqft": 2916,
+        "avgPricePerSqFt": 504,
+        "avgDom": 174,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fishing",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Lake Beaches Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.292432,
+        "lng": -86.053875
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 3804750,
+        "avgPriceDisplay": "$3,804,750",
+        "medianPrice": 4400000,
+        "avgSqft": 4278,
+        "avgPricePerSqFt": 889,
+        "avgDom": 132,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089783"
+    },
+    {
+      "name": "Gulf Shore Manor",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.317815,
+        "lng": -86.119368
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 10,
+        "avgPrice": 2366573,
+        "avgPriceDisplay": "$2,366,573",
+        "medianPrice": 2049000,
+        "avgSqft": 3111,
+        "avgPricePerSqFt": 761,
+        "avgDom": 212,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "3586050",
+      "searchIdLots": "7088286",
+      "urlSlug": "/30a/gulf-shore-manor/"
+    },
+    {
+      "name": "Gulf Vista Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.289478,
+        "lng": -86.044383
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 605000,
+        "avgPriceDisplay": "$605,000",
+        "medianPrice": 615000,
+        "avgSqft": 1320,
+        "avgPricePerSqFt": 458,
+        "avgDom": 268,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulfside Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.289341,
+        "lng": -86.043846
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1900000,
+        "avgPriceDisplay": "$1,900,000",
+        "medianPrice": 1800000,
+        "avgSqft": 2454,
+        "avgPricePerSqFt": 774,
+        "avgDom": 166,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulfview Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.28792,
+        "lng": -86.041552
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4850000,
+        "avgPriceDisplay": "$4,850,000",
+        "medianPrice": 4950000,
+        "avgSqft": 6715,
+        "avgPricePerSqFt": 722,
+        "avgDom": 164,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Heritage Dunes",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.309633,
+        "lng": -86.10093
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 5792500,
+        "avgPriceDisplay": "$5,792,500",
+        "medianPrice": 6590000,
+        "avgSqft": 5521,
+        "avgPricePerSqFt": 1049,
+        "avgDom": 160,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Heron At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.277734,
+        "lng": -86.00825
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2442500,
+        "avgPriceDisplay": "$2,442,500",
+        "medianPrice": 2695000,
+        "avgSqft": 3134,
+        "avgPricePerSqFt": 779,
+        "avgDom": 127,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Herons Watch",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.313916,
+        "lng": -86.089969
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 424488,
+        "avgPriceDisplay": "$424,488",
+        "medianPrice": 444900,
+        "avgSqft": 942,
+        "avgPricePerSqFt": 450,
+        "avgDom": 306,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7088297"
+    },
+    {
+      "name": "High Pointe Resort",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.280298,
+        "lng": -86.02065
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1608750,
+        "avgPriceDisplay": "$1,608,750",
+        "medianPrice": 1695000,
+        "avgSqft": 1299,
+        "avgPricePerSqFt": 1238,
+        "avgDom": 428,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.275563,
+        "lng": -86.006938
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 5314087,
+        "avgPriceDisplay": "$5,314,087",
+        "medianPrice": 5275000,
+        "avgSqft": 4404,
+        "avgPricePerSqFt": 1207,
+        "avgDom": 98,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "urlSlug": "/30a/inlet-beach/"
+    },
+    {
+      "name": "Inlet Dunes",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.27434,
+        "lng": -86.003564
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 762500,
+        "avgPriceDisplay": "$762,500",
+        "medianPrice": 785000,
+        "avgSqft": 640,
+        "avgPricePerSqFt": 1191,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Inlet Heights",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.274989,
+        "lng": -85.99741
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 761500,
+        "avgPriceDisplay": "$761,500",
+        "medianPrice": 725000,
+        "avgSqft": 1961,
+        "avgPricePerSqFt": 388,
+        "avgDom": 160,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fishing",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Inlet Palms",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.27203,
+        "lng": -85.99889
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3980000,
+        "avgPriceDisplay": "$3,980,000",
+        "medianPrice": 3980000,
+        "avgSqft": 5238,
+        "avgPricePerSqFt": 760,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Inn At Seacrest Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.283837,
+        "lng": -86.024498
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 436750,
+        "avgPriceDisplay": "$436,750",
+        "medianPrice": 488500,
+        "avgSqft": 325,
+        "avgPricePerSqFt": 1344,
+        "avgDom": 486,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Ivy At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.279791,
+        "lng": -86.005196
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 877218,
+        "avgPriceDisplay": "$877,218",
+        "medianPrice": 895000,
+        "avgSqft": 2113,
+        "avgPricePerSqFt": 415,
+        "avgDom": 82,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Kaiya Beach Resort",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.287347,
+        "lng": -86.035762
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 2953111,
+        "avgPriceDisplay": "$2,953,111",
+        "medianPrice": 2500000,
+        "avgSqft": 1743,
+        "avgPricePerSqFt": 1694,
+        "avgDom": 153,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088784",
+      "searchIdCondos": "3573510",
+      "searchIdTownhomes": "3573507",
+      "urlSlug": "/30a/kaiya-beach-resort/"
+    },
+    {
+      "name": "Kaiya Beach Resort",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.288639,
+        "lng": -86.035343
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 6253800,
+        "avgPriceDisplay": "$6,253,800",
+        "medianPrice": 5889000,
+        "avgSqft": 4477,
+        "avgPricePerSqFt": 1397,
+        "avgDom": 71,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088784",
+      "searchIdCondos": "3573510",
+      "searchIdTownhomes": "3573507",
+      "urlSlug": "/30a/kaiya-beach-resort/"
+    },
+    {
+      "name": "Kaiya Beach Resort",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.287592,
+        "lng": -86.034681
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 3896286,
+        "avgPriceDisplay": "$3,896,286",
+        "medianPrice": 3145000,
+        "avgSqft": 2690,
+        "avgPricePerSqFt": 1449,
+        "avgDom": 202,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088784",
+      "searchIdCondos": "3573510",
+      "searchIdTownhomes": "3573507",
+      "urlSlug": "/30a/kaiya-beach-resort/"
+    },
+    {
+      "name": "Lake Shore Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.283004,
+        "lng": -86.001217
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3299975,
+        "avgPriceDisplay": "$3,299,975",
+        "medianPrice": 3950000,
+        "avgSqft": 4116,
+        "avgPricePerSqFt": 802,
+        "avgDom": 59,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakewood Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.306843,
+        "lng": -86.088922
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1699900,
+        "avgPriceDisplay": "$1,699,900",
+        "medianPrice": 1699900,
+        "avgSqft": 2318,
+        "avgPricePerSqFt": 733,
+        "avgDom": 220,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakewood Of Seagrove Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.310474,
+        "lng": -86.090431
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2477250,
+        "avgPriceDisplay": "$2,477,250",
+        "medianPrice": 2639000,
+        "avgSqft": 2578,
+        "avgPricePerSqFt": 961,
+        "avgDom": 172,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakewood Of Seagrove Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.309849,
+        "lng": -86.09035
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 855000,
+        "avgPriceDisplay": "$855,000",
+        "medianPrice": 855000,
+        "avgSqft": 1288,
+        "avgPricePerSqFt": 664,
+        "avgDom": 328,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Landing At Camp Creek",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.298805,
+        "lng": -86.056368
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1750000,
+        "avgPriceDisplay": "$1,750,000",
+        "medianPrice": 1750000,
+        "avgSqft": 2695,
+        "avgPricePerSqFt": 649,
+        "avgDom": 474,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fishing",
+        "Gated",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Legacy",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.312154,
+        "lng": -86.112386
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2285000,
+        "avgPriceDisplay": "$2,285,000",
+        "medianPrice": 2285000,
+        "avgSqft": 2290,
+        "avgPricePerSqFt": 998,
+        "avgDom": 484,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lupin Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.270879,
+        "lng": -85.99742
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 5895544,
+        "avgPriceDisplay": "$5,895,544",
+        "medianPrice": 6150000,
+        "avgSqft": 2899,
+        "avgPricePerSqFt": 2034,
+        "avgDom": 19,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Magnolia Cottages",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.295021,
+        "lng": -86.048659
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1436000,
+        "avgPriceDisplay": "$1,436,000",
+        "medianPrice": 1565000,
+        "avgSqft": 1926,
+        "avgPricePerSqFt": 745,
+        "avgDom": 44,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Mala Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.274375,
+        "lng": -86.002926
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 6614990,
+        "avgPriceDisplay": "$6,614,990",
+        "medianPrice": 7779980,
+        "avgSqft": 5611,
+        "avgPricePerSqFt": 1179,
+        "avgDom": 68,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089738"
+    },
+    {
+      "name": "Mistral",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.290023,
+        "lng": -86.050121
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1004500,
+        "avgPriceDisplay": "$1,004,500",
+        "medianPrice": 1195000,
+        "avgSqft": 938,
+        "avgPricePerSqFt": 1071,
+        "avgDom": 92,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Naturewalk At Seagrove",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.329359,
+        "lng": -86.116072
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1392820,
+        "avgPriceDisplay": "$1,392,820",
+        "medianPrice": 1350000,
+        "avgSqft": 2581,
+        "avgPricePerSqFt": 540,
+        "avgDom": 179,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "3579691",
+      "searchIdLots": "7001909",
+      "urlSlug": "/30a/naturewalk-seagrove/"
+    },
+    {
+      "name": "Naturewalk At Watersound Origins",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.306857,
+        "lng": -86.00779
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 11,
+        "avgPrice": 1173888,
+        "avgPriceDisplay": "$1,173,888",
+        "medianPrice": 1150000,
+        "avgSqft": 2673,
+        "avgPricePerSqFt": 439,
+        "avgDom": 106,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "3574972",
+      "urlSlug": "/30a/naturewalk-at-watersound-origins/"
+    },
+    {
+      "name": "One Seagrove Place",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.310872,
+        "lng": -86.109103
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 987500,
+        "avgPriceDisplay": "$987,500",
+        "medianPrice": 975000,
+        "avgSqft": 870,
+        "avgPricePerSqFt": 1135,
+        "avgDom": 370,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Palm Court At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.270931,
+        "lng": -85.996544
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 4495000,
+        "avgPriceDisplay": "$4,495,000",
+        "medianPrice": 4495000,
+        "avgSqft": 4960,
+        "avgPricePerSqFt": 906,
+        "avgDom": 129,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Palms At Seagrove",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.313356,
+        "lng": -86.116827
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 861667,
+        "avgPriceDisplay": "$861,667",
+        "medianPrice": 795000,
+        "avgSqft": 807,
+        "avgPricePerSqFt": 1068,
+        "avgDom": 243,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Paradise By The Sea",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.282019,
+        "lng": -86.025233
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 9034750,
+        "avgPriceDisplay": "$9,034,750",
+        "medianPrice": 8750000,
+        "avgSqft": 6098,
+        "avgPricePerSqFt": 1481,
+        "avgDom": 162,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089764",
+      "searchIdLots": "7089765"
+    },
+    {
+      "name": "Park Place At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.274265,
+        "lng": -86.004067
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3950000,
+        "avgPriceDisplay": "$3,950,000",
+        "medianPrice": 3950000,
+        "avgSqft": 2882,
+        "avgPricePerSqFt": 1371,
+        "avgDom": 35,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pelican Pointe At Camp Creek",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.292544,
+        "lng": -86.055292
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 6170000,
+        "avgPriceDisplay": "$6,170,000",
+        "medianPrice": 6350000,
+        "avgSqft": 5643,
+        "avgPricePerSqFt": 1093,
+        "avgDom": 87,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pinewood Preserve",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.282073,
+        "lng": -86.004278
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 757000,
+        "avgPriceDisplay": "$757,000",
+        "medianPrice": 765000,
+        "avgSqft": 1780,
+        "avgPricePerSqFt": 425,
+        "avgDom": 172,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pointe 30A",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.279129,
+        "lng": -86.010852
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 750300,
+        "avgPriceDisplay": "$750,300",
+        "medianPrice": 729900,
+        "avgSqft": 1220,
+        "avgPricePerSqFt": 615,
+        "avgDom": 126,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Preserve At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.282966,
+        "lng": -86.009762
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1415250,
+        "avgPriceDisplay": "$1,415,250",
+        "medianPrice": 1349000,
+        "avgSqft": 2928,
+        "avgPricePerSqFt": 483,
+        "avgDom": 95,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fishing",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Prominence",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.299481,
+        "lng": -86.064552
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 9,
+        "avgPrice": 1781600,
+        "avgPriceDisplay": "$1,781,600",
+        "medianPrice": 1695000,
+        "avgSqft": 2934,
+        "avgPricePerSqFt": 607,
+        "avgDom": 149,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088279",
+      "searchIdCondos": "4202809",
+      "searchIdTownhomes": "7088280"
+    },
+    {
+      "name": "Prominence",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.303523,
+        "lng": -86.064704
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 23,
+        "avgPrice": 918329,
+        "avgPriceDisplay": "$918,329",
+        "medianPrice": 918000,
+        "avgSqft": 1649,
+        "avgPricePerSqFt": 557,
+        "avgDom": 166,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088279",
+      "searchIdCondos": "4202809",
+      "searchIdTownhomes": "7088280"
+    },
+    {
+      "name": "Rollin Tide Villas",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.313445,
+        "lng": -86.11018
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 493300,
+        "avgPriceDisplay": "$493,300",
+        "medianPrice": 464000,
+        "avgSqft": 782,
+        "avgPricePerSqFt": 631,
+        "avgDom": 257,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Rosemary Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.280517,
+        "lng": -86.015808
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 2657130,
+        "avgPriceDisplay": "$2,657,130",
+        "medianPrice": 2300000,
+        "avgSqft": 1718,
+        "avgPricePerSqFt": 1547,
+        "avgDom": 185,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385757",
+      "searchIdCondos": "385758"
+    },
+    {
+      "name": "Rosemary Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.28048,
+        "lng": -86.014589
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 4889190,
+        "avgPriceDisplay": "$4,889,190",
+        "medianPrice": 4099000,
+        "avgSqft": 3171,
+        "avgPricePerSqFt": 1542,
+        "avgDom": 150,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385757",
+      "searchIdCondos": "385758"
+    },
+    {
+      "name": "Rosemary Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.282299,
+        "lng": -86.015337
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3995000,
+        "avgPriceDisplay": "$3,995,000",
+        "medianPrice": 3995000,
+        "avgSqft": 3863,
+        "avgPricePerSqFt": 1034,
+        "avgDom": 22,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385757",
+      "searchIdCondos": "385758"
+    },
+    {
+      "name": "Sand Cliffs",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.285732,
+        "lng": -86.034253
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3421429,
+        "avgPriceDisplay": "$3,421,429",
+        "medianPrice": 3400000,
+        "avgSqft": 3247,
+        "avgPricePerSqFt": 1054,
+        "avgDom": 89,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "3582502",
+      "searchIdCondos": "4024604",
+      "urlSlug": "/30a/sand-cliffs/"
+    },
+    {
+      "name": "Sand Dollar Court",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.314695,
+        "lng": -86.111185
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2895000,
+        "avgPriceDisplay": "$2,895,000",
+        "medianPrice": 2895000,
+        "avgSqft": 3944,
+        "avgPricePerSqFt": 734,
+        "avgDom": 167,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Santimo Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.281319,
+        "lng": -86.021195
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 13815000,
+        "avgPriceDisplay": "$13,815,000",
+        "medianPrice": 20980000,
+        "avgSqft": 7019,
+        "avgPricePerSqFt": 1968,
+        "avgDom": 178,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089036"
+    },
+    {
+      "name": "Sea Mist",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.291316,
+        "lng": -86.053521
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 875000,
+        "avgPriceDisplay": "$875,000",
+        "medianPrice": 875000,
+        "avgSqft": 690,
+        "avgPricePerSqFt": 1268,
+        "avgDom": 76,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sea Walk",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.314284,
+        "lng": -86.119298
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 10420000,
+        "avgPriceDisplay": "$10,420,000",
+        "medianPrice": 15940000,
+        "avgSqft": 5508,
+        "avgPricePerSqFt": 1892,
+        "avgDom": 290,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089734"
+    },
+    {
+      "name": "Seabreeze",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.293156,
+        "lng": -86.051206
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 1432660,
+        "avgPriceDisplay": "$1,432,660",
+        "medianPrice": 1315000,
+        "avgSqft": 2131,
+        "avgPricePerSqFt": 672,
+        "avgDom": 171,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seabreeze Forest",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.295746,
+        "lng": -86.049916
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1799000,
+        "avgPriceDisplay": "$1,799,000",
+        "medianPrice": 1799000,
+        "avgSqft": 2927,
+        "avgPricePerSqFt": 615,
+        "avgDom": 40,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seacrest",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.291708,
+        "lng": -86.046894
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 4108800,
+        "avgPriceDisplay": "$4,108,800",
+        "medianPrice": 2250000,
+        "avgSqft": 3655,
+        "avgPricePerSqFt": 1124,
+        "avgDom": 139,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seacrest Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.283886,
+        "lng": -86.02197
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1187000,
+        "avgPriceDisplay": "$1,187,000",
+        "medianPrice": 1199000,
+        "avgSqft": 1800,
+        "avgPricePerSqFt": 659,
+        "avgDom": 62,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Playgrounds",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seacrest Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.28429,
+        "lng": -86.021895
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 25,
+        "avgPrice": 1798688,
+        "avgPriceDisplay": "$1,798,688",
+        "medianPrice": 1650000,
+        "avgSqft": 2578,
+        "avgPricePerSqFt": 698,
+        "avgDom": 141,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seagrove Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.317636,
+        "lng": -86.130229
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 10,
+        "avgPrice": 3478533,
+        "avgPriceDisplay": "$3,478,533",
+        "medianPrice": 2995000,
+        "avgSqft": 3129,
+        "avgPricePerSqFt": 1112,
+        "avgDom": 196,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seagrove By The Sea",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.310651,
+        "lng": -86.107581
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2100000,
+        "avgPriceDisplay": "$2,100,000",
+        "medianPrice": 2100000,
+        "avgSqft": 4109,
+        "avgPricePerSqFt": 511,
+        "avgDom": 138,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seagrove Dune Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.311212,
+        "lng": -86.111649
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1995000,
+        "avgPriceDisplay": "$1,995,000",
+        "medianPrice": 1995000,
+        "avgSqft": 1423,
+        "avgPricePerSqFt": 1402,
+        "avgDom": 257,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seagrove Highlands",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.316323,
+        "lng": -86.113799
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 493500,
+        "avgPriceDisplay": "$493,500",
+        "medianPrice": 525000,
+        "avgSqft": 1035,
+        "avgPricePerSqFt": 477,
+        "avgDom": 175,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089708",
+      "searchIdLots": "7089709"
+    },
+    {
+      "name": "Seahighland",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.315329,
+        "lng": -86.124923
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 9200000,
+        "avgPriceDisplay": "$9,200,000",
+        "medianPrice": 9200000,
+        "avgSqft": 1557,
+        "avgPricePerSqFt": 5909,
+        "avgDom": 163,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seanest Village",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.31058,
+        "lng": -86.102948
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2274333,
+        "avgPriceDisplay": "$2,274,333",
+        "medianPrice": 2099000,
+        "avgSqft": 3095,
+        "avgPricePerSqFt": 735,
+        "avgDom": 183,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seaside",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.320954,
+        "lng": -86.133944
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3813500,
+        "avgPriceDisplay": "$3,813,500",
+        "medianPrice": 4995000,
+        "avgSqft": 2236,
+        "avgPricePerSqFt": 1705,
+        "avgDom": 127,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385862",
+      "urlSlug": "/30a/seaside/"
+    },
+    {
+      "name": "Shoreline Townhomes",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.270928,
+        "lng": -85.996197
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 824500,
+        "avgPriceDisplay": "$824,500",
+        "medianPrice": 799500,
+        "avgSqft": 1156,
+        "avgPricePerSqFt": 713,
+        "avgDom": 110,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sugarwood",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.32207,
+        "lng": -86.1242
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2173475,
+        "avgPriceDisplay": "$2,173,475",
+        "medianPrice": 2945000,
+        "avgSqft": 2704,
+        "avgPricePerSqFt": 804,
+        "avgDom": 262,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Summer Dream",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.306734,
+        "lng": -86.092681
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2350000,
+        "avgPriceDisplay": "$2,350,000",
+        "medianPrice": 2350000,
+        "avgSqft": 2869,
+        "avgPricePerSqFt": 819,
+        "avgDom": 253,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sunset Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.282081,
+        "lng": -86.022274
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1885000,
+        "avgPriceDisplay": "$1,885,000",
+        "medianPrice": 1895000,
+        "avgSqft": 2062,
+        "avgPricePerSqFt": 914,
+        "avgDom": 20,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7080897"
+    },
+    {
+      "name": "Tranquillity On The Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.288421,
+        "lng": -86.045577
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2156780,
+        "avgPriceDisplay": "$2,156,780",
+        "medianPrice": 2199000,
+        "avgSqft": 1759,
+        "avgPricePerSqFt": 1226,
+        "avgDom": 138,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "4024478",
+      "urlSlug": "/30a/tranquillity-on-the-beach/"
+    },
+    {
+      "name": "Treetop Village",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.28723,
+        "lng": -86.020218
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 9,
+        "avgPrice": 1534429,
+        "avgPriceDisplay": "$1,534,429",
+        "medianPrice": 1550000,
+        "avgSqft": 2751,
+        "avgPricePerSqFt": 558,
+        "avgDom": 139,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Turtle Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.309871,
+        "lng": -86.106809
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2424000,
+        "avgPriceDisplay": "$2,424,000",
+        "medianPrice": 2424000,
+        "avgSqft": 2184,
+        "avgPricePerSqFt": 1110,
+        "avgDom": 457,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7080845"
+    },
+    {
+      "name": "Twin Palms",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.279972,
+        "lng": -86.006802
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 1446857,
+        "avgPriceDisplay": "$1,446,857",
+        "medianPrice": 1395000,
+        "avgSqft": 3025,
+        "avgPricePerSqFt": 478,
+        "avgDom": 144,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "5497083",
+      "urlSlug": "/30a/twin-palms/"
+    },
+    {
+      "name": "Village Of South Walton Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.281666,
+        "lng": -86.01885
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 693002,
+        "avgPriceDisplay": "$693,002",
+        "medianPrice": 525000,
+        "avgSqft": 712,
+        "avgPricePerSqFt": 973,
+        "avgDom": 259,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7080792"
+    },
+    {
+      "name": "Village Of Sugar Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.313858,
+        "lng": -86.111915
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1322997,
+        "avgPriceDisplay": "$1,322,997",
+        "medianPrice": 1169990,
+        "avgSqft": 1912,
+        "avgPricePerSqFt": 692,
+        "avgDom": 96,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7080786"
+    },
+    {
+      "name": "Villages Of South Walton Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.281618,
+        "lng": -86.018618
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 550000,
+        "avgPriceDisplay": "$550,000",
+        "medianPrice": 550000,
+        "avgSqft": 683,
+        "avgPricePerSqFt": 805,
+        "avgDom": 115,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Villas At Seagrove Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.31073,
+        "lng": -86.104941
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1137500,
+        "avgPriceDisplay": "$1,137,500",
+        "medianPrice": 1325000,
+        "avgSqft": 2196,
+        "avgPricePerSqFt": 518,
+        "avgDom": 552,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "4024492",
+      "urlSlug": "/30a/villas-at-seagrove-beach/"
+    },
+    {
+      "name": "Watercolor",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.323374,
+        "lng": -86.14395
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1905833,
+        "avgPriceDisplay": "$1,905,833",
+        "medianPrice": 1690000,
+        "avgSqft": 1604,
+        "avgPricePerSqFt": 1188,
+        "avgDom": 341,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385840",
+      "searchIdCondos": "385841",
+      "searchIdLots": "385843",
+      "urlSlug": "/30a/watercolor/"
+    },
+    {
+      "name": "Watercolor",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.325747,
+        "lng": -86.132235
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 12,
+        "avgPrice": 3725378,
+        "avgPriceDisplay": "$3,725,378",
+        "medianPrice": 3500000,
+        "avgSqft": 3630,
+        "avgPricePerSqFt": 1026,
+        "avgDom": 194,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385840",
+      "searchIdCondos": "385841",
+      "searchIdLots": "385843",
+      "urlSlug": "/30a/watercolor/"
+    },
+    {
+      "name": "Waterhouse",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.290468,
+        "lng": -86.049018
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1450000,
+        "avgPriceDisplay": "$1,450,000",
+        "medianPrice": 1450000,
+        "avgSqft": 1775,
+        "avgPricePerSqFt": 817,
+        "avgDom": 244,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7077180"
+    },
+    {
+      "name": "Watersound Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.297725,
+        "lng": -86.067022
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3182111,
+        "avgPriceDisplay": "$3,182,111",
+        "medianPrice": 3300000,
+        "avgSqft": 2239,
+        "avgPricePerSqFt": 1421,
+        "avgDom": 143,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7077041",
+      "searchIdCondos": "7077045",
+      "searchIdLots": "7077049",
+      "urlSlug": "/30a/watersound-beach/"
+    },
+    {
+      "name": "Watersound Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.301563,
+        "lng": -86.071294
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 24,
+        "avgPrice": 4996829,
+        "avgPriceDisplay": "$4,996,829",
+        "medianPrice": 4500000,
+        "avgSqft": 3887,
+        "avgPricePerSqFt": 1286,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7077041",
+      "searchIdCondos": "7077045",
+      "searchIdLots": "7077049",
+      "urlSlug": "/30a/watersound-beach/"
+    },
+    {
+      "name": "Watersound Bridges",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.297333,
+        "lng": -86.059783
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 5299862,
+        "avgPriceDisplay": "$5,299,862",
+        "medianPrice": 6725000,
+        "avgSqft": 3531,
+        "avgPricePerSqFt": 1501,
+        "avgDom": 134,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "4049793",
+      "urlSlug": "/30a/watersound-bridges/"
+    },
+    {
+      "name": "Watersound Camp Creek",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.300264,
+        "lng": -86.03315
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 16,
+        "avgPrice": 5495852,
+        "avgPriceDisplay": "$5,495,852",
+        "medianPrice": 5495000,
+        "avgSqft": 5721,
+        "avgPricePerSqFt": 961,
+        "avgDom": 127,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "4046364",
+      "searchIdLots": "7075069",
+      "urlSlug": "/30a/watersound-camp-creek/"
+    },
+    {
+      "name": "Watersound Origins",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.292605,
+        "lng": -86.000701
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 66,
+        "avgPrice": 1396146,
+        "avgPriceDisplay": "$1,396,146",
+        "medianPrice": 1187540,
+        "avgSqft": 2730,
+        "avgPricePerSqFt": 511,
+        "avgDom": 121,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fishing",
+        "Golf",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "374894",
+      "searchIdTownhomes": "6825082",
+      "urlSlug": "/30a/watersound-origins/"
+    },
+    {
+      "name": "Watersound Origins",
+      "area": "18 - 30A East",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.304095,
+        "lng": -86.024331
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 539177,
+        "avgPriceDisplay": "$539,177",
+        "medianPrice": 543549,
+        "avgSqft": 1535,
+        "avgPricePerSqFt": 351,
+        "avgDom": 89,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Golf",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "374894",
+      "searchIdTownhomes": "6825082",
+      "urlSlug": "/30a/watersound-origins/"
+    },
+    {
+      "name": "Watersound West Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.310034,
+        "lng": -86.086044
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 2129875,
+        "avgPriceDisplay": "$2,129,875",
+        "medianPrice": 2095000,
+        "avgSqft": 2502,
+        "avgPricePerSqFt": 851,
+        "avgDom": 182,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fishing",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "418736",
+      "urlSlug": "/30a/watersound-west-beach/"
+    },
+    {
+      "name": "Waterview At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.277264,
+        "lng": -86.004787
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 694438,
+        "avgPriceDisplay": "$694,438",
+        "medianPrice": 694500,
+        "avgSqft": 1739,
+        "avgPricePerSqFt": 399,
+        "avgDom": 178,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076900"
+    },
+    {
+      "name": "West Shore Place",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.282764,
+        "lng": -86.010927
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 820580,
+        "avgPriceDisplay": "$820,580",
+        "medianPrice": 799000,
+        "avgSqft": 2011,
+        "avgPricePerSqFt": 408,
+        "avgDom": 242,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076884"
+    },
+    {
+      "name": "Whites Gulfview Estates",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.29374,
+        "lng": -86.047996
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 2094800,
+        "avgPriceDisplay": "$2,094,800",
+        "medianPrice": 2495000,
+        "avgSqft": 2553,
+        "avgPricePerSqFt": 821,
+        "avgDom": 149,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "5826007",
+      "searchIdLots": "7076834"
+    },
+    {
+      "name": "Wildwood At Inlet Beach",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.281331,
+        "lng": -86.001682
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 1152514,
+        "avgPriceDisplay": "$1,152,514",
+        "medianPrice": 1150000,
+        "avgSqft": 2558,
+        "avgPricePerSqFt": 450,
+        "avgDom": 158,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076859"
+    },
+    {
+      "name": "Wildwood Village",
+      "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.280898,
+        "lng": -86.001125
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1224000,
+        "avgPriceDisplay": "$1,224,000",
+        "medianPrice": 1299000,
+        "avgSqft": 2671,
+        "avgPricePerSqFt": 458,
+        "avgDom": 161,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076848"
+    }
+  ]
+}

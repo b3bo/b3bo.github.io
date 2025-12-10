@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.13',
+    version: '1.0.14',
 
     // ===================================================================
     // MAP SETTINGS
@@ -55,7 +55,9 @@ export const CONFIG = {
         // Paths to neighborhood JSON data files (base64 encoded)
         neighborhoodFiles: [
             './neighborhoods/jsons/7ea1bf14d884d192.json.b64',
-            './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64'
+            './neighborhoods/jsons/b762bb338ba328e5.json.b64',
+            './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
+            './neighborhoods/jsons/d897c3d107c48ccc.json.b64'
         ],
 
         // Path to geojson boundary files (zip code boundaries)
