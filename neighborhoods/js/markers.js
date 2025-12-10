@@ -399,8 +399,9 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             const infoWindowContent = document.querySelector('.info-window');
             if (infoWindowContent) {
                 const closeHandler = (e) => {
-                    // Don't close if clicking links or buttons
-                    if (e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('button')) {
+                    // Don't close if clicking links, buttons, or nav arrows
+                    if (e.target.tagName === 'A' || e.target.closest('a') ||
+                        e.target.closest('button') || e.target.closest('.nav-arrow')) {
                         return;
                     }
                     STATE.infoWindow.close();
@@ -409,8 +410,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                     }
                     STATE.activeMarker = null;
                 };
-                // Use pointerup for unified mouse/touch handling
-                infoWindowContent.addEventListener('pointerup', closeHandler);
+                // Use click for cross-platform support (fires on both mouse and touch)
+                infoWindowContent.addEventListener('click', closeHandler);
             }
         });
 

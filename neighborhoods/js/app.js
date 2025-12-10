@@ -16,6 +16,23 @@ import { setupFilters, applyFilters } from './filters.js'; // Import setupFilter
 // Expose global functions needed by HTML
 window.navigateNeighborhood = navigateNeighborhood;
 
+// Keyboard navigation for info window (left/right arrow keys)
+document.addEventListener('keydown', (e) => {
+    // Only handle arrow keys when info window is open
+    if (!STATE.infoWindow || !STATE.infoWindow.getMap()) return;
+
+    // Don't intercept if user is typing in an input/textarea
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateNeighborhood(-1);
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateNeighborhood(1);
+    }
+});
+
 async function initMap() {
     try {
         // Set CSS variable from config for panel animations
