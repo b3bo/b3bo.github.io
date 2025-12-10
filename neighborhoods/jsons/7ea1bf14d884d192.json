@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T09:06:34.603602",
+  "updated": "2025-12-10T10:51:50.146816",
   "neighborhoods": [
     {
       "name": "Adagio",
@@ -43,6 +43,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Fitness",
         "Gated",
         "Short-Term",
         "Waterfront"
@@ -94,6 +95,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -243,7 +245,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -294,7 +296,7 @@
       "amenities": [
         "Beach Access",
         "Gated",
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -546,8 +548,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
-        "Short-Term"
+        "No Short-Term",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -599,8 +601,9 @@
       },
       "amenities": [
         "Gated",
-        "Pool",
-        "Short-Term"
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -650,6 +653,7 @@
       },
       "amenities": [
         "Gated",
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -703,9 +707,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Clubhouse",
+        "Fitness",
         "Gated",
+        "No Short-Term",
         "Pool",
-        "Short-Term",
         "Tennis"
       ],
       "photos": {
@@ -908,8 +914,8 @@
         "maxDom": null
       },
       "amenities": [
+        "No Short-Term",
         "Pool",
-        "Short-Term",
         "Tennis"
       ],
       "photos": {
@@ -958,8 +964,10 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
-        "Short-Term"
+        "Clubhouse",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -1007,8 +1015,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
         "Gated",
+        "Pet-Friendly",
         "Playgrounds",
         "Pool",
         "Short-Term",
@@ -1213,6 +1221,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Elevator",
         "Pool",
         "Short-Term",
         "Tennis"
@@ -1264,6 +1273,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Elevator",
         "Pool",
         "Short-Term"
       ],
@@ -1314,6 +1324,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Elevator",
         "Pool",
         "Short-Term",
         "Tennis"
@@ -1365,6 +1376,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Elevator",
         "Pool",
         "Short-Term",
         "Tennis"
@@ -1665,6 +1677,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
         "Gated",
         "Pool",
         "Short-Term",
@@ -1717,6 +1732,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Elevator",
         "Pool",
         "Short-Term",
         "Tennis"
@@ -1767,10 +1783,10 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
         "Gated",
-        "Pool",
-        "Short-Term"
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -1868,6 +1884,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Pet-Friendly",
         "Short-Term"
       ],
       "photos": {
@@ -1918,6 +1935,7 @@
       "amenities": [
         "Beach Access",
         "Gated",
+        "Pet-Friendly",
         "Pool",
         "Short-Term",
         "Waterfront"
@@ -2262,6 +2280,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
         "Gated",
         "Pool",
         "Short-Term"
@@ -2314,6 +2335,7 @@
       "amenities": [
         "Beach Access",
         "Gated",
+        "Pet-Friendly",
         "Pickleball",
         "Pool",
         "Short-Term",
@@ -2366,9 +2388,8 @@
       },
       "amenities": [
         "Beach Access",
-        "Fishing",
         "Gated",
-        "Short-Term",
+        "No Short-Term",
         "Waterfront"
       ],
       "photos": {
@@ -2418,6 +2439,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Clubhouse",
+        "Fitness",
         "Playgrounds",
         "Pool",
         "Short-Term",
@@ -2517,7 +2540,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Elevator",
+        "Fitness",
         "Gated",
+        "Pet-Friendly",
         "Pool",
         "Short-Term",
         "Waterfront"
@@ -2569,10 +2595,12 @@
       },
       "amenities": [
         "Beach Access",
-        "Fishing",
+        "Elevator",
+        "Fitness",
         "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
         "Pool",
-        "Short-Term",
         "Waterfront"
       ],
       "photos": {
@@ -2815,6 +2843,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Pet-Friendly",
         "Short-Term"
       ],
       "photos": {
@@ -2915,8 +2944,8 @@
       "amenities": [
         "Beach Access",
         "Gated",
+        "No Short-Term",
         "Pool",
-        "Short-Term",
         "Waterfront"
       ],
       "photos": {
@@ -3016,7 +3045,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term",
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -3165,7 +3195,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Fitness",
         "Gated",
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -3218,6 +3250,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Clubhouse",
+        "Fitness",
         "Gated",
         "Pool",
         "Short-Term"
@@ -3272,9 +3306,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Clubhouse",
         "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
         "Pool",
-        "Short-Term",
         "Tennis",
         "Waterfront"
       ],
@@ -3326,6 +3362,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Elevator",
         "Gated",
         "Pool",
         "Short-Term"
@@ -3378,7 +3415,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Fishing",
+        "Elevator",
         "Pool",
         "Short-Term",
         "Tennis"

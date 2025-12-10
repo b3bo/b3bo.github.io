@@ -1,6 +1,6 @@
 {
   "area": "16 - North Santa Rosa Beach",
-  "updated": "2025-12-10T09:06:34.606797",
+  "updated": "2025-12-10T10:51:50.149372",
   "neighborhoods": [
     {
       "name": "Bay Pine Shores",
@@ -140,8 +140,8 @@
       },
       "amenities": [
         "Gated",
+        "No Short-Term",
         "Pool",
-        "Short-Term",
         "Waterfront"
       ],
       "photos": {
@@ -190,7 +190,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -238,10 +238,10 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
+        "No Short-Term",
+        "Pet-Friendly",
         "Pickleball",
         "Pool",
-        "Short-Term",
         "Tennis",
         "Waterfront"
       ],
@@ -388,9 +388,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "No Short-Term",
+        "Pet-Friendly",
         "Playgrounds",
-        "Pool",
-        "Short-Term"
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -438,9 +441,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "No Short-Term",
+        "Pet-Friendly",
         "Playgrounds",
-        "Pool",
-        "Short-Term"
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -488,11 +494,13 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
+        "Clubhouse",
+        "Fitness",
         "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
         "Playgrounds",
         "Pool",
-        "Short-Term",
         "Waterfront"
       ],
       "photos": {
@@ -541,10 +549,10 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
+        "No Short-Term",
+        "Pet-Friendly",
         "Playgrounds",
         "Pool",
-        "Short-Term",
         "Tennis"
       ],
       "photos": {
@@ -593,7 +601,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -642,8 +650,8 @@
       },
       "amenities": [
         "Gated",
-        "Pool",
-        "Short-Term"
+        "No Short-Term",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -739,7 +747,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -885,8 +893,9 @@
       },
       "amenities": [
         "Gated",
-        "Pool",
-        "Short-Term"
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -1032,6 +1041,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -1081,7 +1091,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1275,7 +1285,7 @@
       },
       "amenities": [
         "Gated",
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1419,8 +1429,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
-        "Short-Term",
+        "No Short-Term",
         "Waterfront"
       ],
       "photos": {
@@ -1469,6 +1478,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Pet-Friendly",
         "Short-Term"
       ],
       "photos": {
@@ -1565,7 +1575,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1661,7 +1671,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1806,8 +1816,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
-        "Short-Term"
+        "No Short-Term",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -1856,8 +1866,8 @@
       },
       "amenities": [
         "Beach Access",
-        "Fishing",
-        "Short-Term"
+        "No Short-Term",
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -2002,8 +2012,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Fishing",
-        "Short-Term",
+        "No Short-Term",
         "Waterfront"
       ],
       "photos": {
