@@ -271,7 +271,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     }
     
     const content = `
-        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
+        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">
                     ${neighborhood.name}
@@ -392,8 +392,29 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.setContent(content);
     targetInfoWindow.open(STATE.map, marker);
 
-    // Listen for info window close (X button) to deactivate ripple and clear active marker
+    // Add click-to-close and handle close events for primary window
     if (targetInfoWindow === STATE.infoWindow) {
+        // Click anywhere on card body (not links/buttons) to close
+        google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+            const infoWindowContent = document.querySelector('.info-window');
+            if (infoWindowContent) {
+                const closeHandler = (e) => {
+                    // Don't close if clicking links or buttons
+                    if (e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('button')) {
+                        return;
+                    }
+                    STATE.infoWindow.close();
+                    if (STATE.activeMarker) {
+                        STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
+                    }
+                    STATE.activeMarker = null;
+                };
+                // Use pointerup for unified mouse/touch handling
+                infoWindowContent.addEventListener('pointerup', closeHandler);
+            }
+        });
+
+        // Listen for X button close to deactivate ripple and clear active marker
         google.maps.event.clearListeners(STATE.infoWindow, 'closeclick');
         STATE.infoWindow.addListener('closeclick', () => {
             if (STATE.activeMarker) {

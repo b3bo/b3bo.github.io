@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-10T15:03:39.676867",
+  "updated": "2025-12-10T15:41:42.404423",
   "neighborhoods": [
     {
       "name": "30A Townhomes",
@@ -1661,7 +1661,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100653",
+      "searchIdLots": "7100656"
     },
     {
       "name": "Eastern Lake Village Condos",
@@ -1711,7 +1713,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100652"
     },
     {
       "name": "Emerald Hill Condos",
@@ -2130,7 +2133,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100658",
+      "searchIdLots": "7100659"
     },
     {
       "name": "Gulf Cove Of Seagrove",
@@ -5084,7 +5089,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100684"
     },
     {
       "name": "Sea Walk",
@@ -5181,7 +5187,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "4133645"
     },
     {
       "name": "Seabreeze Forest",
@@ -5229,7 +5236,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100738"
     },
     {
       "name": "Seacrest",
@@ -5680,7 +5688,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100632"
     },
     {
       "name": "Seahighland",
@@ -5728,7 +5737,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089708",
+      "searchIdLots": "7089709"
     },
     {
       "name": "Seanest Village",
@@ -5779,7 +5790,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100634",
+      "searchIdLots": "7100637"
     },
     {
       "name": "Seaside",
@@ -5889,7 +5902,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100643"
     },
     {
       "name": "Seawalk Circle",
@@ -5988,7 +6002,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100644",
+      "searchIdLots": "7100645"
     },
     {
       "name": "Shoreline Townhomes",
@@ -6457,7 +6473,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100605",
+      "searchIdLots": "7100607"
     },
     {
       "name": "Tresca Place",
