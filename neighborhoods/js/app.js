@@ -125,13 +125,16 @@ async function initMap() {
                 if (!urlParams.zoom) {
                     STATE.map.setZoom(13);
                 }
-                
+
                 const currentZoom = STATE.map.getZoom();
                 // Use geometric calculation for precise centering (same as full mode)
                 const offsetPixels = computeOffsetPx(currentZoom);
                 const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
                 STATE.map.setCenter(offsetTarget); // instant center change (no animation)
-                // Open info window with active ripple in single mode
+            });
+
+            // Poll for markers to be ready, then open info window
+            const openSingleModeMarker = () => {
                 if (STATE.markers.length > 0) {
                     const first = STATE.markers[0];
                     const marker = first.marker;
@@ -143,8 +146,24 @@ async function initMap() {
 
                     // Show info window
                     showInfoWindow(marker, neighborhood);
+                    console.log('Single mode: opened info window for', neighborhood.name);
+                    return true;
                 }
-            });
+                return false;
+            };
+
+            // Poll every 100ms for up to 3 seconds
+            let singleAttempts = 0;
+            const pollSingleMode = () => {
+                singleAttempts++;
+                if (openSingleModeMarker()) return;
+                if (singleAttempts < 30) {
+                    setTimeout(pollSingleMode, 100);
+                } else {
+                    console.log('Single mode: marker not found after 3 seconds');
+                }
+            };
+            setTimeout(pollSingleMode, 200);
         }
         
         // Hide loading screen
@@ -155,74 +174,87 @@ async function initMap() {
         
         // Auto-open info window if requested via URL parameter
         if (urlParams.autoOpen && STATE.neighborhoods.length === 1 && urlParams.mode !== 'single') {
-            // Wait for markers to be created
-            setTimeout(() => {
+            // Poll for markers to be ready
+            let autoOpenAttempts = 0;
+            const pollAutoOpen = () => {
+                autoOpenAttempts++;
                 if (STATE.markers.length > 0) {
                     google.maps.event.trigger(STATE.markers[0].marker, 'click');
+                    console.log('autoOpen: triggered marker click');
+                } else if (autoOpenAttempts < 30) {
+                    setTimeout(pollAutoOpen, 100);
                 }
-            }, 500);
+            };
+            setTimeout(pollAutoOpen, 200);
         }
 
         // Auto-open specific marker if specified (shows all neighborhoods but opens one)
-
         if (urlParams.marker) {
             console.log('Marker parameter detected:', urlParams.marker);
-            
+
             const openMarker = () => {
                 const markerSlug = urlParams.marker.toLowerCase();
                 const propertyType = urlParams.propertyType;
-                
+
                 console.log('Auto-opening marker:', markerSlug, 'propertyType:', propertyType);
                 console.log('Total markers available:', STATE.markers.length);
-                console.log('Available markers:', STATE.markers.map(m => ({ name: toSlug(m.neighborhood.name), type: m.neighborhood.propertyType })));
-                
+
                 // Find matching marker
                 const targetMarker = STATE.markers.find(m => {
                     const nameMatch = toSlug(m.neighborhood.name) === markerSlug;
                     if (!propertyType) return nameMatch;
-                    // If propertyType specified, match both name and type
-                    return nameMatch && m.neighborhood.propertyType === propertyType;
+                    // If propertyType specified, match both name and type (case-insensitive)
+                    return nameMatch && m.neighborhood.propertyType?.toLowerCase() === propertyType.toLowerCase();
                 });
-                
+
                 if (targetMarker) {
                     console.log('Found target marker, triggering click:', targetMarker.neighborhood.name);
-                    
+
                     // Auto-select the zip code filter for this neighborhood (visual only, no filtering)
                     const zipCode = targetMarker.neighborhood.zipCode;
                     if (zipCode) {
-                        console.log('Auto-selecting zip code filter:', zipCode);
                         const zipTag = document.querySelector(`#areaFilters .amenity-tag[data-zipcode="${zipCode}"]`);
                         if (zipTag && !zipTag.classList.contains('selected')) {
                             zipTag.classList.add('selected');
-                            // Don't call applyFilters() - we want to stay at zoom 13, not auto-zoom to fit bounds
                         }
                     }
-                    
-                    // Use smoothFlyTo to center the marker with zoom 13 (not 15)
+
+                    // Use smoothFlyTo to center the marker with zoom 13
                     const markerPos = targetMarker.neighborhood.position;
                     smoothFlyTo(markerPos, 13);
-                    
-                    // Trigger click after flight animation starts
+
+                    // Trigger click after flight animation completes (flyToDuration + buffer)
                     setTimeout(() => {
                         google.maps.event.trigger(targetMarker.marker, 'click');
-                    }, 500);
+                    }, CONFIG.map.flyToDuration + 500);
+                    return true; // Success
                 } else {
-                    console.log('Target marker not found');
+                    console.log('Target marker not found yet, will retry...');
+                    return false; // Retry needed
                 }
             };
-            
-            // Wait for map to finish fitting bounds and markers to be ready
-            google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
-                setTimeout(openMarker, 300);
-            });
-            
-            // Fallback: If idle doesn't fire within 3 seconds, try anyway
-            setTimeout(() => {
-                if (STATE.markers.length > 0 && !STATE.infoWindow.getMap()) {
-                    console.log('Fallback: Opening marker after timeout');
-                    openMarker();
+
+            // Poll until markers are ready (check every 200ms, up to 5 seconds)
+            let attempts = 0;
+            const maxAttempts = 25;
+            const pollForMarkers = () => {
+                attempts++;
+                console.log(`Marker poll attempt ${attempts}/${maxAttempts}, markers: ${STATE.markers.length}`);
+
+                if (STATE.markers.length > 0) {
+                    const success = openMarker();
+                    if (success) return;
                 }
-            }, CONFIG.animations.panelSlideDuration);
+
+                if (attempts < maxAttempts) {
+                    setTimeout(pollForMarkers, 200);
+                } else {
+                    console.log('Max attempts reached, marker not found');
+                }
+            };
+
+            // Start polling after a short delay to let map initialize
+            setTimeout(pollForMarkers, 500);
         }
 
         // Setup UI interactions

@@ -338,9 +338,14 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             // Single mode: Link to Community Finder with marker parameter to auto-open this neighborhood
                             const neighborhoodSlug = toSlug(neighborhood.name);
                             const propertyTypeParam = neighborhood.propertyType ? `&propertyType=${encodeURIComponent(neighborhood.propertyType)}` : '';
-                            const finderUrl = `https://neighborhoods.truesouthcoastalhomes.com?marker=${neighborhoodSlug}${propertyTypeParam}`;
+                            // Use current origin for local testing, production URL for live
+                            const baseUrl = window.location.hostname === 'localhost'
+                                ? window.location.origin
+                                : 'https://neighborhoods.truesouthcoastalhomes.com';
+                            const finderUrl = `${baseUrl}/?marker=${neighborhoodSlug}${propertyTypeParam}`;
                             return `
                             <a href="${finderUrl}"
+                               target="_blank"
                                class="flex items-center justify-center gap-2 flex-1 bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
                                onclick="event.stopPropagation();"
                                title="Open ${neighborhood.name} in Community Finder">

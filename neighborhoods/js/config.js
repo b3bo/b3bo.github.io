@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.2',
+    version: '1.0.5',
 
     // ===================================================================
     // MAP SETTINGS
@@ -111,6 +111,15 @@ export const CONFIG = {
                 mobile: 6
             }
         }
+    },
+
+    // ===================================================================
+    // THEME SETTINGS (Single/Iframe Mode)
+    // ===================================================================
+    theme: {
+        // Theme for single mode (iframe embeds): 'light', 'dark', or 'system'
+        // Full app always allows user toggle; this only affects ?mode=single
+        singleModeTheme: 'light'
     },
 
     // ===================================================================

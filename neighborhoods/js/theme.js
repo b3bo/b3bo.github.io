@@ -20,9 +20,16 @@ export const ThemeManager = {
     const urlParams = new URLSearchParams(window.location.search);
     const isSingleMode = urlParams.get('mode') === 'single';
 
-    // Force light mode in single mode
+    // Force configured theme in single mode (default: light)
     if (isSingleMode) {
-      const theme = 'light';
+      // Get theme from config, default to 'light' if not set
+      const configTheme = window.CONFIG?.theme?.singleModeTheme || 'light';
+
+      // Handle 'system' option - check OS preference
+      let theme = configTheme;
+      if (configTheme === 'system') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
 
       // Disable transitions on initial load to prevent flashing
       document.documentElement.classList.add('no-transitions');
