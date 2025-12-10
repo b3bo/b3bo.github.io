@@ -1,13 +1,62 @@
 {
   "area": "16 - North Santa Rosa Beach",
-  "updated": "2025-12-10T13:23:24.785861",
+  "updated": "2025-12-10T13:47:51.107880",
   "neighborhoods": [
+    {
+      "name": "30 North At Eden Park T/H",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.38892,
+        "lng": -86.196283
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 462161,
+        "avgPriceDisplay": "$462,161",
+        "medianPrice": 466000,
+        "avgSqft": 1967,
+        "avgPricePerSqFt": 235,
+        "avgDom": 118,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
     {
       "name": "Bay Pine Shores",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.394151,
+        "lat": 30.39363,
         "lng": -86.192632
       },
       "location": {
@@ -18,12 +67,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 4220000,
-        "avgPriceDisplay": "$4,220,000",
-        "medianPrice": 4950000,
-        "avgSqft": 6466,
-        "avgPricePerSqFt": 653,
-        "avgDom": 318,
+        "avgPrice": 2996633,
+        "avgPriceDisplay": "$2,996,633",
+        "medianPrice": 3490000,
+        "avgSqft": 4819,
+        "avgPricePerSqFt": 622,
+        "avgDom": 221,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -51,12 +100,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Bayou Pines",
+      "name": "Bay Pines",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.392247,
-        "lng": -86.302256
+        "lat": 30.393739,
+        "lng": -86.191328
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -66,12 +115,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1250000,
-        "avgPriceDisplay": "$1,250,000",
-        "medianPrice": 1250000,
-        "avgSqft": 2105,
-        "avgPricePerSqFt": 594,
-        "avgDom": 214,
+        "avgPrice": 4150000,
+        "avgPriceDisplay": "$4,150,000",
+        "medianPrice": 7000000,
+        "avgSqft": 4449,
+        "avgPricePerSqFt": 933,
+        "avgDom": 46,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -90,8 +139,103 @@
         "maxDom": null
       },
       "amenities": [
-        "Short-Term",
-        "Waterfront"
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayou Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.39832,
+        "lng": -86.304557
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 456200,
+        "avgPriceDisplay": "$456,200",
+        "medianPrice": 482500,
+        "avgSqft": 2057,
+        "avgPricePerSqFt": 222,
+        "avgDom": 98,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayou Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.392247,
+        "lng": -86.300782
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1182000,
+        "avgPriceDisplay": "$1,182,000",
+        "medianPrice": 1250000,
+        "avgSqft": 3252,
+        "avgPricePerSqFt": 364,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -104,8 +248,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.393501,
-        "lng": -86.291586
+        "lat": 30.39309,
+        "lng": -86.29333
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -114,13 +258,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 1788800,
-        "avgPriceDisplay": "$1,788,800",
-        "medianPrice": 1250000,
-        "avgSqft": 3095,
-        "avgPricePerSqFt": 578,
-        "avgDom": 134,
+        "listingCount": 5,
+        "avgPrice": 1468556,
+        "avgPriceDisplay": "$1,468,556",
+        "medianPrice": 1099000,
+        "avgSqft": 2987,
+        "avgPricePerSqFt": 492,
+        "avgDom": 111,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -155,8 +299,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.390936,
-        "lng": -86.268553
+        "lat": 30.391145,
+        "lng": -86.268756
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -165,13 +309,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 692543,
-        "avgPriceDisplay": "$692,543",
+        "listingCount": 3,
+        "avgPrice": 690558,
+        "avgPriceDisplay": "$690,558",
         "medianPrice": 709900,
-        "avgSqft": 2435,
-        "avgPricePerSqFt": 284,
-        "avgDom": 145,
+        "avgSqft": 2465,
+        "avgPricePerSqFt": 280,
+        "avgDom": 110,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -199,12 +343,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Carson Oaks",
+      "name": "Camille Estates",
       "area": "16 - North Santa Rosa Beach",
-      "propertyType": "Homes",
+      "propertyType": "Mobile Home",
       "position": {
-        "lat": 30.395657,
-        "lng": -86.306059
+        "lat": 30.397915,
+        "lng": -86.218471
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -214,12 +358,108 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 745000,
-        "avgPriceDisplay": "$745,000",
-        "medianPrice": 745000,
-        "avgSqft": 2346,
-        "avgPricePerSqFt": 318,
-        "avgDom": 209,
+        "avgPrice": 549900,
+        "avgPriceDisplay": "$549,900",
+        "medianPrice": 549900,
+        "avgSqft": 2244,
+        "avgPricePerSqFt": 245,
+        "avgDom": 69,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Cano Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.376509,
+        "lng": -86.244275
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1043050,
+        "avgPriceDisplay": "$1,043,050",
+        "medianPrice": 884150,
+        "avgSqft": 3316,
+        "avgPricePerSqFt": 315,
+        "avgDom": 63,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Carson Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.395203,
+        "lng": -86.307423
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 731067,
+        "avgPriceDisplay": "$731,067",
+        "medianPrice": 749000,
+        "avgSqft": 2015,
+        "avgPricePerSqFt": 363,
+        "avgDom": 68,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -242,7 +482,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Pool",
-        "Tennis",
         "Waterfront"
       ],
       "photos": {
@@ -257,7 +496,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.400192,
-        "lng": -86.231201
+        "lng": -86.229292
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -266,13 +505,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 3490000,
-        "avgPriceDisplay": "$3,490,000",
-        "medianPrice": 3490000,
-        "avgSqft": 3582,
-        "avgPricePerSqFt": 974,
-        "avgDom": 152,
+        "listingCount": 2,
+        "avgPrice": 2024333,
+        "avgPriceDisplay": "$2,024,333",
+        "medianPrice": 1595000,
+        "avgSqft": 2880,
+        "avgPricePerSqFt": 703,
+        "avgDom": 118,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -292,7 +531,9 @@
       },
       "amenities": [
         "Gated",
-        "Short-Term"
+        "No Short-Term",
+        "Pool",
+        "Waterfront"
       ],
       "photos": {
         "hero": "",
@@ -305,7 +546,7 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.3976,
+        "lat": 30.397931,
         "lng": -86.228261
       },
       "location": {
@@ -316,12 +557,108 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 821000,
-        "avgPriceDisplay": "$821,000",
+        "avgPrice": 790749,
+        "avgPriceDisplay": "$790,749",
         "medianPrice": 819000,
-        "avgSqft": 2395,
-        "avgPricePerSqFt": 343,
-        "avgDom": 104,
+        "avgSqft": 2320,
+        "avgPricePerSqFt": 341,
+        "avgDom": 119,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Chat Holly",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.388368,
+        "lng": -86.207099
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1595000,
+        "avgPriceDisplay": "$1,595,000",
+        "medianPrice": 1595000,
+        "avgSqft": 3065,
+        "avgPricePerSqFt": 520,
+        "avgDom": 111,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Church Street Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379677,
+        "lng": -86.240663
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 589000,
+        "avgPriceDisplay": "$589,000",
+        "medianPrice": 589000,
+        "avgSqft": 1881,
+        "avgPricePerSqFt": 313,
+        "avgDom": 112,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -353,8 +690,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.376325,
-        "lng": -86.234173
+        "lat": 30.376328,
+        "lng": -86.234635
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -363,13 +700,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 547067,
-        "avgPriceDisplay": "$547,067",
-        "medianPrice": 550000,
-        "avgSqft": 1872,
-        "avgPricePerSqFt": 292,
-        "avgDom": 207,
+        "listingCount": 5,
+        "avgPrice": 520614,
+        "avgPriceDisplay": "$520,614",
+        "medianPrice": 539900,
+        "avgSqft": 1743,
+        "avgPricePerSqFt": 299,
+        "avgDom": 122,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -459,8 +796,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.388783,
-        "lng": -86.248192
+        "lat": 30.388298,
+        "lng": -86.247718
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -469,13 +806,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 3747852,
-        "avgPriceDisplay": "$3,747,852",
-        "medianPrice": 3875000,
-        "avgSqft": 4392,
-        "avgPricePerSqFt": 853,
-        "avgDom": 269,
+        "listingCount": 10,
+        "avgPrice": 3619384,
+        "avgPriceDisplay": "$3,619,384",
+        "medianPrice": 3595000,
+        "avgSqft": 4162,
+        "avgPricePerSqFt": 870,
+        "avgDom": 156,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -510,12 +847,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Driftwood Estates",
+      "name": "Daxton On The Bay",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.413582,
-        "lng": -86.314249
+        "lat": 30.388104,
+        "lng": -86.255218
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -524,13 +861,63 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 11,
-        "avgPrice": 1224914,
-        "avgPriceDisplay": "$1,224,914",
+        "listingCount": 1,
+        "avgPrice": 671332,
+        "avgPriceDisplay": "$671,332",
+        "medianPrice": 630000,
+        "avgSqft": 2262,
+        "avgPricePerSqFt": 297,
+        "avgDom": 71,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Driftwood Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.414416,
+        "lng": -86.313883
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 20,
+        "avgPrice": 1521787,
+        "avgPriceDisplay": "$1,521,787",
         "medianPrice": 594900,
-        "avgSqft": 2738,
-        "avgPricePerSqFt": 447,
-        "avgDom": 219,
+        "avgSqft": 2902,
+        "avgPricePerSqFt": 524,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -552,8 +939,7 @@
         "No Short-Term",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
-        "Tennis"
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -566,8 +952,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.396091,
-        "lng": -86.280432
+        "lat": 30.395221,
+        "lng": -86.280991
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -576,13 +962,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 670400,
-        "avgPriceDisplay": "$670,400",
-        "medianPrice": 675000,
-        "avgSqft": 1976,
-        "avgPricePerSqFt": 339,
-        "avgDom": 216,
+        "listingCount": 5,
+        "avgPrice": 652264,
+        "avgPriceDisplay": "$652,264",
+        "medianPrice": 585000,
+        "avgSqft": 1870,
+        "avgPricePerSqFt": 349,
+        "avgDom": 154,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -614,8 +1000,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.393708,
-        "lng": -86.266727
+        "lat": 30.39212,
+        "lng": -86.26796
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -624,13 +1010,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 582450,
-        "avgPriceDisplay": "$582,450",
-        "medianPrice": 585000,
-        "avgSqft": 2130,
-        "avgPricePerSqFt": 273,
-        "avgDom": 236,
+        "listingCount": 3,
+        "avgPrice": 562467,
+        "avgPriceDisplay": "$562,467",
+        "medianPrice": 569900,
+        "avgSqft": 2129,
+        "avgPricePerSqFt": 264,
+        "avgDom": 111,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -652,6 +1038,102 @@
         "Gated",
         "No Short-Term",
         "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Eagle Bay T/H",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.393214,
+        "lng": -86.280411
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 322162,
+        "avgPriceDisplay": "$322,162",
+        "medianPrice": 335000,
+        "avgSqft": 1417,
+        "avgPricePerSqFt": 227,
+        "avgDom": 114,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Eastern Lake T/H",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.376627,
+        "lng": -86.220961
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 494500,
+        "avgPriceDisplay": "$494,500",
+        "medianPrice": 494500,
+        "avgSqft": 1654,
+        "avgPricePerSqFt": 299,
+        "avgDom": 130,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -708,6 +1190,104 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Enchanted Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.393343,
+        "lng": -86.296817
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 396000,
+        "avgPriceDisplay": "$396,000",
+        "medianPrice": 399999,
+        "avgSqft": 1724,
+        "avgPricePerSqFt": 230,
+        "avgDom": 43,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Exclusive Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.390615,
+        "lng": -86.262606
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 652000,
+        "avgPriceDisplay": "$652,000",
+        "medianPrice": 675000,
+        "avgSqft": 1750,
+        "avgPricePerSqFt": 372,
+        "avgDom": 50,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Forest Park",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
@@ -723,12 +1303,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 575000,
-        "avgPriceDisplay": "$575,000",
-        "medianPrice": 575000,
-        "avgSqft": 2210,
-        "avgPricePerSqFt": 260,
-        "avgDom": 212,
+        "avgPrice": 585000,
+        "avgPriceDisplay": "$585,000",
+        "medianPrice": 595000,
+        "avgSqft": 2098,
+        "avgPricePerSqFt": 279,
+        "avgDom": 158,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -805,6 +1385,102 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Harstvedt Plantation",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.389908,
+        "lng": -86.199932
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 508267,
+        "avgPriceDisplay": "$508,267",
+        "medianPrice": 479900,
+        "avgSqft": 2058,
+        "avgPricePerSqFt": 247,
+        "avgDom": 154,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Hawks Landing Townhomes",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.392879,
+        "lng": -86.219213
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 335222,
+        "avgPriceDisplay": "$335,222",
+        "medianPrice": 339000,
+        "avgSqft": 1463,
+        "avgPricePerSqFt": 229,
+        "avgDom": 56,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Hewett Bayou",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
@@ -857,8 +1533,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.393389,
-        "lng": -86.284702
+        "lat": 30.393735,
+        "lng": -86.284194
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -867,13 +1543,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 794633,
-        "avgPriceDisplay": "$794,633",
-        "medianPrice": 885900,
-        "avgSqft": 2388,
-        "avgPricePerSqFt": 333,
-        "avgDom": 215,
+        "listingCount": 4,
+        "avgPrice": 679487,
+        "avgPriceDisplay": "$679,487",
+        "medianPrice": 599000,
+        "avgSqft": 2117,
+        "avgPricePerSqFt": 321,
+        "avgDom": 107,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -956,7 +1632,7 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Townhomes",
       "position": {
-        "lat": 30.37616,
+        "lat": 30.37619,
         "lng": -86.221923
       },
       "location": {
@@ -966,13 +1642,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 460000,
-        "avgPriceDisplay": "$460,000",
-        "medianPrice": 460000,
-        "avgSqft": 1654,
-        "avgPricePerSqFt": 278,
-        "avgDom": 175,
+        "listingCount": 2,
+        "avgPrice": 478000,
+        "avgPriceDisplay": "$478,000",
+        "medianPrice": 484000,
+        "avgSqft": 1765,
+        "avgPricePerSqFt": 271,
+        "avgDom": 85,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1052,12 +1728,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Mosaic Oaks",
+      "name": "Mack Bayou Estates",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.389359,
-        "lng": -86.204156
+        "lat": 30.387219,
+        "lng": -86.296981
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1067,12 +1743,254 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 417625,
-        "avgPriceDisplay": "$417,625",
+        "avgPrice": 908180,
+        "avgPriceDisplay": "$908,180",
+        "medianPrice": 729000,
+        "avgSqft": 2796,
+        "avgPricePerSqFt": 325,
+        "avgDom": 88,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Mack Bayou Pointe",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.404489,
+        "lng": -86.309969
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 536975,
+        "avgPriceDisplay": "$536,975",
+        "medianPrice": 574000,
+        "avgSqft": 2336,
+        "avgPricePerSqFt": 230,
+        "avgDom": 66,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Magnolia Creek",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379838,
+        "lng": -86.225905
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 438000,
+        "avgPriceDisplay": "$438,000",
+        "medianPrice": 434000,
+        "avgSqft": 1918,
+        "avgPricePerSqFt": 228,
+        "avgDom": 95,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Millers Crossing T/H",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.382315,
+        "lng": -86.185489
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 281691,
+        "avgPriceDisplay": "$281,691",
+        "medianPrice": 279900,
+        "avgSqft": 1517,
+        "avgPricePerSqFt": 186,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Moores Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.401522,
+        "lng": -86.306277
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 834000,
+        "avgPriceDisplay": "$834,000",
+        "medianPrice": 988000,
+        "avgSqft": 2350,
+        "avgPricePerSqFt": 355,
+        "avgDom": 100,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Mosaic Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.389111,
+        "lng": -86.204416
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 423250,
+        "avgPriceDisplay": "$423,250",
         "medianPrice": 429500,
-        "avgSqft": 1799,
-        "avgPricePerSqFt": 232,
-        "avgDom": 135,
+        "avgSqft": 1831,
+        "avgPricePerSqFt": 231,
+        "avgDom": 103,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1105,7 +2023,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.386425,
-        "lng": -86.256299
+        "lng": -86.256235
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1114,13 +2032,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 899000,
-        "avgPriceDisplay": "$899,000",
+        "listingCount": 2,
+        "avgPrice": 799500,
+        "avgPriceDisplay": "$799,500",
         "medianPrice": 899000,
-        "avgSqft": 3047,
-        "avgPricePerSqFt": 295,
-        "avgDom": 169,
+        "avgSqft": 2828,
+        "avgPricePerSqFt": 283,
+        "avgDom": 125,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1139,7 +2057,55 @@
         "maxDom": null
       },
       "amenities": [
-        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Nellie Preserve",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.401722,
+        "lng": -86.212706
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 530860,
+        "avgPriceDisplay": "$530,860",
+        "medianPrice": 519900,
+        "avgSqft": 2236,
+        "avgPricePerSqFt": 237,
+        "avgDom": 117,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
         "Short-Term"
       ],
       "photos": {
@@ -1245,12 +2211,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Pelican Bay",
+      "name": "Palmetto Plantation",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.401041,
-        "lng": -86.298613
+        "lat": 30.384085,
+        "lng": -86.226994
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1259,13 +2225,63 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 1519750,
-        "avgPriceDisplay": "$1,519,750",
-        "medianPrice": 1500000,
-        "avgSqft": 2832,
-        "avgPricePerSqFt": 537,
-        "avgDom": 226,
+        "listingCount": 2,
+        "avgPrice": 337360,
+        "avgPriceDisplay": "$337,360",
+        "medianPrice": 364000,
+        "avgSqft": 1110,
+        "avgPricePerSqFt": 304,
+        "avgDom": 83,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pelican Bay",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.398997,
+        "lng": -86.298865
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1287989,
+        "avgPriceDisplay": "$1,287,989",
+        "medianPrice": 985000,
+        "avgSqft": 2674,
+        "avgPricePerSqFt": 482,
+        "avgDom": 115,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1285,7 +2301,10 @@
       },
       "amenities": [
         "Gated",
-        "No Short-Term"
+        "No Short-Term",
+        "Pickleball",
+        "Tennis",
+        "Waterfront"
       ],
       "photos": {
         "hero": "",
@@ -1294,12 +2313,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Plantation At Santa Rosa",
+      "name": "Pisces Cove",
       "area": "16 - North Santa Rosa Beach",
-      "propertyType": "Homes",
+      "propertyType": "Mobile Home",
       "position": {
-        "lat": 30.379615,
-        "lng": -86.260593
+        "lat": 30.388398,
+        "lng": -86.19053
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1309,12 +2328,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 424000,
-        "avgPriceDisplay": "$424,000",
-        "medianPrice": 449000,
-        "avgSqft": 1582,
-        "avgPricePerSqFt": 268,
-        "avgDom": 108,
+        "avgPrice": 280000,
+        "avgPriceDisplay": "$280,000",
+        "medianPrice": 280000,
+        "avgSqft": 1620,
+        "avgPricePerSqFt": 173,
+        "avgDom": 43,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1334,6 +2353,105 @@
       },
       "amenities": [
         "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Plantation At Santa Rosa",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.380153,
+        "lng": -86.260964
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 407257,
+        "avgPriceDisplay": "$407,257",
+        "medianPrice": 405000,
+        "avgSqft": 1707,
+        "avgPricePerSqFt": 239,
+        "avgDom": 58,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Plantation At Santa Rosa Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379528,
+        "lng": -86.261744
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 428000,
+        "avgPriceDisplay": "$428,000",
+        "medianPrice": 428000,
+        "avgSqft": 1780,
+        "avgPricePerSqFt": 240,
+        "avgDom": 54,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
       ],
       "photos": {
         "hero": "",
@@ -1405,12 +2523,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 872600,
-        "avgPriceDisplay": "$872,600",
-        "medianPrice": 599000,
-        "avgSqft": 2089,
-        "avgPricePerSqFt": 418,
-        "avgDom": 232,
+        "avgPrice": 841612,
+        "avgPriceDisplay": "$841,612",
+        "medianPrice": 634900,
+        "avgSqft": 2159,
+        "avgPricePerSqFt": 390,
+        "avgDom": 200,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1443,7 +2561,7 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Townhomes",
       "position": {
-        "lat": 30.393807,
+        "lat": 30.393757,
         "lng": -86.307244
       },
       "location": {
@@ -1453,13 +2571,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 358650,
-        "avgPriceDisplay": "$358,650",
+        "listingCount": 6,
+        "avgPrice": 357822,
+        "avgPriceDisplay": "$357,822",
         "medianPrice": 350000,
-        "avgSqft": 1539,
-        "avgPricePerSqFt": 233,
-        "avgDom": 330,
+        "avgSqft": 1549,
+        "avgPricePerSqFt": 231,
+        "avgDom": 252,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1488,12 +2606,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Santa Rosa Beach",
+      "name": "Santa Rosa",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.393411,
-        "lng": -86.228251
+        "lat": 30.402869,
+        "lng": -86.230182
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1503,12 +2621,108 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 876250,
-        "avgPriceDisplay": "$876,250",
-        "medianPrice": 488000,
-        "avgSqft": 2118,
-        "avgPricePerSqFt": 414,
-        "avgDom": 204,
+        "avgPrice": 1415000,
+        "avgPriceDisplay": "$1,415,000",
+        "medianPrice": 1435000,
+        "avgSqft": 2814,
+        "avgPricePerSqFt": 503,
+        "avgDom": 136,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Santa Rosa Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.398683,
+        "lng": -86.222375
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 676227,
+        "avgPriceDisplay": "$676,227",
+        "medianPrice": 475000,
+        "avgSqft": 1792,
+        "avgPricePerSqFt": 377,
+        "avgDom": 139,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Santa Rosa Beach Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.399073,
+        "lng": -86.280703
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1499000,
+        "avgPriceDisplay": "$1,499,000",
+        "medianPrice": 1499000,
+        "avgSqft": 2496,
+        "avgPricePerSqFt": 601,
+        "avgDom": 44,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1540,8 +2754,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.395673,
-        "lng": -86.222503
+        "lat": 30.389797,
+        "lng": -86.223025
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1551,12 +2765,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 696675,
-        "avgPriceDisplay": "$696,675",
+        "avgPrice": 766950,
+        "avgPriceDisplay": "$766,950",
         "medianPrice": 639000,
-        "avgSqft": 1745,
-        "avgPricePerSqFt": 399,
-        "avgDom": 461,
+        "avgSqft": 1623,
+        "avgPricePerSqFt": 472,
+        "avgDom": 329,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1585,11 +2799,60 @@
       "searchIdLots": "7100379"
     },
     {
+      "name": "Santa Rosa Plantation",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Manufactured Home",
+      "position": {
+        "lat": 30.383197,
+        "lng": -86.277629
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 380000,
+        "avgPriceDisplay": "$380,000",
+        "medianPrice": 380000,
+        "avgSqft": 1680,
+        "avgPricePerSqFt": 226,
+        "avgDom": 12,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdLots": "7100379"
+    },
+    {
       "name": "Sea Drift",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.37755,
+        "lat": 30.377557,
         "lng": -86.268209
       },
       "location": {
@@ -1600,12 +2863,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 574900,
-        "avgPriceDisplay": "$574,900",
-        "medianPrice": 574900,
-        "avgSqft": 1978,
-        "avgPricePerSqFt": 291,
-        "avgDom": 167,
+        "avgPrice": 587250,
+        "avgPriceDisplay": "$587,250",
+        "medianPrice": 599600,
+        "avgSqft": 2052,
+        "avgPricePerSqFt": 286,
+        "avgDom": 132,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1633,12 +2896,60 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Stonegate",
+      "name": "Shelter Cove Estates",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.382901,
-        "lng": -86.289156
+        "lat": 30.39828,
+        "lng": -86.296409
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1158000,
+        "avgPriceDisplay": "$1,158,000",
+        "medianPrice": 945000,
+        "avgSqft": 2480,
+        "avgPricePerSqFt": 467,
+        "avgDom": 99,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Southern Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.392809,
+        "lng": -86.20973
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1648,12 +2959,60 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 617967,
-        "avgPriceDisplay": "$617,967",
+        "avgPrice": 501475,
+        "avgPriceDisplay": "$501,475",
+        "medianPrice": 469000,
+        "avgSqft": 1990,
+        "avgPricePerSqFt": 252,
+        "avgDom": 50,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Stonegate",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.382901,
+        "lng": -86.288955
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 603225,
+        "avgPriceDisplay": "$603,225",
         "medianPrice": 635000,
-        "avgSqft": 2240,
-        "avgPricePerSqFt": 276,
-        "avgDom": 271,
+        "avgSqft": 2154,
+        "avgPricePerSqFt": 280,
+        "avgDom": 208,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1696,11 +3055,11 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 276000,
-        "avgPriceDisplay": "$276,000",
+        "avgPrice": 273500,
+        "avgPriceDisplay": "$273,500",
         "medianPrice": 277000,
         "avgSqft": 1492,
-        "avgPricePerSqFt": 185,
+        "avgPricePerSqFt": 183,
         "avgDom": 370,
         "priceRange": "N/A",
         "minPrice": null,
@@ -1730,12 +3089,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Town Of Santa Rosa",
+      "name": "Tomahawk Landing",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.395536,
-        "lng": -86.225271
+        "lat": 30.401984,
+        "lng": -86.220286
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1744,13 +3103,157 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 417254,
-        "avgPriceDisplay": "$417,254",
-        "medianPrice": 399000,
-        "avgSqft": 1323,
-        "avgPricePerSqFt": 315,
-        "avgDom": 179,
+        "listingCount": 1,
+        "avgPrice": 489900,
+        "avgPriceDisplay": "$489,900",
+        "medianPrice": 489900,
+        "avgSqft": 2038,
+        "avgPricePerSqFt": 240,
+        "avgDom": 52,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Town Of Santa Rosa",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.393153,
+        "lng": -86.225326
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 16,
+        "avgPrice": 444923,
+        "avgPriceDisplay": "$444,923",
+        "medianPrice": 445000,
+        "avgSqft": 1433,
+        "avgPricePerSqFt": 310,
+        "avgDom": 117,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Town Of Santa Rosa",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Manufactured Home",
+      "position": {
+        "lat": 30.391833,
+        "lng": -86.225219
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 214500,
+        "avgPriceDisplay": "$214,500",
+        "medianPrice": 299000,
+        "avgSqft": 1094,
+        "avgPricePerSqFt": 196,
+        "avgDom": 52,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Town Of Santa Rosa Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.399141,
+        "lng": -86.220351
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 499000,
+        "avgPriceDisplay": "$499,000",
+        "medianPrice": 499000,
+        "avgSqft": 1344,
+        "avgPricePerSqFt": 371,
+        "avgDom": 42,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1783,7 +3286,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.401043,
-        "lng": -86.208577
+        "lng": -86.208171
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1793,12 +3296,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 451999,
-        "avgPriceDisplay": "$451,999",
+        "avgPrice": 441000,
+        "avgPriceDisplay": "$441,000",
         "medianPrice": 451999,
-        "avgSqft": 1705,
-        "avgPricePerSqFt": 265,
-        "avgDom": 184,
+        "avgSqft": 1788,
+        "avgPricePerSqFt": 247,
+        "avgDom": 142,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1827,12 +3330,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Treasure Trove Estates",
+      "name": "Treasure Trove",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.397111,
-        "lng": -86.295497
+        "lat": 30.39669,
+        "lng": -86.295452
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1842,12 +3345,62 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 540000,
-        "avgPriceDisplay": "$540,000",
-        "medianPrice": 540000,
-        "avgSqft": 1771,
-        "avgPricePerSqFt": 305,
-        "avgDom": 206,
+        "avgPrice": 619000,
+        "avgPriceDisplay": "$619,000",
+        "medianPrice": 619000,
+        "avgSqft": 2443,
+        "avgPricePerSqFt": 253,
+        "avgDom": 17,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Treasure Trove Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.397151,
+        "lng": -86.295235
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 565000,
+        "avgPriceDisplay": "$565,000",
+        "medianPrice": 590000,
+        "avgSqft": 2106,
+        "avgPricePerSqFt": 268,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1881,8 +3434,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.40617,
-        "lng": -86.304597
+        "lat": 30.406281,
+        "lng": -86.305046
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1892,12 +3445,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 1428800,
-        "avgPriceDisplay": "$1,428,800",
-        "medianPrice": 1175000,
-        "avgSqft": 2598,
-        "avgPricePerSqFt": 550,
-        "avgDom": 165,
+        "avgPrice": 1576857,
+        "avgPriceDisplay": "$1,576,857",
+        "medianPrice": 1695000,
+        "avgSqft": 2728,
+        "avgPricePerSqFt": 578,
+        "avgDom": 132,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1929,8 +3482,8 @@
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.391894,
-        "lng": -86.21425
+        "lat": 30.391596,
+        "lng": -86.214786
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1939,13 +3492,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 601225,
-        "avgPriceDisplay": "$601,225",
+        "listingCount": 4,
+        "avgPrice": 595599,
+        "avgPriceDisplay": "$595,599",
         "medianPrice": 609000,
-        "avgSqft": 2291,
-        "avgPricePerSqFt": 262,
-        "avgDom": 155,
+        "avgSqft": 2292,
+        "avgPricePerSqFt": 260,
+        "avgDom": 96,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1974,12 +3527,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Whispering Lake",
+      "name": "Water Oaks T/H",
       "area": "16 - North Santa Rosa Beach",
-      "propertyType": "Homes",
+      "propertyType": "Townhomes",
       "position": {
-        "lat": 30.377693,
-        "lng": -86.219918
+        "lat": 30.37707,
+        "lng": -86.254539
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1988,13 +3541,109 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 606333,
-        "avgPriceDisplay": "$606,333",
-        "medianPrice": 640000,
-        "avgSqft": 2585,
-        "avgPricePerSqFt": 235,
-        "avgDom": 138,
+        "listingCount": 2,
+        "avgPrice": 299450,
+        "avgPriceDisplay": "$299,450",
+        "medianPrice": 299900,
+        "avgSqft": 1564,
+        "avgPricePerSqFt": 192,
+        "avgDom": 80,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Water Oaks Townhomes",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.37673,
+        "lng": -86.254808
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 316663,
+        "avgPriceDisplay": "$316,663",
+        "medianPrice": 314990,
+        "avgSqft": 1576,
+        "avgPricePerSqFt": 201,
+        "avgDom": 201,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Whispering Lake",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.377708,
+        "lng": -86.218602
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 570483,
+        "avgPriceDisplay": "$570,483",
+        "medianPrice": 579900,
+        "avgSqft": 2309,
+        "avgPricePerSqFt": 247,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2015,6 +3664,200 @@
       "amenities": [
         "No Short-Term",
         "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Whispering Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.420283,
+        "lng": -86.239061
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1299000,
+        "avgPriceDisplay": "$1,299,000",
+        "medianPrice": 1299000,
+        "avgSqft": 2726,
+        "avgPricePerSqFt": 477,
+        "avgDom": 6,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Windsor Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.385557,
+        "lng": -86.262776
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 547500,
+        "avgPriceDisplay": "$547,500",
+        "medianPrice": 580000,
+        "avgSqft": 2257,
+        "avgPricePerSqFt": 243,
+        "avgDom": 100,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Winston Manor Townhomes",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.376321,
+        "lng": -86.263998
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 285000,
+        "avgPriceDisplay": "$285,000",
+        "medianPrice": 285000,
+        "avgSqft": 1002,
+        "avgPricePerSqFt": 284,
+        "avgDom": 125,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Woodland Bayou Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.392119,
+        "lng": -86.259922
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 2008725,
+        "avgPriceDisplay": "$2,008,725",
+        "medianPrice": 1695000,
+        "avgSqft": 4243,
+        "avgPricePerSqFt": 473,
+        "avgDom": 96,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
       ],
       "photos": {
         "hero": "",

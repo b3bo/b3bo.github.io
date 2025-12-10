@@ -1,14 +1,14 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T13:23:24.782982",
+  "updated": "2025-12-10T13:47:51.113116",
   "neighborhoods": [
     {
-      "name": "Adagio Condos",
+      "name": "Abacos Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.340461,
-        "lng": -86.206116
+        "lat": 30.347326,
+        "lng": -86.229379
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -18,12 +18,63 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1522500,
-        "avgPriceDisplay": "$1,522,500",
-        "medianPrice": 1550000,
-        "avgSqft": 1792,
-        "avgPricePerSqFt": 850,
-        "avgDom": 283,
+        "avgPrice": 724000,
+        "avgPriceDisplay": "$724,000",
+        "medianPrice": 724000,
+        "avgSqft": 1979,
+        "avgPricePerSqFt": 366,
+        "avgDom": 20,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Elevator",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7092755"
+    },
+    {
+      "name": "Adagio Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.340269,
+        "lng": -86.206403
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1738000,
+        "avgPriceDisplay": "$1,738,000",
+        "medianPrice": 1499000,
+        "avgSqft": 1894,
+        "avgPricePerSqFt": 918,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -43,8 +94,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Clubhouse",
+        "Elevator",
         "Fitness",
         "Gated",
+        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -61,7 +115,7 @@
       "propertyType": "Condos",
       "position": {
         "lat": 30.351206,
-        "lng": -86.24066
+        "lng": -86.240659
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -70,13 +124,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 817667,
-        "avgPriceDisplay": "$817,667",
+        "listingCount": 5,
+        "avgPrice": 791862,
+        "avgPriceDisplay": "$791,862",
         "medianPrice": 789000,
-        "avgSqft": 1162,
-        "avgPricePerSqFt": 704,
-        "avgDom": 102,
+        "avgSqft": 1152,
+        "avgPricePerSqFt": 688,
+        "avgDom": 80,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -95,7 +149,6 @@
         "maxDom": null
       },
       "amenities": [
-        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -107,12 +160,12 @@
       "searchIdCondos": "7092765"
     },
     {
-      "name": "Beach Highland",
+      "name": "Bannerman Beach Estates",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.356433,
-        "lng": -86.256582
+        "lat": 30.33658,
+        "lng": -86.187915
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -121,13 +174,65 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 2991545,
-        "avgPriceDisplay": "$2,991,545",
-        "medianPrice": 3290000,
-        "avgSqft": 4235,
-        "avgPricePerSqFt": 706,
-        "avgDom": 164,
+        "listingCount": 1,
+        "avgPrice": 8599000,
+        "avgPriceDisplay": "$8,599,000",
+        "medianPrice": 8599000,
+        "avgSqft": 6347,
+        "avgPricePerSqFt": 1355,
+        "avgDom": 113,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089719"
+    },
+    {
+      "name": "Beach Highland",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.356372,
+        "lng": -86.256379
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 14,
+        "avgPrice": 2640513,
+        "avgPriceDisplay": "$2,640,513",
+        "medianPrice": 2490000,
+        "avgSqft": 3831,
+        "avgPricePerSqFt": 689,
+        "avgDom": 102,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -157,12 +262,12 @@
       "searchIdLots": "7099860"
     },
     {
-      "name": "Beach View Heights",
+      "name": "Beach Nest",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.360708,
-        "lng": -86.265249
+        "lat": 30.348058,
+        "lng": -86.222252
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -172,12 +277,62 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 4096333,
-        "avgPriceDisplay": "$4,096,333",
-        "medianPrice": 3695000,
-        "avgSqft": 5769,
-        "avgPricePerSqFt": 710,
-        "avgDom": 121,
+        "avgPrice": 817450,
+        "avgPriceDisplay": "$817,450",
+        "medianPrice": 839900,
+        "avgSqft": 1487,
+        "avgPricePerSqFt": 550,
+        "avgDom": 176,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092772"
+    },
+    {
+      "name": "Beach View Heights",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.361116,
+        "lng": -86.265249
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 3178917,
+        "avgPriceDisplay": "$3,178,917",
+        "medianPrice": 2995000,
+        "avgSqft": 4712,
+        "avgPricePerSqFt": 675,
+        "avgDom": 96,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -255,12 +410,12 @@
       "searchIdHomes": "7092793"
     },
     {
-      "name": "Bellamar At Gulf Place",
+      "name": "Bella Vita Condos",
       "area": "17 - 30A West",
-      "propertyType": "Homes",
+      "propertyType": "Condos",
       "position": {
-        "lat": 30.350972,
-        "lng": -86.233431
+        "lat": 30.339644,
+        "lng": -86.204277
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -270,12 +425,69 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 3265500,
-        "avgPriceDisplay": "$3,265,500",
-        "medianPrice": 2599000,
-        "avgSqft": 4818,
-        "avgPricePerSqFt": 678,
-        "avgDom": 150,
+        "avgPrice": 2674750,
+        "avgPriceDisplay": "$2,674,750",
+        "medianPrice": 2850000,
+        "avgSqft": 2469,
+        "avgPricePerSqFt": 1083,
+        "avgDom": 116,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7092794"
+    },
+    {
+      "name": "Bellamar At Gulf Place",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.350972,
+        "lng": -86.234107
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 2812800,
+        "avgPriceDisplay": "$2,812,800",
+        "medianPrice": 2550000,
+        "avgSqft": 3961,
+        "avgPricePerSqFt": 710,
+        "avgDom": 98,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -311,8 +523,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.343523,
-        "lng": -86.206075
+        "lat": 30.343858,
+        "lng": -86.206592
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -321,13 +533,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 715444,
-        "avgPriceDisplay": "$715,444",
-        "medianPrice": 699000,
-        "avgSqft": 1443,
-        "avgPricePerSqFt": 496,
-        "avgDom": 164,
+        "listingCount": 7,
+        "avgPrice": 859186,
+        "avgPriceDisplay": "$859,186",
+        "medianPrice": 825000,
+        "avgSqft": 1591,
+        "avgPricePerSqFt": 540,
+        "avgDom": 124,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -361,8 +573,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.338654,
-        "lng": -86.198896
+        "lat": 30.339007,
+        "lng": -86.198467
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -371,13 +583,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 2922067,
-        "avgPriceDisplay": "$2,922,067",
-        "medianPrice": 2600000,
-        "avgSqft": 2382,
-        "avgPricePerSqFt": 1227,
-        "avgDom": 186,
+        "listingCount": 11,
+        "avgPrice": 4655272,
+        "avgPriceDisplay": "$4,655,272",
+        "medianPrice": 2750000,
+        "avgSqft": 3348,
+        "avgPricePerSqFt": 1391,
+        "avgDom": 113,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -408,12 +620,12 @@
       "searchIdLots": "7099861"
     },
     {
-      "name": "Bluewater Landing",
+      "name": "Blue Mountain Estates",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.347172,
-        "lng": -86.207543
+        "lat": 30.346354,
+        "lng": -86.224165
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -423,12 +635,61 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1630456,
-        "avgPriceDisplay": "$1,630,456",
+        "avgPrice": 2799000,
+        "avgPriceDisplay": "$2,799,000",
+        "medianPrice": 2799000,
+        "avgSqft": 3591,
+        "avgPricePerSqFt": 779,
+        "avgDom": 30,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092811"
+    },
+    {
+      "name": "Bluewater Landing",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.347072,
+        "lng": -86.207522
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1564687,
+        "avgPriceDisplay": "$1,564,687",
         "medianPrice": 1499900,
-        "avgSqft": 3466,
-        "avgPricePerSqFt": 470,
-        "avgDom": 474,
+        "avgSqft": 3538,
+        "avgPricePerSqFt": 442,
+        "avgDom": 276,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -458,12 +719,12 @@
       "urlSlug": "/30a/bluewater-landing/"
     },
     {
-      "name": "Century 393 T/H",
+      "name": "Calypso Pointe",
       "area": "17 - 30A West",
-      "propertyType": "Townhomes",
+      "propertyType": "Homes",
       "position": {
-        "lat": 30.367345,
-        "lng": -86.229724
+        "lat": 30.351922,
+        "lng": -86.238316
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -473,12 +734,115 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 849000,
-        "avgPriceDisplay": "$849,000",
+        "avgPrice": 1155000,
+        "avgPriceDisplay": "$1,155,000",
+        "medianPrice": 1215000,
+        "avgSqft": 1955,
+        "avgPricePerSqFt": 591,
+        "avgDom": 32,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092822"
+    },
+    {
+      "name": "Caspian Estates",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.346186,
+        "lng": -86.226299
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 5295000,
+        "avgPriceDisplay": "$5,295,000",
+        "medianPrice": 5295000,
+        "avgSqft": 4858,
+        "avgPricePerSqFt": 1090,
+        "avgDom": 153,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092978"
+    },
+    {
+      "name": "Century 393 T/H",
+      "area": "17 - 30A West",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.367394,
+        "lng": -86.229724
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 839000,
+        "avgPriceDisplay": "$839,000",
         "medianPrice": 849000,
         "avgSqft": 1914,
-        "avgPricePerSqFt": 444,
-        "avgDom": 253,
+        "avgPricePerSqFt": 438,
+        "avgDom": 182,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -507,6 +871,206 @@
       },
       "listingsUrlMap": "",
       "searchIdTownhomes": "7092985"
+    },
+    {
+      "name": "Coastal Dunes T/H",
+      "area": "17 - 30A West",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.348628,
+        "lng": -86.228086
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1035000,
+        "avgPriceDisplay": "$1,035,000",
+        "medianPrice": 1075000,
+        "avgSqft": 2340,
+        "avgPricePerSqFt": 442,
+        "avgDom": 20,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7092991"
+    },
+    {
+      "name": "Coastal Grove",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.349433,
+        "lng": -86.228536
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1362400,
+        "avgPriceDisplay": "$1,362,400",
+        "medianPrice": 1373000,
+        "avgSqft": 2213,
+        "avgPricePerSqFt": 616,
+        "avgDom": 161,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092993"
+    },
+    {
+      "name": "Colleens Cove",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.348991,
+        "lng": -86.229384
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4150000,
+        "avgPriceDisplay": "$4,150,000",
+        "medianPrice": 4150000,
+        "avgSqft": 5992,
+        "avgPricePerSqFt": 693,
+        "avgDom": 85,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "urlSlug": "7092994"
+    },
+    {
+      "name": "Costa Blanca Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.346785,
+        "lng": -86.231264
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 4300000,
+        "avgPriceDisplay": "$4,300,000",
+        "medianPrice": 4400000,
+        "avgSqft": 2725,
+        "avgPricePerSqFt": 1578,
+        "avgDom": 55,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "7093005"
     },
     {
       "name": "Cottage Grove T/H",
@@ -561,6 +1125,56 @@
       "urlSlug": "/30a/cottage-grove/"
     },
     {
+      "name": "Country Club Hills",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.36373,
+        "lng": -86.243288
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1285000,
+        "avgPriceDisplay": "$1,285,000",
+        "medianPrice": 1285000,
+        "avgSqft": 2369,
+        "avgPricePerSqFt": 542,
+        "avgDom": 114,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Golf",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Courtyards Of Santa Rosa Beach T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
@@ -613,12 +1227,12 @@
       "searchIdTownhomes": "7093023"
     },
     {
-      "name": "Cypress Breeze Plantation",
+      "name": "Crest Development",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.354974,
-        "lng": -86.22463
+        "lat": 30.340766,
+        "lng": -86.202102
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -628,12 +1242,120 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1143000,
-        "avgPriceDisplay": "$1,143,000",
-        "medianPrice": 986000,
-        "avgSqft": 2542,
-        "avgPricePerSqFt": 450,
-        "avgDom": 191,
+        "avgPrice": 2799250,
+        "avgPriceDisplay": "$2,799,250",
+        "medianPrice": 2799500,
+        "avgSqft": 3497,
+        "avgPricePerSqFt": 800,
+        "avgDom": 46,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "4709056",
+      "urlSlug": "/30a/the-crest/"
+    },
+    {
+      "name": "Cypress Breeze Plantation",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.356695,
+        "lng": -86.224024
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 1213096,
+        "avgPriceDisplay": "$1,213,096",
+        "medianPrice": 1150000,
+        "avgSqft": 2749,
+        "avgPricePerSqFt": 441,
+        "avgDom": 89,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "4715436",
+      "searchIdTownhomes": "7080944",
+      "searchIdLots": "7080948",
+      "urlSlug": "/30a/cypress-breeze-plantation/"
+    },
+    {
+      "name": "Cypress Breeze Plantation T/H",
+      "area": "17 - 30A West",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.358194,
+        "lng": -86.225585
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 849900,
+        "avgPriceDisplay": "$849,900",
+        "medianPrice": 849900,
+        "avgSqft": 2717,
+        "avgPricePerSqFt": 313,
+        "avgDom": 63,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -672,8 +1394,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.362223,
-        "lng": -86.269611
+        "lat": 30.361503,
+        "lng": -86.269921
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -682,13 +1404,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 1240750,
-        "avgPriceDisplay": "$1,240,750",
-        "medianPrice": 1149999,
-        "avgSqft": 2179,
-        "avgPricePerSqFt": 569,
-        "avgDom": 231,
+        "listingCount": 7,
+        "avgPrice": 1365761,
+        "avgPriceDisplay": "$1,365,761",
+        "medianPrice": 1345000,
+        "avgSqft": 2345,
+        "avgPricePerSqFt": 582,
+        "avgDom": 179,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -711,7 +1433,9 @@
         "Fitness",
         "Gated",
         "No Short-Term",
+        "Pet-Friendly",
         "Pool",
+        "Short-Term",
         "Tennis"
       ],
       "photos": {
@@ -774,6 +1498,57 @@
       "urlSlug": "7093051"
     },
     {
+      "name": "Draper Lake Coastal Village",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.347596,
+        "lng": -86.214535
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 3580000,
+        "avgPriceDisplay": "$3,580,000",
+        "medianPrice": 3650000,
+        "avgSqft": 3174,
+        "avgPricePerSqFt": 1128,
+        "avgDom": 58,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Duncan",
       "area": "17 - 30A West",
       "propertyType": "Homes",
@@ -827,8 +1602,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.356078,
-        "lng": -86.248546
+        "lat": 30.353245,
+        "lng": -86.243307
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -837,13 +1612,64 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 2733500,
-        "avgPriceDisplay": "$2,733,500",
+        "listingCount": 9,
+        "avgPrice": 4726737,
+        "avgPriceDisplay": "$4,726,737",
         "medianPrice": 2750000,
-        "avgSqft": 3253,
-        "avgPricePerSqFt": 840,
-        "avgDom": 458,
+        "avgSqft": 3472,
+        "avgPricePerSqFt": 1362,
+        "avgDom": 140,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "3579828",
+      "searchIdLots": "7080911",
+      "urlSlug": "/30a/dune-allen/"
+    },
+    {
+      "name": "Dune Breeze Villas T/H",
+      "area": "17 - 30A West",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.354406,
+        "lng": -86.245848
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1030000,
+        "avgPriceDisplay": "$1,030,000",
+        "medianPrice": 1000000,
+        "avgSqft": 2340,
+        "avgPricePerSqFt": 440,
+        "avgDom": 81,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -863,24 +1689,24 @@
       },
       "amenities": [
         "Beach Access",
-        "Short-Term"
+        "Pool",
+        "Short-Term",
+        "Waterfront"
       ],
       "photos": {
         "hero": "",
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdHomes": "3579828",
-      "searchIdLots": "7080911",
-      "urlSlug": "/30a/dune-allen/"
+      "searchIdTownhomes": "7093095"
     },
     {
       "name": "Escada",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.365347,
-        "lng": -86.255812
+        "lat": 30.365709,
+        "lng": -86.256818
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -889,13 +1715,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 627600,
-        "avgPriceDisplay": "$627,600",
-        "medianPrice": 654000,
-        "avgSqft": 2193,
-        "avgPricePerSqFt": 286,
-        "avgDom": 228,
+        "listingCount": 7,
+        "avgPrice": 594218,
+        "avgPriceDisplay": "$594,218",
+        "medianPrice": 645000,
+        "avgSqft": 2157,
+        "avgPricePerSqFt": 275,
+        "avgDom": 135,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -929,7 +1755,7 @@
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
-        "lat": 30.366839,
+        "lat": 30.366671,
         "lng": -86.257848
       },
       "location": {
@@ -939,13 +1765,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 417598,
-        "avgPriceDisplay": "$417,598",
-        "medianPrice": 415000,
-        "avgSqft": 1627,
-        "avgPricePerSqFt": 257,
-        "avgDom": 223,
+        "listingCount": 5,
+        "avgPrice": 422822,
+        "avgPriceDisplay": "$422,822",
+        "medianPrice": 424900,
+        "avgSqft": 1592,
+        "avgPricePerSqFt": 266,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -964,7 +1790,6 @@
         "maxDom": null
       },
       "amenities": [
-        "Clubhouse",
         "No Short-Term",
         "Pet-Friendly",
         "Pool"
@@ -980,8 +1805,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.350476,
-        "lng": -86.215636
+        "lat": 30.349653,
+        "lng": -86.21551
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -990,13 +1815,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 1658500,
-        "avgPriceDisplay": "$1,658,500",
-        "medianPrice": 1625000,
-        "avgSqft": 2685,
-        "avgPricePerSqFt": 618,
-        "avgDom": 222,
+        "listingCount": 4,
+        "avgPrice": 1540400,
+        "avgPriceDisplay": "$1,540,400",
+        "medianPrice": 1595000,
+        "avgSqft": 2435,
+        "avgPricePerSqFt": 633,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1047,12 +1872,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1499000,
-        "avgPriceDisplay": "$1,499,000",
-        "medianPrice": 1499000,
-        "avgSqft": 2304,
-        "avgPricePerSqFt": 651,
-        "avgDom": 529,
+        "avgPrice": 1724500,
+        "avgPriceDisplay": "$1,724,500",
+        "medianPrice": 1950000,
+        "avgSqft": 2772,
+        "avgPricePerSqFt": 622,
+        "avgDom": 276,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1086,8 +1911,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.329387,
-        "lng": -86.165937
+        "lat": 30.330635,
+        "lng": -86.167007
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1096,13 +1921,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 6555857,
-        "avgPriceDisplay": "$6,555,857",
-        "medianPrice": 5495000,
-        "avgSqft": 3739,
-        "avgPricePerSqFt": 1753,
-        "avgDom": 194,
+        "listingCount": 7,
+        "avgPrice": 5404688,
+        "avgPriceDisplay": "$5,404,688",
+        "medianPrice": 4495000,
+        "avgSqft": 3228,
+        "avgPricePerSqFt": 1674,
+        "avgDom": 114,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1131,6 +1956,104 @@
       "searchIdHomes": "385909",
       "searchIdLots": "385912",
       "urlSlug": "/30a/grayton-beach/"
+    },
+    {
+      "name": "Grayton Beach Village Square",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.343902,
+        "lng": -86.163321
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1182000,
+        "avgPriceDisplay": "$1,182,000",
+        "medianPrice": 1369000,
+        "avgSqft": 1975,
+        "avgPricePerSqFt": 598,
+        "avgDom": 52,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Grayton Cove",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.343489,
+        "lng": -86.1632
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1087000,
+        "avgPriceDisplay": "$1,087,000",
+        "medianPrice": 1299000,
+        "avgSqft": 2291,
+        "avgPricePerSqFt": 474,
+        "avgDom": 68,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7093145"
     },
     {
       "name": "Gulf Hills Estates",
@@ -1181,12 +2104,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Gulf Place Cabanas Condos",
+      "name": "Gulf Landing",
       "area": "17 - 30A West",
-      "propertyType": "Condos",
+      "propertyType": "Homes",
       "position": {
-        "lat": 30.347856,
-        "lng": -86.231557
+        "lat": 30.349338,
+        "lng": -86.221838
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1195,13 +2118,62 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 539750,
-        "avgPriceDisplay": "$539,750",
-        "medianPrice": 525000,
-        "avgSqft": 610,
-        "avgPricePerSqFt": 884,
-        "avgDom": 377,
+        "listingCount": 1,
+        "avgPrice": 1080000,
+        "avgPriceDisplay": "$1,080,000",
+        "medianPrice": 1080000,
+        "avgSqft": 1932,
+        "avgPricePerSqFt": 559,
+        "avgDom": 125,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Place Cabanas Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.347856,
+        "lng": -86.231687
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 517800,
+        "avgPriceDisplay": "$517,800",
+        "medianPrice": 495000,
+        "avgSqft": 609,
+        "avgPricePerSqFt": 850,
+        "avgDom": 304,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1237,8 +2209,8 @@
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.348468,
-        "lng": -86.232937
+        "lat": 30.348383,
+        "lng": -86.232845
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1247,64 +2219,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 512250,
-        "avgPriceDisplay": "$512,250",
-        "medianPrice": 520000,
-        "avgSqft": 817,
-        "avgPricePerSqFt": 627,
-        "avgDom": 268,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Elevator",
-        "Pool",
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
-      "name": "Gulf Place Residences Condos",
-      "area": "17 - 30A West",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.348624,
-        "lng": -86.230593
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 4,
-        "avgPrice": 834500,
-        "avgPriceDisplay": "$834,500",
-        "medianPrice": 895000,
-        "avgSqft": 1054,
-        "avgPricePerSqFt": 792,
-        "avgDom": 312,
+        "listingCount": 8,
+        "avgPrice": 540790,
+        "avgPriceDisplay": "$540,790",
+        "medianPrice": 550000,
+        "avgSqft": 872,
+        "avgPricePerSqFt": 620,
+        "avgDom": 143,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1336,12 +2257,65 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Gulf Place Town Center Condos",
+      "name": "Gulf Place Residences Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.347377,
-        "lng": -86.230227
+        "lat": 30.34862,
+        "lng": -86.230593
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 866625,
+        "avgPriceDisplay": "$866,625",
+        "medianPrice": 895000,
+        "avgSqft": 1117,
+        "avgPricePerSqFt": 776,
+        "avgDom": 186,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Place Retreat",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.350414,
+        "lng": -86.228411
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1351,12 +2325,60 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 499000,
-        "avgPriceDisplay": "$499,000",
-        "medianPrice": 499000,
-        "avgSqft": 593,
-        "avgPricePerSqFt": 841,
-        "avgDom": 284,
+        "avgPrice": 1559000,
+        "avgPriceDisplay": "$1,559,000",
+        "medianPrice": 1559000,
+        "avgSqft": 2600,
+        "avgPricePerSqFt": 600,
+        "avgDom": 118,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Place Town Center Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.347488,
+        "lng": -86.230227
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 475167,
+        "avgPriceDisplay": "$475,167",
+        "medianPrice": 478000,
+        "avgSqft": 611,
+        "avgPricePerSqFt": 778,
+        "avgDom": 112,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1402,13 +2424,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 997500,
-        "avgPriceDisplay": "$997,500",
-        "medianPrice": 1100000,
-        "avgSqft": 2004,
-        "avgPricePerSqFt": 498,
-        "avgDom": 328,
+        "listingCount": 2,
+        "avgPrice": 968250,
+        "avgPriceDisplay": "$968,250",
+        "medianPrice": 999000,
+        "avgSqft": 2026,
+        "avgPricePerSqFt": 478,
+        "avgDom": 214,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1427,6 +2449,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -1441,8 +2464,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.333222,
-        "lng": -86.176769
+        "lat": 30.332109,
+        "lng": -86.17718
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1451,13 +2474,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 4895000,
-        "avgPriceDisplay": "$4,895,000",
-        "medianPrice": 7250000,
-        "avgSqft": 3610,
-        "avgPricePerSqFt": 1356,
-        "avgDom": 220,
+        "listingCount": 3,
+        "avgPrice": 3747500,
+        "avgPriceDisplay": "$3,747,500",
+        "medianPrice": 2600000,
+        "avgSqft": 3396,
+        "avgPricePerSqFt": 1103,
+        "avgDom": 134,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1493,8 +2516,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.348134,
-        "lng": -86.218781
+        "lat": 30.347656,
+        "lng": -86.219531
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1503,13 +2526,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 8,
-        "avgPrice": 1941286,
-        "avgPriceDisplay": "$1,941,286",
+        "listingCount": 17,
+        "avgPrice": 2046164,
+        "avgPriceDisplay": "$2,046,164",
         "medianPrice": 1699000,
-        "avgSqft": 3066,
-        "avgPricePerSqFt": 633,
-        "avgDom": 257,
+        "avgSqft": 3048,
+        "avgPricePerSqFt": 671,
+        "avgDom": 139,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1544,8 +2567,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.359915,
-        "lng": -86.253008
+        "lat": 30.359436,
+        "lng": -86.255034
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1555,12 +2578,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 1230000,
-        "avgPriceDisplay": "$1,230,000",
-        "medianPrice": 1550000,
-        "avgSqft": 2268,
-        "avgPricePerSqFt": 542,
-        "avgDom": 182,
+        "avgPrice": 1141667,
+        "avgPriceDisplay": "$1,141,667",
+        "medianPrice": 965000,
+        "avgSqft": 2057,
+        "avgPricePerSqFt": 555,
+        "avgDom": 134,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1588,12 +2611,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Highland Parks",
+      "name": "Hidden Lake Condos",
       "area": "17 - 30A West",
-      "propertyType": "Homes",
+      "propertyType": "Condos",
       "position": {
-        "lat": 30.347452,
-        "lng": -86.203284
+        "lat": 30.347388,
+        "lng": -86.222438
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1602,13 +2625,65 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 1137750,
-        "avgPriceDisplay": "$1,137,750",
-        "medianPrice": 1200000,
-        "avgSqft": 2284,
-        "avgPricePerSqFt": 498,
-        "avgDom": 284,
+        "listingCount": 1,
+        "avgPrice": 636750,
+        "avgPriceDisplay": "$636,750",
+        "medianPrice": 650000,
+        "avgSqft": 1071,
+        "avgPricePerSqFt": 595,
+        "avgDom": 204,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Highland Parks",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.347452,
+        "lng": -86.203216
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 14,
+        "avgPrice": 1084915,
+        "avgPriceDisplay": "$1,084,915",
+        "medianPrice": 1090000,
+        "avgSqft": 2204,
+        "avgPricePerSqFt": 492,
+        "avgDom": 157,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1641,7 +2716,7 @@
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.340973,
+        "lat": 30.340456,
         "lng": -86.208908
       },
       "location": {
@@ -1651,13 +2726,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 950000,
-        "avgPriceDisplay": "$950,000",
-        "medianPrice": 950000,
-        "avgSqft": 1618,
-        "avgPricePerSqFt": 587,
-        "avgDom": 226,
+        "listingCount": 2,
+        "avgPrice": 1525000,
+        "avgPriceDisplay": "$1,525,000",
+        "medianPrice": 1750000,
+        "avgSqft": 1710,
+        "avgPricePerSqFt": 892,
+        "avgDom": 109,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1697,7 +2772,7 @@
       "propertyType": "Condos",
       "position": {
         "lat": 30.347378,
-        "lng": -86.231057
+        "lng": -86.230953
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1706,13 +2781,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 449000,
-        "avgPriceDisplay": "$449,000",
+        "listingCount": 2,
+        "avgPrice": 438000,
+        "avgPriceDisplay": "$438,000",
         "medianPrice": 449000,
-        "avgSqft": 765,
-        "avgPricePerSqFt": 587,
-        "avgDom": 257,
+        "avgSqft": 543,
+        "avgPricePerSqFt": 807,
+        "avgDom": 123,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1744,12 +2819,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Lakeview",
+      "name": "Lake Place At Grayton Beach",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.369062,
-        "lng": -86.243958
+        "lat": 30.334229,
+        "lng": -86.164319
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1759,12 +2834,113 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 1147600,
-        "avgPriceDisplay": "$1,147,600",
-        "medianPrice": 999999,
-        "avgSqft": 2988,
-        "avgPricePerSqFt": 384,
-        "avgDom": 134,
+        "avgPrice": 2953400,
+        "avgPriceDisplay": "$2,953,400",
+        "medianPrice": 2450000,
+        "avgSqft": 2797,
+        "avgPricePerSqFt": 1056,
+        "avgDom": 122,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakeside At Blue Mountain Beach",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.343296,
+        "lng": -86.200046
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1459723,
+        "avgPriceDisplay": "$1,459,723",
+        "medianPrice": 1375000,
+        "avgSqft": 2533,
+        "avgPricePerSqFt": 576,
+        "avgDom": 110,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakeview",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.368868,
+        "lng": -86.243618
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1095599,
+        "avgPriceDisplay": "$1,095,599",
+        "medianPrice": 999000,
+        "avgSqft": 2998,
+        "avgPricePerSqFt": 365,
+        "avgDom": 107,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1792,7 +2968,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100436"
     },
     {
       "name": "Legends Of Santa Rosa Beach T/H",
@@ -1898,8 +3075,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.344169,
-        "lng": -86.217836
+        "lat": 30.344339,
+        "lng": -86.219085
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1908,13 +3085,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 4013000,
-        "avgPriceDisplay": "$4,013,000",
+        "listingCount": 3,
+        "avgPrice": 3673429,
+        "avgPriceDisplay": "$3,673,429",
         "medianPrice": 3490000,
-        "avgSqft": 3312,
-        "avgPricePerSqFt": 1212,
-        "avgDom": 248,
+        "avgSqft": 3369,
+        "avgPricePerSqFt": 1090,
+        "avgDom": 166,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1961,13 +3138,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 954000,
-        "avgPriceDisplay": "$954,000",
+        "listingCount": 4,
+        "avgPrice": 994250,
+        "avgPriceDisplay": "$994,250",
         "medianPrice": 999000,
-        "avgSqft": 1381,
-        "avgPricePerSqFt": 691,
-        "avgDom": 260,
+        "avgSqft": 1429,
+        "avgPricePerSqFt": 696,
+        "avgDom": 206,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2000,8 +3177,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.349872,
-        "lng": -86.223756
+        "lat": 30.349765,
+        "lng": -86.224063
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2010,13 +3187,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 888475,
-        "avgPriceDisplay": "$888,475",
-        "medianPrice": 899000,
-        "avgSqft": 1698,
+        "listingCount": 3,
+        "avgPrice": 871543,
+        "avgPriceDisplay": "$871,543",
+        "medianPrice": 849000,
+        "avgSqft": 1666,
         "avgPricePerSqFt": 523,
-        "avgDom": 164,
+        "avgDom": 115,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2035,6 +3212,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Gated",
         "Pool",
         "Short-Term"
       ],
@@ -2046,12 +3224,12 @@
       "searchIdHomes": "7100331"
     },
     {
-      "name": "Palms North Condos",
+      "name": "Oyster Lake",
       "area": "17 - 30A West",
-      "propertyType": "Condos",
+      "propertyType": "Homes",
       "position": {
-        "lat": 30.35052,
-        "lng": -86.2389
+        "lat": 30.354475,
+        "lng": -86.244965
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2060,13 +3238,63 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 802486,
-        "avgPriceDisplay": "$802,486",
-        "medianPrice": 835000,
-        "avgSqft": 1073,
-        "avgPricePerSqFt": 748,
-        "avgDom": 238,
+        "listingCount": 1,
+        "avgPrice": 2949500,
+        "avgPriceDisplay": "$2,949,500",
+        "medianPrice": 4300000,
+        "avgSqft": 2867,
+        "avgPricePerSqFt": 1029,
+        "avgDom": 46,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100330"
+    },
+    {
+      "name": "Palms North Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.35052,
+        "lng": -86.238916
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 781589,
+        "avgPriceDisplay": "$781,589",
+        "medianPrice": 775000,
+        "avgSqft": 1089,
+        "avgPricePerSqFt": 718,
+        "avgDom": 214,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2101,8 +3329,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.365192,
-        "lng": -86.267768
+        "lat": 30.365154,
+        "lng": -86.267801
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2112,12 +3340,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 1016811,
-        "avgPriceDisplay": "$1,016,811",
+        "avgPrice": 1025196,
+        "avgPriceDisplay": "$1,025,196",
         "medianPrice": 1031000,
-        "avgSqft": 2703,
-        "avgPricePerSqFt": 376,
-        "avgDom": 450,
+        "avgSqft": 2714,
+        "avgPricePerSqFt": 378,
+        "avgDom": 412,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2200,7 +3428,7 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.350573,
+        "lat": 30.351107,
         "lng": -86.20657
       },
       "location": {
@@ -2210,13 +3438,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 2072250,
-        "avgPriceDisplay": "$2,072,250",
-        "medianPrice": 2825000,
-        "avgSqft": 2922,
-        "avgPricePerSqFt": 709,
-        "avgDom": 140,
+        "listingCount": 4,
+        "avgPrice": 2460500,
+        "avgPriceDisplay": "$2,460,500",
+        "medianPrice": 3075000,
+        "avgSqft": 3118,
+        "avgPricePerSqFt": 789,
+        "avgDom": 123,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2249,7 +3477,7 @@
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.370959,
+        "lat": 30.370846,
         "lng": -86.226426
       },
       "location": {
@@ -2259,13 +3487,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 474915,
-        "avgPriceDisplay": "$474,915",
+        "listingCount": 4,
+        "avgPrice": 482943,
+        "avgPriceDisplay": "$482,943",
         "medianPrice": 599760,
-        "avgSqft": 1017,
-        "avgPricePerSqFt": 467,
-        "avgDom": 342,
+        "avgSqft": 1022,
+        "avgPricePerSqFt": 473,
+        "avgDom": 236,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2287,7 +3515,6 @@
         "Clubhouse",
         "Elevator",
         "Fitness",
-        "Gated",
         "Pool",
         "Short-Term"
       ],
@@ -2304,8 +3531,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.340377,
-        "lng": -86.192158
+        "lat": 30.340369,
+        "lng": -86.191277
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2314,13 +3541,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 2549500,
-        "avgPriceDisplay": "$2,549,500",
-        "medianPrice": 2599000,
-        "avgSqft": 3187,
-        "avgPricePerSqFt": 800,
-        "avgDom": 164,
+        "listingCount": 2,
+        "avgPrice": 1912399,
+        "avgPriceDisplay": "$1,912,399",
+        "medianPrice": 1599000,
+        "avgSqft": 2940,
+        "avgPricePerSqFt": 651,
+        "avgDom": 98,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2340,6 +3567,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
@@ -2354,6 +3582,59 @@
       "listingsUrlMap": "",
       "searchIdHomes": "3136948",
       "searchIdLots": "7100363"
+    },
+    {
+      "name": "Preserve Place Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.340541,
+        "lng": -86.19455
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 824000,
+        "avgPriceDisplay": "$824,000",
+        "medianPrice": 849000,
+        "avgSqft": 1797,
+        "avgPricePerSqFt": 459,
+        "avgDom": 65,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pet-Friendly",
+        "Pickleball",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
     },
     {
       "name": "Redfish Lane",
@@ -2411,8 +3692,8 @@
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.341444,
-        "lng": -86.200044
+        "lat": 30.341363,
+        "lng": -86.199998
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2421,13 +3702,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 765000,
-        "avgPriceDisplay": "$765,000",
-        "medianPrice": 765000,
-        "avgSqft": 1185,
-        "avgPricePerSqFt": 646,
-        "avgDom": 263,
+        "listingCount": 4,
+        "avgPrice": 893222,
+        "avgPriceDisplay": "$893,222",
+        "medianPrice": 785000,
+        "avgSqft": 1368,
+        "avgPricePerSqFt": 653,
+        "avgDom": 94,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2448,11 +3729,112 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Elevator",
         "Fitness",
         "Playgrounds",
         "Pool",
-        "Short-Term",
-        "Waterfront"
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Ridgewalk",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.357046,
+        "lng": -86.226333
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1456061,
+        "avgPriceDisplay": "$1,456,061",
+        "medianPrice": 1499000,
+        "avgSqft": 2403,
+        "avgPricePerSqFt": 606,
+        "avgDom": 76,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "3617902",
+      "urlSlug": "/30a/ridgewalk/"
+    },
+    {
+      "name": "Rolling Dunes",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.343702,
+        "lng": -86.202086
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2610000,
+        "avgPriceDisplay": "$2,610,000",
+        "medianPrice": 2995000,
+        "avgSqft": 2776,
+        "avgPricePerSqFt": 940,
+        "avgDom": 24,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -2466,7 +3848,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.342406,
-        "lng": -86.202285
+        "lng": -86.201917
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2475,13 +3857,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 1894500,
-        "avgPriceDisplay": "$1,894,500",
+        "listingCount": 4,
+        "avgPrice": 2168375,
+        "avgPriceDisplay": "$2,168,375",
         "medianPrice": 1900000,
-        "avgSqft": 2841,
-        "avgPricePerSqFt": 667,
-        "avgDom": 390,
+        "avgSqft": 3455,
+        "avgPricePerSqFt": 628,
+        "avgDom": 242,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2513,8 +3895,8 @@
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.339267,
-        "lng": -86.194276
+        "lat": 30.339306,
+        "lng": -86.194009
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2523,69 +3905,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 1125000,
-        "avgPriceDisplay": "$1,125,000",
-        "medianPrice": 1125000,
-        "avgSqft": 1778,
-        "avgPricePerSqFt": 633,
-        "avgDom": 610,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Elevator",
-        "Fitness",
-        "Gated",
-        "Pet-Friendly",
-        "Pool",
-        "Short-Term",
-        "Waterfront"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdCondos": "3583506",
-      "urlSlug": "/30a/sanctuary-at-redfish/"
-    },
-    {
-      "name": "Sanctuary By The Sea Condos",
-      "area": "17 - 30A West",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.337972,
-        "lng": -86.188774
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 2849500,
-        "avgPriceDisplay": "$2,849,500",
-        "medianPrice": 2900000,
-        "avgSqft": 3158,
-        "avgPricePerSqFt": 902,
-        "avgDom": 348,
+        "listingCount": 4,
+        "avgPrice": 971000,
+        "avgPriceDisplay": "$971,000",
+        "medianPrice": 1175000,
+        "avgSqft": 1586,
+        "avgPricePerSqFt": 612,
+        "avgDom": 170,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2608,6 +3934,64 @@
         "Elevator",
         "Fitness",
         "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdCondos": "3583506",
+      "urlSlug": "/30a/sanctuary-at-redfish/"
+    },
+    {
+      "name": "Sanctuary By The Sea Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.337258,
+        "lng": -86.189315
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3099667,
+        "avgPriceDisplay": "$3,099,667",
+        "medianPrice": 2900000,
+        "avgSqft": 3438,
+        "avgPricePerSqFt": 902,
+        "avgDom": 255,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pool",
@@ -2620,6 +4004,55 @@
       "listingsUrlMap": "",
       "searchIdCondos": "4024381",
       "urlSlug": "/30a/sanctuary-by-the-sea/"
+    },
+    {
+      "name": "Sandcastles By The Sea",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.340113,
+        "lng": -86.202223
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2200000,
+        "avgPriceDisplay": "$2,200,000",
+        "medianPrice": 2200000,
+        "avgSqft": 2362,
+        "avgPricePerSqFt": 931,
+        "avgDom": 128,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100376"
     },
     {
       "name": "Santa Rosa Dunes",
@@ -2720,12 +4153,12 @@
       "searchIdHomes": "7100385"
     },
     {
-      "name": "Satinwood Place",
+      "name": "Santa Rosa Ridge",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.347382,
-        "lng": -86.222046
+        "lat": 30.358331,
+        "lng": -86.234112
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2734,13 +4167,62 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 1090000,
-        "avgPriceDisplay": "$1,090,000",
+        "listingCount": 7,
+        "avgPrice": 1432117,
+        "avgPriceDisplay": "$1,432,117",
+        "medianPrice": 1100000,
+        "avgSqft": 2373,
+        "avgPricePerSqFt": 603,
+        "avgDom": 54,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100388"
+    },
+    {
+      "name": "Satinwood Place",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.347382,
+        "lng": -86.221896
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1042500,
+        "avgPriceDisplay": "$1,042,500",
         "medianPrice": 1090000,
-        "avgSqft": 1857,
-        "avgPricePerSqFt": 587,
-        "avgDom": 275,
+        "avgSqft": 1946,
+        "avgPricePerSqFt": 536,
+        "avgDom": 172,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2820,12 +4302,12 @@
       "searchIdTownhomes": "7100391"
     },
     {
-      "name": "Sea Croft Cottages",
+      "name": "Sea Bluffs T/H",
       "area": "17 - 30A West",
-      "propertyType": "Homes",
+      "propertyType": "Townhomes",
       "position": {
-        "lat": 30.352202,
-        "lng": -86.225809
+        "lat": 30.339145,
+        "lng": -86.203499
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2834,12 +4316,63 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 2038000,
-        "avgPriceDisplay": "$2,038,000",
+        "listingCount": 2,
+        "avgPrice": 1949500,
+        "avgPriceDisplay": "$1,949,500",
+        "medianPrice": 2199000,
+        "avgSqft": 1600,
+        "avgPricePerSqFt": 1218,
+        "avgDom": 121,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7100391"
+    },
+    {
+      "name": "Sea Croft Cottages",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.352055,
+        "lng": -86.226253
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1992714,
+        "avgPriceDisplay": "$1,992,714",
         "medianPrice": 1869000,
-        "avgSqft": 3583,
-        "avgPricePerSqFt": 569,
+        "avgSqft": 3465,
+        "avgPricePerSqFt": 575,
         "avgDom": 59,
         "priceRange": "N/A",
         "minPrice": null,
@@ -2870,12 +4403,60 @@
       "searchIdHomes": "7100393"
     },
     {
-      "name": "Serenity At Dune Allen",
+      "name": "Sea Dunes",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.357747,
-        "lng": -86.253582
+        "lat": 30.358523,
+        "lng": -86.248938
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1081000,
+        "avgPriceDisplay": "$1,081,000",
+        "medianPrice": 915000,
+        "avgSqft": 2135,
+        "avgPricePerSqFt": 506,
+        "avgDom": 34,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seahaunts T/H",
+      "area": "17 - 30A West",
+      "propertyType": "Townhomes",
+      "position": {
+        "lat": 30.345838,
+        "lng": -86.22496
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2885,12 +4466,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 973350,
-        "avgPriceDisplay": "$973,350",
-        "medianPrice": 949500,
-        "avgSqft": 2015,
-        "avgPricePerSqFt": 483,
-        "avgDom": 174,
+        "avgPrice": 1194500,
+        "avgPriceDisplay": "$1,194,500",
+        "medianPrice": 1349000,
+        "avgSqft": 1331,
+        "avgPricePerSqFt": 897,
+        "avgDom": 6,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2916,16 +4497,15 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7088298"
+      "listingsUrlMap": ""
     },
     {
-      "name": "The Retreat",
+      "name": "Serenity At Dune Allen",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.34324,
-        "lng": -86.214058
+        "lat": 30.358064,
+        "lng": -86.253594
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2934,13 +4514,365 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 7572500,
-        "avgPriceDisplay": "$7,572,500",
-        "medianPrice": 7750000,
-        "avgSqft": 6102,
-        "avgPricePerSqFt": 1241,
-        "avgDom": 494,
+        "listingCount": 10,
+        "avgPrice": 1272893,
+        "avgPriceDisplay": "$1,272,893",
+        "medianPrice": 1100000,
+        "avgSqft": 2541,
+        "avgPricePerSqFt": 501,
+        "avgDom": 99,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088298"
+    },
+    {
+      "name": "Shadow Pines",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.350185,
+        "lng": -86.226554
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1006000,
+        "avgPriceDisplay": "$1,006,000",
+        "medianPrice": 1100000,
+        "avgSqft": 2199,
+        "avgPricePerSqFt": 457,
+        "avgDom": 128,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "South Shores",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.349363,
+        "lng": -86.229494
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1995000,
+        "avgPriceDisplay": "$1,995,000",
+        "medianPrice": 1995000,
+        "avgSqft": 2238,
+        "avgPricePerSqFt": 891,
+        "avgDom": 63,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100288"
+    },
+    {
+      "name": "Stallworth Preserve",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.355978,
+        "lng": -86.261844
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4899900,
+        "avgPriceDisplay": "$4,899,900",
+        "medianPrice": 4899900,
+        "avgSqft": 3908,
+        "avgPricePerSqFt": 1254,
+        "avgDom": 9,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100294"
+    },
+    {
+      "name": "Sugar Sands Estates",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.366738,
+        "lng": -86.253874
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 815967,
+        "avgPriceDisplay": "$815,967",
+        "medianPrice": 794900,
+        "avgSqft": 2187,
+        "avgPricePerSqFt": 373,
+        "avgDom": 112,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "4708988",
+      "urlSlug": "/30a/sugar-sands-estates/"
+    },
+    {
+      "name": "Summer Ridge",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.357505,
+        "lng": -86.230008
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1210000,
+        "avgPriceDisplay": "$1,210,000",
+        "medianPrice": 1250000,
+        "avgSqft": 2202,
+        "avgPricePerSqFt": 550,
+        "avgDom": 85,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100299"
+    },
+    {
+      "name": "The Cove",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.351284,
+        "lng": -86.226505
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1699000,
+        "avgPriceDisplay": "$1,699,000",
+        "medianPrice": 1699000,
+        "avgSqft": 2830,
+        "avgPricePerSqFt": 600,
+        "avgDom": 50,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "The Retreat",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.341837,
+        "lng": -86.213655
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 8163222,
+        "avgPriceDisplay": "$8,163,222",
+        "medianPrice": 7950000,
+        "avgSqft": 5304,
+        "avgPricePerSqFt": 1539,
+        "avgDom": 154,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2962,6 +4894,7 @@
         "Beach Access",
         "Gated",
         "No Short-Term",
+        "Pet-Friendly",
         "Pool",
         "Waterfront"
       ],
@@ -3030,7 +4963,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.370699,
-        "lng": -86.243975
+        "lng": -86.241873
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -3039,13 +4972,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 674900,
-        "avgPriceDisplay": "$674,900",
-        "medianPrice": 674900,
-        "avgSqft": 1861,
-        "avgPricePerSqFt": 363,
-        "avgDom": 251,
+        "listingCount": 2,
+        "avgPrice": 736950,
+        "avgPriceDisplay": "$736,950",
+        "medianPrice": 799000,
+        "avgSqft": 2010,
+        "avgPricePerSqFt": 367,
+        "avgDom": 162,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3064,8 +4997,7 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pet-Friendly"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -3074,6 +5006,55 @@
       "listingsUrlMap": "",
       "searchIdHomes": "4709005",
       "urlSlug": "/30a/thompson-woods/"
+    },
+    {
+      "name": "Topsail Village Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.363271,
+        "lng": -86.263261
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 413986,
+        "avgPriceDisplay": "$413,986",
+        "medianPrice": 370000,
+        "avgSqft": 1082,
+        "avgPricePerSqFt": 383,
+        "avgDom": 94,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
     },
     {
       "name": "Van Way Beach",
@@ -3129,7 +5110,7 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.346532,
+        "lat": 30.346503,
         "lng": -86.203625
       },
       "location": {
@@ -3140,12 +5121,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 858000,
-        "avgPriceDisplay": "$858,000",
-        "medianPrice": 917000,
-        "avgSqft": 1561,
-        "avgPricePerSqFt": 550,
-        "avgDom": 110,
+        "avgPrice": 754983,
+        "avgPriceDisplay": "$754,983",
+        "medianPrice": 790000,
+        "avgSqft": 1446,
+        "avgPricePerSqFt": 522,
+        "avgDom": 42,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3179,8 +5160,8 @@
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.345461,
-        "lng": -86.202643
+        "lat": 30.345115,
+        "lng": -86.202337
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -3189,13 +5170,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 772474,
-        "avgPriceDisplay": "$772,474",
-        "medianPrice": 749000,
-        "avgSqft": 1466,
-        "avgPricePerSqFt": 527,
-        "avgDom": 312,
+        "listingCount": 4,
+        "avgPrice": 800644,
+        "avgPriceDisplay": "$800,644",
+        "medianPrice": 750000,
+        "avgSqft": 1528,
+        "avgPricePerSqFt": 524,
+        "avgDom": 193,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3244,13 +5225,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 605750,
-        "avgPriceDisplay": "$605,750",
-        "medianPrice": 649000,
-        "avgSqft": 1333,
-        "avgPricePerSqFt": 454,
-        "avgDom": 188,
+        "listingCount": 5,
+        "avgPrice": 614612,
+        "avgPriceDisplay": "$614,612",
+        "medianPrice": 630000,
+        "avgSqft": 1261,
+        "avgPricePerSqFt": 487,
+        "avgDom": 142,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3285,12 +5266,12 @@
       "searchIdLots": "7080817"
     },
     {
-      "name": "Village Of White Cliffs",
+      "name": "Village At Grayton Beach",
       "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.342411,
-        "lng": -86.206499
+        "lat": 30.342881,
+        "lng": -86.163638
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -3299,13 +5280,65 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 2947000,
-        "avgPriceDisplay": "$2,947,000",
+        "listingCount": 3,
+        "avgPrice": 1540000,
+        "avgPriceDisplay": "$1,540,000",
+        "medianPrice": 1875000,
+        "avgSqft": 2882,
+        "avgPricePerSqFt": 534,
+        "avgDom": 95,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7080803",
+      "urlSlug": "/30a/village-at-grayton-beach/"
+    },
+    {
+      "name": "Village Of White Cliffs",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.341483,
+        "lng": -86.207554
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 4304800,
+        "avgPriceDisplay": "$4,304,800",
         "medianPrice": 3495000,
-        "avgSqft": 3748,
-        "avgPricePerSqFt": 786,
-        "avgDom": 219,
+        "avgSqft": 3517,
+        "avgPricePerSqFt": 1224,
+        "avgDom": 131,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3326,9 +5359,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
+        "Pickleball",
         "Pool",
         "Tennis",
         "Waterfront"
@@ -3392,6 +5427,59 @@
       },
       "listingsUrlMap": "",
       "searchIdCondos": "7080776"
+    },
+    {
+      "name": "Vizcaya At Dune Allen",
+      "area": "17 - 30A West",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.349573,
+        "lng": -86.240652
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 5526667,
+        "avgPriceDisplay": "$5,526,667",
+        "medianPrice": 5250000,
+        "avgSqft": 3448,
+        "avgPricePerSqFt": 1603,
+        "avgDom": 75,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7080716"
     },
     {
       "name": "Walton On 30A Condos",

@@ -1,0 +1,57 @@
+{
+  "area": "15 - Miramar/Sandestin Resort",
+  "updated": "2025-12-10T13:47:51.116765",
+  "neighborhoods": [
+    {
+      "name": "Four Mile Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.370589,
+        "lng": -86.317371
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4249500,
+        "avgPriceDisplay": "$4,249,500",
+        "medianPrice": 4699000,
+        "avgSqft": 2089,
+        "avgPricePerSqFt": 2034,
+        "avgDom": 17,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "No Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    }
+  ]
+}
