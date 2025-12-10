@@ -392,12 +392,12 @@ export function showCustomBoundary(zipCode) {
             // Check for either 2020 or 2010 property
             const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
             if (STATE.customBoundaries.has(featureZip)) {
-                const brandColor = getThemeColor('--color-brand');
+                const primaryColor = getThemeColor('--color-primary');
                 return {
-                    strokeColor: brandColor,
+                    strokeColor: primaryColor,
                     strokeWeight: 2.5,
                     strokeOpacity: 0.85,
-                    fillColor: brandColor,
+                    fillColor: primaryColor,
                     fillOpacity: 0.15,
                     clickable: false
                 };
