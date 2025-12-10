@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T12:43:45.057590",
+  "updated": "2025-12-10T13:23:24.782982",
   "neighborhoods": [
     {
       "name": "Adagio Condos",
@@ -2042,7 +2042,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100331"
     },
     {
       "name": "Palms North Condos",
@@ -2142,7 +2143,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "7100346"
     },
     {
       "name": "Penny Lane",
@@ -2190,7 +2192,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100351"
     },
     {
       "name": "Pines Of Blue Mountain",
@@ -2238,7 +2241,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100355"
     },
     {
       "name": "Pinewood 30A Condos",
@@ -2291,7 +2295,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "4033352",
+      "urlSlug": "/30a/pinewood-30a/"
     },
     {
       "name": "Preserve At Grayton Beach",
@@ -2345,7 +2351,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "3136948",
+      "searchIdLots": "7100363"
     },
     {
       "name": "Redfish Lane",
@@ -2552,7 +2560,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "3583506",
+      "urlSlug": "/30a/sanctuary-at-redfish/"
     },
     {
       "name": "Sanctuary By The Sea Condos",
@@ -2607,7 +2617,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "4024381",
+      "urlSlug": "/30a/sanctuary-by-the-sea/"
     },
     {
       "name": "Santa Rosa Dunes",
@@ -2655,7 +2667,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100377"
     },
     {
       "name": "Santa Rosa Retreat",
@@ -2703,7 +2716,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100385"
     },
     {
       "name": "Satinwood Place",
@@ -2751,7 +2765,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100389"
     },
     {
       "name": "Sea Bluffs Condos",
@@ -2801,7 +2816,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7100391"
     },
     {
       "name": "Sea Croft Cottages",
@@ -2850,7 +2866,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100393"
     },
     {
       "name": "Serenity At Dune Allen",
@@ -2952,7 +2969,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7089727",
+      "searchIdLots": "7089728"
     },
     {
       "name": "Thirty Blu T/H",

@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-10T12:43:45.055028",
+  "updated": "2025-12-10T13:23:24.780015",
   "neighborhoods": [
     {
       "name": "30A Townhomes",
@@ -3295,7 +3295,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100332"
     },
     {
       "name": "Palm Court At Inlet Beach",
@@ -3344,7 +3345,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100322"
     },
     {
       "name": "Palms At Seagrove Condos",
@@ -3395,7 +3397,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100328"
     },
     {
       "name": "Paradise By The Sea",
@@ -3496,7 +3499,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100334",
+      "searchIdLots": "7100336"
     },
     {
       "name": "Pelican Pointe At Camp Creek",
@@ -3545,7 +3550,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100350"
     },
     {
       "name": "Pinewood Preserve",
@@ -3595,7 +3601,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "4709040",
+      "urlSlug": "/30a/pinewood-preserve/"
     },
     {
       "name": "Pointe 30A Condos",
@@ -3646,7 +3654,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100358"
     },
     {
       "name": "Preserve At Inlet Beach",
@@ -3854,7 +3863,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100366"
     },
     {
       "name": "Rosemary Beach",
@@ -3910,7 +3920,8 @@
       },
       "listingsUrlMap": "",
       "searchIdHomes": "385757",
-      "searchIdCondos": "385758"
+      "searchIdCondos": "385758",
+      "searchIdTownhomes": "385759"
     },
     {
       "name": "Rosemary Beach Condos",
@@ -3967,7 +3978,8 @@
       },
       "listingsUrlMap": "",
       "searchIdHomes": "385757",
-      "searchIdCondos": "385758"
+      "searchIdCondos": "385758",
+      "searchIdTownhomes": "385759"
     },
     {
       "name": "Rosemary Beach T/H",
@@ -4020,7 +4032,8 @@
       },
       "listingsUrlMap": "",
       "searchIdHomes": "385757",
-      "searchIdCondos": "385758"
+      "searchIdCondos": "385758",
+      "searchIdTownhomes": "385759"
     },
     {
       "name": "Sand Cliffs",
@@ -4121,7 +4134,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100373",
+      "searchIdLots": "7100375"
     },
     {
       "name": "Santimo Beach",
