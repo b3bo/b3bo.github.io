@@ -380,6 +380,12 @@ hr.divider {
   transform: translate(-100%, 0) !important;
 }
 
+/* Positive translate for hiding sliding panels off-screen right */
+.translate-x-full {
+  translate: 100% 0 !important;
+  transform: translate(100%, 0) !important;
+}
+
 /* Sidebar peer-checked override (NOT processed by Tailwind) */
 #drawer-toggle:checked ~ #sidebar {
   translate: 0 0 !important;
