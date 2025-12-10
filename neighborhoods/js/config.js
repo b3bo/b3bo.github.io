@@ -16,6 +16,9 @@
  * @author John Bauman
  */
 export const CONFIG = {
+    // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
+    version: '1.0.2',
+
     // ===================================================================
     // MAP SETTINGS
     // ===================================================================

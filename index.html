@@ -215,10 +215,12 @@
 
             /* Short viewports: make sliding panels fixed overlays so they do not
                participate in document flow and therefore avoid double-scrollbar
-               scenarios where both the document and the panel are independently scrollable. */
+               scenarios where both the document and the panel are independently scrollable.
+               NOTE: Do NOT use inset:0 - it overrides translate-x-full and breaks panel hiding. */
             .sliding-panel {
                 position: fixed !important;
-                inset: 0 !important; /* handle all sides (top,right,bottom,left) */
+                top: 0 !important;
+                left: 0 !important;
                 width: 100% !important;
                 height: 100% !important;
             }
@@ -671,7 +673,7 @@
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Version 1.0.1 | <span id="refreshDate">Refresh Dt: 12.06.25</span></p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS · <span id="lastUpdated">Updated Dec 9</span> · <span id="appVersion">v1.0.2</span></p>
                 </div>
             </div>
         </aside>
@@ -708,12 +710,12 @@
         };
     </script>
     <script>
-        // Short refresh date display (keeps the footer compact)
+        // Last updated date display (updated by deploy script)
         (function() {
-            const refreshEl = document.getElementById('refreshDate');
-            if (!refreshEl) return;
-            // Use a short, fixed refresh string to avoid locale/formatting issues.
-            refreshEl.textContent = 'Refresh Dt: 12.06.25';
+            const lastUpdatedEl = document.getElementById('lastUpdated');
+            if (!lastUpdatedEl) return;
+            // Static date - Updated Dec 9_deploy_map.bat on each deploy
+            lastUpdatedEl.textContent = 'Updated Dec 9';
         })();
     </script>
     
