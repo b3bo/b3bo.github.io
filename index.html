@@ -172,7 +172,7 @@
         @media (max-height: 500px) and (orientation: landscape) {
             #sidebar {
                 /* Keep floating card style. Do NOT change width at this height breakpoint
-                   � changing the sidebar width here caused the Results sliding-panel to
+                   — changing the sidebar width here caused the Results sliding-panel to
                    shrink and introduce layout/scroll regressions on short viewports. */
                 height: calc(100dvh - 2rem) !important;
                 max-height: calc(100dvh - 2rem) !important;
@@ -180,6 +180,8 @@
                 border-radius: 1rem !important;
                 /* Keep flex layout */
                 display: flex !important;
+                /* CRITICAL: Clip translated panels so they don't show outside sidebar */
+                overflow: hidden !important;
             }
 
             #sidebar-scroll-container {
