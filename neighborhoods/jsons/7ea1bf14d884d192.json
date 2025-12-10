@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T14:32:25.952735",
+  "updated": "2025-12-10T15:03:39.679939",
   "neighborhoods": [
     {
       "name": "Abacos Condos",
@@ -1748,7 +1748,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100541",
+      "searchIdTownhomes": "7100543"
     },
     {
       "name": "Escada T/H",
@@ -1798,7 +1800,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100541",
+      "searchIdTownhomes": "7100543"
     },
     {
       "name": "Forest Lakes",
@@ -1904,7 +1908,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100538"
     },
     {
       "name": "Grayton Beach",
@@ -3646,7 +3651,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100593"
     },
     {
       "name": "Redfish Lane",
@@ -3697,7 +3703,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100582"
     },
     {
       "name": "Redfish Village Condos",
@@ -3751,7 +3758,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100579"
     },
     {
       "name": "Ridgewalk",
@@ -3900,7 +3908,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100597"
     },
     {
       "name": "Sanctuary At Redfish Condos",

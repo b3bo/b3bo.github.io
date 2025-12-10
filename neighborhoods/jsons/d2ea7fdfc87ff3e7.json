@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-10T14:32:25.949292",
+  "updated": "2025-12-10T15:03:39.676867",
   "neighborhoods": [
     {
       "name": "30A Townhomes",
@@ -1714,12 +1714,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Emerald Hill Gulf Front Condos",
+      "name": "Emerald Hill Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.312012,
-        "lng": -86.114623
+        "lng": -86.114615
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1729,12 +1729,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 2099000,
-        "avgPriceDisplay": "$2,099,000",
+        "avgPrice": 1412000,
+        "avgPriceDisplay": "$1,412,000",
         "medianPrice": 2099000,
-        "avgSqft": 1603,
-        "avgPricePerSqFt": 1309,
-        "avgDom": 260,
+        "avgSqft": 1155,
+        "avgPricePerSqFt": 1223,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1763,7 +1763,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "7100547"
     },
     {
       "name": "Grace Point",
@@ -2025,7 +2026,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100534",
+      "searchIdLots": "7100536"
     },
     {
       "name": "Greenway Park",
@@ -3307,7 +3310,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100444",
+      "searchIdLots": "7100456"
     },
     {
       "name": "Lakewood Estates",
@@ -4496,7 +4501,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100573",
+      "searchIdLots": "7100577"
     },
     {
       "name": "Prominence",
@@ -6612,7 +6619,7 @@
       "propertyType": "Condos",
       "position": {
         "lat": 30.281666,
-        "lng": -86.018926
+        "lng": -86.01885
       },
       "location": {
         "city": "Inlet Beach",
@@ -6621,13 +6628,13 @@
       },
       "zipCode": "32461",
       "stats": {
-        "listingCount": 13,
-        "avgPrice": 688282,
-        "avgPriceDisplay": "$688,282",
+        "listingCount": 14,
+        "avgPrice": 682964,
+        "avgPriceDisplay": "$682,964",
         "medianPrice": 525000,
-        "avgSqft": 711,
-        "avgPricePerSqFt": 968,
-        "avgDom": 249,
+        "avgSqft": 710,
+        "avgPricePerSqFt": 962,
+        "avgDom": 244,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6707,54 +6714,6 @@
       },
       "listingsUrlMap": "",
       "searchIdHomes": "7080786"
-    },
-    {
-      "name": "Villages Of South Walton Beach Condos",
-      "area": "18 - 30A East",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.281618,
-        "lng": -86.018618
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 550000,
-        "avgPriceDisplay": "$550,000",
-        "medianPrice": 550000,
-        "avgSqft": 683,
-        "avgPricePerSqFt": 805,
-        "avgDom": 115,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
     },
     {
       "name": "Villas At Seagrove Beach Condos",

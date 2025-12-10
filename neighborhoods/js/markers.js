@@ -271,7 +271,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     }
     
     const content = `
-        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;">
+        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">
                     ${neighborhood.name}
@@ -391,27 +391,9 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
     targetInfoWindow.open(STATE.map, marker);
-    
-    // Add click listener to close info window when clicking the card
-    // Only for the primary window, as hover window closes on mouseleave
+
+    // Listen for info window close (X button) to deactivate ripple and clear active marker
     if (targetInfoWindow === STATE.infoWindow) {
-        google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
-            const infoWindowDiv = document.querySelector('.gm-style-iw-d');
-            if (infoWindowDiv) {
-                infoWindowDiv.addEventListener('click', (e) => {
-                    // Don't close if clicking the link or buttons
-                    if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
-                        STATE.infoWindow.close();
-                        if (STATE.activeMarker) {
-                            STATE.activeMarker.setIcon(createMarkerIcon(STATE.activeMarker.markerColor, false));
-                        }
-                        STATE.activeMarker = null;
-                    }
-                });
-            }
-        });
-        
-        // Listen for info window close to deactivate ripple and clear active marker
         google.maps.event.clearListeners(STATE.infoWindow, 'closeclick');
         STATE.infoWindow.addListener('closeclick', () => {
             if (STATE.activeMarker) {

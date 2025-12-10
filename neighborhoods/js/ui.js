@@ -32,7 +32,7 @@ export function renderListItems(neighborhoodsToRender) {
             card.setAttribute('role', 'button');
             card.tabIndex = 0;
             card.innerHTML = `
-                <div class="flex justify-between items-start mb-1">
+                <div class="flex justify-between items-start gap-2 mb-1">
                     <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${neighborhood.name}</h3>
                     <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${formattedPrice}</span>
                 </div>
