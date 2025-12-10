@@ -130,13 +130,13 @@
             overflow: hidden !important;
         }
         
-        /* Map container sizing - full screen */
+        /* Map container sizing - leave room for disclaimer at bottom */
         #map-layout {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
+            height: calc(100dvh - 40px);
             z-index: 0;
         }
         
@@ -685,7 +685,7 @@
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS · <span id="lastUpdated">Updated Dec 10</span> · <span id="appVersion">v1.0.8</span></p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS · <span id="lastUpdated">Updated Dec 10</span> · <span id="appVersion">v1.0.9</span></p>
                 </div>
             </div>
         </aside>
@@ -706,11 +706,11 @@
             <!-- Backdrop overlay -->
             <label for="drawer-toggle" id="sidebar-backdrop" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
         </div>
-        
-        <!-- Disclaimer (hidden on single neighborhood embeds) -->
-        <div id="map-disclaimer" class="border-t border-neutral-200 dark:border-dark-border px-4 py-3 text-center bg-white/70 dark:bg-dark-bg-elevated/70 backdrop-blur-md">
-            <p class="text-xs text-neutral-500 leading-relaxed">
-                -� <span id="currentYear">2025</span> Kimberly Bauman, P.A. |  All Rights Reserved | All information provided is deemed reliable but is not guaranteed and should be independently verified. Property data sourced from ECAR MLS.
+
+        <!-- Disclaimer (below the map) -->
+        <div id="map-disclaimer" class="fixed bottom-0 left-0 right-0 px-4 pt-1.5 pb-2 text-center bg-white dark:bg-dark-bg-elevated z-20">
+            <p class="text-xs text-neutral-500 leading-tight">
+                © <span id="currentYear">2025</span> Kimberly Bauman, P.A. · Information deemed reliable but not guaranteed · Data: ECAR MLS
             </p>
         </div>
     </div>
