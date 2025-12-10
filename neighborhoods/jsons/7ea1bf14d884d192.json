@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T15:57:05.948950",
+  "updated": "2025-12-10T16:12:26.515950",
   "neighborhoods": [
     {
       "name": "Abacos Condos",
@@ -1546,7 +1546,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7092983",
+      "searchIdLots": "7100765"
     },
     {
       "name": "Duncan",
@@ -4834,7 +4836,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdHomes": "7093024"
     },
     {
       "name": "The Retreat",
