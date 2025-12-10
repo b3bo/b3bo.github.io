@@ -1,6 +1,6 @@
 {
   "area": "16 - North Santa Rosa Beach",
-  "updated": "2025-12-10T10:51:50.149372",
+  "updated": "2025-12-10T11:33:35.255177",
   "neighborhoods": [
     {
       "name": "Bay Pine Shores",
@@ -402,7 +402,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Church Street Village",
+      "name": "Church Street Village T/H",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Townhomes",
       "position": {
@@ -1439,7 +1439,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Sandhill Pines",
+      "name": "Sandhill Pines T/H",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Townhomes",
       "position": {
@@ -1680,7 +1680,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Stonegate Villas",
+      "name": "Stonegate Villas T/H",
       "area": "16 - North Santa Rosa Beach",
       "propertyType": "Townhomes",
       "position": {

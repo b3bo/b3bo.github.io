@@ -395,8 +395,8 @@ export function showCustomBoundary(zipCode) {
                 const primaryColor = getThemeColor('--color-primary');
                 return {
                     strokeColor: primaryColor,
-                    strokeWeight: 2.5,
-                    strokeOpacity: 0.85,
+                    strokeWeight: 1.5,
+                    strokeOpacity: 0.35,
                     fillColor: primaryColor,
                     fillOpacity: 0.15,
                     clickable: false

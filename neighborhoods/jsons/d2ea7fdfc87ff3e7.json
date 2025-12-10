@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-10T10:51:50.144527",
+  "updated": "2025-12-10T11:33:35.250583",
   "neighborhoods": [
     {
       "name": "30A Townhomes",
@@ -53,7 +53,7 @@
       "searchIdTownhomes": "7092752"
     },
     {
-      "name": "Alexander At Palm Court",
+      "name": "Alexander At Palm Court Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -101,66 +101,6 @@
       },
       "listingsUrlMap": "",
       "searchIdCondos": "7092759"
-    },
-    {
-      "name": "Alys Beach",
-      "area": "18 - 30A East",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.2851,
-        "lng": -86.027903
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 10,
-        "avgPrice": 3630181,
-        "avgPriceDisplay": "$3,630,181",
-        "medianPrice": 3250000,
-        "avgSqft": 1704,
-        "avgPricePerSqFt": 2131,
-        "avgDom": 142,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Elevator",
-        "Fitness",
-        "Playgrounds",
-        "Pool",
-        "Short-Term",
-        "Tennis",
-        "Waterfront"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "385744",
-      "searchIdCondos": "385745",
-      "searchIdTownhomes": "385746",
-      "searchIdLots": "385747",
-      "urlSlug": "/30a/alys-beach/"
     },
     {
       "name": "Alys Beach",
@@ -224,7 +164,67 @@
       "urlSlug": "/30a/alys-beach/"
     },
     {
-      "name": "Alys Beach",
+      "name": "Alys Beach Condos",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.2851,
+        "lng": -86.027903
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 10,
+        "avgPrice": 3630181,
+        "avgPriceDisplay": "$3,630,181",
+        "medianPrice": 3250000,
+        "avgSqft": 1704,
+        "avgPricePerSqFt": 2131,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385744",
+      "searchIdCondos": "385745",
+      "searchIdTownhomes": "385746",
+      "searchIdLots": "385747",
+      "urlSlug": "/30a/alys-beach/"
+    },
+    {
+      "name": "Alys Beach T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -284,7 +284,7 @@
       "urlSlug": "/30a/alys-beach/"
     },
     {
-      "name": "Beachfront 2",
+      "name": "Beachfront 2 Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -388,7 +388,7 @@
       "searchIdTownhomes": "7092785"
     },
     {
-      "name": "Beachside Villas",
+      "name": "Beachside Villas Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -440,7 +440,7 @@
       "searchIdCondos": "4033421"
     },
     {
-      "name": "Beachwood Villas",
+      "name": "Beachwood Villas Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -743,7 +743,7 @@
       "searchIdHomes": "7089049"
     },
     {
-      "name": "Camp Creek Village",
+      "name": "Camp Creek Village T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -793,7 +793,7 @@
       "searchIdTownhomes": "7092976"
     },
     {
-      "name": "Capistrano",
+      "name": "Capistrano Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -897,7 +897,7 @@
       "searchIdTownhomes": "7088298"
     },
     {
-      "name": "Costera",
+      "name": "Costera Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -950,7 +950,7 @@
       "searchIdTownhomes": "7093009"
     },
     {
-      "name": "Costera",
+      "name": "Costera T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -1256,7 +1256,7 @@
       "searchIdLots": "7093013"
     },
     {
-      "name": "Dunes Of Seagrove",
+      "name": "Dunes Of Seagrove Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -1409,7 +1409,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Eastern Lake Village",
+      "name": "Eastern Lake Village Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -1459,7 +1459,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Emerald Hill Gulf Front",
+      "name": "Emerald Hill Gulf Front Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -1513,6 +1513,59 @@
     {
       "name": "Grace Point",
       "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.299517,
+        "lng": -86.066628
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 5985000,
+        "avgPriceDisplay": "$5,985,000",
+        "medianPrice": 4300000,
+        "avgSqft": 5458,
+        "avgPricePerSqFt": 1097,
+        "avgDom": 116,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7076729",
+      "searchIdCondos": "7076731",
+      "urlSlug": "/30a/grace-point/"
+    },
+    {
+      "name": "Grace Point Condos",
+      "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.302106,
@@ -1554,59 +1607,6 @@
         "Elevator",
         "No Short-Term",
         "Pool"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7076729",
-      "searchIdCondos": "7076731",
-      "urlSlug": "/30a/grace-point/"
-    },
-    {
-      "name": "Grace Point",
-      "area": "18 - 30A East",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.299517,
-        "lng": -86.066628
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 3,
-        "avgPrice": 5985000,
-        "avgPriceDisplay": "$5,985,000",
-        "medianPrice": 4300000,
-        "avgSqft": 5458,
-        "avgPricePerSqFt": 1097,
-        "avgDom": 116,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Gated",
-        "Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -2069,7 +2069,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Herons Watch",
+      "name": "Herons Watch Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -2119,7 +2119,7 @@
       "searchIdCondos": "7088297"
     },
     {
-      "name": "High Pointe Resort",
+      "name": "High Pointe Resort Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -2226,7 +2226,7 @@
       "urlSlug": "/30a/inlet-beach/"
     },
     {
-      "name": "Inlet Dunes",
+      "name": "Inlet Dunes Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -2375,7 +2375,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Inn At Seacrest Beach",
+      "name": "Inn At Seacrest Beach Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -2476,6 +2476,59 @@
     {
       "name": "Kaiya Beach Resort",
       "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.288639,
+        "lng": -86.035343
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 6253800,
+        "avgPriceDisplay": "$6,253,800",
+        "medianPrice": 5889000,
+        "avgSqft": 4477,
+        "avgPricePerSqFt": 1397,
+        "avgDom": 71,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7088784",
+      "searchIdCondos": "3573510",
+      "searchIdTownhomes": "3573507",
+      "urlSlug": "/30a/kaiya-beach-resort/"
+    },
+    {
+      "name": "Kaiya Beach Resort Condos",
+      "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.287347,
@@ -2530,60 +2583,7 @@
       "urlSlug": "/30a/kaiya-beach-resort/"
     },
     {
-      "name": "Kaiya Beach Resort",
-      "area": "18 - 30A East",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.288639,
-        "lng": -86.035343
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 4,
-        "avgPrice": 6253800,
-        "avgPriceDisplay": "$6,253,800",
-        "medianPrice": 5889000,
-        "avgSqft": 4477,
-        "avgPricePerSqFt": 1397,
-        "avgDom": 71,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7088784",
-      "searchIdCondos": "3573510",
-      "searchIdTownhomes": "3573507",
-      "urlSlug": "/30a/kaiya-beach-resort/"
-    },
-    {
-      "name": "Kaiya Beach Resort",
+      "name": "Kaiya Beach Resort T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -2782,7 +2782,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Lakewood Of Seagrove Beach",
+      "name": "Lakewood Of Seagrove Beach T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -2882,7 +2882,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Legacy",
+      "name": "Legacy Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -3084,7 +3084,7 @@
       "searchIdHomes": "7089738"
     },
     {
-      "name": "Mistral",
+      "name": "Mistral Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -3245,7 +3245,7 @@
       "urlSlug": "/30a/naturewalk-at-watersound-origins/"
     },
     {
-      "name": "One Seagrove Place",
+      "name": "One Seagrove Place Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -3347,7 +3347,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Palms At Seagrove",
+      "name": "Palms At Seagrove Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -3598,7 +3598,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Pointe 30A",
+      "name": "Pointe 30A Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -3753,7 +3753,7 @@
       "searchIdTownhomes": "7088280"
     },
     {
-      "name": "Prominence",
+      "name": "Prominence T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -3807,7 +3807,7 @@
       "searchIdTownhomes": "7088280"
     },
     {
-      "name": "Rollin Tide Villas",
+      "name": "Rollin Tide Villas Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -3855,63 +3855,6 @@
         "samples": []
       },
       "listingsUrlMap": ""
-    },
-    {
-      "name": "Rosemary Beach",
-      "area": "18 - 30A East",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.280517,
-        "lng": -86.015808
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 7,
-        "avgPrice": 2657130,
-        "avgPriceDisplay": "$2,657,130",
-        "medianPrice": 2300000,
-        "avgSqft": 1718,
-        "avgPricePerSqFt": 1547,
-        "avgDom": 185,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Elevator",
-        "Pet-Friendly",
-        "Playgrounds",
-        "Pool",
-        "Short-Term",
-        "Tennis",
-        "Waterfront"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "385757",
-      "searchIdCondos": "385758"
     },
     {
       "name": "Rosemary Beach",
@@ -3970,7 +3913,64 @@
       "searchIdCondos": "385758"
     },
     {
-      "name": "Rosemary Beach",
+      "name": "Rosemary Beach Condos",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.280517,
+        "lng": -86.015808
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 2657130,
+        "avgPriceDisplay": "$2,657,130",
+        "medianPrice": 2300000,
+        "avgSqft": 1718,
+        "avgPricePerSqFt": 1547,
+        "avgDom": 185,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385757",
+      "searchIdCondos": "385758"
+    },
+    {
+      "name": "Rosemary Beach T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -4176,7 +4176,7 @@
       "searchIdHomes": "7089036"
     },
     {
-      "name": "Sea Mist",
+      "name": "Sea Mist Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -4420,6 +4420,57 @@
     {
       "name": "Seacrest Beach",
       "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.28429,
+        "lng": -86.021895
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 25,
+        "avgPrice": 1798688,
+        "avgPriceDisplay": "$1,798,688",
+        "medianPrice": 1650000,
+        "avgSqft": 2578,
+        "avgPricePerSqFt": 698,
+        "avgDom": 141,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seacrest Beach Condos",
+      "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.283886,
@@ -4461,57 +4512,6 @@
         "Elevator",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
-      "name": "Seacrest Beach",
-      "area": "18 - 30A East",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.28429,
-        "lng": -86.021895
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 25,
-        "avgPrice": 1798688,
-        "avgPriceDisplay": "$1,798,688",
-        "medianPrice": 1650000,
-        "avgSqft": 2578,
-        "avgPricePerSqFt": 698,
-        "avgDom": 141,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -4570,7 +4570,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Seagrove By The Sea",
+      "name": "Seagrove By The Sea Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -4667,7 +4667,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Seagrove Highlands",
+      "name": "Seagrove Highlands Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5025,7 +5025,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Sunset Beach",
+      "name": "Sunset Beach T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {
@@ -5077,7 +5077,7 @@
       "searchIdTownhomes": "7080897"
     },
     {
-      "name": "Tranquillity On The Beach",
+      "name": "Tranquillity On The Beach Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5183,7 +5183,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Turtle Beach",
+      "name": "Turtle Beach Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5287,7 +5287,7 @@
       "urlSlug": "/30a/twin-palms/"
     },
     {
-      "name": "Village Of South Walton Beach",
+      "name": "Village Of South Walton Beach Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5389,7 +5389,7 @@
       "searchIdHomes": "7080786"
     },
     {
-      "name": "Villages Of South Walton Beach",
+      "name": "Villages Of South Walton Beach Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5437,7 +5437,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Villas At Seagrove Beach",
+      "name": "Villas At Seagrove Beach Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5488,67 +5488,6 @@
       "listingsUrlMap": "",
       "searchIdCondos": "4024492",
       "urlSlug": "/30a/villas-at-seagrove-beach/"
-    },
-    {
-      "name": "Watercolor",
-      "area": "18 - 30A East",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.323374,
-        "lng": -86.14395
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 1905833,
-        "avgPriceDisplay": "$1,905,833",
-        "medianPrice": 1690000,
-        "avgSqft": 1604,
-        "avgPricePerSqFt": 1188,
-        "avgDom": 341,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Elevator",
-        "Fitness",
-        "Pet-Friendly",
-        "Pickleball",
-        "Playgrounds",
-        "Pool",
-        "Short-Term",
-        "Tennis",
-        "Waterfront"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "385840",
-      "searchIdCondos": "385841",
-      "searchIdLots": "385843",
-      "urlSlug": "/30a/watercolor/"
     },
     {
       "name": "Watercolor",
@@ -5612,7 +5551,68 @@
       "urlSlug": "/30a/watercolor/"
     },
     {
-      "name": "Waterhouse",
+      "name": "Watercolor Condos",
+      "area": "18 - 30A East",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.323374,
+        "lng": -86.14395
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1905833,
+        "avgPriceDisplay": "$1,905,833",
+        "medianPrice": 1690000,
+        "avgSqft": 1604,
+        "avgPricePerSqFt": 1188,
+        "avgDom": 341,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "385840",
+      "searchIdCondos": "385841",
+      "searchIdLots": "385843",
+      "urlSlug": "/30a/watercolor/"
+    },
+    {
+      "name": "Waterhouse Condos",
       "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
@@ -5667,6 +5667,65 @@
     {
       "name": "Watersound Beach",
       "area": "18 - 30A East",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.301563,
+        "lng": -86.071294
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 24,
+        "avgPrice": 4996829,
+        "avgPriceDisplay": "$4,996,829",
+        "medianPrice": 4500000,
+        "avgSqft": 3887,
+        "avgPricePerSqFt": 1286,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7077041",
+      "searchIdCondos": "7077045",
+      "searchIdLots": "7077049",
+      "urlSlug": "/30a/watersound-beach/"
+    },
+    {
+      "name": "Watersound Beach Condos",
+      "area": "18 - 30A East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.297725,
@@ -5707,65 +5766,6 @@
         "Beach Access",
         "Clubhouse",
         "Elevator",
-        "Fitness",
-        "Gated",
-        "Pet-Friendly",
-        "Playgrounds",
-        "Pool",
-        "Short-Term",
-        "Waterfront"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7077041",
-      "searchIdCondos": "7077045",
-      "searchIdLots": "7077049",
-      "urlSlug": "/30a/watersound-beach/"
-    },
-    {
-      "name": "Watersound Beach",
-      "area": "18 - 30A East",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.301563,
-        "lng": -86.071294
-      },
-      "location": {
-        "city": "Inlet Beach",
-        "state": "FL",
-        "zipCode": "32461"
-      },
-      "zipCode": "32461",
-      "stats": {
-        "listingCount": 24,
-        "avgPrice": 4996829,
-        "avgPriceDisplay": "$4,996,829",
-        "medianPrice": 4500000,
-        "avgSqft": 3887,
-        "avgPricePerSqFt": 1286,
-        "avgDom": 124,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
         "Fitness",
         "Gated",
         "Pet-Friendly",
@@ -5960,7 +5960,7 @@
       "urlSlug": "/30a/watersound-origins/"
     },
     {
-      "name": "Watersound Origins",
+      "name": "Watersound Origins T/H",
       "area": "18 - 30A East",
       "propertyType": "Townhomes",
       "position": {

@@ -1,9 +1,9 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-10T10:51:50.146816",
+  "updated": "2025-12-10T11:33:35.252864",
   "neighborhoods": [
     {
-      "name": "Adagio",
+      "name": "Adagio Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -56,7 +56,7 @@
       "searchIdCondos": "7092757"
     },
     {
-      "name": "Azure At 30A",
+      "name": "Azure At 30A Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -458,7 +458,7 @@
       "urlSlug": "/30a/bluewater-landing/"
     },
     {
-      "name": "Century 393",
+      "name": "Century 393 T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -509,7 +509,7 @@
       "searchIdTownhomes": "7092985"
     },
     {
-      "name": "Cottage Grove",
+      "name": "Cottage Grove T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -561,7 +561,7 @@
       "urlSlug": "/30a/cottage-grove/"
     },
     {
-      "name": "Courtyards Of Santa Rosa Beach",
+      "name": "Courtyards Of Santa Rosa Beach T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -724,7 +724,7 @@
       "urlSlug": "/30a/cypress-dunes/"
     },
     {
-      "name": "Cypress Heights",
+      "name": "Cypress Heights T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -925,7 +925,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Escada",
+      "name": "Escada T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -1181,7 +1181,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Gulf Place Cabanas",
+      "name": "Gulf Place Cabanas Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -1233,7 +1233,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Gulf Place Caribbean",
+      "name": "Gulf Place Caribbean Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -1284,7 +1284,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Gulf Place Residences",
+      "name": "Gulf Place Residences Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -1336,7 +1336,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Gulf Place Town Center",
+      "name": "Gulf Place Town Center Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -1637,7 +1637,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Inn At Blue Mountain Beach",
+      "name": "Inn At Blue Mountain Beach Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -1692,7 +1692,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Inn At Gulf Place",
+      "name": "Inn At Gulf Place Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -1795,7 +1795,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Legends Of Santa Rosa Beach",
+      "name": "Legends Of Santa Rosa Beach T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -2045,7 +2045,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Palms North",
+      "name": "Palms North Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -2241,7 +2241,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Pinewood 30A",
+      "name": "Pinewood 30A Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -2399,7 +2399,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Redfish Village",
+      "name": "Redfish Village Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -2501,7 +2501,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Sanctuary At Redfish",
+      "name": "Sanctuary At Redfish Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -2555,7 +2555,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Sanctuary By The Sea",
+      "name": "Sanctuary By The Sea Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -2754,7 +2754,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Sea Bluffs",
+      "name": "Sea Bluffs Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -2955,7 +2955,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Thirty Blu",
+      "name": "Thirty Blu T/H",
       "area": "17 - 30A West",
       "propertyType": "Townhomes",
       "position": {
@@ -3158,61 +3158,6 @@
     {
       "name": "Village At Blue Mountain Beach",
       "area": "17 - 30A West",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.34521,
-        "lng": -86.204925
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 2,
-        "avgPrice": 605750,
-        "avgPriceDisplay": "$605,750",
-        "medianPrice": 649000,
-        "avgSqft": 1333,
-        "avgPricePerSqFt": 454,
-        "avgDom": 188,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Fitness",
-        "Gated",
-        "Pet-Friendly",
-        "Pool",
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7080808",
-      "searchIdCondos": "7080811",
-      "searchIdLots": "7080817"
-    },
-    {
-      "name": "Village At Blue Mountain Beach",
-      "area": "17 - 30A West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.345461,
@@ -3253,6 +3198,61 @@
         "Clubhouse",
         "Fitness",
         "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7080808",
+      "searchIdCondos": "7080811",
+      "searchIdLots": "7080817"
+    },
+    {
+      "name": "Village At Blue Mountain Beach Condos",
+      "area": "17 - 30A West",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.34521,
+        "lng": -86.204925
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 605750,
+        "avgPriceDisplay": "$605,750",
+        "medianPrice": 649000,
+        "avgSqft": 1333,
+        "avgPricePerSqFt": 454,
+        "avgDom": 188,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],
@@ -3322,7 +3322,7 @@
       "searchIdHomes": "7076878"
     },
     {
-      "name": "Villas At Santa Rosa Beach",
+      "name": "Villas At Santa Rosa Beach Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
@@ -3375,7 +3375,7 @@
       "searchIdCondos": "7080776"
     },
     {
-      "name": "Walton On 30A",
+      "name": "Walton On 30A Condos",
       "area": "17 - 30A West",
       "propertyType": "Condos",
       "position": {
