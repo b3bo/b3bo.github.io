@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.28',
+    version: '1.0.29',
 
     // ===================================================================
     // MAP SETTINGS
@@ -58,6 +58,8 @@ export const CONFIG = {
             './neighborhoods/jsons/b762bb338ba328e5.json.b64',
             './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
             './neighborhoods/jsons/d897c3d107c48ccc.json.b64',
+            './neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
+            './neighborhoods/jsons/e0e3b36d8e692892.json.b64',
             './neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
         ],
 

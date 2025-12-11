@@ -1,0 +1,4416 @@
+{
+  "area": "27 - Bay County",
+  "updated": "2025-12-11T15:36:49.056575",
+  "neighborhoods": [
+    {
+      "name": "Aqua",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.212378,
+        "lng": -85.870996
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 708700,
+        "avgPriceDisplay": "$708,700",
+        "medianPrice": 749900,
+        "avgSqft": 1236,
+        "avgPricePerSqFt": 573,
+        "avgDom": 163,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Aquavista",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.22329,
+        "lng": -85.892196
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 561975,
+        "avgPriceDisplay": "$561,975",
+        "medianPrice": 529000,
+        "avgSqft": 1251,
+        "avgPricePerSqFt": 449,
+        "avgDom": 144,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayside At Ward Creek T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.254486,
+        "lng": -85.875992
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 330450,
+        "avgPriceDisplay": "$330,450",
+        "medianPrice": 339000,
+        "avgSqft": 1497,
+        "avgPricePerSqFt": 221,
+        "avgDom": 44,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Beachwalk Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.235634,
+        "lng": -85.908225
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 256950,
+        "avgPriceDisplay": "$256,950",
+        "medianPrice": 259900,
+        "avgSqft": 1100,
+        "avgPricePerSqFt": 234,
+        "avgDom": 144,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bella Costa",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.259348,
+        "lng": -85.964865
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 650000,
+        "avgPriceDisplay": "$650,000",
+        "medianPrice": 650000,
+        "avgSqft": 2088,
+        "avgPricePerSqFt": 311,
+        "avgDom": 290,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bid-A-Wee Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.20401,
+        "lng": -85.84761
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1419857,
+        "avgPriceDisplay": "$1,419,857",
+        "medianPrice": 600000,
+        "avgSqft": 2422,
+        "avgPricePerSqFt": 586,
+        "avgDom": 157,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bid-A-Wee Beach T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.204648,
+        "lng": -85.85242
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1495000,
+        "avgPriceDisplay": "$1,495,000",
+        "medianPrice": 1495000,
+        "avgSqft": 4746,
+        "avgPricePerSqFt": 315,
+        "avgDom": 226,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Breakwater At Ward Creek",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.264468,
+        "lng": -85.87705
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 691878,
+        "avgPriceDisplay": "$691,878",
+        "medianPrice": 670000,
+        "avgSqft": 2451,
+        "avgPricePerSqFt": 282,
+        "avgDom": 38,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Calypso Resort & Towers",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.214016,
+        "lng": -85.8742
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 9,
+        "avgPrice": 712010,
+        "avgPriceDisplay": "$712,010",
+        "medianPrice": 685000,
+        "avgSqft": 1267,
+        "avgPricePerSqFt": 562,
+        "avgDom": 152,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Calypso Tower",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.214921,
+        "lng": -85.873998
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 599500,
+        "avgPriceDisplay": "$599,500",
+        "medianPrice": 780000,
+        "avgSqft": 1456,
+        "avgPricePerSqFt": 412,
+        "avgDom": 120,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Carillon Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.264969,
+        "lng": -85.981629
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 2581400,
+        "avgPriceDisplay": "$2,581,400",
+        "medianPrice": 2250000,
+        "avgSqft": 2433,
+        "avgPricePerSqFt": 1061,
+        "avgDom": 106,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Carillon Beach Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.265112,
+        "lng": -85.977417
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 452994,
+        "avgPriceDisplay": "$452,994",
+        "medianPrice": 337000,
+        "avgSqft": 901,
+        "avgPricePerSqFt": 503,
+        "avgDom": 145,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Casa Del Mar",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.258852,
+        "lng": -85.966461
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 945000,
+        "avgPriceDisplay": "$945,000",
+        "medianPrice": 945000,
+        "avgSqft": 1967,
+        "avgPricePerSqFt": 480,
+        "avgDom": 325,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Celadon Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.233121,
+        "lng": -85.912346
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 490275,
+        "avgPriceDisplay": "$490,275",
+        "medianPrice": 429900,
+        "avgSqft": 910,
+        "avgPricePerSqFt": 539,
+        "avgDom": 107,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "No Short-Term",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Deluna Place",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.23671,
+        "lng": -85.917901
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1350000,
+        "avgPriceDisplay": "$1,350,000",
+        "medianPrice": 1350000,
+        "avgSqft": 2469,
+        "avgPricePerSqFt": 547,
+        "avgDom": 316,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "El Centro Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.226771,
+        "lng": -85.886192
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 437960,
+        "avgPriceDisplay": "$437,960",
+        "medianPrice": 439900,
+        "avgSqft": 1396,
+        "avgPricePerSqFt": 314,
+        "avgDom": 207,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Beach Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.205398,
+        "lng": -85.85948
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 501950,
+        "avgPriceDisplay": "$501,950",
+        "medianPrice": 504900,
+        "avgSqft": 1299,
+        "avgPricePerSqFt": 386,
+        "avgDom": 106,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Beach Resort",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.205425,
+        "lng": -85.859321
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 500581,
+        "avgPriceDisplay": "$500,581",
+        "medianPrice": 550000,
+        "avgSqft": 1187,
+        "avgPricePerSqFt": 422,
+        "avgDom": 228,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Lakes Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.229664,
+        "lng": -85.904636
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 550155,
+        "avgPriceDisplay": "$550,155",
+        "medianPrice": 559000,
+        "avgSqft": 1128,
+        "avgPricePerSqFt": 488,
+        "avgDom": 108,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Shores Of South Walton Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.240301,
+        "lng": -85.924674
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 475000,
+        "avgPriceDisplay": "$475,000",
+        "medianPrice": 475000,
+        "avgSqft": 950,
+        "avgPricePerSqFt": 500,
+        "avgDom": 271,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Endless Summer",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.232015,
+        "lng": -85.905938
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 9,
+        "avgPrice": 253140,
+        "avgPriceDisplay": "$253,140",
+        "medianPrice": 250000,
+        "avgSqft": 649,
+        "avgPricePerSqFt": 390,
+        "avgDom": 148,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "First Kiska Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.258572,
+        "lng": -85.958648
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 649000,
+        "avgPriceDisplay": "$649,000",
+        "medianPrice": 649000,
+        "avgSqft": 1140,
+        "avgPricePerSqFt": 569,
+        "avgDom": 196,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Fontainebleau Terrace",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.203113,
+        "lng": -85.854843
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 186817,
+        "avgPriceDisplay": "$186,817",
+        "medianPrice": 184000,
+        "avgSqft": 330,
+        "avgPricePerSqFt": 566,
+        "avgDom": 146,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Highlands",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.235113,
+        "lng": -85.881711
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 410750,
+        "avgPriceDisplay": "$410,750",
+        "medianPrice": 410000,
+        "avgSqft": 1471,
+        "avgPricePerSqFt": 279,
+        "avgDom": 93,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Vista",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.254563,
+        "lng": -85.943545
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 736633,
+        "avgPriceDisplay": "$736,633",
+        "medianPrice": 760000,
+        "avgSqft": 1914,
+        "avgPricePerSqFt": 385,
+        "avgDom": 16,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Horizon South",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.230881,
+        "lng": -85.900535
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 261750,
+        "avgPriceDisplay": "$261,750",
+        "medianPrice": 290000,
+        "avgSqft": 696,
+        "avgPricePerSqFt": 376,
+        "avgDom": 159,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Inlet Beach Heights",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.264518,
+        "lng": -85.969653
+      },
+      "location": {
+        "city": "Inlet Beach",
+        "state": "FL",
+        "zipCode": "32461"
+      },
+      "zipCode": "32461",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 733646,
+        "avgPriceDisplay": "$733,646",
+        "medianPrice": 715000,
+        "avgSqft": 1684,
+        "avgPricePerSqFt": 436,
+        "avgDom": 165,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Kiska Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.257586,
+        "lng": -85.959776
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 1033825,
+        "avgPriceDisplay": "$1,033,825",
+        "medianPrice": 999000,
+        "avgSqft": 1870,
+        "avgPricePerSqFt": 553,
+        "avgDom": 123,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "La Valencia Beach Resort",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.255527,
+        "lng": -85.954675
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2265000,
+        "avgPriceDisplay": "$2,265,000",
+        "medianPrice": 2790000,
+        "avgSqft": 3926,
+        "avgPricePerSqFt": 577,
+        "avgDom": 224,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "La Valencia Beach Resort T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.25362,
+        "lng": -85.954307
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 870000,
+        "avgPriceDisplay": "$870,000",
+        "medianPrice": 835000,
+        "avgSqft": 2105,
+        "avgPricePerSqFt": 413,
+        "avgDom": 120,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Fitness",
+        "Gated",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Laguna Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.245022,
+        "lng": -85.930099
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 14,
+        "avgPrice": 1120706,
+        "avgPriceDisplay": "$1,120,706",
+        "medianPrice": 775000,
+        "avgSqft": 1988,
+        "avgPricePerSqFt": 564,
+        "avgDom": 108,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Laguna Beach Ammended",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.241196,
+        "lng": -85.919361
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1324950,
+        "avgPriceDisplay": "$1,324,950",
+        "medianPrice": 1999999,
+        "avgSqft": 2292,
+        "avgPricePerSqFt": 578,
+        "avgDom": 157,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Laguna Beach Estates",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.246213,
+        "lng": -85.935239
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 1388217,
+        "avgPriceDisplay": "$1,388,217",
+        "medianPrice": 964999,
+        "avgSqft": 2386,
+        "avgPricePerSqFt": 582,
+        "avgDom": 112,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Laguna Beach T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.241391,
+        "lng": -85.92715
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1395143,
+        "avgPriceDisplay": "$1,395,143",
+        "medianPrice": 1465000,
+        "avgSqft": 2941,
+        "avgPricePerSqFt": 474,
+        "avgDom": 185,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Laguna Haven",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.244556,
+        "lng": -85.913146
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 588802,
+        "avgPriceDisplay": "$588,802",
+        "medianPrice": 599757,
+        "avgSqft": 2096,
+        "avgPricePerSqFt": 281,
+        "avgDom": 47,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakeside Lodge At Prospect Point",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.274764,
+        "lng": -85.973653
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 679995,
+        "avgPriceDisplay": "$679,995",
+        "medianPrice": 679995,
+        "avgSqft": 2365,
+        "avgPricePerSqFt": 288,
+        "avgDom": 134,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Elevator",
+        "Fitness",
+        "No Short-Term",
+        "Playgrounds",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Latitude Margaritaville",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.312745,
+        "lng": -85.859853
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 723230,
+        "avgPriceDisplay": "$723,230",
+        "medianPrice": 750000,
+        "avgSqft": 2163,
+        "avgPricePerSqFt": 334,
+        "avgDom": 100,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Latitude Margaritaville T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.319372,
+        "lng": -85.867697
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 12,
+        "avgPrice": 451394,
+        "avgPriceDisplay": "$451,394",
+        "medianPrice": 439000,
+        "avgSqft": 1437,
+        "avgPricePerSqFt": 314,
+        "avgDom": 105,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lullwater Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.217934,
+        "lng": -85.880331
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1906333,
+        "avgPriceDisplay": "$1,906,333",
+        "medianPrice": 2695000,
+        "avgSqft": 2489,
+        "avgPricePerSqFt": 766,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lullwater Beach Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.220681,
+        "lng": -85.883895
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 260000,
+        "avgPriceDisplay": "$260,000",
+        "medianPrice": 265000,
+        "avgSqft": 1089,
+        "avgPricePerSqFt": 239,
+        "avgDom": 313,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Margaritaville Cottages",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.201092,
+        "lng": -85.847285
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 1472737,
+        "avgPriceDisplay": "$1,472,737",
+        "medianPrice": 1039000,
+        "avgSqft": 2156,
+        "avgPricePerSqFt": 683,
+        "avgDom": 125,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Miller's Landing",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.267447,
+        "lng": -85.972847
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 471000,
+        "avgPriceDisplay": "$471,000",
+        "medianPrice": 525000,
+        "avgSqft": 1550,
+        "avgPricePerSqFt": 304,
+        "avgDom": 18,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Miramar Heights",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.238822,
+        "lng": -85.91377
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 462667,
+        "avgPriceDisplay": "$462,667",
+        "medianPrice": 474000,
+        "avgSqft": 1519,
+        "avgPricePerSqFt": 305,
+        "avgDom": 130,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Nautilus",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.236957,
+        "lng": -85.918481
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 389000,
+        "avgPriceDisplay": "$389,000",
+        "medianPrice": 389000,
+        "avgSqft": 765,
+        "avgPricePerSqFt": 508,
+        "avgDom": 49,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Ocean Reef",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.203741,
+        "lng": -85.855522
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 614725,
+        "avgPriceDisplay": "$614,725",
+        "medianPrice": 634000,
+        "avgSqft": 1260,
+        "avgPricePerSqFt": 488,
+        "avgDom": 128,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Open Sands",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.211077,
+        "lng": -85.85423
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 419850,
+        "avgPriceDisplay": "$419,850",
+        "medianPrice": 445000,
+        "avgSqft": 1627,
+        "avgPricePerSqFt": 258,
+        "avgDom": 199,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Origin At Seahaven",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.208657,
+        "lng": -85.862579
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 369988,
+        "avgPriceDisplay": "$369,988",
+        "medianPrice": 329900,
+        "avgSqft": 936,
+        "avgPricePerSqFt": 395,
+        "avgDom": 66,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Osprey Pointe At Powell",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.267557,
+        "lng": -85.967578
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 522000,
+        "avgPriceDisplay": "$522,000",
+        "medianPrice": 650000,
+        "avgSqft": 1653,
+        "avgPricePerSqFt": 316,
+        "avgDom": 74,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Palazzo Condominium",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.224936,
+        "lng": -85.895525
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 938430,
+        "avgPriceDisplay": "$938,430",
+        "medianPrice": 899000,
+        "avgSqft": 1424,
+        "avgPricePerSqFt": 659,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Palmetto Trace",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.225891,
+        "lng": -85.865792
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 514786,
+        "avgPriceDisplay": "$514,786",
+        "medianPrice": 480000,
+        "avgSqft": 2178,
+        "avgPricePerSqFt": 236,
+        "avgDom": 95,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pinnacle Port",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.266222,
+        "lng": -85.986063
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 17,
+        "avgPrice": 551587,
+        "avgPriceDisplay": "$551,587",
+        "medianPrice": 529000,
+        "avgSqft": 1049,
+        "avgPricePerSqFt": 526,
+        "avgDom": 130,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pirates Cove",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.267185,
+        "lng": -85.977557
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 189000,
+        "avgPriceDisplay": "$189,000",
+        "medianPrice": 189000,
+        "avgSqft": 410,
+        "avgPricePerSqFt": 461,
+        "avgDom": 46,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Poolside Villas T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.227633,
+        "lng": -85.881358
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 499500,
+        "avgPriceDisplay": "$499,500",
+        "medianPrice": 545000,
+        "avgSqft": 1664,
+        "avgPricePerSqFt": 300,
+        "avgDom": 302,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Portside",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.234289,
+        "lng": -85.906311
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 270971,
+        "avgPriceDisplay": "$270,971",
+        "medianPrice": 272900,
+        "avgSqft": 1120,
+        "avgPricePerSqFt": 242,
+        "avgDom": 83,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Ramsgate Harbour",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.260659,
+        "lng": -85.97413
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 847600,
+        "avgPriceDisplay": "$847,600",
+        "medianPrice": 850000,
+        "avgSqft": 1070,
+        "avgPricePerSqFt": 792,
+        "avgDom": 106,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Rivercamps On Crooked Creek",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.291354,
+        "lng": -85.821218
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1066000,
+        "avgPriceDisplay": "$1,066,000",
+        "medianPrice": 1050000,
+        "avgSqft": 2553,
+        "avgPricePerSqFt": 418,
+        "avgDom": 95,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Riviera Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.256834,
+        "lng": -85.952874
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 670520,
+        "avgPriceDisplay": "$670,520",
+        "medianPrice": 615000,
+        "avgSqft": 1450,
+        "avgPricePerSqFt": 463,
+        "avgDom": 102,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Royal Palma Of Laguna Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.24186,
+        "lng": -85.928771
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1600000,
+        "avgPriceDisplay": "$1,600,000",
+        "medianPrice": 1600000,
+        "avgSqft": 2783,
+        "avgPricePerSqFt": 575,
+        "avgDom": 278,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Salt Grass At Ward Creek",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.255699,
+        "lng": -85.879107
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 724700,
+        "avgPriceDisplay": "$724,700",
+        "medianPrice": 722360,
+        "avgSqft": 2301,
+        "avgPricePerSqFt": 315,
+        "avgDom": 65,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sand Castles West 2",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.226043,
+        "lng": -85.894046
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 274900,
+        "avgPriceDisplay": "$274,900",
+        "medianPrice": 274900,
+        "avgSqft": 700,
+        "avgPricePerSqFt": 393,
+        "avgDom": 244,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sands Street Villas",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.234145,
+        "lng": -85.911332
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1745000,
+        "avgPriceDisplay": "$1,745,000",
+        "medianPrice": 1745000,
+        "avgSqft": 3159,
+        "avgPricePerSqFt": 552,
+        "avgDom": 30,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sea Gull Beach",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.232203,
+        "lng": -85.910233
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 979000,
+        "avgPriceDisplay": "$979,000",
+        "medianPrice": 979000,
+        "avgSqft": 1232,
+        "avgPricePerSqFt": 795,
+        "avgDom": 222,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pet-Friendly",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "SeaChase",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.226732,
+        "lng": -85.897908
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 599000,
+        "avgPriceDisplay": "$599,000",
+        "medianPrice": 599000,
+        "avgSqft": 1400,
+        "avgPricePerSqFt": 428,
+        "avgDom": 106,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seaclusion Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.208051,
+        "lng": -85.850175
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 489475,
+        "avgPriceDisplay": "$489,475",
+        "medianPrice": 415000,
+        "avgSqft": 1910,
+        "avgPricePerSqFt": 256,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Shores Of Crystal Beach T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.258751,
+        "lng": -85.969587
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1049767,
+        "avgPriceDisplay": "$1,049,767",
+        "medianPrice": 1099300,
+        "avgSqft": 1564,
+        "avgPricePerSqFt": 671,
+        "avgDom": 140,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Southern Exposures",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.231874,
+        "lng": -85.909321
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1889000,
+        "avgPriceDisplay": "$1,889,000",
+        "medianPrice": 1889000,
+        "avgSqft": 2352,
+        "avgPricePerSqFt": 803,
+        "avgDom": 114,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Southfield T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.259353,
+        "lng": -85.96509
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 730000,
+        "avgPriceDisplay": "$730,000",
+        "medianPrice": 730000,
+        "avgSqft": 2088,
+        "avgPricePerSqFt": 350,
+        "avgDom": 193,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Splash, A Sterling Resort",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.23255,
+        "lng": -85.910802
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 544787,
+        "avgPriceDisplay": "$544,787",
+        "medianPrice": 499999,
+        "avgSqft": 1122,
+        "avgPricePerSqFt": 486,
+        "avgDom": 125,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sterling Breeze Condominium",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.219307,
+        "lng": -85.884526
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 567557,
+        "avgPriceDisplay": "$567,557",
+        "medianPrice": 440000,
+        "avgSqft": 1223,
+        "avgPricePerSqFt": 464,
+        "avgDom": 194,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Summerwood",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.214829,
+        "lng": -85.861146
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 513175,
+        "avgPriceDisplay": "$513,175",
+        "medianPrice": 485000,
+        "avgSqft": 1829,
+        "avgPricePerSqFt": 281,
+        "avgDom": 68,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sunnyside",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.251335,
+        "lng": -85.949339
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3586333,
+        "avgPriceDisplay": "$3,586,333",
+        "medianPrice": 3450000,
+        "avgSqft": 4762,
+        "avgPricePerSqFt": 753,
+        "avgDom": 203,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sunnyside Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.258545,
+        "lng": -85.96376
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 832667,
+        "avgPriceDisplay": "$832,667",
+        "medianPrice": 849000,
+        "avgSqft": 1443,
+        "avgPricePerSqFt": 577,
+        "avgDom": 81,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sunnyside T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.258545,
+        "lng": -85.96376
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1499500,
+        "avgPriceDisplay": "$1,499,500",
+        "medianPrice": 2150000,
+        "avgSqft": 1773,
+        "avgPricePerSqFt": 846,
+        "avgDom": 146,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sunrise And Sunset",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.264844,
+        "lng": -85.977107
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3250000,
+        "avgPriceDisplay": "$3,250,000",
+        "medianPrice": 3250000,
+        "avgSqft": 3623,
+        "avgPricePerSqFt": 897,
+        "avgDom": 83,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sunrise Beach Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.206784,
+        "lng": -85.860886
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 561588,
+        "avgPriceDisplay": "$561,588",
+        "medianPrice": 575000,
+        "avgSqft": 1142,
+        "avgPricePerSqFt": 492,
+        "avgDom": 89,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Suntime Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.231664,
+        "lng": -85.902737
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 329000,
+        "avgPriceDisplay": "$329,000",
+        "medianPrice": 329000,
+        "avgSqft": 978,
+        "avgPricePerSqFt": 336,
+        "avgDom": 19,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "The Palms",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.236966,
+        "lng": -85.915904
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 685000,
+        "avgPriceDisplay": "$685,000",
+        "medianPrice": 685000,
+        "avgSqft": 1944,
+        "avgPricePerSqFt": 352,
+        "avgDom": 333,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "The Preserve At Lake Powell",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.267503,
+        "lng": -85.970652
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 599500,
+        "avgPriceDisplay": "$599,500",
+        "medianPrice": 574500,
+        "avgSqft": 1843,
+        "avgPricePerSqFt": 325,
+        "avgDom": 89,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tidewater Beach",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.220435,
+        "lng": -85.886601
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 535162,
+        "avgPriceDisplay": "$535,162",
+        "medianPrice": 515000,
+        "avgSqft": 1180,
+        "avgPricePerSqFt": 454,
+        "avgDom": 182,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tropic Winds",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.230974,
+        "lng": -85.907916
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 611700,
+        "avgPriceDisplay": "$611,700",
+        "medianPrice": 599000,
+        "avgSqft": 1151,
+        "avgPricePerSqFt": 532,
+        "avgDom": 164,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Turtle Cove",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.264364,
+        "lng": -85.956045
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 587486,
+        "avgPriceDisplay": "$587,486",
+        "medianPrice": 489000,
+        "avgSqft": 1757,
+        "avgPricePerSqFt": 334,
+        "avgDom": 114,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "No Short-Term",
+        "Pickleball",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Waterview",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.260012,
+        "lng": -85.970296
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 849000,
+        "avgPriceDisplay": "$849,000",
+        "medianPrice": 849000,
+        "avgSqft": 2041,
+        "avgPricePerSqFt": 416,
+        "avgDom": 56,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Wells Gulf Beach Estate",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.234687,
+        "lng": -85.911347
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1081667,
+        "avgPriceDisplay": "$1,081,667",
+        "medianPrice": 875000,
+        "avgSqft": 2121,
+        "avgPricePerSqFt": 510,
+        "avgDom": 53,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Whisper Dunes",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.252858,
+        "lng": -85.933807
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 523900,
+        "avgPriceDisplay": "$523,900",
+        "medianPrice": 515000,
+        "avgSqft": 1849,
+        "avgPricePerSqFt": 283,
+        "avgDom": 132,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Wild Heron",
+      "area": "27 - Bay County",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.284014,
+        "lng": -85.974444
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1331476,
+        "avgPriceDisplay": "$1,331,476",
+        "medianPrice": 1229000,
+        "avgSqft": 2793,
+        "avgPricePerSqFt": 477,
+        "avgDom": 158,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Wild Heron Condos",
+      "area": "27 - Bay County",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.275415,
+        "lng": -85.974567
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 637592,
+        "avgPriceDisplay": "$637,592",
+        "medianPrice": 649900,
+        "avgSqft": 1872,
+        "avgPricePerSqFt": 341,
+        "avgDom": 85,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Wild Heron T/H",
+      "area": "27 - Bay County",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.280618,
+        "lng": -85.958122
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 737125,
+        "avgPriceDisplay": "$737,125",
+        "medianPrice": 795000,
+        "avgSqft": 2449,
+        "avgPricePerSqFt": 301,
+        "avgDom": 171,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    }
+  ]
+}

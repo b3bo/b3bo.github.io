@@ -1,6 +1,6 @@
 {
   "area": "19 - Point Washington",
-  "updated": "2025-12-10T16:12:26.518854",
+  "updated": "2025-12-11T15:36:49.058757",
   "neighborhoods": [
     {
       "name": "Audubon Point",
@@ -148,59 +148,11 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Daugette",
+      "name": "Daughettes",
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.373184,
-        "lng": -86.161188
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 1322250,
-        "avgPriceDisplay": "$1,322,250",
-        "medianPrice": 1322250,
-        "avgSqft": 3218,
-        "avgPricePerSqFt": 411,
-        "avgDom": 126,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
-      "name": "Daughettes Amended",
-      "area": "19 - Point Washington",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.375276,
+        "lat": 30.374836,
         "lng": -86.15697
       },
       "location": {
@@ -210,13 +162,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 6,
-        "avgPrice": 1283270,
-        "avgPriceDisplay": "$1,283,270",
+        "listingCount": 7,
+        "avgPrice": 1300333,
+        "avgPriceDisplay": "$1,300,333",
         "medianPrice": 999000,
-        "avgSqft": 2206,
-        "avgPricePerSqFt": 582,
-        "avgDom": 77,
+        "avgSqft": 2275,
+        "avgPricePerSqFt": 572,
+        "avgDom": 78,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -248,8 +200,8 @@
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.370301,
-        "lng": -86.109616
+        "lat": 30.371734,
+        "lng": -86.10977
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -259,12 +211,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 2496000,
-        "avgPriceDisplay": "$2,496,000",
-        "medianPrice": 2700000,
-        "avgSqft": 3652,
-        "avgPricePerSqFt": 684,
-        "avgDom": 87,
+        "avgPrice": 2151790,
+        "avgPriceDisplay": "$2,151,790",
+        "medianPrice": 1850000,
+        "avgSqft": 3405,
+        "avgPricePerSqFt": 632,
+        "avgDom": 88,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -292,7 +244,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Edens Landing",
+      "name": "Eden'S Landing",
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
@@ -390,7 +342,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Garage 30A Luxury Motor Condos",
+      "name": "Garage 30A Luxury Motor",
       "area": "19 - Point Washington",
       "propertyType": "Condos",
       "position": {
@@ -536,60 +488,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Magnolia Bay",
-      "area": "19 - Point Washington",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.373583,
-        "lng": -86.137445
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 699000,
-        "avgPriceDisplay": "$699,000",
-        "medianPrice": 699000,
-        "avgSqft": 1988,
-        "avgPricePerSqFt": 352,
-        "avgDom": 118,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
       "name": "Magnolia Beach",
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.375059,
-        "lng": -86.134742
+        "lat": 30.374486,
+        "lng": -86.134906
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -598,12 +502,12 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 8,
-        "avgPrice": 774258,
-        "avgPriceDisplay": "$774,258",
+        "listingCount": 9,
+        "avgPrice": 770297,
+        "avgPriceDisplay": "$770,297",
         "medianPrice": 689000,
-        "avgSqft": 1905,
-        "avgPricePerSqFt": 406,
+        "avgSqft": 1909,
+        "avgPricePerSqFt": 403,
         "avgDom": 116,
         "priceRange": "N/A",
         "minPrice": null,
@@ -632,7 +536,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Oak Grove At Edens Landing",
+      "name": "Oak Grove at Eden's Landing",
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
@@ -732,7 +636,7 @@
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.359847,
+        "lat": 30.359689,
         "lng": -86.118769
       },
       "location": {
@@ -742,13 +646,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 635750,
-        "avgPriceDisplay": "$635,750",
+        "listingCount": 4,
+        "avgPrice": 648600,
+        "avgPriceDisplay": "$648,600",
         "medianPrice": 679000,
-        "avgSqft": 2392,
-        "avgPricePerSqFt": 266,
-        "avgDom": 128,
+        "avgSqft": 2476,
+        "avgPricePerSqFt": 262,
+        "avgDom": 122,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -793,8 +697,8 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 581213,
-        "avgPriceDisplay": "$581,213",
+        "avgPrice": 580880,
+        "avgPriceDisplay": "$580,880",
         "medianPrice": 589000,
         "avgSqft": 2434,
         "avgPricePerSqFt": 239,
@@ -874,12 +778,12 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Preserve At Paradise Cove",
+      "name": "The Preserve At Paradise Cove",
       "area": "19 - Point Washington",
       "propertyType": "Homes",
       "position": {
         "lat": 30.362227,
-        "lng": -86.115894
+        "lng": -86.115341
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -889,12 +793,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 4,
-        "avgPrice": 575636,
-        "avgPriceDisplay": "$575,636",
+        "avgPrice": 575800,
+        "avgPriceDisplay": "$575,800",
         "medianPrice": 559000,
-        "avgSqft": 2019,
-        "avgPricePerSqFt": 285,
-        "avgDom": 85,
+        "avgSqft": 2011,
+        "avgPricePerSqFt": 286,
+        "avgDom": 76,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

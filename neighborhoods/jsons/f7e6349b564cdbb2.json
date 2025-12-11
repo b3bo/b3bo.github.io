@@ -1,7 +1,2623 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-10T16:12:26.520134",
+  "updated": "2025-12-11T15:36:49.054188",
   "neighborhoods": [
+    {
+      "name": "Alerio",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.375944,
+        "lng": -86.360952
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 532184,
+        "avgPriceDisplay": "$532,184",
+        "medianPrice": 549000,
+        "avgSqft": 1243,
+        "avgPricePerSqFt": 428,
+        "avgDom": 114,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Amalfi Coast Resort",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.375889,
+        "lng": -86.362254
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 511167,
+        "avgPriceDisplay": "$511,167",
+        "medianPrice": 504500,
+        "avgSqft": 1153,
+        "avgPricePerSqFt": 443,
+        "avgDom": 70,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Ariel Dunes",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.378004,
+        "lng": -86.367391
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 27,
+        "avgPrice": 581649,
+        "avgPriceDisplay": "$581,649",
+        "medianPrice": 569000,
+        "avgSqft": 1191,
+        "avgPricePerSqFt": 488,
+        "avgDom": 149,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Augusta Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.380029,
+        "lng": -86.335221
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 550000,
+        "avgPriceDisplay": "$550,000",
+        "medianPrice": 550000,
+        "avgSqft": 1276,
+        "avgPricePerSqFt": 431,
+        "avgDom": 327,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Augusta Village Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379938,
+        "lng": -86.333035
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 636125,
+        "avgPriceDisplay": "$636,125",
+        "medianPrice": 695000,
+        "avgSqft": 1572,
+        "avgPricePerSqFt": 405,
+        "avgDom": 99,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bahia",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.392455,
+        "lng": -86.326344
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 14,
+        "avgPrice": 390076,
+        "avgPriceDisplay": "$390,076",
+        "medianPrice": 360000,
+        "avgSqft": 930,
+        "avgPricePerSqFt": 420,
+        "avgDom": 164,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bay Bridge Landing",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.388219,
+        "lng": -86.368561
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 664500,
+        "avgPriceDisplay": "$664,500",
+        "medianPrice": 869000,
+        "avgSqft": 2008,
+        "avgPricePerSqFt": 331,
+        "avgDom": 64,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayou Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.381138,
+        "lng": -86.332102
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 610583,
+        "avgPriceDisplay": "$610,583",
+        "medianPrice": 599000,
+        "avgSqft": 1478,
+        "avgPricePerSqFt": 413,
+        "avgDom": 67,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayshore Pines",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.38625,
+        "lng": -86.367185
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 611997,
+        "avgPriceDisplay": "$611,997",
+        "medianPrice": 599990,
+        "avgSqft": 1675,
+        "avgPricePerSqFt": 365,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayside",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.383424,
+        "lng": -86.352484
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 622999,
+        "avgPriceDisplay": "$622,999",
+        "medianPrice": 525000,
+        "avgSqft": 1809,
+        "avgPricePerSqFt": 344,
+        "avgDom": 85,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bayside Condo Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.385511,
+        "lng": -86.33984
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 12,
+        "avgPrice": 214247,
+        "avgPriceDisplay": "$214,247",
+        "medianPrice": 210000,
+        "avgSqft": 406,
+        "avgPricePerSqFt": 528,
+        "avgDom": 161,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Beach House",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.374526,
+        "lng": -86.360207
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 777756,
+        "avgPriceDisplay": "$777,756",
+        "medianPrice": 769000,
+        "avgSqft": 1025,
+        "avgPricePerSqFt": 759,
+        "avgDom": 265,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Beachside",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.370005,
+        "lng": -86.330268
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 842919,
+        "avgPriceDisplay": "$842,919",
+        "medianPrice": 849000,
+        "avgSqft": 1111,
+        "avgPricePerSqFt": 758,
+        "avgDom": 164,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Beachwalk T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.374845,
+        "lng": -86.350624
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 699000,
+        "avgPriceDisplay": "$699,000",
+        "medianPrice": 699000,
+        "avgSqft": 1464,
+        "avgPricePerSqFt": 477,
+        "avgDom": 6,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Beachwalk Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.376502,
+        "lng": -86.331882
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 646367,
+        "avgPriceDisplay": "$646,367",
+        "medianPrice": 595000,
+        "avgSqft": 1449,
+        "avgPricePerSqFt": 446,
+        "avgDom": 214,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Blue Ohana",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.381482,
+        "lng": -86.388645
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1804750,
+        "avgPriceDisplay": "$1,804,750",
+        "medianPrice": 1814500,
+        "avgSqft": 3130,
+        "avgPricePerSqFt": 577,
+        "avgDom": 90,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Blue Surf",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.378934,
+        "lng": -86.386189
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 700000,
+        "avgPriceDisplay": "$700,000",
+        "medianPrice": 700000,
+        "avgSqft": 2160,
+        "avgPricePerSqFt": 324,
+        "avgDom": 442,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bon Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.381352,
+        "lng": -86.352027
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 377985,
+        "avgPriceDisplay": "$377,985",
+        "medianPrice": 399000,
+        "avgSqft": 1675,
+        "avgPricePerSqFt": 226,
+        "avgDom": 153,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Buena Vista",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.37329,
+        "lng": -86.349456
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 6400000,
+        "avgPriceDisplay": "$6,400,000",
+        "medianPrice": 6400000,
+        "avgSqft": 6160,
+        "avgPricePerSqFt": 1039,
+        "avgDom": 25,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Bungalos At Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.390549,
+        "lng": -86.305658
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 873625,
+        "avgPriceDisplay": "$873,625",
+        "medianPrice": 875000,
+        "avgSqft": 1732,
+        "avgPricePerSqFt": 504,
+        "avgDom": 201,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Burnt Pine",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.40443,
+        "lng": -86.315553
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 19,
+        "avgPrice": 3301758,
+        "avgPriceDisplay": "$3,301,758",
+        "medianPrice": 2995000,
+        "avgSqft": 4356,
+        "avgPricePerSqFt": 758,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Burnt Pine T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.403552,
+        "lng": -86.311954
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4195000,
+        "avgPriceDisplay": "$4,195,000",
+        "medianPrice": 4195000,
+        "avgSqft": 4506,
+        "avgPricePerSqFt": 931,
+        "avgDom": 45,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Caribe",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.374099,
+        "lng": -86.341061
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 10,
+        "avgPrice": 1847667,
+        "avgPriceDisplay": "$1,847,667",
+        "medianPrice": 1649000,
+        "avgSqft": 2927,
+        "avgPricePerSqFt": 631,
+        "avgDom": 151,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "No Short-Term",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Ciboney",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.378349,
+        "lng": -86.382871
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 562867,
+        "avgPriceDisplay": "$562,867",
+        "medianPrice": 574900,
+        "avgSqft": 1023,
+        "avgPricePerSqFt": 550,
+        "avgDom": 217,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Compass Rose",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.374914,
+        "lng": -86.364284
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1181333,
+        "avgPriceDisplay": "$1,181,333",
+        "medianPrice": 1125000,
+        "avgSqft": 1577,
+        "avgPricePerSqFt": 749,
+        "avgDom": 144,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Costa Vista",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.378975,
+        "lng": -86.387049
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 600975,
+        "avgPriceDisplay": "$600,975",
+        "medianPrice": 595000,
+        "avgSqft": 1376,
+        "avgPricePerSqFt": 437,
+        "avgDom": 135,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Cottages Of Miramar",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379554,
+        "lng": -86.386964
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1695000,
+        "avgPriceDisplay": "$1,695,000",
+        "medianPrice": 1695000,
+        "avgSqft": 3103,
+        "avgPricePerSqFt": 546,
+        "avgDom": 86,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Cross Creek Club",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379203,
+        "lng": -86.381473
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 349000,
+        "avgPriceDisplay": "$349,000",
+        "medianPrice": 349000,
+        "avgSqft": 612,
+        "avgPricePerSqFt": 570,
+        "avgDom": 68,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Crystal Cove",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.385937,
+        "lng": -86.306524
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 476125,
+        "avgPriceDisplay": "$476,125",
+        "medianPrice": 485000,
+        "avgSqft": 1217,
+        "avgPricePerSqFt": 391,
+        "avgDom": 104,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Crystal Lake",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.389071,
+        "lng": -86.307877
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1016529,
+        "avgPriceDisplay": "$1,016,529",
+        "medianPrice": 959000,
+        "avgSqft": 2125,
+        "avgPricePerSqFt": 478,
+        "avgDom": 75,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Crystal Village 2 Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.381635,
+        "lng": -86.383558
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 454325,
+        "avgPriceDisplay": "$454,325",
+        "medianPrice": 375000,
+        "avgSqft": 1076,
+        "avgPricePerSqFt": 422,
+        "avgDom": 146,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Deerwood",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.384952,
+        "lng": -86.31221
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 804500,
+        "avgPriceDisplay": "$804,500",
+        "medianPrice": 969000,
+        "avgSqft": 1610,
+        "avgPricePerSqFt": 500,
+        "avgDom": 210,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Del Mar At Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.394857,
+        "lng": -86.31935
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2111000,
+        "avgPriceDisplay": "$2,111,000",
+        "medianPrice": 2399000,
+        "avgSqft": 3002,
+        "avgPricePerSqFt": 703,
+        "avgDom": 44,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Destin Surfside",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.375868,
+        "lng": -86.366499
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 17,
+        "avgPrice": 627004,
+        "avgPriceDisplay": "$627,004",
+        "medianPrice": 599999,
+        "avgSqft": 1125,
+        "avgPricePerSqFt": 557,
+        "avgDom": 180,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Dorothy Bowen Estates",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.387669,
+        "lng": -86.374372
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 537000,
+        "avgPriceDisplay": "$537,000",
+        "medianPrice": 599000,
+        "avgSqft": 1702,
+        "avgPricePerSqFt": 316,
+        "avgDom": 12,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Driftwood",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.381364,
+        "lng": -86.386531
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3999000,
+        "avgPriceDisplay": "$3,999,000",
+        "medianPrice": 3999000,
+        "avgSqft": 6544,
+        "avgPricePerSqFt": 611,
+        "avgDom": 274,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Edgewater Beach",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.375206,
+        "lng": -86.353008
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 658516,
+        "avgPriceDisplay": "$658,516",
+        "medianPrice": 575000,
+        "avgSqft": 1139,
+        "avgPricePerSqFt": 578,
+        "avgDom": 92,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Elation",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.39315,
+        "lng": -86.325956
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 345882,
+        "avgPriceDisplay": "$345,882",
+        "medianPrice": 303750,
+        "avgSqft": 845,
+        "avgPricePerSqFt": 409,
+        "avgDom": 238,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Bay",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.390148,
+        "lng": -86.39512
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 891766,
+        "avgPriceDisplay": "$891,766",
+        "medianPrice": 854000,
+        "avgSqft": 2629,
+        "avgPricePerSqFt": 339,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Dunes",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.373841,
+        "lng": -86.34592
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1881667,
+        "avgPriceDisplay": "$1,881,667",
+        "medianPrice": 1800000,
+        "avgSqft": 3125,
+        "avgPricePerSqFt": 602,
+        "avgDom": 268,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Shores Of South Walton",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.383402,
+        "lng": -86.396803
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 879208,
+        "avgPriceDisplay": "$879,208",
+        "medianPrice": 868900,
+        "avgSqft": 1828,
+        "avgPricePerSqFt": 481,
+        "avgDom": 100,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Waters Beachside",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.377884,
+        "lng": -86.380097
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 560000,
+        "avgPriceDisplay": "$560,000",
+        "medianPrice": 560000,
+        "avgSqft": 958,
+        "avgPricePerSqFt": 585,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Waters Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.381654,
+        "lng": -86.379866
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 1709483,
+        "avgPriceDisplay": "$1,709,483",
+        "medianPrice": 1985000,
+        "avgSqft": 3015,
+        "avgPricePerSqFt": 567,
+        "avgDom": 139,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Waters Village T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.380647,
+        "lng": -86.379914
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 895000,
+        "avgPriceDisplay": "$895,000",
+        "medianPrice": 895000,
+        "avgSqft": 1640,
+        "avgPricePerSqFt": 546,
+        "avgDom": 93,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Fairways",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.381994,
+        "lng": -86.346144
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 833727,
+        "avgPriceDisplay": "$833,727",
+        "medianPrice": 745000,
+        "avgSqft": 1339,
+        "avgPricePerSqFt": 623,
+        "avgDom": 102,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Fairways T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.382587,
+        "lng": -86.346006
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 838800,
+        "avgPriceDisplay": "$838,800",
+        "medianPrice": 875000,
+        "avgSqft": 1655,
+        "avgPricePerSqFt": 507,
+        "avgDom": 200,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Fishermans Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.390083,
+        "lng": -86.325227
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 595000,
+        "avgPriceDisplay": "$595,000",
+        "medianPrice": 625000,
+        "avgSqft": 1454,
+        "avgPricePerSqFt": 409,
+        "avgDom": 99,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Flamingo Beach",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.386832,
+        "lng": -86.360268
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2974665,
+        "avgPriceDisplay": "$2,974,665",
+        "medianPrice": 3349000,
+        "avgSqft": 3379,
+        "avgPricePerSqFt": 880,
+        "avgDom": 154,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Fountains At Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.38995,
+        "lng": -86.323063
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1673500,
+        "avgPriceDisplay": "$1,673,500",
+        "medianPrice": 1748000,
+        "avgSqft": 2675,
+        "avgPricePerSqFt": 626,
+        "avgDom": 100,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
     {
       "name": "Four Mile Village",
       "area": "15 - Miramar/Sandestin Resort",
@@ -46,6 +2662,4870 @@
         "Gated",
         "No Short-Term",
         "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Frangista Beach",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.380688,
+        "lng": -86.377417
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 22,
+        "avgPrice": 1710876,
+        "avgPriceDisplay": "$1,710,876",
+        "medianPrice": 1545000,
+        "avgSqft": 3106,
+        "avgPricePerSqFt": 551,
+        "avgDom": 137,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Garden Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.382553,
+        "lng": -86.371592
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 448000,
+        "avgPriceDisplay": "$448,000",
+        "medianPrice": 448000,
+        "avgSqft": 1110,
+        "avgPricePerSqFt": 404,
+        "avgDom": 408,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Genoa",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.391743,
+        "lng": -86.316739
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1866889,
+        "avgPriceDisplay": "$1,866,889",
+        "medianPrice": 1785000,
+        "avgSqft": 3249,
+        "avgPricePerSqFt": 575,
+        "avgDom": 80,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Golfview",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379943,
+        "lng": -86.34621
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1234000,
+        "avgPriceDisplay": "$1,234,000",
+        "medianPrice": 1269000,
+        "avgSqft": 2362,
+        "avgPricePerSqFt": 522,
+        "avgDom": 212,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Grand Dunes",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.374944,
+        "lng": -86.352065
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2766672,
+        "avgPriceDisplay": "$2,766,672",
+        "medianPrice": 2595000,
+        "avgSqft": 2788,
+        "avgPricePerSqFt": 993,
+        "avgDom": 180,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Grand Harbour",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.386419,
+        "lng": -86.334327
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1077100,
+        "avgPriceDisplay": "$1,077,100",
+        "medianPrice": 1042500,
+        "avgSqft": 2268,
+        "avgPricePerSqFt": 475,
+        "avgDom": 32,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Grand Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.392123,
+        "lng": -86.325351
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 23,
+        "avgPrice": 388435,
+        "avgPriceDisplay": "$388,435",
+        "medianPrice": 340000,
+        "avgSqft": 870,
+        "avgPricePerSqFt": 447,
+        "avgDom": 224,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Grand Villas At Tops'L Beach Club",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.377318,
+        "lng": -86.325295
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1369000,
+        "avgPriceDisplay": "$1,369,000",
+        "medianPrice": 1469000,
+        "avgSqft": 3454,
+        "avgPricePerSqFt": 396,
+        "avgDom": 137,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Pines",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.373056,
+        "lng": -86.33573
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 3156615,
+        "avgPriceDisplay": "$3,156,615",
+        "medianPrice": 1950000,
+        "avgSqft": 3775,
+        "avgPricePerSqFt": 836,
+        "avgDom": 270,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Walk Miramar Beach",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.37707,
+        "lng": -86.361073
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 490000,
+        "avgPriceDisplay": "$490,000",
+        "medianPrice": 490000,
+        "avgSqft": 1258,
+        "avgPricePerSqFt": 390,
+        "avgDom": 19,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulf Winds East",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.379999,
+        "lng": -86.394221
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 535600,
+        "avgPriceDisplay": "$535,600",
+        "medianPrice": 585000,
+        "avgSqft": 1302,
+        "avgPricePerSqFt": 411,
+        "avgDom": 240,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Gulfview 2",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379508,
+        "lng": -86.394833
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 332940,
+        "avgPriceDisplay": "$332,940",
+        "medianPrice": 334900,
+        "avgSqft": 603,
+        "avgPricePerSqFt": 552,
+        "avgDom": 179,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Harbour Pointe",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.385594,
+        "lng": -86.334609
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 492989,
+        "avgPriceDisplay": "$492,989",
+        "medianPrice": 475000,
+        "avgSqft": 979,
+        "avgPricePerSqFt": 503,
+        "avgDom": 128,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Heron Walk",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.381065,
+        "lng": -86.327381
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 599180,
+        "avgPriceDisplay": "$599,180",
+        "medianPrice": 598000,
+        "avgSqft": 1180,
+        "avgPricePerSqFt": 508,
+        "avgDom": 70,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Hidden Dunes Beach Cottages",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.37505,
+        "lng": -86.339436
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 13,
+        "avgPrice": 530774,
+        "avgPriceDisplay": "$530,774",
+        "medianPrice": 475000,
+        "avgSqft": 1271,
+        "avgPricePerSqFt": 418,
+        "avgDom": 173,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Hidden Dunes Gulfside",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.371717,
+        "lng": -86.3391
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 912182,
+        "avgPriceDisplay": "$912,182",
+        "medianPrice": 830000,
+        "avgSqft": 1388,
+        "avgPricePerSqFt": 657,
+        "avgDom": 178,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Hidden Harbor Estates",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.387356,
+        "lng": -86.377643
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 499000,
+        "avgPriceDisplay": "$499,000",
+        "medianPrice": 499000,
+        "avgSqft": 2019,
+        "avgPricePerSqFt": 247,
+        "avgDom": 72,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pool"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Hidden Palms",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.381655,
+        "lng": -86.381999
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1183000,
+        "avgPriceDisplay": "$1,183,000",
+        "medianPrice": 1100000,
+        "avgSqft": 2682,
+        "avgPricePerSqFt": 441,
+        "avgDom": 140,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Hidden Villas Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.383446,
+        "lng": -86.38595
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 279900,
+        "avgPriceDisplay": "$279,900",
+        "medianPrice": 279900,
+        "avgSqft": 627,
+        "avgPricePerSqFt": 446,
+        "avgDom": 181,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Holiday Shores Est",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.390801,
+        "lng": -86.382579
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 793857,
+        "avgPriceDisplay": "$793,857",
+        "medianPrice": 699000,
+        "avgSqft": 2215,
+        "avgPricePerSqFt": 358,
+        "avgDom": 79,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Island Green",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.393047,
+        "lng": -86.31339
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2487000,
+        "avgPriceDisplay": "$2,487,000",
+        "medianPrice": 2949000,
+        "avgSqft": 5268,
+        "avgPricePerSqFt": 472,
+        "avgDom": 180,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lasata",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.391251,
+        "lng": -86.32587
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 20,
+        "avgPrice": 441456,
+        "avgPriceDisplay": "$441,456",
+        "medianPrice": 350000,
+        "avgSqft": 1095,
+        "avgPricePerSqFt": 403,
+        "avgDom": 230,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Laurel Grove",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.388219,
+        "lng": -86.314792
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1005653,
+        "avgPriceDisplay": "$1,005,653",
+        "medianPrice": 979900,
+        "avgSqft": 1887,
+        "avgPricePerSqFt": 533,
+        "avgDom": 93,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Le Jardin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.390456,
+        "lng": -86.325408
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 697000,
+        "avgPriceDisplay": "$697,000",
+        "medianPrice": 699000,
+        "avgSqft": 1659,
+        "avgPricePerSqFt": 420,
+        "avgDom": 127,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Leeward Key",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379678,
+        "lng": -86.396382
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 771600,
+        "avgPriceDisplay": "$771,600",
+        "medianPrice": 729000,
+        "avgSqft": 1216,
+        "avgPricePerSqFt": 634,
+        "avgDom": 293,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Legion Park Landing",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.384528,
+        "lng": -86.357687
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 599000,
+        "avgPriceDisplay": "$599,000",
+        "medianPrice": 599000,
+        "avgSqft": 1934,
+        "avgPricePerSqFt": 310,
+        "avgDom": 69,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Linkside Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.38158,
+        "lng": -86.339949
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 654500,
+        "avgPriceDisplay": "$654,500",
+        "medianPrice": 695000,
+        "avgSqft": 1397,
+        "avgPricePerSqFt": 469,
+        "avgDom": 54,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Luau",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.371936,
+        "lng": -86.327921
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 25,
+        "avgPrice": 479034,
+        "avgPriceDisplay": "$479,034",
+        "medianPrice": 399000,
+        "avgSqft": 895,
+        "avgPricePerSqFt": 535,
+        "avgDom": 186,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Magnolia Beach T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.388326,
+        "lng": -86.321448
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1030571,
+        "avgPriceDisplay": "$1,030,571",
+        "medianPrice": 1099000,
+        "avgSqft": 1996,
+        "avgPricePerSqFt": 516,
+        "avgDom": 87,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Mainsail",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.37334,
+        "lng": -86.347703
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 10,
+        "avgPrice": 704992,
+        "avgPriceDisplay": "$704,992",
+        "medianPrice": 699000,
+        "avgSqft": 1284,
+        "avgPricePerSqFt": 549,
+        "avgDom": 170,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Majestic Sun",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.375968,
+        "lng": -86.368132
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 821989,
+        "avgPriceDisplay": "$821,989",
+        "medianPrice": 728500,
+        "avgSqft": 1288,
+        "avgPricePerSqFt": 638,
+        "avgDom": 180,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Malibu Gardens",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.386934,
+        "lng": -86.375794
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 573950,
+        "avgPriceDisplay": "$573,950",
+        "medianPrice": 573950,
+        "avgSqft": 1786,
+        "avgPricePerSqFt": 321,
+        "avgDom": 54,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Maravilla",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379548,
+        "lng": -86.39192
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 12,
+        "avgPrice": 528395,
+        "avgPriceDisplay": "$528,395",
+        "medianPrice": 525000,
+        "avgSqft": 859,
+        "avgPricePerSqFt": 615,
+        "avgDom": 156,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Maravilla Shores",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379611,
+        "lng": -86.392528
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 2501225,
+        "avgPriceDisplay": "$2,501,225",
+        "medianPrice": 1980000,
+        "avgSqft": 4023,
+        "avgPricePerSqFt": 622,
+        "avgDom": 366,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Fitness",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Market Street",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.390739,
+        "lng": -86.324304
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 452667,
+        "avgPriceDisplay": "$452,667",
+        "medianPrice": 489000,
+        "avgSqft": 912,
+        "avgPricePerSqFt": 496,
+        "avgDom": 219,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Miramar Beach Cottages",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.373559,
+        "lng": -86.348873
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1798000,
+        "avgPriceDisplay": "$1,798,000",
+        "medianPrice": 1798000,
+        "avgSqft": 2921,
+        "avgPricePerSqFt": 616,
+        "avgDom": 230,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Miramar Beach Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.376183,
+        "lng": -86.36437
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1014667,
+        "avgPriceDisplay": "$1,014,667",
+        "medianPrice": 1150000,
+        "avgSqft": 2103,
+        "avgPricePerSqFt": 482,
+        "avgDom": 58,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Miramar Palms T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.381213,
+        "lng": -86.381174
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 684950,
+        "avgPriceDisplay": "$684,950",
+        "medianPrice": 690000,
+        "avgSqft": 1554,
+        "avgPricePerSqFt": 441,
+        "avgDom": 37,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Misty Cove",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.382088,
+        "lng": -86.384101
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 441200,
+        "avgPriceDisplay": "$441,200",
+        "medianPrice": 449900,
+        "avgSqft": 1333,
+        "avgPricePerSqFt": 331,
+        "avgDom": 121,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Observation Point",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.390572,
+        "lng": -86.324436
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 9,
+        "avgPrice": 492227,
+        "avgPriceDisplay": "$492,227",
+        "medianPrice": 486000,
+        "avgSqft": 1035,
+        "avgPricePerSqFt": 476,
+        "avgDom": 128,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Paradise Retreat",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.38291,
+        "lng": -86.394407
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 906893,
+        "avgPriceDisplay": "$906,893",
+        "medianPrice": 875000,
+        "avgSqft": 1793,
+        "avgPricePerSqFt": 506,
+        "avgDom": 181,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pavilion Palms",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379325,
+        "lng": -86.388739
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 776333,
+        "avgPriceDisplay": "$776,333",
+        "medianPrice": 695000,
+        "avgSqft": 1376,
+        "avgPricePerSqFt": 564,
+        "avgDom": 157,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Elevator",
+        "Gated",
+        "No Short-Term",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pilot House",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.390715,
+        "lng": -86.32474
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 10,
+        "avgPrice": 344919,
+        "avgPriceDisplay": "$344,919",
+        "medianPrice": 365000,
+        "avgSqft": 755,
+        "avgPricePerSqFt": 457,
+        "avgDom": 213,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pine Ridge",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.377535,
+        "lng": -86.32806
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 965000,
+        "avgPriceDisplay": "$965,000",
+        "medianPrice": 965000,
+        "avgSqft": 1795,
+        "avgPricePerSqFt": 538,
+        "avgDom": 575,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pine Ridge Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.377661,
+        "lng": -86.328805
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 924333,
+        "avgPriceDisplay": "$924,333",
+        "medianPrice": 899000,
+        "avgSqft": 1818,
+        "avgPricePerSqFt": 508,
+        "avgDom": 393,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Players Club At Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.384842,
+        "lng": -86.345226
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 770230,
+        "avgPriceDisplay": "$770,230",
+        "medianPrice": 727777,
+        "avgSqft": 1448,
+        "avgPricePerSqFt": 532,
+        "avgDom": 76,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Poinciana Place",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.376095,
+        "lng": -86.35397
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 317000,
+        "avgPriceDisplay": "$317,000",
+        "medianPrice": 340000,
+        "avgSqft": 1014,
+        "avgPricePerSqFt": 313,
+        "avgDom": 107,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Pointe Of View",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.381037,
+        "lng": -86.310076
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 14,
+        "avgPrice": 246745,
+        "avgPriceDisplay": "$246,745",
+        "medianPrice": 250000,
+        "avgSqft": 816,
+        "avgPricePerSqFt": 302,
+        "avgDom": 107,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Fitness",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Prestwick Place",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.382201,
+        "lng": -86.318283
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1085800,
+        "avgPriceDisplay": "$1,085,800",
+        "medianPrice": 1099000,
+        "avgSqft": 1866,
+        "avgPricePerSqFt": 582,
+        "avgDom": 110,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Saint Tropez",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.376005,
+        "lng": -86.356272
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1350000,
+        "avgPriceDisplay": "$1,350,000",
+        "medianPrice": 1750000,
+        "avgSqft": 2641,
+        "avgPricePerSqFt": 511,
+        "avgDom": 290,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sandestin Resort",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.385773,
+        "lng": -86.320138
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 650000,
+        "avgPriceDisplay": "$650,000",
+        "medianPrice": 650000,
+        "avgSqft": 1771,
+        "avgPricePerSqFt": 367,
+        "avgDom": 448,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sandpiper Village",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.383083,
+        "lng": -86.335161
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 670725,
+        "avgPriceDisplay": "$670,725",
+        "medianPrice": 625000,
+        "avgSqft": 1562,
+        "avgPricePerSqFt": 429,
+        "avgDom": 87,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sandpiper Village Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.382594,
+        "lng": -86.336018
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 719408,
+        "avgPriceDisplay": "$719,408",
+        "medianPrice": 720000,
+        "avgSqft": 1661,
+        "avgPricePerSqFt": 433,
+        "avgDom": 118,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sandprints",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.380764,
+        "lng": -86.386341
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 381833,
+        "avgPriceDisplay": "$381,833",
+        "medianPrice": 398000,
+        "avgSqft": 950,
+        "avgPricePerSqFt": 402,
+        "avgDom": 135,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sea Cabins Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.376925,
+        "lng": -86.365522
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 401250,
+        "avgPriceDisplay": "$401,250",
+        "medianPrice": 403500,
+        "avgSqft": 669,
+        "avgPricePerSqFt": 600,
+        "avgDom": 294,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sea Cabins T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.376875,
+        "lng": -86.365309
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 380500,
+        "avgPriceDisplay": "$380,500",
+        "medianPrice": 389000,
+        "avgSqft": 694,
+        "avgPricePerSqFt": 548,
+        "avgDom": 66,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seascape Resort Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.383497,
+        "lng": -86.367719
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 20,
+        "avgPrice": 606539,
+        "avgPriceDisplay": "$606,539",
+        "medianPrice": 580000,
+        "avgSqft": 1343,
+        "avgPricePerSqFt": 452,
+        "avgDom": 203,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seaspray",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.378261,
+        "lng": -86.356676
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 710750,
+        "avgPriceDisplay": "$710,750",
+        "medianPrice": 700000,
+        "avgSqft": 1712,
+        "avgPricePerSqFt": 415,
+        "avgDom": 177,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Seawinds",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.376134,
+        "lng": -86.374465
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1662500,
+        "avgPriceDisplay": "$1,662,500",
+        "medianPrice": 1825000,
+        "avgSqft": 2460,
+        "avgPricePerSqFt": 676,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pet-Friendly",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Snow Drift Beach",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.373466,
+        "lng": -86.347059
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2574667,
+        "avgPriceDisplay": "$2,574,667",
+        "medianPrice": 2700000,
+        "avgSqft": 4896,
+        "avgPricePerSqFt": 526,
+        "avgDom": 92,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Southwinds",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.370595,
+        "lng": -86.332139
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 8,
+        "avgPrice": 1638653,
+        "avgPriceDisplay": "$1,638,653",
+        "medianPrice": 1815000,
+        "avgSqft": 1632,
+        "avgPricePerSqFt": 1004,
+        "avgDom": 106,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Spyglass Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.374738,
+        "lng": -86.345778
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2925000,
+        "avgPriceDisplay": "$2,925,000",
+        "medianPrice": 2925000,
+        "avgSqft": 4520,
+        "avgPricePerSqFt": 647,
+        "avgDom": 401,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Summer Haven",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.376828,
+        "lng": -86.3651
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 940500,
+        "avgPriceDisplay": "$940,500",
+        "medianPrice": 1399000,
+        "avgSqft": 1534,
+        "avgPricePerSqFt": 613,
+        "avgDom": 113,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Summerspell",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.378831,
+        "lng": -86.388158
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 456000,
+        "avgPriceDisplay": "$456,000",
+        "medianPrice": 440000,
+        "avgSqft": 608,
+        "avgPricePerSqFt": 750,
+        "avgDom": 72,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Sundance",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.380706,
+        "lng": -86.382982
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1699495,
+        "avgPriceDisplay": "$1,699,495",
+        "medianPrice": 1699990,
+        "avgSqft": 3300,
+        "avgPricePerSqFt": 515,
+        "avgDom": 34,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Surf Song Estates",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.379937,
+        "lng": -86.382782
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1574950,
+        "avgPriceDisplay": "$1,574,950",
+        "medianPrice": 1750000,
+        "avgSqft": 2568,
+        "avgPricePerSqFt": 613,
+        "avgDom": 57,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Surfsong Condo Of Destin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.379283,
+        "lng": -86.382804
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 360000,
+        "avgPriceDisplay": "$360,000",
+        "medianPrice": 360000,
+        "avgSqft": 648,
+        "avgPricePerSqFt": 556,
+        "avgDom": 39,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tang-O-Mar",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.37456,
+        "lng": -86.343745
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1785500,
+        "avgPriceDisplay": "$1,785,500",
+        "medianPrice": 1923000,
+        "avgSqft": 2770,
+        "avgPricePerSqFt": 645,
+        "avgDom": 181,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "The Cottages at Mainsail",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.375592,
+        "lng": -86.348231
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 699900,
+        "avgPriceDisplay": "$699,900",
+        "medianPrice": 699900,
+        "avgSqft": 1847,
+        "avgPricePerSqFt": 379,
+        "avgDom": 155,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "The Empress",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.376164,
+        "lng": -86.369745
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1572000,
+        "avgPriceDisplay": "$1,572,000",
+        "medianPrice": 1695000,
+        "avgSqft": 2525,
+        "avgPricePerSqFt": 623,
+        "avgDom": 247,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "The View",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.374271,
+        "lng": -86.35016
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 720000,
+        "avgPriceDisplay": "$720,000",
+        "medianPrice": 720000,
+        "avgSqft": 1586,
+        "avgPricePerSqFt": 454,
+        "avgDom": 589,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tides At Tops'L",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.370092,
+        "lng": -86.325955
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 942500,
+        "avgPriceDisplay": "$942,500",
+        "medianPrice": 875000,
+        "avgSqft": 1329,
+        "avgPricePerSqFt": 709,
+        "avgDom": 198,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Gated",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tivoli By The Sea",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.37426,
+        "lng": -86.328655
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 874843,
+        "avgPriceDisplay": "$874,843",
+        "medianPrice": 950000,
+        "avgSqft": 1894,
+        "avgPricePerSqFt": 462,
+        "avgDom": 92,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tivoli Ridge",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.376713,
+        "lng": -86.327923
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2025000,
+        "avgPriceDisplay": "$2,025,000",
+        "medianPrice": 2250000,
+        "avgSqft": 4374,
+        "avgPricePerSqFt": 463,
+        "avgDom": 239,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Playgrounds",
+        "Pool",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tivoli Terrace",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.373615,
+        "lng": -86.328688
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1175000,
+        "avgPriceDisplay": "$1,175,000",
+        "medianPrice": 1175000,
+        "avgSqft": 2086,
+        "avgPricePerSqFt": 563,
+        "avgDom": 185,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tops'L Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.371913,
+        "lng": -86.324677
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 17,
+        "avgPrice": 747169,
+        "avgPriceDisplay": "$747,169",
+        "medianPrice": 685000,
+        "avgSqft": 1335,
+        "avgPricePerSqFt": 560,
+        "avgDom": 153,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tops'L T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.375554,
+        "lng": -86.326789
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 566133,
+        "avgPriceDisplay": "$566,133",
+        "medianPrice": 560000,
+        "avgSqft": 1331,
+        "avgPricePerSqFt": 425,
+        "avgDom": 61,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pickleball",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tradewinds Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.378697,
+        "lng": -86.385193
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 413500,
+        "avgPriceDisplay": "$413,500",
+        "medianPrice": 410000,
+        "avgSqft": 766,
+        "avgPricePerSqFt": 540,
+        "avgDom": 216,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Treasure Sands",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.380967,
+        "lng": -86.388664
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1544500,
+        "avgPriceDisplay": "$1,544,500",
+        "medianPrice": 1589000,
+        "avgSqft": 2466,
+        "avgPricePerSqFt": 626,
+        "avgDom": 76,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Treetops At Bayside",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.382609,
+        "lng": -86.347842
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 569900,
+        "avgPriceDisplay": "$569,900",
+        "medianPrice": 569900,
+        "avgSqft": 1667,
+        "avgPricePerSqFt": 342,
+        "avgDom": 7,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Playgrounds",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Turnberry",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.387773,
+        "lng": -86.319718
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 871000,
+        "avgPriceDisplay": "$871,000",
+        "medianPrice": 950000,
+        "avgSqft": 2152,
+        "avgPricePerSqFt": 405,
+        "avgDom": 214,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Turnberry Villas",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.386608,
+        "lng": -86.321004
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 776483,
+        "avgPriceDisplay": "$776,483",
+        "medianPrice": 749999,
+        "avgSqft": 1868,
+        "avgPricePerSqFt": 416,
+        "avgDom": 130,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Tuscana T/H",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.395604,
+        "lng": -86.320702
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1395000,
+        "avgPriceDisplay": "$1,395,000",
+        "medianPrice": 1395000,
+        "avgSqft": 2706,
+        "avgPricePerSqFt": 516,
+        "avgDom": 149,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Vantage Pointe",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.38491,
+        "lng": -86.345991
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 1002750,
+        "avgPriceDisplay": "$1,002,750",
+        "medianPrice": 1050000,
+        "avgSqft": 2098,
+        "avgPricePerSqFt": 478,
+        "avgDom": 319,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Golf",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Villa Lago",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.392277,
+        "lng": -86.320868
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 11,
+        "avgPrice": 1117728,
+        "avgPriceDisplay": "$1,117,728",
+        "medianPrice": 1130000,
+        "avgSqft": 2179,
+        "avgPricePerSqFt": 513,
+        "avgDom": 145,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pet-Friendly",
+        "Pickleball",
+        "Playgrounds",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Villa Lago Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.373282,
+        "lng": -86.350947
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3911000,
+        "avgPriceDisplay": "$3,911,000",
+        "medianPrice": 3950000,
+        "avgSqft": 4090,
+        "avgPricePerSqFt": 956,
+        "avgDom": 130,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Warren Heights",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.376287,
+        "lng": -86.375587
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 4199000,
+        "avgPriceDisplay": "$4,199,000",
+        "medianPrice": 4199000,
+        "avgSqft": 3060,
+        "avgPricePerSqFt": 1372,
+        "avgDom": 419,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Westwinds",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.371327,
+        "lng": -86.333889
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1116124,
+        "avgPriceDisplay": "$1,116,124",
+        "medianPrice": 1198000,
+        "avgSqft": 1037,
+        "avgPricePerSqFt": 1076,
+        "avgDom": 135,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Golf",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Westwinds At Sandestin",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.37067,
+        "lng": -86.332712
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 3498250,
+        "avgPriceDisplay": "$3,498,250",
+        "medianPrice": 2199000,
+        "avgSqft": 3079,
+        "avgPricePerSqFt": 1136,
+        "avgDom": 248,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Gated",
+        "Golf",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pool",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Windancer Shores",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.375159,
+        "lng": -86.350934
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1357000,
+        "avgPriceDisplay": "$1,357,000",
+        "medianPrice": 1595000,
+        "avgSqft": 2153,
+        "avgPricePerSqFt": 630,
+        "avgDom": 178,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Woodland Shores Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.381786,
+        "lng": -86.385526
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 459900,
+        "avgPriceDisplay": "$459,900",
+        "medianPrice": 459900,
+        "avgSqft": 1296,
+        "avgPricePerSqFt": 355,
+        "avgDom": 232,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Pool",
+        "Short-Term"
       ],
       "photos": {
         "hero": "",
