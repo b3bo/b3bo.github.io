@@ -209,6 +209,14 @@ export function setupFilters() {
         });
     });
 
+    // Sub-area Filters Logic (West 30A / East 30A)
+    document.querySelectorAll('#subareaFilters .amenity-tag').forEach(tag => {
+        tag.addEventListener('click', function() {
+            this.classList.toggle('selected');
+            applyFilters();
+        });
+    });
+
     // Create amenity tags dynamically from loaded neighborhood data
     const amenitySet = new Set();
     STATE.neighborhoods.forEach(n => {
@@ -286,6 +294,7 @@ export function setupFilters() {
 
 export function applyFilters() {
     const selectedAreas = new Set();
+    const selectedSubareas = new Set();
     const selectedAmenities = new Set();
     let minPrice = 0;
     let maxPrice = 0;
@@ -297,6 +306,11 @@ export function applyFilters() {
     // Get selected areas (zip codes)
     document.querySelectorAll('#areaFilters .amenity-tag.selected').forEach(tag => {
         selectedAreas.add(tag.getAttribute('data-zipcode'));
+    });
+
+    // Get selected sub-areas (West 30A / East 30A)
+    document.querySelectorAll('#subareaFilters .amenity-tag.selected').forEach(tag => {
+        selectedSubareas.add(tag.getAttribute('data-subarea'));
     });
 
     // Get selected amenities
@@ -370,9 +384,12 @@ export function applyFilters() {
             }
         }
 
-        // Area Filter
+        // Area Filter (zip codes)
         const inSelectedAreas = selectedAreas.size === 0 || selectedAreas.has(neighborhood.zipCode);
-        
+
+        // Sub-area Filter (West 30A / East 30A)
+        const inSelectedSubareas = selectedSubareas.size === 0 || selectedSubareas.has(neighborhood.area);
+
         // Amenity Filter
         const hasSelectedAmenities = selectedAmenities.size === 0 || neighborhood.amenities.some(amenity => selectedAmenities.has(amenity));
         
@@ -443,7 +460,7 @@ export function applyFilters() {
             }
         }
 
-        return matchesPropertyType && inSelectedAreas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
+        return matchesPropertyType && inSelectedAreas && inSelectedSubareas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
     });
 
     // Apply sorting
