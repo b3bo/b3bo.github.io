@@ -1,6 +1,6 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-12T11:20:34.454922",
+  "updated": "2025-12-12T13:19:31.701619",
   "neighborhoods": [
     {
       "name": "Alerio",
@@ -53,7 +53,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/alerio/"
     },
     {
       "name": "Amalfi Coast Resort",
@@ -168,7 +169,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/ariel-dunes/"
     },
     {
       "name": "Augusta Village",
@@ -227,7 +229,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/augusta-village/"
     },
     {
       "name": "Augusta Village Condos",
@@ -393,7 +396,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/bahia/"
     },
     {
       "name": "Bay Bridge Landing",
@@ -502,7 +506,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/bayou-village/"
     },
     {
       "name": "Bayshore Pines",
@@ -780,7 +785,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/beachside/"
     },
     {
       "name": "Beachwalk T/H",
@@ -1200,7 +1206,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/burnt-pine/"
     },
     {
       "name": "Burnt Pine T/H",
@@ -1256,7 +1263,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/burnt-pine/"
     },
     {
       "name": "Caribe",
@@ -1310,7 +1318,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/caribe/"
     },
     {
       "name": "Ciboney",
@@ -1624,7 +1633,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/crystal-cove/"
     },
     {
       "name": "Crystal Lake",
@@ -1682,7 +1692,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/crystal-lake/"
     },
     {
       "name": "Crystal Village 2 Condos",
@@ -1790,7 +1801,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/deerwood/"
     },
     {
       "name": "Del Mar At Sandestin",
@@ -2121,7 +2133,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/elation/"
     },
     {
       "name": "Emerald Bay",
@@ -2175,7 +2188,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/destin/emerald-bay/"
     },
     {
       "name": "Emerald Dunes",
@@ -2224,7 +2238,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/emerald-dunes/"
     },
     {
       "name": "Emerald Shores Of South Walton",
@@ -2330,7 +2345,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/emerald-waters/"
     },
     {
       "name": "Emerald Waters Beachside",
@@ -2600,7 +2616,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/fairways/"
     },
     {
       "name": "Fairways T/H",
@@ -2658,7 +2675,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/fairways/"
     },
     {
       "name": "Fishermans Village",
@@ -2717,7 +2735,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/fishermans-village/"
     },
     {
       "name": "Flamingo Beach",
@@ -2926,7 +2945,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/frangista-beach/"
     },
     {
       "name": "Garden Villas",
@@ -3040,7 +3060,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/genoa/"
     },
     {
       "name": "Golfview",
@@ -3092,7 +3113,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/golf-view/"
     },
     {
       "name": "Grand Dunes",
@@ -3270,7 +3292,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/grand-sandestin/"
     },
     {
       "name": "Grand Villas At Tops'L Beach Club",
@@ -3648,7 +3671,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/heron-walk/"
     },
     {
       "name": "Hidden Dunes Beach Cottages",
@@ -4023,7 +4047,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/island-green/"
     },
     {
       "name": "Jars Cove",
@@ -4132,7 +4157,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/lasata/"
     },
     {
       "name": "Laurel Grove",
@@ -4191,7 +4217,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/laurel-grove/"
     },
     {
       "name": "Le Jardin",
@@ -4414,7 +4441,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/linkside-village/"
     },
     {
       "name": "Luau",
@@ -4474,7 +4502,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/luau/"
     },
     {
       "name": "Magnolia Beach T/H",
@@ -4591,7 +4620,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/mainsail/"
     },
     {
       "name": "Majestic Sun",
@@ -4648,7 +4678,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/majestic-sun/"
     },
     {
       "name": "Malibu Gardens",
@@ -4753,7 +4784,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/maravilla/"
     },
     {
       "name": "Maravilla Cottages",
@@ -4924,7 +4956,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/market-street/"
     },
     {
       "name": "Miramar Beach Cottages",
@@ -5186,7 +5219,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/observation-point/"
     },
     {
       "name": "Paradise Retreat",
@@ -5351,7 +5385,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/pilot-house/"
     },
     {
       "name": "Pine Ridge",
@@ -5468,7 +5503,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/pine-ridge-villas/"
     },
     {
       "name": "Players Club At Sandestin",
@@ -5686,7 +5722,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/prestwick-place/"
     },
     {
       "name": "Saint Tropez",
@@ -5739,7 +5776,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/saint-tropez/"
     },
     {
       "name": "Sandestin Resort",
@@ -5851,7 +5889,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/sandpiper-village/"
     },
     {
       "name": "Sandpiper Village Condos",
@@ -6270,7 +6309,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/snow-drift-beach/"
     },
     {
       "name": "Southwinds",
@@ -6325,7 +6365,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/southwinds/"
     },
     {
       "name": "Spyglass Villas",
@@ -6834,7 +6875,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/the-empress/"
     },
     {
       "name": "The View",
@@ -6998,7 +7040,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/tivoli-by-the-sea/"
     },
     {
       "name": "Tivoli Ridge",
@@ -7053,7 +7096,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/tivoli-ridge/"
     },
     {
       "name": "Tivoli Terrace",
@@ -7490,7 +7534,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/turnberry-villas/"
     },
     {
       "name": "Tuscana T/H",
@@ -7548,7 +7593,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/tuscana/"
     },
     {
       "name": "Vantage Pointe",
@@ -7663,7 +7709,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/villa-lago/"
     },
     {
       "name": "Villa Lago Condos",
@@ -7827,7 +7874,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/sandestin/westwinds/"
     },
     {
       "name": "Westwinds At Sandestin",

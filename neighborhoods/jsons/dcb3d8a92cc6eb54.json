@@ -1,6 +1,6 @@
 {
   "area": "27 - Bay County",
-  "updated": "2025-12-12T11:20:34.459554",
+  "updated": "2025-12-12T13:19:31.704644",
   "neighborhoods": [
     {
       "name": "Aqua",
@@ -566,7 +566,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/carillon-beach/"
     },
     {
       "name": "Carillon Beach Condos",
@@ -1602,7 +1603,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/laguna-beach/"
     },
     {
       "name": "Laguna Beach Estates",
@@ -1700,7 +1702,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/laguna-beach/"
     },
     {
       "name": "Laguna Haven",
@@ -1860,7 +1863,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/latitude-margaritaville/"
     },
     {
       "name": "Latitude Margaritaville T/H",
@@ -1916,7 +1920,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/latitude-margaritaville/"
     },
     {
       "name": "Lullwater Beach",
@@ -2070,7 +2075,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/margaritaville-cottages/"
     },
     {
       "name": "Miller's Landing",
@@ -2689,7 +2695,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/holiday-isle/poolside-villas/"
     },
     {
       "name": "Portside",
@@ -4388,7 +4395,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/wild-heron/"
     },
     {
       "name": "Wild Heron Condos",
@@ -4498,7 +4506,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/pcb/wild-heron/"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "area": "16 - North Santa Rosa Beach",
-  "updated": "2025-12-12T11:20:34.448647",
+  "updated": "2025-12-12T13:19:31.692306",
   "neighborhoods": [
     {
       "name": "30 North At Eden Park",
@@ -299,7 +299,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/santa-rosa-beach/botany-bayou/"
     },
     {
       "name": "Brizo",
@@ -765,7 +766,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/santa-rosa-beach/churchill-oaks/"
     },
     {
       "name": "Daxton On The Bay",
@@ -868,7 +870,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/driftwood-estates/"
     },
     {
       "name": "Eagle Bay",
@@ -1466,7 +1469,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/santa-rosa-beach/hidden-grove/"
     },
     {
       "name": "Indian Woman",

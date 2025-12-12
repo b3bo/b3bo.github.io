@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-12T11:20:34.450289",
+  "updated": "2025-12-12T13:19:31.694736",
   "neighborhoods": [
     {
       "name": "30A",
@@ -435,7 +435,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdCondos": "4033421"
+      "searchIdCondos": "4033421",
+      "urlSlug": "/beachside-villas/"
     },
     {
       "name": "Booth Bay",
@@ -1367,7 +1368,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdCondos": "4024495"
+      "searchIdCondos": "4024495",
+      "urlSlug": "/dunes-of-seagrove/"
     },
     {
       "name": "Dunes Of Seagrove Condos",
@@ -3243,7 +3245,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/legacy/"
     },
     {
       "name": "Lupin Beach",
@@ -4096,7 +4099,8 @@
       "listingsUrlMap": "",
       "searchIdHomes": "7088279",
       "searchIdCondos": "4202809",
-      "searchIdTownhomes": "7088280"
+      "searchIdTownhomes": "7088280",
+      "urlSlug": "/30a/prominence/"
     },
     {
       "name": "Prominence T/H",
@@ -4151,7 +4155,8 @@
       "listingsUrlMap": "",
       "searchIdHomes": "7088279",
       "searchIdCondos": "4202809",
-      "searchIdTownhomes": "7088280"
+      "searchIdTownhomes": "7088280",
+      "urlSlug": "/30a/prominence/"
     },
     {
       "name": "Rollin Tide Villas",
@@ -4261,7 +4266,8 @@
       "listingsUrlMap": "",
       "searchIdHomes": "385757",
       "searchIdCondos": "385758",
-      "searchIdTownhomes": "385759"
+      "searchIdTownhomes": "385759",
+      "urlSlug": "/30a/rosemary-beach/"
     },
     {
       "name": "Rosemary Beach Condos",
@@ -4372,7 +4378,8 @@
       "listingsUrlMap": "",
       "searchIdHomes": "385757",
       "searchIdCondos": "385758",
-      "searchIdTownhomes": "385759"
+      "searchIdTownhomes": "385759",
+      "urlSlug": "/30a/rosemary-beach/"
     },
     {
       "name": "Rosemary Beach, The Savannah",
@@ -4785,7 +4792,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdHomes": "4133645"
+      "searchIdHomes": "4133645",
+      "urlSlug": "/30a/seabreeze/"
     },
     {
       "name": "Seacrest",
@@ -4834,7 +4842,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/30a/seacrest/"
     },
     {
       "name": "Seacrest Beach",
@@ -4885,7 +4894,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/30a/seacrest-beach/"
     },
     {
       "name": "Seacrest Beach Condos",
@@ -4988,7 +4998,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/30a/seagrove/"
     },
     {
       "name": "Seagrove Beach Dune Villas",
@@ -6189,7 +6200,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/30a/thirty-one/"
     },
     {
       "name": "Tranquility By The Bay Condos",
@@ -6666,7 +6678,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/30a/watercolor/"
     },
     {
       "name": "WaterColor Condos",
@@ -7281,7 +7294,8 @@
       },
       "listingsUrlMap": "",
       "searchIdHomes": "5826007",
-      "searchIdLots": "7076834"
+      "searchIdLots": "7076834",
+      "urlSlug": "/30a/whites-gulfview-estates/"
     },
     {
       "name": "Wildwood At Inlet Beach",

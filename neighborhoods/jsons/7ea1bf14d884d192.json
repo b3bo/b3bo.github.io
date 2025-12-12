@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-12T11:20:34.452950",
+  "updated": "2025-12-12T13:19:31.697962",
   "neighborhoods": [
     {
       "name": "Abacos",
@@ -472,7 +472,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdCondos": "7092794"
+      "searchIdCondos": "7092794",
+      "urlSlug": "/bella-vita/"
     },
     {
       "name": "Bellamar At Gulf Place",
@@ -628,7 +629,8 @@
       "listingsUrlMap": "",
       "searchIdHomes": "3985040",
       "searchIdCondos": "3985042",
-      "searchIdLots": "7099861"
+      "searchIdLots": "7099861",
+      "urlSlug": "/30a/blue-mountain-beach/"
     },
     {
       "name": "Blue Mountain Estates",
@@ -884,7 +886,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdTownhomes": "7092991"
+      "searchIdTownhomes": "7092991",
+      "urlSlug": "/coastal-dunes/"
     },
     {
       "name": "Coastal Grove Plat",
@@ -2257,7 +2260,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdCondos": "7100670"
+      "searchIdCondos": "7100670",
+      "urlSlug": "/gulf-place-condos/"
     },
     {
       "name": "Gulf Place Retreat",
@@ -2463,7 +2467,8 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "urlSlug": "/gulf-terrace/"
     },
     {
       "name": "Gulfview Heights",
@@ -3038,7 +3043,8 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "searchIdHomes": "4027766"
+      "searchIdHomes": "4027766",
+      "urlSlug": "/30a/old-florida-cottages/"
     },
     {
       "name": "Olde Florida Lakes",
