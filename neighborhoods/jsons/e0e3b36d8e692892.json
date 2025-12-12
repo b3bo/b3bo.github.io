@@ -1,6 +1,6 @@
 {
   "area": "14 - Destin",
-  "updated": "2025-12-12T08:09:12.344661",
+  "updated": "2025-12-12T08:31:47.191250",
   "neighborhoods": [
     {
       "name": "1900 Ninety Eight",
@@ -2209,22 +2209,22 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.391959,
-        "lng": -86.40188
+        "lng": -86.402197
       },
       "location": {
-        "city": "Miramar Beach",
+        "city": "Destin",
         "state": "FL",
-        "zipCode": "32550"
+        "zipCode": "32541"
       },
-      "zipCode": "32550",
+      "zipCode": "32541",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 720444,
-        "avgPriceDisplay": "$720,444",
-        "medianPrice": 659000,
-        "avgSqft": 2280,
-        "avgPricePerSqFt": 316,
-        "avgDom": 112,
+        "listingCount": 6,
+        "avgPrice": 669000,
+        "avgPriceDisplay": "$669,000",
+        "medianPrice": 649000,
+        "avgSqft": 2245,
+        "avgPricePerSqFt": 298,
+        "avgDom": 114,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

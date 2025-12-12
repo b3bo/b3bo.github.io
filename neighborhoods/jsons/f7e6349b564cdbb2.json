@@ -1,6 +1,6 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-12T08:09:12.354081",
+  "updated": "2025-12-12T08:31:47.203281",
   "neighborhoods": [
     {
       "name": "Alerio",
@@ -2229,6 +2229,58 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Emerald Waters",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.383265,
+        "lng": -86.379765
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1595000,
+        "avgPriceDisplay": "$1,595,000",
+        "medianPrice": 1595000,
+        "avgSqft": 2872,
+        "avgPricePerSqFt": 555,
+        "avgDom": 72,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Gated",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Emerald Waters Beachside",
       "area": "15 - Miramar/Sandestin Resort",
       "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
@@ -2271,6 +2323,59 @@
       "amenities": [
         "Beach Access",
         "Elevator",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Emerald Waters Condos",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.37789,
+        "lng": -86.380116
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 578233,
+        "avgPriceDisplay": "$578,233",
+        "medianPrice": 574900,
+        "avgSqft": 1019,
+        "avgPricePerSqFt": 567,
+        "avgDom": 144,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Pet-Friendly",
         "Pool",
         "Short-Term"
       ],

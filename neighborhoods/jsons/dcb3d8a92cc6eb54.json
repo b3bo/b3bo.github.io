@@ -1,6 +1,6 @@
 {
   "area": "27 - Bay County",
-  "updated": "2025-12-12T08:09:12.356568",
+  "updated": "2025-12-12T08:31:47.206516",
   "neighborhoods": [
     {
       "name": "Aqua",
@@ -938,28 +938,28 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Emerald Lakes Condos",
+      "name": "Emerald Isle",
       "area": "27 - Bay County",
       "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.229664,
-        "lng": -85.904636
+        "lat": 30.229554,
+        "lng": -85.904507
       },
       "location": {
-        "city": "Miramar Beach",
+        "city": "Panama City Beach",
         "state": "FL",
-        "zipCode": "32550"
+        "zipCode": "32413"
       },
-      "zipCode": "32550",
+      "zipCode": "32413",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 550155,
-        "avgPriceDisplay": "$550,155",
-        "medianPrice": 559000,
-        "avgSqft": 1128,
-        "avgPricePerSqFt": 488,
-        "avgDom": 110,
+        "listingCount": 4,
+        "avgPrice": 539625,
+        "avgPriceDisplay": "$539,625",
+        "medianPrice": 539000,
+        "avgSqft": 1169,
+        "avgPricePerSqFt": 462,
+        "avgDom": 97,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
