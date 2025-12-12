@@ -53,19 +53,19 @@ export const CONFIG = {
         customZipCodes: ['32461', '32541', '32459', '32550', '32413'],
 
         // Paths to neighborhood JSON data files (base64 encoded)
-        // NOTE: These paths are for LOCAL DEV. Deploy script transforms to ./neighborhoods/jsons/
+        // NOTE: Deploy script transforms ./assets/jsons/ to ./neighborhoods/jsons/
         neighborhoodFiles: [
-            './assets/jsons/7ea1bf14d884d192.json.b64',
-            './assets/jsons/b762bb338ba328e5.json.b64',
-            './assets/jsons/d2ea7fdfc87ff3e7.json.b64',
-            './assets/jsons/d897c3d107c48ccc.json.b64',
-            './assets/jsons/dcb3d8a92cc6eb54.json.b64',
-            './assets/jsons/e0e3b36d8e692892.json.b64',
-            './assets/jsons/f7e6349b564cdbb2.json.b64'
+            './neighborhoods/jsons/7ea1bf14d884d192.json.b64',
+            './neighborhoods/jsons/b762bb338ba328e5.json.b64',
+            './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
+            './neighborhoods/jsons/d897c3d107c48ccc.json.b64',
+            './neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
+            './neighborhoods/jsons/e0e3b36d8e692892.json.b64',
+            './neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
         ],
 
         // Path to geojson boundary files (zip code boundaries)
-        geojsonPath: './assets/jsons/'
+        geojsonPath: './neighborhoods/jsons/'
     },
 
     // ===================================================================
