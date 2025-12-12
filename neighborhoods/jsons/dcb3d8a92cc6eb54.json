@@ -1,6 +1,6 @@
 {
   "area": "27 - Bay County",
-  "updated": "2025-12-12T08:31:47.206516",
+  "updated": "2025-12-12T08:48:48.592603",
   "neighborhoods": [
     {
       "name": "Aqua",
@@ -1561,8 +1561,8 @@
       "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.245022,
-        "lng": -85.930099
+        "lat": 30.245017,
+        "lng": -85.929225
       },
       "location": {
         "city": "Panama City Beach",
@@ -1571,62 +1571,13 @@
       },
       "zipCode": "32413",
       "stats": {
-        "listingCount": 14,
-        "avgPrice": 1120706,
-        "avgPriceDisplay": "$1,120,706",
+        "listingCount": 16,
+        "avgPrice": 1133084,
+        "avgPriceDisplay": "$1,133,084",
         "medianPrice": 775000,
-        "avgSqft": 1988,
-        "avgPricePerSqFt": 564,
-        "avgDom": 109,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
-      "name": "Laguna Beach Ammended",
-      "area": "27 - Bay County",
-      "subArea": "2724 - Beach - West Central",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.241196,
-        "lng": -85.919361
-      },
-      "location": {
-        "city": "Panama City Beach",
-        "state": "FL",
-        "zipCode": "32413"
-      },
-      "zipCode": "32413",
-      "stats": {
-        "listingCount": 2,
-        "avgPrice": 1324950,
-        "avgPriceDisplay": "$1,324,950",
-        "medianPrice": 1999999,
-        "avgSqft": 2292,
-        "avgPricePerSqFt": 578,
-        "avgDom": 159,
+        "avgSqft": 2007,
+        "avgPricePerSqFt": 565,
+        "avgDom": 112,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1659,23 +1610,23 @@
       "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.246213,
-        "lng": -85.935239
+        "lat": 30.245261,
+        "lng": -85.932021
       },
       "location": {
-        "city": "Miramar Beach",
+        "city": "Panama City Beach",
         "state": "FL",
-        "zipCode": "32550"
+        "zipCode": "32413"
       },
-      "zipCode": "32550",
+      "zipCode": "32413",
       "stats": {
-        "listingCount": 8,
-        "avgPrice": 1388217,
-        "avgPriceDisplay": "$1,388,217",
+        "listingCount": 7,
+        "avgPrice": 1414278,
+        "avgPriceDisplay": "$1,414,278",
         "medianPrice": 964999,
-        "avgSqft": 2386,
-        "avgPricePerSqFt": 582,
-        "avgDom": 113,
+        "avgSqft": 2363,
+        "avgPricePerSqFt": 599,
+        "avgDom": 127,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

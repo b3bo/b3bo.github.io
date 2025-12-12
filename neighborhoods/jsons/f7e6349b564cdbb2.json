@@ -1,6 +1,6 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-12T08:31:47.203281",
+  "updated": "2025-12-12T08:48:48.589276",
   "neighborhoods": [
     {
       "name": "Alerio",
@@ -275,6 +275,58 @@
         "Golf",
         "Short-Term",
         "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Avalon Beach Estates",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.382907,
+        "lng": -86.389797
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1297000,
+        "avgPriceDisplay": "$1,297,000",
+        "medianPrice": 1049000,
+        "avgSqft": 2470,
+        "avgPricePerSqFt": 525,
+        "avgDom": 63,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pickleball",
+        "Short-Term",
+        "Tennis"
       ],
       "photos": {
         "hero": "",
