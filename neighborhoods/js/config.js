@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.30',
+    version: '1.0.31',
 
     // ===================================================================
     // MAP SETTINGS
@@ -54,17 +54,17 @@ export const CONFIG = {
 
         // Paths to neighborhood JSON data files (base64 encoded)
         neighborhoodFiles: [
-            './neighborhoods/jsons/7ea1bf14d884d192.json.b64',
-            './neighborhoods/jsons/b762bb338ba328e5.json.b64',
-            './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
-            './neighborhoods/jsons/d897c3d107c48ccc.json.b64',
-            './neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
-            './neighborhoods/jsons/e0e3b36d8e692892.json.b64',
-            './neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
+            './assets/jsons/7ea1bf14d884d192.json.b64',
+            './assets/jsons/b762bb338ba328e5.json.b64',
+            './assets/jsons/d2ea7fdfc87ff3e7.json.b64',
+            './assets/jsons/d897c3d107c48ccc.json.b64',
+            './assets/jsons/dcb3d8a92cc6eb54.json.b64',
+            './assets/jsons/e0e3b36d8e692892.json.b64',
+            './assets/jsons/f7e6349b564cdbb2.json.b64'
         ],
 
         // Path to geojson boundary files (zip code boundaries)
-        geojsonPath: './neighborhoods/jsons/'
+        geojsonPath: './assets/jsons/'
     },
 
     // ===================================================================
