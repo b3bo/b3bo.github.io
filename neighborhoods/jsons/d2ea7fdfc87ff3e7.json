@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-12T13:19:31.694736",
+  "updated": "2025-12-12T13:46:24.361354",
   "neighborhoods": [
     {
       "name": "30A",
@@ -1316,7 +1316,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "urlSlug": "7093069"
+      "searchIdHomes": "7093069"
     },
     {
       "name": "Dunes Of Seagrove",
@@ -3246,6 +3246,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4024745",
       "urlSlug": "/legacy/"
     },
     {
@@ -4843,6 +4844,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374875",
       "urlSlug": "/30a/seacrest/"
     },
     {
@@ -4895,6 +4897,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579878",
       "urlSlug": "/30a/seacrest-beach/"
     },
     {
@@ -4999,6 +5002,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374888",
       "urlSlug": "/30a/seagrove/"
     },
     {
@@ -6201,6 +6205,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4024322",
       "urlSlug": "/30a/thirty-one/"
     },
     {
@@ -6679,6 +6684,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374893",
       "urlSlug": "/30a/watercolor/"
     },
     {

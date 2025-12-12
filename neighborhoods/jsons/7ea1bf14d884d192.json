@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-12T13:19:31.697962",
+  "updated": "2025-12-12T13:46:24.364149",
   "neighborhoods": [
     {
       "name": "Abacos",
@@ -1470,7 +1470,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "urlSlug": "7093051"
+      "searchIdTownhomes": "7093051"
     },
     {
       "name": "Draper Lake Coastal Village",
@@ -2468,6 +2468,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3412417",
       "urlSlug": "/gulf-terrace/"
     },
     {
@@ -3297,7 +3298,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
-      "urlSlug": "7100346"
+      "searchIdHomes": "7100346"
     },
     {
       "name": "Penny Lane",

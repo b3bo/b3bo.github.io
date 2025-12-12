@@ -1,6 +1,6 @@
 {
   "area": "14 - Destin",
-  "updated": "2025-12-12T13:19:31.689083",
+  "updated": "2025-12-12T13:46:24.355941",
   "neighborhoods": [
     {
       "name": "1900 Ninety Eight",
@@ -111,6 +111,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "407373",
       "urlSlug": "/holiday-isle/aegean/"
     },
     {
@@ -471,6 +472,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "385888",
       "urlSlug": "/destin/calusa-bay/"
     },
     {
@@ -727,6 +729,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004566",
       "urlSlug": "/century-park-west/"
     },
     {
@@ -837,6 +840,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004571",
       "urlSlug": "/coral-reef-club/"
     },
     {
@@ -887,6 +891,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374879",
       "urlSlug": "/destin/crystal-beach/"
     },
     {
@@ -991,6 +996,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4114016",
       "urlSlug": "/crystal-sands/"
     },
     {
@@ -1146,6 +1152,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377900",
       "urlSlug": "/holiday-isle/destin-harbor-resort-west/"
     },
     {
@@ -1255,6 +1262,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "406655",
       "urlSlug": "/holiday-isle/destin-pointe/"
     },
     {
@@ -1356,6 +1364,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "688050",
       "urlSlug": "/holiday-isle/destin-sands/"
     },
     {
@@ -1574,6 +1583,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579858",
       "urlSlug": "/destin/destiny-by-the-sea/"
     },
     {
@@ -1629,6 +1639,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579854",
       "urlSlug": "/destin/destiny/"
     },
     {
@@ -1790,6 +1801,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "6835428",
       "urlSlug": "/destin/dunes-of-destin/"
     },
     {
@@ -2007,6 +2019,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "397380",
       "urlSlug": "/holiday-isle/east-pass-towers/"
     },
     {
@@ -2165,6 +2178,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378535",
       "urlSlug": "/emerald-grande/"
     },
     {
@@ -2485,6 +2499,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004594",
       "urlSlug": "/grand-harbor/"
     },
     {
@@ -2752,6 +2767,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "407502",
       "urlSlug": "/holiday-isle/harbor-landing/"
     },
     {
@@ -2810,6 +2826,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "381364",
       "urlSlug": "/holiday-isle/harbor-lights/"
     },
     {
@@ -3397,6 +3414,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "385900",
       "urlSlug": "/destin/indian-bayou/"
     },
     {
@@ -3546,6 +3564,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "4004642",
       "urlSlug": "/indian-lake/"
     },
     {
@@ -3649,6 +3668,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "4004642",
       "urlSlug": "/indian-lake/"
     },
     {
@@ -3807,6 +3827,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "406702",
       "urlSlug": "/holiday-isle/inlet-reef-club/"
     },
     {
@@ -3969,6 +3990,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "408148",
       "urlSlug": "/holiday-isle/islander/"
     },
     {
@@ -4026,6 +4048,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3582584",
       "urlSlug": "/jade-east-towers/"
     },
     {
@@ -4086,6 +4109,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "406674",
       "urlSlug": "/holiday-isle/jetty-east/"
     },
     {
@@ -4244,6 +4268,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374884",
       "urlSlug": "/destin/kelly-plantation/"
     },
     {
@@ -4359,6 +4384,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374884",
       "urlSlug": "/destin/kelly-plantation/"
     },
     {
@@ -4665,6 +4691,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "406648",
       "urlSlug": "/holiday-isle/magnolia-house/"
     },
     {
@@ -4715,6 +4742,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579863",
       "urlSlug": "/marbella/"
     },
     {
@@ -5082,6 +5110,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3582442",
       "urlSlug": "/one-water-place/"
     },
     {
@@ -5410,6 +5439,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004633",
       "urlSlug": "/pelican-beach-resort/"
     },
     {
@@ -5771,6 +5801,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "374886",
       "urlSlug": "/destin/regatta-bay/"
     },
     {
@@ -5884,6 +5915,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "423269",
       "urlSlug": "/regency-towers/"
     },
     {
@@ -5993,6 +6025,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "406727",
       "urlSlug": "/holiday-isle/sandpiper-cove/"
     },
     {
@@ -6155,6 +6188,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004674",
       "urlSlug": "/seafarer/"
     },
     {
@@ -6376,6 +6410,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004692",
       "urlSlug": "/sides-moreno-point-west/"
     },
     {
@@ -6431,6 +6466,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3588127",
       "urlSlug": "/silver-beach-towers/"
     },
     {
@@ -6487,6 +6523,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3582591",
       "urlSlug": "/silver-dunes/"
     },
     {
@@ -6548,6 +6585,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "1317294",
       "urlSlug": "/silver-shells/"
     },
     {
@@ -6918,6 +6956,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3582574",
       "urlSlug": "/sterling-sands/"
     },
     {
@@ -6975,6 +7014,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4004623",
       "urlSlug": "/sterling-shores/"
     },
     {
@@ -7087,6 +7127,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3582588",
       "urlSlug": "/sundestin/"
     },
     {
@@ -7246,6 +7287,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "423272",
       "urlSlug": "/terrace-at-pelican-beach/"
     },
     {
@@ -7353,6 +7395,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "667548",
       "urlSlug": "/palms-of-destin/"
     },
     {
@@ -7563,6 +7606,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "406711",
       "urlSlug": "/holiday-isle/tides-of-destin/"
     },
     {
@@ -7775,6 +7819,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "377966",
       "urlSlug": "/sandestin/tuscana/"
     },
     {

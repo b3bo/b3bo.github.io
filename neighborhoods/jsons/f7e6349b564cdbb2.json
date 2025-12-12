@@ -1,6 +1,6 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-12T13:19:31.701619",
+  "updated": "2025-12-12T13:46:24.366172",
   "neighborhoods": [
     {
       "name": "Alerio",
@@ -54,6 +54,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "1113751",
       "urlSlug": "/alerio/"
     },
     {
@@ -170,6 +171,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3579851",
       "urlSlug": "/ariel-dunes/"
     },
     {
@@ -230,6 +232,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378446",
       "urlSlug": "/sandestin/augusta-village/"
     },
     {
@@ -397,6 +400,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377891",
       "urlSlug": "/sandestin/bahia/"
     },
     {
@@ -507,6 +511,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378449",
       "urlSlug": "/sandestin/bayou-village/"
     },
     {
@@ -786,6 +791,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377831",
       "urlSlug": "/sandestin/beachside/"
     },
     {
@@ -1207,6 +1213,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "377812",
       "urlSlug": "/sandestin/burnt-pine/"
     },
     {
@@ -1264,6 +1271,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "377812",
       "urlSlug": "/sandestin/burnt-pine/"
     },
     {
@@ -1319,6 +1327,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579844",
       "urlSlug": "/caribe/"
     },
     {
@@ -1634,6 +1643,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378759",
       "urlSlug": "/sandestin/crystal-cove/"
     },
     {
@@ -1693,6 +1703,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378760",
       "urlSlug": "/sandestin/crystal-lake/"
     },
     {
@@ -1802,6 +1813,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378741",
       "urlSlug": "/sandestin/deerwood/"
     },
     {
@@ -2134,6 +2146,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378410",
       "urlSlug": "/sandestin/elation/"
     },
     {
@@ -2189,6 +2202,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "385891",
       "urlSlug": "/destin/emerald-bay/"
     },
     {
@@ -2239,6 +2253,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3992646",
       "urlSlug": "/emerald-dunes/"
     },
     {
@@ -2346,6 +2361,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3582649",
       "urlSlug": "/emerald-waters/"
     },
     {
@@ -2617,6 +2633,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378462",
       "urlSlug": "/sandestin/fairways/"
     },
     {
@@ -2676,6 +2693,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378462",
       "urlSlug": "/sandestin/fairways/"
     },
     {
@@ -2736,6 +2754,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378858",
       "urlSlug": "/sandestin/fishermans-village/"
     },
     {
@@ -2946,6 +2965,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579847",
       "urlSlug": "/frangista-beach/"
     },
     {
@@ -3061,6 +3081,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378455",
       "urlSlug": "/sandestin/genoa/"
     },
     {
@@ -3114,6 +3135,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378850",
       "urlSlug": "/sandestin/golf-view/"
     },
     {
@@ -3293,6 +3315,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378738",
       "urlSlug": "/sandestin/grand-sandestin/"
     },
     {
@@ -3672,6 +3695,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378757",
       "urlSlug": "/sandestin/heron-walk/"
     },
     {
@@ -4048,6 +4072,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378453",
       "urlSlug": "/sandestin/island-green/"
     },
     {
@@ -4158,6 +4183,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378414",
       "urlSlug": "/sandestin/lasata/"
     },
     {
@@ -4218,6 +4244,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378744",
       "urlSlug": "/sandestin/laurel-grove/"
     },
     {
@@ -4442,6 +4469,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378728",
       "urlSlug": "/sandestin/linkside-village/"
     },
     {
@@ -4503,6 +4531,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377877",
       "urlSlug": "/sandestin/luau/"
     },
     {
@@ -4621,6 +4650,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "3582602",
       "urlSlug": "/mainsail/"
     },
     {
@@ -4785,6 +4815,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4012868",
       "urlSlug": "/maravilla/"
     },
     {
@@ -4957,6 +4988,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378426",
       "urlSlug": "/sandestin/market-street/"
     },
     {
@@ -5220,6 +5252,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378428",
       "urlSlug": "/sandestin/observation-point/"
     },
     {
@@ -5386,6 +5419,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378441",
       "urlSlug": "/sandestin/pilot-house/"
     },
     {
@@ -5504,6 +5538,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377881",
       "urlSlug": "/sandestin/pine-ridge-villas/"
     },
     {
@@ -5723,6 +5758,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378471",
       "urlSlug": "/sandestin/prestwick-place/"
     },
     {
@@ -5777,6 +5813,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579852",
       "urlSlug": "/saint-tropez/"
     },
     {
@@ -5890,6 +5927,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378877",
       "urlSlug": "/sandestin/sandpiper-village/"
     },
     {
@@ -6310,6 +6348,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "3579843",
       "urlSlug": "/snow-drift-beach/"
     },
     {
@@ -6366,6 +6405,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377819",
       "urlSlug": "/sandestin/southwinds/"
     },
     {
@@ -6876,6 +6916,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "4012852",
       "urlSlug": "/the-empress/"
     },
     {
@@ -7041,6 +7082,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377888",
       "urlSlug": "/sandestin/tivoli-by-the-sea/"
     },
     {
@@ -7097,6 +7139,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "377945",
       "urlSlug": "/sandestin/tivoli-ridge/"
     },
     {
@@ -7535,6 +7578,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "378785",
       "urlSlug": "/sandestin/turnberry-villas/"
     },
     {
@@ -7594,6 +7638,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "377966",
       "urlSlug": "/sandestin/tuscana/"
     },
     {
@@ -7710,6 +7755,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdHomes": "378460",
       "urlSlug": "/sandestin/villa-lago/"
     },
     {
@@ -7875,6 +7921,7 @@
         "samples": []
       },
       "listingsUrlMap": "",
+      "searchIdCondos": "377963",
       "urlSlug": "/sandestin/westwinds/"
     },
     {
