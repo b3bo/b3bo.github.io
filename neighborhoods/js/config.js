@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.33',
+    version: '1.0.34',
 
     // ===================================================================
     // MAP SETTINGS
@@ -53,6 +53,7 @@ export const CONFIG = {
         customZipCodes: ['32461', '32541', '32459', '32550', '32413'],
 
         // Paths to neighborhood JSON data files (base64 encoded)
+        // NOTE: These paths are for LOCAL DEV. Deploy script transforms to ./neighborhoods/jsons/
         neighborhoodFiles: [
             './assets/jsons/7ea1bf14d884d192.json.b64',
             './assets/jsons/b762bb338ba328e5.json.b64',

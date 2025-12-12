@@ -1,10 +1,11 @@
 {
   "area": "27 - Bay County",
-  "updated": "2025-12-11T15:36:49.056575",
+  "updated": "2025-12-12T08:09:12.356568",
   "neighborhoods": [
     {
       "name": "Aqua",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.212378,
@@ -53,6 +54,7 @@
     {
       "name": "Aquavista",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.22329,
@@ -103,6 +105,7 @@
     {
       "name": "Bayside At Ward Creek T/H",
       "area": "27 - Bay County",
+      "subArea": "2721 - Beach - North Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.254486,
@@ -121,7 +124,7 @@
         "medianPrice": 339000,
         "avgSqft": 1497,
         "avgPricePerSqFt": 221,
-        "avgDom": 44,
+        "avgDom": 46,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -152,6 +155,7 @@
     {
       "name": "Beachwalk Condos",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.235634,
@@ -203,6 +207,7 @@
     {
       "name": "Bella Costa",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.259348,
@@ -221,7 +226,7 @@
         "medianPrice": 650000,
         "avgSqft": 2088,
         "avgPricePerSqFt": 311,
-        "avgDom": 290,
+        "avgDom": 292,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -253,6 +258,7 @@
     {
       "name": "Bid-A-Wee Beach",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.20401,
@@ -271,7 +277,7 @@
         "medianPrice": 600000,
         "avgSqft": 2422,
         "avgPricePerSqFt": 586,
-        "avgDom": 157,
+        "avgDom": 158,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -301,6 +307,7 @@
     {
       "name": "Bid-A-Wee Beach T/H",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.204648,
@@ -319,7 +326,7 @@
         "medianPrice": 1495000,
         "avgSqft": 4746,
         "avgPricePerSqFt": 315,
-        "avgDom": 226,
+        "avgDom": 228,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -349,6 +356,7 @@
     {
       "name": "Breakwater At Ward Creek",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.264468,
@@ -403,6 +411,7 @@
     {
       "name": "Calypso Resort & Towers",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.214016,
@@ -421,7 +430,7 @@
         "medianPrice": 685000,
         "avgSqft": 1267,
         "avgPricePerSqFt": 562,
-        "avgDom": 152,
+        "avgDom": 153,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -456,6 +465,7 @@
     {
       "name": "Calypso Tower",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.214921,
@@ -474,7 +484,7 @@
         "medianPrice": 780000,
         "avgSqft": 1456,
         "avgPricePerSqFt": 412,
-        "avgDom": 120,
+        "avgDom": 122,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -507,6 +517,7 @@
     {
       "name": "Carillon Beach",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Homes",
       "position": {
         "lat": 30.264969,
@@ -525,7 +536,7 @@
         "medianPrice": 2250000,
         "avgSqft": 2433,
         "avgPricePerSqFt": 1061,
-        "avgDom": 106,
+        "avgDom": 107,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -560,10 +571,11 @@
     {
       "name": "Carillon Beach Condos",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.265112,
-        "lng": -85.977417
+        "lng": -85.977434
       },
       "location": {
         "city": "Panama City Beach",
@@ -573,12 +585,12 @@
       "zipCode": "32413",
       "stats": {
         "listingCount": 7,
-        "avgPrice": 452994,
-        "avgPriceDisplay": "$452,994",
+        "avgPrice": 451935,
+        "avgPriceDisplay": "$451,935",
         "medianPrice": 337000,
-        "avgSqft": 901,
-        "avgPricePerSqFt": 503,
-        "avgDom": 145,
+        "avgSqft": 896,
+        "avgPricePerSqFt": 505,
+        "avgDom": 146,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -616,6 +628,7 @@
     {
       "name": "Casa Del Mar",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.258852,
@@ -634,7 +647,7 @@
         "medianPrice": 945000,
         "avgSqft": 1967,
         "avgPricePerSqFt": 480,
-        "avgDom": 325,
+        "avgDom": 327,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -664,6 +677,7 @@
     {
       "name": "Celadon Beach",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.233121,
@@ -682,7 +696,7 @@
         "medianPrice": 429900,
         "avgSqft": 910,
         "avgPricePerSqFt": 539,
-        "avgDom": 107,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -720,6 +734,7 @@
     {
       "name": "Deluna Place",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.23671,
@@ -738,7 +753,7 @@
         "medianPrice": 1350000,
         "avgSqft": 2469,
         "avgPricePerSqFt": 547,
-        "avgDom": 316,
+        "avgDom": 317,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -770,6 +785,7 @@
     {
       "name": "El Centro Beach",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.226771,
@@ -788,7 +804,7 @@
         "medianPrice": 439900,
         "avgSqft": 1396,
         "avgPricePerSqFt": 314,
-        "avgDom": 207,
+        "avgDom": 208,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -818,6 +834,7 @@
     {
       "name": "Emerald Beach Condos",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.205398,
@@ -836,7 +853,7 @@
         "medianPrice": 504900,
         "avgSqft": 1299,
         "avgPricePerSqFt": 386,
-        "avgDom": 106,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -868,6 +885,7 @@
     {
       "name": "Emerald Beach Resort",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.205425,
@@ -922,6 +940,7 @@
     {
       "name": "Emerald Lakes Condos",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.229664,
@@ -940,7 +959,7 @@
         "medianPrice": 559000,
         "avgSqft": 1128,
         "avgPricePerSqFt": 488,
-        "avgDom": 108,
+        "avgDom": 110,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -975,6 +994,7 @@
     {
       "name": "Emerald Shores Of South Walton Condos",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.240301,
@@ -993,7 +1013,7 @@
         "medianPrice": 475000,
         "avgSqft": 950,
         "avgPricePerSqFt": 500,
-        "avgDom": 271,
+        "avgDom": 273,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1026,6 +1046,7 @@
     {
       "name": "Endless Summer",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.232015,
@@ -1044,7 +1065,7 @@
         "medianPrice": 250000,
         "avgSqft": 649,
         "avgPricePerSqFt": 390,
-        "avgDom": 148,
+        "avgDom": 150,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1076,6 +1097,7 @@
     {
       "name": "First Kiska Beach",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.258572,
@@ -1094,7 +1116,7 @@
         "medianPrice": 649000,
         "avgSqft": 1140,
         "avgPricePerSqFt": 569,
-        "avgDom": 196,
+        "avgDom": 198,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1124,6 +1146,7 @@
     {
       "name": "Fontainebleau Terrace",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.203113,
@@ -1142,7 +1165,7 @@
         "medianPrice": 184000,
         "avgSqft": 330,
         "avgPricePerSqFt": 566,
-        "avgDom": 146,
+        "avgDom": 147,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1177,6 +1200,7 @@
     {
       "name": "Gulf Highlands",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.235113,
@@ -1195,7 +1219,7 @@
         "medianPrice": 410000,
         "avgSqft": 1471,
         "avgPricePerSqFt": 279,
-        "avgDom": 93,
+        "avgDom": 94,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1225,6 +1249,7 @@
     {
       "name": "Gulf Vista",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.254563,
@@ -1243,7 +1268,7 @@
         "medianPrice": 760000,
         "avgSqft": 1914,
         "avgPricePerSqFt": 385,
-        "avgDom": 16,
+        "avgDom": 17,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1273,6 +1298,7 @@
     {
       "name": "Horizon South",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.230881,
@@ -1291,7 +1317,7 @@
         "medianPrice": 290000,
         "avgSqft": 696,
         "avgPricePerSqFt": 376,
-        "avgDom": 159,
+        "avgDom": 160,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1324,9 +1350,10 @@
     {
       "name": "Inlet Beach Heights",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.264518,
+        "lat": 30.266166,
         "lng": -85.969653
       },
       "location": {
@@ -1336,13 +1363,13 @@
       },
       "zipCode": "32461",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 733646,
-        "avgPriceDisplay": "$733,646",
-        "medianPrice": 715000,
-        "avgSqft": 1684,
-        "avgPricePerSqFt": 436,
-        "avgDom": 165,
+        "listingCount": 6,
+        "avgPrice": 735200,
+        "avgPriceDisplay": "$735,200",
+        "medianPrice": 719500,
+        "avgSqft": 1693,
+        "avgPricePerSqFt": 434,
+        "avgDom": 173,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1372,6 +1399,7 @@
     {
       "name": "Kiska Beach",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.257586,
@@ -1390,7 +1418,7 @@
         "medianPrice": 999000,
         "avgSqft": 1870,
         "avgPricePerSqFt": 553,
-        "avgDom": 123,
+        "avgDom": 124,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1420,6 +1448,7 @@
     {
       "name": "La Valencia Beach Resort",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.255527,
@@ -1438,7 +1467,7 @@
         "medianPrice": 2790000,
         "avgSqft": 3926,
         "avgPricePerSqFt": 577,
-        "avgDom": 224,
+        "avgDom": 226,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1472,6 +1501,7 @@
     {
       "name": "La Valencia Beach Resort T/H",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.25362,
@@ -1490,7 +1520,7 @@
         "medianPrice": 835000,
         "avgSqft": 2105,
         "avgPricePerSqFt": 413,
-        "avgDom": 120,
+        "avgDom": 121,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1528,6 +1558,7 @@
     {
       "name": "Laguna Beach",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.245022,
@@ -1546,7 +1577,7 @@
         "medianPrice": 775000,
         "avgSqft": 1988,
         "avgPricePerSqFt": 564,
-        "avgDom": 108,
+        "avgDom": 109,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1576,6 +1607,7 @@
     {
       "name": "Laguna Beach Ammended",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.241196,
@@ -1594,7 +1626,7 @@
         "medianPrice": 1999999,
         "avgSqft": 2292,
         "avgPricePerSqFt": 578,
-        "avgDom": 157,
+        "avgDom": 159,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1624,6 +1656,7 @@
     {
       "name": "Laguna Beach Estates",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.246213,
@@ -1642,7 +1675,7 @@
         "medianPrice": 964999,
         "avgSqft": 2386,
         "avgPricePerSqFt": 582,
-        "avgDom": 112,
+        "avgDom": 113,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1672,6 +1705,7 @@
     {
       "name": "Laguna Beach T/H",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.241391,
@@ -1690,7 +1724,7 @@
         "medianPrice": 1465000,
         "avgSqft": 2941,
         "avgPricePerSqFt": 474,
-        "avgDom": 185,
+        "avgDom": 186,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1720,6 +1754,7 @@
     {
       "name": "Laguna Haven",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.244556,
@@ -1769,6 +1804,7 @@
     {
       "name": "Lakeside Lodge At Prospect Point",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.274764,
@@ -1787,7 +1823,7 @@
         "medianPrice": 679995,
         "avgSqft": 2365,
         "avgPricePerSqFt": 288,
-        "avgDom": 134,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1822,6 +1858,7 @@
     {
       "name": "Latitude Margaritaville",
       "area": "27 - Bay County",
+      "subArea": "2711 - Bay North - West Bay",
       "propertyType": "Homes",
       "position": {
         "lat": 30.312745,
@@ -1840,7 +1877,7 @@
         "medianPrice": 750000,
         "avgSqft": 2163,
         "avgPricePerSqFt": 334,
-        "avgDom": 100,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1877,6 +1914,7 @@
     {
       "name": "Latitude Margaritaville T/H",
       "area": "27 - Bay County",
+      "subArea": "2711 - Bay North - West Bay",
       "propertyType": "T/H",
       "position": {
         "lat": 30.319372,
@@ -1895,7 +1933,7 @@
         "medianPrice": 439000,
         "avgSqft": 1437,
         "avgPricePerSqFt": 314,
-        "avgDom": 105,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1932,6 +1970,7 @@
     {
       "name": "Lullwater Beach",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.217934,
@@ -1950,7 +1989,7 @@
         "medianPrice": 2695000,
         "avgSqft": 2489,
         "avgPricePerSqFt": 766,
-        "avgDom": 103,
+        "avgDom": 104,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1981,6 +2020,7 @@
     {
       "name": "Lullwater Beach Condos",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.220681,
@@ -1999,7 +2039,7 @@
         "medianPrice": 265000,
         "avgSqft": 1089,
         "avgPricePerSqFt": 239,
-        "avgDom": 313,
+        "avgDom": 314,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2032,25 +2072,26 @@
     {
       "name": "Margaritaville Cottages",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.201092,
-        "lng": -85.847285
+        "lat": 30.200228,
+        "lng": -85.846629
       },
       "location": {
-        "city": "Miramar Beach",
+        "city": "Panama City Beach",
         "state": "FL",
-        "zipCode": "32550"
+        "zipCode": "32413"
       },
-      "zipCode": "32550",
+      "zipCode": "32413",
       "stats": {
-        "listingCount": 6,
-        "avgPrice": 1472737,
-        "avgPriceDisplay": "$1,472,737",
-        "medianPrice": 1039000,
-        "avgSqft": 2156,
-        "avgPricePerSqFt": 683,
-        "avgDom": 125,
+        "listingCount": 5,
+        "avgPrice": 1727357,
+        "avgPriceDisplay": "$1,727,357",
+        "medianPrice": 1895000,
+        "avgSqft": 2349,
+        "avgPricePerSqFt": 735,
+        "avgDom": 139,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2083,6 +2124,7 @@
     {
       "name": "Miller's Landing",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.267447,
@@ -2101,7 +2143,7 @@
         "medianPrice": 525000,
         "avgSqft": 1550,
         "avgPricePerSqFt": 304,
-        "avgDom": 18,
+        "avgDom": 20,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2132,6 +2174,7 @@
     {
       "name": "Miramar Heights",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.238822,
@@ -2150,7 +2193,7 @@
         "medianPrice": 474000,
         "avgSqft": 1519,
         "avgPricePerSqFt": 305,
-        "avgDom": 130,
+        "avgDom": 132,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2180,6 +2223,7 @@
     {
       "name": "Nautilus",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.236957,
@@ -2198,7 +2242,7 @@
         "medianPrice": 389000,
         "avgSqft": 765,
         "avgPricePerSqFt": 508,
-        "avgDom": 49,
+        "avgDom": 51,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2229,6 +2273,7 @@
     {
       "name": "Ocean Reef",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.203741,
@@ -2247,7 +2292,7 @@
         "medianPrice": 634000,
         "avgSqft": 1260,
         "avgPricePerSqFt": 488,
-        "avgDom": 128,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2281,6 +2326,7 @@
     {
       "name": "Open Sands",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.211077,
@@ -2299,7 +2345,7 @@
         "medianPrice": 445000,
         "avgSqft": 1627,
         "avgPricePerSqFt": 258,
-        "avgDom": 199,
+        "avgDom": 200,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2329,6 +2375,7 @@
     {
       "name": "Origin At Seahaven",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.208657,
@@ -2347,7 +2394,7 @@
         "medianPrice": 329900,
         "avgSqft": 936,
         "avgPricePerSqFt": 395,
-        "avgDom": 66,
+        "avgDom": 67,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2382,6 +2429,7 @@
     {
       "name": "Osprey Pointe At Powell",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.267557,
@@ -2430,6 +2478,7 @@
     {
       "name": "Palazzo Condominium",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.224936,
@@ -2448,7 +2497,7 @@
         "medianPrice": 899000,
         "avgSqft": 1424,
         "avgPricePerSqFt": 659,
-        "avgDom": 124,
+        "avgDom": 125,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2486,6 +2535,7 @@
     {
       "name": "Palmetto Trace",
       "area": "27 - Bay County",
+      "subArea": "2721 - Beach - North Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.225891,
@@ -2504,7 +2554,7 @@
         "medianPrice": 480000,
         "avgSqft": 2178,
         "avgPricePerSqFt": 236,
-        "avgDom": 95,
+        "avgDom": 96,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2535,9 +2585,10 @@
     {
       "name": "Pinnacle Port",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.266222,
+        "lat": 30.266296,
         "lng": -85.986063
       },
       "location": {
@@ -2548,12 +2599,12 @@
       "zipCode": "32413",
       "stats": {
         "listingCount": 17,
-        "avgPrice": 551587,
-        "avgPriceDisplay": "$551,587",
-        "medianPrice": 529000,
-        "avgSqft": 1049,
-        "avgPricePerSqFt": 526,
-        "avgDom": 130,
+        "avgPrice": 553977,
+        "avgPriceDisplay": "$553,977",
+        "medianPrice": 545000,
+        "avgSqft": 1051,
+        "avgPricePerSqFt": 527,
+        "avgDom": 128,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2573,7 +2624,6 @@
       },
       "amenities": [
         "Beach Access",
-        "Clubhouse",
         "Elevator",
         "Fitness",
         "Gated",
@@ -2592,6 +2642,7 @@
     {
       "name": "Pirates Cove",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.267185,
@@ -2610,7 +2661,7 @@
         "medianPrice": 189000,
         "avgSqft": 410,
         "avgPricePerSqFt": 461,
-        "avgDom": 46,
+        "avgDom": 48,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2643,6 +2694,7 @@
     {
       "name": "Poolside Villas T/H",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.227633,
@@ -2661,7 +2713,7 @@
         "medianPrice": 545000,
         "avgSqft": 1664,
         "avgPricePerSqFt": 300,
-        "avgDom": 302,
+        "avgDom": 304,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2691,6 +2743,7 @@
     {
       "name": "Portside",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.234289,
@@ -2709,7 +2762,7 @@
         "medianPrice": 272900,
         "avgSqft": 1120,
         "avgPricePerSqFt": 242,
-        "avgDom": 83,
+        "avgDom": 84,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2744,6 +2797,7 @@
     {
       "name": "Ramsgate Harbour",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.260659,
@@ -2762,7 +2816,7 @@
         "medianPrice": 850000,
         "avgSqft": 1070,
         "avgPricePerSqFt": 792,
-        "avgDom": 106,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2795,6 +2849,7 @@
     {
       "name": "Rivercamps On Crooked Creek",
       "area": "27 - Bay County",
+      "subArea": "2711 - Bay North - West Bay",
       "propertyType": "Homes",
       "position": {
         "lat": 30.291354,
@@ -2813,7 +2868,7 @@
         "medianPrice": 1050000,
         "avgSqft": 2553,
         "avgPricePerSqFt": 418,
-        "avgDom": 95,
+        "avgDom": 97,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2849,6 +2904,7 @@
     {
       "name": "Riviera Beach",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.256834,
@@ -2897,6 +2953,7 @@
     {
       "name": "Royal Palma Of Laguna Beach",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.24186,
@@ -2915,7 +2972,7 @@
         "medianPrice": 1600000,
         "avgSqft": 2783,
         "avgPricePerSqFt": 575,
-        "avgDom": 278,
+        "avgDom": 280,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2946,6 +3003,7 @@
     {
       "name": "Salt Grass At Ward Creek",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.255699,
@@ -2964,7 +3022,7 @@
         "medianPrice": 722360,
         "avgSqft": 2301,
         "avgPricePerSqFt": 315,
-        "avgDom": 65,
+        "avgDom": 66,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2994,6 +3052,7 @@
     {
       "name": "Sand Castles West 2",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.226043,
@@ -3012,7 +3071,7 @@
         "medianPrice": 274900,
         "avgSqft": 700,
         "avgPricePerSqFt": 393,
-        "avgDom": 244,
+        "avgDom": 246,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3043,6 +3102,7 @@
     {
       "name": "Sands Street Villas",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.234145,
@@ -3061,7 +3121,7 @@
         "medianPrice": 1745000,
         "avgSqft": 3159,
         "avgPricePerSqFt": 552,
-        "avgDom": 30,
+        "avgDom": 32,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3091,6 +3151,7 @@
     {
       "name": "Sea Gull Beach",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "T/H",
       "position": {
         "lat": 30.232203,
@@ -3109,7 +3170,7 @@
         "medianPrice": 979000,
         "avgSqft": 1232,
         "avgPricePerSqFt": 795,
-        "avgDom": 222,
+        "avgDom": 224,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3142,6 +3203,7 @@
     {
       "name": "SeaChase",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.226732,
@@ -3160,7 +3222,7 @@
         "medianPrice": 599000,
         "avgSqft": 1400,
         "avgPricePerSqFt": 428,
-        "avgDom": 106,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3193,6 +3255,7 @@
     {
       "name": "Seaclusion Beach",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.208051,
@@ -3211,7 +3274,7 @@
         "medianPrice": 415000,
         "avgSqft": 1910,
         "avgPricePerSqFt": 256,
-        "avgDom": 142,
+        "avgDom": 143,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3242,6 +3305,7 @@
     {
       "name": "Shores Of Crystal Beach T/H",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "T/H",
       "position": {
         "lat": 30.258751,
@@ -3260,7 +3324,7 @@
         "medianPrice": 1099300,
         "avgSqft": 1564,
         "avgPricePerSqFt": 671,
-        "avgDom": 140,
+        "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3290,8 +3354,61 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Shores Townhouses",
+      "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.258625,
+        "lng": -85.96927
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 998000,
+        "avgPriceDisplay": "$998,000",
+        "medianPrice": 998000,
+        "avgSqft": 1396,
+        "avgPricePerSqFt": 715,
+        "avgDom": 2,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Southern Exposures",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "T/H",
       "position": {
         "lat": 30.231874,
@@ -3310,7 +3427,7 @@
         "medianPrice": 1889000,
         "avgSqft": 2352,
         "avgPricePerSqFt": 803,
-        "avgDom": 114,
+        "avgDom": 116,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3343,6 +3460,7 @@
     {
       "name": "Southfield T/H",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.259353,
@@ -3361,7 +3479,7 @@
         "medianPrice": 730000,
         "avgSqft": 2088,
         "avgPricePerSqFt": 350,
-        "avgDom": 193,
+        "avgDom": 195,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3392,6 +3510,7 @@
     {
       "name": "Splash, A Sterling Resort",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.23255,
@@ -3410,7 +3529,7 @@
         "medianPrice": 499999,
         "avgSqft": 1122,
         "avgPricePerSqFt": 486,
-        "avgDom": 125,
+        "avgDom": 126,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3445,6 +3564,7 @@
     {
       "name": "Sterling Breeze Condominium",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.219307,
@@ -3498,6 +3618,7 @@
     {
       "name": "Summerwood",
       "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.214829,
@@ -3516,7 +3637,7 @@
         "medianPrice": 485000,
         "avgSqft": 1829,
         "avgPricePerSqFt": 281,
-        "avgDom": 68,
+        "avgDom": 69,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3547,6 +3668,7 @@
     {
       "name": "Sunnyside",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.251335,
@@ -3565,7 +3687,7 @@
         "medianPrice": 3450000,
         "avgSqft": 4762,
         "avgPricePerSqFt": 753,
-        "avgDom": 203,
+        "avgDom": 204,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3596,6 +3718,7 @@
     {
       "name": "Sunnyside Condos",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Condos",
       "position": {
         "lat": 30.258545,
@@ -3614,7 +3737,7 @@
         "medianPrice": 849000,
         "avgSqft": 1443,
         "avgPricePerSqFt": 577,
-        "avgDom": 81,
+        "avgDom": 83,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3649,6 +3772,7 @@
     {
       "name": "Sunnyside T/H",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.258545,
@@ -3667,7 +3791,7 @@
         "medianPrice": 2150000,
         "avgSqft": 1773,
         "avgPricePerSqFt": 846,
-        "avgDom": 146,
+        "avgDom": 148,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3697,6 +3821,7 @@
     {
       "name": "Sunrise And Sunset",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.264844,
@@ -3715,7 +3840,7 @@
         "medianPrice": 3250000,
         "avgSqft": 3623,
         "avgPricePerSqFt": 897,
-        "avgDom": 83,
+        "avgDom": 85,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3752,6 +3877,7 @@
     {
       "name": "Sunrise Beach Condos",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.206784,
@@ -3770,7 +3896,7 @@
         "medianPrice": 575000,
         "avgSqft": 1142,
         "avgPricePerSqFt": 492,
-        "avgDom": 89,
+        "avgDom": 90,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3801,6 +3927,7 @@
     {
       "name": "Suntime Beach",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.231664,
@@ -3819,7 +3946,7 @@
         "medianPrice": 329000,
         "avgSqft": 978,
         "avgPricePerSqFt": 336,
-        "avgDom": 19,
+        "avgDom": 21,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3849,6 +3976,7 @@
     {
       "name": "The Palms",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "T/H",
       "position": {
         "lat": 30.236966,
@@ -3867,7 +3995,7 @@
         "medianPrice": 685000,
         "avgSqft": 1944,
         "avgPricePerSqFt": 352,
-        "avgDom": 333,
+        "avgDom": 335,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3898,6 +4026,7 @@
     {
       "name": "The Preserve At Lake Powell",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.267503,
@@ -3946,6 +4075,7 @@
     {
       "name": "Tidewater Beach",
       "area": "27 - Bay County",
+      "subArea": "2718 - Beach - Central South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.220435,
@@ -3964,7 +4094,7 @@
         "medianPrice": 515000,
         "avgSqft": 1180,
         "avgPricePerSqFt": 454,
-        "avgDom": 182,
+        "avgDom": 183,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4000,6 +4130,7 @@
     {
       "name": "Tropic Winds",
       "area": "27 - Bay County",
+      "subArea": "2725 - Beach - West South",
       "propertyType": "Condos",
       "position": {
         "lat": 30.230974,
@@ -4018,7 +4149,7 @@
         "medianPrice": 599000,
         "avgSqft": 1151,
         "avgPricePerSqFt": 532,
-        "avgDom": 164,
+        "avgDom": 165,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4051,6 +4182,7 @@
     {
       "name": "Turtle Cove",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.264364,
@@ -4105,6 +4237,7 @@
     {
       "name": "Waterview",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.260012,
@@ -4123,7 +4256,7 @@
         "medianPrice": 849000,
         "avgSqft": 2041,
         "avgPricePerSqFt": 416,
-        "avgDom": 56,
+        "avgDom": 58,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4153,6 +4286,7 @@
     {
       "name": "Wells Gulf Beach Estate",
       "area": "27 - Bay County",
+      "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
         "lat": 30.234687,
@@ -4171,7 +4305,7 @@
         "medianPrice": 875000,
         "avgSqft": 2121,
         "avgPricePerSqFt": 510,
-        "avgDom": 53,
+        "avgDom": 54,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4201,6 +4335,7 @@
     {
       "name": "Whisper Dunes",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.252858,
@@ -4219,7 +4354,7 @@
         "medianPrice": 515000,
         "avgSqft": 1849,
         "avgPricePerSqFt": 283,
-        "avgDom": 132,
+        "avgDom": 133,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4250,6 +4385,7 @@
     {
       "name": "Wild Heron",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.284014,
@@ -4268,7 +4404,7 @@
         "medianPrice": 1229000,
         "avgSqft": 2793,
         "avgPricePerSqFt": 477,
-        "avgDom": 158,
+        "avgDom": 159,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4306,6 +4442,7 @@
     {
       "name": "Wild Heron Condos",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.275415,
@@ -4318,13 +4455,13 @@
       },
       "zipCode": "32413",
       "stats": {
-        "listingCount": 6,
-        "avgPrice": 637592,
-        "avgPriceDisplay": "$637,592",
-        "medianPrice": 649900,
-        "avgSqft": 1872,
-        "avgPricePerSqFt": 341,
-        "avgDom": 85,
+        "listingCount": 5,
+        "avgPrice": 636567,
+        "avgPriceDisplay": "$636,567",
+        "medianPrice": 650000,
+        "avgSqft": 1814,
+        "avgPricePerSqFt": 351,
+        "avgDom": 87,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4347,7 +4484,6 @@
         "Fitness",
         "Gated",
         "No Short-Term",
-        "Pet-Friendly",
         "Playgrounds",
         "Pool",
         "Waterfront"
@@ -4361,6 +4497,7 @@
     {
       "name": "Wild Heron T/H",
       "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.280618,

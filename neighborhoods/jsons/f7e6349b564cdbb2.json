@@ -1,10 +1,11 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-11T15:36:49.054188",
+  "updated": "2025-12-12T08:09:12.354081",
   "neighborhoods": [
     {
       "name": "Alerio",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.375944,
@@ -23,7 +24,7 @@
         "medianPrice": 549000,
         "avgSqft": 1243,
         "avgPricePerSqFt": 428,
-        "avgDom": 114,
+        "avgDom": 115,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -57,6 +58,7 @@
     {
       "name": "Amalfi Coast Resort",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.375889,
@@ -112,9 +114,10 @@
     {
       "name": "Ariel Dunes",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.378004,
+        "lat": 30.378026,
         "lng": -86.367391
       },
       "location": {
@@ -124,13 +127,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 27,
-        "avgPrice": 581649,
-        "avgPriceDisplay": "$581,649",
-        "medianPrice": 569000,
-        "avgSqft": 1191,
-        "avgPricePerSqFt": 488,
-        "avgDom": 149,
+        "listingCount": 26,
+        "avgPrice": 583750,
+        "avgPriceDisplay": "$583,750",
+        "medianPrice": 570000,
+        "avgSqft": 1201,
+        "avgPricePerSqFt": 486,
+        "avgDom": 146,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -170,6 +173,7 @@
     {
       "name": "Augusta Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.380029,
@@ -188,7 +192,7 @@
         "medianPrice": 550000,
         "avgSqft": 1276,
         "avgPricePerSqFt": 431,
-        "avgDom": 327,
+        "avgDom": 329,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -228,6 +232,7 @@
     {
       "name": "Augusta Village Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379938,
@@ -246,7 +251,7 @@
         "medianPrice": 695000,
         "avgSqft": 1572,
         "avgPricePerSqFt": 405,
-        "avgDom": 99,
+        "avgDom": 100,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -280,6 +285,7 @@
     {
       "name": "Bahia",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.392455,
@@ -298,7 +304,7 @@
         "medianPrice": 360000,
         "avgSqft": 930,
         "avgPricePerSqFt": 420,
-        "avgDom": 164,
+        "avgDom": 165,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -340,6 +346,7 @@
     {
       "name": "Bay Bridge Landing",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.388219,
@@ -390,6 +397,7 @@
     {
       "name": "Bayou Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381138,
@@ -408,7 +416,7 @@
         "medianPrice": 599000,
         "avgSqft": 1478,
         "avgPricePerSqFt": 413,
-        "avgDom": 67,
+        "avgDom": 68,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -447,6 +455,7 @@
     {
       "name": "Bayshore Pines",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.38625,
@@ -495,9 +504,10 @@
     {
       "name": "Bayside",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.383424,
+        "lat": 30.383359,
         "lng": -86.352484
       },
       "location": {
@@ -507,13 +517,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 622999,
-        "avgPriceDisplay": "$622,999",
-        "medianPrice": 525000,
-        "avgSqft": 1809,
-        "avgPricePerSqFt": 344,
-        "avgDom": 85,
+        "listingCount": 4,
+        "avgPrice": 620823,
+        "avgPriceDisplay": "$620,823",
+        "medianPrice": 499000,
+        "avgSqft": 1802,
+        "avgPricePerSqFt": 345,
+        "avgDom": 82,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -547,6 +557,7 @@
     {
       "name": "Bayside Condo Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385511,
@@ -565,7 +576,7 @@
         "medianPrice": 210000,
         "avgSqft": 406,
         "avgPricePerSqFt": 528,
-        "avgDom": 161,
+        "avgDom": 162,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -605,6 +616,7 @@
     {
       "name": "Beach House",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.374526,
@@ -623,7 +635,7 @@
         "medianPrice": 769000,
         "avgSqft": 1025,
         "avgPricePerSqFt": 759,
-        "avgDom": 265,
+        "avgDom": 267,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -661,6 +673,7 @@
     {
       "name": "Beachside",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.370005,
@@ -679,7 +692,7 @@
         "medianPrice": 849000,
         "avgSqft": 1111,
         "avgPricePerSqFt": 758,
-        "avgDom": 164,
+        "avgDom": 165,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -720,6 +733,7 @@
     {
       "name": "Beachwalk T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.374845,
@@ -738,7 +752,7 @@
         "medianPrice": 699000,
         "avgSqft": 1464,
         "avgPricePerSqFt": 477,
-        "avgDom": 6,
+        "avgDom": 8,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -768,6 +782,7 @@
     {
       "name": "Beachwalk Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.376502,
@@ -786,7 +801,7 @@
         "medianPrice": 595000,
         "avgSqft": 1449,
         "avgPricePerSqFt": 446,
-        "avgDom": 214,
+        "avgDom": 215,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -825,6 +840,7 @@
     {
       "name": "Blue Ohana",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.381482,
@@ -843,7 +859,7 @@
         "medianPrice": 1814500,
         "avgSqft": 3130,
         "avgPricePerSqFt": 577,
-        "avgDom": 90,
+        "avgDom": 92,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -873,6 +889,7 @@
     {
       "name": "Blue Surf",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.378934,
@@ -891,7 +908,7 @@
         "medianPrice": 700000,
         "avgSqft": 2160,
         "avgPricePerSqFt": 324,
-        "avgDom": 442,
+        "avgDom": 444,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -922,6 +939,7 @@
     {
       "name": "Bon Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "T/H",
       "position": {
         "lat": 30.381352,
@@ -971,6 +989,7 @@
     {
       "name": "Buena Vista",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.37329,
@@ -989,7 +1008,7 @@
         "medianPrice": 6400000,
         "avgSqft": 6160,
         "avgPricePerSqFt": 1039,
-        "avgDom": 25,
+        "avgDom": 27,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1019,6 +1038,7 @@
     {
       "name": "Bungalos At Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.390549,
@@ -1037,7 +1057,7 @@
         "medianPrice": 875000,
         "avgSqft": 1732,
         "avgPricePerSqFt": 504,
-        "avgDom": 201,
+        "avgDom": 202,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1074,6 +1094,7 @@
     {
       "name": "Burnt Pine",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.40443,
@@ -1092,7 +1113,7 @@
         "medianPrice": 2995000,
         "avgSqft": 4356,
         "avgPricePerSqFt": 758,
-        "avgDom": 103,
+        "avgDom": 104,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1132,6 +1153,7 @@
     {
       "name": "Burnt Pine T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.403552,
@@ -1150,7 +1172,7 @@
         "medianPrice": 4195000,
         "avgSqft": 4506,
         "avgPricePerSqFt": 931,
-        "avgDom": 45,
+        "avgDom": 47,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1187,6 +1209,7 @@
     {
       "name": "Caribe",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.374099,
@@ -1200,12 +1223,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 10,
-        "avgPrice": 1847667,
-        "avgPriceDisplay": "$1,847,667",
+        "avgPrice": 1847600,
+        "avgPriceDisplay": "$1,847,600",
         "medianPrice": 1649000,
         "avgSqft": 2927,
         "avgPricePerSqFt": 631,
-        "avgDom": 151,
+        "avgDom": 152,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1240,6 +1263,7 @@
     {
       "name": "Ciboney",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.378349,
@@ -1258,7 +1282,7 @@
         "medianPrice": 574900,
         "avgSqft": 1023,
         "avgPricePerSqFt": 550,
-        "avgDom": 217,
+        "avgDom": 218,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1293,6 +1317,7 @@
     {
       "name": "Compass Rose",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.374914,
@@ -1311,7 +1336,7 @@
         "medianPrice": 1125000,
         "avgSqft": 1577,
         "avgPricePerSqFt": 749,
-        "avgDom": 144,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1346,6 +1371,7 @@
     {
       "name": "Costa Vista",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.378975,
@@ -1364,7 +1390,7 @@
         "medianPrice": 595000,
         "avgSqft": 1376,
         "avgPricePerSqFt": 437,
-        "avgDom": 135,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1395,6 +1421,7 @@
     {
       "name": "Cottages Of Miramar",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.379554,
@@ -1413,7 +1440,7 @@
         "medianPrice": 1695000,
         "avgSqft": 3103,
         "avgPricePerSqFt": 546,
-        "avgDom": 86,
+        "avgDom": 88,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1443,6 +1470,7 @@
     {
       "name": "Cross Creek Club",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379203,
@@ -1461,7 +1489,7 @@
         "medianPrice": 349000,
         "avgSqft": 612,
         "avgPricePerSqFt": 570,
-        "avgDom": 68,
+        "avgDom": 70,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1492,6 +1520,7 @@
     {
       "name": "Crystal Cove",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385937,
@@ -1510,7 +1539,7 @@
         "medianPrice": 485000,
         "avgSqft": 1217,
         "avgPricePerSqFt": 391,
-        "avgDom": 104,
+        "avgDom": 105,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1548,6 +1577,7 @@
     {
       "name": "Crystal Lake",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.389071,
@@ -1566,7 +1596,7 @@
         "medianPrice": 959000,
         "avgSqft": 2125,
         "avgPricePerSqFt": 478,
-        "avgDom": 75,
+        "avgDom": 76,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1605,6 +1635,7 @@
     {
       "name": "Crystal Village 2 Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381635,
@@ -1623,7 +1654,7 @@
         "medianPrice": 375000,
         "avgSqft": 1076,
         "avgPricePerSqFt": 422,
-        "avgDom": 146,
+        "avgDom": 147,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1655,6 +1686,7 @@
     {
       "name": "Deerwood",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.384952,
@@ -1673,7 +1705,7 @@
         "medianPrice": 969000,
         "avgSqft": 1610,
         "avgPricePerSqFt": 500,
-        "avgDom": 210,
+        "avgDom": 211,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1711,6 +1743,7 @@
     {
       "name": "Del Mar At Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.394857,
@@ -1768,6 +1801,7 @@
     {
       "name": "Destin Surfside",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.375868,
@@ -1786,7 +1820,7 @@
         "medianPrice": 599999,
         "avgSqft": 1125,
         "avgPricePerSqFt": 557,
-        "avgDom": 180,
+        "avgDom": 182,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1823,6 +1857,7 @@
     {
       "name": "Dorothy Bowen Estates",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.387669,
@@ -1841,7 +1876,7 @@
         "medianPrice": 599000,
         "avgSqft": 1702,
         "avgPricePerSqFt": 316,
-        "avgDom": 12,
+        "avgDom": 14,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1871,6 +1906,7 @@
     {
       "name": "Driftwood",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.381364,
@@ -1889,7 +1925,7 @@
         "medianPrice": 3999000,
         "avgSqft": 6544,
         "avgPricePerSqFt": 611,
-        "avgDom": 274,
+        "avgDom": 276,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1919,6 +1955,7 @@
     {
       "name": "Edgewater Beach",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.375206,
@@ -1976,6 +2013,7 @@
     {
       "name": "Elation",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.39315,
@@ -1994,7 +2032,7 @@
         "medianPrice": 303750,
         "avgSqft": 845,
         "avgPricePerSqFt": 409,
-        "avgDom": 238,
+        "avgDom": 239,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2036,6 +2074,7 @@
     {
       "name": "Emerald Bay",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.390148,
@@ -2048,13 +2087,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 8,
-        "avgPrice": 891766,
-        "avgPriceDisplay": "$891,766",
-        "medianPrice": 854000,
-        "avgSqft": 2629,
-        "avgPricePerSqFt": 339,
-        "avgDom": 142,
+        "listingCount": 7,
+        "avgPrice": 893971,
+        "avgPriceDisplay": "$893,971",
+        "medianPrice": 875000,
+        "avgSqft": 2651,
+        "avgPricePerSqFt": 337,
+        "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2089,6 +2128,7 @@
     {
       "name": "Emerald Dunes",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.373841,
@@ -2107,7 +2147,7 @@
         "medianPrice": 1800000,
         "avgSqft": 3125,
         "avgPricePerSqFt": 602,
-        "avgDom": 268,
+        "avgDom": 269,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2137,6 +2177,7 @@
     {
       "name": "Emerald Shores Of South Walton",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.383402,
@@ -2155,7 +2196,7 @@
         "medianPrice": 868900,
         "avgSqft": 1828,
         "avgPricePerSqFt": 481,
-        "avgDom": 100,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2190,6 +2231,7 @@
     {
       "name": "Emerald Waters Beachside",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.377884,
@@ -2208,7 +2250,7 @@
         "medianPrice": 560000,
         "avgSqft": 958,
         "avgPricePerSqFt": 585,
-        "avgDom": 142,
+        "avgDom": 144,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2241,6 +2283,7 @@
     {
       "name": "Emerald Waters Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.381654,
@@ -2259,7 +2302,7 @@
         "medianPrice": 1985000,
         "avgSqft": 3015,
         "avgPricePerSqFt": 567,
-        "avgDom": 139,
+        "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2292,6 +2335,7 @@
     {
       "name": "Emerald Waters Village T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.380647,
@@ -2310,7 +2354,7 @@
         "medianPrice": 895000,
         "avgSqft": 1640,
         "avgPricePerSqFt": 546,
-        "avgDom": 93,
+        "avgDom": 95,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2344,6 +2388,7 @@
     {
       "name": "Fairways",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.381994,
@@ -2362,7 +2407,7 @@
         "medianPrice": 745000,
         "avgSqft": 1339,
         "avgPricePerSqFt": 623,
-        "avgDom": 102,
+        "avgDom": 103,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2403,6 +2448,7 @@
     {
       "name": "Fairways T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.382587,
@@ -2421,7 +2467,7 @@
         "medianPrice": 875000,
         "avgSqft": 1655,
         "avgPricePerSqFt": 507,
-        "avgDom": 200,
+        "avgDom": 201,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2460,6 +2506,7 @@
     {
       "name": "Fishermans Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.390083,
@@ -2478,7 +2525,7 @@
         "medianPrice": 625000,
         "avgSqft": 1454,
         "avgPricePerSqFt": 409,
-        "avgDom": 99,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2518,6 +2565,7 @@
     {
       "name": "Flamingo Beach",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.386832,
@@ -2566,6 +2614,7 @@
     {
       "name": "Fountains At Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.38995,
@@ -2584,7 +2633,7 @@
         "medianPrice": 1748000,
         "avgSqft": 2675,
         "avgPricePerSqFt": 626,
-        "avgDom": 100,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2621,6 +2670,7 @@
     {
       "name": "Four Mile Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.370589,
@@ -2639,7 +2689,7 @@
         "medianPrice": 4699000,
         "avgSqft": 2089,
         "avgPricePerSqFt": 2034,
-        "avgDom": 17,
+        "avgDom": 18,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2672,10 +2722,11 @@
     {
       "name": "Frangista Beach",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.380688,
-        "lng": -86.377417
+        "lng": -86.37741
       },
       "location": {
         "city": "Miramar Beach",
@@ -2685,12 +2736,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 22,
-        "avgPrice": 1710876,
-        "avgPriceDisplay": "$1,710,876",
-        "medianPrice": 1545000,
-        "avgSqft": 3106,
-        "avgPricePerSqFt": 551,
-        "avgDom": 137,
+        "avgPrice": 1723040,
+        "avgPriceDisplay": "$1,723,040",
+        "medianPrice": 1599900,
+        "avgSqft": 3123,
+        "avgPricePerSqFt": 552,
+        "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2723,6 +2774,7 @@
     {
       "name": "Garden Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.382553,
@@ -2741,7 +2793,7 @@
         "medianPrice": 448000,
         "avgSqft": 1110,
         "avgPricePerSqFt": 404,
-        "avgDom": 408,
+        "avgDom": 410,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2777,6 +2829,7 @@
     {
       "name": "Genoa",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.391743,
@@ -2795,7 +2848,7 @@
         "medianPrice": 1785000,
         "avgSqft": 3249,
         "avgPricePerSqFt": 575,
-        "avgDom": 80,
+        "avgDom": 81,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2835,6 +2888,7 @@
     {
       "name": "Golfview",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.379943,
@@ -2853,7 +2907,7 @@
         "medianPrice": 1269000,
         "avgSqft": 2362,
         "avgPricePerSqFt": 522,
-        "avgDom": 212,
+        "avgDom": 214,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2886,6 +2940,7 @@
     {
       "name": "Grand Dunes",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.374944,
@@ -2944,6 +2999,7 @@
     {
       "name": "Grand Harbour",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.386419,
@@ -3002,6 +3058,7 @@
     {
       "name": "Grand Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.392123,
@@ -3020,7 +3077,7 @@
         "medianPrice": 340000,
         "avgSqft": 870,
         "avgPricePerSqFt": 447,
-        "avgDom": 224,
+        "avgDom": 225,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3061,6 +3118,7 @@
     {
       "name": "Grand Villas At Tops'L Beach Club",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.377318,
@@ -3079,7 +3137,7 @@
         "medianPrice": 1469000,
         "avgSqft": 3454,
         "avgPricePerSqFt": 396,
-        "avgDom": 137,
+        "avgDom": 138,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3116,6 +3174,7 @@
     {
       "name": "Gulf Pines",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.373056,
@@ -3128,13 +3187,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 7,
+        "listingCount": 6,
         "avgPrice": 3156615,
         "avgPriceDisplay": "$3,156,615",
         "medianPrice": 1950000,
         "avgSqft": 3775,
         "avgPricePerSqFt": 836,
-        "avgDom": 270,
+        "avgDom": 271,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3166,6 +3225,7 @@
     {
       "name": "Gulf Walk Miramar Beach",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.37707,
@@ -3184,7 +3244,7 @@
         "medianPrice": 490000,
         "avgSqft": 1258,
         "avgPricePerSqFt": 390,
-        "avgDom": 19,
+        "avgDom": 21,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3216,10 +3276,11 @@
     {
       "name": "Gulf Winds East",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.379999,
-        "lng": -86.394221
+        "lng": -86.394051
       },
       "location": {
         "city": "Miramar Beach",
@@ -3229,12 +3290,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 3,
-        "avgPrice": 535600,
-        "avgPriceDisplay": "$535,600",
+        "avgPrice": 519750,
+        "avgPriceDisplay": "$519,750",
         "medianPrice": 585000,
-        "avgSqft": 1302,
-        "avgPricePerSqFt": 411,
-        "avgDom": 240,
+        "avgSqft": 1303,
+        "avgPricePerSqFt": 399,
+        "avgDom": 209,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3266,6 +3327,7 @@
     {
       "name": "Gulfview 2",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379508,
@@ -3284,7 +3346,7 @@
         "medianPrice": 334900,
         "avgSqft": 603,
         "avgPricePerSqFt": 552,
-        "avgDom": 179,
+        "avgDom": 181,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3316,6 +3378,7 @@
     {
       "name": "Harbour Pointe",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385594,
@@ -3334,7 +3397,7 @@
         "medianPrice": 475000,
         "avgSqft": 979,
         "avgPricePerSqFt": 503,
-        "avgDom": 128,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3374,6 +3437,7 @@
     {
       "name": "Heron Walk",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381065,
@@ -3392,7 +3456,7 @@
         "medianPrice": 598000,
         "avgSqft": 1180,
         "avgPricePerSqFt": 508,
-        "avgDom": 70,
+        "avgDom": 71,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3432,6 +3496,7 @@
     {
       "name": "Hidden Dunes Beach Cottages",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.37505,
@@ -3445,12 +3510,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 13,
-        "avgPrice": 530774,
-        "avgPriceDisplay": "$530,774",
+        "avgPrice": 526426,
+        "avgPriceDisplay": "$526,426",
         "medianPrice": 475000,
         "avgSqft": 1271,
-        "avgPricePerSqFt": 418,
-        "avgDom": 173,
+        "avgPricePerSqFt": 414,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3489,6 +3554,7 @@
     {
       "name": "Hidden Dunes Gulfside",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.371717,
@@ -3548,6 +3614,7 @@
     {
       "name": "Hidden Harbor Estates",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.387356,
@@ -3566,7 +3633,7 @@
         "medianPrice": 499000,
         "avgSqft": 2019,
         "avgPricePerSqFt": 247,
-        "avgDom": 72,
+        "avgDom": 74,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3597,6 +3664,7 @@
     {
       "name": "Hidden Palms",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.381655,
@@ -3615,7 +3683,7 @@
         "medianPrice": 1100000,
         "avgSqft": 2682,
         "avgPricePerSqFt": 441,
-        "avgDom": 140,
+        "avgDom": 142,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3646,6 +3714,7 @@
     {
       "name": "Hidden Villas Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383446,
@@ -3664,7 +3733,7 @@
         "medianPrice": 279900,
         "avgSqft": 627,
         "avgPricePerSqFt": 446,
-        "avgDom": 181,
+        "avgDom": 183,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3695,6 +3764,7 @@
     {
       "name": "Holiday Shores Est",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.390801,
@@ -3713,7 +3783,7 @@
         "medianPrice": 699000,
         "avgSqft": 2215,
         "avgPricePerSqFt": 358,
-        "avgDom": 79,
+        "avgDom": 80,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3743,6 +3813,7 @@
     {
       "name": "Island Green",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.393047,
@@ -3798,8 +3869,58 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Jars Cove",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.396018,
+        "lng": -86.396469
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 874450,
+        "avgPriceDisplay": "$874,450",
+        "medianPrice": 899000,
+        "avgSqft": 2408,
+        "avgPricePerSqFt": 363,
+        "avgDom": 1,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Lasata",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.391251,
@@ -3818,7 +3939,7 @@
         "medianPrice": 350000,
         "avgSqft": 1095,
         "avgPricePerSqFt": 403,
-        "avgDom": 230,
+        "avgDom": 232,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3859,6 +3980,7 @@
     {
       "name": "Laurel Grove",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.388219,
@@ -3877,7 +3999,7 @@
         "medianPrice": 979900,
         "avgSqft": 1887,
         "avgPricePerSqFt": 533,
-        "avgDom": 93,
+        "avgDom": 94,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3917,6 +4039,7 @@
     {
       "name": "Le Jardin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.390456,
@@ -3976,6 +4099,7 @@
     {
       "name": "Leeward Key",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379678,
@@ -4029,6 +4153,7 @@
     {
       "name": "Legion Park Landing",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.384528,
@@ -4047,7 +4172,7 @@
         "medianPrice": 599000,
         "avgSqft": 1934,
         "avgPricePerSqFt": 310,
-        "avgDom": 69,
+        "avgDom": 71,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4078,6 +4203,7 @@
     {
       "name": "Linkside Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.38158,
@@ -4136,6 +4262,7 @@
     {
       "name": "Luau",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.371936,
@@ -4154,7 +4281,7 @@
         "medianPrice": 399000,
         "avgSqft": 895,
         "avgPricePerSqFt": 535,
-        "avgDom": 186,
+        "avgDom": 187,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4195,6 +4322,7 @@
     {
       "name": "Magnolia Beach T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.388326,
@@ -4213,7 +4341,7 @@
         "medianPrice": 1099000,
         "avgSqft": 1996,
         "avgPricePerSqFt": 516,
-        "avgDom": 87,
+        "avgDom": 88,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4253,6 +4381,7 @@
     {
       "name": "Mainsail",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.37334,
@@ -4310,6 +4439,7 @@
     {
       "name": "Majestic Sun",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.375968,
@@ -4328,7 +4458,7 @@
         "medianPrice": 728500,
         "avgSqft": 1288,
         "avgPricePerSqFt": 638,
-        "avgDom": 180,
+        "avgDom": 181,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4366,6 +4496,7 @@
     {
       "name": "Malibu Gardens",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.386934,
@@ -4384,7 +4515,7 @@
         "medianPrice": 573950,
         "avgSqft": 1786,
         "avgPricePerSqFt": 321,
-        "avgDom": 54,
+        "avgDom": 56,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4414,6 +4545,7 @@
     {
       "name": "Maravilla",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379548,
@@ -4432,7 +4564,7 @@
         "medianPrice": 525000,
         "avgSqft": 859,
         "avgPricePerSqFt": 615,
-        "avgDom": 156,
+        "avgDom": 157,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4467,8 +4599,66 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Maravilla Cottages",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.38288,
+        "lng": -86.391998
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 759800,
+        "avgPriceDisplay": "$759,800",
+        "medianPrice": 700000,
+        "avgSqft": 1615,
+        "avgPricePerSqFt": 470,
+        "avgDom": 86,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Clubhouse",
+        "Fitness",
+        "Gated",
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term",
+        "Tennis",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Maravilla Shores",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.379611,
@@ -4487,7 +4677,7 @@
         "medianPrice": 1980000,
         "avgSqft": 4023,
         "avgPricePerSqFt": 622,
-        "avgDom": 366,
+        "avgDom": 368,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4523,6 +4713,7 @@
     {
       "name": "Market Street",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.390739,
@@ -4541,7 +4732,7 @@
         "medianPrice": 489000,
         "avgSqft": 912,
         "avgPricePerSqFt": 496,
-        "avgDom": 219,
+        "avgDom": 221,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4581,6 +4772,7 @@
     {
       "name": "Miramar Beach Cottages",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.373559,
@@ -4594,12 +4786,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1798000,
-        "avgPriceDisplay": "$1,798,000",
-        "medianPrice": 1798000,
+        "avgPrice": 1797000,
+        "avgPriceDisplay": "$1,797,000",
+        "medianPrice": 1797000,
         "avgSqft": 2921,
-        "avgPricePerSqFt": 616,
-        "avgDom": 230,
+        "avgPricePerSqFt": 615,
+        "avgDom": 232,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4629,6 +4821,7 @@
     {
       "name": "Miramar Beach Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.376183,
@@ -4647,7 +4840,7 @@
         "medianPrice": 1150000,
         "avgSqft": 2103,
         "avgPricePerSqFt": 482,
-        "avgDom": 58,
+        "avgDom": 60,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4680,6 +4873,7 @@
     {
       "name": "Miramar Palms T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.381213,
@@ -4698,7 +4892,7 @@
         "medianPrice": 690000,
         "avgSqft": 1554,
         "avgPricePerSqFt": 441,
-        "avgDom": 37,
+        "avgDom": 39,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4729,6 +4923,7 @@
     {
       "name": "Misty Cove",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.382088,
@@ -4747,7 +4942,7 @@
         "medianPrice": 449900,
         "avgSqft": 1333,
         "avgPricePerSqFt": 331,
-        "avgDom": 121,
+        "avgDom": 122,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4778,6 +4973,7 @@
     {
       "name": "Observation Point",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.390572,
@@ -4796,7 +4992,7 @@
         "medianPrice": 486000,
         "avgSqft": 1035,
         "avgPricePerSqFt": 476,
-        "avgDom": 128,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4838,6 +5034,7 @@
     {
       "name": "Paradise Retreat",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.38291,
@@ -4889,6 +5086,7 @@
     {
       "name": "Pavilion Palms",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379325,
@@ -4907,7 +5105,7 @@
         "medianPrice": 695000,
         "avgSqft": 1376,
         "avgPricePerSqFt": 564,
-        "avgDom": 157,
+        "avgDom": 158,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4941,6 +5139,7 @@
     {
       "name": "Pilot House",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.390715,
@@ -4959,7 +5158,7 @@
         "medianPrice": 365000,
         "avgSqft": 755,
         "avgPricePerSqFt": 457,
-        "avgDom": 213,
+        "avgDom": 214,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5000,6 +5199,7 @@
     {
       "name": "Pine Ridge",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.377535,
@@ -5018,7 +5218,7 @@
         "medianPrice": 965000,
         "avgSqft": 1795,
         "avgPricePerSqFt": 538,
-        "avgDom": 575,
+        "avgDom": 577,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5057,6 +5257,7 @@
     {
       "name": "Pine Ridge Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.377661,
@@ -5075,7 +5276,7 @@
         "medianPrice": 899000,
         "avgSqft": 1818,
         "avgPricePerSqFt": 508,
-        "avgDom": 393,
+        "avgDom": 395,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5115,6 +5316,7 @@
     {
       "name": "Players Club At Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384842,
@@ -5133,7 +5335,7 @@
         "medianPrice": 727777,
         "avgSqft": 1448,
         "avgPricePerSqFt": 532,
-        "avgDom": 76,
+        "avgDom": 77,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5173,6 +5375,7 @@
     {
       "name": "Poinciana Place",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.376095,
@@ -5191,7 +5394,7 @@
         "medianPrice": 340000,
         "avgSqft": 1014,
         "avgPricePerSqFt": 313,
-        "avgDom": 107,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5222,6 +5425,7 @@
     {
       "name": "Pointe Of View",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381037,
@@ -5240,7 +5444,7 @@
         "medianPrice": 250000,
         "avgSqft": 816,
         "avgPricePerSqFt": 302,
-        "avgDom": 107,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5272,6 +5476,7 @@
     {
       "name": "Prestwick Place",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.382201,
@@ -5290,7 +5495,7 @@
         "medianPrice": 1099000,
         "avgSqft": 1866,
         "avgPricePerSqFt": 582,
-        "avgDom": 110,
+        "avgDom": 111,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5329,6 +5534,7 @@
     {
       "name": "Saint Tropez",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.376005,
@@ -5347,7 +5553,7 @@
         "medianPrice": 1750000,
         "avgSqft": 2641,
         "avgPricePerSqFt": 511,
-        "avgDom": 290,
+        "avgDom": 292,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5381,6 +5587,7 @@
     {
       "name": "Sandestin Resort",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385773,
@@ -5399,7 +5606,7 @@
         "medianPrice": 650000,
         "avgSqft": 1771,
         "avgPricePerSqFt": 367,
-        "avgDom": 448,
+        "avgDom": 450,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5436,6 +5643,7 @@
     {
       "name": "Sandpiper Village",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.383083,
@@ -5454,7 +5662,7 @@
         "medianPrice": 625000,
         "avgSqft": 1562,
         "avgPricePerSqFt": 429,
-        "avgDom": 87,
+        "avgDom": 88,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5491,6 +5699,7 @@
     {
       "name": "Sandpiper Village Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.382594,
@@ -5509,7 +5718,7 @@
         "medianPrice": 720000,
         "avgSqft": 1661,
         "avgPricePerSqFt": 433,
-        "avgDom": 118,
+        "avgDom": 119,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5548,6 +5757,7 @@
     {
       "name": "Sandprints",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.380764,
@@ -5566,7 +5776,7 @@
         "medianPrice": 398000,
         "avgSqft": 950,
         "avgPricePerSqFt": 402,
-        "avgDom": 135,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5598,6 +5808,7 @@
     {
       "name": "Sea Cabins Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.376925,
@@ -5611,12 +5822,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 401250,
-        "avgPriceDisplay": "$401,250",
-        "medianPrice": 403500,
+        "avgPrice": 401000,
+        "avgPriceDisplay": "$401,000",
+        "medianPrice": 403000,
         "avgSqft": 669,
-        "avgPricePerSqFt": 600,
-        "avgDom": 294,
+        "avgPricePerSqFt": 599,
+        "avgDom": 296,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5648,6 +5859,7 @@
     {
       "name": "Sea Cabins T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.376875,
@@ -5666,7 +5878,7 @@
         "medianPrice": 389000,
         "avgSqft": 694,
         "avgPricePerSqFt": 548,
-        "avgDom": 66,
+        "avgDom": 68,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5696,6 +5908,7 @@
     {
       "name": "Seascape Resort Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383497,
@@ -5709,11 +5922,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 20,
-        "avgPrice": 606539,
-        "avgPriceDisplay": "$606,539",
+        "avgPrice": 606224,
+        "avgPriceDisplay": "$606,224",
         "medianPrice": 580000,
         "avgSqft": 1343,
-        "avgPricePerSqFt": 452,
+        "avgPricePerSqFt": 451,
         "avgDom": 203,
         "priceRange": "N/A",
         "minPrice": null,
@@ -5751,6 +5964,7 @@
     {
       "name": "Seaspray",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.378261,
@@ -5769,7 +5983,7 @@
         "medianPrice": 700000,
         "avgSqft": 1712,
         "avgPricePerSqFt": 415,
-        "avgDom": 177,
+        "avgDom": 178,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5802,6 +6016,7 @@
     {
       "name": "Seawinds",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.376134,
@@ -5815,11 +6030,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1662500,
-        "avgPriceDisplay": "$1,662,500",
-        "medianPrice": 1825000,
+        "avgPrice": 1637750,
+        "avgPriceDisplay": "$1,637,750",
+        "medianPrice": 1775500,
         "avgSqft": 2460,
-        "avgPricePerSqFt": 676,
+        "avgPricePerSqFt": 666,
         "avgDom": 124,
         "priceRange": "N/A",
         "minPrice": null,
@@ -5853,6 +6068,7 @@
     {
       "name": "Snow Drift Beach",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.373466,
@@ -5902,9 +6118,10 @@
     {
       "name": "Southwinds",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.370595,
+        "lat": 30.370829,
         "lng": -86.332139
       },
       "location": {
@@ -5915,12 +6132,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 8,
-        "avgPrice": 1638653,
-        "avgPriceDisplay": "$1,638,653",
-        "medianPrice": 1815000,
-        "avgSqft": 1632,
-        "avgPricePerSqFt": 1004,
-        "avgDom": 106,
+        "avgPrice": 1733057,
+        "avgPriceDisplay": "$1,733,057",
+        "medianPrice": 1895000,
+        "avgSqft": 1704,
+        "avgPricePerSqFt": 1017,
+        "avgDom": 105,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5956,6 +6173,7 @@
     {
       "name": "Spyglass Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.374738,
@@ -5974,7 +6192,7 @@
         "medianPrice": 2925000,
         "avgSqft": 4520,
         "avgPricePerSqFt": 647,
-        "avgDom": 401,
+        "avgDom": 403,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6004,6 +6222,7 @@
     {
       "name": "Summer Haven",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.376828,
@@ -6022,7 +6241,7 @@
         "medianPrice": 1399000,
         "avgSqft": 1534,
         "avgPricePerSqFt": 613,
-        "avgDom": 113,
+        "avgDom": 114,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6050,8 +6269,60 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Summerhouse",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.378897,
+        "lng": -86.381531
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 409333,
+        "avgPriceDisplay": "$409,333",
+        "medianPrice": 439000,
+        "avgSqft": 1224,
+        "avgPricePerSqFt": 334,
+        "avgDom": 120,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Summerspell",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.378831,
@@ -6070,7 +6341,7 @@
         "medianPrice": 440000,
         "avgSqft": 608,
         "avgPricePerSqFt": 750,
-        "avgDom": 72,
+        "avgDom": 73,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6101,6 +6372,7 @@
     {
       "name": "Sundance",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.380706,
@@ -6119,7 +6391,7 @@
         "medianPrice": 1699990,
         "avgSqft": 3300,
         "avgPricePerSqFt": 515,
-        "avgDom": 34,
+        "avgDom": 35,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6149,6 +6421,7 @@
     {
       "name": "Surf Song Estates",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.379937,
@@ -6167,7 +6440,7 @@
         "medianPrice": 1750000,
         "avgSqft": 2568,
         "avgPricePerSqFt": 613,
-        "avgDom": 57,
+        "avgDom": 59,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6197,6 +6470,7 @@
     {
       "name": "Surfsong Condo Of Destin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.379283,
@@ -6215,7 +6489,7 @@
         "medianPrice": 360000,
         "avgSqft": 648,
         "avgPricePerSqFt": 556,
-        "avgDom": 39,
+        "avgDom": 41,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6246,6 +6520,7 @@
     {
       "name": "Tang-O-Mar",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.37456,
@@ -6259,12 +6534,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 3,
-        "avgPrice": 1785500,
-        "avgPriceDisplay": "$1,785,500",
-        "medianPrice": 1923000,
+        "avgPrice": 1785250,
+        "avgPriceDisplay": "$1,785,250",
+        "medianPrice": 1922000,
         "avgSqft": 2770,
-        "avgPricePerSqFt": 645,
-        "avgDom": 181,
+        "avgPricePerSqFt": 644,
+        "avgDom": 182,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6294,6 +6569,7 @@
     {
       "name": "The Cottages at Mainsail",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.375592,
@@ -6312,7 +6588,7 @@
         "medianPrice": 699900,
         "avgSqft": 1847,
         "avgPricePerSqFt": 379,
-        "avgDom": 155,
+        "avgDom": 157,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6352,6 +6628,7 @@
     {
       "name": "The Empress",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.376164,
@@ -6370,7 +6647,7 @@
         "medianPrice": 1695000,
         "avgSqft": 2525,
         "avgPricePerSqFt": 623,
-        "avgDom": 247,
+        "avgDom": 248,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6405,6 +6682,7 @@
     {
       "name": "The View",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.374271,
@@ -6423,7 +6701,7 @@
         "medianPrice": 720000,
         "avgSqft": 1586,
         "avgPricePerSqFt": 454,
-        "avgDom": 589,
+        "avgDom": 591,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6455,6 +6733,7 @@
     {
       "name": "Tides At Tops'L",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.370092,
@@ -6473,7 +6752,7 @@
         "medianPrice": 875000,
         "avgSqft": 1329,
         "avgPricePerSqFt": 709,
-        "avgDom": 198,
+        "avgDom": 200,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6510,6 +6789,7 @@
     {
       "name": "Tivoli By The Sea",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.37426,
@@ -6566,6 +6846,7 @@
     {
       "name": "Tivoli Ridge",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.376713,
@@ -6584,7 +6865,7 @@
         "medianPrice": 2250000,
         "avgSqft": 4374,
         "avgPricePerSqFt": 463,
-        "avgDom": 239,
+        "avgDom": 241,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6620,6 +6901,7 @@
     {
       "name": "Tivoli Terrace",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.373615,
@@ -6638,7 +6920,7 @@
         "medianPrice": 1175000,
         "avgSqft": 2086,
         "avgPricePerSqFt": 563,
-        "avgDom": 185,
+        "avgDom": 187,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6677,6 +6959,7 @@
     {
       "name": "Tops'L Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.371913,
@@ -6690,12 +6973,12 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 17,
-        "avgPrice": 747169,
-        "avgPriceDisplay": "$747,169",
+        "avgPrice": 749389,
+        "avgPriceDisplay": "$749,389",
         "medianPrice": 685000,
-        "avgSqft": 1335,
-        "avgPricePerSqFt": 560,
-        "avgDom": 153,
+        "avgSqft": 1325,
+        "avgPricePerSqFt": 566,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6732,6 +7015,7 @@
     {
       "name": "Tops'L T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.375554,
@@ -6750,7 +7034,7 @@
         "medianPrice": 560000,
         "avgSqft": 1331,
         "avgPricePerSqFt": 425,
-        "avgDom": 61,
+        "avgDom": 63,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6788,6 +7072,7 @@
     {
       "name": "Tradewinds Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.378697,
@@ -6806,7 +7091,7 @@
         "medianPrice": 410000,
         "avgSqft": 766,
         "avgPricePerSqFt": 540,
-        "avgDom": 216,
+        "avgDom": 217,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6837,6 +7122,7 @@
     {
       "name": "Treasure Sands",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.380967,
@@ -6855,7 +7141,7 @@
         "medianPrice": 1589000,
         "avgSqft": 2466,
         "avgPricePerSqFt": 626,
-        "avgDom": 76,
+        "avgDom": 78,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6885,6 +7171,7 @@
     {
       "name": "Treetops At Bayside",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1501 - Miramar Beach North",
       "propertyType": "Homes",
       "position": {
         "lat": 30.382609,
@@ -6903,7 +7190,7 @@
         "medianPrice": 569900,
         "avgSqft": 1667,
         "avgPricePerSqFt": 342,
-        "avgDom": 7,
+        "avgDom": 9,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6936,6 +7223,7 @@
     {
       "name": "Turnberry",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.387773,
@@ -6954,7 +7242,7 @@
         "medianPrice": 950000,
         "avgSqft": 2152,
         "avgPricePerSqFt": 405,
-        "avgDom": 214,
+        "avgDom": 216,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6992,6 +7280,7 @@
     {
       "name": "Turnberry Villas",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386608,
@@ -7049,6 +7338,7 @@
     {
       "name": "Tuscana T/H",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.395604,
@@ -7067,7 +7357,7 @@
         "medianPrice": 1395000,
         "avgSqft": 2706,
         "avgPricePerSqFt": 516,
-        "avgDom": 149,
+        "avgDom": 151,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7106,6 +7396,7 @@
     {
       "name": "Vantage Pointe",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "T/H",
       "position": {
         "lat": 30.38491,
@@ -7124,7 +7415,7 @@
         "medianPrice": 1050000,
         "avgSqft": 2098,
         "avgPricePerSqFt": 478,
-        "avgDom": 319,
+        "avgDom": 320,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7161,6 +7452,7 @@
     {
       "name": "Villa Lago",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.392277,
@@ -7179,7 +7471,7 @@
         "medianPrice": 1130000,
         "avgSqft": 2179,
         "avgPricePerSqFt": 513,
-        "avgDom": 145,
+        "avgDom": 146,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7219,6 +7511,7 @@
     {
       "name": "Villa Lago Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.373282,
@@ -7274,6 +7567,7 @@
     {
       "name": "Warren Heights",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.376287,
@@ -7292,7 +7586,7 @@
         "medianPrice": 4199000,
         "avgSqft": 3060,
         "avgPricePerSqFt": 1372,
-        "avgDom": 419,
+        "avgDom": 421,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7324,6 +7618,7 @@
     {
       "name": "Westwinds",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.371327,
@@ -7342,7 +7637,7 @@
         "medianPrice": 1198000,
         "avgSqft": 1037,
         "avgPricePerSqFt": 1076,
-        "avgDom": 135,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7380,6 +7675,7 @@
     {
       "name": "Westwinds At Sandestin",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1503 - Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.37067,
@@ -7398,7 +7694,7 @@
         "medianPrice": 2199000,
         "avgSqft": 3079,
         "avgPricePerSqFt": 1136,
-        "avgDom": 248,
+        "avgDom": 249,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7436,6 +7732,7 @@
     {
       "name": "Windancer Shores",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
         "lat": 30.375159,
@@ -7486,6 +7783,7 @@
     {
       "name": "Woodland Shores Condos",
       "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381786,
@@ -7504,7 +7802,7 @@
         "medianPrice": 459900,
         "avgSqft": 1296,
         "avgPricePerSqFt": 355,
-        "avgDom": 232,
+        "avgDom": 234,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

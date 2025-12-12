@@ -141,13 +141,13 @@ export function setupFilters() {
         const minPct = minVal / totalSteps;
         const maxPct = maxVal / totalSteps;
 
-        // Update track fill
+        // Update track fill (no offset needed - thumb reaches track edges)
         if (minVal === 0) {
             rangeFill.style.left = '0';
-            rangeFill.style.width = `calc(${maxPct * 100}% + ${21 - maxPct * 42}px)`;
+            rangeFill.style.width = `${maxPct * 100}%`;
         } else {
-            rangeFill.style.left = `calc(${minPct * 100}% + ${21 - minPct * 42}px)`;
-            rangeFill.style.width = `calc(${(maxPct - minPct) * 100}% - ${(maxPct - minPct) * 42}px)`;
+            rangeFill.style.left = `${minPct * 100}%`;
+            rangeFill.style.width = `${(maxPct - minPct) * 100}%`;
         }
         
         debouncedApplyFilters();
@@ -171,8 +171,8 @@ export function setupFilters() {
         // Normalize to 0-1 range (min 1, max 6)
         let pct = (val - 1) / 5;
         
-        // Update fill width with thumb offset correction
-        bedsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
+        // Update fill width (no offset needed - thumb reaches track edges)
+        bedsFill.style.width = `${pct * 100}%`;
         
         debouncedApplyFilters();
     }
@@ -194,8 +194,8 @@ export function setupFilters() {
         // Normalize to 0-1 range (min 1, max 6)
         let pct = (val - 1) / 5;
         
-        // Update fill width with thumb offset correction
-        bathsFill.style.width = `calc(${pct * 100}% + ${21 - pct * 42}px)`;
+        // Update fill width (no offset needed - thumb reaches track edges)
+        bathsFill.style.width = `${pct * 100}%`;
         
         debouncedApplyFilters();
     }

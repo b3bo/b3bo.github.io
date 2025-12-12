@@ -1,10 +1,11 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-11T15:36:49.052296",
+  "updated": "2025-12-12T08:09:12.351978",
   "neighborhoods": [
     {
       "name": "Abacos",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.347326,
@@ -23,7 +24,7 @@
         "medianPrice": 724000,
         "avgSqft": 1979,
         "avgPricePerSqFt": 366,
-        "avgDom": 20,
+        "avgDom": 22,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -56,6 +57,7 @@
     {
       "name": "Adagio",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Condos",
       "position": {
         "lat": 30.340269,
@@ -74,7 +76,7 @@
         "medianPrice": 1499000,
         "avgSqft": 1894,
         "avgPricePerSqFt": 918,
-        "avgDom": 174,
+        "avgDom": 176,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -112,6 +114,7 @@
     {
       "name": "Azure At 30A",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.351206,
@@ -130,7 +133,7 @@
         "medianPrice": 789000,
         "avgSqft": 1152,
         "avgPricePerSqFt": 688,
-        "avgDom": 80,
+        "avgDom": 82,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -162,6 +165,7 @@
     {
       "name": "Bannerman Beach Estates",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.337358,
@@ -213,6 +217,7 @@
     {
       "name": "Beach Highland",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.356372,
@@ -231,7 +236,7 @@
         "medianPrice": 2490000,
         "avgSqft": 3759,
         "avgPricePerSqFt": 691,
-        "avgDom": 101,
+        "avgDom": 102,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -263,6 +268,7 @@
     {
       "name": "Beach Nest",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.348058,
@@ -313,6 +319,7 @@
     {
       "name": "Beach View Heights",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.361116,
@@ -331,7 +338,7 @@
         "medianPrice": 2995000,
         "avgSqft": 4712,
         "avgPricePerSqFt": 675,
-        "avgDom": 96,
+        "avgDom": 97,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -362,6 +369,7 @@
     {
       "name": "Beachwood Estates",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.362332,
@@ -380,7 +388,7 @@
         "medianPrice": 689000,
         "avgSqft": 2464,
         "avgPricePerSqFt": 280,
-        "avgDom": 211,
+        "avgDom": 213,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -411,6 +419,7 @@
     {
       "name": "Bella Vita",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Condos",
       "position": {
         "lat": 30.339644,
@@ -468,6 +477,7 @@
     {
       "name": "Bellamar At Gulf Place",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.350972,
@@ -486,7 +496,7 @@
         "medianPrice": 2550000,
         "avgSqft": 3961,
         "avgPricePerSqFt": 710,
-        "avgDom": 98,
+        "avgDom": 99,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -520,6 +530,7 @@
     {
       "name": "Blue Gulf Resort",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.343858,
@@ -570,6 +581,7 @@
     {
       "name": "Blue Mountain Beach",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.339007,
@@ -588,7 +600,7 @@
         "medianPrice": 2750000,
         "avgSqft": 3348,
         "avgPricePerSqFt": 1391,
-        "avgDom": 113,
+        "avgDom": 115,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -621,6 +633,7 @@
     {
       "name": "Blue Mountain Estates",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.346354,
@@ -639,7 +652,7 @@
         "medianPrice": 2799000,
         "avgSqft": 3591,
         "avgPricePerSqFt": 779,
-        "avgDom": 30,
+        "avgDom": 32,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -670,6 +683,7 @@
     {
       "name": "Bluewater Landing",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.347072,
@@ -720,6 +734,7 @@
     {
       "name": "Calypso Pointe",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.351922,
@@ -738,7 +753,7 @@
         "medianPrice": 1215000,
         "avgSqft": 1955,
         "avgPricePerSqFt": 591,
-        "avgDom": 32,
+        "avgDom": 33,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -768,8 +783,9 @@
       "searchIdHomes": "7092822"
     },
     {
-      "name": "Century",
+      "name": "Century 393",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.367394,
@@ -788,7 +804,7 @@
         "medianPrice": 849000,
         "avgSqft": 1914,
         "avgPricePerSqFt": 438,
-        "avgDom": 182,
+        "avgDom": 184,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -815,11 +831,13 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdTownhomes": "7092985"
     },
     {
       "name": "Coastal Dunes",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.348628,
@@ -838,7 +856,7 @@
         "medianPrice": 1075000,
         "avgSqft": 2340,
         "avgPricePerSqFt": 442,
-        "avgDom": 20,
+        "avgDom": 22,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -871,6 +889,7 @@
     {
       "name": "Coastal Grove Plat",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349433,
@@ -889,7 +908,7 @@
         "medianPrice": 1373000,
         "avgSqft": 2213,
         "avgPricePerSqFt": 616,
-        "avgDom": 161,
+        "avgDom": 162,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -919,6 +938,7 @@
     {
       "name": "Colleen'S Cove",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.348991,
@@ -937,7 +957,7 @@
         "medianPrice": 4150000,
         "avgSqft": 5992,
         "avgPricePerSqFt": 693,
-        "avgDom": 85,
+        "avgDom": 87,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -967,6 +987,7 @@
     {
       "name": "Costa Blanca",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Condos",
       "position": {
         "lat": 30.346785,
@@ -985,7 +1006,7 @@
         "medianPrice": 4400000,
         "avgSqft": 2725,
         "avgPricePerSqFt": 1578,
-        "avgDom": 55,
+        "avgDom": 57,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1018,6 +1039,7 @@
     {
       "name": "Cottage Grove T/H",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.364825,
@@ -1036,7 +1058,7 @@
         "medianPrice": 885000,
         "avgSqft": 1640,
         "avgPricePerSqFt": 544,
-        "avgDom": 491,
+        "avgDom": 493,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1070,6 +1092,7 @@
     {
       "name": "Country Club Hills",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.36373,
@@ -1088,7 +1111,7 @@
         "medianPrice": 1285000,
         "avgSqft": 2369,
         "avgPricePerSqFt": 542,
-        "avgDom": 114,
+        "avgDom": 116,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1120,6 +1143,7 @@
     {
       "name": "Courtyards Of Santa Rosa Beach",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.358023,
@@ -1138,7 +1162,7 @@
         "medianPrice": 675000,
         "avgSqft": 1873,
         "avgPricePerSqFt": 359,
-        "avgDom": 213,
+        "avgDom": 214,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1172,6 +1196,7 @@
     {
       "name": "Crest Development",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.340766,
@@ -1190,7 +1215,7 @@
         "medianPrice": 2799500,
         "avgSqft": 3497,
         "avgPricePerSqFt": 800,
-        "avgDom": 46,
+        "avgDom": 47,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1225,6 +1250,7 @@
     {
       "name": "Cypress Breeze Plantation",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.356695,
@@ -1243,7 +1269,7 @@
         "medianPrice": 1150000,
         "avgSqft": 2749,
         "avgPricePerSqFt": 441,
-        "avgDom": 89,
+        "avgDom": 90,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1280,6 +1306,7 @@
     {
       "name": "Cypress Breeze Plantation T/H",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.358194,
@@ -1298,7 +1325,7 @@
         "medianPrice": 849900,
         "avgSqft": 2717,
         "avgPricePerSqFt": 313,
-        "avgDom": 63,
+        "avgDom": 65,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1335,6 +1362,7 @@
     {
       "name": "Cypress Dunes",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.361503,
@@ -1353,7 +1381,7 @@
         "medianPrice": 1345000,
         "avgSqft": 2345,
         "avgPricePerSqFt": 582,
-        "avgDom": 179,
+        "avgDom": 180,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1393,6 +1421,7 @@
     {
       "name": "Cypress Heights",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.364716,
@@ -1411,7 +1440,7 @@
         "medianPrice": 2105000,
         "avgSqft": 3168,
         "avgPricePerSqFt": 648,
-        "avgDom": 250,
+        "avgDom": 252,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1443,6 +1472,7 @@
     {
       "name": "Draper Lake Coastal Village",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.347596,
@@ -1461,7 +1491,7 @@
         "medianPrice": 3650000,
         "avgSqft": 3174,
         "avgPricePerSqFt": 1128,
-        "avgDom": 58,
+        "avgDom": 59,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1496,6 +1526,7 @@
     {
       "name": "Duncan",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.35294,
@@ -1514,7 +1545,7 @@
         "medianPrice": 3550000,
         "avgSqft": 3483,
         "avgPricePerSqFt": 1019,
-        "avgDom": 250,
+        "avgDom": 252,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1545,6 +1576,7 @@
     {
       "name": "Dune Allen",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.353245,
@@ -1563,7 +1595,7 @@
         "medianPrice": 2750000,
         "avgSqft": 3472,
         "avgPricePerSqFt": 1362,
-        "avgDom": 140,
+        "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1596,6 +1628,7 @@
     {
       "name": "Dune Breeze Villas",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.354406,
@@ -1614,7 +1647,7 @@
         "medianPrice": 1000000,
         "avgSqft": 2340,
         "avgPricePerSqFt": 440,
-        "avgDom": 81,
+        "avgDom": 82,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1648,6 +1681,7 @@
     {
       "name": "Escada",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.365709,
@@ -1666,7 +1700,7 @@
         "medianPrice": 645000,
         "avgSqft": 2157,
         "avgPricePerSqFt": 275,
-        "avgDom": 135,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1700,10 +1734,11 @@
     {
       "name": "Escada T/H",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.366671,
-        "lng": -86.257848
+        "lng": -86.257482
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -1713,12 +1748,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 422822,
-        "avgPriceDisplay": "$422,822",
+        "avgPrice": 424988,
+        "avgPriceDisplay": "$424,988",
         "medianPrice": 424900,
-        "avgSqft": 1592,
-        "avgPricePerSqFt": 266,
-        "avgDom": 129,
+        "avgSqft": 1643,
+        "avgPricePerSqFt": 259,
+        "avgDom": 134,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1752,6 +1787,7 @@
     {
       "name": "Forest Lakes",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349653,
@@ -1770,7 +1806,7 @@
         "medianPrice": 1595000,
         "avgSqft": 2435,
         "avgPricePerSqFt": 633,
-        "avgDom": 145,
+        "avgDom": 146,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1808,6 +1844,7 @@
     {
       "name": "Grayton Beach",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.331191,
@@ -1826,7 +1863,7 @@
         "medianPrice": 3675000,
         "avgSqft": 3178,
         "avgPricePerSqFt": 1572,
-        "avgDom": 132,
+        "avgDom": 133,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1859,6 +1896,7 @@
     {
       "name": "Grayton Beach Village Square",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.343902,
@@ -1877,7 +1915,7 @@
         "medianPrice": 1369000,
         "avgSqft": 1975,
         "avgPricePerSqFt": 598,
-        "avgDom": 52,
+        "avgDom": 54,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1908,6 +1946,7 @@
     {
       "name": "Grayton Cove",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.343489,
@@ -1926,7 +1965,7 @@
         "medianPrice": 1299000,
         "avgSqft": 2291,
         "avgPricePerSqFt": 474,
-        "avgDom": 68,
+        "avgDom": 70,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1958,6 +1997,7 @@
     {
       "name": "Gulf Hills Estates",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349452,
@@ -1976,7 +2016,7 @@
         "medianPrice": 3247800,
         "avgSqft": 3382,
         "avgPricePerSqFt": 960,
-        "avgDom": 313,
+        "avgDom": 315,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2008,6 +2048,7 @@
     {
       "name": "Gulf Landing",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349338,
@@ -2026,7 +2067,7 @@
         "medianPrice": 1080000,
         "avgSqft": 1932,
         "avgPricePerSqFt": 559,
-        "avgDom": 125,
+        "avgDom": 127,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2058,6 +2099,7 @@
     {
       "name": "Gulf Place Caribbean",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.348253,
@@ -2076,7 +2118,7 @@
         "medianPrice": 590000,
         "avgSqft": 1091,
         "avgPricePerSqFt": 541,
-        "avgDom": 28,
+        "avgDom": 30,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2112,6 +2154,7 @@
     {
       "name": "Gulf Place Condos",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.348285,
@@ -2130,7 +2173,7 @@
         "medianPrice": 525000,
         "avgSqft": 762,
         "avgPricePerSqFt": 694,
-        "avgDom": 208,
+        "avgDom": 210,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2164,6 +2207,7 @@
     {
       "name": "Gulf Place Residences",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.34862,
@@ -2182,7 +2226,7 @@
         "medianPrice": 895000,
         "avgSqft": 1117,
         "avgPricePerSqFt": 776,
-        "avgDom": 186,
+        "avgDom": 188,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2218,6 +2262,7 @@
     {
       "name": "Gulf Place Retreat",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.350414,
@@ -2236,7 +2281,7 @@
         "medianPrice": 1559000,
         "avgSqft": 2600,
         "avgPricePerSqFt": 600,
-        "avgDom": 118,
+        "avgDom": 120,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2267,6 +2312,7 @@
     {
       "name": "Gulf Place Town Center",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.347488,
@@ -2285,7 +2331,7 @@
         "medianPrice": 478000,
         "avgSqft": 611,
         "avgPricePerSqFt": 778,
-        "avgDom": 112,
+        "avgDom": 113,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2320,6 +2366,7 @@
     {
       "name": "Gulf Reflections",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.350836,
@@ -2371,6 +2418,7 @@
     {
       "name": "Gulf Terrace",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.332109,
@@ -2389,7 +2437,7 @@
         "medianPrice": 2600000,
         "avgSqft": 3396,
         "avgPricePerSqFt": 1103,
-        "avgDom": 134,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2420,6 +2468,7 @@
     {
       "name": "Gulfview Heights",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.347656,
@@ -2433,12 +2482,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 17,
-        "avgPrice": 2046164,
-        "avgPriceDisplay": "$2,046,164",
+        "avgPrice": 2044551,
+        "avgPriceDisplay": "$2,044,551",
         "medianPrice": 1699000,
         "avgSqft": 3048,
         "avgPricePerSqFt": 671,
-        "avgDom": 139,
+        "avgDom": 140,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2471,6 +2520,7 @@
     {
       "name": "Hidden Highlands",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.359436,
@@ -2489,7 +2539,7 @@
         "medianPrice": 965000,
         "avgSqft": 2057,
         "avgPricePerSqFt": 555,
-        "avgDom": 134,
+        "avgDom": 135,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2521,6 +2571,7 @@
     {
       "name": "Hidden Lake Condos",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.347388,
@@ -2539,7 +2590,7 @@
         "medianPrice": 650000,
         "avgSqft": 1149,
         "avgPricePerSqFt": 594,
-        "avgDom": 183,
+        "avgDom": 184,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2574,6 +2625,7 @@
     {
       "name": "Highland Parks",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.347452,
@@ -2587,12 +2639,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 14,
-        "avgPrice": 1084915,
-        "avgPriceDisplay": "$1,084,915",
+        "avgPrice": 1084882,
+        "avgPriceDisplay": "$1,084,882",
         "medianPrice": 1090000,
         "avgSqft": 2204,
         "avgPricePerSqFt": 492,
-        "avgDom": 157,
+        "avgDom": 158,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2625,6 +2677,7 @@
     {
       "name": "Inn At Gulf Place",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.347378,
@@ -2643,7 +2696,7 @@
         "medianPrice": 449000,
         "avgSqft": 543,
         "avgPricePerSqFt": 807,
-        "avgDom": 123,
+        "avgDom": 124,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2678,6 +2731,7 @@
     {
       "name": "Lake Place at Grayton Beach",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.334229,
@@ -2696,7 +2750,7 @@
         "medianPrice": 2450000,
         "avgSqft": 2797,
         "avgPricePerSqFt": 1056,
-        "avgDom": 122,
+        "avgDom": 123,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2729,6 +2783,7 @@
     {
       "name": "Lakeview",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.368868,
@@ -2747,7 +2802,7 @@
         "medianPrice": 999000,
         "avgSqft": 2998,
         "avgPricePerSqFt": 365,
-        "avgDom": 107,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2781,6 +2836,7 @@
     {
       "name": "Legends Of Santa Rosa Beach",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.347275,
@@ -2799,7 +2855,7 @@
         "medianPrice": 649000,
         "avgSqft": 1406,
         "avgPricePerSqFt": 462,
-        "avgDom": 189,
+        "avgDom": 191,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2830,8 +2886,59 @@
       "searchIdTownhomes": "7100464"
     },
     {
+      "name": "Mirasol",
+      "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.339138,
+        "lng": -86.201535
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 998667,
+        "avgPriceDisplay": "$998,667",
+        "medianPrice": 849000,
+        "avgSqft": 1391,
+        "avgPricePerSqFt": 718,
+        "avgDom": 1,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Old Florida Beach",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.344339,
@@ -2850,7 +2957,7 @@
         "medianPrice": 3490000,
         "avgSqft": 3369,
         "avgPricePerSqFt": 1090,
-        "avgDom": 166,
+        "avgDom": 167,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2886,6 +2993,7 @@
     {
       "name": "Old Florida Cottages",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.346188,
@@ -2904,7 +3012,7 @@
         "medianPrice": 999000,
         "avgSqft": 1429,
         "avgPricePerSqFt": 696,
-        "avgDom": 206,
+        "avgDom": 208,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2936,6 +3044,7 @@
     {
       "name": "Olde Florida Lakes",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.350992,
@@ -2954,7 +3063,7 @@
         "medianPrice": 848900,
         "avgSqft": 1682,
         "avgPricePerSqFt": 426,
-        "avgDom": 78,
+        "avgDom": 79,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2985,6 +3094,7 @@
     {
       "name": "Oyster Lake",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.354475,
@@ -3003,7 +3113,7 @@
         "medianPrice": 4300000,
         "avgSqft": 2867,
         "avgPricePerSqFt": 1029,
-        "avgDom": 46,
+        "avgDom": 47,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3033,8 +3143,58 @@
       "searchIdHomes": "7100330"
     },
     {
+      "name": "Palmeira Villas",
+      "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.339425,
+        "lng": -86.201141
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1625900,
+        "avgPriceDisplay": "$1,625,900",
+        "medianPrice": 1585000,
+        "avgSqft": 3055,
+        "avgPricePerSqFt": 532,
+        "avgDom": 130,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Palms North",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.35052,
@@ -3053,7 +3213,7 @@
         "medianPrice": 775000,
         "avgSqft": 1089,
         "avgPricePerSqFt": 718,
-        "avgDom": 214,
+        "avgDom": 216,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3086,6 +3246,7 @@
     {
       "name": "Parkside",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.365154,
@@ -3104,7 +3265,7 @@
         "medianPrice": 1031000,
         "avgSqft": 2714,
         "avgPricePerSqFt": 378,
-        "avgDom": 412,
+        "avgDom": 413,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3136,6 +3297,7 @@
     {
       "name": "Penny Lane",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349286,
@@ -3154,7 +3316,7 @@
         "medianPrice": 3995000,
         "avgSqft": 5540,
         "avgPricePerSqFt": 721,
-        "avgDom": 291,
+        "avgDom": 293,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3185,6 +3347,7 @@
     {
       "name": "Pines Of Blue Mountain",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.351107,
@@ -3203,7 +3366,7 @@
         "medianPrice": 3075000,
         "avgSqft": 3118,
         "avgPricePerSqFt": 789,
-        "avgDom": 123,
+        "avgDom": 125,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3234,6 +3397,7 @@
     {
       "name": "Pinewood 30A",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.370846,
@@ -3252,7 +3416,7 @@
         "medianPrice": 599760,
         "avgSqft": 1022,
         "avgPricePerSqFt": 473,
-        "avgDom": 236,
+        "avgDom": 238,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3288,6 +3452,7 @@
     {
       "name": "Preserve Place",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.340541,
@@ -3306,7 +3471,7 @@
         "medianPrice": 849000,
         "avgSqft": 1797,
         "avgPricePerSqFt": 459,
-        "avgDom": 65,
+        "avgDom": 66,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3342,6 +3507,7 @@
     {
       "name": "Redfish Village",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.336333,
@@ -3360,7 +3526,7 @@
         "medianPrice": 6495000,
         "avgSqft": 4413,
         "avgPricePerSqFt": 1189,
-        "avgDom": 319,
+        "avgDom": 321,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3394,6 +3560,7 @@
     {
       "name": "Redfish Village Condos",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.341363,
@@ -3412,7 +3579,7 @@
         "medianPrice": 785000,
         "avgSqft": 1368,
         "avgPricePerSqFt": 653,
-        "avgDom": 94,
+        "avgDom": 95,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3449,6 +3616,7 @@
     {
       "name": "Reserves In Serenity At Dune Allen",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.35904,
@@ -3467,7 +3635,7 @@
         "medianPrice": 1385000,
         "avgSqft": 2592,
         "avgPricePerSqFt": 534,
-        "avgDom": 15,
+        "avgDom": 17,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3499,6 +3667,7 @@
     {
       "name": "Retreat The",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.34235,
@@ -3517,7 +3686,7 @@
         "medianPrice": 7950000,
         "avgSqft": 5384,
         "avgPricePerSqFt": 1498,
-        "avgDom": 173,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3552,6 +3721,7 @@
     {
       "name": "Ridgewalk",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.357046,
@@ -3570,7 +3740,7 @@
         "medianPrice": 1499000,
         "avgSqft": 2403,
         "avgPricePerSqFt": 606,
-        "avgDom": 76,
+        "avgDom": 77,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3605,6 +3775,7 @@
     {
       "name": "Rolling Dunes Estates",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.34241,
@@ -3623,7 +3794,7 @@
         "medianPrice": 2225000,
         "avgSqft": 3320,
         "avgPricePerSqFt": 680,
-        "avgDom": 198,
+        "avgDom": 199,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3652,8 +3823,64 @@
       "searchIdHomes": "7100597"
     },
     {
+      "name": "San Remo",
+      "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
+      "propertyType": "Condos",
+      "position": {
+        "lat": 30.346702,
+        "lng": -86.224433
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1496000,
+        "avgPriceDisplay": "$1,496,000",
+        "medianPrice": 1496000,
+        "avgSqft": 1466,
+        "avgPricePerSqFt": 1020,
+        "avgDom": 1,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Elevator",
+        "Fitness",
+        "Gated",
+        "Pool",
+        "Short-Term",
+        "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Sanctuary At Redfish",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Condos",
       "position": {
         "lat": 30.339306,
@@ -3672,7 +3899,7 @@
         "medianPrice": 1175000,
         "avgSqft": 1586,
         "avgPricePerSqFt": 612,
-        "avgDom": 170,
+        "avgDom": 171,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3711,6 +3938,7 @@
     {
       "name": "Sanctuary By The Sea",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Condos",
       "position": {
         "lat": 30.337258,
@@ -3729,7 +3957,7 @@
         "medianPrice": 2900000,
         "avgSqft": 3438,
         "avgPricePerSqFt": 902,
-        "avgDom": 255,
+        "avgDom": 256,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3769,6 +3997,7 @@
     {
       "name": "Sandcastles By The Sea",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.340113,
@@ -3787,7 +4016,7 @@
         "medianPrice": 2200000,
         "avgSqft": 2362,
         "avgPricePerSqFt": 931,
-        "avgDom": 128,
+        "avgDom": 130,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3818,6 +4047,7 @@
     {
       "name": "Santa Rosa Dunes",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.352649,
@@ -3836,7 +4066,7 @@
         "medianPrice": 4995000,
         "avgSqft": 2443,
         "avgPricePerSqFt": 1943,
-        "avgDom": 241,
+        "avgDom": 243,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3867,6 +4097,7 @@
     {
       "name": "Santa Rosa Retreat",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.351251,
@@ -3885,7 +4116,7 @@
         "medianPrice": 1590000,
         "avgSqft": 2613,
         "avgPricePerSqFt": 591,
-        "avgDom": 228,
+        "avgDom": 230,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3916,6 +4147,7 @@
     {
       "name": "Santa Rosa Ridge",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.358331,
@@ -3934,7 +4166,7 @@
         "medianPrice": 1100000,
         "avgSqft": 2373,
         "avgPricePerSqFt": 603,
-        "avgDom": 54,
+        "avgDom": 55,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3965,6 +4197,7 @@
     {
       "name": "Satinwood Place",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.347382,
@@ -3983,7 +4216,7 @@
         "medianPrice": 1090000,
         "avgSqft": 1946,
         "avgPricePerSqFt": 536,
-        "avgDom": 172,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4014,6 +4247,7 @@
     {
       "name": "Sea Bluff Condos",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Condos",
       "position": {
         "lat": 30.339645,
@@ -4032,7 +4266,7 @@
         "medianPrice": 899000,
         "avgSqft": 1278,
         "avgPricePerSqFt": 703,
-        "avgDom": 177,
+        "avgDom": 179,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4064,6 +4298,7 @@
     {
       "name": "Sea Bluff T/H",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "T/H",
       "position": {
         "lat": 30.339145,
@@ -4082,7 +4317,7 @@
         "medianPrice": 2199000,
         "avgSqft": 1600,
         "avgPricePerSqFt": 1218,
-        "avgDom": 121,
+        "avgDom": 123,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4114,6 +4349,7 @@
     {
       "name": "Sea Croft Cottages",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.352055,
@@ -4164,6 +4400,7 @@
     {
       "name": "Sea Dunes",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.358523,
@@ -4213,6 +4450,7 @@
     {
       "name": "Seahaunts",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "T/H",
       "position": {
         "lat": 30.345838,
@@ -4231,7 +4469,7 @@
         "medianPrice": 1349000,
         "avgSqft": 1331,
         "avgPricePerSqFt": 897,
-        "avgDom": 6,
+        "avgDom": 8,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4262,6 +4500,7 @@
     {
       "name": "Serenity At Dune Allen",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.358064,
@@ -4280,7 +4519,7 @@
         "medianPrice": 1060000,
         "avgSqft": 2285,
         "avgPricePerSqFt": 488,
-        "avgDom": 105,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4313,6 +4552,7 @@
     {
       "name": "Shadow Pines",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.350185,
@@ -4331,7 +4571,7 @@
         "medianPrice": 1100000,
         "avgSqft": 2199,
         "avgPricePerSqFt": 457,
-        "avgDom": 128,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4363,6 +4603,7 @@
     {
       "name": "South Shores",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349363,
@@ -4381,7 +4622,7 @@
         "medianPrice": 1995000,
         "avgSqft": 2238,
         "avgPricePerSqFt": 891,
-        "avgDom": 63,
+        "avgDom": 65,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4413,6 +4654,7 @@
     {
       "name": "Stallworth Preserve",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.355978,
@@ -4431,7 +4673,7 @@
         "medianPrice": 4899900,
         "avgSqft": 3908,
         "avgPricePerSqFt": 1254,
-        "avgDom": 9,
+        "avgDom": 11,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4462,6 +4704,7 @@
     {
       "name": "Sugar Sands Estates",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.366738,
@@ -4480,7 +4723,7 @@
         "medianPrice": 794900,
         "avgSqft": 2187,
         "avgPricePerSqFt": 373,
-        "avgDom": 112,
+        "avgDom": 113,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4515,6 +4758,7 @@
     {
       "name": "Summer Ridge",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.357505,
@@ -4566,6 +4810,7 @@
     {
       "name": "The Cove",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.351284,
@@ -4584,7 +4829,7 @@
         "medianPrice": 1699000,
         "avgSqft": 2830,
         "avgPricePerSqFt": 600,
-        "avgDom": 50,
+        "avgDom": 52,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4615,6 +4860,7 @@
     {
       "name": "The Preserve at Grayton Beach",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.340369,
@@ -4633,7 +4879,7 @@
         "medianPrice": 1474995,
         "avgSqft": 2939,
         "avgPricePerSqFt": 577,
-        "avgDom": 111,
+        "avgDom": 112,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4666,6 +4912,7 @@
     {
       "name": "The Reserves In Serenity At Dune Allen",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.358738,
@@ -4684,7 +4931,7 @@
         "medianPrice": 2450000,
         "avgSqft": 4048,
         "avgPricePerSqFt": 535,
-        "avgDom": 106,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4716,6 +4963,7 @@
     {
       "name": "The Walton On 30A",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.349278,
@@ -4734,7 +4982,7 @@
         "medianPrice": 1595000,
         "avgSqft": 1399,
         "avgPricePerSqFt": 1060,
-        "avgDom": 144,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4768,6 +5016,7 @@
     {
       "name": "Thirty Blu",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "T/H",
       "position": {
         "lat": 30.341246,
@@ -4786,7 +5035,7 @@
         "medianPrice": 974000,
         "avgSqft": 2530,
         "avgPricePerSqFt": 381,
-        "avgDom": 245,
+        "avgDom": 247,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4819,6 +5068,7 @@
     {
       "name": "Thompson Woods",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.370699,
@@ -4832,12 +5082,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 736950,
-        "avgPriceDisplay": "$736,950",
-        "medianPrice": 799000,
+        "avgPrice": 716200,
+        "avgPriceDisplay": "$716,200",
+        "medianPrice": 757500,
         "avgSqft": 2010,
-        "avgPricePerSqFt": 367,
-        "avgDom": 162,
+        "avgPricePerSqFt": 356,
+        "avgDom": 164,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4869,6 +5119,7 @@
     {
       "name": "Topsail Village",
       "area": "17 - 30A West",
+      "subArea": "1701 - Santa Rosa Beach S of 98 West of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.363271,
@@ -4919,6 +5170,7 @@
     {
       "name": "Van Way Beach",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.352346,
@@ -4937,7 +5189,7 @@
         "medianPrice": 3690000,
         "avgSqft": 1260,
         "avgPricePerSqFt": 2929,
-        "avgDom": 253,
+        "avgDom": 255,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4968,6 +5220,7 @@
     {
       "name": "Ventana Dunes",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.346503,
@@ -5018,6 +5271,7 @@
     {
       "name": "Village At Blue Mountain Beach",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Homes",
       "position": {
         "lat": 30.344525,
@@ -5036,7 +5290,7 @@
         "medianPrice": 1299900,
         "avgSqft": 2122,
         "avgPricePerSqFt": 561,
-        "avgDom": 144,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5072,6 +5326,7 @@
     {
       "name": "Village At Blue Mountain Beach Condos",
       "area": "17 - 30A West",
+      "subArea": "1703 - Santa Rosa Beach and S of 98 East of 393",
       "propertyType": "Condos",
       "position": {
         "lat": 30.345162,
@@ -5084,13 +5339,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 862900,
-        "avgPriceDisplay": "$862,900",
+        "listingCount": 6,
+        "avgPrice": 862809,
+        "avgPriceDisplay": "$862,809",
         "medianPrice": 649000,
         "avgSqft": 1383,
         "avgPricePerSqFt": 624,
-        "avgDom": 133,
+        "avgDom": 135,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5127,6 +5382,7 @@
     {
       "name": "Village Of White Cliffs The",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.341483,
@@ -5145,7 +5401,7 @@
         "medianPrice": 3495000,
         "avgSqft": 3517,
         "avgPricePerSqFt": 1224,
-        "avgDom": 131,
+        "avgDom": 132,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5184,6 +5440,7 @@
     {
       "name": "Vizcaya At Dune Allen",
       "area": "17 - 30A West",
+      "subArea": "1705 - SRB South of 30A",
       "propertyType": "Homes",
       "position": {
         "lat": 30.349573,
@@ -5202,7 +5459,7 @@
         "medianPrice": 5250000,
         "avgSqft": 3448,
         "avgPricePerSqFt": 1603,
-        "avgDom": 75,
+        "avgDom": 76,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

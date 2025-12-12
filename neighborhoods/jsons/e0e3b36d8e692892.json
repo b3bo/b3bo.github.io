@@ -1,10 +1,11 @@
 {
   "area": "14 - Destin",
-  "updated": "2025-12-11T15:36:49.044952",
+  "updated": "2025-12-12T08:09:12.344661",
   "neighborhoods": [
     {
       "name": "1900 Ninety Eight",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383894,
@@ -23,7 +24,7 @@
         "medianPrice": 5200000,
         "avgSqft": 3798,
         "avgPricePerSqFt": 1063,
-        "avgDom": 195,
+        "avgDom": 196,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -58,6 +59,7 @@
     {
       "name": "Aegean",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383593,
@@ -76,7 +78,7 @@
         "medianPrice": 789000,
         "avgSqft": 1606,
         "avgPricePerSqFt": 510,
-        "avgDom": 233,
+        "avgDom": 234,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -113,6 +115,7 @@
     {
       "name": "Beach Lofts",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.39273,
@@ -131,7 +134,7 @@
         "medianPrice": 445000,
         "avgSqft": 1758,
         "avgPricePerSqFt": 277,
-        "avgDom": 72,
+        "avgDom": 73,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -162,6 +165,7 @@
     {
       "name": "Beach Pointe",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "T/H",
       "position": {
         "lat": 30.381318,
@@ -180,7 +184,7 @@
         "medianPrice": 825000,
         "avgSqft": 1630,
         "avgPricePerSqFt": 555,
-        "avgDom": 256,
+        "avgDom": 257,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -212,6 +216,7 @@
     {
       "name": "Breakers East",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385076,
@@ -230,7 +235,7 @@
         "medianPrice": 875000,
         "avgSqft": 1453,
         "avgPricePerSqFt": 640,
-        "avgDom": 71,
+        "avgDom": 72,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -268,6 +273,7 @@
     {
       "name": "Cabana Club",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381579,
@@ -286,7 +292,7 @@
         "medianPrice": 569000,
         "avgSqft": 1100,
         "avgPricePerSqFt": 495,
-        "avgDom": 299,
+        "avgDom": 301,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -319,6 +325,7 @@
     {
       "name": "Calhoun Rev",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.403916,
@@ -337,7 +344,7 @@
         "medianPrice": 625000,
         "avgSqft": 2073,
         "avgPricePerSqFt": 259,
-        "avgDom": 78,
+        "avgDom": 80,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -367,6 +374,7 @@
     {
       "name": "Calhoun To Destin",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.406005,
@@ -385,7 +393,7 @@
         "medianPrice": 972500,
         "avgSqft": 2500,
         "avgPricePerSqFt": 540,
-        "avgDom": 184,
+        "avgDom": 185,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -415,10 +423,11 @@
     {
       "name": "Calusa Bay",
       "area": "14 - Destin",
+      "subArea": "1402 - Destin East of Hwy 293/Midbay Bridge Rd",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.389991,
-        "lng": -86.40438
+        "lat": 30.390222,
+        "lng": -86.404287
       },
       "location": {
         "city": "Destin",
@@ -427,13 +436,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 603027,
-        "avgPriceDisplay": "$603,027",
-        "medianPrice": 542500,
-        "avgSqft": 2028,
-        "avgPricePerSqFt": 297,
-        "avgDom": 145,
+        "listingCount": 6,
+        "avgPrice": 617459,
+        "avgPriceDisplay": "$617,459",
+        "medianPrice": 586000,
+        "avgSqft": 2032,
+        "avgPricePerSqFt": 304,
+        "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -465,6 +474,7 @@
     {
       "name": "Canal Place Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.387397,
@@ -483,7 +493,7 @@
         "medianPrice": 300000,
         "avgSqft": 735,
         "avgPricePerSqFt": 408,
-        "avgDom": 206,
+        "avgDom": 208,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -515,6 +525,7 @@
     {
       "name": "Canal Place T/H",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.38762,
@@ -533,7 +544,7 @@
         "medianPrice": 825000,
         "avgSqft": 2120,
         "avgPricePerSqFt": 395,
-        "avgDom": 165,
+        "avgDom": 166,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -565,6 +576,7 @@
     {
       "name": "Capri By The Gulf Condos",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381602,
@@ -583,7 +595,7 @@
         "medianPrice": 468999,
         "avgSqft": 600,
         "avgPricePerSqFt": 782,
-        "avgDom": 40,
+        "avgDom": 42,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -613,6 +625,7 @@
     {
       "name": "Caribbean Dunes",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383387,
@@ -631,7 +644,7 @@
         "medianPrice": 465000,
         "avgSqft": 718,
         "avgPricePerSqFt": 657,
-        "avgDom": 67,
+        "avgDom": 68,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -663,6 +676,7 @@
     {
       "name": "Century Park West",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.411004,
@@ -715,6 +729,7 @@
     {
       "name": "Chateau La Mer",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.382282,
@@ -733,7 +748,7 @@
         "medianPrice": 391000,
         "avgSqft": 1017,
         "avgPricePerSqFt": 349,
-        "avgDom": 124,
+        "avgDom": 125,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -770,6 +785,7 @@
     {
       "name": "Coral Reef Club",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.38252,
@@ -822,6 +838,7 @@
     {
       "name": "Crystal Beach",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.384538,
@@ -835,12 +852,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 19,
-        "avgPrice": 1997306,
-        "avgPriceDisplay": "$1,997,306",
+        "avgPrice": 1997100,
+        "avgPriceDisplay": "$1,997,100",
         "medianPrice": 1799000,
         "avgSqft": 3002,
         "avgPricePerSqFt": 665,
-        "avgDom": 173,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -870,6 +887,7 @@
     {
       "name": "Crystal Beach Cottages",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.385479,
@@ -882,13 +900,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 6,
+        "listingCount": 5,
         "avgPrice": 1039850,
         "avgPriceDisplay": "$1,039,850",
         "medianPrice": 1050000,
         "avgSqft": 1874,
         "avgPricePerSqFt": 555,
-        "avgDom": 150,
+        "avgDom": 151,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -919,6 +937,7 @@
     {
       "name": "Crystal Sands",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381433,
@@ -971,6 +990,7 @@
     {
       "name": "Crystal Shores",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.383742,
@@ -989,7 +1009,7 @@
         "medianPrice": 1399900,
         "avgSqft": 2548,
         "avgPricePerSqFt": 659,
-        "avgDom": 76,
+        "avgDom": 77,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1020,6 +1040,7 @@
     {
       "name": "Destin Cottages",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.402005,
@@ -1038,7 +1059,7 @@
         "medianPrice": 659000,
         "avgSqft": 1928,
         "avgPricePerSqFt": 343,
-        "avgDom": 108,
+        "avgDom": 109,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1069,6 +1090,7 @@
     {
       "name": "Destin Harbor Resort West",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.388641,
@@ -1087,7 +1109,7 @@
         "medianPrice": 745000,
         "avgSqft": 1364,
         "avgPricePerSqFt": 591,
-        "avgDom": 88,
+        "avgDom": 89,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1122,6 +1144,7 @@
     {
       "name": "Destin Oaks",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.396642,
@@ -1140,7 +1163,7 @@
         "medianPrice": 445000,
         "avgSqft": 2138,
         "avgPricePerSqFt": 209,
-        "avgDom": 100,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1174,6 +1197,7 @@
     {
       "name": "Destin Pointe",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.385179,
@@ -1187,12 +1211,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 4,
-        "avgPrice": 2146286,
-        "avgPriceDisplay": "$2,146,286",
+        "avgPrice": 2132707,
+        "avgPriceDisplay": "$2,132,707",
         "medianPrice": 1995000,
         "avgSqft": 2808,
-        "avgPricePerSqFt": 764,
-        "avgDom": 96,
+        "avgPricePerSqFt": 760,
+        "avgDom": 97,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1228,6 +1252,7 @@
     {
       "name": "Destin Racquet Club",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.397592,
@@ -1246,7 +1271,7 @@
         "medianPrice": 310000,
         "avgSqft": 1382,
         "avgPricePerSqFt": 202,
-        "avgDom": 133,
+        "avgDom": 134,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1277,6 +1302,7 @@
     {
       "name": "Destin Sands",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385568,
@@ -1295,7 +1321,7 @@
         "medianPrice": 420000,
         "avgSqft": 1242,
         "avgPricePerSqFt": 355,
-        "avgDom": 144,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1326,6 +1352,7 @@
     {
       "name": "Destin Yacht Club",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.393006,
@@ -1344,7 +1371,7 @@
         "medianPrice": 1895000,
         "avgSqft": 2269,
         "avgPricePerSqFt": 788,
-        "avgDom": 116,
+        "avgDom": 117,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1380,6 +1407,7 @@
     {
       "name": "Destiny",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.383408,
@@ -1398,7 +1426,7 @@
         "medianPrice": 1599000,
         "avgSqft": 3265,
         "avgPricePerSqFt": 549,
-        "avgDom": 167,
+        "avgDom": 168,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1435,6 +1463,7 @@
     {
       "name": "Destiny Beach Villas",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.381451,
@@ -1453,7 +1482,7 @@
         "medianPrice": 1375000,
         "avgSqft": 1920,
         "avgPricePerSqFt": 716,
-        "avgDom": 126,
+        "avgDom": 128,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1486,6 +1515,7 @@
     {
       "name": "Destiny By The Sea",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.380845,
@@ -1504,7 +1534,7 @@
         "medianPrice": 1995000,
         "avgSqft": 3382,
         "avgPricePerSqFt": 791,
-        "avgDom": 200,
+        "avgDom": 201,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1539,6 +1569,7 @@
     {
       "name": "Destiny Shores",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.380893,
@@ -1557,7 +1588,7 @@
         "medianPrice": 5750000,
         "avgSqft": 4346,
         "avgPricePerSqFt": 1365,
-        "avgDom": 194,
+        "avgDom": 195,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1592,6 +1623,7 @@
     {
       "name": "Diamond Lakes",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.392096,
@@ -1610,7 +1642,7 @@
         "medianPrice": 449000,
         "avgSqft": 1784,
         "avgPricePerSqFt": 248,
-        "avgDom": 50,
+        "avgDom": 51,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1642,6 +1674,7 @@
     {
       "name": "Dol n Point",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.389267,
@@ -1698,6 +1731,7 @@
     {
       "name": "Dunes Of Destin",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.386734,
@@ -1716,7 +1750,7 @@
         "medianPrice": 1985000,
         "avgSqft": 3719,
         "avgPricePerSqFt": 488,
-        "avgDom": 144,
+        "avgDom": 145,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1749,6 +1783,7 @@
     {
       "name": "Dunes Of Destin Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384364,
@@ -1803,6 +1838,7 @@
     {
       "name": "Durango Winds",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.386885,
@@ -1821,7 +1857,7 @@
         "medianPrice": 537000,
         "avgSqft": 1523,
         "avgPricePerSqFt": 353,
-        "avgDom": 193,
+        "avgDom": 195,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1855,6 +1891,7 @@
     {
       "name": "East Pass Destin",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.390371,
@@ -1873,7 +1910,7 @@
         "medianPrice": 2999000,
         "avgSqft": 2740,
         "avgPricePerSqFt": 1095,
-        "avgDom": 314,
+        "avgDom": 316,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1904,6 +1941,7 @@
     {
       "name": "East Pass Towers",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.38986,
@@ -1922,7 +1960,7 @@
         "medianPrice": 624900,
         "avgSqft": 1402,
         "avgPricePerSqFt": 551,
-        "avgDom": 173,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1961,6 +1999,7 @@
     {
       "name": "Eastwood",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.401237,
@@ -2009,6 +2048,7 @@
     {
       "name": "Emerald Bay Baywinds Golf Est",
       "area": "14 - Destin",
+      "subArea": "1402 - Destin East of Hwy 293/Midbay Bridge Rd",
       "propertyType": "Homes",
       "position": {
         "lat": 30.396457,
@@ -2027,7 +2067,7 @@
         "medianPrice": 1499999,
         "avgSqft": 2638,
         "avgPricePerSqFt": 502,
-        "avgDom": 127,
+        "avgDom": 128,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2060,56 +2100,9 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Emerald Breeze Estates",
-      "area": "14 - Destin",
-      "propertyType": "Homes",
-      "position": {
-        "lat": 30.387788,
-        "lng": -86.417617
-      },
-      "location": {
-        "city": "Destin",
-        "state": "FL",
-        "zipCode": "32541"
-      },
-      "zipCode": "32541",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 603300,
-        "avgPriceDisplay": "$603,300",
-        "medianPrice": 599900,
-        "avgSqft": 1807,
-        "avgPricePerSqFt": 334,
-        "avgDom": 87,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "No Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
       "name": "Emerald Grande",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.394642,
@@ -2128,7 +2121,7 @@
         "medianPrice": 775000,
         "avgSqft": 1523,
         "avgPricePerSqFt": 588,
-        "avgDom": 218,
+        "avgDom": 220,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2163,6 +2156,7 @@
     {
       "name": "Emerald Heights",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.38536,
@@ -2181,7 +2175,7 @@
         "medianPrice": 449000,
         "avgSqft": 1200,
         "avgPricePerSqFt": 374,
-        "avgDom": 187,
+        "avgDom": 189,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2211,6 +2205,7 @@
     {
       "name": "Emerald Lakes",
       "area": "14 - Destin",
+      "subArea": "1402 - Destin East of Hwy 293/Midbay Bridge Rd",
       "propertyType": "Homes",
       "position": {
         "lat": 30.391959,
@@ -2229,7 +2224,7 @@
         "medianPrice": 659000,
         "avgSqft": 2280,
         "avgPricePerSqFt": 316,
-        "avgDom": 111,
+        "avgDom": 112,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2264,6 +2259,7 @@
     {
       "name": "Emerald Towers Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384916,
@@ -2282,7 +2278,7 @@
         "medianPrice": 925000,
         "avgSqft": 1270,
         "avgPricePerSqFt": 742,
-        "avgDom": 252,
+        "avgDom": 253,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2321,6 +2317,7 @@
     {
       "name": "Enclave",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.380303,
@@ -2339,7 +2336,7 @@
         "medianPrice": 550000,
         "avgSqft": 1501,
         "avgPricePerSqFt": 360,
-        "avgDom": 186,
+        "avgDom": 187,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2372,6 +2369,7 @@
     {
       "name": "Grand Caribbean East",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.382289,
@@ -2390,7 +2388,7 @@
         "medianPrice": 433000,
         "avgSqft": 832,
         "avgPricePerSqFt": 565,
-        "avgDom": 200,
+        "avgDom": 202,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2421,6 +2419,7 @@
     {
       "name": "Grand Harbor",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.390592,
@@ -2439,7 +2438,7 @@
         "medianPrice": 1349000,
         "avgSqft": 3066,
         "avgPricePerSqFt": 494,
-        "avgDom": 387,
+        "avgDom": 388,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2476,6 +2475,7 @@
     {
       "name": "Grand Mariner",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384405,
@@ -2494,7 +2494,7 @@
         "medianPrice": 685000,
         "avgSqft": 1160,
         "avgPricePerSqFt": 593,
-        "avgDom": 79,
+        "avgDom": 80,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2532,6 +2532,7 @@
     {
       "name": "Gulf Manor",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.399687,
@@ -2550,7 +2551,7 @@
         "medianPrice": 489000,
         "avgSqft": 1596,
         "avgPricePerSqFt": 294,
-        "avgDom": 96,
+        "avgDom": 98,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2580,6 +2581,7 @@
     {
       "name": "Gulf Terrace Condos",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.388462,
@@ -2598,7 +2600,7 @@
         "medianPrice": 233000,
         "avgSqft": 875,
         "avgPricePerSqFt": 267,
-        "avgDom": 166,
+        "avgDom": 167,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2633,6 +2635,7 @@
     {
       "name": "Harbor Breeze",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.399007,
@@ -2681,6 +2684,7 @@
     {
       "name": "Harbor Landing",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385456,
@@ -2699,7 +2703,7 @@
         "medianPrice": 949900,
         "avgSqft": 2217,
         "avgPricePerSqFt": 576,
-        "avgDom": 204,
+        "avgDom": 205,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2736,6 +2740,7 @@
     {
       "name": "Harbor Lights",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.388437,
@@ -2754,7 +2759,7 @@
         "medianPrice": 1100000,
         "avgSqft": 1866,
         "avgPricePerSqFt": 503,
-        "avgDom": 129,
+        "avgDom": 130,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2792,6 +2797,7 @@
     {
       "name": "Harbor Place",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.395258,
@@ -2840,6 +2846,7 @@
     {
       "name": "Harbor Plantation",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.390154,
@@ -2858,7 +2865,7 @@
         "medianPrice": 1349000,
         "avgSqft": 2563,
         "avgPricePerSqFt": 663,
-        "avgDom": 33,
+        "avgDom": 35,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2893,6 +2900,7 @@
     {
       "name": "Henderson Beach Resort Condos",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386081,
@@ -2911,7 +2919,7 @@
         "medianPrice": 1200000,
         "avgSqft": 1233,
         "avgPricePerSqFt": 862,
-        "avgDom": 163,
+        "avgDom": 164,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2946,6 +2954,7 @@
     {
       "name": "Henderson Beach Resort T/H",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "T/H",
       "position": {
         "lat": 30.384647,
@@ -2964,7 +2973,7 @@
         "medianPrice": 1847000,
         "avgSqft": 2564,
         "avgPricePerSqFt": 691,
-        "avgDom": 473,
+        "avgDom": 475,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3001,6 +3010,7 @@
     {
       "name": "Henderson Cottages",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.38517,
@@ -3019,7 +3029,7 @@
         "medianPrice": 1899900,
         "avgSqft": 2315,
         "avgPricePerSqFt": 821,
-        "avgDom": 68,
+        "avgDom": 70,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3054,6 +3064,7 @@
     {
       "name": "Henderson Lofts",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383567,
@@ -3072,7 +3083,7 @@
         "medianPrice": 799000,
         "avgSqft": 1027,
         "avgPricePerSqFt": 779,
-        "avgDom": 29,
+        "avgDom": 30,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3108,6 +3119,7 @@
     {
       "name": "Holiday Isle",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.385954,
@@ -3126,7 +3138,7 @@
         "medianPrice": 2799000,
         "avgSqft": 3738,
         "avgPricePerSqFt": 879,
-        "avgDom": 274,
+        "avgDom": 276,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3158,6 +3170,7 @@
     {
       "name": "Holiday Isle T/H",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.387438,
@@ -3176,7 +3189,7 @@
         "medianPrice": 820000,
         "avgSqft": 2274,
         "avgPricePerSqFt": 608,
-        "avgDom": 157,
+        "avgDom": 158,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3207,6 +3220,7 @@
     {
       "name": "Holiday Isle Towers Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384006,
@@ -3225,7 +3239,7 @@
         "medianPrice": 2150000,
         "avgSqft": 2185,
         "avgPricePerSqFt": 835,
-        "avgDom": 134,
+        "avgDom": 135,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3261,9 +3275,10 @@
     {
       "name": "Holiday Surf & Racquet Club",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.383516,
+        "lat": 30.383522,
         "lng": -86.497815
       },
       "location": {
@@ -3273,13 +3288,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 521914,
-        "avgPriceDisplay": "$521,914",
-        "medianPrice": 520000,
-        "avgSqft": 971,
-        "avgPricePerSqFt": 538,
-        "avgDom": 138,
+        "listingCount": 4,
+        "avgPrice": 528600,
+        "avgPriceDisplay": "$528,600",
+        "medianPrice": 535000,
+        "avgSqft": 992,
+        "avgPricePerSqFt": 533,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3318,6 +3333,7 @@
     {
       "name": "Indian Bayou",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.398038,
@@ -3367,6 +3383,7 @@
     {
       "name": "Indian Hills",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.408474,
@@ -3385,7 +3402,7 @@
         "medianPrice": 483999,
         "avgSqft": 1859,
         "avgPricePerSqFt": 260,
-        "avgDom": 78,
+        "avgDom": 80,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3415,6 +3432,7 @@
     {
       "name": "Indian Hills T/H",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.396669,
@@ -3433,7 +3451,7 @@
         "medianPrice": 235000,
         "avgSqft": 850,
         "avgPricePerSqFt": 271,
-        "avgDom": 127,
+        "avgDom": 128,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3464,6 +3482,7 @@
     {
       "name": "Indian Lake",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.392655,
@@ -3512,6 +3531,7 @@
     {
       "name": "Indian Lake Condos",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.391663,
@@ -3530,7 +3550,7 @@
         "medianPrice": 232000,
         "avgSqft": 972,
         "avgPricePerSqFt": 265,
-        "avgDom": 128,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3564,10 +3584,11 @@
     {
       "name": "Indian Lake T/H",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.395833,
-        "lng": -86.486671
+        "lng": -86.486931
       },
       "location": {
         "city": "Destin",
@@ -3576,13 +3597,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 243750,
-        "avgPriceDisplay": "$243,750",
+        "listingCount": 2,
+        "avgPrice": 246000,
+        "avgPriceDisplay": "$246,000",
         "medianPrice": 255000,
-        "avgSqft": 1078,
-        "avgPricePerSqFt": 226,
-        "avgDom": 110,
+        "avgSqft": 1115,
+        "avgPricePerSqFt": 221,
+        "avgDom": 88,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3612,6 +3633,7 @@
     {
       "name": "Indian Trail Condos",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.410744,
@@ -3630,7 +3652,7 @@
         "medianPrice": 250000,
         "avgSqft": 1055,
         "avgPricePerSqFt": 237,
-        "avgDom": 72,
+        "avgDom": 74,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3660,10 +3682,11 @@
     {
       "name": "Indian Woods",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.406557,
-        "lng": -86.473405
+        "lng": -86.472016
       },
       "location": {
         "city": "Destin",
@@ -3673,12 +3696,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 514333,
-        "avgPriceDisplay": "$514,333",
+        "avgPrice": 499500,
+        "avgPriceDisplay": "$499,500",
         "medianPrice": 500000,
-        "avgSqft": 1877,
-        "avgPricePerSqFt": 274,
-        "avgDom": 57,
+        "avgSqft": 1892,
+        "avgPricePerSqFt": 264,
+        "avgDom": 52,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3708,6 +3731,7 @@
     {
       "name": "Inlet Reef Club",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383569,
@@ -3726,7 +3750,7 @@
         "medianPrice": 685000,
         "avgSqft": 1362,
         "avgPricePerSqFt": 480,
-        "avgDom": 153,
+        "avgDom": 154,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3766,6 +3790,7 @@
     {
       "name": "Inn At Crystal Beach (Summerch",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.381838,
@@ -3784,7 +3809,7 @@
         "medianPrice": 1199000,
         "avgSqft": 1262,
         "avgPricePerSqFt": 950,
-        "avgDom": 217,
+        "avgDom": 219,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3819,6 +3844,7 @@
     {
       "name": "Island Home",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386553,
@@ -3837,7 +3863,7 @@
         "medianPrice": 295000,
         "avgSqft": 700,
         "avgPricePerSqFt": 417,
-        "avgDom": 136,
+        "avgDom": 137,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3869,6 +3895,7 @@
     {
       "name": "Islander",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384309,
@@ -3887,7 +3914,7 @@
         "medianPrice": 464000,
         "avgSqft": 987,
         "avgPricePerSqFt": 474,
-        "avgDom": 251,
+        "avgDom": 252,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3924,6 +3951,7 @@
     {
       "name": "Jade East Towers",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385167,
@@ -3942,7 +3970,7 @@
         "medianPrice": 1200000,
         "avgSqft": 1546,
         "avgPricePerSqFt": 748,
-        "avgDom": 146,
+        "avgDom": 147,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3979,6 +4007,7 @@
     {
       "name": "Jetty East",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.383128,
@@ -3997,7 +4026,7 @@
         "medianPrice": 425000,
         "avgSqft": 922,
         "avgPricePerSqFt": 568,
-        "avgDom": 274,
+        "avgDom": 275,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4037,6 +4066,7 @@
     {
       "name": "Joes Bayou",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.403925,
@@ -4055,7 +4085,7 @@
         "medianPrice": 1300000,
         "avgSqft": 1956,
         "avgPricePerSqFt": 665,
-        "avgDom": 33,
+        "avgDom": 35,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4085,6 +4115,7 @@
     {
       "name": "Kelly Homes",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.39935,
@@ -4103,7 +4134,7 @@
         "medianPrice": 475000,
         "avgSqft": 1782,
         "avgPricePerSqFt": 236,
-        "avgDom": 92,
+        "avgDom": 93,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4133,6 +4164,7 @@
     {
       "name": "Kelly Plantation",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.401391,
@@ -4151,7 +4183,7 @@
         "medianPrice": 1475000,
         "avgSqft": 4042,
         "avgPricePerSqFt": 549,
-        "avgDom": 109,
+        "avgDom": 110,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4191,6 +4223,7 @@
     {
       "name": "Kelly Plantation Carriage Place",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.391661,
@@ -4204,12 +4237,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 1150000,
-        "avgPriceDisplay": "$1,150,000",
-        "medianPrice": 1150000,
+        "avgPrice": 1050000,
+        "avgPriceDisplay": "$1,050,000",
+        "medianPrice": 1050000,
         "avgSqft": 2527,
-        "avgPricePerSqFt": 455,
-        "avgDom": 8,
+        "avgPricePerSqFt": 416,
+        "avgDom": 10,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4246,6 +4279,7 @@
     {
       "name": "Kelly Plantation T/H",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.402576,
@@ -4264,7 +4298,7 @@
         "medianPrice": 1032500,
         "avgSqft": 2825,
         "avgPricePerSqFt": 363,
-        "avgDom": 81,
+        "avgDom": 82,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4303,6 +4337,7 @@
     {
       "name": "Kellys Destin",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.406249,
@@ -4351,6 +4386,7 @@
     {
       "name": "Kokomo Kove",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.383422,
@@ -4369,7 +4405,7 @@
         "medianPrice": 1185000,
         "avgSqft": 2483,
         "avgPricePerSqFt": 592,
-        "avgDom": 136,
+        "avgDom": 137,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4400,6 +4436,7 @@
     {
       "name": "Legion Village",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.394588,
@@ -4418,7 +4455,7 @@
         "medianPrice": 249500,
         "avgSqft": 1188,
         "avgPricePerSqFt": 210,
-        "avgDom": 27,
+        "avgDom": 29,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4449,6 +4486,7 @@
     {
       "name": "Magnolia Bay Club Condos",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.41026,
@@ -4467,7 +4505,7 @@
         "medianPrice": 289900,
         "avgSqft": 1674,
         "avgPricePerSqFt": 173,
-        "avgDom": 23,
+        "avgDom": 25,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4497,6 +4535,7 @@
     {
       "name": "Magnolia Bay Club T/H",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.410218,
@@ -4515,7 +4554,7 @@
         "medianPrice": 365000,
         "avgSqft": 1516,
         "avgPricePerSqFt": 219,
-        "avgDom": 34,
+        "avgDom": 36,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4546,6 +4585,7 @@
     {
       "name": "Magnolia House",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386184,
@@ -4564,7 +4604,7 @@
         "medianPrice": 580000,
         "avgSqft": 997,
         "avgPricePerSqFt": 610,
-        "avgDom": 106,
+        "avgDom": 107,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4602,6 +4642,7 @@
     {
       "name": "Marbella",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.389348,
@@ -4620,7 +4661,7 @@
         "medianPrice": 4100000,
         "avgSqft": 5475,
         "avgPricePerSqFt": 749,
-        "avgDom": 36,
+        "avgDom": 38,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4650,6 +4691,7 @@
     {
       "name": "Marbella Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.389093,
@@ -4663,12 +4705,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 992700,
-        "avgPriceDisplay": "$992,700",
+        "avgPrice": 905875,
+        "avgPriceDisplay": "$905,875",
         "medianPrice": 852500,
-        "avgSqft": 2194,
-        "avgPricePerSqFt": 453,
-        "avgDom": 99,
+        "avgSqft": 2058,
+        "avgPricePerSqFt": 440,
+        "avgDom": 112,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4704,6 +4746,7 @@
     {
       "name": "Moreno Acres",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.411342,
@@ -4722,7 +4765,7 @@
         "medianPrice": 995000,
         "avgSqft": 3550,
         "avgPricePerSqFt": 397,
-        "avgDom": 154,
+        "avgDom": 155,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4752,6 +4795,7 @@
     {
       "name": "Mossey Cove",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.410326,
@@ -4770,7 +4814,7 @@
         "medianPrice": 429000,
         "avgSqft": 1452,
         "avgPricePerSqFt": 257,
-        "avgDom": 105,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4804,6 +4848,7 @@
     {
       "name": "Nantucket Cottages",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.382594,
@@ -4854,6 +4899,7 @@
     {
       "name": "Oak Harbour Villas",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.410408,
@@ -4902,6 +4948,7 @@
     {
       "name": "Old Bay Condos",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.391461,
@@ -4920,7 +4967,7 @@
         "medianPrice": 225000,
         "avgSqft": 1084,
         "avgPricePerSqFt": 201,
-        "avgDom": 82,
+        "avgDom": 83,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4950,6 +4997,7 @@
     {
       "name": "One Water Place",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.40169,
@@ -5009,6 +5057,7 @@
     {
       "name": "One Water Place At Kelly Plantation",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.401635,
@@ -5027,7 +5076,7 @@
         "medianPrice": 1499000,
         "avgSqft": 3181,
         "avgPricePerSqFt": 557,
-        "avgDom": 158,
+        "avgDom": 159,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5068,6 +5117,7 @@
     {
       "name": "Palm Street",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.38915,
@@ -5086,7 +5136,7 @@
         "medianPrice": 441900,
         "avgSqft": 1463,
         "avgPricePerSqFt": 296,
-        "avgDom": 89,
+        "avgDom": 91,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5116,6 +5166,7 @@
     {
       "name": "Parkside Condos",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386231,
@@ -5134,7 +5185,7 @@
         "medianPrice": 1190000,
         "avgSqft": 1277,
         "avgPricePerSqFt": 881,
-        "avgDom": 130,
+        "avgDom": 131,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5171,6 +5222,7 @@
     {
       "name": "Peacocks Point Replat",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.412955,
@@ -5189,7 +5241,7 @@
         "medianPrice": 3049900,
         "avgSqft": 2776,
         "avgPricePerSqFt": 1099,
-        "avgDom": 12,
+        "avgDom": 14,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5219,6 +5271,7 @@
     {
       "name": "Pelican Bay Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384446,
@@ -5237,7 +5290,7 @@
         "medianPrice": 585000,
         "avgSqft": 775,
         "avgPricePerSqFt": 755,
-        "avgDom": 194,
+        "avgDom": 196,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5275,6 +5328,7 @@
     {
       "name": "Pelican Beach Resort",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385707,
@@ -5293,7 +5347,7 @@
         "medianPrice": 620000,
         "avgSqft": 906,
         "avgPricePerSqFt": 705,
-        "avgDom": 155,
+        "avgDom": 156,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5331,6 +5385,7 @@
     {
       "name": "Pine Ridge Trace",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.406253,
@@ -5349,7 +5404,7 @@
         "medianPrice": 291000,
         "avgSqft": 1240,
         "avgPricePerSqFt": 233,
-        "avgDom": 103,
+        "avgDom": 104,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5379,6 +5434,7 @@
     {
       "name": "Poolside Villas Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.387441,
@@ -5397,7 +5453,7 @@
         "medianPrice": 449900,
         "avgSqft": 855,
         "avgPricePerSqFt": 524,
-        "avgDom": 184,
+        "avgDom": 186,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5430,6 +5486,7 @@
     {
       "name": "Quail Lake T/H",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.390519,
@@ -5479,6 +5536,7 @@
     {
       "name": "Quail Run",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.394071,
@@ -5529,6 +5587,7 @@
     {
       "name": "Quays",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.387816,
@@ -5547,7 +5606,7 @@
         "medianPrice": 945000,
         "avgSqft": 1516,
         "avgPricePerSqFt": 623,
-        "avgDom": 222,
+        "avgDom": 224,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5577,8 +5636,58 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Quiet Wood",
+      "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.392737,
+        "lng": -86.468002
+      },
+      "location": {
+        "city": "Destin",
+        "state": "FL",
+        "zipCode": "32541"
+      },
+      "zipCode": "32541",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 495725,
+        "avgPriceDisplay": "$495,725",
+        "medianPrice": 589000,
+        "avgSqft": 1866,
+        "avgPricePerSqFt": 266,
+        "avgDom": 30,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
       "name": "Regatta Bay",
       "area": "14 - Destin",
+      "subArea": "1402 - Destin East of Hwy 293/Midbay Bridge Rd",
       "propertyType": "Homes",
       "position": {
         "lat": 30.39678,
@@ -5592,12 +5701,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 24,
-        "avgPrice": 2141453,
-        "avgPriceDisplay": "$2,141,453",
+        "avgPrice": 2140410,
+        "avgPriceDisplay": "$2,140,410",
         "medianPrice": 1675000,
         "avgSqft": 3884,
         "avgPricePerSqFt": 551,
-        "avgDom": 131,
+        "avgDom": 132,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5636,6 +5745,7 @@
     {
       "name": "Regatta Bay Condos",
       "area": "14 - Destin",
+      "subArea": "1402 - Destin East of Hwy 293/Midbay Bridge Rd",
       "propertyType": "Condos",
       "position": {
         "lat": 30.395049,
@@ -5689,6 +5799,7 @@
     {
       "name": "Regency Towers",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384761,
@@ -5746,6 +5857,7 @@
     {
       "name": "Sand Dollar",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.386427,
@@ -5764,7 +5876,7 @@
         "medianPrice": 775000,
         "avgSqft": 1588,
         "avgPricePerSqFt": 463,
-        "avgDom": 99,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5796,6 +5908,7 @@
     {
       "name": "Sandpiper Cove",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.386782,
@@ -5814,7 +5927,7 @@
         "medianPrice": 629000,
         "avgSqft": 1468,
         "avgPricePerSqFt": 428,
-        "avgDom": 27,
+        "avgDom": 29,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5852,10 +5965,11 @@
     {
       "name": "Sandpiper Cove Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.386017,
-        "lng": -86.482844
+        "lat": 30.386232,
+        "lng": -86.482813
       },
       "location": {
         "city": "Destin",
@@ -5864,11 +5978,11 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 31,
-        "avgPrice": 403567,
-        "avgPriceDisplay": "$403,567",
-        "medianPrice": 370000,
-        "avgSqft": 833,
+        "listingCount": 30,
+        "avgPrice": 404431,
+        "avgPriceDisplay": "$404,431",
+        "medianPrice": 375000,
+        "avgSqft": 836,
         "avgPricePerSqFt": 484,
         "avgDom": 149,
         "priceRange": "N/A",
@@ -5910,6 +6024,7 @@
     {
       "name": "Sea Hills 3Rd",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.397424,
@@ -5958,6 +6073,7 @@
     {
       "name": "Seafarer",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384099,
@@ -5976,7 +6092,7 @@
         "medianPrice": 550000,
         "avgSqft": 903,
         "avgPricePerSqFt": 659,
-        "avgDom": 143,
+        "avgDom": 144,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6010,6 +6126,7 @@
     {
       "name": "Shoreline Towers Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384182,
@@ -6067,6 +6184,7 @@
     {
       "name": "Shoreline Towers T/H",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.385456,
@@ -6085,7 +6203,7 @@
         "medianPrice": 519000,
         "avgSqft": 1882,
         "avgPricePerSqFt": 271,
-        "avgDom": 156,
+        "avgDom": 157,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6122,6 +6240,7 @@
     {
       "name": "Shores Of Crystal Beach",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.382143,
@@ -6170,6 +6289,7 @@
     {
       "name": "Sides Moreno Point West",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.396394,
@@ -6188,7 +6308,7 @@
         "medianPrice": 799000,
         "avgSqft": 2324,
         "avgPricePerSqFt": 411,
-        "avgDom": 165,
+        "avgDom": 167,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6224,9 +6344,10 @@
     {
       "name": "Silver Beach Towers",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.384676,
+        "lat": 30.384672,
         "lng": -86.466323
       },
       "location": {
@@ -6237,12 +6358,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 1540357,
-        "avgPriceDisplay": "$1,540,357",
-        "medianPrice": 1499000,
-        "avgSqft": 1706,
-        "avgPricePerSqFt": 903,
-        "avgDom": 110,
+        "avgPrice": 1518461,
+        "avgPriceDisplay": "$1,518,461",
+        "medianPrice": 1457000,
+        "avgSqft": 1690,
+        "avgPricePerSqFt": 899,
+        "avgDom": 117,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6277,6 +6398,7 @@
     {
       "name": "Silver Dunes",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385116,
@@ -6295,7 +6417,7 @@
         "medianPrice": 460000,
         "avgSqft": 927,
         "avgPricePerSqFt": 497,
-        "avgDom": 156,
+        "avgDom": 157,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6331,10 +6453,11 @@
     {
       "name": "Silver Shells",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385425,
-        "lng": -86.455126
+        "lng": -86.455123
       },
       "location": {
         "city": "Destin",
@@ -6343,13 +6466,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 12,
-        "avgPrice": 1248958,
-        "avgPriceDisplay": "$1,248,958",
-        "medianPrice": 1200000,
-        "avgSqft": 1793,
-        "avgPricePerSqFt": 696,
-        "avgDom": 124,
+        "listingCount": 13,
+        "avgPrice": 1256721,
+        "avgPriceDisplay": "$1,256,721",
+        "medianPrice": 1250000,
+        "avgSqft": 1798,
+        "avgPricePerSqFt": 699,
+        "avgDom": 121,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6390,6 +6513,7 @@
     {
       "name": "South Bay By The Gulf Condos",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386146,
@@ -6408,7 +6532,7 @@
         "medianPrice": 615000,
         "avgSqft": 1264,
         "avgPricePerSqFt": 432,
-        "avgDom": 358,
+        "avgDom": 359,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6445,6 +6569,7 @@
     {
       "name": "South Bay By The Gulf T/H",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.387041,
@@ -6463,7 +6588,7 @@
         "medianPrice": 495000,
         "avgSqft": 1289,
         "avgPricePerSqFt": 391,
-        "avgDom": 113,
+        "avgDom": 114,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6500,6 +6625,7 @@
     {
       "name": "Sovereign Isle",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.386651,
@@ -6518,7 +6644,7 @@
         "medianPrice": 999900,
         "avgSqft": 2108,
         "avgPricePerSqFt": 415,
-        "avgDom": 221,
+        "avgDom": 222,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6549,6 +6675,7 @@
     {
       "name": "Spring Lake",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.400811,
@@ -6567,7 +6694,7 @@
         "medianPrice": 440000,
         "avgSqft": 1728,
         "avgPricePerSqFt": 242,
-        "avgDom": 18,
+        "avgDom": 20,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6597,6 +6724,7 @@
     {
       "name": "St Martin Beachwalk",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.38651,
@@ -6615,7 +6743,7 @@
         "medianPrice": 500000,
         "avgSqft": 1028,
         "avgPricePerSqFt": 486,
-        "avgDom": 335,
+        "avgDom": 337,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6646,6 +6774,7 @@
     {
       "name": "St. Martin Beach Villas",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386569,
@@ -6664,7 +6793,7 @@
         "medianPrice": 420000,
         "avgSqft": 909,
         "avgPricePerSqFt": 482,
-        "avgDom": 187,
+        "avgDom": 188,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6698,6 +6827,7 @@
     {
       "name": "Sterling Sands",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.38465,
@@ -6716,7 +6846,7 @@
         "medianPrice": 675000,
         "avgSqft": 997,
         "avgPricePerSqFt": 745,
-        "avgDom": 298,
+        "avgDom": 299,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6752,6 +6882,7 @@
     {
       "name": "Sterling Shores",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385326,
@@ -6765,12 +6896,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 16,
-        "avgPrice": 754255,
-        "avgPriceDisplay": "$754,255",
+        "avgPrice": 753164,
+        "avgPriceDisplay": "$753,164",
         "medianPrice": 729900,
         "avgSqft": 1344,
-        "avgPricePerSqFt": 561,
-        "avgDom": 244,
+        "avgPricePerSqFt": 560,
+        "avgDom": 246,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6807,6 +6938,7 @@
     {
       "name": "Sun King Towers",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.388177,
@@ -6825,7 +6957,7 @@
         "medianPrice": 499000,
         "avgSqft": 1109,
         "avgPricePerSqFt": 411,
-        "avgDom": 146,
+        "avgDom": 147,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6862,6 +6994,7 @@
     {
       "name": "Sundestin",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.385027,
@@ -6880,7 +7013,7 @@
         "medianPrice": 450000,
         "avgSqft": 786,
         "avgPricePerSqFt": 608,
-        "avgDom": 154,
+        "avgDom": 155,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6916,6 +7049,7 @@
     {
       "name": "Sunsail",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.386122,
@@ -6934,7 +7068,7 @@
         "medianPrice": 631166,
         "avgSqft": 1834,
         "avgPricePerSqFt": 349,
-        "avgDom": 105,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6965,6 +7099,7 @@
     {
       "name": "Terra Cotta Terrace",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.382675,
@@ -6977,13 +7112,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 5,
+        "listingCount": 4,
         "avgPrice": 1028444,
         "avgPriceDisplay": "$1,028,444",
         "medianPrice": 949000,
         "avgSqft": 2024,
         "avgPricePerSqFt": 508,
-        "avgDom": 131,
+        "avgDom": 132,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7017,6 +7152,7 @@
     {
       "name": "Terrace At Pelican Beach",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.386673,
@@ -7035,7 +7171,7 @@
         "medianPrice": 478000,
         "avgSqft": 1164,
         "avgPricePerSqFt": 423,
-        "avgDom": 198,
+        "avgDom": 199,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7071,6 +7207,7 @@
     {
       "name": "The Oaks At Old Town",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.397881,
@@ -7089,7 +7226,7 @@
         "medianPrice": 517500,
         "avgSqft": 1915,
         "avgPricePerSqFt": 273,
-        "avgDom": 139,
+        "avgDom": 140,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7120,10 +7257,11 @@
     {
       "name": "The Palms Of Destin",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Condos",
       "position": {
         "lat": 30.389047,
-        "lng": -86.455925
+        "lng": -86.455937
       },
       "location": {
         "city": "Destin",
@@ -7132,13 +7270,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 48,
-        "avgPrice": 366805,
-        "avgPriceDisplay": "$366,805",
+        "listingCount": 46,
+        "avgPrice": 367155,
+        "avgPriceDisplay": "$367,155",
         "medianPrice": 349000,
-        "avgSqft": 1056,
-        "avgPricePerSqFt": 347,
-        "avgDom": 217,
+        "avgSqft": 1055,
+        "avgPricePerSqFt": 348,
+        "avgDom": 219,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7175,6 +7313,7 @@
     {
       "name": "The Plaza",
       "area": "14 - Destin",
+      "subArea": "1402 - Destin East of Hwy 293/Midbay Bridge Rd",
       "propertyType": "Condos",
       "position": {
         "lat": 30.387343,
@@ -7193,7 +7332,7 @@
         "medianPrice": 320000,
         "avgSqft": 1801,
         "avgPricePerSqFt": 178,
-        "avgDom": 56,
+        "avgDom": 58,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7225,6 +7364,7 @@
     {
       "name": "The Quays",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "T/H",
       "position": {
         "lat": 30.387339,
@@ -7243,7 +7383,7 @@
         "medianPrice": 879000,
         "avgSqft": 1607,
         "avgPricePerSqFt": 547,
-        "avgDom": 47,
+        "avgDom": 49,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7276,6 +7416,7 @@
     {
       "name": "The Retreat at Old Pass",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Homes",
       "position": {
         "lat": 30.390262,
@@ -7325,6 +7466,7 @@
     {
       "name": "The Tides Of Destin",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.384366,
@@ -7343,7 +7485,7 @@
         "medianPrice": 1760000,
         "avgSqft": 2274,
         "avgPricePerSqFt": 774,
-        "avgDom": 61,
+        "avgDom": 63,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7380,10 +7522,11 @@
     {
       "name": "The Ultimate",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.387147,
-        "lng": -86.506286
+        "lat": 30.387154,
+        "lng": -86.506277
       },
       "location": {
         "city": "Destin",
@@ -7392,13 +7535,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 1900000,
-        "avgPriceDisplay": "$1,900,000",
+        "listingCount": 2,
+        "avgPrice": 1812500,
+        "avgPriceDisplay": "$1,812,500",
         "medianPrice": 1900000,
         "avgSqft": 2630,
-        "avgPricePerSqFt": 722,
-        "avgDom": 378,
+        "avgPricePerSqFt": 689,
+        "avgDom": 191,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7436,6 +7579,7 @@
     {
       "name": "Tranquil Harbor",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.391727,
@@ -7454,7 +7598,7 @@
         "medianPrice": 1350000,
         "avgSqft": 2026,
         "avgPricePerSqFt": 567,
-        "avgDom": 104,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7488,6 +7632,7 @@
     {
       "name": "Tuscan Village Th",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.391653,
@@ -7506,7 +7651,7 @@
         "medianPrice": 389900,
         "avgSqft": 1705,
         "avgPricePerSqFt": 229,
-        "avgDom": 142,
+        "avgDom": 144,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7536,6 +7681,7 @@
     {
       "name": "Tuscana",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.384934,
@@ -7554,7 +7700,7 @@
         "medianPrice": 569900,
         "avgSqft": 2072,
         "avgPricePerSqFt": 405,
-        "avgDom": 66,
+        "avgDom": 67,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7587,6 +7733,7 @@
     {
       "name": "Twin Lakes T/H",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "T/H",
       "position": {
         "lat": 30.395644,
@@ -7605,7 +7752,7 @@
         "medianPrice": 339900,
         "avgSqft": 1560,
         "avgPricePerSqFt": 208,
-        "avgDom": 202,
+        "avgDom": 204,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7635,6 +7782,7 @@
     {
       "name": "Ultimate Condo The",
       "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
         "lat": 30.387145,
@@ -7648,12 +7796,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 2160000,
-        "avgPriceDisplay": "$2,160,000",
+        "avgPrice": 2395000,
+        "avgPriceDisplay": "$2,395,000",
         "medianPrice": 2395000,
         "avgSqft": 2660,
-        "avgPricePerSqFt": 812,
-        "avgDom": 82,
+        "avgPricePerSqFt": 900,
+        "avgDom": 113,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7679,6 +7827,7 @@
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
+        "Pickleball",
         "Pool",
         "Tennis",
         "Waterfront"
@@ -7692,6 +7841,7 @@
     {
       "name": "Villages Of Crystal Beach",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
         "lat": 30.387216,
@@ -7705,12 +7855,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 12,
-        "avgPrice": 1054639,
-        "avgPriceDisplay": "$1,054,639",
+        "avgPrice": 1052465,
+        "avgPriceDisplay": "$1,052,465",
         "medianPrice": 1085000,
         "avgSqft": 2429,
-        "avgPricePerSqFt": 434,
-        "avgDom": 128,
+        "avgPricePerSqFt": 433,
+        "avgDom": 129,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7743,6 +7893,7 @@
     {
       "name": "Villages Of Crystal Beach T/H",
       "area": "14 - Destin",
+      "subArea": "1404 - Destin Beach East",
       "propertyType": "T/H",
       "position": {
         "lat": 30.386204,
@@ -7761,7 +7912,7 @@
         "medianPrice": 905000,
         "avgSqft": 2040,
         "avgPricePerSqFt": 444,
-        "avgDom": 29,
+        "avgDom": 31,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7791,6 +7942,7 @@
     {
       "name": "Windsor Forest",
       "area": "14 - Destin",
+      "subArea": "1403 - Destin Northwest",
       "propertyType": "Homes",
       "position": {
         "lat": 30.404736,
@@ -7809,7 +7961,7 @@
         "medianPrice": 874000,
         "avgSqft": 2710,
         "avgPricePerSqFt": 318,
-        "avgDom": 71,
+        "avgDom": 72,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

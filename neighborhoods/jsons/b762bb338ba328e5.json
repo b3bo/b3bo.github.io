@@ -1,10 +1,11 @@
 {
   "area": "19 - Point Washington",
-  "updated": "2025-12-11T15:36:49.058757",
+  "updated": "2025-12-12T08:09:12.358488",
   "neighborhoods": [
     {
       "name": "Audubon Point",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.364039,
@@ -23,7 +24,7 @@
         "medianPrice": 589000,
         "avgSqft": 2078,
         "avgPricePerSqFt": 290,
-        "avgDom": 116,
+        "avgDom": 118,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -54,6 +55,7 @@
     {
       "name": "Bayside Heights Ranchettes",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.378537,
@@ -102,6 +104,7 @@
     {
       "name": "Bunker Creek",
       "area": "19 - Point Washington",
+      "subArea": "1904 - N. of Intercoastal",
       "propertyType": "Homes",
       "position": {
         "lat": 30.391628,
@@ -120,7 +123,7 @@
         "medianPrice": 489000,
         "avgSqft": 1920,
         "avgPricePerSqFt": 255,
-        "avgDom": 175,
+        "avgDom": 177,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -150,6 +153,7 @@
     {
       "name": "Daughettes",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.374836,
@@ -198,6 +202,7 @@
     {
       "name": "Eden Estates",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.371734,
@@ -216,7 +221,7 @@
         "medianPrice": 1850000,
         "avgSqft": 3405,
         "avgPricePerSqFt": 632,
-        "avgDom": 88,
+        "avgDom": 90,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -246,6 +251,7 @@
     {
       "name": "Eden'S Landing",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.36581,
@@ -264,7 +270,7 @@
         "medianPrice": 599900,
         "avgSqft": 1700,
         "avgPricePerSqFt": 338,
-        "avgDom": 134,
+        "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -294,6 +300,7 @@
     {
       "name": "Estuary",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.382384,
@@ -312,7 +319,7 @@
         "medianPrice": 4250000,
         "avgSqft": 4246,
         "avgPricePerSqFt": 1175,
-        "avgDom": 100,
+        "avgDom": 101,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -344,6 +351,7 @@
     {
       "name": "Garage 30A Luxury Motor",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Condos",
       "position": {
         "lat": 30.356748,
@@ -362,7 +370,7 @@
         "medianPrice": 550000,
         "avgSqft": 2400,
         "avgPricePerSqFt": 229,
-        "avgDom": 1,
+        "avgDom": 2,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -393,6 +401,7 @@
     {
       "name": "Grayton Bayou",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.374201,
@@ -411,7 +420,7 @@
         "medianPrice": 929000,
         "avgSqft": 2449,
         "avgPricePerSqFt": 420,
-        "avgDom": 105,
+        "avgDom": 106,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -442,6 +451,7 @@
     {
       "name": "Holley Grove At Peach Creek",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.367177,
@@ -490,6 +500,7 @@
     {
       "name": "Magnolia Beach",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.374486,
@@ -508,7 +519,7 @@
         "medianPrice": 689000,
         "avgSqft": 1909,
         "avgPricePerSqFt": 403,
-        "avgDom": 116,
+        "avgDom": 117,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -538,6 +549,7 @@
     {
       "name": "Oak Grove at Eden's Landing",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.367531,
@@ -556,7 +568,7 @@
         "medianPrice": 1799000,
         "avgSqft": 3417,
         "avgPricePerSqFt": 489,
-        "avgDom": 204,
+        "avgDom": 205,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -586,6 +598,7 @@
     {
       "name": "Oaks At Eden",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.366575,
@@ -604,7 +617,7 @@
         "medianPrice": 559000,
         "avgSqft": 1810,
         "avgPricePerSqFt": 319,
-        "avgDom": 155,
+        "avgDom": 157,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -634,6 +647,7 @@
     {
       "name": "Paradise Cove",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.359689,
@@ -652,7 +666,7 @@
         "medianPrice": 679000,
         "avgSqft": 2476,
         "avgPricePerSqFt": 262,
-        "avgDom": 122,
+        "avgDom": 123,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -684,6 +698,7 @@
     {
       "name": "Peach Creek",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.361447,
@@ -732,6 +747,7 @@
     {
       "name": "Point Washington",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.374525,
@@ -750,7 +766,7 @@
         "medianPrice": 650000,
         "avgSqft": 1871,
         "avgPricePerSqFt": 347,
-        "avgDom": 187,
+        "avgDom": 189,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -780,6 +796,7 @@
     {
       "name": "The Preserve At Paradise Cove",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.362227,
@@ -798,7 +815,7 @@
         "medianPrice": 559000,
         "avgSqft": 2011,
         "avgPricePerSqFt": 286,
-        "avgDom": 76,
+        "avgDom": 77,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -828,6 +845,7 @@
     {
       "name": "The Shoal",
       "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
       "propertyType": "Homes",
       "position": {
         "lat": 30.369921,
@@ -846,7 +864,7 @@
         "medianPrice": 857400,
         "avgSqft": 2728,
         "avgPricePerSqFt": 307,
-        "avgDom": 52,
+        "avgDom": 53,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
