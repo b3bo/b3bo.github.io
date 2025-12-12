@@ -87,8 +87,9 @@ export function applySortOnly() {
     }
 }
 
-// Track previous areas to detect changes
+// Track previous areas/subareas to detect changes
 let previousSelectedAreas = new Set();
+let previousSelectedSubareas = new Set();
 
 export function setupFilters() {
     // Price Slider Logic
@@ -384,11 +385,19 @@ export function applyFilters() {
             }
         }
 
-        // Area Filter (zip codes)
-        const inSelectedAreas = selectedAreas.size === 0 || selectedAreas.has(neighborhood.zipCode);
+        // Area/Subarea Filter - use OR logic when both are selected
+        // This allows selecting "Destin" + "West 30A" to show neighborhoods from either
+        let inSelectedLocation = true;
+        const hasAreaFilter = selectedAreas.size > 0;
+        const hasSubareaFilter = selectedSubareas.size > 0;
 
-        // Sub-area Filter (West 30A / East 30A)
-        const inSelectedSubareas = selectedSubareas.size === 0 || selectedSubareas.has(neighborhood.area);
+        if (hasAreaFilter || hasSubareaFilter) {
+            const matchesArea = hasAreaFilter && selectedAreas.has(neighborhood.zipCode);
+            // Check both area and subArea fields - allows filtering by Area code (17 - 30A West) or SubArea code (1503 - Sandestin Resort)
+            const matchesSubarea = hasSubareaFilter && (selectedSubareas.has(neighborhood.area) || selectedSubareas.has(neighborhood.subArea));
+            // OR logic: match if in selected areas OR in selected subareas
+            inSelectedLocation = matchesArea || matchesSubarea;
+        }
 
         // Amenity Filter - use AND logic: neighborhood must have ALL selected amenities
         const hasSelectedAmenities = selectedAmenities.size === 0 || [...selectedAmenities].every(amenity => neighborhood.amenities.includes(amenity));
@@ -460,7 +469,7 @@ export function applyFilters() {
             }
         }
 
-        return matchesPropertyType && inSelectedAreas && inSelectedSubareas && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
+        return matchesPropertyType && inSelectedLocation && hasSelectedAmenities && inPriceRange && inBedsRange && inBathsRange;
     });
 
     // Apply sorting
@@ -518,20 +527,21 @@ export function applyFilters() {
         resultsCount.textContent = `${STATE.allFilteredNeighborhoods.length} ${STATE.allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found!`;
     }
 
-    // Auto-pan when areas are updated
+    // Auto-pan when areas or subareas are updated
     const areasChanged = selectedAreas.size !== previousSelectedAreas.size ||
                          ![...selectedAreas].every(area => previousSelectedAreas.has(area));
+    const subareasChanged = selectedSubareas.size !== previousSelectedSubareas.size ||
+                            ![...selectedSubareas].every(subarea => previousSelectedSubareas.has(subarea));
 
-
-    if (areasChanged && sortedNeighborhoods.length > 0) {
+    if ((areasChanged || subareasChanged) && sortedNeighborhoods.length > 0) {
         // Small delay to ensure markers are rendered, then fit bounds
         setTimeout(() => {
             console.log('Calling fitBoundsToNeighborhoods');
             // Fit bounds with comfortable padding
             fitBoundsToNeighborhoods(sortedNeighborhoods, 80);
 
-            // Then ensure minimum zoom level for single-area selections
-            if (selectedAreas.size === 1) {
+            // Then ensure minimum zoom level for single-area/subarea selections
+            if (selectedAreas.size === 1 || selectedSubareas.size === 1) {
                 setTimeout(() => {
                     const currentZoom = STATE.map.getZoom();
                     if (currentZoom < 13) {
@@ -542,6 +552,7 @@ export function applyFilters() {
         }, 200);
     }
 
-    // Update previous areas for next comparison
+    // Update previous areas/subareas for next comparison
     previousSelectedAreas = new Set(selectedAreas);
+    previousSelectedSubareas = new Set(selectedSubareas);
 }

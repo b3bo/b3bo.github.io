@@ -64,10 +64,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="./neighborhoods/css/styles.css">
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./neighborhoods/css/tailwind_neighborhoods.css">
+    <!-- Custom Styles (loaded after Tailwind for overrides) -->
+    <link rel="stylesheet" href="./neighborhoods/css/styles.css">
 
     <!-- Google Maps API moved to end of body to prevent race condition -->
     
@@ -622,7 +622,7 @@
                         <div class="flex flex-wrap gap-2" id="subareaFilters">
                             <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="17 - 30A West">West 30A</button>
                             <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="18 - 30A East">East 30A</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="15 - Miramar/Sandestin Resort">Sandestin</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="1503 - Sandestin Resort">Sandestin</button>
                         </div>
                     </div>
                 </div>
@@ -691,7 +691,7 @@
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS · <span id="lastUpdated">Updated Dec 11</span> · <span id="appVersion">v1.0.31</span></p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS · <span id="lastUpdated">Updated Dec 11</span> · <span id="appVersion">v1.0.32</span></p>
                 </div>
             </div>
         </aside>
