@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2025-12-12T08:54:12.693301",
+  "updated": "2025-12-12T11:20:34.452950",
   "neighborhoods": [
     {
       "name": "Abacos",
@@ -2619,8 +2619,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdCondos": "4708974"
+      "listingsUrlMap": ""
     },
     {
       "name": "Highland Parks",
@@ -3610,8 +3609,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdCondos": "7100579"
+      "listingsUrlMap": ""
     },
     {
       "name": "Reserves In Serenity At Dune Allen",
@@ -5374,10 +5372,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7080808",
-      "searchIdCondos": "7080811",
-      "searchIdLots": "7080817"
+      "listingsUrlMap": ""
     },
     {
       "name": "Village Of White Cliffs The",

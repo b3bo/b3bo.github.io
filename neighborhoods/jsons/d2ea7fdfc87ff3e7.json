@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-12T08:54:12.690414",
+  "updated": "2025-12-12T11:20:34.450289",
   "neighborhoods": [
     {
       "name": "30A",
@@ -219,12 +219,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "385744",
-      "searchIdCondos": "385745",
-      "searchIdTownhomes": "385746",
-      "searchIdLots": "385747",
-      "urlSlug": "/30a/alys-beach/"
+      "listingsUrlMap": ""
     },
     {
       "name": "Alys Beach T/H",
@@ -958,9 +953,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdCondos": "7093008",
-      "searchIdTownhomes": "7093009"
+      "listingsUrlMap": ""
     },
     {
       "name": "Costera T/H",
@@ -1431,8 +1424,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdCondos": "4024495"
+      "listingsUrlMap": ""
     },
     {
       "name": "Eastern Lake",
@@ -1798,10 +1790,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7076729",
-      "searchIdCondos": "7076731",
-      "urlSlug": "/30a/grace-point/"
+      "listingsUrlMap": ""
     },
     {
       "name": "Grand Inlet Court",
@@ -2064,9 +2053,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7100658",
-      "searchIdLots": "7100659"
+      "listingsUrlMap": ""
     },
     {
       "name": "Gulf Cove at Seagrove",
@@ -2893,11 +2880,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7088784",
-      "searchIdCondos": "3573510",
-      "searchIdTownhomes": "3573507",
-      "urlSlug": "/30a/kaiya-beach-resort/"
+      "listingsUrlMap": ""
     },
     {
       "name": "Kaiya Beach Resort T/H",
@@ -4334,10 +4317,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "385757",
-      "searchIdCondos": "385758",
-      "searchIdTownhomes": "385759"
+      "listingsUrlMap": ""
     },
     {
       "name": "Rosemary Beach T/H",
@@ -4655,8 +4635,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7100768"
+      "listingsUrlMap": ""
     },
     {
       "name": "Sea Mist Condos",
@@ -4706,8 +4685,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdCondos": "7100684"
+      "listingsUrlMap": ""
     },
     {
       "name": "Sea Walk",
@@ -5165,9 +5143,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7089708",
-      "searchIdLots": "7089709"
+      "listingsUrlMap": ""
     },
     {
       "name": "Seagrove Horizons",
@@ -6918,11 +6894,7 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": "",
-      "searchIdHomes": "7077041",
-      "searchIdCondos": "7077045",
-      "searchIdLots": "7077049",
-      "urlSlug": "/30a/watersound-beach/"
+      "listingsUrlMap": ""
     },
     {
       "name": "Watersound Camp Creek",
