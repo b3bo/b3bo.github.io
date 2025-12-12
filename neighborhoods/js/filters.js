@@ -390,9 +390,8 @@ export function applyFilters() {
         // Sub-area Filter (West 30A / East 30A)
         const inSelectedSubareas = selectedSubareas.size === 0 || selectedSubareas.has(neighborhood.area);
 
-        // Amenity Filter - ALL selected amenities must be present (AND logic)
-        const hasSelectedAmenities = selectedAmenities.size === 0 || 
-            [...selectedAmenities].every(amenity => neighborhood.amenities.includes(amenity));
+        // Amenity Filter - use AND logic: neighborhood must have ALL selected amenities
+        const hasSelectedAmenities = selectedAmenities.size === 0 || [...selectedAmenities].every(amenity => neighborhood.amenities.includes(amenity));
         
         // Price Filter
         let inPriceRange = false;
