@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2025-12-12T13:46:24.361354",
+  "updated": "2025-12-12T17:57:59.329990",
   "neighborhoods": [
     {
       "name": "30A",
@@ -43,7 +43,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -145,11 +145,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -207,10 +207,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -263,10 +263,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -323,9 +323,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -426,7 +426,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -529,8 +529,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -632,6 +632,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -789,8 +790,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -841,8 +842,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -894,7 +895,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1101,8 +1102,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1153,7 +1154,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1206,7 +1207,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1257,7 +1258,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1359,8 +1360,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pickleball",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1414,10 +1415,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -1676,8 +1677,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1784,9 +1785,9 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Elevator",
-        "No Short-Term",
-        "Pool"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1835,8 +1836,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1887,8 +1888,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1940,8 +1941,9 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1994,8 +1996,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2058,6 +2060,59 @@
       "listingsUrlMap": ""
     },
     {
+      "name": "Grove By The Sea T/H",
+      "area": "18 - 30A East",
+      "subArea": "1802 - S. of 98 W of Camp Creek",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.32123,
+        "lng": -86.121419
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1250000,
+        "avgPriceDisplay": "$1,250,000",
+        "medianPrice": 1250000,
+        "avgSqft": 1538,
+        "avgPricePerSqFt": 813,
+        "avgDom": 0,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Short-Term",
+        "Tennis"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "searchIdHomes": "7100658",
+      "searchIdLots": "7100659"
+    },
+    {
       "name": "Gulf Cove at Seagrove",
       "area": "18 - 30A East",
       "subArea": "1802 - S. of 98 W of Camp Creek",
@@ -2098,7 +2153,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2174,11 +2229,11 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 19,
-        "avgPrice": 2325807,
-        "avgPriceDisplay": "$2,325,807",
+        "avgPrice": 2324617,
+        "avgPriceDisplay": "$2,324,617",
         "medianPrice": 2249000,
         "avgSqft": 3018,
-        "avgPricePerSqFt": 771,
+        "avgPricePerSqFt": 770,
         "avgDom": 162,
         "priceRange": "N/A",
         "minPrice": null,
@@ -2400,7 +2455,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2451,7 +2506,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2503,13 +2558,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2615,8 +2670,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2717,7 +2772,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2744,11 +2799,11 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 5745000,
-        "avgPriceDisplay": "$5,745,000",
-        "medianPrice": 7195000,
+        "avgPrice": 5645000,
+        "avgPriceDisplay": "$5,645,000",
+        "medianPrice": 6995000,
         "avgSqft": 3486,
-        "avgPricePerSqFt": 1648,
+        "avgPricePerSqFt": 1620,
         "avgDom": 104,
         "priceRange": "N/A",
         "minPrice": null,
@@ -2926,7 +2981,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3235,9 +3290,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3291,7 +3346,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3344,7 +3399,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3446,11 +3501,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3504,13 +3559,13 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -3614,9 +3669,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3770,7 +3825,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3877,11 +3932,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -3983,8 +4038,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4036,7 +4091,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -4089,8 +4145,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4144,9 +4200,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4200,8 +4256,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4253,9 +4309,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4312,10 +4368,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4368,8 +4424,8 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4425,10 +4481,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4889,7 +4945,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4942,10 +4998,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4961,7 +5017,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.31887,
-        "lng": -86.130622
+        "lng": -86.130676
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -4970,13 +5026,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 20,
-        "avgPrice": 3913825,
-        "avgPriceDisplay": "$3,913,825",
-        "medianPrice": 2995000,
-        "avgSqft": 3279,
-        "avgPricePerSqFt": 1194,
-        "avgDom": 120,
+        "listingCount": 19,
+        "avgPrice": 3919436,
+        "avgPriceDisplay": "$3,919,436",
+        "medianPrice": 2985000,
+        "avgSqft": 3254,
+        "avgPricePerSqFt": 1205,
+        "avgDom": 111,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -5047,8 +5103,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -5123,7 +5179,7 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 8,
+        "listingCount": 7,
         "avgPrice": 496069,
         "avgPriceDisplay": "$496,069",
         "medianPrice": 525000,
@@ -5148,10 +5204,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5303,8 +5359,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5357,11 +5413,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5416,9 +5472,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5672,8 +5728,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -5726,7 +5783,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5777,8 +5834,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5830,7 +5887,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -5881,9 +5938,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5934,7 +5991,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5984,6 +6041,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Gated",
         "No Short-Term",
         "Waterfront"
@@ -6035,9 +6093,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6088,7 +6146,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6139,8 +6197,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6192,12 +6250,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -6250,9 +6308,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -6353,8 +6411,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6406,7 +6464,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6458,9 +6516,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6511,7 +6569,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6563,7 +6621,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6615,9 +6673,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6634,8 +6692,8 @@
       "subArea": "1802 - S. of 98 W of Camp Creek",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.325513,
-        "lng": -86.131616
+        "lat": 30.325391,
+        "lng": -86.131619
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -6645,12 +6703,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 39,
-        "avgPrice": 3701966,
-        "avgPriceDisplay": "$3,701,966",
+        "avgPrice": 3694805,
+        "avgPriceDisplay": "$3,694,805",
         "medianPrice": 3325000,
-        "avgSqft": 3378,
-        "avgPricePerSqFt": 1096,
-        "avgDom": 111,
+        "avgSqft": 3373,
+        "avgPricePerSqFt": 1095,
+        "avgDom": 110,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -6670,11 +6728,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6729,12 +6788,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6786,9 +6846,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6840,10 +6900,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -6900,12 +6960,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -6957,6 +7017,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Golf",
@@ -6964,7 +7025,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -6983,7 +7043,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.293273,
-        "lng": -86.000836
+        "lng": -86.000981
       },
       "location": {
         "city": "Inlet Beach",
@@ -6992,13 +7052,13 @@
       },
       "zipCode": "32461",
       "stats": {
-        "listingCount": 67,
-        "avgPrice": 1416874,
-        "avgPriceDisplay": "$1,416,874",
+        "listingCount": 68,
+        "avgPrice": 1414686,
+        "avgPriceDisplay": "$1,414,686",
         "medianPrice": 1195000,
-        "avgSqft": 2744,
+        "avgSqft": 2741,
         "avgPricePerSqFt": 516,
-        "avgDom": 116,
+        "avgDom": 115,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7018,13 +7078,14 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -7078,12 +7139,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -7133,12 +7194,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
         "Golf",
         "No Short-Term",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -7240,7 +7301,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -7344,7 +7405,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -7395,7 +7456,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {

@@ -1,6 +1,6 @@
 {
   "area": "14 - Destin",
-  "updated": "2025-12-12T13:46:24.355941",
+  "updated": "2025-12-12T17:57:59.324926",
   "neighborhoods": [
     {
       "name": "1900 Ninety Eight",
@@ -44,9 +44,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -98,10 +98,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -155,7 +155,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -206,7 +206,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -257,11 +257,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -439,11 +439,11 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 6,
-        "avgPrice": 617459,
-        "avgPriceDisplay": "$617,459",
-        "medianPrice": 586000,
+        "avgPrice": 613646,
+        "avgPriceDisplay": "$613,646",
+        "medianPrice": 542500,
         "avgSqft": 2032,
-        "avgPricePerSqFt": 304,
+        "avgPricePerSqFt": 302,
         "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
@@ -463,9 +463,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
-        "No Short-Term",
-        "Pool"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -668,7 +668,7 @@
       },
       "amenities": [
         "Clubhouse",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -719,9 +719,10 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "No Short-Term",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -775,10 +776,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -830,8 +831,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -935,7 +936,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -986,8 +987,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1005,8 +1006,8 @@
       "subArea": "1404 - Destin Beach East",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.383742,
-        "lng": -86.424622
+        "lat": 30.383512,
+        "lng": -86.42486
       },
       "location": {
         "city": "Destin",
@@ -1015,13 +1016,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 1679039,
-        "avgPriceDisplay": "$1,679,039",
+        "listingCount": 6,
+        "avgPrice": 1744581,
+        "avgPriceDisplay": "$1,744,581",
         "medianPrice": 1399900,
-        "avgSqft": 2548,
-        "avgPricePerSqFt": 659,
-        "avgDom": 77,
+        "avgSqft": 2583,
+        "avgPricePerSqFt": 675,
+        "avgDom": 70,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1040,7 +1041,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1141,10 +1142,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -1197,10 +1199,10 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Gated",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -1250,9 +1252,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -1306,8 +1308,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1356,6 +1358,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -1408,12 +1411,13 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -1429,7 +1433,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.383408,
-        "lng": -86.408083
+        "lng": -86.40798
       },
       "location": {
         "city": "Destin",
@@ -1438,13 +1442,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 23,
-        "avgPrice": 1792073,
-        "avgPriceDisplay": "$1,792,073",
-        "medianPrice": 1599000,
-        "avgSqft": 3265,
+        "listingCount": 22,
+        "avgPrice": 1795463,
+        "avgPriceDisplay": "$1,795,463",
+        "medianPrice": 1600000,
+        "avgSqft": 3273,
         "avgPricePerSqFt": 549,
-        "avgDom": 168,
+        "avgDom": 165,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1464,11 +1468,11 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -1520,8 +1524,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1572,9 +1576,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1628,8 +1632,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -1683,9 +1687,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -1736,10 +1740,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -1792,8 +1797,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1846,10 +1851,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -1901,6 +1906,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Dock",
         "No Short-Term",
         "Pet-Friendly",
         "Short-Term",
@@ -1953,6 +1959,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -2005,12 +2012,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2112,10 +2120,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "Golf",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2167,9 +2175,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2246,7 +2255,7 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 6,
+        "listingCount": 5,
         "avgPrice": 669000,
         "avgPriceDisplay": "$669,000",
         "medianPrice": 649000,
@@ -2271,11 +2280,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -2326,12 +2335,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2384,7 +2393,7 @@
       },
       "amenities": [
         "Clubhouse",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2435,7 +2444,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2461,8 +2470,8 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 3,
-        "avgPrice": 1513592,
-        "avgPriceDisplay": "$1,513,592",
+        "avgPrice": 1513333,
+        "avgPriceDisplay": "$1,513,333",
         "medianPrice": 1349000,
         "avgSqft": 3066,
         "avgPricePerSqFt": 494,
@@ -2486,12 +2495,13 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -2545,12 +2555,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -2651,9 +2661,9 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2755,10 +2765,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2813,12 +2824,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -2919,11 +2931,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -2974,10 +2987,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3029,11 +3042,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3084,10 +3097,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3138,11 +3151,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3350,11 +3363,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3363,7 +3376,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "407401",
+      "urlSlug": "/holiday-isle/holiday-surf-racquet-club/"
     },
     {
       "name": "Indian Bayou",
@@ -3609,9 +3624,9 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3812,12 +3827,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3872,9 +3887,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3978,10 +3993,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -4035,10 +4050,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4094,13 +4109,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -4168,7 +4183,7 @@
       "propertyType": "Homes",
       "position": {
         "lat": 30.39935,
-        "lng": -86.48427
+        "lng": -86.484534
       },
       "location": {
         "city": "Destin",
@@ -4177,13 +4192,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 419924,
-        "avgPriceDisplay": "$419,924",
+        "listingCount": 3,
+        "avgPrice": 463939,
+        "avgPriceDisplay": "$463,939",
         "medianPrice": 475000,
-        "avgSqft": 1782,
-        "avgPricePerSqFt": 236,
-        "avgDom": 93,
+        "avgSqft": 1848,
+        "avgPricePerSqFt": 251,
+        "avgDom": 74,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4252,6 +4267,7 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Golf",
@@ -4259,7 +4275,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -4313,12 +4328,12 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Golf",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -4369,6 +4384,7 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Golf",
@@ -4376,7 +4392,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -4527,7 +4542,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4626,8 +4641,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -4677,11 +4692,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4787,11 +4802,12 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -4891,9 +4907,10 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -4943,8 +4960,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5093,6 +5110,7 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
@@ -5101,7 +5119,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -5155,6 +5172,7 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
@@ -5163,7 +5181,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -5264,10 +5281,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -5369,10 +5386,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5426,10 +5443,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5492,7 +5509,7 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Poolside Villas Condos",
+      "name": "Poolside Villas",
       "area": "14 - Destin",
       "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
@@ -5533,15 +5550,17 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "4004649",
+      "urlSlug": "/holiday-isle/poolside-villas/"
     },
     {
       "name": "Quail Lake T/H",
@@ -5584,8 +5603,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -5634,9 +5653,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -5685,6 +5704,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Pet-Friendly",
         "Short-Term",
         "Waterfront"
@@ -5786,13 +5806,14 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -5845,11 +5866,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "Golf",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -5901,12 +5922,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -6012,10 +6033,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6071,12 +6093,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6178,8 +6201,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -6234,11 +6257,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6292,9 +6315,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6398,11 +6421,12 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -6455,8 +6479,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6511,9 +6535,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6569,6 +6593,7 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
@@ -6576,7 +6601,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -6631,10 +6655,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -6687,9 +6711,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6741,7 +6765,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6840,7 +6864,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6866,11 +6890,11 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 437588,
-        "avgPriceDisplay": "$437,588",
+        "avgPrice": 433325,
+        "avgPriceDisplay": "$433,325",
         "medianPrice": 420000,
         "avgSqft": 909,
-        "avgPricePerSqFt": 482,
+        "avgPricePerSqFt": 477,
         "avgDom": 188,
         "priceRange": "N/A",
         "minPrice": null,
@@ -6892,8 +6916,8 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "No Short-Term",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6945,9 +6969,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -7002,11 +7026,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -7059,19 +7083,22 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "407348",
+      "urlSlug": "/holiday-isle/sun-king/"
     },
     {
       "name": "Sundestin",
@@ -7116,9 +7143,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -7128,7 +7155,7 @@
       },
       "listingsUrlMap": "",
       "searchIdCondos": "3582588",
-      "urlSlug": "/sundestin/"
+      "urlSlug": "/destin/sundestin/"
     },
     {
       "name": "Sunsail",
@@ -7171,7 +7198,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -7223,7 +7250,7 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -7276,9 +7303,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -7356,7 +7383,7 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 46,
+        "listingCount": 45,
         "avgPrice": 367155,
         "avgPriceDisplay": "$367,155",
         "medianPrice": 349000,
@@ -7381,12 +7408,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -7491,6 +7518,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Dock",
         "Pet-Friendly",
         "Short-Term",
         "Waterfront"
@@ -7542,6 +7570,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "No Short-Term",
         "Waterfront"
       ],
@@ -7593,11 +7622,11 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -7610,13 +7639,13 @@
       "urlSlug": "/holiday-isle/tides-of-destin/"
     },
     {
-      "name": "The Ultimate",
+      "name": "The Ultimate Condo",
       "area": "14 - Destin",
       "subArea": "1401 - Destin Beach West",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.387154,
-        "lng": -86.506277
+        "lat": 30.387147,
+        "lng": -86.506274
       },
       "location": {
         "city": "Destin",
@@ -7625,13 +7654,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 1812500,
-        "avgPriceDisplay": "$1,812,500",
+        "listingCount": 3,
+        "avgPrice": 1891250,
+        "avgPriceDisplay": "$1,891,250",
         "medianPrice": 1900000,
-        "avgSqft": 2630,
-        "avgPricePerSqFt": 689,
-        "avgDom": 191,
+        "avgSqft": 2546,
+        "avgPricePerSqFt": 743,
+        "avgDom": 174,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -7652,11 +7681,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
-        "Pool",
+        "Pet-Friendly",
+        "Pickleball",
         "Tennis",
         "Waterfront"
       ],
@@ -7664,7 +7695,9 @@
         "hero": "",
         "samples": []
       },
-      "listingsUrlMap": ""
+      "listingsUrlMap": "",
+      "searchIdCondos": "397374",
+      "urlSlug": "/holiday-isle/ultimate-condo/"
     },
     {
       "name": "Tranquil Harbor",
@@ -7707,10 +7740,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Elevator",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -7809,10 +7843,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -7872,65 +7906,6 @@
       "listingsUrlMap": ""
     },
     {
-      "name": "Ultimate Condo The",
-      "area": "14 - Destin",
-      "subArea": "1401 - Destin Beach West",
-      "propertyType": "Condos",
-      "position": {
-        "lat": 30.387145,
-        "lng": -86.506274
-      },
-      "location": {
-        "city": "Destin",
-        "state": "FL",
-        "zipCode": "32541"
-      },
-      "zipCode": "32541",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 2395000,
-        "avgPriceDisplay": "$2,395,000",
-        "medianPrice": 2395000,
-        "avgSqft": 2660,
-        "avgPricePerSqFt": 900,
-        "avgDom": 113,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Beach Access",
-        "Clubhouse",
-        "Elevator",
-        "Fitness",
-        "Gated",
-        "No Short-Term",
-        "Pet-Friendly",
-        "Pickleball",
-        "Pool",
-        "Tennis",
-        "Waterfront"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": ""
-    },
-    {
       "name": "Villages Of Crystal Beach",
       "area": "14 - Destin",
       "subArea": "1404 - Destin Beach East",
@@ -7971,9 +7946,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {

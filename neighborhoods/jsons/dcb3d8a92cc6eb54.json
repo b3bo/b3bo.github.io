@@ -1,6 +1,6 @@
 {
   "area": "27 - Bay County",
-  "updated": "2025-12-12T13:46:24.368950",
+  "updated": "2025-12-12T17:57:59.337475",
   "neighborhoods": [
     {
       "name": "Aqua",
@@ -92,7 +92,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -143,8 +143,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -193,8 +193,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -245,8 +245,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -394,12 +394,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -450,9 +450,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -556,9 +556,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -612,11 +612,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -719,10 +720,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "No Short-Term",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -774,8 +775,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -927,9 +928,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -981,9 +982,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1035,7 +1036,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1087,7 +1088,7 @@
       },
       "amenities": [
         "Clubhouse",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1187,9 +1188,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -1338,8 +1339,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -1489,8 +1490,8 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -1543,10 +1544,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -1799,12 +1800,62 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Waterfront"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Lakeside Villas T/H",
+      "area": "27 - Bay County",
+      "subArea": "2720 - Beach - Middle Central",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.227633,
+        "lng": -85.881358
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 499500,
+        "avgPriceDisplay": "$499,500",
+        "medianPrice": 545000,
+        "avgSqft": 1664,
+        "avgPricePerSqFt": 300,
+        "avgDom": 304,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1854,12 +1905,12 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -1912,12 +1963,12 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -1969,7 +2020,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2019,8 +2070,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2072,8 +2124,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2090,8 +2142,8 @@
       "subArea": "2722 - Beach - North West",
       "propertyType": "T/H",
       "position": {
-        "lat": 30.267447,
-        "lng": -85.972847
+        "lat": 30.267398,
+        "lng": -85.973568
       },
       "location": {
         "city": "Panama City Beach",
@@ -2100,13 +2152,13 @@
       },
       "zipCode": "32413",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 471000,
-        "avgPriceDisplay": "$471,000",
-        "medianPrice": 525000,
-        "avgSqft": 1550,
-        "avgPricePerSqFt": 304,
-        "avgDom": 20,
+        "listingCount": 3,
+        "avgPrice": 475917,
+        "avgPriceDisplay": "$475,917",
+        "medianPrice": 485750,
+        "avgSqft": 1560,
+        "avgPricePerSqFt": 305,
+        "avgDom": 14,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2125,7 +2177,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "No Short-Term",
+        "Pet-Friendly",
         "Waterfront"
       ],
       "photos": {
@@ -2275,8 +2330,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2342,7 +2397,7 @@
       "propertyType": "Condos",
       "position": {
         "lat": 30.208657,
-        "lng": -85.862579
+        "lng": -85.862641
       },
       "location": {
         "city": "Panama City Beach",
@@ -2351,13 +2406,13 @@
       },
       "zipCode": "32413",
       "stats": {
-        "listingCount": 6,
-        "avgPrice": 369988,
-        "avgPriceDisplay": "$369,988",
-        "medianPrice": 329900,
-        "avgSqft": 936,
-        "avgPricePerSqFt": 395,
-        "avgDom": 67,
+        "listingCount": 7,
+        "avgPrice": 361656,
+        "avgPriceDisplay": "$361,656",
+        "medianPrice": 315000,
+        "avgSqft": 925,
+        "avgPricePerSqFt": 391,
+        "avgDom": 60,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2377,10 +2432,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2481,11 +2536,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2536,8 +2591,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -2587,11 +2642,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2643,8 +2699,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2653,57 +2710,6 @@
         "samples": []
       },
       "listingsUrlMap": ""
-    },
-    {
-      "name": "Poolside Villas T/H",
-      "area": "27 - Bay County",
-      "subArea": "2720 - Beach - Middle Central",
-      "propertyType": "T/H",
-      "position": {
-        "lat": 30.227633,
-        "lng": -85.881358
-      },
-      "location": {
-        "city": "Panama City Beach",
-        "state": "FL",
-        "zipCode": "32413"
-      },
-      "zipCode": "32413",
-      "stats": {
-        "listingCount": 2,
-        "avgPrice": 499500,
-        "avgPriceDisplay": "$499,500",
-        "medianPrice": 545000,
-        "avgSqft": 1664,
-        "avgPricePerSqFt": 300,
-        "avgDom": 304,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "N/A",
-        "bathsRange": "N/A",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": null,
-        "maxBeds": null,
-        "minBaths": null,
-        "maxBaths": null,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "searchIdHomes": "4004649",
-      "urlSlug": "/holiday-isle/poolside-villas/"
     },
     {
       "name": "Portside",
@@ -2747,9 +2753,9 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2801,7 +2807,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2852,12 +2858,13 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -2872,8 +2879,8 @@
       "subArea": "2724 - Beach - West Central",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.256834,
-        "lng": -85.952874
+        "lat": 30.257144,
+        "lng": -85.952879
       },
       "location": {
         "city": "Panama City Beach",
@@ -2882,13 +2889,13 @@
       },
       "zipCode": "32413",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 670520,
-        "avgPriceDisplay": "$670,520",
+        "listingCount": 9,
+        "avgPrice": 674809,
+        "avgPriceDisplay": "$674,809",
         "medianPrice": 615000,
-        "avgSqft": 1450,
-        "avgPricePerSqFt": 463,
-        "avgDom": 102,
+        "avgSqft": 1464,
+        "avgPricePerSqFt": 461,
+        "avgDom": 97,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2956,7 +2963,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3055,7 +3062,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3207,8 +3214,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3309,7 +3316,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3360,7 +3367,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3412,7 +3419,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3463,7 +3470,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3514,9 +3521,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3568,9 +3575,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -3621,7 +3628,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3722,9 +3729,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -3825,10 +3832,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3979,7 +3986,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4080,9 +4087,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -4134,7 +4141,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -4186,10 +4193,11 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "No Short-Term",
         "Pickleball",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -4338,8 +4346,58 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
+    },
+    {
+      "name": "Whisper Dunes T/H",
+      "area": "27 - Bay County",
+      "subArea": "2722 - Beach - North West",
+      "propertyType": "T/H",
+      "position": {
+        "lat": 30.253958,
+        "lng": -85.936757
+      },
+      "location": {
+        "city": "Panama City Beach",
+        "state": "FL",
+        "zipCode": "32413"
+      },
+      "zipCode": "32413",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 323033,
+        "avgPriceDisplay": "$323,033",
+        "medianPrice": 299000,
+        "avgSqft": 1673,
+        "avgPricePerSqFt": 193,
+        "avgDom": 77,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -4363,12 +4421,12 @@
       },
       "zipCode": "32413",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 1331476,
-        "avgPriceDisplay": "$1,331,476",
+        "listingCount": 6,
+        "avgPrice": 1330048,
+        "avgPriceDisplay": "$1,330,048",
         "medianPrice": 1229000,
         "avgSqft": 2793,
-        "avgPricePerSqFt": 477,
+        "avgPricePerSqFt": 476,
         "avgDom": 159,
         "priceRange": "N/A",
         "minPrice": null,
@@ -4389,12 +4447,13 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -4447,12 +4506,13 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -4502,11 +4562,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],

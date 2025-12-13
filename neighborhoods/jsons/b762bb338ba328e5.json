@@ -1,6 +1,6 @@
 {
   "area": "19 - Point Washington",
-  "updated": "2025-12-12T13:46:24.371172",
+  "updated": "2025-12-12T17:57:59.339377",
   "neighborhoods": [
     {
       "name": "Audubon Point",
@@ -43,8 +43,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -166,13 +166,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 1300333,
-        "avgPriceDisplay": "$1,300,333",
-        "medianPrice": 999000,
-        "avgSqft": 2275,
-        "avgPricePerSqFt": 572,
-        "avgDom": 78,
+        "listingCount": 8,
+        "avgPrice": 1296110,
+        "avgPriceDisplay": "$1,296,110",
+        "medianPrice": 1015000,
+        "avgSqft": 2248,
+        "avgPricePerSqFt": 577,
+        "avgDom": 75,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -439,8 +439,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -685,9 +685,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",

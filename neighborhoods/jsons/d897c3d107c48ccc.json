@@ -1,6 +1,6 @@
 {
   "area": "16 - North Santa Rosa Beach",
-  "updated": "2025-12-12T13:46:24.359608",
+  "updated": "2025-12-12T17:57:59.327955",
   "neighborhoods": [
     {
       "name": "30 North At Eden Park",
@@ -142,6 +142,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -290,9 +291,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -393,10 +395,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -496,9 +499,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -647,11 +651,11 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "No Short-Term",
         "Pet-Friendly",
-        "Playgrounds",
-        "Pool"
+        "Playgrounds"
       ],
       "photos": {
         "hero": "",
@@ -701,11 +705,11 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "No Short-Term",
         "Pet-Friendly",
-        "Playgrounds",
-        "Pool"
+        "Playgrounds"
       ],
       "photos": {
         "hero": "",
@@ -755,12 +759,13 @@
       },
       "amenities": [
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -788,11 +793,11 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 671332,
-        "avgPriceDisplay": "$671,332",
+        "avgPrice": 654998,
+        "avgPriceDisplay": "$654,998",
         "medianPrice": 630000,
         "avgSqft": 2262,
-        "avgPricePerSqFt": 297,
+        "avgPricePerSqFt": 290,
         "avgDom": 71,
         "priceRange": "N/A",
         "minPrice": null,
@@ -812,8 +817,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "No Short-Term",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -838,7 +844,7 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 20,
+        "listingCount": 19,
         "avgPrice": 1536603,
         "avgPriceDisplay": "$1,536,603",
         "medianPrice": 595000,
@@ -863,10 +869,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "No Short-Term",
         "Pet-Friendly",
-        "Playgrounds",
-        "Pool"
+        "Playgrounds"
       ],
       "photos": {
         "hero": "",
@@ -966,9 +972,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
-        "No Short-Term",
-        "Pool"
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1166,9 +1172,9 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -1266,6 +1272,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -1463,10 +1470,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -1566,7 +1573,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -1617,8 +1625,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1717,7 +1725,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2063,8 +2071,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2114,6 +2122,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "Gated",
         "No Short-Term",
         "Pickleball",
@@ -2167,8 +2176,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -2266,6 +2275,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "No Short-Term",
         "Waterfront"
       ],
@@ -2759,7 +2769,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2785,11 +2795,11 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 489900,
-        "avgPriceDisplay": "$489,900",
-        "medianPrice": 489900,
+        "avgPrice": 469900,
+        "avgPriceDisplay": "$469,900",
+        "medianPrice": 469900,
         "avgSqft": 2038,
-        "avgPricePerSqFt": 240,
+        "avgPricePerSqFt": 231,
         "avgDom": 54,
         "priceRange": "N/A",
         "minPrice": null,
@@ -2907,8 +2917,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -3108,7 +3118,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {

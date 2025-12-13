@@ -1,6 +1,6 @@
 {
   "area": "15 - Miramar/Sandestin Resort",
-  "updated": "2025-12-12T13:46:24.366172",
+  "updated": "2025-12-12T17:57:59.334803",
   "neighborhoods": [
     {
       "name": "Alerio",
@@ -44,9 +44,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -100,10 +100,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -130,11 +130,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 26,
-        "avgPrice": 583750,
-        "avgPriceDisplay": "$583,750",
+        "avgPrice": 582652,
+        "avgPriceDisplay": "$582,652",
         "medianPrice": 570000,
         "avgSqft": 1201,
-        "avgPricePerSqFt": 486,
+        "avgPricePerSqFt": 485,
         "avgDom": 146,
         "priceRange": "N/A",
         "minPrice": null,
@@ -156,13 +156,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -216,13 +216,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -277,6 +278,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Dock",
         "Gated",
         "Golf",
         "Short-Term",
@@ -294,7 +296,7 @@
       "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Homes",
       "position": {
-        "lat": 30.382907,
+        "lat": 30.380925,
         "lng": -86.389797
       },
       "location": {
@@ -304,13 +306,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 1,
-        "avgPrice": 1297000,
-        "avgPriceDisplay": "$1,297,000",
+        "listingCount": 2,
+        "avgPrice": 1315600,
+        "avgPriceDisplay": "$1,315,600",
         "medianPrice": 1049000,
-        "avgSqft": 2470,
-        "avgPricePerSqFt": 525,
-        "avgDom": 63,
+        "avgSqft": 2635,
+        "avgPricePerSqFt": 499,
+        "avgDom": 51,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -330,6 +332,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pickleball",
         "Short-Term",
         "Tennis"
@@ -383,6 +386,8 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -390,7 +395,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -444,7 +448,8 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
+        "Dock",
         "Short-Term",
         "Waterfront"
       ],
@@ -496,13 +501,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -604,9 +610,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
+        "Dock",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -658,13 +665,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "Golf",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -718,10 +726,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -774,6 +782,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -781,7 +791,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -860,8 +869,8 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 6,
-        "avgPrice": 646367,
-        "avgPriceDisplay": "$646,367",
+        "avgPrice": 645742,
+        "avgPriceDisplay": "$645,742",
         "medianPrice": 595000,
         "avgSqft": 1449,
         "avgPricePerSqFt": 446,
@@ -885,12 +894,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -918,11 +928,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 1804750,
-        "avgPriceDisplay": "$1,804,750",
-        "medianPrice": 1814500,
+        "avgPrice": 1799250,
+        "avgPriceDisplay": "$1,799,250",
+        "medianPrice": 1809500,
         "avgSqft": 3130,
-        "avgPricePerSqFt": 577,
+        "avgPricePerSqFt": 575,
         "avgDom": 92,
         "priceRange": "N/A",
         "minPrice": null,
@@ -991,7 +1001,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1041,8 +1051,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -1141,11 +1151,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -1197,6 +1208,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
@@ -1204,7 +1217,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -1257,12 +1269,12 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -1316,9 +1328,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -1372,9 +1384,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -1479,7 +1491,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1578,7 +1590,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1629,11 +1641,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -1688,13 +1701,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -1747,8 +1761,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -1799,6 +1813,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
@@ -1858,13 +1873,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -1890,13 +1906,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 17,
-        "avgPrice": 627004,
-        "avgPriceDisplay": "$627,004",
-        "medianPrice": 599999,
-        "avgSqft": 1125,
-        "avgPricePerSqFt": 557,
-        "avgDom": 182,
+        "listingCount": 16,
+        "avgPrice": 619088,
+        "avgPriceDisplay": "$619,088",
+        "medianPrice": 580900,
+        "avgSqft": 1105,
+        "avgPricePerSqFt": 560,
+        "avgDom": 184,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1917,10 +1933,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2071,12 +2087,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -2129,6 +2145,8 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -2136,7 +2154,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2190,11 +2207,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Tennis"
       ],
       "photos": {
@@ -2298,9 +2315,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -2352,8 +2369,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2406,8 +2423,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2422,7 +2439,7 @@
       "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
       "propertyType": "Condos",
       "position": {
-        "lat": 30.37789,
+        "lat": 30.377898,
         "lng": -86.380116
       },
       "location": {
@@ -2432,13 +2449,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 578233,
-        "avgPriceDisplay": "$578,233",
+        "listingCount": 4,
+        "avgPrice": 576150,
+        "avgPriceDisplay": "$576,150",
         "medianPrice": 574900,
-        "avgSqft": 1019,
-        "avgPricePerSqFt": 567,
-        "avgDom": 144,
+        "avgSqft": 1027,
+        "avgPricePerSqFt": 561,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2458,9 +2475,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2511,8 +2528,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2563,9 +2580,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -2616,6 +2633,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
@@ -2623,7 +2642,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2678,12 +2696,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2738,13 +2757,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -2848,11 +2868,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "No Short-Term",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -2904,6 +2925,7 @@
       },
       "amenities": [
         "Beach Access",
+        "Dock",
         "Gated",
         "No Short-Term",
         "Waterfront"
@@ -2931,11 +2953,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 22,
-        "avgPrice": 1723040,
-        "avgPriceDisplay": "$1,723,040",
+        "avgPrice": 1722123,
+        "avgPriceDisplay": "$1,722,123",
         "medianPrice": 1599900,
         "avgSqft": 3123,
-        "avgPricePerSqFt": 552,
+        "avgPricePerSqFt": 551,
         "avgDom": 141,
         "priceRange": "N/A",
         "minPrice": null,
@@ -2956,8 +2978,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3010,10 +3032,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -3065,6 +3087,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
@@ -3072,7 +3096,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -3125,10 +3148,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Golf",
         "No Short-Term",
-        "Pet-Friendly",
-        "Pool"
+        "Pet-Friendly"
       ],
       "photos": {
         "hero": "",
@@ -3181,13 +3204,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -3239,6 +3262,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
@@ -3246,7 +3271,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -3298,6 +3322,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -3305,7 +3331,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3360,11 +3385,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -3442,11 +3467,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 490000,
-        "avgPriceDisplay": "$490,000",
-        "medianPrice": 490000,
+        "avgPrice": 480000,
+        "avgPriceDisplay": "$480,000",
+        "medianPrice": 480000,
         "avgSqft": 1258,
-        "avgPricePerSqFt": 390,
+        "avgPricePerSqFt": 382,
         "avgDom": 21,
         "priceRange": "N/A",
         "minPrice": null,
@@ -3466,8 +3491,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3518,8 +3543,8 @@
       },
       "amenities": [
         "Beach Access",
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -3569,7 +3594,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -3620,13 +3645,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3679,13 +3705,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3740,12 +3767,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3799,13 +3826,13 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -3857,8 +3884,8 @@
         "maxDom": null
       },
       "amenities": [
-        "No Short-Term",
-        "Pool"
+        "Community Pool",
+        "No Short-Term"
       ],
       "photos": {
         "hero": "",
@@ -3907,7 +3934,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4057,13 +4084,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -4167,13 +4195,14 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4228,13 +4257,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4289,6 +4319,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
@@ -4296,7 +4328,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4350,9 +4381,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -4453,13 +4484,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4488,7 +4520,7 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 25,
+        "listingCount": 24,
         "avgPrice": 479034,
         "avgPriceDisplay": "$479,034",
         "medianPrice": 399000,
@@ -4514,6 +4546,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -4521,7 +4555,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4550,13 +4583,13 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 2,
+        "listingCount": 1,
         "avgPrice": 1030571,
         "avgPriceDisplay": "$1,030,571",
         "medianPrice": 1099000,
         "avgSqft": 1996,
         "avgPricePerSqFt": 516,
-        "avgDom": 88,
+        "avgDom": 80,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4576,13 +4609,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4636,11 +4670,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4696,11 +4730,11 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Golf",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -4803,10 +4837,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -4861,10 +4895,10 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -4918,9 +4952,9 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Fitness",
         "Gated",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -4972,13 +5006,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "Golf",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5082,8 +5117,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5133,7 +5168,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5183,7 +5218,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5235,6 +5270,8 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -5242,7 +5279,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5348,10 +5384,10 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Gated",
         "No Short-Term",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5402,6 +5438,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
@@ -5409,7 +5447,6 @@
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5464,12 +5501,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5522,13 +5560,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5583,13 +5622,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5641,7 +5681,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5666,9 +5706,9 @@
       },
       "zipCode": "32550",
       "stats": {
-        "listingCount": 14,
-        "avgPrice": 246745,
-        "avgPriceDisplay": "$246,745",
+        "listingCount": 13,
+        "avgPrice": 246654,
+        "avgPriceDisplay": "$246,654",
         "medianPrice": 250000,
         "avgSqft": 816,
         "avgPricePerSqFt": 302,
@@ -5691,8 +5731,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Fitness",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5743,13 +5783,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -5760,6 +5801,56 @@
       "listingsUrlMap": "",
       "searchIdHomes": "378471",
       "urlSlug": "/sandestin/prestwick-place/"
+    },
+    {
+      "name": "Retreat At Miramar",
+      "area": "15 - Miramar/Sandestin Resort",
+      "subArea": "1502 - Miramar Beach S. of 98 w/exception of Sandestin Resort",
+      "propertyType": "Homes",
+      "position": {
+        "lat": 30.383608,
+        "lng": -86.383224
+      },
+      "location": {
+        "city": "Miramar Beach",
+        "state": "FL",
+        "zipCode": "32550"
+      },
+      "zipCode": "32550",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1750000,
+        "avgPriceDisplay": "$1,750,000",
+        "medianPrice": 1950000,
+        "avgSqft": 3971,
+        "avgPricePerSqFt": 441,
+        "avgDom": 52,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "N/A",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": null,
+        "maxBaths": null,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": ""
     },
     {
       "name": "Saint Tropez",
@@ -5803,9 +5894,9 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -5858,10 +5949,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5914,10 +6006,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -5972,12 +6065,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6030,7 +6124,7 @@
       },
       "amenities": [
         "Clubhouse",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6081,7 +6175,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6181,11 +6275,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -6237,8 +6331,8 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6393,10 +6487,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -6547,8 +6642,8 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6598,7 +6693,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6673,11 +6768,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 1574950,
-        "avgPriceDisplay": "$1,574,950",
-        "medianPrice": 1750000,
+        "avgPrice": 1549950,
+        "avgPriceDisplay": "$1,549,950",
+        "medianPrice": 1699999,
         "avgSqft": 2568,
-        "avgPricePerSqFt": 613,
+        "avgPricePerSqFt": 604,
         "avgDom": 59,
         "priceRange": "N/A",
         "minPrice": null,
@@ -6746,7 +6841,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -6847,12 +6942,12 @@
       "amenities": [
         "Beach Access",
         "Clubhouse",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -6904,11 +6999,11 @@
         "maxDom": null
       },
       "amenities": [
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term"
       ],
       "photos": {
@@ -7012,10 +7107,10 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7068,11 +7163,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7127,11 +7223,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "No Short-Term",
         "Playgrounds",
-        "Pool",
         "Waterfront"
       ],
       "photos": {
@@ -7184,13 +7281,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -7242,11 +7339,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Fitness",
         "Gated",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Tennis"
       ],
@@ -7298,11 +7395,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Fitness",
         "Gated",
         "Pet-Friendly",
         "Pickleball",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7354,7 +7451,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -7453,6 +7550,7 @@
         "maxDom": null
       },
       "amenities": [
+        "Dock",
         "No Short-Term",
         "Playgrounds",
         "Tennis",
@@ -7506,11 +7604,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7563,12 +7662,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7623,12 +7723,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7683,10 +7784,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Gated",
         "Golf",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7739,13 +7841,14 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Fitness",
         "Gated",
         "Golf",
         "Pet-Friendly",
         "Pickleball",
         "Playgrounds",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7800,11 +7903,11 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
         "Elevator",
         "Gated",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Short-Term",
         "Waterfront"
       ],
@@ -7882,11 +7985,11 @@
       "zipCode": "32550",
       "stats": {
         "listingCount": 5,
-        "avgPrice": 1116124,
-        "avgPriceDisplay": "$1,116,124",
+        "avgPrice": 1109861,
+        "avgPriceDisplay": "$1,109,861",
         "medianPrice": 1198000,
         "avgSqft": 1037,
-        "avgPricePerSqFt": 1076,
+        "avgPricePerSqFt": 1070,
         "avgDom": 136,
         "priceRange": "N/A",
         "minPrice": null,
@@ -7907,11 +8010,12 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Fitness",
         "Gated",
         "Golf",
-        "Pool",
         "Short-Term",
         "Tennis",
         "Waterfront"
@@ -7966,12 +8070,13 @@
       },
       "amenities": [
         "Beach Access",
+        "Community Pool",
+        "Dock",
         "Elevator",
         "Gated",
         "Golf",
         "No Short-Term",
         "Pet-Friendly",
-        "Pool",
         "Tennis",
         "Waterfront"
       ],
@@ -8023,7 +8128,7 @@
       },
       "amenities": [
         "Beach Access",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
@@ -8074,7 +8179,7 @@
       },
       "amenities": [
         "Clubhouse",
-        "Pool",
+        "Community Pool",
         "Short-Term"
       ],
       "photos": {
