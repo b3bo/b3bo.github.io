@@ -13,7 +13,7 @@ export function formatPrice(price) {
     if (price >= 1000000) {
         return '$' + (price / 1000000).toFixed(2) + 'M';
     } else if (price >= 1000) {
-        return '$' + (price / 1000).toFixed(0) + 'k';
+        return '$' + (price / 1000).toFixed(0) + 'K';
     }
     return '$' + price.toLocaleString();
 }
