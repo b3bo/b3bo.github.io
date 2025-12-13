@@ -163,16 +163,13 @@ async function initMap() {
 
         // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
         if (urlParams.mode === 'single' && STATE.neighborhoods.length === 1) {
-            google.maps.event.addListenerOnce(STATE.map, 'projection_changed', () => {
-                // Force zoom to 13 if not explicitly provided, to ensure it takes effect
-                if (!urlParams.zoom) {
-                    STATE.map.setZoom(13);
-                }
-
-                const currentZoom = STATE.map.getZoom();
+            // Use 'idle' event for stable timing (fires after map fully renders)
+            google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
+                // Use the computed zoom value directly (more reliable than getZoom after setZoom)
+                const targetZoom = zoom;
                 // Use geometric calculation for precise centering (same as full mode)
-                const offsetPixels = computeOffsetPx(currentZoom);
-                const offsetTarget = offsetLatLng(center, offsetPixels, currentZoom);
+                const offsetPixels = computeOffsetPx(targetZoom);
+                const offsetTarget = offsetLatLng(center, offsetPixels, targetZoom);
                 STATE.map.setCenter(offsetTarget); // instant center change (no animation)
             });
 
