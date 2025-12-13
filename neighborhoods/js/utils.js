@@ -4,4 +4,105 @@
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  * @author John Bauman
  */
-import{CONFIG as e}from"./config.js";import{STATE as t}from"./state.js";export function formatPrice(e){return e?e>=1e6?"$"+(e/1e6).toFixed(2)+"M":e>=1e3?"$"+(e/1e3).toFixed(0)+"K":"$"+e.toLocaleString():"$0"}export function formatSliderPrice(e){return e>=1e6?"$"+(e/1e6).toFixed(e%1e6==0?0:1)+"M":e>=1e3?"$"+(e/1e3).toFixed(0)+"K":"$"+e}export function normalizeZip(e){if(!e)return null;const t=String(e).match(/\d{5}/);return t?t[0]:null}export function getThemeColor(e){return getComputedStyle(document.documentElement).getPropertyValue(e).trim()}export function getUrlParams(){const e=new URLSearchParams(window.location.search);return{neighborhood:e.get("neighborhood"),mode:e.get("mode")?e.get("mode").trim():null,zoom:e.get("zoom")?parseInt(e.get("zoom")):null,lat:e.get("lat")?parseFloat(e.get("lat")):null,lng:e.get("lng")?parseFloat(e.get("lng")):null,autoOpen:"true"===e.get("autoOpen"),autopan:"true"===e.get("autopan"),offsetPx:null!==e.get("offsetPx")?parseFloat(e.get("offsetPx")):null,offsetPct:null!==e.get("offsetPct")?parseFloat(e.get("offsetPct")):null,marker:e.get("marker"),propertyType:e.get("propertyType")}}export function toSlug(e){return e.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}export function parseRange(e){if(!e)return null;const t=e.replace(/[$,\s]/g,"").split("-");return 2===t.length?{min:parseInt(t[0]),max:parseInt(t[1])}:null}export function debounce(e,t){let o;return function(...n){clearTimeout(o),o=setTimeout(()=>e.apply(this,n),t)}}export function clamp(e,t,o){return Math.min(o,Math.max(t,e))}export function updateUrlParams(e){const t=new URLSearchParams(window.location.search);for(const o in e)e[o]&&e[o].length>0?t.set(o,e[o].join(",")):t.delete(o);return`${window.location.pathname}?${t.toString()}`}
+import { CONFIG } from './config.js';
+import { STATE } from './state.js';
+
+// Helper to format price (e.g. $1.25M)
+export function formatPrice(price) {
+    if (!price) return '$0';
+    if (price >= 1000000) {
+        return '$' + (price / 1000000).toFixed(2) + 'M';
+    } else if (price >= 1000) {
+        return '$' + (price / 1000).toFixed(0) + 'K';
+    }
+    return '$' + price.toLocaleString();
+}
+
+// Helper to format price for slider (e.g. $1.2M or $500K)
+export function formatSliderPrice(price) {
+    if (price >= 1000000) {
+        return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
+    } else if (price >= 1000) {
+        return '$' + (price / 1000).toFixed(0) + 'K';
+    }
+    return '$' + price;
+}
+
+// Zip code boundary management
+export function normalizeZip(value) {
+    if (!value) return null;
+    const digitsMatch = String(value).match(/\d{5}/);
+    return digitsMatch ? digitsMatch[0] : null;
+}
+
+// Helper to get CSS variable value
+export function getThemeColor(variable) {
+    return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+}
+
+// Parse URL parameters
+export function getUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        neighborhood: params.get('neighborhood'), // Slug of specific neighborhood
+        mode: params.get('mode') ? params.get('mode').trim() : null, // 'single' = hide drawer, single neighborhood view
+        zoom: params.get('zoom') ? parseInt(params.get('zoom')) : null,
+        lat: params.get('lat') ? parseFloat(params.get('lat')) : null,
+        lng: params.get('lng') ? parseFloat(params.get('lng')) : null,
+        autoOpen: params.get('autoOpen') === 'true',
+        autopan: params.get('autopan') === 'true',
+        offsetPx: params.get('offsetPx') !== null ? parseFloat(params.get('offsetPx')) : null,
+        offsetPct: params.get('offsetPct') !== null ? parseFloat(params.get('offsetPct')) : null,
+        marker: params.get('marker'), // Marker to auto-open
+        propertyType: params.get('propertyType') // Property type filter for marker
+    };
+}
+
+// Convert neighborhood name to slug
+export function toSlug(name) {
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+// Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6"
+export function parseRange(rangeStr) {
+    if (!rangeStr) return null;
+    // Remove '$', ',', and whitespace
+    const cleanStr = rangeStr.replace(/[$,\s]/g, '');
+    const parts = cleanStr.split('-');
+    if (parts.length === 2) {
+        return {
+            min: parseInt(parts[0]),
+            max: parseInt(parts[1])
+        };
+    }
+    return null;
+}
+
+// Debounce helper for performance
+export function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+export function clamp(val, min, max) {
+    return Math.min(max, Math.max(min, val));
+}
+
+// URL parameter management
+export function updateUrlParams(newParams) {
+    const params = new URLSearchParams(window.location.search);
+
+    // Update or add new parameters
+    for (const key in newParams) {
+        if (newParams[key] && newParams[key].length > 0) {
+            params.set(key, newParams[key].join(','));
+        } else {
+            params.delete(key);
+        }
+    }
+
+    return `${window.location.pathname}?${params.toString()}`;
+}
