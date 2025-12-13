@@ -125,10 +125,13 @@ async function initMap() {
             document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
         }
 
-        // Hide disclaimer only if in iframe (regardless of single/full mode)
+        // Hide disclaimer and expand map when in iframe (regardless of single/full mode)
         if (isInIframe) {
             const disclaimer = document.getElementById('map-disclaimer');
             if (disclaimer) disclaimer.style.display = 'none';
+            // Expand map to full height (remove 40px reserved for disclaimer)
+            const mapLayout = document.getElementById('map-layout');
+            if (mapLayout) mapLayout.style.height = '100dvh';
         }
         
         // Determine center and zoom
