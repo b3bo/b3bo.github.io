@@ -46,6 +46,15 @@ export function renderListItems(neighborhoodsToRender) {
             card.addEventListener('click', () => {
                 if (!marker) return;
 
+                // Track neighborhood card click
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'select_neighborhood', {
+                        neighborhood_name: neighborhood.name,
+                        listing_count: neighborhood.stats.listingCount,
+                        price: formattedPrice
+                    });
+                }
+
                 // Close current info window
                 if (STATE.infoWindow && STATE.infoWindow.getMap()) {
                     STATE.infoWindow.close();

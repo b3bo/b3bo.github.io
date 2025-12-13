@@ -206,6 +206,14 @@ export function setupFilters() {
     document.querySelectorAll('#areaFilters .amenity-tag').forEach(tag => {
         tag.addEventListener('click', function() {
             this.classList.toggle('selected');
+            const zipCode = this.getAttribute('data-zipcode');
+            const isSelected = this.classList.contains('selected');
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'filter_area', {
+                    area: zipCode,
+                    action: isSelected ? 'selected' : 'deselected'
+                });
+            }
             applyFilters();
         });
     });
@@ -214,6 +222,14 @@ export function setupFilters() {
     document.querySelectorAll('#subareaFilters .amenity-tag').forEach(tag => {
         tag.addEventListener('click', function() {
             this.classList.toggle('selected');
+            const subarea = this.getAttribute('data-subarea');
+            const isSelected = this.classList.contains('selected');
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'filter_subarea', {
+                    subarea: subarea,
+                    action: isSelected ? 'selected' : 'deselected'
+                });
+            }
             applyFilters();
         });
     });
@@ -253,14 +269,33 @@ export function setupFilters() {
                     
                     if (this.classList.contains('selected')) {
                         this.classList.remove('selected');
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_amenity', {
+                                amenity: amenity,
+                                action: 'deselected'
+                            });
+                        }
                     } else {
                         if (otherButton) {
                             otherButton.classList.remove('selected');
                         }
                         this.classList.add('selected');
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_amenity', {
+                                amenity: amenity,
+                                action: 'selected'
+                            });
+                        }
                     }
                 } else {
                     this.classList.toggle('selected');
+                    const isSelected = this.classList.contains('selected');
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'filter_amenity', {
+                            amenity: amenity,
+                            action: isSelected ? 'selected' : 'deselected'
+                        });
+                    }
                 }
                 applyFilters();
             });
