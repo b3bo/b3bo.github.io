@@ -65,7 +65,7 @@ export const CONFIG = {
         ],
 
         // Path to geojson boundary files (zip code boundaries)
-        geojsonPath: './assets/jsons/'
+        geojsonPath: './neighborhoods/jsons/'
     },
 
     // ===================================================================
