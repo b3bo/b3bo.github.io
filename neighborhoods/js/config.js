@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.57',
+    version: '1.0.58',
 
     // ===================================================================
     // MAP SETTINGS
@@ -65,7 +65,7 @@ export const CONFIG = {
         ],
 
         // Path to geojson boundary files (zip code boundaries)
-        geojsonPath: './neighborhoods/jsons/'
+        geojsonPath: './assets/jsons/'
     },
 
     // ===================================================================

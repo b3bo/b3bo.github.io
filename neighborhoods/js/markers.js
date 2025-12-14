@@ -216,57 +216,57 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     let listingsUrlMap = neighborhood.listingsUrlMap || neighborhood.listingsUrl || neighborhood.marketReportUrl; // Map View (backwards compatible)
     let listingsUrlList = neighborhood.listingsUrlList; // List View URL
     let searchId = null;
-    
-    if (!listingsUrlMap) {
-        // Determine which searchId to use based on property type
-        const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
-        
-        if (propertyType.includes('townhome')) {
-            // Townhomes
-            searchId = neighborhood.searchIdTownhomes !== undefined && neighborhood.searchIdTownhomes !== '' 
-                ? neighborhood.searchIdTownhomes 
-                : (neighborhood.searchId || null);
-        } else if (propertyType.includes('condo')) {
-            // Condos only
-            searchId = neighborhood.searchIdCondos !== undefined && neighborhood.searchIdCondos !== '' 
-                ? neighborhood.searchIdCondos 
-                : (neighborhood.searchId || null);
-        } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
-            searchId = neighborhood.searchIdLots !== undefined && neighborhood.searchIdLots !== '' 
-                ? neighborhood.searchIdLots 
-                : (neighborhood.searchId || null);
-        } else {
-            // Default to homes
-            searchId = neighborhood.searchIdHomes !== undefined && neighborhood.searchIdHomes !== '' 
-                ? neighborhood.searchIdHomes 
-                : (neighborhood.searchId || null);
-        }
-        
-        // Construct URLs if we have a valid searchId (not null, not empty string)
-        if (searchId) {
-            // Get current filter values (safe check for STATE.filters)
-            const bedsMin = (STATE.filters && STATE.filters.bedsMin) || 1;
-            const bathsMin = (STATE.filters && STATE.filters.bathsMin) || 1;
-            const priceMin = STATE.filters && STATE.filters.priceMin;
-            const priceMax = STATE.filters && STATE.filters.priceMax;
-            
-            // Build URL slugs
-            const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
-            const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-            // Always include lprice (default 250000), but only include uprice if it's been set and is not at max
-            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
-            const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
-            
-            // Combine all slugs and add # prefix
-            const allSlugs = bedsSlug + bathsSlug + priceMinSlug + priceMaxSlug;
-            const slugPart = `#${allSlugs}`;
-            
-            // Map View (searchtype=3)
+
+    // Determine which searchId to use based on property type
+    const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
+
+    if (propertyType.includes('townhome')) {
+        // Townhomes
+        searchId = neighborhood.searchIdTownhomes !== undefined && neighborhood.searchIdTownhomes !== ''
+            ? neighborhood.searchIdTownhomes
+            : (neighborhood.searchId || null);
+    } else if (propertyType.includes('condo')) {
+        // Condos only
+        searchId = neighborhood.searchIdCondos !== undefined && neighborhood.searchIdCondos !== ''
+            ? neighborhood.searchIdCondos
+            : (neighborhood.searchId || null);
+    } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+        searchId = neighborhood.searchIdLots !== undefined && neighborhood.searchIdLots !== ''
+            ? neighborhood.searchIdLots
+            : (neighborhood.searchId || null);
+    } else {
+        // Default to homes
+        searchId = neighborhood.searchIdHomes !== undefined && neighborhood.searchIdHomes !== ''
+            ? neighborhood.searchIdHomes
+            : (neighborhood.searchId || null);
+    }
+
+    // Construct URLs if we have a valid searchId (not null, not empty string)
+    if (searchId) {
+        // Get current filter values (safe check for STATE.filters)
+        const bedsMin = (STATE.filters && STATE.filters.bedsMin) || 1;
+        const bathsMin = (STATE.filters && STATE.filters.bathsMin) || 1;
+        const priceMin = STATE.filters && STATE.filters.priceMin;
+        const priceMax = STATE.filters && STATE.filters.priceMax;
+
+        // Build URL slugs
+        const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
+        const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
+        // Always include lprice (default 250000), but only include uprice if it's been set and is not at max
+        const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
+        const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
+
+        // Combine all slugs and add # prefix
+        const allSlugs = bedsSlug + bathsSlug + priceMinSlug + priceMaxSlug;
+        const slugPart = `#${allSlugs}`;
+
+        // Map View (searchtype=3) - only construct if not already set from legacy data
+        if (!listingsUrlMap) {
             listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
-            // List View (searchtype=2) - only create if we don't have a custom listingsUrlList
-            if (!listingsUrlList) {
-                listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${slugPart}`;
-            }
+        }
+        // List View (searchtype=2) - always construct for mobile use
+        if (!listingsUrlList) {
+            listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${slugPart}`;
         }
     }
     
@@ -357,8 +357,11 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             `;
                         } else {
                             // Normal mode: Link to listings
+                            // Mobile (<768px): List View (searchtype=2), Tablet/Desktop: Map View (searchtype=3)
+                            const isMobile = window.innerWidth < 768;
+                            const listingsUrl = isMobile ? listingsUrlList : listingsUrlMap;
                             return `
-                            <a href="${listingsUrlMap}"
+                            <a href="${listingsUrl}"
                                target="_blank"
                                class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
                                onclick="event.stopPropagation(); if(typeof gtag !== 'undefined') gtag('event', 'view_listings', {neighborhood_name: '${neighborhood.name}', listing_count: ${neighborhood.stats.listingCount}, property_type: '${neighborhood.propertyType}'});"
