@@ -335,6 +335,15 @@ export function setupSearch() {
         }
     });
 
+    // iOS viewport reset on blur - fixes zoom drift issue
+    searchInput.addEventListener('blur', () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollLeft = 0;
+            document.body.scrollLeft = 0;
+        }, 100);
+    });
+
     // Result click handling (delegated)
     searchResults.addEventListener('click', (e) => {
         const resultBtn = e.target.closest('.search-result');
