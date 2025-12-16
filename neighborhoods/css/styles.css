@@ -8,6 +8,24 @@
 /* Tailwind base, components, utilities */
 @import "tailwindcss";
 
+/* Apply fonts globally */
+@layer base {
+  body {
+    font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  /* Prevent iOS zoom on input focus without changing font size */
+  input, textarea, select {
+    font-size: 16px;
+    /* Prevent iOS from zooming when focused */
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
 @theme {
   /* ===================================================================
      AGENT REBRAND SECTION START
@@ -104,7 +122,8 @@
   /* === TYPOGRAPHY === */
 
   /* Font Families */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
 
   /* Font Weights */
   --font-weight-normal: 400;
