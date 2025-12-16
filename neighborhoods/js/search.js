@@ -243,16 +243,14 @@ function toggleDropdown() {
 function positionDropdown() {
     if (!searchDropdown || !searchButton) return;
 
-    const sortBtn = document.getElementById('sort-button');
     const searchRect = searchButton.getBoundingClientRect();
-    const sortRect = sortBtn ? sortBtn.getBoundingClientRect() : searchRect;
     const offsetY = 8;
     const viewportPadding = 20;
     const dropdownWidth = 280;
 
-    // Center on sort button
-    const sortCenter = sortRect.left + (sortRect.width / 2);
-    let left = sortCenter - (dropdownWidth / 2);
+    // Center on search button
+    const searchCenter = searchRect.left + (searchRect.width / 2);
+    let left = searchCenter - (dropdownWidth / 2);
 
     // Viewport constraints
     const viewportWidth = window.innerWidth;

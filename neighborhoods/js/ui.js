@@ -149,6 +149,39 @@ export function navigateNeighborhood(direction) {
     }
 }
 
+/**
+ * Position the sort menu below the button (portal style)
+ */
+function positionSortMenu() {
+    const sortButton = document.getElementById('sort-button');
+    const sortMenu = document.getElementById('sort-menu');
+    if (!sortMenu || !sortButton) return;
+
+    const sortRect = sortButton.getBoundingClientRect();
+    const offsetY = 8;
+    const viewportPadding = 20;
+    const dropdownWidth = 280;
+
+    // Center on sort button
+    const sortCenter = sortRect.left + (sortRect.width / 2);
+    let left = sortCenter - (dropdownWidth / 2);
+
+    // Viewport constraints
+    const viewportWidth = window.innerWidth;
+    if (left + dropdownWidth > viewportWidth - viewportPadding) {
+        left = viewportWidth - dropdownWidth - viewportPadding;
+    }
+    if (left < viewportPadding) {
+        left = viewportPadding;
+    }
+
+    sortMenu.style.position = 'fixed';
+    sortMenu.style.top = (sortRect.bottom + offsetY) + 'px';
+    sortMenu.style.left = left + 'px';
+    sortMenu.style.width = dropdownWidth + 'px';
+    sortMenu.style.zIndex = '2147483647';
+}
+
 function setupSortDropdown() {
     const sortButton = document.getElementById('sort-button');
     const sortMenu = document.getElementById('sort-menu');
@@ -160,6 +193,9 @@ function setupSortDropdown() {
 
     console.log('Setting up sort dropdown');
 
+    // Portal the sort menu to body for proper z-index handling
+    document.body.appendChild(sortMenu);
+
     // Generate sort options dynamically
     // This generates the sort options padding.
     // Render sort options as content-driven rows.
@@ -168,7 +204,7 @@ function setupSortDropdown() {
     sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
         const isActive = STATE.currentSort === option.id;
         return `
-            <button class="sort-option w-full flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-brand-100 dark:hover:bg-brand-dark/20 rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark ${isActive ? 'active bg-brand-200 dark:bg-brand-dark/30 text-brand-700 dark:text-brand-dark font-medium' : 'text-neutral-600 font-normal'}" data-sort-id="${option.id}" type="button">
+            <button class="sort-option w-full flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-brand-100 dark:hover:bg-brand-dark/20 rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark ${isActive ? 'active bg-brand-200 dark:bg-brand-dark/30 text-brand-700 dark:text-brand-dark font-medium' : 'text-neutral-800 dark:text-dark-text-primary font-normal'}" data-sort-id="${option.id}" type="button">
                 <span class="truncate">${option.label}</span>
                 ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
             </button>
@@ -181,6 +217,9 @@ function setupSortDropdown() {
         const searchDropdown = document.getElementById('search-dropdown');
         if (searchDropdown) searchDropdown.classList.add('hidden');
         sortMenu.classList.toggle('hidden');
+        if (!sortMenu.classList.contains('hidden')) {
+            positionSortMenu();
+        }
     });
 
     // Close dropdown when clicking outside
@@ -214,7 +253,8 @@ function setupSortDropdown() {
                 opt.classList.toggle('text-brand-700', isActive);
                 opt.classList.toggle('dark:text-brand-dark', isActive);
                 opt.classList.toggle('font-medium', isActive);
-                opt.classList.toggle('text-neutral-600', !isActive);
+                opt.classList.toggle('text-neutral-800', !isActive);
+                opt.classList.toggle('dark:text-dark-text-primary', !isActive);
                 opt.classList.toggle('font-normal', !isActive);
 
                 // Add/remove checkmark
@@ -233,6 +273,21 @@ function setupSortDropdown() {
             applySortOnly();
         }
     });
+
+    // Reposition on resize/scroll
+    ['resize', 'orientationchange'].forEach(evt => {
+        window.addEventListener(evt, () => {
+            if (!sortMenu.classList.contains('hidden')) {
+                positionSortMenu();
+            }
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        if (!sortMenu.classList.contains('hidden')) {
+            positionSortMenu();
+        }
+    }, true);
 }
 
 export function setupUI() {
