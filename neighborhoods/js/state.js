@@ -14,7 +14,8 @@ export const STATE = {
     activeMarker: null,
     customBoundaries: new Set(),
     currentRenderCount: 0,
-    currentSort: 'name-asc',
+    currentSort: 'listings-desc',
+    searchQuery: '',  // Current search filter for neighborhood names
     filters: {
         bedsMin: 1,
         bathsMin: 1,

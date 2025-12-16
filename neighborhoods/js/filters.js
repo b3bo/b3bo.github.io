@@ -22,6 +22,15 @@ function debounce(func, wait) {
 
 const debouncedApplyFilters = debounce(() => applyFilters(), 100);
 
+// Update results count display
+function updateResultsCount(count) {
+    const el = document.getElementById('resultsCount');
+    if (!el) return;
+    el.textContent = count === 0
+        ? 'No matches found.'
+        : `${count} ${count === 1 ? 'match' : 'matches'} found`;
+}
+
 // Apply sorting to neighborhoods array
 export function applySorting(neighborhoods, sortId) {
     const sortOption = CONFIG.ui.sortOptions.find(opt => opt.id === sortId);
@@ -81,10 +90,7 @@ export function applySortOnly() {
     }
 
     // Update results count
-    const resultsCount = document.getElementById('resultsCount');
-    if (resultsCount) {
-        resultsCount.textContent = `${STATE.allFilteredNeighborhoods.length} ${STATE.allFilteredNeighborhoods.length === 1 ? 'match' : 'matches'} found!`;
-    }
+    updateResultsCount(STATE.allFilteredNeighborhoods.length);
 }
 
 // Track previous areas/subareas to detect changes
@@ -402,6 +408,11 @@ export function applyFilters() {
     const isCondosActive = condosBtn ? condosBtn.classList.contains('active') : false;
 
     const filteredNeighborhoods = STATE.neighborhoods.filter(neighborhood => {
+        // Name/Search Filter
+        const matchesSearch = !STATE.searchQuery ||
+            neighborhood.name.toLowerCase().includes(STATE.searchQuery.toLowerCase());
+        if (!matchesSearch) return false;
+
         // Property Type Filter: support multi-select
         // - none active => show all
         // - homes active only => match Homes/Townhomes
@@ -539,11 +550,7 @@ export function applyFilters() {
     const listContainer = document.getElementById('neighborhoodList');
     if (listContainer) listContainer.innerHTML = '';
 
-    // Show all neighborhoods initially
-    if (sortedNeighborhoods.length === 0) {
-        // No results found - show message
-        document.getElementById('resultsCount').textContent = 'No communities found matching your criteria.';
-    } else {
+    if (sortedNeighborhoods.length > 0) {
         // Update URL with new filters
         const newUrl = updateUrlParams({ areas: Array.from(selectedAreas), amenities: Array.from(selectedAmenities) });
         history.replaceState(null, '', newUrl);
@@ -557,10 +564,7 @@ export function applyFilters() {
     }
 
     // Update results count
-    const resultsCount = document.getElementById('resultsCount');
-    if (resultsCount) {
-        resultsCount.textContent = `${STATE.allFilteredNeighborhoods.length} ${STATE.allFilteredNeighborhoods.length === 1 ? 'community' : 'communities'} found!`;
-    }
+    updateResultsCount(STATE.allFilteredNeighborhoods.length);
 
     // Auto-pan when areas or subareas are updated
     const areasChanged = selectedAreas.size !== previousSelectedAreas.size ||

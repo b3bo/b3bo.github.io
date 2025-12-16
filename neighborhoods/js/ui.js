@@ -9,6 +9,7 @@ import { CONFIG } from './config.js';
 import { formatPrice } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
 import { applySortOnly } from './filters.js';
+import { setupSearch } from './search.js';
 
 export function renderListItems(neighborhoodsToRender) {
     const listContainer = document.getElementById('neighborhoodList');
@@ -175,14 +176,12 @@ function setupSortDropdown() {
     }).join('');
 
     // Toggle dropdown on button click
-    // If we moved the menu to a portal and a separate handler is controlling toggling,
-    // don't add a duplicate toggle handler here (prevents double-toggle).
-    if (!sortMenu.dataset || sortMenu.dataset.portal !== 'true') {
-        sortButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            sortMenu.classList.toggle('hidden');
-        });
-    }
+    sortButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const searchDropdown = document.getElementById('search-dropdown');
+        if (searchDropdown) searchDropdown.classList.add('hidden');
+        sortMenu.classList.toggle('hidden');
+    });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
@@ -239,6 +238,9 @@ function setupSortDropdown() {
 export function setupUI() {
     // Setup sort dropdown
     setupSortDropdown();
+
+    // Setup search functionality
+    setupSearch();
 
     // (no filter button - sort button is used to toggle the dropdown)
 
