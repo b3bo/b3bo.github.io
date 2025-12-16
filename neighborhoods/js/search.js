@@ -203,6 +203,8 @@ function openDropdown() {
     if (searchInput) {
         searchInput.value = STATE.searchQuery || '';
         searchInput.focus();
+        // Reposition after focus - iOS viewport shift can move the button
+        setTimeout(() => positionDropdown(), 50);
         // Render results if there's an existing query, otherwise show popular
         if (STATE.searchQuery) {
             renderResults(filterByName(STATE.searchQuery));
