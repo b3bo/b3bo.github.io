@@ -253,10 +253,8 @@ function positionDropdown() {
     const viewportLeft = vv ? vv.offsetLeft : 0;
     const viewportTop = vv ? vv.offsetTop : 0;
 
-    // Make width responsive to the button and viewport so it stays compact on phones
-    const maxWidth = Math.min(320, viewportWidth - 2 * viewportPadding);
-    const minWidth = 220;
-    const dropdownWidth = Math.max(minWidth, Math.min(maxWidth, searchRect.width + 80));
+    // Match sort menu width for consistency (max 80vw of viewport)
+    const dropdownWidth = Math.min(0.8 * viewportWidth, viewportWidth - 2 * viewportPadding);
 
     // Center on search button
     const searchCenter = viewportLeft + searchRect.left + (searchRect.width / 2);
