@@ -44,11 +44,10 @@ export const ThemeManager = {
       return; // Exit early, no need to check localStorage or system preference
     }
 
-    // Normal mode: Check localStorage first, then system preference
+    // Normal mode: Check localStorage first, then default to light
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    
+    const theme = savedTheme || 'light';
 
     // Disable transitions on initial load to prevent flashing
     document.documentElement.classList.add('no-transitions');

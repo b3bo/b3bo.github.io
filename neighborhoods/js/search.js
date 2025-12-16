@@ -253,10 +253,8 @@ function positionDropdown() {
     const viewportLeft = vv ? vv.offsetLeft : 0;
     const viewportTop = vv ? vv.offsetTop : 0;
 
-    // Match sort menu width for consistency (max 80vw of viewport)
-    const dropdownWidth = Math.min(0.8 * viewportWidth, viewportWidth - 2 * viewportPadding);
-
-    // Center on search button
+    // Center on search button (use 280px for centering to match sort menu)
+    const dropdownWidth = 280;
     const searchCenter = viewportLeft + searchRect.left + (searchRect.width / 2);
     let left = searchCenter - (dropdownWidth / 2);
 
@@ -271,8 +269,6 @@ function positionDropdown() {
     searchDropdown.style.position = 'fixed';
     searchDropdown.style.top = (viewportTop + searchRect.bottom + offsetY) + 'px';
     searchDropdown.style.left = left + 'px';
-    searchDropdown.style.width = dropdownWidth + 'px';
-    searchDropdown.style.maxWidth = (viewportWidth - 2 * viewportPadding) + 'px';
     searchDropdown.style.zIndex = '2147483647';
 }
 
