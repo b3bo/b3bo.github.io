@@ -439,3 +439,49 @@ hr.divider {
   border-color: var(--color-brand-dark);
   color: white;
 }
+/* ========================================================================
+   LAZY LOADING - Image Performance
+   ======================================================================== */
+
+/**
+ * Native lazy loading with blur-up placeholder effect
+ * Usage:
+ *   <img data-src="image.jpg" src="blur-placeholder.jpg" class="lazy-image" alt="...">
+ */
+
+/* Base lazy image styles */
+img[data-src],
+img.lazy-image {
+  /* Prevent layout shift while loading */
+  background-color: var(--color-neutral-100);
+}
+
+.dark img[data-src],
+.dark img.lazy-image {
+  background-color: var(--color-dark-bg-elevated);
+}
+
+/* Blur placeholder effect (while loading) */
+img[data-src]:not(.loaded) {
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+/* Smooth transition when image loads */
+img.lazy-image,
+img.lazy-loaded {
+  transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Full-res image loaded */
+img.lazy-loaded,
+img[data-src].loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* Fallback: Apply blur-up to images with placeholders */
+.blur-up-container img {
+  background-size: cover;
+  background-position: center;
+}
