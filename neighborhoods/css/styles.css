@@ -5,6 +5,9 @@
  * Last Updated: December 3, 2025
  */
 
+/* Tailwind base, components, utilities */
+@import "tailwindcss";
+
 @theme {
   /* ===================================================================
      AGENT REBRAND SECTION START
@@ -331,9 +334,6 @@ hr.divider {
 @source "../../../index.html";
 @source "../../../assets/js/*.js";
 
-
-/* Tailwind base, components, utilities */
-@import "tailwindcss";
 
 /* Configure dark mode to use class strategy instead of prefers-color-scheme */
 @variant dark (.dark &);
