@@ -244,15 +244,19 @@ function positionDropdown() {
     if (!searchDropdown || !searchButton) return;
 
     const searchRect = searchButton.getBoundingClientRect();
-    const offsetY = 8;
-    const viewportPadding = 20;
-    const dropdownWidth = 280;
+    const offsetY = 10;
+    const viewportPadding = 12;
 
     // Account for iOS visual viewport shifts (keyboard/zoom) so the dropdown stays centered
     const vv = window.visualViewport;
     const viewportWidth = vv ? vv.width : window.innerWidth;
     const viewportLeft = vv ? vv.offsetLeft : 0;
     const viewportTop = vv ? vv.offsetTop : 0;
+
+    // Make width responsive to the button and viewport so it stays compact on phones
+    const maxWidth = Math.min(320, viewportWidth - 2 * viewportPadding);
+    const minWidth = 220;
+    const dropdownWidth = Math.max(minWidth, Math.min(maxWidth, searchRect.width + 80));
 
     // Center on search button
     const searchCenter = viewportLeft + searchRect.left + (searchRect.width / 2);
@@ -270,6 +274,7 @@ function positionDropdown() {
     searchDropdown.style.top = (viewportTop + searchRect.bottom + offsetY) + 'px';
     searchDropdown.style.left = left + 'px';
     searchDropdown.style.width = dropdownWidth + 'px';
+    searchDropdown.style.maxWidth = (viewportWidth - 2 * viewportPadding) + 'px';
     searchDropdown.style.zIndex = '2147483647';
 }
 
