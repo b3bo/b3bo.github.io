@@ -203,8 +203,6 @@ function openDropdown() {
     if (searchInput) {
         searchInput.value = STATE.searchQuery || '';
         searchInput.focus();
-        // Reposition after focus - iOS viewport shift can move the button
-        setTimeout(() => positionDropdown(), 50);
         // Render results if there's an existing query, otherwise show popular
         if (STATE.searchQuery) {
             renderResults(filterByName(STATE.searchQuery));
@@ -250,21 +248,26 @@ function positionDropdown() {
     const viewportPadding = 20;
     const dropdownWidth = 280;
 
+    // Account for iOS visual viewport shifts (keyboard/zoom) so the dropdown stays centered
+    const vv = window.visualViewport;
+    const viewportWidth = vv ? vv.width : window.innerWidth;
+    const viewportLeft = vv ? vv.offsetLeft : 0;
+    const viewportTop = vv ? vv.offsetTop : 0;
+
     // Center on search button
-    const searchCenter = searchRect.left + (searchRect.width / 2);
+    const searchCenter = viewportLeft + searchRect.left + (searchRect.width / 2);
     let left = searchCenter - (dropdownWidth / 2);
 
     // Viewport constraints
-    const viewportWidth = window.innerWidth;
-    if (left + dropdownWidth > viewportWidth - viewportPadding) {
-        left = viewportWidth - dropdownWidth - viewportPadding;
+    if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
+        left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
     }
-    if (left < viewportPadding) {
-        left = viewportPadding;
+    if (left < viewportLeft + viewportPadding) {
+        left = viewportLeft + viewportPadding;
     }
 
     searchDropdown.style.position = 'fixed';
-    searchDropdown.style.top = (searchRect.bottom + offsetY) + 'px';
+    searchDropdown.style.top = (viewportTop + searchRect.bottom + offsetY) + 'px';
     searchDropdown.style.left = left + 'px';
     searchDropdown.style.width = dropdownWidth + 'px';
     searchDropdown.style.zIndex = '2147483647';
@@ -387,6 +390,17 @@ export function setupSearch() {
             positionDropdown();
         }
     }, true);
+
+    // Handle iOS visual viewport changes (keyboard/zoom)
+    if (window.visualViewport) {
+        ['resize', 'scroll'].forEach(evt => {
+            window.visualViewport.addEventListener(evt, () => {
+                if (!searchDropdown.classList.contains('hidden')) {
+                    positionDropdown();
+                }
+            });
+        });
+    }
 
     // Initialize button state
     updateButtonState();
