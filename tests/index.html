@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Drawer Prototype - Neighborhood Finder</title>
+
+    <!-- Google Fonts (matching index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            100: '#e0f2f1',
+                            200: '#b2dfdb',
+                            500: '#009688',
+                            700: '#00796b',
+                            dark: '#4db6ac',
+                        },
+                        neutral: {
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                        },
+                        dark: {
+                            'bg-base': '#1a1a1a',
+                            'bg-elevated': '#262626',
+                            'border': '#404040',
+                            'text-primary': '#f5f5f5',
+                            'text-secondary': '#a3a3a3',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --panel-duration: 300ms;
+            --color-brand-rgb: 0, 150, 136;
+        }
+
+        /* Divider style matching index.html */
+        .divider {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 0;
+        }
+        .dark .divider {
+            border-top-color: #404040;
+        }
+
+        /* Custom scrollbar */
+        .panel-content::-webkit-scrollbar,
+        #main-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+        .panel-content::-webkit-scrollbar-track,
+        #main-menu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .panel-content::-webkit-scrollbar-thumb,
+        #main-menu::-webkit-scrollbar-thumb {
+            background-color: #e0f2f1;
+            border-radius: 20px;
+        }
+        .dark .panel-content::-webkit-scrollbar-thumb,
+        .dark #main-menu::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 150, 136, 0.2);
+        }
+
+        /* Sliding panel base */
+        .sliding-panel {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Tab icon switching - show X when drawer is open */
+        #drawer-toggle:checked ~ aside .tab-icon-closed {
+            display: none;
+        }
+        #drawer-toggle:checked ~ aside .tab-icon-open {
+            display: block;
+        }
+    </style>
+</head>
+<body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
+    <div class="flex flex-col h-dvh">
+
+        <!-- Map placeholder (behind sidebar) -->
+        <div id="map-layout" class="fixed inset-0 z-0" style="height: calc(100dvh - 40px);">
+            <div id="map" class="w-full h-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                <div id="map-placeholder" class="text-center p-4">
+                    <p class="text-neutral-400 dark:text-neutral-600 text-lg mb-2">Loading Map...</p>
+                    <p class="text-neutral-300 dark:text-neutral-700 text-xs">If map doesn't load, run: <code class="bg-neutral-200 dark:bg-neutral-900 px-1 rounded">npx serve .</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden checkbox controls drawer state -->
+        <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
+
+        <!-- Sidebar (pointer-events-auto ensures clicks don't pass through to overlay) -->
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+
+            <!-- Tab attached to drawer edge -->
+            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
+                <!-- Hamburger icon (shows when closed) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!-- X icon (shows when open) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-open hidden">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </label>
+
+            <!-- ========================================== -->
+            <!-- FIXED HEADER - Never covered by panels    -->
+            <!-- ========================================== -->
+            <div class="flex-shrink-0 w-full overflow-x-hidden">
+                <!-- Logo + Title -->
+                <div class="p-5 pb-4 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-neutral-800 dark:bg-neutral-700 rounded-lg flex items-center justify-center shrink-0">
+                        <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
+                    </div>
+                    <div class="flex-1">
+                        <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
+                        <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
+                    </div>
+                </div>
+
+                <!-- Results count -->
+                <div class="px-5">
+                    <hr class="divider">
+                    <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4">42 matches found</p>
+                    <hr class="divider">
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SCROLL CONTAINER - Panels slide over this -->
+            <!-- ========================================== -->
+            <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
+
+                <!-- Main Menu -->
+                <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
+                    <div class="space-y-2">
+                        <!-- Criteria Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Criteria</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Areas Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Areas</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Amenities Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Amenities</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Results Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Results</span>
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
+                            <div class="flex items-center gap-2">
+                                <!-- Sun icon (light mode) -->
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <!-- Moon icon (dark mode) -->
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SLIDING PANELS - Cover content area only  -->
+                <!-- ========================================== -->
+
+                <!-- Property/Criteria Panel -->
+                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                    <div class="flex items-center flex-shrink-0 py-3">
+                        <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="property">
+                            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Criteria</span>
+                        </button>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3">
+                        <!-- Toggle Buttons -->
+                        <div class="flex gap-2 pb-6 px-3">
+                            <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
+                                Homes
+                            </button>
+                            <button id="btn-condos" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
+                                Condos
+                            </button>
+                        </div>
+                        <hr class="divider mx-4 mb-3 pb-4">
+
+                        <div class="space-y-6 px-3">
+                            <!-- Price Range -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Price</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary">$250K - $35M+</span>
+                                </div>
+                                <input type="range" min="0" max="100" value="50" class="w-full">
+                            </div>
+
+                            <!-- Beds -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Beds</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary">1+</span>
+                                </div>
+                                <input type="range" min="1" max="6" value="1" class="w-full">
+                            </div>
+
+                            <!-- Baths -->
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Baths</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary">1+</span>
+                                </div>
+                                <input type="range" min="1" max="6" value="1" class="w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Areas Panel -->
+                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                    <div class="flex items-center flex-shrink-0 py-3">
+                        <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="areas">
+                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Areas</span>
+                        </button>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                        <div class="flex flex-wrap gap-2 pb-4">
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Destin</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Santa Rosa Beach</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Miramar Beach</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Inlet Beach</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Panama City Beach</button>
+                        </div>
+                        <hr class="divider mx-4 my-3 pb-4">
+                        <div class="flex flex-wrap gap-2">
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">West 30A</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">East 30A</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Sandestin</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amenities Panel -->
+                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                    <div class="flex items-center flex-shrink-0 py-3">
+                        <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="amenities">
+                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Amenities</span>
+                        </button>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                        <div class="flex flex-wrap gap-2">
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Pool</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Beach Access</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Golf</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Tennis</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Gated</button>
+                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">Fitness Center</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                    <div class="flex items-center justify-between py-4 flex-shrink-0">
+                        <button class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4" data-close-panel="results">
+                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Results</span>
+                        </button>
+                        <div class="flex items-center gap-2 mr-5">
+                            <!-- Search button + dropdown -->
+                            <div class="relative">
+                                <button id="search-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-800 dark:text-dark-text-primary">
+                                        <circle cx="11" cy="11" r="8"/>
+                                        <path d="M21 21l-4.35-4.35"/>
+                                    </svg>
+                                </button>
+                                <!-- Search dropdown (portaled to body by JS) -->
+                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border">
+                                    <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off"
+                                           class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none rounded-t-lg">
+                                    <div id="search-results" class="max-h-48 overflow-y-auto py-1">
+                                        <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
+                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watersound">Watersound - Homes</button>
+                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Rosemary Beach">Rosemary Beach - Homes</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sort button + dropdown -->
+                            <div class="relative">
+                                <button id="sort-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 20 20" class="text-neutral-800 dark:text-dark-text-primary">
+                                        <polygon points="10,3 6,8 14,8" fill="currentColor" />
+                                        <polygon points="10,17 6,12 14,12" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <!-- Sort dropdown (portaled to body by JS) -->
+                                <div id="sort-menu" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-4">
+                                    <div class="space-y-2">
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="name-asc" class="accent-brand-500" checked>
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Name A→Z</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="name-desc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Name Z→A</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="price-asc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Price Low→High</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="price-desc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Price High→Low</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="listings-desc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Most Listings</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="divider mx-4 pb-4">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                        <div id="neighborhoodList" class="space-y-2">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ========================================== -->
+            <!-- FIXED FOOTER - Never covered by panels    -->
+            <!-- ========================================== -->
+            <div class="flex-shrink-0 w-full">
+                <div class="px-5">
+                    <hr class="divider">
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 16 | v1.0.72</p>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- Tap-to-close overlay (transparent - no dimming) -->
+        <label for="drawer-toggle" class="fixed inset-0 pointer-events-none peer-checked:pointer-events-auto z-30 cursor-default"></label>
+
+        <!-- Disclaimer bar (below map) -->
+        <div class="fixed bottom-0 left-0 right-0 h-10 px-4 flex items-center justify-center z-20" style="background-color: #8FC7CC;">
+            <p class="text-xs text-white leading-tight">
+                &copy; 2025 Kimberly Bauman, P.A. | Information deemed reliable but not guaranteed | Data: ECAR MLS
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // ==========================================
+        // SAMPLE DATA (inline to avoid CORS issues)
+        // ==========================================
+        const SAMPLE_NEIGHBORHOODS = [
+            { name: "Watercolor", propertyType: "Homes", position: { lat: 30.2932, lng: -86.0372 }, minPrice: 1200000, maxPrice: 4500000, listingCount: 12, avgDom: 45, city: "Santa Rosa Beach", zip: "32459", amenities: ["Beach Access", "Community Pool", "Tennis"] },
+            { name: "Rosemary Beach", propertyType: "Homes", position: { lat: 30.2801, lng: -86.0156 }, minPrice: 2100000, maxPrice: 8500000, listingCount: 8, avgDom: 62, city: "Panama City Beach", zip: "32461", amenities: ["Beach Access", "Community Pool", "Fitness"] },
+            { name: "Seaside", propertyType: "Homes", position: { lat: 30.3216, lng: -86.1464 }, minPrice: 1800000, maxPrice: 6200000, listingCount: 5, avgDom: 78, city: "Santa Rosa Beach", zip: "32459", amenities: ["Beach Access", "Community Pool"] },
+            { name: "Alys Beach", propertyType: "Homes", position: { lat: 30.2866, lng: -86.0231 }, minPrice: 3500000, maxPrice: 12000000, listingCount: 4, avgDom: 89, city: "Panama City Beach", zip: "32461", amenities: ["Beach Access", "Community Pool", "Tennis", "Fitness", "Gated"] },
+            { name: "Watersound", propertyType: "Homes", position: { lat: 30.2785, lng: -86.0055 }, minPrice: 900000, maxPrice: 3800000, listingCount: 15, avgDom: 38, city: "Panama City Beach", zip: "32461", amenities: ["Beach Access", "Community Pool", "Golf"] },
+            { name: "Grayton Beach", propertyType: "Homes", position: { lat: 30.3287, lng: -86.1578 }, minPrice: 750000, maxPrice: 2500000, listingCount: 6, avgDom: 55, city: "Santa Rosa Beach", zip: "32459", amenities: ["Beach Access"] },
+            { name: "Sandestin", propertyType: "Homes", position: { lat: 30.3766, lng: -86.3185 }, minPrice: 500000, maxPrice: 2000000, listingCount: 22, avgDom: 42, city: "Miramar Beach", zip: "32550", amenities: ["Beach Access", "Golf", "Tennis", "Community Pool", "Fitness"] },
+            { name: "Sandestin", propertyType: "Condos", position: { lat: 30.3780, lng: -86.3195 }, minPrice: 300000, maxPrice: 1200000, listingCount: 35, avgDom: 35, city: "Miramar Beach", zip: "32550", amenities: ["Beach Access", "Golf", "Tennis", "Community Pool", "Fitness"] },
+            { name: "Inlet Beach", propertyType: "Homes", position: { lat: 30.2721, lng: -85.9923 }, minPrice: 800000, maxPrice: 3000000, listingCount: 11, avgDom: 48, city: "Panama City Beach", zip: "32461", amenities: ["Beach Access"] },
+            { name: "Crystal Beach", propertyType: "Homes", position: { lat: 30.3912, lng: -86.4521 }, minPrice: 600000, maxPrice: 1800000, listingCount: 9, avgDom: 52, city: "Destin", zip: "32541", amenities: ["Beach Access", "Community Pool"] },
+            { name: "Kelly Plantation", propertyType: "Homes", position: { lat: 30.3834, lng: -86.4123 }, minPrice: 700000, maxPrice: 2200000, listingCount: 7, avgDom: 61, city: "Destin", zip: "32541", amenities: ["Golf", "Gated", "Tennis"] },
+            { name: "Emerald Bay", propertyType: "Condos", position: { lat: 30.3945, lng: -86.4687 }, minPrice: 250000, maxPrice: 800000, listingCount: 18, avgDom: 29, city: "Destin", zip: "32541", amenities: ["Beach Access", "Community Pool", "Fitness"] }
+        ];
+
+        // App state
+        let neighborhoods = [...SAMPLE_NEIGHBORHOODS];
+        let filteredNeighborhoods = [...neighborhoods];
+        let markers = [];
+        let map = null;
+        let infoWindow = null;
+        let sortOrder = 'name-asc';
+
+        // ==========================================
+        // UTILITY FUNCTIONS
+        // ==========================================
+        function formatPrice(price) {
+            if (price >= 1000000) {
+                return '$' + (price / 1000000).toFixed(1) + 'M';
+            }
+            return '$' + (price / 1000).toFixed(0) + 'K';
+        }
+
+        function toSlug(str) {
+            return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        }
+    </script>
+
+    <script>
+        // Panel navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const backButtons = document.querySelectorAll('.panel-back-btn');
+            const mainMenu = document.getElementById('main-menu');
+
+            // Open panel on menu item click
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const panelName = this.getAttribute('data-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        // Close all other panels
+                        document.querySelectorAll('.sliding-panel').forEach(p => {
+                            if (p.id !== panel.id) {
+                                p.classList.add('translate-x-full');
+                            }
+                        });
+
+                        // Hide main menu
+                        if (mainMenu) mainMenu.style.display = 'none';
+
+                        // Open target panel
+                        panel.classList.remove('translate-x-full');
+                    }
+                });
+            });
+
+            // Close panel on back button click
+            backButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const panelName = this.getAttribute('data-close-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        panel.classList.add('translate-x-full');
+
+                        // Show main menu
+                        if (mainMenu) {
+                            mainMenu.style.removeProperty('display');
+                            mainMenu.scrollTop = 0;
+                        }
+                    }
+                });
+            });
+
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.documentElement.classList.toggle('dark');
+                });
+            }
+
+            // ==========================================
+            // PORTAL DROPDOWNS (same logic as production)
+            // ==========================================
+            const searchBtn = document.getElementById('search-button');
+            const searchDropdown = document.getElementById('search-dropdown');
+            const searchInput = document.getElementById('search-input');
+            const sortBtn = document.getElementById('sort-button');
+            const sortMenu = document.getElementById('sort-menu');
+
+            // Portal dropdowns to body for proper z-index and no content shift
+            if (searchDropdown) document.body.appendChild(searchDropdown);
+            if (sortMenu) document.body.appendChild(sortMenu);
+
+            // Position dropdown centered under button (handles iOS viewport)
+            function positionDropdown(dropdown, button) {
+                if (!dropdown || !button) return;
+                const rect = button.getBoundingClientRect();
+                const offsetY = 10;
+                const viewportPadding = 12;
+                const dropdownWidth = 280;
+
+                // Account for iOS visual viewport shifts
+                const vv = window.visualViewport;
+                const viewportWidth = vv ? vv.width : window.innerWidth;
+                const viewportLeft = vv ? vv.offsetLeft : 0;
+                const viewportTop = vv ? vv.offsetTop : 0;
+
+                // Center on button
+                const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
+                let left = buttonCenter - (dropdownWidth / 2);
+
+                // Viewport constraints
+                if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
+                    left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
+                }
+                if (left < viewportLeft + viewportPadding) {
+                    left = viewportLeft + viewportPadding;
+                }
+
+                dropdown.style.position = 'fixed';
+                dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
+                dropdown.style.left = left + 'px';
+                dropdown.style.zIndex = '2147483647';
+            }
+
+            // Search dropdown toggle
+            if (searchBtn && searchDropdown) {
+                searchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                    searchDropdown.classList.toggle('hidden');
+                    if (!searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                        if (searchInput) searchInput.focus();
+                    }
+                });
+            }
+
+            // Sort dropdown toggle
+            if (sortBtn && sortMenu) {
+                sortBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    sortMenu.classList.toggle('hidden');
+                    if (!sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                    }
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (searchDropdown && !searchDropdown.contains(e.target) &&
+                    e.target !== searchBtn && !searchBtn.contains(e.target)) {
+                    searchDropdown.classList.add('hidden');
+                }
+                if (sortMenu && !sortMenu.contains(e.target) &&
+                    e.target !== sortBtn && !sortBtn.contains(e.target)) {
+                    sortMenu.classList.add('hidden');
+                }
+            });
+
+            // Close dropdowns on Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                }
+            });
+
+            // Reposition on resize/scroll (handles iOS keyboard/zoom)
+            ['resize', 'orientationchange'].forEach(evt => {
+                window.addEventListener(evt, () => {
+                    if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                    }
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                    positionDropdown(searchDropdown, searchBtn);
+                }
+                if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                    positionDropdown(sortMenu, sortBtn);
+                }
+            }, true);
+
+            // Handle iOS visual viewport changes
+            if (window.visualViewport) {
+                ['resize', 'scroll'].forEach(evt => {
+                    window.visualViewport.addEventListener(evt, () => {
+                        if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                            positionDropdown(searchDropdown, searchBtn);
+                        }
+                        if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                            positionDropdown(sortMenu, sortBtn);
+                        }
+                    });
+                });
+            }
+
+            // iOS viewport reset on search input blur
+            if (searchInput) {
+                searchInput.addEventListener('blur', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 0);
+                        document.documentElement.scrollLeft = 0;
+                        document.body.scrollLeft = 0;
+                    }, 100);
+                });
+            }
+
+            // ==========================================
+            // RESULTS LIST RENDERING
+            // ==========================================
+            function renderResults() {
+                const list = document.getElementById('neighborhoodList');
+                const resultsCount = document.getElementById('resultsCount');
+
+                if (!list) return;
+
+                // Sort neighborhoods
+                const sorted = [...filteredNeighborhoods].sort((a, b) => {
+                    switch (sortOrder) {
+                        case 'name-asc':
+                            return a.name.localeCompare(b.name);
+                        case 'name-desc':
+                            return b.name.localeCompare(a.name);
+                        case 'price-asc':
+                            return a.minPrice - b.minPrice;
+                        case 'price-desc':
+                            return b.maxPrice - a.maxPrice;
+                        case 'listings-desc':
+                            return b.listingCount - a.listingCount;
+                        default:
+                            return a.name.localeCompare(b.name);
+                    }
+                });
+
+                // Update count
+                if (resultsCount) {
+                    resultsCount.textContent = `${sorted.length} matches found`;
+                }
+
+                // Render list
+                list.innerHTML = sorted.map(n => `
+                    <div class="neighborhood-item p-3 rounded-lg border border-neutral-200 dark:border-dark-border hover:bg-brand-100/50 dark:hover:bg-brand-dark/10 cursor-pointer transition-colors"
+                         data-name="${n.name}" data-type="${n.propertyType}">
+                        <div class="flex justify-between items-start">
+                            <div class="font-medium text-neutral-700 dark:text-dark-text-primary">${n.name}</div>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-dark-bg-base text-neutral-500 dark:text-dark-text-secondary">${n.propertyType}</span>
+                        </div>
+                        <div class="text-sm text-neutral-500 dark:text-dark-text-secondary">${formatPrice(n.minPrice)} - ${formatPrice(n.maxPrice)} | ${n.listingCount} listings</div>
+                    </div>
+                `).join('');
+
+                // Add click handlers
+                list.querySelectorAll('.neighborhood-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const name = item.dataset.name;
+                        const type = item.dataset.type;
+                        const n = filteredNeighborhoods.find(x => x.name === name && x.propertyType === type);
+                        if (n && map) {
+                            map.panTo(n.position);
+                            map.setZoom(14);
+                            // Find and click marker
+                            const marker = markers.find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                            if (marker) {
+                                google.maps.event.trigger(marker.marker, 'click');
+                            }
+                        }
+                    });
+                });
+            }
+
+            // ==========================================
+            // SORT HANDLER
+            // ==========================================
+            const sortRadios = document.querySelectorAll('input[name="sort"]');
+            sortRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    sortOrder = e.target.value;
+                    renderResults();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                });
+            });
+
+            // ==========================================
+            // SEARCH HANDLER
+            // ==========================================
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    const results = document.getElementById('search-results');
+
+                    if (!query) {
+                        // Show default "Most Listings" results
+                        const topListings = [...neighborhoods].sort((a, b) => b.listingCount - a.listingCount).slice(0, 5);
+                        results.innerHTML = `
+                            <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                            ${topListings.map(n => `
+                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                                    ${n.name} - ${n.propertyType}
+                                </button>
+                            `).join('')}
+                        `;
+                    } else {
+                        // Filter by query
+                        const matches = neighborhoods.filter(n =>
+                            n.name.toLowerCase().includes(query) ||
+                            n.city.toLowerCase().includes(query)
+                        ).slice(0, 8);
+
+                        if (matches.length) {
+                            results.innerHTML = matches.map(n => `
+                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                                    ${n.name} - ${n.propertyType}
+                                </button>
+                            `).join('');
+                        } else {
+                            results.innerHTML = '<div class="px-4 py-3 text-sm text-neutral-400">No matches found</div>';
+                        }
+                    }
+
+                    // Add click handlers to search results
+                    results.querySelectorAll('.search-result').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const name = btn.dataset.name;
+                            const type = btn.dataset.type;
+                            const n = neighborhoods.find(x => x.name === name && x.propertyType === type);
+                            if (n && map) {
+                                map.panTo(n.position);
+                                map.setZoom(14);
+                                const marker = markers.find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                                if (marker) {
+                                    google.maps.event.trigger(marker.marker, 'click');
+                                }
+                            }
+                            searchDropdown.classList.add('hidden');
+                            searchInput.value = '';
+                        });
+                    });
+                });
+            }
+
+            // Initial render
+            renderResults();
+        });
+    </script>
+
+    <!-- ==========================================
+         GOOGLE MAPS INITIALIZATION
+         ========================================== -->
+    <script>
+        function initMap() {
+            const mapDiv = document.getElementById('map');
+            if (!mapDiv) return;
+
+            // Clear placeholder
+            mapDiv.innerHTML = '';
+
+            // Initialize map
+            map = new google.maps.Map(mapDiv, {
+                zoom: 11,
+                center: { lat: 30.32, lng: -86.15 },
+                mapId: '92b2f4ea8b2fce54a50ed2e9',
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                streetViewControl: true,
+                fullscreenControl: true,
+                zoomControl: true,
+                clickableIcons: false
+            });
+
+            // Create info window
+            infoWindow = new google.maps.InfoWindow({ maxWidth: 280 });
+
+            // Add markers
+            addMarkers();
+
+            console.log('Map initialized with', neighborhoods.length, 'neighborhoods');
+        }
+
+        function addMarkers() {
+            if (!map) return;
+
+            // Clear existing markers
+            markers.forEach(m => m.marker.setMap(null));
+            markers = [];
+
+            filteredNeighborhoods.forEach(n => {
+                // Create marker icon
+                const markerContent = document.createElement('div');
+                markerContent.className = 'marker-pin';
+                markerContent.innerHTML = `
+                    <div style="
+                        width: 32px;
+                        height: 32px;
+                        background: linear-gradient(135deg, #009688 0%, #00796b 100%);
+                        border-radius: 50% 50% 50% 0;
+                        transform: rotate(-45deg);
+                        border: 2px solid white;
+                        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                        cursor: pointer;
+                    "></div>
+                `;
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map: map,
+                    position: n.position,
+                    content: markerContent,
+                    title: n.name
+                });
+
+                // Click handler
+                marker.addListener('click', () => {
+                    const content = `
+                        <div class="info-window p-2" style="min-width: 200px;">
+                            <div class="font-semibold text-base mb-1">${n.name}</div>
+                            <div class="text-xs text-gray-500 mb-2">${n.propertyType} | ${n.city}</div>
+                            <div class="text-sm font-medium text-green-700">${formatPrice(n.minPrice)} - ${formatPrice(n.maxPrice)}</div>
+                            <div class="text-xs text-gray-500 mt-1">${n.listingCount} listings | ${n.avgDom} avg DOM</div>
+                            ${n.amenities.length ? `<div class="text-xs text-gray-400 mt-2">${n.amenities.slice(0, 4).join(' • ')}</div>` : ''}
+                        </div>
+                    `;
+                    infoWindow.setContent(content);
+                    infoWindow.open(map, marker);
+                });
+
+                markers.push({ marker, neighborhood: n });
+            });
+        }
+
+        // Check if Google Maps is ready
+        if (typeof google !== 'undefined' && google.maps) {
+            initMap();
+        }
+
+        // Handle Google Maps API errors (e.g., RefererNotAllowedMapError)
+        window.gm_authFailure = function() {
+            const placeholder = document.getElementById('map-placeholder');
+            if (placeholder) {
+                placeholder.innerHTML = `
+                    <div class="text-center">
+                        <svg class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                        </svg>
+                        <p class="text-neutral-500 dark:text-neutral-400 font-medium mb-2">Map requires local server</p>
+                        <p class="text-neutral-400 dark:text-neutral-500 text-sm mb-3">Google Maps API key is restricted to specific domains.</p>
+                        <div class="bg-neutral-200 dark:bg-neutral-800 rounded-lg p-3 text-left text-xs">
+                            <p class="text-neutral-600 dark:text-neutral-300 mb-1">To test with map, run:</p>
+                            <code class="text-brand-700 dark:text-brand-dark">cd NeighborhoodFinder && npx serve .</code>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">Then open: <span class="text-brand-700 dark:text-brand-dark">http://localhost:3000/tests/drawer-prototype.html</span></p>
+                        </div>
+                    </div>
+                `;
+            }
+            console.warn('Google Maps API auth failed - likely running from file:// URL');
+        };
+
+        // Timeout fallback if map doesn't load
+        setTimeout(() => {
+            if (!map) {
+                const placeholder = document.getElementById('map-placeholder');
+                if (placeholder && placeholder.querySelector('p').textContent.includes('Loading')) {
+                    window.gm_authFailure();
+                }
+            }
+        }, 5000);
+    </script>
+
+    <!-- Google Maps API -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&v=weekly&libraries=marker,geometry"></script>
+
+</body>
+</html>
