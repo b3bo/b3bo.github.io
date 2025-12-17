@@ -404,35 +404,9 @@ hr.divider {
   box-shadow: inset 0 0 0 2px var(--color-dark-bg-elevated);
 }
 
-/* Missing Tailwind classes - manually defined (NOT processed by Tailwind) */
-.-translate-x-full {
-  translate: -100% 0 !important;
-  transform: translate(-100%, 0) !important;
-}
+/* translate-x-full classes now handled by Tailwind - removed manual overrides */
 
-/* Positive translate for hiding sliding panels off-screen right */
-.translate-x-full {
-  translate: 100% 0 !important;
-  transform: translate(100%, 0) !important;
-}
-
-/* Sliding panel visibility with delayed hide for close animation */
-.sliding-panel {
-  transition: transform var(--panel-duration) ease-out, visibility 0s linear var(--panel-duration) !important;
-}
-
-/* Force hidden panels to be invisible AFTER animation completes */
-.sliding-panel.translate-x-full {
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* Make panels visible immediately when opening (no delay) */
-.sliding-panel:not(.translate-x-full) {
-  visibility: visible !important;
-  pointer-events: auto !important;
-  transition-delay: 0s !important;
-}
+/* Sliding panel transitions now handled by Tailwind classes - removed manual overrides */
 
 /* Sidebar peer-checked override (NOT processed by Tailwind) */
 #drawer-toggle:checked ~ #sidebar {
