@@ -21,7 +21,7 @@ function applyMapTheme(theme) {
         return;
     }
 
-    console.time('⏱️ Total theme switch');
+    console.log('Applyi    console.time('⏱️ Total theme switch');
     console.log('Applying map theme:', theme);
 
     // colorScheme can only be set at map initialization, not changed dynamically
@@ -29,8 +29,7 @@ function applyMapTheme(theme) {
     const currentCenter = STATE.map.getCenter();
     const currentZoom = STATE.map.getZoom();
     console.log('Current zoom:', currentZoom);
-
-    // Store current markers and info windows
+ and info windows
     const markers = STATE.markers;
     const infoWindow = STATE.infoWindow;
     const hoverInfoWindow = STATE.hoverInfoWindow;
@@ -66,6 +65,8 @@ function applyMapTheme(theme) {
     STATE.hoverInfoWindow = hoverInfoWindow;
 
     // Reattach markers to new map
+    markers.forEach(markerObj => {
+        if (markerObj.marker) {
     console.time('⏱️ Marker reattachment');
     markers.forEach(markerObj => {
         if (markerObj.marker) {
@@ -80,10 +81,7 @@ function applyMapTheme(theme) {
         console.timeEnd('⏱️ Total theme switch');
         console.log('✅ Map tiles loaded - theme switch complete');
     });
-}
-
-export function initializeMap(center, zoom) {
-    // Check initial theme to set colorScheme on map creation
+e to set colorScheme on map creation
     const initialTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 
     STATE.map = new google.maps.Map(document.getElementById('map'), {
@@ -119,11 +117,10 @@ export function initializeMap(center, zoom) {
     });
 
     // Create info windows with auto-pan disabled for AdvancedMarkerElement compatibility
-    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
+    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
+    STATE.hoverInfoWindow    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
     STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
-
-    // Set higher z-index for hover info window to appear above clicked info windows
-    google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
+(STATE.hoverInfoWindow, 'domready', () => {
         const iwOuter = document.querySelector('.gm-style-iw-c');
         if (iwOuter && STATE.hoverInfoWindow.getMap()) {
             iwOuter.parentElement.style.zIndex = '100';
@@ -597,7 +594,7 @@ export function offsetLatLng(latLng, offsetPixels, zoomLevel) {
  */
 export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
 
-    if (!STATE.map || !neighborhoods || neighborhoods.length === 0) return;
+    if (!neighborhoods || neighborhoods.length === 0) return;
 
     const bounds = new google.maps.LatLngBounds();
 
@@ -612,8 +609,8 @@ export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
     console.log('Calculated bounds - NE:', ne.lat(), ne.lng(), 'SW:', sw.lat(), sw.lng());
-    console.log('Current map center before fitBounds:', STATE.map.getCenter().lat(), STATE.map.getCenter().lng());
-    console.log('Current zoom before fitBounds:', STATE.map.getZoom());
+    console.log('Current map center before fitBounds:', STATE.map.getCenter    if (!STATE.map || !neighborhoods || neighborhoods.length === 0) return;
+t zoom before fitBounds:', STATE.map.getZoom());
 
     // Fit map to bounds with padding
     STATE.map.fitBounds(bounds, padding);
