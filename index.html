@@ -1542,7 +1542,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // SINGLE MODE CENTERING
             // Calculate offset center directly (no pan needed)
             if (singleModeTarget) {
-                google.maps.event.addListenerOnce(window.map, 'projection_changed', () => {
+                google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
                     const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
                     const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
                     window.map.setCenter(offsetCenter);
