@@ -1895,7 +1895,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             console.log(`calculateCenteredOffset: ${Math.round(dotFromBottom)}px from bottom`);
 
             // TEMP DEBUG: Show values on screen for iOS testing (remove after debugging)
-            if (true) { // Always show for now
+            if (false) { // Disabled to test if it breaks info window
                 const debugDiv = document.createElement('div');
                 debugDiv.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:10px;z-index:9999;max-width:90%;';
                 const actualZoom = window.map?.getZoom() || 'N/A';
