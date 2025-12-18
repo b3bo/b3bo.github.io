@@ -1843,21 +1843,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
          * @returns {number} Pixel offset for panBy()
          */
         function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0) {
-            // Viewport height measurement strategy:
-            // - In iframe (single mode): clientHeight gives iframe's actual height
-            // - Full page: CSS dvh handles iOS Safari dynamic toolbar
-            // - Fallback: visualViewport or innerHeight
-            const clientH = document.documentElement.clientHeight;
-            const oneDvh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--one-dvh'));
-            const cssDvh = oneDvh ? oneDvh * 100 : null;
-            const visualVP = window.visualViewport?.height;
-            const innerH = window.innerHeight;
+            // Simple approach: use clientHeight which works for both iframe and full page
+            // On iOS Safari, clientHeight gives the actual visible height
+            const dvh = document.documentElement.clientHeight;
 
-            // Detect iframe: if clientHeight differs significantly from cssDvh, we're in iframe
-            const inIframe = cssDvh && Math.abs(clientH - cssDvh) > 50;
-            const dvh = inIframe ? clientH : (cssDvh || visualVP || innerH);
-
-            console.log('calculateCenteredOffset viewport:', { clientH, cssDvh, visualVP, innerH, inIframe, using: dvh });
+            console.log('calculateCenteredOffset viewport:', { dvh, disclaimerHeight });
 
             const w = window.innerWidth;
 
@@ -1892,18 +1882,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const dotTarget = effectiveViewport - dotFromBottom;
             const panAmount = dotTarget - dotStartsAt;
 
-            console.log(`calculateCenteredOffset: ${Math.round(dotFromBottom)}px from bottom`);
-
-            // TEMP DEBUG: Show values on screen for iOS testing (remove after debugging)
-            if (false) { // Disabled to test if it breaks info window
-                const debugDiv = document.createElement('div');
-                debugDiv.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:10px;z-index:9999;max-width:90%;';
-                const actualZoom = window.map?.getZoom() || 'N/A';
-                const dpr = window.devicePixelRatio || 1;
-                debugDiv.innerHTML = `clientH:${clientH} cssDvh:${Math.round(cssDvh||0)} inIframe:${inIframe}<br>using:${dvh} effVP:${effectiveViewport} dpr:${dpr}<br>combo:${comboHeight} pad:${Math.round(padding)}<br>pan:${Math.round(panAmount)} zoom:${zoomLevel}/${actualZoom}`;
-                document.body.appendChild(debugDiv);
-                setTimeout(() => debugDiv.remove(), 8000);
-            }
+            console.log(`calculateCenteredOffset: dvh=${dvh} combo=${comboHeight} pad=${Math.round(padding)} pan=${Math.round(panAmount)}`);
 
             return Math.round(panAmount);
         }
