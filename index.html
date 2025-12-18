@@ -1543,8 +1543,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // Calculate offset center directly (no pan needed)
             if (singleModeTarget) {
                 google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
+                    const actualZoom = window.map.getZoom();
+                    console.log('Single mode tilesloaded - initialZoom:', initialZoom, 'actualZoom:', actualZoom);
                     const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
                     const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
+                    console.log('Single mode offset:', { panAmount, initialZoom, actualZoom, target: singleModeTarget, offsetCenter: {lat: offsetCenter.lat(), lng: offsetCenter.lng()} });
                     window.map.setCenter(offsetCenter);
                 });
             }
@@ -1895,7 +1898,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             if (true) { // Always show for now
                 const debugDiv = document.createElement('div');
                 debugDiv.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:10px;z-index:9999;max-width:90%;';
-                debugDiv.innerHTML = `clientH:${clientH} cssDvh:${Math.round(cssDvh||0)} inIframe:${inIframe}<br>using:${dvh} effVP:${effectiveViewport}<br>combo:${comboHeight} pad:${Math.round(padding)}<br>pan:${Math.round(panAmount)}`;
+                const actualZoom = window.map?.getZoom() || 'N/A';
+                const dpr = window.devicePixelRatio || 1;
+                debugDiv.innerHTML = `clientH:${clientH} cssDvh:${Math.round(cssDvh||0)} inIframe:${inIframe}<br>using:${dvh} effVP:${effectiveViewport} dpr:${dpr}<br>combo:${comboHeight} pad:${Math.round(padding)}<br>pan:${Math.round(panAmount)} zoom:${zoomLevel}/${actualZoom}`;
                 document.body.appendChild(debugDiv);
                 setTimeout(() => debugDiv.remove(), 8000);
             }
