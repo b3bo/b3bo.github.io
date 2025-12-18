@@ -1889,7 +1889,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
             const map = window.map;
-            const scale = Math.pow(2, zoomLevel || map.getZoom());
+            // Google Maps world coordinates: 256 pixels = 1 world unit at zoom 0
+            // At zoom Z, 256 * 2^Z pixels = 1 world unit
+            // So pixel to world: pixels / (256 * 2^zoom)
+            const zoom = zoomLevel || map.getZoom();
+            const scale = 256 * Math.pow(2, zoom);
             const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
             const pixelOffset = new google.maps.Point(0, -offsetPixels / scale);
             const newWorldCoordinate = new google.maps.Point(worldCoordinate.x, worldCoordinate.y + pixelOffset.y);
