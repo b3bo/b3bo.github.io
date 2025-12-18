@@ -39,8 +39,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Precompiled Tailwind v4 CSS (includes all styles from styles.css) -->
+    <!-- Precompiled Tailwind v4 CSS -->
     <link rel="stylesheet" href="./neighborhoods/css/tailwind_neighborhoods.css">
+    <link rel="stylesheet" href="./neighborhoods/css/styles.css">
 
     <style>
         :root {
@@ -504,7 +505,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 18 | v1.1.0</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 17 | v1.1.0</p>
                 </div>
             </div>
 
@@ -580,35 +581,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const isSingleMode = urlParams.get('mode') === 'single';
             const neighborhoodSlug = urlParams.get('neighborhood');
             window.isSingleMode = isSingleMode;
-            const isInIframe = window.self !== window.top;
 
-            // Single mode: hide sidebar, drawer, footer completely
+            // Single mode: hide sidebar completely
             if (isSingleMode) {
                 const sidebar = document.getElementById('sidebar');
                 const drawerToggle = document.getElementById('drawer-toggle');
-                const drawerLabel = document.querySelector('label[for="drawer-toggle"]');
-                const overlay = document.querySelectorAll('label[for="drawer-toggle"]');
-                const disclaimer = document.querySelector('.disclaimer-bar');
-                const mapLayout = document.getElementById('map-layout');
-
-                if (sidebar) sidebar.style.setProperty('display', 'none', 'important');
+                if (sidebar) sidebar.style.display = 'none';
                 if (drawerToggle) drawerToggle.style.display = 'none';
-                // Hide all drawer toggle labels (tab and overlay)
-                overlay.forEach(el => el.style.display = 'none');
-                // Hide disclaimer bar
-                if (disclaimer) disclaimer.style.display = 'none';
-                // Expand map to full height
-                if (mapLayout) mapLayout.style.height = '100dvh';
-
                 console.log('Single mode active:', neighborhoodSlug);
-            }
-
-            // Also hide disclaimer when in iframe (even if not single mode)
-            if (isInIframe) {
-                const disclaimer = document.querySelector('.disclaimer-bar');
-                const mapLayout = document.getElementById('map-layout');
-                if (disclaimer) disclaimer.style.display = 'none';
-                if (mapLayout) mapLayout.style.height = '100dvh';
             }
 
             // Use global variables set by ES module
@@ -970,7 +950,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                 gtag('event', 'select_neighborhood', {
                                     neighborhood_name: n.name,
                                     listing_count: n.stats?.listingCount || 0,
-                                    price: fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)
+                                    price: formatPrice(n.stats?.medianPrice || n.stats?.avgPrice || 0)
                                 });
                             }
 
@@ -1494,35 +1474,18 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // Clear placeholder
             mapDiv.innerHTML = '';
 
-            // Check for single mode
-            const urlParams = new URLSearchParams(window.location.search);
-            const isSingleMode = urlParams.get('mode') === 'single';
-            const neighborhoodSlug = urlParams.get('neighborhood');
+            // Initialize map (use window.map for global access)
+            // Initial view: zoomed out to show full coast
+            // CONFIG.map.defaultZoom (14) is used when flying TO a neighborhood
+            const initialCenter = { lat: 30.32, lng: -86.05 };  // Centered on Emerald Coast
+            const initialZoom = 11;  // Zoomed out to see all neighborhoods
 
-            // Determine initial center and zoom
-            let initialCenter = { lat: 30.32, lng: -86.05 };  // Default: Emerald Coast
-            let initialZoom = 11;  // Default: zoomed out
-
-            // In single mode, center on target neighborhood (offset applied after map ready)
-            let singleModeTarget = null;
-            if (isSingleMode && neighborhoodSlug && window.neighborhoods) {
-                const target = window.neighborhoods.find(n => window.toSlug && window.toSlug(n.name) === neighborhoodSlug);
-                if (target && target.position) {
-                    initialZoom = parseInt(urlParams.get('zoom')) || 13;
-                    initialCenter = target.position;
-                    singleModeTarget = target.position;
-                }
-            }
-
-            // Only offset for sidebar in normal mode (sidebar hidden in single mode)
-            let adjustedCenter = initialCenter;
-            if (!isSingleMode) {
-                const lngOffset = calculateSidebarOffsetLng(initialZoom);
-                adjustedCenter = {
-                    lat: initialCenter.lat,
-                    lng: initialCenter.lng + lngOffset
-                };
-            }
+            // Offset center to account for sidebar (shifts right by sidebarWidth/2)
+            const lngOffset = calculateSidebarOffsetLng(initialZoom);
+            const adjustedCenter = {
+                lat: initialCenter.lat,
+                lng: initialCenter.lng + lngOffset
+            };
 
             window.map = new google.maps.Map(mapDiv, {
                 zoom: initialZoom,
@@ -1539,23 +1502,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 clickableIcons: false
             });
 
-            // SINGLE MODE CENTERING
-            // Calculate offset center directly (no pan needed)
-            if (singleModeTarget) {
-                google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
-                    const actualZoom = window.map.getZoom();
-                    console.log('Single mode tilesloaded - initialZoom:', initialZoom, 'actualZoom:', actualZoom);
-                    const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
-                    const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
-                    console.log('Single mode offset:', { panAmount, initialZoom, actualZoom, target: singleModeTarget, offsetCenter: {lat: offsetCenter.lat(), lng: offsetCenter.lng()} });
-                    window.map.setCenter(offsetCenter);
-                });
-            }
-
             // Create info windows (click and hover)
-            // disableAutoPan prevents Google Maps from moving the map when info window opens
-            window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
-            window.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
+            window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+            window.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
 
             // Remove close button from info windows when they open
             // Using MutationObserver to actually remove element, not just hide
@@ -1576,87 +1525,31 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 const isSingleMode = urlParams.get('mode') === 'single';
                 const neighborhoodSlug = urlParams.get('neighborhood');
 
-                // In single mode, filter to just the matching neighborhood
-                if (isSingleMode && neighborhoodSlug && neighborhoods.length > 0) {
-                    const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
-                    if (matching.length > 0) {
-                        // Prefer Homes if multiple property types exist
-                        const homes = matching.find(n => n.propertyType === 'Homes');
-                        const target = homes || matching[0];
-                        window.neighborhoods = [target];
-                        window.filteredNeighborhoods = [target];
-                        console.log('Single mode: filtered to', target.name, target.propertyType);
-                    }
-                }
-
-                function openSingleModeMarker() {
-                    if (!window.markers || window.markers.length === 0) return false;
-                    const markerObj = window.markers[0]; // { marker, neighborhood }
-                    if (markerObj && markerObj.marker && markerObj.neighborhood) {
-                        const marker = markerObj.marker;
-                        const neighborhood = markerObj.neighborhood;
-                        console.log('Single mode: opening', neighborhood.name);
-                        showInfoWindowContent(marker, neighborhood, window.infoWindow, true);
-                        marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
-                        window.activeMarker = marker;
-                        return true;
-                    }
-                    return false;
-                }
-
                 function afterMarkersAdded() {
-                    // In single mode: use idle event for stable timing, then poll for marker
-                    if (isSingleMode && neighborhoodSlug) {
-                        google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                            // Poll for marker to be ready
-                            let attempts = 0;
-                            const pollMarker = () => {
-                                attempts++;
-                                if (openSingleModeMarker()) return;
-                                if (attempts < 30) {
-                                    setTimeout(pollMarker, 100);
-                                } else {
-                                    console.warn('Single mode: marker not found after 3 seconds');
-                                }
-                            };
-                            pollMarker();
-                        });
+                    // In single mode: find and open the specific neighborhood
+                    if (isSingleMode && neighborhoodSlug && window.markers) {
+                        const marker = window.markers.find(m =>
+                            window.toSlug(m.neighborhood.name) === neighborhoodSlug
+                        );
+                        if (marker) {
+                            console.log('Single mode: opening', marker.neighborhood.name);
+                            // Center map on neighborhood
+                            const pos = marker.neighborhood.position;
+                            const zoom = parseInt(urlParams.get('zoom')) || 13;
+                            window.map.setCenter(pos);
+                            window.map.setZoom(zoom);
+                            // Open info window after a brief delay for map to settle
+                            setTimeout(() => {
+                                showInfoWindowContent(marker, marker.neighborhood, window.infoWindow, true);
+                                marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+                                window.activeMarker = marker;
+                            }, 500);
+                        } else {
+                            console.warn('Single mode: neighborhood not found:', neighborhoodSlug);
+                        }
                     } else {
                         // Normal mode: fit bounds to show all
                         window.fitBoundsToNeighborhoods();
-
-                        // Check for marker parameter in full mode (deep link to specific neighborhood)
-                        const markerSlug = urlParams.get('marker');
-                        const propertyType = urlParams.get('propertyType') || 'Homes';
-                        if (markerSlug) {
-                            // Find matching neighborhood
-                            const allNeighborhoods = window.neighborhoods || [];
-                            const matching = allNeighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
-                            const target = matching.find(n => n.propertyType === propertyType) || matching[0];
-
-                            if (target) {
-                                console.log('Full mode: deep link to', target.name, target.propertyType);
-                                // Find the marker for this neighborhood
-                                const markerObj = (window.markers || []).find(m =>
-                                    m.neighborhood.name === target.name &&
-                                    m.neighborhood.propertyType === target.propertyType
-                                );
-                                if (markerObj) {
-                                    // Fly to marker and open info window
-                                    setTimeout(() => {
-                                        window.smoothFlyTo(target.position, 15);
-                                        // Open info window after flight completes
-                                        setTimeout(() => {
-                                            showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
-                                            markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
-                                            window.activeMarker = markerObj.marker;
-                                        }, 2500);
-                                    }, 500);
-                                }
-                            } else {
-                                console.warn('Full mode: neighborhood not found for marker=', markerSlug);
-                            }
-                        }
                     }
                 }
 
@@ -1666,7 +1559,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         window.filteredNeighborhoods = [...neighborhoods];
                     }
                     window.addMarkers();
-                    console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
+                    console.log('Map initialized with', neighborhoods.length, 'neighborhoods');
                     afterMarkersAdded();
                 } else {
                     // Data not loaded yet, wait for it
@@ -1676,7 +1569,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             window.filteredNeighborhoods = [...n];
                         }
                         window.addMarkers();
-                        console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
+                        console.log('Map initialized with', n.length, 'neighborhoods');
                         afterMarkersAdded();
                     }, { once: true });
                 }
@@ -1799,113 +1692,29 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             return halfSidebar * degreesPerPixel;
         }
 
-        /**
-         * Calculate vertical pixel offset to center (card + marker) combo in viewport.
-         *
-         * SINGLE MODE (550px dvh, NO disclaimer):
-         * ┌─────────────────────────┐ ← 0px
-         * │     75px padding        │
-         * ├─────────────────────────┤ ← 75px
-         * │                         │
-         * │     360px info card     │
-         * │                         │
-         * ├─────────────────────────┤ ← 435px
-         * │  40px tail + marker     │  ← marker anchor at 475px
-         * ├─────────────────────────┤ ← 475px
-         * │     75px padding        │
-         * └─────────────────────────┘ ← 550px (dvh)
-         *
-         * padding = (550 - 400) / 2 = 75px
-         * markerAnchorFromTop = 75 + 400 = 475px
-         * offset = 475 - 275 + 16 = 216px
-         *
-         * FULL MODE (550px dvh, 40px disclaimer):
-         * ┌─────────────────────────┐ ← 0px
-         * │     55px padding        │
-         * ├─────────────────────────┤ ← 55px
-         * │                         │
-         * │     360px info card     │  effectiveViewport = 510px
-         * │                         │
-         * ├─────────────────────────┤ ← 415px
-         * │  40px tail + marker     │  ← marker anchor at 455px
-         * ├─────────────────────────┤ ← 455px
-         * │     55px padding        │
-         * ├─────────────────────────┤ ← 510px
-         * │  40px disclaimer bar    │
-         * └─────────────────────────┘ ← 550px (dvh)
-         *
-         * padding = (510 - 400) / 2 = 55px
-         * markerAnchorFromTop = 55 + 400 = 455px
-         * offset = 455 - 275 + 16 = 196px
-         *
-         * @param {number} zoomLevel - Current map zoom (unused, kept for API consistency)
-         * @param {number} disclaimerHeight - Bottom bar height (0 for single mode, 40 for full mode)
-         * @returns {number} Pixel offset for panBy()
-         */
-        function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0) {
-            // Simple approach: use clientHeight which works for both iframe and full page
-            // On iOS Safari, clientHeight gives the actual visible height
-            const dvh = document.documentElement.clientHeight;
-
-            console.log('calculateCenteredOffset viewport:', { dvh, disclaimerHeight });
-
+        function calculateCenteredOffset(zoomLevel) {
             const w = window.innerWidth;
-
-            // Get card heights from CONFIG (with fallbacks)
-            const cfg = window.CONFIG?.map?.cardHeight || {};
-            const mobileHeight = cfg.mobile || 360;
-            const tabletHeight = cfg.tablet || 320;
-            const desktopHeight = cfg.desktop || 280;
-
-            // Select card height based on viewport width
             let cardHeight;
             if (w < 640) {
-                cardHeight = mobileHeight;
+                cardHeight = 320;
             } else if (w < 1024) {
-                cardHeight = tabletHeight;
+                cardHeight = 300;
             } else {
-                cardHeight = desktopHeight;
+                cardHeight = 280;
             }
-
-            const tailAndMarker = 20;      // Distance from card bottom to dot center
-            const markerRadius = 10;       // Radius of marker circle
-            const anchorToDot = 22;        // SVG anchor (bottom) to dot center
-            const comboHeight = cardHeight + tailAndMarker + markerRadius;  // 390px
-
-            // Center combo in effective viewport (dvh minus disclaimer)
-            const effectiveViewport = dvh - disclaimerHeight;
-            const padding = (effectiveViewport - comboHeight) / 2;
-            const dotFromBottom = padding + markerRadius;  // Where dot center should be from bottom
-
-            // Pan amount: dot starts at (center - anchorToDot), needs to reach target
-            const dotStartsAt = (effectiveViewport / 2) - anchorToDot;
-            const dotTarget = effectiveViewport - dotFromBottom;
-            const panAmount = dotTarget - dotStartsAt;
-
-            console.log(`calculateCenteredOffset: dvh=${dvh} combo=${comboHeight} pad=${Math.round(padding)} pan=${Math.round(panAmount)}`);
-
-            return Math.round(panAmount);
+            const markerHeight = 40;
+            const offset = (cardHeight / 2) - (markerHeight / 2);
+            const buffer = 15;
+            return Math.round(offset + buffer);
         }
 
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
             const map = window.map;
-            // Google Maps world coordinates: 256 pixels = 1 world unit at zoom 0
-            // At zoom Z, 256 * 2^Z pixels = 1 world unit
-            // So pixel to world: pixels / (256 * 2^zoom)
-            const zoom = zoomLevel || map.getZoom();
-            const scale = 256 * Math.pow(2, zoom);
+            const scale = Math.pow(2, zoomLevel || map.getZoom());
             const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
             const pixelOffset = new google.maps.Point(0, -offsetPixels / scale);
             const newWorldCoordinate = new google.maps.Point(worldCoordinate.x, worldCoordinate.y + pixelOffset.y);
             const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
-            console.log('offsetLatLng:', {
-                inputLat: latLng.lat,
-                offsetPx: offsetPixels,
-                zoom: zoomLevel,
-                scale,
-                outputLat: newLatLng.lat(),
-                latDiff: newLatLng.lat() - latLng.lat
-            });
             return { lat: newLatLng.lat(), lng: latLng.lng };
         }
 
@@ -1927,14 +1736,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const targetLatLng = new google.maps.LatLng(targetPosition);
 
             // Calculate offset for visual centering (marker + info card)
-            // Full mode has 40px disclaimer bar
-            const disclaimerHeight = 40;
-            const offsetPixels = calculateCenteredOffset(targetZoom, disclaimerHeight);
+            const offsetPixels = calculateCenteredOffset(targetZoom);
             const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
 
             // Calculate distance from marker-to-marker (not center-to-marker)
             // Reverse the offset on startPos to get approximate marker position
-            const startOffsetPixels = calculateCenteredOffset(startZoom, disclaimerHeight);
+            const startOffsetPixels = calculateCenteredOffset(startZoom);
             const startMarkerPos = offsetLatLng({ lat: startPos.lat(), lng: startPos.lng() }, -startOffsetPixels, startZoom);
             const startMarkerLatLng = new google.maps.LatLng(startMarkerPos);
             const distance = google.maps.geometry.spherical.computeDistanceBetween(startMarkerLatLng, targetLatLng);
