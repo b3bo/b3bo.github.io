@@ -21,7 +21,7 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Drawer Prototype - Neighborhood Finder</title>
+    <title>Community Finder - Emerald Coast Real Estate</title>
 
     <!-- Google Analytics (matches production) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -525,10 +525,10 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
         // ==========================================
         // PRODUCTION ES MODULE IMPORTS
         // ==========================================
-        import { CONFIG } from '../js/config.js';
-        import { STATE } from '../js/state.js';
-        import { loadNeighborhoods } from '../js/data.js';
-        import { formatPrice } from '../js/utils.js';
+        import { CONFIG } from './neighborhoods/js/config.js';
+        import { STATE } from './neighborhoods/js/state.js';
+        import { loadNeighborhoods } from './neighborhoods/js/data.js';
+        import { formatPrice } from './neighborhoods/js/utils.js';
 
         // Expose CONFIG globally so other scripts can use it
         window.CONFIG = CONFIG;
