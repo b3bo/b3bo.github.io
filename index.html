@@ -581,14 +581,35 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const isSingleMode = urlParams.get('mode') === 'single';
             const neighborhoodSlug = urlParams.get('neighborhood');
             window.isSingleMode = isSingleMode;
+            const isInIframe = window.self !== window.top;
 
-            // Single mode: hide sidebar completely
+            // Single mode: hide sidebar, drawer, footer completely
             if (isSingleMode) {
                 const sidebar = document.getElementById('sidebar');
                 const drawerToggle = document.getElementById('drawer-toggle');
-                if (sidebar) sidebar.style.display = 'none';
+                const drawerLabel = document.querySelector('label[for="drawer-toggle"]');
+                const overlay = document.querySelectorAll('label[for="drawer-toggle"]');
+                const disclaimer = document.querySelector('.disclaimer-bar');
+                const mapLayout = document.getElementById('map-layout');
+
+                if (sidebar) sidebar.style.setProperty('display', 'none', 'important');
                 if (drawerToggle) drawerToggle.style.display = 'none';
+                // Hide all drawer toggle labels (tab and overlay)
+                overlay.forEach(el => el.style.display = 'none');
+                // Hide disclaimer bar
+                if (disclaimer) disclaimer.style.display = 'none';
+                // Expand map to full height
+                if (mapLayout) mapLayout.style.height = '100dvh';
+
                 console.log('Single mode active:', neighborhoodSlug);
+            }
+
+            // Also hide disclaimer when in iframe (even if not single mode)
+            if (isInIframe) {
+                const disclaimer = document.querySelector('.disclaimer-bar');
+                const mapLayout = document.getElementById('map-layout');
+                if (disclaimer) disclaimer.style.display = 'none';
+                if (mapLayout) mapLayout.style.height = '100dvh';
             }
 
             // Use global variables set by ES module
@@ -1474,18 +1495,34 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // Clear placeholder
             mapDiv.innerHTML = '';
 
-            // Initialize map (use window.map for global access)
-            // Initial view: zoomed out to show full coast
-            // CONFIG.map.defaultZoom (14) is used when flying TO a neighborhood
-            const initialCenter = { lat: 30.32, lng: -86.05 };  // Centered on Emerald Coast
-            const initialZoom = 11;  // Zoomed out to see all neighborhoods
+            // Check for single mode
+            const urlParams = new URLSearchParams(window.location.search);
+            const isSingleMode = urlParams.get('mode') === 'single';
+            const neighborhoodSlug = urlParams.get('neighborhood');
 
-            // Offset center to account for sidebar (shifts right by sidebarWidth/2)
-            const lngOffset = calculateSidebarOffsetLng(initialZoom);
-            const adjustedCenter = {
-                lat: initialCenter.lat,
-                lng: initialCenter.lng + lngOffset
-            };
+            // Determine initial center and zoom
+            let initialCenter = { lat: 30.32, lng: -86.05 };  // Default: Emerald Coast
+            let initialZoom = 11;  // Default: zoomed out
+
+            // In single mode, center on target neighborhood
+            if (isSingleMode && neighborhoodSlug && window.neighborhoods) {
+                const target = window.neighborhoods.find(n => window.toSlug && window.toSlug(n.name) === neighborhoodSlug);
+                if (target && target.position) {
+                    initialCenter = target.position;
+                    initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                    console.log('Single mode: centering on', target.name);
+                }
+            }
+
+            // Only offset for sidebar in normal mode (sidebar hidden in single mode)
+            let adjustedCenter = initialCenter;
+            if (!isSingleMode) {
+                const lngOffset = calculateSidebarOffsetLng(initialZoom);
+                adjustedCenter = {
+                    lat: initialCenter.lat,
+                    lng: initialCenter.lng + lngOffset
+                };
+            }
 
             window.map = new google.maps.Map(mapDiv, {
                 zoom: initialZoom,
@@ -1525,28 +1562,49 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 const isSingleMode = urlParams.get('mode') === 'single';
                 const neighborhoodSlug = urlParams.get('neighborhood');
 
+                // In single mode, filter to just the matching neighborhood
+                if (isSingleMode && neighborhoodSlug && neighborhoods.length > 0) {
+                    const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
+                    if (matching.length > 0) {
+                        // Prefer Homes if multiple property types exist
+                        const homes = matching.find(n => n.propertyType === 'Homes');
+                        const target = homes || matching[0];
+                        window.neighborhoods = [target];
+                        window.filteredNeighborhoods = [target];
+                        console.log('Single mode: filtered to', target.name, target.propertyType);
+                    }
+                }
+
+                function openSingleModeMarker() {
+                    if (!window.markers || window.markers.length === 0) return false;
+                    const marker = window.markers[0]; // Should only be one in single mode
+                    if (marker && marker.neighborhood) {
+                        console.log('Single mode: opening', marker.neighborhood.name);
+                        showInfoWindowContent(marker, marker.neighborhood, window.infoWindow, true);
+                        marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+                        window.activeMarker = marker;
+                        return true;
+                    }
+                    return false;
+                }
+
                 function afterMarkersAdded() {
-                    // In single mode: find and open the specific neighborhood
-                    if (isSingleMode && neighborhoodSlug && window.markers) {
-                        const marker = window.markers.find(m =>
-                            window.toSlug(m.neighborhood.name) === neighborhoodSlug
-                        );
-                        if (marker) {
-                            console.log('Single mode: opening', marker.neighborhood.name);
-                            // Center map on neighborhood
-                            const pos = marker.neighborhood.position;
-                            const zoom = parseInt(urlParams.get('zoom')) || 13;
-                            window.map.setCenter(pos);
-                            window.map.setZoom(zoom);
-                            // Open info window after a brief delay for map to settle
-                            setTimeout(() => {
-                                showInfoWindowContent(marker, marker.neighborhood, window.infoWindow, true);
-                                marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
-                                window.activeMarker = marker;
-                            }, 500);
-                        } else {
-                            console.warn('Single mode: neighborhood not found:', neighborhoodSlug);
-                        }
+                    // In single mode: use idle event for stable timing, then poll for marker
+                    if (isSingleMode && neighborhoodSlug) {
+                        google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                            // Poll for marker to be ready
+                            let attempts = 0;
+                            const pollMarker = () => {
+                                attempts++;
+                                if (openSingleModeMarker()) return;
+                                if (attempts < 30) {
+                                    setTimeout(pollMarker, 100);
+                                } else {
+                                    console.warn('Single mode: marker not found after 3 seconds');
+                                }
+                            };
+                            pollMarker();
+                        });
                     } else {
                         // Normal mode: fit bounds to show all
                         window.fitBoundsToNeighborhoods();
@@ -1559,7 +1617,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         window.filteredNeighborhoods = [...neighborhoods];
                     }
                     window.addMarkers();
-                    console.log('Map initialized with', neighborhoods.length, 'neighborhoods');
+                    console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
                     afterMarkersAdded();
                 } else {
                     // Data not loaded yet, wait for it
@@ -1569,7 +1627,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             window.filteredNeighborhoods = [...n];
                         }
                         window.addMarkers();
-                        console.log('Map initialized with', n.length, 'neighborhoods');
+                        console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
                         afterMarkersAdded();
                     }, { once: true });
                 }
