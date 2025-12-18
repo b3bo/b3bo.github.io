@@ -39,9 +39,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Precompiled Tailwind v4 CSS -->
+    <!-- Precompiled Tailwind v4 CSS (includes all styles from styles.css) -->
     <link rel="stylesheet" href="./neighborhoods/css/tailwind_neighborhoods.css">
-    <link rel="stylesheet" href="./neighborhoods/css/styles.css">
 
     <style>
         :root {
@@ -505,7 +504,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 17 | v1.1.0</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 18 | v1.1.0</p>
                 </div>
             </div>
 
@@ -1577,10 +1576,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 function openSingleModeMarker() {
                     if (!window.markers || window.markers.length === 0) return false;
-                    const marker = window.markers[0]; // Should only be one in single mode
-                    if (marker && marker.neighborhood) {
-                        console.log('Single mode: opening', marker.neighborhood.name);
-                        showInfoWindowContent(marker, marker.neighborhood, window.infoWindow, true);
+                    const markerObj = window.markers[0]; // { marker, neighborhood }
+                    if (markerObj && markerObj.marker && markerObj.neighborhood) {
+                        const marker = markerObj.marker;
+                        const neighborhood = markerObj.neighborhood;
+                        console.log('Single mode: opening', neighborhood.name);
+                        showInfoWindowContent(marker, neighborhood, window.infoWindow, true);
                         marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
                         window.activeMarker = marker;
                         return true;
