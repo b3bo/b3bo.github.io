@@ -38,8 +38,8 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Precompiled Tailwind v4 CSS -->
-    <link rel="stylesheet" href="/assets/css/tailwind_neighborhoods.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/asse./neighborhoods/css/tailwind_neighborhoods.css">
+    <link rel="stylesheet" href="/asse./neighborhoods/css/styles.css">
 
     <style>
         :root {
@@ -525,16 +525,16 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
         // ==========================================
         // PRODUCTION ES MODULE IMPORTS
         // ==========================================
-        import { CONFIG } from '../js/config.js';
-        import { STATE } from '../js/state.js';
-        import { loadNeighborhoods } from '../js/data.js';
-        import { formatPrice } from '../js/utils.js';
+        import { CONFIG } from './neighborhoods/js/config.js';
+        import { STATE } from './neighborhoods/js/state.js';
+        import { loadNeighborhoods } from './neighborhoods/js/data.js';
+        import { formatPrice } from './neighborhoods/js/utils.js';
 
         // Expose CONFIG globally so other scripts can use it
         window.CONFIG = CONFIG;
 
         // Configure paths for prototype
-        CONFIG.data.geojsonPath = '/assets/jsons/';
+        CONFIG.data.geojsonPath = './neighborhoods/jsons/';
 
         // Load production data
         const neighborhoods = await loadNeighborhoods();
@@ -1532,7 +1532,7 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
             if (!window.map || window.customBoundaries.has(zipCode)) return;
             window.customBoundaries.add(zipCode);
 
-            window.map.data.loadGeoJson(`/assets/jsons/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
+            window.map.data.loadGeoJson(`./neighborhoods/jsons/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
                 window.map.data.setStyle(function(feature) {
                     const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
                     if (window.customBoundaries.has(featureZip)) {
