@@ -10,11 +10,6 @@
 
 /* Apply fonts globally */
 @layer base {
-  /* Expose CSS dvh to JavaScript via custom property */
-  :root {
-    --one-dvh: 1dvh;
-  }
-
   body {
     font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
   }
