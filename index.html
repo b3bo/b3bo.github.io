@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <!--
 ================================================================================
-DRAWER PROTOTYPE - Now using Precompiled Tailwind v4
+COMMUNITY FINDER - Emerald Coast Real Estate Map
 ================================================================================
 
-USING PRECOMPILED CSS (Dec 17, 2025):
-- Uses tailwind_neighborhoods.css + styles.css
-- Surgical fix applied: removed 'translate:' properties from styles.css
-- Now uses 'transform:' only, which works with CSS transitions
-
-ANIMATION FIX (styles.css lines 407-440):
-- .-translate-x-full, .translate-x-full use transform: only
-- #drawer-toggle:checked ~ #sidebar uses transform: only
-- No more 'translate:' property overriding 'transform:'
-
-See: assets/docs/TAILWIND_BUILD.md for full documentation
+Precompiled Tailwind v4 CSS with custom sliding panel animations.
+See: assets/docs/TAILWIND_BUILD.md for build documentation.
 ================================================================================
 -->
 <html lang="en">
@@ -22,6 +13,17 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Community Finder - Emerald Coast Real Estate</title>
+    <meta name="description" content="Explore 700+ neighborhoods along Florida's Emerald Coast. Filter by price, amenities, and location to find your perfect community in 30A, Destin, Panama City Beach, and more.">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Community Finder - Emerald Coast Real Estate">
+    <meta property="og:description" content="Explore 700+ neighborhoods along Florida's Emerald Coast. Filter by price, amenities, and location.">
+    <meta property="og:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./neighborhoods/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./neighborhoods/img/favicon-16x16.png">
 
     <!-- Google Analytics (matches production) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -573,6 +575,21 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
             // Guard against double initialization
             if (window.appInitialized) return;
             window.appInitialized = true;
+
+            // Parse URL parameters for single mode
+            const urlParams = new URLSearchParams(window.location.search);
+            const isSingleMode = urlParams.get('mode') === 'single';
+            const neighborhoodSlug = urlParams.get('neighborhood');
+            window.isSingleMode = isSingleMode;
+
+            // Single mode: hide sidebar completely
+            if (isSingleMode) {
+                const sidebar = document.getElementById('sidebar');
+                const drawerToggle = document.getElementById('drawer-toggle');
+                if (sidebar) sidebar.style.display = 'none';
+                if (drawerToggle) drawerToggle.style.display = 'none';
+                console.log('Single mode active:', neighborhoodSlug);
+            }
 
             // Use global variables set by ES module
             const neighborhoods = window.neighborhoods || [];
@@ -1504,14 +1521,46 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
             // Add markers and fit to show all (only if data is loaded)
             function addMarkersWhenReady() {
                 const neighborhoods = window.neighborhoods || [];
+                const urlParams = new URLSearchParams(window.location.search);
+                const isSingleMode = urlParams.get('mode') === 'single';
+                const neighborhoodSlug = urlParams.get('neighborhood');
+
+                function afterMarkersAdded() {
+                    // In single mode: find and open the specific neighborhood
+                    if (isSingleMode && neighborhoodSlug && window.markers) {
+                        const marker = window.markers.find(m =>
+                            window.toSlug(m.neighborhood.name) === neighborhoodSlug
+                        );
+                        if (marker) {
+                            console.log('Single mode: opening', marker.neighborhood.name);
+                            // Center map on neighborhood
+                            const pos = marker.neighborhood.position;
+                            const zoom = parseInt(urlParams.get('zoom')) || 13;
+                            window.map.setCenter(pos);
+                            window.map.setZoom(zoom);
+                            // Open info window after a brief delay for map to settle
+                            setTimeout(() => {
+                                showInfoWindowContent(marker, marker.neighborhood, window.infoWindow, true);
+                                marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+                                window.activeMarker = marker;
+                            }, 500);
+                        } else {
+                            console.warn('Single mode: neighborhood not found:', neighborhoodSlug);
+                        }
+                    } else {
+                        // Normal mode: fit bounds to show all
+                        window.fitBoundsToNeighborhoods();
+                    }
+                }
+
                 if (neighborhoods.length > 0) {
                     // Ensure filteredNeighborhoods is set
                     if (!window.filteredNeighborhoods || window.filteredNeighborhoods.length === 0) {
                         window.filteredNeighborhoods = [...neighborhoods];
                     }
                     window.addMarkers();
-                    window.fitBoundsToNeighborhoods();
                     console.log('Map initialized with', neighborhoods.length, 'neighborhoods');
+                    afterMarkersAdded();
                 } else {
                     // Data not loaded yet, wait for it
                     window.addEventListener('dataLoaded', () => {
@@ -1520,8 +1569,8 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
                             window.filteredNeighborhoods = [...n];
                         }
                         window.addMarkers();
-                        window.fitBoundsToNeighborhoods();
                         console.log('Map initialized with', n.length, 'neighborhoods');
+                        afterMarkersAdded();
                     }, { once: true });
                 }
             }
@@ -1531,6 +1580,21 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
             window.map.addListener('idle', () => {
                 if (window.map) {
                     console.log('Zoom:', window.map.getZoom().toFixed(2));
+                }
+            });
+
+            // Close info windows when clicking on the map background
+            window.map.addListener('click', () => {
+                if (window.infoWindow && window.infoWindow.getMap()) {
+                    window.infoWindow.close();
+                }
+                if (window.hoverInfoWindow && window.hoverInfoWindow.getMap()) {
+                    window.hoverInfoWindow.close();
+                }
+                // Deactivate ripple on active marker
+                if (window.activeMarker && window.activeMarker.content) {
+                    window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                    window.activeMarker = null;
                 }
             });
         }
@@ -1955,21 +2019,23 @@ See: assets/docs/TAILWIND_BUILD.md for full documentation
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                         </button>
                         ` : ''}
-                        ${listingsUrl ? `
-                        <a href="${listingsUrl}"
-                           target="_blank"
-                           class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
-                           onclick="event.stopPropagation(); if(typeof gtag!=='undefined')gtag('event','view_listings',{neighborhood_name:'${n.name}',listing_count:${stats.listingCount || 0},property_type:'${n.propertyType}'});"
-                           title="View all ${n.name} ${n.propertyType} for sale">
-                            Matching Listings
-                        </a>
-                        ` : `
-                        <button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed"
-                                disabled
-                                title="MLS listings coming soon for ${n.name}">
-                            Coming Soon!
-                        </button>
-                        `}
+                        ${(() => {
+                            const isSingleMode = window.isSingleMode;
+                            if (isSingleMode) {
+                                // Single mode: link to Community Finder with marker parameter
+                                const neighborhoodSlug = window.toSlug(n.name);
+                                const propertyTypeParam = n.propertyType ? '&propertyType=' + encodeURIComponent(n.propertyType) : '';
+                                const baseUrl = window.location.hostname === 'localhost'
+                                    ? window.location.origin + '/assets/html/index.html'
+                                    : 'https://neighborhoods.truesouthcoastalhomes.com';
+                                const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
+                                return '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + n.name + ' in Community Finder">Community Finder</a>';
+                            } else if (listingsUrl) {
+                                return '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation(); if(typeof gtag!==\'undefined\')gtag(\'event\',\'view_listings\',{neighborhood_name:\'' + n.name + '\',listing_count:' + (stats.listingCount || 0) + ',property_type:\'' + n.propertyType + '\'});" title="View all ' + n.name + ' ' + n.propertyType + ' for sale">Matching Listings</a>';
+                            } else {
+                                return '<button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed" disabled title="MLS listings coming soon for ' + n.name + '">Coming Soon!</button>';
+                            }
+                        })()}
                         ${hasNav ? `
                         <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus:outline-none" title="Next Community">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
