@@ -404,21 +404,54 @@ hr.divider {
   box-shadow: inset 0 0 0 2px var(--color-dark-bg-elevated);
 }
 
-/* translate-x-full classes now handled by Tailwind - removed manual overrides */
+/* Missing Tailwind classes - manually defined (NOT processed by Tailwind) */
+/* CRITICAL: translate: none unsets Tailwind v4's translate property so transform works */
+.-translate-x-full {
+  translate: none !important;
+  transform: translateX(-100%) !important;
+}
 
-/* Sliding panel transitions now handled by Tailwind classes - removed manual overrides */
+/* Positive translate for hiding sliding panels off-screen right */
+.translate-x-full {
+  translate: none !important;
+  transform: translateX(100%) !important;
+}
+
+.translate-x-0 {
+  translate: none !important;
+  transform: translateX(0) !important;
+}
+
+/* Sliding panel visibility with delayed hide for close animation */
+.sliding-panel {
+  transition: transform var(--panel-duration) ease-out, visibility 0s linear var(--panel-duration) !important;
+}
+
+/* Force hidden panels to be invisible AFTER animation completes */
+.sliding-panel.translate-x-full {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Make panels visible immediately when opening (no delay) */
+.sliding-panel:not(.translate-x-full) {
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transition-delay: 0s !important;
+}
 
 /* Sidebar peer-checked override (NOT processed by Tailwind) */
 #drawer-toggle:checked ~ #sidebar {
-  translate: 0 0 !important;
-  transform: translate(0, 0) !important;
+  translate: none !important;
+  transform: translateX(0) !important;
   --tw-translate-x: 0 !important;
   --tw-translate-y: 0 !important;
 }
 
-/* Property type & amenity button active/selected state */
+/* Property type, area & amenity button active/selected state */
 #btn-homes.active,
 #btn-condos.active,
+.area-tag.selected,
 .amenity-tag.selected {
   background-color: var(--color-brand-base);
   border-color: var(--color-brand-base);
@@ -427,6 +460,7 @@ hr.divider {
 
 .dark #btn-homes.active,
 .dark #btn-condos.active,
+.dark .area-tag.selected,
 .dark .amenity-tag.selected {
   background-color: var(--color-brand-dark);
   border-color: var(--color-brand-dark);

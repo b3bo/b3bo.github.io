@@ -21,12 +21,14 @@ function applyMapTheme(theme) {
         return;
     }
 
+    console.time('⏱️ Total theme switch');
     console.log('Applying map theme:', theme);
 
     // colorScheme can only be set at map initialization, not changed dynamically
     // So we need to recreate the map with the new colorScheme
     const currentCenter = STATE.map.getCenter();
     const currentZoom = STATE.map.getZoom();
+    console.log('Current zoom:', currentZoom);
 
     // Store current markers and info windows
     const markers = STATE.markers;
@@ -64,13 +66,20 @@ function applyMapTheme(theme) {
     STATE.hoverInfoWindow = hoverInfoWindow;
 
     // Reattach markers to new map
+    console.time('⏱️ Marker reattachment');
     markers.forEach(markerObj => {
         if (markerObj.marker) {
             markerObj.marker.setMap(STATE.map);
         }
     });
+    console.timeEnd('⏱️ Marker reattachment');
+    console.log(`Reattached ${markers.length} markers`);
 
-    console.log('Map recreated with colorScheme:', theme === 'dark' ? 'DARK' : 'LIGHT');
+    // Track when tiles finish loading
+    google.maps.event.addListenerOnce(STATE.map, 'tilesloaded', () => {
+        console.timeEnd('⏱️ Total theme switch');
+        console.log('✅ Map tiles loaded - theme switch complete');
+    });
 }
 
 export function initializeMap(center, zoom) {
@@ -110,8 +119,8 @@ export function initializeMap(center, zoom) {
     });
 
     // Create info windows with auto-pan disabled for AdvancedMarkerElement compatibility
-    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
-    STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 280, disableAutoPan: true });
+    STATE.infoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
+    STATE.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
 
     // Set higher z-index for hover info window to appear above clicked info windows
     google.maps.event.addListener(STATE.hoverInfoWindow, 'domready', () => {
@@ -588,7 +597,7 @@ export function offsetLatLng(latLng, offsetPixels, zoomLevel) {
  */
 export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
 
-    if (!neighborhoods || neighborhoods.length === 0) return;
+    if (!STATE.map || !neighborhoods || neighborhoods.length === 0) return;
 
     const bounds = new google.maps.LatLngBounds();
 

@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.73',
+    version: '1.1.1',
 
     // ===================================================================
     // MAP SETTINGS
@@ -27,16 +27,32 @@ export const CONFIG = {
         defaultCenter: { lat: 30.294396274692907, lng: -86.01317525044458 },
 
         // Default zoom level for map view
-        defaultZoom: 12,
+        defaultZoom: 14,
 
         // Zoom level when displaying single neighborhood
-        singleNeighborhoodZoom: 13,
+        singleNeighborhoodZoom: 12,
 
         // Duration (ms) for map camera fly-to animation
         flyToDuration: 2000,
 
         // Auto-open info window after flying to location
         autoOpenOnFly: true,
+
+        // Flight zoom arc - minZoom based on distance (meters)
+        // Zooms out to minZoom at midpoint, then back to targetZoom
+        flightZoomArc: {
+            micro: { maxDistance: 2000, minZoom: 13.5  },    // < 2km: gentle hop
+            short: { maxDistance: 5000, minZoom: 13 },    // 2-5km: subtle arc
+            medium: { maxDistance: 20000, minZoom: 12 },  // 5-20km: moderate arc
+            long: { minZoom: 10 }                          // > 20km: big arc
+        },
+
+        // Flight duration based on distance (ms)
+        flightDuration: {
+            micro: 800,    // < 1km
+            short: 1200,   // 1-2km
+            medium: 2000   // > 2km
+        },
 
         // Google Maps Cloud mapId for styling
         mapId: '92b2f4ea8b2fce54a50ed2e9'

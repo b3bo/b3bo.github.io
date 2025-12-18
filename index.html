@@ -1,468 +1,201 @@
 <!DOCTYPE html>
-<!-- 
-  index.html
-  
-  Main entry point for the Community Finder application. 
-  Contains the Google Maps interface, sidebar navigation, filtering logic, 
-  and neighborhood data display.
+<!--
+================================================================================
+DRAWER PROTOTYPE - Now using Precompiled Tailwind v4
+================================================================================
 
-  restored
+USING PRECOMPILED CSS (Dec 17, 2025):
+- Uses tailwind_neighborhoods.css + styles.css
+- Surgical fix applied: removed 'translate:' properties from styles.css
+- Now uses 'transform:' only, which works with CSS transitions
+
+ANIMATION FIX (styles.css lines 407-440):
+- .-translate-x-full, .translate-x-full use transform: only
+- #drawer-toggle:checked ~ #sidebar uses transform: only
+- No more 'translate:' property overriding 'transform:'
+
+See: assets/docs/TAILWIND_BUILD.md for full documentation
+================================================================================
 -->
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDHZ221NQT"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CDHZ221NQT');
-    </script>
-
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ukogu9lp84");
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="2dN-r7vjTCFAl_-4EBHirwdL296-0fl8IEMFE3Kdx64">
-    <title>Emerald Coast Neighborhood FinderG�� | Interactive Tool for 30A Home Buyers</title>
-    <meta name="description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
+    <title>Drawer Prototype - Neighborhood Finder</title>
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://neighborhoods.truesouthcoastalhomes.com/">
+    <!-- Google Analytics (matches production) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with real GA ID
+    </script>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
-    <meta property="og:title" content="Emerald Coast Neighborhood FinderG�� | Interactive Tool for 30A Home Buyers">
-    <meta property="og:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location across Destin, Miramar Beach, and 30A.">
-    <meta property="og:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="True South Coastal Homes">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://neighborhoods.truesouthcoastalhomes.com/">
-    <meta name="twitter:title" content="Emerald Coast Neighborhood FinderG�� | Interactive Tool for 30A Home Buyers">
-    <meta name="twitter:description" content="Free interactive tool to help buyers compare and select the perfect 30A and Emerald Coast community. Filter neighborhoods by price, amenities, and location.">
-    <meta name="twitter:image" content="https://neighborhoods.truesouthcoastalhomes.com/assets/img/og-image.jpg">
-
-    <!-- Additional SEO Meta Tags -->
-    <meta name="keywords" content="30A neighborhoods, Destin homes, Miramar Beach communities, Emerald Coast real estate, Florida beach communities, Watersound, Alys Beach, Rosemary Beach, Seaside Florida">
-    <meta name="author" content="Kimberly Bauman, P.A. - True South Coastal Homes">
-    <meta name="geo.region" content="US-FL">
-    <meta name="geo.placename" content="Santa Rosa Beach, Florida">
-    <meta name="geo.position" content="30.294396;-86.013175">
-    <meta name="ICBM" content="30.294396, -86.013175">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./neighborhoods/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./neighborhoods/img/favicon-16x16.png">
-    
-    <!-- Google Fonts -->
+    <!-- Google Fonts (matching index.html) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="./neighborhoods/css/tailwind_neighborhoods.css">
-    <!-- Custom Styles (loaded after Tailwind for overrides) -->
-    <link rel="stylesheet" href="./neighborhoods/css/styles.css">
+    <!-- Precompiled Tailwind v4 CSS -->
+    <link rel="stylesheet" href="/assets/css/tailwind_neighborhoods.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
-    <!-- Google Maps API moved to end of body to prevent race condition -->
-    
     <style>
-        /* Prevent text selection to discourage copying */
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        :root {
+            --panel-duration: 300ms;
+            --color-brand-rgb: 0, 150, 136;
         }
 
-        /* iOS viewport drift fix - prevents horizontal scroll after zoom */
-        html, body {
-            overflow-x: hidden;
+        /* Divider style matching index.html */
+        .divider {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 0;
+        }
+        .dark .divider {
+            border-top-color: #404040;
+        }
+        .dark .disclaimer-bar {
+            background-color: #2E2E2E !important;
         }
 
-        /* Allow selection in inputs */
-        input, textarea {
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
-        }
-
-        /* Info window custom styles */
-        .gm-style .info-window {
-            font-family: var(--font-body);
-        }
-        
-        /* Hide the default close button */
-        .gm-style-iw-chr {
-            display: none !important;
-        }
-        
-        /* Remove padding/margin from the info window container */
-        .gm-style .gm-style-iw-c {
-            padding: 0 !important;
-            border: none !important;
-            /* Remove dark outline and minimize shadow */
-            box-shadow: none !important;
-            background-color: #fff !important;
-            outline: none !important;
-            border-radius: 12px !important;
-        }
-        
-        /* Remove border/shadow from info window tip */
-        .gm-style .gm-style-iw-tc::after {
-            background: #fff !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        /* Ensure content card has no outer outline */
-        .gm-style .info-window {
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            border-radius: 12px !important;
-        }
-
-        /* Remove default padding from internal content wrapper */
-        .gm-style .gm-style-iw-d {
-            padding: 0 !important;
-            overflow: hidden !important;
-        }
-        
-        /* Map container sizing - leave room for disclaimer at bottom */
-        #map-layout {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: calc(100dvh - 40px);
-            z-index: 0;
-        }
-        
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Position map type control to the left of fullscreen button */
-        .gm-style-mtc {
-            transform: translateX(-20px) !important;
-        }
-        
-        /* Mobile: move map/sat buttons further left to avoid overlap with fullscreen */
-        @media (max-width: 767px) {
-            .gm-style-mtc {
-                transform: translateX(-55px) !important;
-            }
-        }
-
-        /* Tab icon switching */
-        #drawer-toggle:checked ~ aside .tab-icon-closed {
-            display: none;
-        }
-
-        #drawer-toggle:checked ~ aside .tab-icon-open {
-            display: block;
-        }
-
-        /* Ripple marker animation */
-        @keyframes ripple-animation {
-            0% {
-                transform: scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(2.5);
-                opacity: 0;
-            }
-        }
-        
-        /* Landscape mode on mobile devices */
-        @media (max-height: 500px) and (orientation: landscape) {
-            #sidebar {
-                /* Keep floating card style. Do NOT change width at this height breakpoint
-                   — changing the sidebar width here caused the Results sliding-panel to
-                   shrink and introduce layout/scroll regressions on short viewports. */
-                height: calc(100dvh - 2rem) !important;
-                max-height: calc(100dvh - 2rem) !important;
-                /* Maintain rounded corners */
-                border-radius: 1rem !important;
-                /* Keep flex layout */
-                display: flex !important;
-                /* NOTE: Do NOT use overflow:hidden here - it clips the drawer tab.
-                   Panel hiding is handled by visibility:hidden in styles.css */
-            }
-
-            #sidebar-scroll-container {
-                overflow-y: auto !important;
-                height: 100% !important;
-                width: 100% !important;
-                display: block !important;
-            }
-
-            /* Disable internal scrolling for content */
-            #sidebar-content {
-                overflow: visible !important;
-                height: auto !important;
-                flex: none !important;
-            }
-
-            /* Compact spacing for landscape */
-            #sidebar .p-5 {
-                padding: 0.75rem 1rem !important;
-            }
-
-            #sidebar .pt-4 {
-                padding-top: 0.5rem !important;
-            }
-
-            #sidebar .gap-6 {
-                gap: 1rem !important;
-            }
-
-            #sidebar .pb-3 {
-                padding-bottom: 0.5rem !important;
-            }
-
-            /* Short viewports: make sliding panels fixed overlays so they do not
-               participate in document flow and therefore avoid double-scrollbar
-               scenarios where both the document and the panel are independently scrollable.
-               NOTE: Do NOT use inset:0 - it overrides translate-x-full and breaks panel hiding. */
-            .sliding-panel {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-            }
-        }
-
-
-        /* Custom Scrollbar for Sidebar */
-        #sidebar-content::-webkit-scrollbar,
-        #sidebar-scroll-container::-webkit-scrollbar,
+        /* Custom scrollbar - uses brand CSS variables */
+        .panel-content::-webkit-scrollbar,
         #main-menu::-webkit-scrollbar,
-        .panel-content::-webkit-scrollbar {
-            width: 6px;
+        #search-results::-webkit-scrollbar {
+            width: 10px;
         }
-
-        #sidebar-content::-webkit-scrollbar-track,
-        #sidebar-scroll-container::-webkit-scrollbar-track,
+        .panel-content::-webkit-scrollbar-track,
         #main-menu::-webkit-scrollbar-track,
-        .panel-content::-webkit-scrollbar-track {
+        #search-results::-webkit-scrollbar-track {
             background: transparent;
         }
-
-          /* Scrollbar thumb uses the brand colors to match button states.
-              Desired mapping:
-              - default (inactive): lighter brand (brand-100)
-              - hover: same as default (brand-100)
-              - active (pressed): darker brand (brand-200) � same as active buttons like Homes/Condos
-              Dark mode uses translucent variants (20% default/hover, 30% active). */
-        #sidebar-content::-webkit-scrollbar-thumb,
-        #sidebar-scroll-container::-webkit-scrollbar-thumb,
+        .panel-content::-webkit-scrollbar-thumb,
         #main-menu::-webkit-scrollbar-thumb,
-        .panel-content::-webkit-scrollbar-thumb {
-                background-color: var(--color-brand-100);
-            opacity: 1; /* previously active state used full opacity */
+        #search-results::-webkit-scrollbar-thumb {
+            background-color: var(--color-brand-100);
             border-radius: 20px;
-            transition: background-color 180ms ease, opacity 180ms ease;
+            transition: background-color 0.2s;
+            min-height: 60px;
         }
-
-        /* Light mode � hover should match the inactive/default color */
-        #sidebar-content::-webkit-scrollbar-thumb:hover,
-        #sidebar-scroll-container::-webkit-scrollbar-thumb:hover,
+        .panel-content::-webkit-scrollbar-thumb:hover,
         #main-menu::-webkit-scrollbar-thumb:hover,
-        .panel-content::-webkit-scrollbar-thumb:hover {
-            background-color: var(--color-brand-100); /* hover uses the same as default */
-            opacity: 0.9;
-        }
-
-        #sidebar-content::-webkit-scrollbar-thumb:active,
-        #sidebar-scroll-container::-webkit-scrollbar-thumb:active,
-        #main-menu::-webkit-scrollbar-thumb:active,
-        .panel-content::-webkit-scrollbar-thumb:active {
-                /* Active (pressed) uses the brand base token (matches active buttons)
-                   Use explicit brand token to ensure value is available in this scope */
+        #search-results::-webkit-scrollbar-thumb:hover {
             background-color: var(--color-brand-base);
-            opacity: 1;
         }
-
-        /* Add small inner padding on Results panel so scrollbar doesn't sit tight against list items */
-        #results-panel .panel-content {
-            padding-right: 0.75rem; /* 12px � small visual buffer for the scrollbar */
+        .panel-content::-webkit-scrollbar-thumb:active,
+        #main-menu::-webkit-scrollbar-thumb:active,
+        #search-results::-webkit-scrollbar-thumb:active {
+            background-color: var(--color-brand-base);
         }
-
-        /* Dark mode scrollbar � use brand RGB token for translucent variants */
-        .dark #sidebar-content::-webkit-scrollbar-thumb,
-        .dark #sidebar-scroll-container::-webkit-scrollbar-thumb,
+        .dark .panel-content::-webkit-scrollbar-thumb,
         .dark #main-menu::-webkit-scrollbar-thumb,
-        .dark .panel-content::-webkit-scrollbar-thumb {
-            background-color: rgba(var(--color-brand-rgb), 0.20);
-            opacity: 1;
+        html.dark #search-results::-webkit-scrollbar-thumb {
+            background-color: rgba(var(--color-brand-rgb), 0.2);
         }
-
-        .dark #sidebar-content::-webkit-scrollbar-thumb:hover,
-        .dark #sidebar-scroll-container::-webkit-scrollbar-thumb:hover,
+        .dark .panel-content::-webkit-scrollbar-thumb:hover,
         .dark #main-menu::-webkit-scrollbar-thumb:hover,
-        .dark .panel-content::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(var(--color-brand-rgb), 0.20);
-            opacity: 1;
+        html.dark #search-results::-webkit-scrollbar-thumb:hover {
+            background-color: var(--color-brand-dark);
         }
-
-        .dark #sidebar-content::-webkit-scrollbar-thumb:active,
-        .dark #sidebar-scroll-container::-webkit-scrollbar-thumb:active,
+        .dark .panel-content::-webkit-scrollbar-thumb:active,
         .dark #main-menu::-webkit-scrollbar-thumb:active,
-        .dark .panel-content::-webkit-scrollbar-thumb:active {
-            background-color: rgba(var(--color-brand-rgb), 0.30);
-            opacity: 1;
+        html.dark #search-results::-webkit-scrollbar-thumb:active {
+            background-color: var(--color-brand-dark);
         }
 
-        /* Mobile faux fullscreen state */
-        body.mobile-faux-fullscreen {
-            overflow: hidden;
-            background-color: #f5f5f4;
-        }
-
-        body.mobile-faux-fullscreen #map-layout {
-            position: fixed;
-            inset: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 1050;
-            background-color: #f5f5f4;
-        }
-
-        body.mobile-faux-fullscreen #map {
-            width: 100vw !important;
-            height: 100vh !important;
-        }
-
-        body.mobile-faux-fullscreen #sidebar {
-            opacity: 0;
-            pointer-events: none;
-            transform: translateX(-120%) !important;
-        }
-
-        body.mobile-faux-fullscreen label[for="drawer-toggle"] {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        body.mobile-faux-fullscreen .mobile-fullscreen-btn {
-            position: fixed !important;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1100;
-            opacity: 0.9;
-        }
-
-        /* Ensure all sliding panels match the sidebar's inner width and
-           use consistent box-sizing so padding does not change layout width. */
+        /* Sliding panel base */
         .sliding-panel {
             box-sizing: border-box;
             width: 100%;
         }
 
-          /* (reverted) panel-open toggling removed � previously attempted to prevent
-              a double-scrollbar effect; this change has been undone. */
-
-    </style>
-
-    <!-- Schema.org Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Emerald Coast Neighborhood Finder",
-        "description": "Interactive neighborhood search tool for Florida's Emerald Coast including 30A, Destin, and Miramar Beach communities",
-        "url": "https://neighborhoods.truesouthcoastalhomes.com/",
-        "applicationCategory": "Real Estate",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Kimberly Bauman, P.A.",
-            "brand": "True South Coastal Homes",
-            "url": "https://truesouthcoastalhomes.com",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Santa Rosa Beach",
-                "addressRegion": "FL",
-                "addressCountry": "US"
-            },
-            "areaServed": [
-                {
-                    "@type": "City",
-                    "name": "Santa Rosa Beach",
-                    "containedIn": {
-                        "@type": "State",
-                        "name": "Florida"
-                    }
-                },
-                {
-                    "@type": "City",
-                    "name": "Destin",
-                    "containedIn": {
-                        "@type": "State",
-                        "name": "Florida"
-                    }
-                },
-                {
-                    "@type": "City",
-                    "name": "Miramar Beach",
-                    "containedIn": {
-                        "@type": "State",
-                        "name": "Florida"
-                    }
-                }
-            ]
-        },
-        "featureList": [
-            "Interactive neighborhood maps",
-            "Real-time pricing data",
-            "Community amenities filtering",
-            "Multiple property types (homes, condos, townhomes)",
-            "Sortable search results",
-            "Mobile-friendly interface"
-        ],
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "30.294396",
-            "longitude": "-86.013175"
+        /* Tab icon switching - show X when drawer is open */
+        #drawer-toggle:checked ~ aside .tab-icon-closed {
+            display: none;
         }
-    }
-    </script>
+        #drawer-toggle:checked ~ aside .tab-icon-open {
+            display: block;
+        }
+
+        /* Selected state for area/amenity tags */
+        .area-tag.selected,
+        .amenity-tag.selected {
+            background-color: var(--color-brand-base, #4c8f96) !important;
+            border-color: var(--color-brand-base, #4c8f96) !important;
+            color: white !important;
+        }
+        .dark .area-tag.selected,
+        .dark .amenity-tag.selected {
+            background-color: var(--color-brand-dark, #5ba3ab) !important;
+            border-color: var(--color-brand-dark, #5ba3ab) !important;
+            color: white !important;
+        }
+
+        /* Active state for Homes/Condos buttons */
+        #btn-homes.active,
+        #btn-condos.active {
+            background-color: var(--color-brand-base, #4c8f96) !important;
+            border-color: var(--color-brand-base, #4c8f96) !important;
+            color: white !important;
+        }
+        .dark #btn-homes.active,
+        .dark #btn-condos.active {
+            background-color: var(--color-brand-dark, #5ba3ab) !important;
+            border-color: var(--color-brand-dark, #5ba3ab) !important;
+            color: white !important;
+        }
+
+        /* Info window close button removal - CSS fallback before JS removes it */
+        .gm-style-iw-chr {
+            display: none !important;
+        }
+        .gm-style .gm-style-iw-c {
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+            outline: none !important;
+            border-radius: 12px !important;
+        }
+        .gm-style .gm-style-iw-tc::after {
+            background: transparent !important;
+        }
+        .dark .gm-style .gm-style-iw-c {
+            background-color: #262626 !important;
+        }
+
+        /* Prevent black focus outlines on map and marker elements */
+        #map:focus,
+        .gm-style *:focus,
+        .marker-pin:focus,
+        .gm-style-iw:focus,
+        .gm-style-iw *:focus {
+            outline: none !important;
+        }
+    </style>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
     <div class="flex flex-col h-dvh">
+
+        <!-- Map placeholder (behind sidebar) -->
+        <div id="map-layout" class="fixed inset-0 z-0" style="height: calc(100dvh - 40px);">
+            <div id="map" class="w-full h-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                <div id="map-placeholder" class="text-center p-4">
+                    <p class="text-neutral-400 dark:text-neutral-600 text-lg mb-2">Loading Map...</p>
+                    <p class="text-neutral-300 dark:text-neutral-700 text-xs">If map doesn't load, run: <code class="bg-neutral-200 dark:bg-neutral-900 px-1 rounded">npx serve .</code></p>
+                </div>
+            </div>
+        </div>
+
         <!-- Hidden checkbox controls drawer state -->
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
-        <!-- Drawer Sidebar with attached tab -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] transition-transform duration-[var(--panel-duration)] z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
-            <!-- Keep sidebar height constant across breakpoints; removed md-specific height override so it won't shrink on larger viewports -->
+        <!-- Sidebar (pointer-events-auto ensures clicks don't pass through to overlay) -->
+        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+
             <!-- Tab attached to drawer edge -->
-            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 transition-colors rounded-r-lg">
+            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
                 <!-- Hamburger icon (shows when closed) -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -473,29 +206,34 @@
                 </svg>
             </label>
 
-            <!-- Fixed Header Section -->
+            <!-- ========================================== -->
+            <!-- FIXED HEADER - Never covered by panels    -->
+            <!-- ========================================== -->
             <div class="flex-shrink-0 w-full overflow-x-hidden">
-                <!-- Header -->
-                <div>
-                    <div class="p-5 pb-4 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0">
-                            <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
-                        </div>
-                        <div class="flex-1">
-                            <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
-                            <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
-                        </div>
+                <!-- Logo + Title -->
+                <div class="p-5 pb-4 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-neutral-800 dark:bg-neutral-700 rounded-lg flex items-center justify-center shrink-0">
+                        <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
                     </div>
+                    <div class="flex-1">
+                        <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
+                        <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
+                    </div>
+                </div>
 
-                    <div class="px-5">
-                        <hr class="divider">
-                        <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4"></p>
-                        <hr class="divider">
-                    </div>
+                <!-- Results count -->
+                <div class="px-5">
+                    <hr class="divider">
+                    <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4">42 matches found</p>
+                    <hr class="divider">
                 </div>
             </div>
 
+            <!-- ========================================== -->
+            <!-- SCROLL CONTAINER - Panels slide over this -->
+            <!-- ========================================== -->
             <div id="sidebar-scroll-container" class="flex-1 w-full overflow-hidden relative">
+
                 <!-- Main Menu -->
                 <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
                     <div class="space-y-2">
@@ -523,8 +261,8 @@
                             </svg>
                         </div>
 
-                        <!-- Results Menu Item / Community Finder Link -->
-                        <div id="results-menu-item" class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
+                        <!-- Results Menu Item -->
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Results</span>
                             <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -535,10 +273,12 @@
                         <button id="theme-toggle" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
                             <div class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <!-- Sun icon (light mode) -->
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
-                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <!-- Moon icon (dark mode) -->
+                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                                 </svg>
                             </div>
@@ -546,8 +286,12 @@
                     </div>
                 </div>
 
-                <!-- Property Panel -->
-                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <!-- ========================================== -->
+                <!-- SLIDING PANELS - Cover content area only  -->
+                <!-- ========================================== -->
+
+                <!-- Property/Criteria Panel -->
+                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="property">
                             <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -557,7 +301,7 @@
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content pr-3">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3">
                         <!-- Toggle Buttons -->
                         <div class="flex gap-2 pb-6 px-3">
                             <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
@@ -570,7 +314,7 @@
                         <hr class="divider mx-4 mb-3 pb-4">
 
                         <div class="space-y-6 px-3">
-                            <!-- Price Range Slider -->
+                            <!-- Price Range (dual-thumb) -->
                             <div>
                                 <div class="flex justify-between items-baseline mb-1">
                                     <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Price</span>
@@ -584,7 +328,7 @@
                                 </div>
                             </div>
 
-                            <!-- Beds Slider -->
+                            <!-- Beds -->
                             <div>
                                 <div class="flex justify-between items-baseline mb-1">
                                     <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Beds</span>
@@ -597,7 +341,7 @@
                                 </div>
                             </div>
 
-                            <!-- Baths Slider -->
+                            <!-- Baths -->
                             <div>
                                 <div class="flex justify-between items-baseline mb-1">
                                     <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Baths</span>
@@ -614,7 +358,7 @@
                 </div>
 
                 <!-- Areas Panel -->
-                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="areas">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -624,25 +368,25 @@
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
-                        <div class="flex flex-wrap gap-2 pb-4" id="areaFilters">
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32541">Destin</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32459">Santa Rosa Beach</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32550">Miramar Beach</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32461">Inlet Beach</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-zipcode="32413">Panama City Beach</button>
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                        <div class="flex flex-wrap gap-2 pb-4">
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32541">Destin</button>
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32459">Santa Rosa Beach</button>
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32550">Miramar Beach</button>
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32461">Inlet Beach</button>
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32413">Panama City Beach</button>
                         </div>
                         <hr class="divider mx-4 my-3 pb-4">
-                        <div class="flex flex-wrap gap-2" id="subareaFilters">
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="17 - 30A West">West 30A</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="18 - 30A East">East 30A</button>
-                            <button class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer amenity-tag" data-subarea="1503 - Sandestin Resort">Sandestin</button>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="West 30A">West 30A</button>
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="East 30A">East 30A</button>
+                            <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="Sandestin">Sandestin</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Amenities Panel -->
-                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="amenities">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -652,448 +396,224 @@
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
-                        <div class="flex flex-wrap gap-2" id="amenityFilters">
-                            <!-- Tags will be dynamically generated -->
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                        <div class="flex flex-wrap gap-2 pb-4">
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Beach Access">Beach Access</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Clubhouse">Clubhouse</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Community Pool">Community Pool</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Dock">Dock</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Elevator">Elevator</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Fitness">Fitness</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Gated">Gated</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Golf">Golf</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Pet-Friendly">Pet-Friendly</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Pickleball">Pickleball</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Playgrounds">Playgrounds</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Tennis">Tennis</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Waterfront">Waterfront</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Waterview">Waterview</button>
+                        </div>
+                        <hr class="divider mx-4 my-3 pb-4">
+                        <div class="flex flex-wrap gap-2">
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Short-Term">Short-Term</button>
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="No Short-Term">No Short-Term</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Results Panel -->
-                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-[var(--panel-duration)] ease-out z-10 flex flex-col rounded-2xl overflow-hidden will-change-transform px-5 box-border sliding-panel">
+                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center justify-between py-4 flex-shrink-0">
-                        <button class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4 relative z-10" data-close-panel="results">
+                        <button class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4" data-close-panel="results">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
                             <span>Results</span>
                         </button>
-                        <div class="flex items-center gap-2 relative overflow-visible mr-5">
+                        <div class="flex items-center gap-2 mr-5">
                             <!-- Search button + dropdown -->
-                            <div class="search-container relative">
-                                <button id="search-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark active:bg-brand-200 dark:active:bg-brand-dark/30 transition-colors" aria-label="Search communities">
-                                    <!-- Magnifying glass icon -->
+                            <div class="relative">
+                                <button id="search-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-800 dark:text-dark-text-primary">
                                         <circle cx="11" cy="11" r="8"/>
                                         <path d="M21 21l-4.35-4.35"/>
                                     </svg>
                                 </button>
                                 <!-- Search dropdown (portaled to body by JS) -->
-                                <div id="search-dropdown" class="hidden bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border origin-top-right" style="max-width: 280px; z-index: 9999;">
+                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border">
                                     <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off"
-                                           class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none">
-                                    <div id="search-results" class="max-h-64 overflow-y-auto py-1">
-                                        <!-- Results populated dynamically -->
+                                           class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none rounded-t-lg">
+                                    <div id="search-results" class="py-1" style="max-height: 320px; overflow-y: auto;">
+                                        <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
+                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watersound">Watersound - Homes</button>
+                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Rosemary Beach">Rosemary Beach - Homes</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="filter-container relative">
-                                <button id="sort-button" class="sort-button flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark active:bg-brand-200 dark:active:bg-brand-dark/30 transition-colors" aria-label="Sort options">
-                                    <!-- Up/Down arrow icon (compact image-like SVG) -->
-                                    <svg width="18" height="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="text-neutral-800 dark:text-dark-text-primary">
-                                        <!-- Up triangle -->
+                            <!-- Sort button + dropdown -->
+                            <div class="relative">
+                                <button id="sort-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 20 20" class="text-neutral-800 dark:text-dark-text-primary">
                                         <polygon points="10,3 6,8 14,8" fill="currentColor" />
-                                        <!-- Down triangle -->
                                         <polygon points="10,17 6,12 14,12" fill="currentColor" />
                                     </svg>
                                 </button>
-                                                                <!--
-                                                                        Developer note:
-                                                                        - Outer container padding is applied here (p-6). This controls the space around the option rows.
-                                                                        - Do NOT change `.sort-option` row padding (py-2) if you want to preserve vertical spacing between items.
-                                                                        - Horizontal/vertical fine offsets for the portal are configured in `assets/js/config.js` as
-                                                                            `CONFIG.ui.sortMenuOffset` (x/y per-breakpoint). Adjust offsets there, not here.
-                                                                -->
-                                                                <div id="sort-menu" class="sort-menu hidden bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-6 origin-top-left text-left" style="max-width: calc(80vw); z-index: 9999;">
-                                    <!-- Options dynamically generated by ui.js -->
+                                <!-- Sort dropdown (portaled to body by JS) -->
+                                <div id="sort-menu" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-4">
+                                    <div class="space-y-2">
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="listings-desc" class="accent-brand-500" checked>
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Most Listings</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="name-asc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Name A→Z</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="name-desc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Name Z→A</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="price-asc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Price Low→High</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                            <input type="radio" name="sort" value="price-desc" class="accent-brand-500">
+                                            <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Price High→Low</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain -webkit-overflow-scrolling-touch panel-content">
-                        <div id="neighborhoodList" class="space-y-2">
-                            <!-- List items will be dynamically generated -->
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3">
+                        <div id="neighborhoodList" class="space-y-2 pl-1">
+                            <!-- Populated by JavaScript -->
                         </div>
                     </div>
                 </div>
+
             </div>
-            
-            <!-- Version info at bottom of sidebar -->
+
+            <!-- ========================================== -->
+            <!-- FIXED FOOTER - Never covered by panels    -->
+            <!-- ========================================== -->
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS · <span id="lastUpdated">Updated Dec 16</span> · <span id="appVersion">v1.0.73</span></p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 17 | v1.1.0</p>
                 </div>
             </div>
+
         </aside>
 
-        <!-- Main content area with map and sidebar -->
-        <div id="map-layout" class="flex flex-1 relative md:flex-row overflow-hidden">
-            <!-- Map -->
-            <div id="map" class="flex-1 bg-neutral-100 relative">
-                <!-- Loading Screen -->
-                <div id="loading-screen" class="absolute inset-0 bg-neutral-100 flex items-center justify-center z-20">
-                    <div class="text-center">
-                        <div class="w-12 h-12 border-4 border-neutral-300 border-t-neutral-700 rounded-full animate-spin mx-auto"></div>
-                        <p class="text-neutral-600 font-medium">Loading Community Finder...</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Tap-to-close overlay (dims when drawer open) -->
+        <label for="drawer-toggle" class="fixed inset-0 pointer-events-none peer-checked:pointer-events-auto peer-checked:bg-black/30 z-30 cursor-default transition-colors duration-300"></label>
 
-            <!-- Backdrop overlay -->
-            <label for="drawer-toggle" id="sidebar-backdrop" class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity z-30"></label>
-        </div>
-
-        <!-- Disclaimer (below the map) -->
-        <div id="map-disclaimer" class="fixed bottom-0 left-0 right-0 h-10 px-4 flex items-center justify-center z-20" style="background-color: #8FC7CC;">
-            <p class="text-xs text-white leading-tight">
-                © <span id="currentYear">2025</span> Kimberly Bauman, P.A. · Information deemed reliable but not guaranteed · Data: ECAR MLS
+        <!-- Disclaimer bar (below map) -->
+        <div class="disclaimer-bar fixed bottom-0 left-0 right-0 h-10 px-4 flex items-center justify-center z-20 dark:border-t dark:border-dark-border" style="background-color: #8FC7CC;">
+            <p class="text-xs text-white dark:text-dark-text-secondary leading-tight">
+                &copy; 2025 Kimberly Bauman, P.A. | Information deemed reliable but not guaranteed | Data: ECAR MLS
             </p>
         </div>
+
     </div>
 
-    <script>
-        // Shim to handle Google Maps callback before module loads
-        window.initMap = function() {
-            window.googleMapsReady = true;
-        };
+    <script type="module">
+        // ==========================================
+        // PRODUCTION ES MODULE IMPORTS
+        // ==========================================
+        import { CONFIG } from '../js/config.js';
+        import { STATE } from '../js/state.js';
+        import { loadNeighborhoods } from '../js/data.js';
+        import { formatPrice } from '../js/utils.js';
+
+        // Expose CONFIG globally so other scripts can use it
+        window.CONFIG = CONFIG;
+
+        // Configure paths for prototype
+        CONFIG.data.geojsonPath = '/assets/jsons/';
+
+        // Load production data
+        const neighborhoods = await loadNeighborhoods();
+        console.log('Loaded', neighborhoods.length, 'neighborhoods from production data');
+
+        // Expose to global scope for other scripts
+        window.neighborhoods = neighborhoods;
+        window.filteredNeighborhoods = [...neighborhoods];
+        window.markers = [];
+        window.map = null;
+        window.infoWindow = null;
+        window.sortOrder = 'listings-desc';
+        window.formatPrice = formatPrice;
+
+        function toSlug(str) {
+            return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        }
+        window.toSlug = toSlug;
+
+        // Trigger DOMContentLoaded handlers after data loads
+        window.dispatchEvent(new Event('dataLoaded'));
     </script>
+
     <script>
-        // Last updated date display (updated by deploy script)
-        (function() {
-            const lastUpdatedEl = document.getElementById('lastUpdated');
-            if (!lastUpdatedEl) return;
-            // Static date - Updated Dec 16_deploy_map.bat on each deploy
-            lastUpdatedEl.textContent = 'Updated Dec 16';
-        })();
-    </script>
-    
-    <script>
-        // script initialized
-        // Sliding panel navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            // sliding panels initializing
-            // Get all menu items
+        // Panel navigation - wait for both DOM and data
+        function initApp() {
+            // Guard against double initialization
+            if (window.appInitialized) return;
+            window.appInitialized = true;
+
+            // Use global variables set by ES module
+            const neighborhoods = window.neighborhoods || [];
+            const filteredNeighborhoods = window.filteredNeighborhoods || [];
+            let sortOrder = window.sortOrder || 'listings-desc';
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000).toFixed(0) + 'K');
             const menuItems = document.querySelectorAll('.menu-item');
             const backButtons = document.querySelectorAll('.panel-back-btn');
             const mainMenu = document.getElementById('main-menu');
 
-            // menu items/back buttons counts available
-
-            // Handle menu item clicks via delegated listener so we catch dynamically
-            // created items or different DOM structures (helps if main-menu is missing
-            // or elements are added after initialization). We look for an element with
-            // `data-panel` or the `menu-item` class and use closest() to find it.
-            document.addEventListener('click', function (e) {
-                // Skip if clicking inside an already-open sliding panel (e.g., area/amenity filter buttons)
-                // to prevent accidental panel switches when selecting filters
-                const insidePanel = e.target.closest('.sliding-panel:not(.translate-x-full)');
-                if (insidePanel && !e.target.closest('.panel-back-btn')) return;
-
-                // Try to locate the most likely menu candidate. Prefer explicit
-                // menu-item/data-panel nodes, but fall back to anchors, buttons,
-                // or other likely nav elements so embedded DOMs are handled.
-                let clicked = e.target.closest('[data-panel], .menu-item');
-                if (!clicked) {
-                    clicked = e.target.closest('a, button, [data-target], [aria-controls], [role="menuitem"], [role="link"], [class*="menu"], [class*="nav"]');
-                }
-                if (!clicked) return; // not something we can reasonably map
-
-                // Prefer explicit data-panel attribute, but fall back to dataset
-                // for different DOM shapes. As a last resort (some embedded /
-                // single-mode pages remove the menu DOM entirely) try to match
-                // the clicked element's text to a known label so clicks still
-                // open the intended panel (Criteria, Areas, Amenities, Results).
-                let panelName = clicked.getAttribute('data-panel') || (clicked.dataset && clicked.dataset.panel);
-
-                if (!panelName) {
-                    const text = (clicked.innerText || clicked.textContent || '').trim().split('\n')[0].toLowerCase();
-
-                    if (text) {
-                        // Try simple, forgiving patterns for common labels.
-                        if (/criteria|property|filters?|search/i.test(text)) panelName = 'property';
-                        else if (/area|neighborhood|regions?|city|zip/i.test(text)) panelName = 'areas';
-                        else if (/amenit|feature|pool|parking|facility/i.test(text)) panelName = 'amenities';
-                        else if (/result|results|map/i.test(text)) panelName = 'results';
-
-                        // matched label fallback
-                    }
-                }
-
-                // If still nothing, try deeper heuristics: href fragment (#results),
-                // data-target/data-close attributes, aria-controls, title/aria-label,
-                // or class-name hints. This helps when the original menu DOM is
-                // replaced by simplified anchors or other elements in an embed.
-                if (!panelName) {
-                    // Check href fragment on anchors
-                    try {
-                        const href = clicked.getAttribute && clicked.getAttribute('href');
-                        if (href && href.indexOf('#') !== -1) {
-                            const frag = href.split('#').pop().toLowerCase();
-                            if (/^results?$/.test(frag) || frag.includes('map')) panelName = 'results';
-                            else if (/amenit/.test(frag)) panelName = 'amenities';
-                            else if (/area|neigh|neighb|region|city|zip/.test(frag)) panelName = 'areas';
-                            else if (/criteria|property|filter/.test(frag)) panelName = 'property';
-
-                            // matched href fragment fallback
-                        }
-                    } catch (err) {
-                        /* ignore attribute access failures in some embed contexts */
-                    }
-
-                    // data-target or aria-controls
-                    if (!panelName) {
-                        const dt = clicked.getAttribute && (clicked.getAttribute('data-target') || clicked.getAttribute('data-close') || clicked.getAttribute('data-close-panel'));
-                        const ac = clicked.getAttribute && clicked.getAttribute('aria-controls');
-                        const title = clicked.getAttribute && (clicked.getAttribute('title') || clicked.getAttribute('aria-label'));
-
-                        const candidateText = (dt || ac || title || '').toLowerCase();
-                        if (candidateText) {
-                            if (/result|map/.test(candidateText)) panelName = 'results';
-                            else if (/amenit|amenities|feature|pool|parking/.test(candidateText)) panelName = 'amenities';
-                            else if (/area|neigh|region|city|zip/.test(candidateText)) panelName = 'areas';
-                            else if (/criteri|property|filter/.test(candidateText)) panelName = 'property';
-
-                            // matched attribute fallback
-                        }
-                    }
-
-                    // Finally attempt to match the element's text or class name as a last resort
-                    if (!panelName) {
-                        const txt = (clicked.innerText || clicked.textContent || '').trim().split('\n')[0].toLowerCase();
-                        const cls = (clicked.className || '').toLowerCase();
-                        if (txt) {
-                            if (/result|results|map/.test(txt)) panelName = 'results';
-                            else if (/amenit|amenities|feature|pool|parking/.test(txt)) panelName = 'amenities';
-                            else if (/area|neigh|region|city|zip/.test(txt)) panelName = 'areas';
-                            else if (/criteria|property|filter/.test(txt)) panelName = 'property';
-                        }
-                        if (!panelName && cls) {
-                            if (cls.indexOf('result') !== -1) panelName = 'results';
-                            else if (cls.indexOf('amenit') !== -1) panelName = 'amenities';
-                            else if (cls.indexOf('area') !== -1 || cls.indexOf('neigh') !== -1) panelName = 'areas';
-                            else if (cls.indexOf('filter') !== -1 || cls.indexOf('criteria') !== -1) panelName = 'property';
-                        }
-
-                        // matched deep fallback
-                    }
-                }
-
-                if (!panelName) return; // still nothing useful
-
-                // menu item clicked (delegated): %s
-                const panel = document.getElementById(panelName + '-panel');
+            // Open panel on menu item click
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const panelName = this.getAttribute('data-panel');
+                    const panel = document.getElementById(panelName + '-panel');
 
                     if (panel) {
-                        // panel found
-                        
-                        // Close all other panels first using class-based toggles. This
-                        // avoids inline transform state conflicts and prevents visual
-                        // flicker when panels open/close.
-                        const allPanels = document.querySelectorAll('.sliding-panel');
-                        allPanels.forEach(p => {
+                        // Close all other panels
+                        document.querySelectorAll('.sliding-panel').forEach(p => {
                             if (p.id !== panel.id) {
                                 p.classList.add('translate-x-full');
-                                // Clear any inline transform to avoid conflicting styles
-                                // left over from earlier interactions.
-                                p.style.transform = '';
                             }
                         });
-                        
-                        // Reset panel scroll position before opening
-                        const panelContent = panel.querySelector('.panel-content');
-                        if (panelContent) {
-                            panelContent.scrollTop = 0;
-                        }
 
                         // Hide main menu
                         if (mainMenu) mainMenu.style.display = 'none';
-                        
-                        // Slide the panel in by removing the off-screen class.
-                        // Tailwind's transition-transform will animate this change.
+
+                        // Open target panel
                         panel.classList.remove('translate-x-full');
-                        // panel transform updated
-                        try { if (typeof notifyHost === 'function') notifyHost('opened', panelName); } catch (err) {}
-                    } else {
-                        // panel not found for panelName
-                    }
-                }, false);
-
-            // Expose a public helper to open panels programmatically (used by
-            // iframe hosts via postMessage). Keep it inside DOMContentLoaded so
-            // it can close over `mainMenu` and other local state.
-            function openSlidingPanel(panelName) {
-                if (!panelName) return null;
-                const panel = document.getElementById(panelName + '-panel');
-                if (!panel) return null;
-
-                // Close other panels
-                const allPanels = document.querySelectorAll('.sliding-panel');
-                allPanels.forEach(p => {
-                    if (p.id !== panel.id) {
-                        p.classList.add('translate-x-full');
-                        p.style.transform = '';
                     }
                 });
-
-                // Reset scroll position
-                const panelContent = panel.querySelector('.panel-content');
-                if (panelContent) panelContent.scrollTop = 0;
-
-                // Hide main menu (if present) to avoid double UI
-                if (mainMenu) mainMenu.style.display = 'none';
-
-                // Show requested panel
-                panel.classList.remove('translate-x-full');
-                return panel;
-            }
-
-            // Make helper available to `window` so it can be invoked by host
-            // scripts or other debugging utilities. We attach it here (after
-            // DOM is ready) to avoid exposing uninitialized state.
-            // Small helper to notify parent/host about panel open/close events
-            function notifyHost(action, panel) {
-                try {
-                    if (window.parent && window.parent !== window && window.parent.postMessage) {
-                        window.parent.postMessage({ type: 'embeddedPanel', action: action, panel: panel }, '*');
-                    }
-                } catch (err) {
-                    // ignore failures in cross-origin contexts
-                }
-            }
-
-            const _openSlidingPanel = openSlidingPanel;
-            window.openSlidingPanel = function(panelName) {
-                const p = _openSlidingPanel(panelName);
-                if (p) notifyHost('opened', panelName);
-                return p;
-            };
-
-            // Listen for postMessage commands from a host page (embedding
-            // document). This allows resilient cross-origin communication for
-            // embed scenarios where menu clicks live outside the iframe.
-            window.addEventListener('message', function (ev) {
-                try {
-                    const data = ev && ev.data;
-                    if (!data || typeof data !== 'object') return;
-
-                    if (data.type === 'openPanel' && data.panel) {
-                        openSlidingPanel(String(data.panel));
-                    } else if (data.type === 'closePanel' && data.panel) {
-                        const p = document.getElementById(String(data.panel) + '-panel');
-                        if (p) p.classList.add('translate-x-full');
-                    } else if (data.type === 'closeAllPanels') {
-                        document.querySelectorAll('.sliding-panel').forEach(p => p.classList.add('translate-x-full'));
-                        if (mainMenu) mainMenu.style.removeProperty('display');
-                    }
-                } catch (err) {
-                    console.warn('postMessage handler error', err);
-                }
             });
 
-            // Backwards compatibility: support messages sent as simple strings
-            // 'open:results' or 'close:results' from older integration code.
-            window.addEventListener('message', function (ev) {
-                const d = ev && ev.data;
-                if (!d || typeof d !== 'string') return;
-                if (d.indexOf('open:') === 0) openSlidingPanel(d.split(':')[1]);
-                if (d.indexOf('close:') === 0) {
-                    const p = document.getElementById(d.split(':')[1] + '-panel');
-                    if (p) p.classList.add('translate-x-full');
-                }
-            });
-
-            // --- Additional in-page triggers & debug helpers -----------------
-            // These help when the outer host can't be modified: listen for
-            // hash/query triggers and provide keyboard shortcuts and a
-            // developer debug overlay (enabled via ?panelDebug=1).
-
-            function normalizePanelName(s) {
-                if (!s) return null;
-                const v = String(s).trim().toLowerCase();
-                if (!v) return null;
-                if (/^results?$/.test(v) || v.indexOf('map') !== -1) return 'results';
-                if (/amenit/.test(v) || v.indexOf('amenities') !== -1) return 'amenities';
-                if (/area|neigh|region|city|zip/.test(v)) return 'areas';
-                if (/criteria|property|filter/.test(v) || v.indexOf('property') !== -1) return 'property';
-                return null;
-            }
-
-            function openPanelFromLocation() {
-                try {
-                    const ps = new URLSearchParams(window.location.search || '');
-                    const qPanel = ps.get('panel') || ps.get('open') || ps.get('show');
-                    if (qPanel) {
-                        const p = normalizePanelName(qPanel);
-                        if (p) { window.openSlidingPanel(p); return; }
-                    }
-
-                    const hash = (window.location.hash || '').replace('#', '');
-                    if (hash) {
-                        // support various styles: open=results or open-results or results
-                        const parts = hash.split(/[=:\-]/);
-                        const maybe = parts.length > 1 ? parts[1] : parts[0];
-                        const p = normalizePanelName(maybe || hash);
-                        if (p) window.openSlidingPanel(p);
-                    }
-                } catch (err) {
-                    /* ignore */
-                }
-            }
-
-            // Run a first pass from current URL
-            openPanelFromLocation();
-
-            // Watch for changes to hash or history so hosts that change the
-            // fragment still trigger panel opens.
-            window.addEventListener('hashchange', openPanelFromLocation);
-            window.addEventListener('popstate', openPanelFromLocation);
-
-            // Keyboard shortcuts � only when user holds CTRL+ALT to avoid
-            // accidental triggers. Map: P (property/criteria), A (areas), M (amenities), R (results)
-            document.addEventListener('keydown', function (e) {
-                if (!(e.ctrlKey && e.altKey)) return;
-                const k = (e.key || '').toLowerCase();
-                if (k === 'p') window.openSlidingPanel('property');
-                if (k === 'a') window.openSlidingPanel('areas');
-                if (k === 'm') window.openSlidingPanel('amenities');
-                if (k === 'r') window.openSlidingPanel('results');
-            });
-
-            // debug overlay removed
-
-            // For debug/diagnostic use, respond to simple ping messages so a
-            // host can confirm the embedded frame is listening.
-            window.addEventListener('message', function (ev) {
-                const d = ev && ev.data;
-                if (d && d === 'ping-embedded-panel') {
-                    ev.source && ev.source.postMessage && ev.source.postMessage({ type: 'pong-embedded-panel', ready: true }, '*');
-                }
-            });
-
-            
-            // Handle back button clicks
+            // Close panel on back button click
             backButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Prevent event bubbling
+                    e.stopPropagation();
                     const panelName = this.getAttribute('data-close-panel');
                     const panel = document.getElementById(panelName + '-panel');
 
                     if (panel) {
-                        // Close the panel by adding the off-screen class; CSS will
-                        // perform the animation via transition-transform.
                         panel.classList.add('translate-x-full');
-                        try { if (typeof notifyHost === 'function') notifyHost('closed', panelName); } catch (err) {}
 
-                        // Show main menu immediately since we're closing the panel
-                        // Restore the sidebar/main menu display in case it was hidden
-                        // earlier (e.g., single/iframe mode set display:none !important).
-                        const sidebar = document.getElementById('sidebar');
-                        if (sidebar) {
-                            // Remove any inline display property left over (including !important)
-                            sidebar.style.removeProperty('display');
-                        }
+                        // Hide any open dropdowns when navigating back
+                        const searchDropdown = document.getElementById('search-dropdown');
+                        const sortMenu = document.getElementById('sort-menu');
+                        if (searchDropdown) searchDropdown.classList.add('hidden');
+                        if (sortMenu) sortMenu.classList.add('hidden');
+
+                        // Show main menu
                         if (mainMenu) {
                             mainMenu.style.removeProperty('display');
                             mainMenu.scrollTop = 0;
@@ -1101,17 +621,1502 @@
                     }
                 });
             });
-        });
 
-        // Sort menu portal is now handled exclusively by ui.js setupSortDropdown()
+            // Theme toggle - also updates map colorScheme
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+
+                    // Recreate map with new colorScheme (Google Maps requires this)
+                    if (window.map && typeof google !== 'undefined') {
+                        const currentCenter = window.map.getCenter();
+                        const currentZoom = window.map.getZoom();
+
+                        // Store current markers
+                        const existingMarkers = window.markers || [];
+
+                        // Recreate map
+                        window.map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: currentZoom,
+                            center: currentCenter,
+                            mapId: '92b2f4ea8b2fce54a50ed2e9',
+                            colorScheme: isDark ? 'DARK' : 'LIGHT',
+                            mapTypeControl: true,
+                            mapTypeControlOptions: {
+                                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                                position: google.maps.ControlPosition.TOP_RIGHT
+                            },
+                            streetViewControl: true,
+                            fullscreenControl: true,
+                            zoomControl: true,
+                            clickableIcons: false
+                        });
+
+                        // Recreate info windows
+                        window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+                        window.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+
+                        // Re-add close button removal listeners
+                        function removeInfoWindowCloseButton() {
+                            const closeBtn = document.querySelector('.gm-style-iw-chr');
+                            if (closeBtn) closeBtn.remove();
+                        }
+                        window.infoWindow.addListener('domready', removeInfoWindowCloseButton);
+                        window.hoverInfoWindow.addListener('domready', removeInfoWindowCloseButton);
+
+                        // Re-add markers
+                        window.addMarkers();
+
+                        // Re-show GeoJSON boundaries if any selected
+                        if (window.customBoundaries && window.customBoundaries.size > 0) {
+                            // Clear and re-add boundaries since map was recreated
+                            const savedBoundaries = new Set(window.customBoundaries);
+                            window.customBoundaries.clear();
+                            savedBoundaries.forEach(zip => {
+                                window.showCustomBoundary(zip);
+                            });
+                        }
+                    }
+
+                    // Track theme change
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'theme_toggle', { theme: isDark ? 'dark' : 'light' });
+                    }
+                });
+            }
+
+            // ==========================================
+            // PORTAL DROPDOWNS (same logic as production)
+            // ==========================================
+            const searchBtn = document.getElementById('search-button');
+            const searchDropdown = document.getElementById('search-dropdown');
+            const searchInput = document.getElementById('search-input');
+            const sortBtn = document.getElementById('sort-button');
+            const sortMenu = document.getElementById('sort-menu');
+
+            // Portal dropdowns to body for proper z-index and no content shift
+            if (searchDropdown) document.body.appendChild(searchDropdown);
+            if (sortMenu) document.body.appendChild(sortMenu);
+
+            // Position dropdown centered under button (handles iOS viewport)
+            function positionDropdown(dropdown, button) {
+                if (!dropdown || !button) return;
+                const rect = button.getBoundingClientRect();
+                const offsetY = 10;
+                const viewportPadding = 12;
+                const dropdownWidth = 280;
+
+                // Account for iOS visual viewport shifts
+                const vv = window.visualViewport;
+                const viewportWidth = vv ? vv.width : window.innerWidth;
+                const viewportLeft = vv ? vv.offsetLeft : 0;
+                const viewportTop = vv ? vv.offsetTop : 0;
+
+                // Center on button
+                const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
+                let left = buttonCenter - (dropdownWidth / 2);
+
+                // Viewport constraints
+                if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
+                    left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
+                }
+                if (left < viewportLeft + viewportPadding) {
+                    left = viewportLeft + viewportPadding;
+                }
+
+                dropdown.style.position = 'fixed';
+                dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
+                dropdown.style.left = left + 'px';
+                dropdown.style.zIndex = '2147483647';
+            }
+
+            // Search dropdown toggle
+            if (searchBtn && searchDropdown) {
+                searchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                    searchDropdown.classList.toggle('hidden');
+                    if (!searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                        if (searchInput) searchInput.focus();
+                    }
+                });
+            }
+
+            // Sort dropdown toggle
+            if (sortBtn && sortMenu) {
+                sortBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    sortMenu.classList.toggle('hidden');
+                    if (!sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                    }
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (searchDropdown && !searchDropdown.contains(e.target) &&
+                    e.target !== searchBtn && !searchBtn.contains(e.target)) {
+                    searchDropdown.classList.add('hidden');
+                }
+                if (sortMenu && !sortMenu.contains(e.target) &&
+                    e.target !== sortBtn && !sortBtn.contains(e.target)) {
+                    sortMenu.classList.add('hidden');
+                }
+            });
+
+            // Global keyboard handlers
+            document.addEventListener('keydown', function(e) {
+                // Don't intercept if user is typing in an input/textarea
+                const isTyping = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+
+                if (e.key === 'Escape') {
+                    // Close dropdowns
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                    // Close info window
+                    if (window.infoWindow && window.infoWindow.getMap()) {
+                        window.infoWindow.close();
+                    }
+                }
+
+                // Arrow keys for info window navigation (only when not typing)
+                if (!isTyping && window.infoWindow && window.infoWindow.getMap()) {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        window.navigateNeighborhood(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        window.navigateNeighborhood(1);
+                    }
+                }
+            });
+
+            // Search input keyboard handling
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        // Click first search result if available
+                        const firstResult = document.querySelector('#search-results .search-result');
+                        if (firstResult) {
+                            firstResult.click();
+                        }
+                    } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        searchDropdown.classList.add('hidden');
+                        searchInput.blur();
+                    }
+                });
+            }
+
+            // Reposition on resize/scroll (handles iOS keyboard/zoom)
+            ['resize', 'orientationchange'].forEach(evt => {
+                window.addEventListener(evt, () => {
+                    if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                    }
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                    positionDropdown(searchDropdown, searchBtn);
+                }
+                if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                    positionDropdown(sortMenu, sortBtn);
+                }
+            }, true);
+
+            // Handle iOS visual viewport changes
+            if (window.visualViewport) {
+                ['resize', 'scroll'].forEach(evt => {
+                    window.visualViewport.addEventListener(evt, () => {
+                        if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                            positionDropdown(searchDropdown, searchBtn);
+                        }
+                        if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                            positionDropdown(sortMenu, sortBtn);
+                        }
+                    });
+                });
+            }
+
+            // iOS viewport reset on search input blur
+            if (searchInput) {
+                searchInput.addEventListener('blur', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 0);
+                        document.documentElement.scrollLeft = 0;
+                        document.body.scrollLeft = 0;
+                    }, 100);
+                });
+            }
+
+            // ==========================================
+            // RESULTS LIST RENDERING
+            // ==========================================
+            function renderResults() {
+                const list = document.getElementById('neighborhoodList');
+                const resultsCount = document.getElementById('resultsCount');
+
+                if (!list) return;
+
+                // Sort neighborhoods (read from window for current state)
+                const currentFiltered = window.filteredNeighborhoods || [];
+                const currentSort = window.sortOrder || 'listings-desc';
+                const sorted = [...currentFiltered].sort((a, b) => {
+                    const aPrice = a.stats?.medianPrice || a.stats?.avgPrice || 0;
+                    const bPrice = b.stats?.medianPrice || b.stats?.avgPrice || 0;
+                    const aListings = a.stats?.listingCount || 0;
+                    const bListings = b.stats?.listingCount || 0;
+                    switch (currentSort) {
+                        case 'name-asc':
+                            return a.name.localeCompare(b.name);
+                        case 'name-desc':
+                            return b.name.localeCompare(a.name);
+                        case 'price-asc':
+                            return aPrice - bPrice;
+                        case 'price-desc':
+                            return bPrice - aPrice;
+                        case 'listings-desc':
+                            return bListings - aListings;
+                        default:
+                            return a.name.localeCompare(b.name);
+                    }
+                });
+
+                // Update count
+                if (resultsCount) {
+                    resultsCount.textContent = `${sorted.length} matches found`;
+                }
+
+                // Render list
+                const fmt = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+                list.innerHTML = sorted.map(n => `
+                    <div class="neighborhood-item bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"
+                         data-name="${n.name}" data-type="${n.propertyType}">
+                        <div class="flex justify-between items-start gap-2 mb-1">
+                            <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${n.name}</h3>
+                            <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)}</span>
+                        </div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} Listings</div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${(n.amenities || []).join(', ') || 'No amenities listed'}</div>
+                    </div>
+                `).join('');
+
+                // Add click handlers
+                list.querySelectorAll('.neighborhood-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const name = item.dataset.name;
+                        const type = item.dataset.type;
+                        const n = (window.filteredNeighborhoods || []).find(x => x.name === name && x.propertyType === type);
+                        if (n && window.map) {
+                            // Analytics
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'select_neighborhood', {
+                                    neighborhood_name: n.name,
+                                    listing_count: n.stats?.listingCount || 0,
+                                    price: formatPrice(n.stats?.medianPrice || n.stats?.avgPrice || 0)
+                                });
+                            }
+
+                            // Smooth fly animation
+                            window.smoothFlyTo(n.position);
+
+                            // Find and click marker after flight
+                            const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                            if (marker) {
+                                // Calculate distance to determine delay
+                                const startPos = window.map.getCenter();
+                                const targetLatLng = new google.maps.LatLng(n.position);
+                                const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                                const delay = distance < 2000 ? 450 : 2200;
+
+                                setTimeout(() => {
+                                    google.maps.event.trigger(marker.marker, 'click');
+                                }, delay);
+                            }
+
+                            // On mobile, close drawer to show map
+                            if (window.innerWidth < 768) {
+                                document.getElementById('drawer-toggle').checked = false;
+                            }
+                        }
+                    });
+                });
+            }
+
+            // ==========================================
+            // FILTER STATE & PRICE STEPS
+            // ==========================================
+            window.PRICE_STEPS = [
+                250000, 300000, 350000, 400000, 450000, 500000,
+                550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
+                1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
+                6000000, 7000000, 8000000, 9000000, 10000000,
+                15000000, 20000000, 25000000, 30000000, 35000000
+            ];
+            const PRICE_STEPS = window.PRICE_STEPS; // Local reference
+
+            window.filterState = {
+                propertyType: null,  // null = all, 'Homes', 'Condos'
+                areas: new Set(),     // selected zip codes
+                amenities: new Set(), // selected amenities
+                priceMin: 0,          // min price index
+                priceMax: 41          // max price index
+            };
+
+            // ==========================================
+            // PRICE SLIDER SETUP
+            // ==========================================
+            const priceMinInput = document.getElementById('price-min');
+            const priceMaxInput = document.getElementById('price-max');
+            const priceDisplay = document.getElementById('price-display');
+            const priceFill = document.getElementById('price-fill');
+
+            function formatSliderPrice(price) {
+                if (price >= 1000000) {
+                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
+                }
+                return '$' + (price / 1000).toFixed(0) + 'K';
+            }
+
+            function updatePriceSlider() {
+                if (!priceMinInput || !priceMaxInput) return;
+
+                let minVal = parseInt(priceMinInput.value) || 0;
+                let maxVal = parseInt(priceMaxInput.value) || 41;
+                const totalSteps = 41;
+
+                // Push behavior
+                if (minVal > maxVal) {
+                    if (this === priceMaxInput) {
+                        priceMinInput.value = maxVal;
+                        minVal = maxVal;
+                    } else {
+                        priceMaxInput.value = minVal;
+                        maxVal = minVal;
+                    }
+                }
+
+                // Update filter state
+                window.filterState.priceMin = minVal;
+                window.filterState.priceMax = maxVal;
+
+                // Update display
+                if (priceDisplay) {
+                    if (minVal === 0 && maxVal === 0) {
+                        priceDisplay.textContent = '$250K - $35M+';
+                    } else {
+                        const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0];
+                        const maxPrice = PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1];
+                        priceDisplay.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+                    }
+                }
+
+                // Update track fill
+                if (priceFill) {
+                    const minPct = minVal / totalSteps;
+                    const maxPct = maxVal / totalSteps;
+                    if (minVal === 0) {
+                        priceFill.style.left = '0';
+                        priceFill.style.width = `${maxPct * 100}%`;
+                    } else {
+                        priceFill.style.left = `${minPct * 100}%`;
+                        priceFill.style.width = `${(maxPct - minPct) * 100}%`;
+                    }
+                }
+
+                applyFilters();
+            }
+
+            if (priceMinInput) priceMinInput.addEventListener('input', updatePriceSlider);
+            if (priceMaxInput) priceMaxInput.addEventListener('input', updatePriceSlider);
+
+            // ==========================================
+            // BEDS/BATHS SLIDER SETUP
+            // ==========================================
+            const bedsInput = document.getElementById('beds-min');
+            const bedsDisplay = document.getElementById('beds-display');
+            const bedsFill = document.getElementById('beds-fill');
+            const bathsInput = document.getElementById('baths-min');
+            const bathsDisplay = document.getElementById('baths-display');
+            const bathsFill = document.getElementById('baths-fill');
+
+            // Initialize filter state for beds/baths
+            window.filterState.bedsMin = 1;
+            window.filterState.bathsMin = 1;
+
+            function updateBedsSlider() {
+                if (!bedsInput) return;
+                const val = parseInt(bedsInput.value) || 1;
+                window.filterState.bedsMin = val;
+
+                // Update display
+                if (bedsDisplay) {
+                    bedsDisplay.textContent = val >= 6 ? '6+' : `${val}+`;
+                }
+
+                // Update track fill (1-6 range)
+                if (bedsFill) {
+                    const pct = ((val - 1) / 5) * 100;
+                    bedsFill.style.width = `${pct}%`;
+                }
+
+                applyFilters();
+            }
+
+            function updateBathsSlider() {
+                if (!bathsInput) return;
+                const val = parseInt(bathsInput.value) || 1;
+                window.filterState.bathsMin = val;
+
+                // Update display
+                if (bathsDisplay) {
+                    bathsDisplay.textContent = val >= 6 ? '6+' : `${val}+`;
+                }
+
+                // Update track fill (1-6 range)
+                if (bathsFill) {
+                    const pct = ((val - 1) / 5) * 100;
+                    bathsFill.style.width = `${pct}%`;
+                }
+
+                applyFilters();
+            }
+
+            if (bedsInput) bedsInput.addEventListener('input', updateBedsSlider);
+            if (bathsInput) bathsInput.addEventListener('input', updateBathsSlider);
+
+            // ==========================================
+            // PROPERTY TYPE TOGGLE (Homes/Condos)
+            // ==========================================
+            const homesBtn = document.getElementById('btn-homes');
+            const condosBtn = document.getElementById('btn-condos');
+
+            if (homesBtn) {
+                homesBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    applyFilters();
+                });
+            }
+
+            if (condosBtn) {
+                condosBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    applyFilters();
+                });
+            }
+
+            // ==========================================
+            // AREA FILTER BUTTONS
+            // ==========================================
+            document.querySelectorAll('.area-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const zipCode = this.getAttribute('data-zipcode');
+                    const subarea = this.getAttribute('data-subarea');
+                    const isSelected = this.classList.contains('selected');
+
+                    if (zipCode) {
+                        if (isSelected) {
+                            window.filterState.areas.add(zipCode);
+                            window.showCustomBoundary(zipCode);  // Show GeoJSON boundary
+                        } else {
+                            window.filterState.areas.delete(zipCode);
+                            window.hideCustomBoundary(zipCode);  // Hide GeoJSON boundary
+                        }
+
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_area', {
+                                area: zipCode,
+                                action: isSelected ? 'selected' : 'deselected'
+                            });
+                        }
+                    }
+                    if (subarea) {
+                        if (isSelected) {
+                            window.filterState.areas.add(subarea);
+                        } else {
+                            window.filterState.areas.delete(subarea);
+                        }
+
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_subarea', {
+                                subarea: subarea,
+                                action: isSelected ? 'selected' : 'deselected'
+                            });
+                        }
+                    }
+                    applyFilters();
+                });
+            });
+
+            // ==========================================
+            // AMENITY FILTER BUTTONS
+            // ==========================================
+            document.querySelectorAll('.amenity-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const amenity = this.getAttribute('data-amenity');
+                    const isSelected = this.classList.contains('selected');
+                    if (amenity) {
+                        if (isSelected) {
+                            window.filterState.amenities.add(amenity);
+
+                            // Mutual exclusivity: Short-Term and No Short-Term can't both be selected
+                            if (amenity === 'Short-Term') {
+                                window.filterState.amenities.delete('No Short-Term');
+                                document.querySelector('.amenity-tag[data-amenity="No Short-Term"]')?.classList.remove('selected');
+                            } else if (amenity === 'No Short-Term') {
+                                window.filterState.amenities.delete('Short-Term');
+                                document.querySelector('.amenity-tag[data-amenity="Short-Term"]')?.classList.remove('selected');
+                            }
+                        } else {
+                            window.filterState.amenities.delete(amenity);
+                        }
+
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_amenity', {
+                                amenity: amenity,
+                                action: isSelected ? 'selected' : 'deselected'
+                            });
+                        }
+                    }
+                    applyFilters();
+                });
+            });
+
+            // ==========================================
+            // DEBOUNCE HELPER
+            // ==========================================
+            function debounce(func, wait) {
+                let timeout;
+                return function(...args) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            }
+
+            // ==========================================
+            // APPLY FILTERS FUNCTION
+            // ==========================================
+            function applyFilters() {
+                const isHomesActive = homesBtn ? homesBtn.classList.contains('active') : false;
+                const isCondosActive = condosBtn ? condosBtn.classList.contains('active') : false;
+                const selectedAreas = window.filterState.areas;
+                const selectedAmenities = window.filterState.amenities;
+
+                // Get price range from filter state
+                const priceMinIdx = window.filterState.priceMin || 0;
+                const priceMaxIdx = window.filterState.priceMax || 41;
+
+                // Convert to actual prices
+                // priceMinIdx=0 means "no minimum" (show all), priceMaxIdx=41 means "no maximum"
+                let minPrice = priceMinIdx === 0 ? 0 : (PRICE_STEPS[priceMinIdx] || 0);
+                let maxPrice = priceMaxIdx >= 41 ? Number.MAX_SAFE_INTEGER : (PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER);
+
+                window.filteredNeighborhoods = (window.neighborhoods || []).filter(n => {
+                    // Property type filter
+                    let matchesType = true;
+                    if (isHomesActive || isCondosActive) {
+                        matchesType = false;
+                        if (isHomesActive && (n.propertyType === 'Homes' || n.propertyType === 'Townhomes')) {
+                            matchesType = true;
+                        }
+                        if (isCondosActive && n.propertyType === 'Condos') {
+                            matchesType = true;
+                        }
+                    }
+
+                    // Area filter (OR logic)
+                    let matchesArea = true;
+                    if (selectedAreas.size > 0) {
+                        // Check exact matches first
+                        matchesArea = selectedAreas.has(n.zipCode) ||
+                                     selectedAreas.has(n.area) ||
+                                     selectedAreas.has(n.subArea);
+
+                        // If no exact match, check partial matches for subareas
+                        // Data has "17 - 30A West", buttons use "West 30A"
+                        if (!matchesArea) {
+                            const areaLower = (n.area || '').toLowerCase();
+                            matchesArea = [...selectedAreas].some(selected => {
+                                const selLower = selected.toLowerCase();
+                                // "West 30A" matches "30A West", "East 30A" matches "30A East"
+                                if (selLower.includes('30a')) {
+                                    const dir = selLower.replace('30a', '').trim(); // "west" or "east"
+                                    return areaLower.includes('30a') && areaLower.includes(dir);
+                                }
+                                // "Sandestin" matches areas containing "sandestin"
+                                return areaLower.includes(selLower);
+                            });
+                        }
+                    }
+
+                    // Amenity filter (AND logic - must have ALL selected)
+                    let matchesAmenities = true;
+                    if (selectedAmenities.size > 0) {
+                        matchesAmenities = [...selectedAmenities].every(a =>
+                            n.amenities && n.amenities.includes(a)
+                        );
+                    }
+
+                    // Price filter (overlap check)
+                    let inPriceRange = true;
+                    const stats = n.stats || {};
+                    const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
+                    const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
+
+                    if (nbMinPrice !== null && nbMaxPrice !== null && !isNaN(nbMinPrice) && !isNaN(nbMaxPrice)) {
+                        // Check for overlap: UserMax >= NbMin && UserMin <= NbMax
+                        inPriceRange = maxPrice >= nbMinPrice && minPrice <= nbMaxPrice;
+                    } else if (stats.avgPrice > 0) {
+                        // Fallback to avgPrice
+                        inPriceRange = stats.avgPrice >= minPrice && stats.avgPrice <= maxPrice;
+                    }
+
+                    return matchesType && matchesArea && matchesAmenities && inPriceRange;
+                });
+
+                // Re-render results and markers
+                renderResults();
+                window.addMarkers();
+
+                // Always fit bounds to show filtered neighborhoods
+                window.fitBoundsToNeighborhoods();
+            }
+
+            // ==========================================
+            // SORT HANDLER
+            // ==========================================
+            const sortRadios = document.querySelectorAll('input[name="sort"]');
+            sortRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    window.sortOrder = e.target.value;
+                    renderResults();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                });
+            });
+
+            // ==========================================
+            // SEARCH HANDLER
+            // ==========================================
+            let searchDebounceTimer = null;
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    const results = document.getElementById('search-results');
+
+                    // Track search input (debounced)
+                    if (query && typeof gtag !== 'undefined') {
+                        clearTimeout(searchDebounceTimer);
+                        searchDebounceTimer = setTimeout(() => {
+                            gtag('event', 'search_filter', { search_term: query });
+                        }, 500);
+                    }
+
+                    if (!query) {
+                        // Show default "Most Listings" results
+                        const topListings = [...neighborhoods].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 5);
+                        results.innerHTML = `
+                            <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                            ${topListings.map(n => `
+                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                                    ${n.name} - ${n.propertyType}
+                                </button>
+                            `).join('')}
+                        `;
+                    } else {
+                        // Filter by query - prioritize name matches, all scrollable
+                        const matches = neighborhoods.filter(n =>
+                            n.name.toLowerCase().includes(query) ||
+                            (n.location?.city || '').toLowerCase().includes(query) ||
+                            (n.zipCode || '').includes(query)
+                        ).sort((a, b) => {
+                            const aNameMatch = a.name.toLowerCase().includes(query) ? 0 : 1;
+                            const bNameMatch = b.name.toLowerCase().includes(query) ? 0 : 1;
+                            if (aNameMatch !== bNameMatch) return aNameMatch - bNameMatch;
+                            return a.name.localeCompare(b.name);
+                        });
+
+                        if (matches.length) {
+                            results.innerHTML = matches.map(n => `
+                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                                    ${n.name} - ${n.propertyType}
+                                </button>
+                            `).join('');
+                        } else {
+                            results.innerHTML = '<div class="px-4 py-3 text-sm text-neutral-400">No matches found</div>';
+                        }
+                    }
+
+                    // Add click handlers to search results
+                    results.querySelectorAll('.search-result').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const name = btn.dataset.name;
+                            const type = btn.dataset.type;
+                            const n = (window.neighborhoods || []).find(x => x.name === name && x.propertyType === type);
+                            if (n && window.map) {
+                                // Analytics
+                                if (typeof gtag !== 'undefined') {
+                                    gtag('event', 'search_select', {
+                                        neighborhood_name: n.name,
+                                        search_query: searchInput.value
+                                    });
+                                }
+
+                                // Smooth fly animation
+                                window.smoothFlyTo(n.position);
+
+                                const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                                if (marker) {
+                                    // Calculate distance to determine delay
+                                    const startPos = window.map.getCenter();
+                                    const targetLatLng = new google.maps.LatLng(n.position);
+                                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                                    const delay = distance < 2000 ? 450 : 2200;
+
+                                    setTimeout(() => {
+                                        google.maps.event.trigger(marker.marker, 'click');
+                                    }, delay);
+                                }
+
+                                // On mobile, close drawer
+                                if (window.innerWidth < 768) {
+                                    document.getElementById('drawer-toggle').checked = false;
+                                }
+                            }
+                            searchDropdown.classList.add('hidden');
+                            searchInput.value = '';
+                        });
+                    });
+                });
+            }
+
+            // Initial render
+            renderResults();
+
+            // iOS viewport handling - reposition dropdowns when keyboard appears/disappears
+            if (window.visualViewport) {
+                const repositionDropdowns = () => {
+                    const sortMenu = document.getElementById('sort-menu');
+                    const searchDropdown = document.getElementById('search-dropdown');
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        // Trigger reposition by toggling visibility
+                        sortMenu.classList.add('hidden');
+                        setTimeout(() => sortMenu.classList.remove('hidden'), 10);
+                    }
+                    if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                        searchDropdown.classList.add('hidden');
+                    }
+                };
+                window.visualViewport.addEventListener('resize', repositionDropdowns);
+                window.visualViewport.addEventListener('scroll', repositionDropdowns);
+            }
+        }
+
+        // Run when data is loaded (from ES module)
+        window.addEventListener('dataLoaded', initApp);
+        // Also run on DOMContentLoaded if data already loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.neighborhoods && window.neighborhoods.length > 0) {
+                initApp();
+            }
+        });
     </script>
 
-    <script type="module" src="./neighborhoods/js/theme.js"></script>
-    <script type="module" src="./neighborhoods/js/app.js?v=202503"></script>
+    <!-- ==========================================
+         GOOGLE MAPS INITIALIZATION
+         ========================================== -->
+    <script>
+        function initMap() {
+            const mapDiv = document.getElementById('map');
+            if (!mapDiv) return;
 
+            // Clear placeholder
+            mapDiv.innerHTML = '';
 
+            // Initialize map (use window.map for global access)
+            // Initial view: zoomed out to show full coast
+            // CONFIG.map.defaultZoom (14) is used when flying TO a neighborhood
+            const initialCenter = { lat: 30.32, lng: -86.05 };  // Centered on Emerald Coast
+            const initialZoom = 11;  // Zoomed out to see all neighborhoods
+
+            // Offset center to account for sidebar (shifts right by sidebarWidth/2)
+            const lngOffset = calculateSidebarOffsetLng(initialZoom);
+            const adjustedCenter = {
+                lat: initialCenter.lat,
+                lng: initialCenter.lng + lngOffset
+            };
+
+            window.map = new google.maps.Map(mapDiv, {
+                zoom: initialZoom,
+                center: adjustedCenter,
+                mapId: '92b2f4ea8b2fce54a50ed2e9',
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                streetViewControl: true,
+                fullscreenControl: true,
+                zoomControl: true,
+                clickableIcons: false
+            });
+
+            // Create info windows (click and hover)
+            window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+            window.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+
+            // Remove close button from info windows when they open
+            // Using MutationObserver to actually remove element, not just hide
+            function removeInfoWindowCloseButton() {
+                const closeBtn = document.querySelector('.gm-style-iw-chr');
+                if (closeBtn) {
+                    closeBtn.remove();
+                }
+            }
+
+            window.infoWindow.addListener('domready', removeInfoWindowCloseButton);
+            window.hoverInfoWindow.addListener('domready', removeInfoWindowCloseButton);
+
+            // Add markers and fit to show all (only if data is loaded)
+            function addMarkersWhenReady() {
+                const neighborhoods = window.neighborhoods || [];
+                if (neighborhoods.length > 0) {
+                    // Ensure filteredNeighborhoods is set
+                    if (!window.filteredNeighborhoods || window.filteredNeighborhoods.length === 0) {
+                        window.filteredNeighborhoods = [...neighborhoods];
+                    }
+                    window.addMarkers();
+                    window.fitBoundsToNeighborhoods();
+                    console.log('Map initialized with', neighborhoods.length, 'neighborhoods');
+                } else {
+                    // Data not loaded yet, wait for it
+                    window.addEventListener('dataLoaded', () => {
+                        const n = window.neighborhoods || [];
+                        if (!window.filteredNeighborhoods || window.filteredNeighborhoods.length === 0) {
+                            window.filteredNeighborhoods = [...n];
+                        }
+                        window.addMarkers();
+                        window.fitBoundsToNeighborhoods();
+                        console.log('Map initialized with', n.length, 'neighborhoods');
+                    }, { once: true });
+                }
+            }
+            addMarkersWhenReady();
+
+            // Zoom logging disabled to reduce console noise
+            // Uncomment to debug: window.map.addListener('idle', () => console.log('Zoom:', window.map.getZoom().toFixed(2)));
+        }
+
+        // ==========================================
+        // GEOJSON BOUNDARY DISPLAY
+        // ==========================================
+        window.customBoundaries = new Set();
+
+        // Expose showCustomBoundary globally for theme toggle and filters
+        window.showCustomBoundary = function showCustomBoundary(zipCode) {
+            if (!window.map || window.customBoundaries.has(zipCode)) return;
+            window.customBoundaries.add(zipCode);
+
+            window.map.data.loadGeoJson(`/assets/jsons/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
+                window.map.data.setStyle(function(feature) {
+                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                    if (window.customBoundaries.has(featureZip)) {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        const primaryColor = isDark ? '#5ba3ab' : '#4c8f96';
+                        return {
+                            strokeColor: primaryColor,
+                            strokeWeight: 1.5,
+                            strokeOpacity: 0.35,
+                            fillColor: primaryColor,
+                            fillOpacity: 0.15,
+                            clickable: false
+                        };
+                    }
+                    return { visible: false };
+                });
+            });
+        }
+
+        // Expose hideCustomBoundary globally for filters
+        window.hideCustomBoundary = function hideCustomBoundary(zipCode) {
+            if (!window.map || !window.customBoundaries.has(zipCode)) return;
+            window.customBoundaries.delete(zipCode);
+
+            window.map.data.forEach(function(feature) {
+                const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                if (featureZip === zipCode) {
+                    window.map.data.remove(feature);
+                }
+            });
+        }
+
+        // ==========================================
+        // FIT BOUNDS TO FILTERED NEIGHBORHOODS
+        // ==========================================
+        window.fitBoundsToNeighborhoods = function fitBoundsToNeighborhoods() {
+            const map = window.map;
+            const filtered = window.filteredNeighborhoods || [];
+            if (!map || filtered.length === 0) return;
+
+            // Create bounds from all filtered neighborhoods
+            const bounds = new google.maps.LatLngBounds();
+            filtered.forEach(n => {
+                if (n.position) {
+                    bounds.extend(new google.maps.LatLng(n.position));
+                }
+            });
+
+            // Only fit if we have valid bounds
+            if (!bounds.isEmpty()) {
+                // Use smooth animation via panToBounds with padding
+                map.fitBounds(bounds, {
+                    top: 50,
+                    right: 50,
+                    bottom: 60,  // Account for disclaimer bar
+                    left: window.innerWidth < 768 ? 50 : 350  // Account for sidebar on desktop
+                });
+
+                // Limit max zoom to prevent over-zooming on single result
+                const listener = google.maps.event.addListener(map, 'idle', () => {
+                    if (map.getZoom() > 15) {
+                        map.setZoom(15);
+                    }
+                    google.maps.event.removeListener(listener);
+                });
+            }
+        }
+
+        // ==========================================
+        // OFFSET CALCULATION (from production map.js)
+        // ==========================================
+        // Calculate longitude offset for sidebar (shifts center right by sidebar width / 2)
+        function calculateSidebarOffsetLng(zoom) {
+            const sidebar = document.getElementById('sidebar');
+            if (!sidebar) return 0;
+            const sidebarWidth = sidebar.offsetWidth || 320;  // fallback to max-w-xs
+            const halfSidebar = sidebarWidth / 2;
+            // At zoom Z, world is 256 * 2^Z pixels wide, spanning 360 degrees
+            const degreesPerPixel = 360 / (256 * Math.pow(2, zoom));
+            return halfSidebar * degreesPerPixel;
+        }
+
+        function calculateCenteredOffset(zoomLevel) {
+            const w = window.innerWidth;
+            let cardHeight;
+            if (w < 640) {
+                cardHeight = 320;
+            } else if (w < 1024) {
+                cardHeight = 300;
+            } else {
+                cardHeight = 280;
+            }
+            const markerHeight = 40;
+            const offset = (cardHeight / 2) - (markerHeight / 2);
+            const buffer = 15;
+            return Math.round(offset + buffer);
+        }
+
+        function offsetLatLng(latLng, offsetPixels, zoomLevel) {
+            const map = window.map;
+            const scale = Math.pow(2, zoomLevel || map.getZoom());
+            const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
+            const pixelOffset = new google.maps.Point(0, -offsetPixels / scale);
+            const newWorldCoordinate = new google.maps.Point(worldCoordinate.x, worldCoordinate.y + pixelOffset.y);
+            const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
+            return { lat: newLatLng.lat(), lng: latLng.lng };
+        }
+
+        // ==========================================
+        // SMOOTH FLY ANIMATION
+        // ==========================================
+        window.smoothFlyTo = function smoothFlyTo(targetPosition, targetZoom) {
+            const map = window.map;
+            if (!map) return;
+
+            // Use CONFIG for default zoom
+            const cfg = window.CONFIG?.map || {};
+            if (targetZoom === undefined) {
+                targetZoom = cfg.defaultZoom || 14;
+            }
+
+            const startPos = map.getCenter();
+            const startZoom = map.getZoom();
+            const targetLatLng = new google.maps.LatLng(targetPosition);
+
+            // Calculate offset for visual centering (marker + info card)
+            const offsetPixels = calculateCenteredOffset(targetZoom);
+            const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
+
+            // Calculate distance from marker-to-marker (not center-to-marker)
+            // Reverse the offset on startPos to get approximate marker position
+            const startOffsetPixels = calculateCenteredOffset(startZoom);
+            const startMarkerPos = offsetLatLng({ lat: startPos.lat(), lng: startPos.lng() }, -startOffsetPixels, startZoom);
+            const startMarkerLatLng = new google.maps.LatLng(startMarkerPos);
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(startMarkerLatLng, targetLatLng);
+
+            // Get flight settings from CONFIG
+            const arc = cfg.flightZoomArc || {};
+            const dur = cfg.flightDuration || {};
+
+            // Animated flight with zoom arc (all distances get arc now)
+            const startTime = performance.now();
+
+            // Duration from CONFIG.map.flightDuration
+            let duration;
+            if (distance < 1000) {
+                duration = dur.micro || 800;
+            } else if (distance < 2000) {
+                duration = dur.short || 1200;
+            } else {
+                duration = dur.medium || 2000;
+            }
+
+            // minZoom from CONFIG.map.flightZoomArc
+            let minZoom, jumpType;
+            if (distance < (arc.micro?.maxDistance || 2000)) {
+                minZoom = arc.micro?.minZoom || 13;
+                jumpType = 'micro';
+            } else if (distance < (arc.short?.maxDistance || 5000)) {
+                minZoom = arc.short?.minZoom || 13;
+                jumpType = 'short';
+            } else if (distance < (arc.medium?.maxDistance || 20000)) {
+                minZoom = arc.medium?.minZoom || 12;
+                jumpType = 'med';
+            } else {
+                minZoom = arc.long?.minZoom || 10;
+                jumpType = 'long';
+            }
+            console.log(`Flight: ${jumpType} | ${(distance/1609.34).toFixed(2)} mi | minZoom=${minZoom}`);
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // EaseInOutCubic
+                const ease = progress < 0.5
+                    ? 4 * progress * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                // Interpolate position to offset target
+                const curLat = startPos.lat() + (offsetTarget.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (offsetTarget.lng - startPos.lng()) * ease;
+
+                // Parabolic zoom arc
+                let curZoom;
+                if (progress < 0.5) {
+                    const zoomProgress = progress * 2;
+                    const zoomEase = 1 - Math.pow(1 - zoomProgress, 2);
+                    curZoom = startZoom + (minZoom - startZoom) * zoomEase;
+                } else {
+                    const zoomProgress = (progress - 0.5) * 2;
+                    const zoomEase = zoomProgress * zoomProgress;
+                    curZoom = minZoom + (targetZoom - minZoom) * zoomEase;
+                }
+
+                map.moveCamera({
+                    center: { lat: curLat, lng: curLng },
+                    zoom: curZoom
+                });
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Navigate between neighborhoods (Prev/Next buttons in info window)
+        window.navigateNeighborhood = function(direction) {
+            const filtered = window.filteredNeighborhoods || [];
+            const current = window.currentNeighborhood;
+            if (!current || filtered.length < 2) return;
+
+            const currentIndex = filtered.findIndex(n => n.name === current.name && n.propertyType === current.propertyType);
+            if (currentIndex === -1) return;
+
+            // Calculate next index (wrap around)
+            let nextIndex = currentIndex + direction;
+            if (nextIndex < 0) nextIndex = filtered.length - 1;
+            if (nextIndex >= filtered.length) nextIndex = 0;
+
+            const nextN = filtered[nextIndex];
+            if (!nextN) return;
+
+            // Find marker and trigger flight animation
+            const markerData = (window.markers || []).find(m => m.neighborhood.name === nextN.name && m.neighborhood.propertyType === nextN.propertyType);
+            if (markerData && markerData.marker) {
+                // Highlight the clicked nav button
+                const btnId = direction === -1 ? 'nav-prev' : 'nav-next';
+                const navBtn = document.getElementById(btnId);
+                if (navBtn) {
+                    navBtn.classList.add('bg-brand-100', 'dark:bg-brand-dark/20');
+                }
+
+                // Delay to show highlight, then close and animate
+                setTimeout(() => {
+                    // Close current info window
+                    if (window.infoWindow && window.infoWindow.getMap()) {
+                        window.infoWindow.close();
+                    }
+                    // Deactivate current marker ripple
+                    if (window.activeMarker && window.activeMarker.content) {
+                        window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                        window.activeMarker = null;
+                    }
+
+                    // Fly to new location
+                    window.smoothFlyTo(nextN.position);
+
+                    // Open info window after flight completes
+                    const startPos = window.map.getCenter();
+                    const targetLatLng = new google.maps.LatLng(nextN.position);
+                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                    const delay = distance < 2000 ? 450 : 2200;
+
+                    setTimeout(() => {
+                        google.maps.event.trigger(markerData.marker, 'click');
+                    }, delay);
+                }, 150); // Show highlight for 150ms before closing
+            }
+        };
+
+        // Marker colors (matches production markers.js)
+        const MARKER_COLORS = {
+            urlSlug: '#4c8f96',    // Teal - has URL slug (primary)
+            searchId: '#4a5462',   // Dark gray - has search ID
+            noData: '#9ca3af'      // Light gray - no data
+        };
+
+        // Track active marker for ripple animation
+        window.activeMarker = null;
+
+        // Create marker SVG (matches production createMarkerIcon)
+        function createMarkerSVG(color, isActive = false) {
+            const size = isActive ? 44 : 32;
+            const dotSize = isActive ? 10 : 6;
+            const strokeWidth = isActive ? 3 : 2;
+
+            return `
+                <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+                    ${isActive ? `
+                        <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
+                            fill="none"
+                            stroke="${color}"
+                            stroke-width="4"
+                            opacity="0.7">
+                            <animate attributeName="r"
+                                from="${dotSize}"
+                                to="${size/2 - 2}"
+                                dur="1.5s"
+                                repeatCount="indefinite"/>
+                            <animate attributeName="opacity"
+                                from="0.7"
+                                to="0"
+                                dur="1.5s"
+                                repeatCount="indefinite"/>
+                        </circle>
+                    ` : ''}
+                    <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
+                        fill="${color}"
+                        stroke="white"
+                        stroke-opacity="0.75"
+                        stroke-width="${strokeWidth}"/>
+                </svg>
+            `;
+        }
+
+        // Toggle marker ripple animation (from production markers.js)
+        function toggleMarker(marker, neighborhood, showInfoFn) {
+            const color = marker.markerColor;
+
+            // If clicking same marker, toggle info window
+            if (window.activeMarker === marker) {
+                if (window.infoWindow && window.infoWindow.getMap()) {
+                    window.infoWindow.close();
+                    marker.content.innerHTML = createMarkerSVG(color, false);
+                    window.activeMarker = null;
+                } else {
+                    showInfoFn();
+                    marker.content.innerHTML = createMarkerSVG(color, true);
+                }
+            } else {
+                // Deactivate previous marker ripple
+                if (window.activeMarker && window.activeMarker.content) {
+                    window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                }
+
+                // Clicking different marker - open with ripple
+                showInfoFn();
+                marker.content.innerHTML = createMarkerSVG(color, true);
+                window.activeMarker = marker;
+            }
+        }
+
+        // Expose addMarkers globally for theme toggle
+        window.addMarkers = function addMarkers() {
+            if (!window.map) return;
+
+            // Clear existing markers
+            (window.markers || []).forEach(m => m.marker.setMap(null));
+            window.markers = [];
+
+            const filteredNeighborhoods = window.filteredNeighborhoods || [];
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+
+            filteredNeighborhoods.forEach(n => {
+                // Determine marker color based on searchId and urlSlug (matches production)
+                const hasSearchId = (n.searchIdHomes && n.searchIdHomes !== '') ||
+                                   (n.searchIdCondos && n.searchIdCondos !== '') ||
+                                   (n.searchIdTownhomes && n.searchIdTownhomes !== '') ||
+                                   (n.searchIdLots && n.searchIdLots !== '') ||
+                                   (n.searchId && n.searchId !== '');
+                const hasUrlSlug = n.urlSlug && n.urlSlug !== '';
+
+                const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
+                                   (hasSearchId ? MARKER_COLORS.searchId : MARKER_COLORS.noData);
+
+                // Create marker with colored dot (matches production style)
+                const markerContent = document.createElement('div');
+                markerContent.className = 'marker-pin';
+                markerContent.innerHTML = createMarkerSVG(markerColor, false);
+                markerContent.style.cursor = 'pointer';
+
+                // Skip if no valid position
+                if (!n.position || !n.position.lat || !n.position.lng) {
+                    console.warn('Skipping marker with invalid position:', n.name, n.position);
+                    return;
+                }
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map: window.map,
+                    position: n.position,
+                    content: markerContent,
+                    title: n.name
+                });
+
+                // Store marker color for reference
+                marker.markerColor = markerColor;
+
+                // Click handler - uses toggleMarker for ripple animation
+                marker.addListener('click', () => {
+                    const showInfoWindow = () => {
+                        // Store current neighborhood for navigation
+                        window.currentNeighborhood = n;
+
+                    const stats = n.stats || {};
+                    const medianPrice = stats.medianPrice || stats.avgPrice || 0;
+                    const medianPriceDisplay = formatPrice(medianPrice);
+                    const pricePerSqFt = stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
+
+                    // Build listings URL with filter slugs (matches production markers.js)
+                    let listingsUrl = null;
+
+                    // Property type routing for searchId (from production)
+                    const propertyType = (n.propertyType || 'homes').toLowerCase();
+                    let searchId = null;
+                    if (propertyType.includes('townhome')) {
+                        searchId = n.searchIdTownhomes || n.searchId || null;
+                    } else if (propertyType.includes('condo')) {
+                        searchId = n.searchIdCondos || n.searchId || null;
+                    } else if (propertyType.includes('lot') || propertyType.includes('land')) {
+                        searchId = n.searchIdLots || n.searchId || null;
+                    } else {
+                        searchId = n.searchIdHomes || n.searchId || null;
+                    }
+
+                    if (searchId) {
+                        // Dynamic filter slugs from filterState
+                        const fs = window.filterState || {};
+                        const bedsMin = fs.bedsMin || 1;
+                        const bathsMin = fs.bathsMin || 1;
+                        const priceMin = fs.priceMin > 0 ? window.PRICE_STEPS[fs.priceMin] : null;
+                        const priceMax = fs.priceMax < 41 ? window.PRICE_STEPS[fs.priceMax] : null;
+
+                        const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
+                        const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
+                        const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
+                        const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
+                        const slugPart = `#${bedsSlug}${bathsSlug}${priceMinSlug}${priceMaxSlug}`;
+                        listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
+                    }
+
+                    const filtered = window.filteredNeighborhoods || [];
+                    const hasNav = filtered.length > 1;
+
+                    const content = `
+                        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated outline-none" style="cursor: pointer;" tabindex="-1">
+                            <div class="flex items-center justify-center gap-2 mb-2">
+                                <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
+                                ${n.urlSlug ? `
+                                <a href="https://www.truesouthcoastalhomes.com${n.urlSlug}"
+                                   target="_blank"
+                                   class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors outline-none focus:outline-none"
+                                   onclick="event.stopPropagation();"
+                                   title="${n.name} ${n.propertyType} for Sale">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                    </svg>
+                                </a>
+                                ` : ''}
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 mb-2">
+                                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.listingCount || 0}</div>
+                                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">All Active</div>
+                                </div>
+                                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
+                                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 mb-2">
+                                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
+                                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                                </div>
+                                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.avgDom || 0}</div>
+                                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                                </div>
+                            </div>
+                            ${(n.amenities || []).length > 0 ? `
+                            <div class="mb-3">
+                                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
+                                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
+                                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed">${n.amenities.join(', ')}</div>
+                                </div>
+                            </div>
+                            ` : ''}
+                            <hr class="divider mb-3">
+                            <div class="pt-3 flex items-center gap-2">
+                                ${hasNav ? `
+                                <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus:outline-none" title="Previous Community">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                                </button>
+                                ` : ''}
+                                ${listingsUrl ? `
+                                <a href="${listingsUrl}"
+                                   target="_blank"
+                                   class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
+                                   onclick="event.stopPropagation(); if(typeof gtag!=='undefined')gtag('event','view_listings',{neighborhood_name:'${n.name}',listing_count:${stats.listingCount || 0},property_type:'${n.propertyType}'});"
+                                   title="View all ${n.name} ${n.propertyType} for sale">
+                                    Matching Listings
+                                </a>
+                                ` : `
+                                <button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed"
+                                        disabled
+                                        title="MLS listings coming soon for ${n.name}">
+                                    Coming Soon!
+                                </button>
+                                `}
+                                ${hasNav ? `
+                                <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus:outline-none" title="Next Community">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                        window.infoWindow.setContent(content);
+                        window.infoWindow.open({ map: window.map, anchor: marker });
+
+                        // Deactivate ripple when info window is closed via X button
+                        google.maps.event.clearListeners(window.infoWindow, 'closeclick');
+                        window.infoWindow.addListener('closeclick', () => {
+                            if (window.activeMarker && window.activeMarker.content) {
+                                window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                            }
+                            window.activeMarker = null;
+                        });
+                    };
+
+                    toggleMarker(marker, n, showInfoWindow);
+                });
+
+                // Hover handler - AdvancedMarkerElement requires DOM events on content
+                markerContent.addEventListener('mouseenter', () => {
+                    // Don't show hover if click info window is open for this marker
+                    if (window.activeMarker === marker) return;
+
+                    const stats = n.stats || {};
+                    const medianPrice = stats.medianPrice || stats.avgPrice || 0;
+                    const hoverContent = `
+                        <div class="p-2 bg-white dark:bg-dark-bg-elevated rounded-lg">
+                            <div class="font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</div>
+                            <div class="text-sm text-neutral-600 dark:text-dark-text-secondary">${formatPrice(medianPrice)} | ${stats.listingCount || 0} listings</div>
+                        </div>
+                    `;
+                    window.hoverInfoWindow.setContent(hoverContent);
+                    window.hoverInfoWindow.open({ map: window.map, anchor: marker });
+                });
+
+                markerContent.addEventListener('mouseleave', () => {
+                    if (window.hoverInfoWindow) {
+                        window.hoverInfoWindow.close();
+                    }
+                });
+
+                window.markers.push({ marker, neighborhood: n });
+            });
+        }
+
+        // Check if Google Maps is ready
+        if (typeof google !== 'undefined' && google.maps) {
+            initMap();
+        }
+
+        // Handle Google Maps API errors (e.g., RefererNotAllowedMapError)
+        window.gm_authFailure = function() {
+            const placeholder = document.getElementById('map-placeholder');
+            if (placeholder) {
+                placeholder.innerHTML = `
+                    <div class="text-center">
+                        <svg class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                        </svg>
+                        <p class="text-neutral-500 dark:text-neutral-400 font-medium mb-2">Map requires local server</p>
+                        <p class="text-neutral-400 dark:text-neutral-500 text-sm mb-3">Google Maps API key is restricted to specific domains.</p>
+                        <div class="bg-neutral-200 dark:bg-neutral-800 rounded-lg p-3 text-left text-xs">
+                            <p class="text-neutral-600 dark:text-neutral-300 mb-1">To test with map, run:</p>
+                            <code class="text-brand-700 dark:text-brand-dark">cd NeighborhoodFinder && npx serve .</code>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">Then open: <span class="text-brand-700 dark:text-brand-dark">http://localhost:3000/tests/drawer-prototype.html</span></p>
+                        </div>
+                    </div>
+                `;
+            }
+            console.warn('Google Maps API auth failed - likely running from file:// URL');
+        };
+
+        // Timeout fallback if map doesn't load
+        setTimeout(() => {
+            if (!window.map) {
+                const placeholder = document.getElementById('map-placeholder');
+                if (placeholder && placeholder.querySelector('p').textContent.includes('Loading')) {
+                    window.gm_authFailure();
+                }
+            }
+        }, 5000);
+    </script>
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&v=weekly&libraries=marker,geometry"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwVlnRslcTnR8d0Ocj3zYdj4CqFkIv9E&callback=initMap&v=weekly&libraries=marker,geometry"></script>
+
 </body>
 </html>
