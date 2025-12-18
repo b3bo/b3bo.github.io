@@ -1891,6 +1891,15 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             console.log(`calculateCenteredOffset: ${Math.round(dotFromBottom)}px from bottom`);
 
+            // TEMP DEBUG: Show values on screen for iOS testing (remove after debugging)
+            if (true) { // Always show for now
+                const debugDiv = document.createElement('div');
+                debugDiv.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:10px;z-index:9999;max-width:90%;';
+                debugDiv.innerHTML = `clientH:${clientH} cssDvh:${Math.round(cssDvh||0)} inIframe:${inIframe}<br>using:${dvh} effVP:${effectiveViewport}<br>combo:${comboHeight} pad:${Math.round(padding)}<br>pan:${Math.round(panAmount)}`;
+                document.body.appendChild(debugDiv);
+                setTimeout(() => debugDiv.remove(), 8000);
+            }
+
             return Math.round(panAmount);
         }
 
