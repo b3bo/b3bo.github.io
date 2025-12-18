@@ -1840,7 +1840,22 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
          * @returns {number} Pixel offset for panBy()
          */
         function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0) {
-            const dvh = window.innerHeight;
+            // Viewport height measurement strategy:
+            // - In iframe (single mode): clientHeight gives iframe's actual height
+            // - Full page: CSS dvh handles iOS Safari dynamic toolbar
+            // - Fallback: visualViewport or innerHeight
+            const clientH = document.documentElement.clientHeight;
+            const oneDvh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--one-dvh'));
+            const cssDvh = oneDvh ? oneDvh * 100 : null;
+            const visualVP = window.visualViewport?.height;
+            const innerH = window.innerHeight;
+
+            // Detect iframe: if clientHeight differs significantly from cssDvh, we're in iframe
+            const inIframe = cssDvh && Math.abs(clientH - cssDvh) > 50;
+            const dvh = inIframe ? clientH : (cssDvh || visualVP || innerH);
+
+            console.log('calculateCenteredOffset viewport:', { clientH, cssDvh, visualVP, innerH, inIframe, using: dvh });
+
             const w = window.innerWidth;
 
             // Get card heights from CONFIG (with fallbacks)
