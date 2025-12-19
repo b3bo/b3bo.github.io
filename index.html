@@ -171,6 +171,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
             outline: none !important;
             border-radius: 12px !important;
+            max-height: none !important;
+        }
+        /* Lock down InfoWindow - prevent internal scroll/drag */
+        .gm-style .gm-style-iw-d {
+            overflow: hidden !important;
+            max-height: none !important;
         }
         .gm-style .gm-style-iw-tc::after {
             background: transparent !important;
