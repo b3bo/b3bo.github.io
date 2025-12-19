@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.0.13',
+    version: '1.0.14',
 
     // ===================================================================
     // MAP SETTINGS
@@ -61,9 +61,9 @@ export const CONFIG = {
         // Used to calculate vertical offset so marker+card combo is centered
         // Increase values to move combo DOWN, decrease to move combo UP
         cardHeight: {
-            mobile: 360,   // viewport width < 640px
-            tablet: 360,   // viewport width 640-1023px
-            desktop: 360   // viewport width >= 1024px
+            mobile: 380,   // Fixed height with constrained amenities
+            tablet: 380,   // viewport width 640-1023px
+            desktop: 380   // viewport width >= 1024px
         }
     },
 

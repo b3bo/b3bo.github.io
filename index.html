@@ -193,6 +193,22 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         .gm-style-iw *:focus {
             outline: none !important;
         }
+
+        /* Scrollable amenities (3-row max) - fade only when overflow */
+        .amenities-scroll {
+            max-height: 3.9em;  /* 3 lines × 1.25 line-height + buffer */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .amenities-scroll.has-overflow {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+        .amenities-scroll::-webkit-scrollbar { width: 3px; }
+        .amenities-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.15);
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
@@ -523,7 +539,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 19 | v1.1.12</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 19 | v1.1.14</p>
                 </div>
             </div>
 
@@ -1597,25 +1613,6 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             window.map.setZoom(zoom);
                             window.singleModeCentered = true;
 
-                            // DEBUG: Show dimensions overlay (remove after testing)
-                            setTimeout(() => {
-                                const iw = document.querySelector('.gm-style-iw-c');
-                                const iwRect = iw ? iw.getBoundingClientRect() : null;
-                                const debugOverlay = document.createElement('div');
-                                debugOverlay.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.85);color:#0f0;font:11px monospace;padding:8px 12px;border-radius:6px;z-index:9999;line-height:1.4;';
-                                debugOverlay.innerHTML = `
-                                    viewport: ${window.innerHeight}px<br>
-                                    panCalc: ${panAmount}px<br>
-                                    cardEst: 360px<br>
-                                    ---<br>
-                                    iwActual: ${iwRect ? Math.round(iwRect.height) : 'N/A'}px<br>
-                                    iwTop: ${iwRect ? Math.round(iwRect.top) : 'N/A'}px<br>
-                                    iwBot: ${iwRect ? Math.round(iwRect.bottom) : 'N/A'}px
-                                `;
-                                document.body.appendChild(debugOverlay);
-                                setTimeout(() => debugOverlay.remove(), 5000);
-                            }, 500);
-
                             // Wait for map to finish moving before opening InfoWindow
                             google.maps.event.addListenerOnce(window.map, 'idle', openInfoWindow);
                             return true;
@@ -1851,9 +1848,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             // Get card heights from CONFIG (with fallbacks)
             const cfg = window.CONFIG?.map?.cardHeight || {};
-            const mobileHeight = cfg.mobile || 360;
-            const tabletHeight = cfg.tablet || 320;
-            const desktopHeight = cfg.desktop || 280;
+            const mobileHeight = cfg.mobile || 380;
+            const tabletHeight = cfg.tablet || 380;
+            const desktopHeight = cfg.desktop || 380;
 
             // Select card height based on viewport width
             let cardHeight;
@@ -2195,7 +2192,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     <div class="mb-3">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed">${n.amenities.join(', ')}</div>
+                            <div class="amenities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${n.amenities.join(', ')}</div>
                         </div>
                     </div>
                     ` : ''}
@@ -2234,6 +2231,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             targetInfoWindow.setContent(content);
             targetInfoWindow.open({ map: window.map, anchor: marker });
+
+            // Detect amenities overflow and add fade class if needed (4px tolerance for rounding)
+            google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+                const amenitiesEl = document.querySelector('.amenities-scroll');
+                if (amenitiesEl && amenitiesEl.scrollHeight > amenitiesEl.clientHeight + 4) {
+                    amenitiesEl.classList.add('has-overflow');
+                }
+            });
 
             // Handle close events for primary window only
             if (targetInfoWindow === window.infoWindow) {
