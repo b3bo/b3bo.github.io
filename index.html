@@ -1575,6 +1575,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     if (markerObj && markerObj.marker && markerObj.neighborhood) {
                         console.log('Single mode: opening', markerObj.neighborhood.name);
 
+                        const openInfoWindow = () => {
+                            showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
+                            markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+                            window.activeMarker = markerObj.marker;
+                        };
+
                         // Center on target with offset (handles soft refresh when projection_changed missed)
                         const pos = markerObj.neighborhood.position;
                         if (pos && !window.singleModeCentered) {
@@ -1584,11 +1590,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             window.map.setCenter(offsetCenter);
                             window.map.setZoom(zoom);
                             window.singleModeCentered = true;
+                            // Wait for map to finish moving before opening InfoWindow
+                            google.maps.event.addListenerOnce(window.map, 'idle', openInfoWindow);
+                            return true;
                         }
 
-                        showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
-                        markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
-                        window.activeMarker = markerObj.marker;
+                        // Already centered - open immediately
+                        openInfoWindow();
                         return true;
                     }
                     return false;
