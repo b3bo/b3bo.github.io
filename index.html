@@ -34,6 +34,19 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         gtag('config', 'G-XXXXXXXXXX'); // Replace with real GA ID
     </script>
 
+    <!-- Single mode detection (runs before body renders to prevent flash) -->
+    <script>
+        if (new URLSearchParams(window.location.search).get('mode') === 'single') {
+            document.documentElement.classList.add('single-mode');
+        }
+    </script>
+    <style>
+        .single-mode #sidebar,
+        .single-mode label[for="drawer-toggle"],
+        .single-mode .disclaimer-bar { display: none !important; }
+        .single-mode #map-layout { height: 100dvh !important; }
+    </style>
+
     <!-- Google Fonts (matching index.html) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1455,6 +1468,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             // Reset state for soft refresh / bfcache restore
             window.markersInitialized = false;
+            window.singleModeCentered = false;
 
             // Clear placeholder
             mapDiv.innerHTML = '';
@@ -1511,6 +1525,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
                     const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
                     window.map.setCenter(offsetCenter);
+                    window.singleModeCentered = true;
                 });
             }
 
@@ -1559,6 +1574,18 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     const markerObj = window.markers[0];
                     if (markerObj && markerObj.marker && markerObj.neighborhood) {
                         console.log('Single mode: opening', markerObj.neighborhood.name);
+
+                        // Center on target with offset (handles soft refresh when projection_changed missed)
+                        const pos = markerObj.neighborhood.position;
+                        if (pos && !window.singleModeCentered) {
+                            const zoom = parseInt(new URLSearchParams(window.location.search).get('zoom')) || 13;
+                            const panAmount = calculateCenteredOffset(zoom, 0);
+                            const offsetCenter = offsetLatLng(pos, panAmount, zoom);
+                            window.map.setCenter(offsetCenter);
+                            window.map.setZoom(zoom);
+                            window.singleModeCentered = true;
+                        }
+
                         showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
                         markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
                         window.activeMarker = markerObj.marker;
@@ -1569,15 +1596,6 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 function afterMarkersAdded() {
                     if (isSingleMode && neighborhoodSlug) {
-                        // Center on target with offset (rendezvous ensures data is ready)
-                        const target = (neighborhoods.length > 0) ? neighborhoods[0] : null;
-                        if (target && target.position) {
-                            const initialZoom = parseInt(urlParams.get('zoom')) || 13;
-                            const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
-                            const offsetCenter = offsetLatLng(target.position, panAmount, initialZoom);
-                            window.map.setCenter(offsetCenter);
-                            window.map.setZoom(initialZoom);
-                        }
                         google.maps.event.addListenerOnce(window.map, 'idle', () => {
                             let attempts = 0;
                             const pollMarker = () => {
