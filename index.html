@@ -1532,6 +1532,18 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
                     window.map.setCenter(offsetCenter);
                     window.singleModeCentered = true;
+
+                    // DEBUG: Show height values overlay (remove after testing)
+                    const debugOverlay = document.createElement('div');
+                    debugOverlay.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:8px 12px;border-radius:6px;z-index:9999;';
+                    debugOverlay.innerHTML = `
+                        innerHeight: ${window.innerHeight}px<br>
+                        clientHeight: ${document.documentElement.clientHeight}px<br>
+                        visualVP: ${window.visualViewport?.height || 'N/A'}px<br>
+                        panAmount: ${panAmount}px
+                    `;
+                    document.body.appendChild(debugOverlay);
+                    setTimeout(() => debugOverlay.remove(), 3000);
                 });
             }
 
