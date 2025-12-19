@@ -959,7 +959,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // ==========================================
             // FILTER STATE & PRICE STEPS
             // ==========================================
-            window.PRICE_STEPS = [
+            // PRICE_STEPS is set by init.js from CONFIG.ui.priceSteps
+            // Fallback only if init.js hasn't loaded yet
+            window.PRICE_STEPS = window.PRICE_STEPS || [
                 250000, 300000, 350000, 400000, 450000, 500000,
                 550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
                 1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
@@ -1632,6 +1634,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 if (window.activeMarker && window.activeMarker.content) {
                     window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
                     window.activeMarker = null;
+                }
+            });
+
+            // Re-anchor InfoWindow during pan (workaround for AdvancedMarkerElement)
+            window.map.addListener('center_changed', () => {
+                if (window.infoWindow && window.infoWindow.getMap() && window.activeMarker) {
+                    window.infoWindow.open({ map: window.map, anchor: window.activeMarker });
                 }
             });
         }

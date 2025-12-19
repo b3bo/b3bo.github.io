@@ -9,6 +9,9 @@ import { formatPrice } from './utils.js';
 // Expose CONFIG globally so other scripts can use it
 window.CONFIG = CONFIG;
 
+// Expose PRICE_STEPS globally for filter scripts
+window.PRICE_STEPS = CONFIG.ui.priceSteps;
+
 // Configure paths for local dev (absolute paths for Vite)
 CONFIG.data.geojsonPath = './neighborhoods/jsons/';
 CONFIG.data.neighborhoodFiles = [
