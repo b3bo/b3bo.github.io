@@ -1453,6 +1453,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const mapDiv = document.getElementById('map');
             if (!mapDiv) return;
 
+            // Reset state for soft refresh / bfcache restore
+            window.markersInitialized = false;
+
             // Clear placeholder
             mapDiv.innerHTML = '';
 
@@ -1566,6 +1569,15 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 function afterMarkersAdded() {
                     if (isSingleMode && neighborhoodSlug) {
+                        // Center on target with offset (rendezvous ensures data is ready)
+                        const target = (neighborhoods.length > 0) ? neighborhoods[0] : null;
+                        if (target && target.position) {
+                            const initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                            const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
+                            const offsetCenter = offsetLatLng(target.position, panAmount, initialZoom);
+                            window.map.setCenter(offsetCenter);
+                            window.map.setZoom(initialZoom);
+                        }
                         google.maps.event.addListenerOnce(window.map, 'idle', () => {
                             let attempts = 0;
                             const pollMarker = () => {
