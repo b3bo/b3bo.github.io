@@ -504,7 +504,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 18 | v1.1.0</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 19 | v1.1.0</p>
                 </div>
             </div>
 
@@ -522,51 +522,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
     </div>
 
-    <script type="module">
-        // ==========================================
-        // PRODUCTION ES MODULE IMPORTS
-        // ==========================================
-        import { CONFIG } from './neighborhoods/js/config.js';
-        import { STATE } from './neighborhoods/js/state.js';
-        import { loadNeighborhoods } from './neighborhoods/js/data.js';
-        import { formatPrice } from './neighborhoods/js/utils.js';
-
-        // Expose CONFIG globally so other scripts can use it
-        window.CONFIG = CONFIG;
-
-        // Configure paths for local dev (absolute paths for Vite)
-        CONFIG.data.geojsonPath = './neighborhoods/jsons/';
-        CONFIG.data.neighborhoodFiles = [
-            './neighborhoods/jsons/7ea1bf14d884d192.json.b64',
-            './neighborhoods/jsons/b762bb338ba328e5.json.b64',
-            './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
-            './neighborhoods/jsons/d897c3d107c48ccc.json.b64',
-            './neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
-            './neighborhoods/jsons/e0e3b36d8e692892.json.b64',
-            './neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
-        ];
-
-        // Load production data
-        const neighborhoods = await loadNeighborhoods();
-        console.log('Loaded', neighborhoods.length, 'neighborhoods from production data');
-
-        // Expose to global scope for other scripts
-        window.neighborhoods = neighborhoods;
-        window.filteredNeighborhoods = [...neighborhoods];
-        window.markers = [];
-        window.map = null;
-        window.infoWindow = null;
-        window.sortOrder = 'listings-desc';
-        window.formatPrice = formatPrice;
-
-        function toSlug(str) {
-            return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-        }
-        window.toSlug = toSlug;
-
-        // Trigger DOMContentLoaded handlers after data loads
-        window.dispatchEvent(new Event('dataLoaded'));
-    </script>
+    <script type="module" src="./neighborhoods/js/init.js"></script>
 
     <script>
         // Panel navigation - wait for both DOM and data
@@ -1465,7 +1421,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         setTimeout(() => sortMenu.classList.remove('hidden'), 10);
                     }
                     if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
-                        searchDropdown.classList.add('hidden');
+                        const searchInput = document.getElementById('search-input');
+                        // Don't close if search input is focused (iOS keyboard appearing)
+                        if (document.activeElement !== searchInput) {
+                            searchDropdown.classList.add('hidden');
+                        }
                     }
                 };
                 window.visualViewport.addEventListener('resize', repositionDropdowns);
@@ -1566,18 +1526,21 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             window.infoWindow.addListener('domready', removeInfoWindowCloseButton);
             window.hoverInfoWindow.addListener('domready', removeInfoWindowCloseButton);
 
-            // Add markers and fit to show all (only if data is loaded)
-            function addMarkersWhenReady() {
+            // Rendezvous: whoever finishes second (data or map) triggers markers
+            window.tryInitializeMarkers = function() {
+                if (window.markersInitialized) return;
                 const neighborhoods = window.neighborhoods || [];
+                if (!neighborhoods.length || !window.map || !window.addMarkers) return;
+
+                window.markersInitialized = true;
+
                 const urlParams = new URLSearchParams(window.location.search);
                 const isSingleMode = urlParams.get('mode') === 'single';
                 const neighborhoodSlug = urlParams.get('neighborhood');
 
-                // In single mode, filter to just the matching neighborhood
                 if (isSingleMode && neighborhoodSlug && neighborhoods.length > 0) {
                     const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
                     if (matching.length > 0) {
-                        // Prefer Homes if multiple property types exist
                         const homes = matching.find(n => n.propertyType === 'Homes');
                         const target = homes || matching[0];
                         window.neighborhoods = [target];
@@ -1588,61 +1551,45 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 function openSingleModeMarker() {
                     if (!window.markers || window.markers.length === 0) return false;
-                    const markerObj = window.markers[0]; // { marker, neighborhood }
+                    const markerObj = window.markers[0];
                     if (markerObj && markerObj.marker && markerObj.neighborhood) {
-                        const marker = markerObj.marker;
-                        const neighborhood = markerObj.neighborhood;
-                        console.log('Single mode: opening', neighborhood.name);
-                        showInfoWindowContent(marker, neighborhood, window.infoWindow, true);
-                        marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
-                        window.activeMarker = marker;
+                        console.log('Single mode: opening', markerObj.neighborhood.name);
+                        showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
+                        markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+                        window.activeMarker = markerObj.marker;
                         return true;
                     }
                     return false;
                 }
 
                 function afterMarkersAdded() {
-                    // In single mode: use idle event for stable timing, then poll for marker
                     if (isSingleMode && neighborhoodSlug) {
                         google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                            // Poll for marker to be ready
                             let attempts = 0;
                             const pollMarker = () => {
                                 attempts++;
                                 if (openSingleModeMarker()) return;
-                                if (attempts < 30) {
-                                    setTimeout(pollMarker, 100);
-                                } else {
-                                    console.warn('Single mode: marker not found after 3 seconds');
-                                }
+                                if (attempts < 30) setTimeout(pollMarker, 100);
+                                else console.warn('Single mode: marker not found after 3 seconds');
                             };
                             pollMarker();
                         });
                     } else {
-                        // Normal mode: fit bounds to show all
                         window.fitBoundsToNeighborhoods();
-
-                        // Check for marker parameter in full mode (deep link to specific neighborhood)
                         const markerSlug = urlParams.get('marker');
                         const propertyType = urlParams.get('propertyType') || 'Homes';
                         if (markerSlug) {
-                            // Find matching neighborhood
                             const allNeighborhoods = window.neighborhoods || [];
                             const matching = allNeighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
                             const target = matching.find(n => n.propertyType === propertyType) || matching[0];
-
                             if (target) {
                                 console.log('Full mode: deep link to', target.name, target.propertyType);
-                                // Find the marker for this neighborhood
                                 const markerObj = (window.markers || []).find(m =>
-                                    m.neighborhood.name === target.name &&
-                                    m.neighborhood.propertyType === target.propertyType
+                                    m.neighborhood.name === target.name && m.neighborhood.propertyType === target.propertyType
                                 );
                                 if (markerObj) {
-                                    // Fly to marker and open info window
                                     setTimeout(() => {
                                         window.smoothFlyTo(target.position, 15);
-                                        // Open info window after flight completes
                                         setTimeout(() => {
                                             showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
                                             markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
@@ -1657,28 +1604,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     }
                 }
 
-                if (neighborhoods.length > 0) {
-                    // Ensure filteredNeighborhoods is set
-                    if (!window.filteredNeighborhoods || window.filteredNeighborhoods.length === 0) {
-                        window.filteredNeighborhoods = [...neighborhoods];
-                    }
-                    window.addMarkers();
-                    console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
-                    afterMarkersAdded();
-                } else {
-                    // Data not loaded yet, wait for it
-                    window.addEventListener('dataLoaded', () => {
-                        const n = window.neighborhoods || [];
-                        if (!window.filteredNeighborhoods || window.filteredNeighborhoods.length === 0) {
-                            window.filteredNeighborhoods = [...n];
-                        }
-                        window.addMarkers();
-                        console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
-                        afterMarkersAdded();
-                    }, { once: true });
+                if (!window.filteredNeighborhoods || !window.filteredNeighborhoods.length) {
+                    window.filteredNeighborhoods = [...neighborhoods];
                 }
-            }
-            addMarkersWhenReady();
+                window.addMarkers();
+                console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
+                afterMarkersAdded();
+            };
+            window.tryInitializeMarkers();
 
             // Log zoom level changes to console
             window.map.addListener('idle', () => {
