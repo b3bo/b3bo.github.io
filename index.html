@@ -523,7 +523,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 19 | v1.1.0</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 19 | v1.1.12</p>
                 </div>
             </div>
 
@@ -1532,18 +1532,6 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
                     window.map.setCenter(offsetCenter);
                     window.singleModeCentered = true;
-
-                    // DEBUG: Show height values overlay (remove after testing)
-                    const debugOverlay = document.createElement('div');
-                    debugOverlay.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:8px 12px;border-radius:6px;z-index:9999;';
-                    debugOverlay.innerHTML = `
-                        innerHeight: ${window.innerHeight}px<br>
-                        clientHeight: ${document.documentElement.clientHeight}px<br>
-                        visualVP: ${window.visualViewport?.height || 'N/A'}px<br>
-                        panAmount: ${panAmount}px
-                    `;
-                    document.body.appendChild(debugOverlay);
-                    setTimeout(() => debugOverlay.remove(), 3000);
                 });
             }
 
@@ -1609,17 +1597,24 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             window.map.setZoom(zoom);
                             window.singleModeCentered = true;
 
-                            // DEBUG: Show height values overlay (remove after testing)
-                            const debugOverlay = document.createElement('div');
-                            debugOverlay.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);color:#0f0;font:12px monospace;padding:8px 12px;border-radius:6px;z-index:9999;';
-                            debugOverlay.innerHTML = `
-                                innerHeight: ${window.innerHeight}px<br>
-                                clientHeight: ${document.documentElement.clientHeight}px<br>
-                                visualVP: ${window.visualViewport?.height || 'N/A'}px<br>
-                                panAmount: ${panAmount}px
-                            `;
-                            document.body.appendChild(debugOverlay);
-                            setTimeout(() => debugOverlay.remove(), 3000);
+                            // DEBUG: Show dimensions overlay (remove after testing)
+                            setTimeout(() => {
+                                const iw = document.querySelector('.gm-style-iw-c');
+                                const iwRect = iw ? iw.getBoundingClientRect() : null;
+                                const debugOverlay = document.createElement('div');
+                                debugOverlay.style.cssText = 'position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.85);color:#0f0;font:11px monospace;padding:8px 12px;border-radius:6px;z-index:9999;line-height:1.4;';
+                                debugOverlay.innerHTML = `
+                                    viewport: ${window.innerHeight}px<br>
+                                    panCalc: ${panAmount}px<br>
+                                    cardEst: 360px<br>
+                                    ---<br>
+                                    iwActual: ${iwRect ? Math.round(iwRect.height) : 'N/A'}px<br>
+                                    iwTop: ${iwRect ? Math.round(iwRect.top) : 'N/A'}px<br>
+                                    iwBot: ${iwRect ? Math.round(iwRect.bottom) : 'N/A'}px
+                                `;
+                                document.body.appendChild(debugOverlay);
+                                setTimeout(() => debugOverlay.remove(), 5000);
+                            }, 500);
 
                             // Wait for map to finish moving before opening InfoWindow
                             google.maps.event.addListenerOnce(window.map, 'idle', openInfoWindow);
