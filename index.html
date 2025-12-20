@@ -110,6 +110,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         .sliding-panel {
             box-sizing: border-box;
             width: 100%;
+            visibility: visible;
+        }
+        /* Hide off-screen panels from tab order */
+        .sliding-panel.translate-x-full {
+            visibility: hidden;
         }
 
         /* Tab icon switching - show X when drawer is open */
@@ -179,16 +184,6 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
     <div class="flex flex-col h-dvh">
 
-        <!-- Map placeholder (behind sidebar) -->
-        <div id="map-layout" class="fixed inset-0 z-0" style="height: calc(100dvh - 40px);">
-            <div id="map" class="w-full h-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
-                <div id="map-placeholder" class="text-center p-4">
-                    <p class="text-neutral-400 dark:text-neutral-600 text-lg mb-2">Loading Map...</p>
-                    <p class="text-neutral-300 dark:text-neutral-700 text-xs">If map doesn't load, run: <code class="bg-neutral-200 dark:bg-neutral-900 px-1 rounded">npx serve .</code></p>
-                </div>
-            </div>
-        </div>
-
         <!-- Hidden checkbox controls drawer state -->
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
@@ -239,7 +234,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
                     <div class="space-y-2">
                         <!-- Criteria Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property">
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property" tabindex="0" role="button">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Criteria</span>
                             <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -247,7 +242,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </div>
 
                         <!-- Areas Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas">
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas" tabindex="0" role="button">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Areas</span>
                             <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -255,7 +250,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </div>
 
                         <!-- Amenities Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities">
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities" tabindex="0" role="button">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Amenities</span>
                             <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -263,7 +258,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </div>
 
                         <!-- Results Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
+                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results" tabindex="0" role="button">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Results</span>
                             <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -302,9 +297,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3" tabindex="-1">
                         <!-- Toggle Buttons -->
-                        <div class="flex gap-2 pb-6 px-3">
+                        <div class="flex gap-2 pt-1 pb-6 px-3">
                             <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
                                 Homes
                             </button>
@@ -369,7 +364,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content" tabindex="-1">
                         <div class="flex flex-wrap gap-2 pb-4">
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32541">Destin</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32459">Santa Rosa Beach</button>
@@ -397,7 +392,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content" tabindex="-1">
                         <div class="flex flex-wrap gap-2 pb-4">
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Beach Access">Beach Access</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Clubhouse">Clubhouse</button>
@@ -441,9 +436,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                     </svg>
                                 </button>
                                 <!-- Search dropdown (portaled to body by JS) -->
-                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border">
-                                    <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off"
-                                           class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none rounded-t-lg">
+                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border" tabindex="-1">
+                                    <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off" tabindex="-1"
+                                           class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus-ring rounded-t-lg">
                                     <div id="search-results" class="py-1" style="max-height: 320px; overflow-y: auto;">
                                         <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
                                         <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
@@ -489,7 +484,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </div>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3" tabindex="-1">
                         <div id="neighborhoodList" class="space-y-2 pl-1">
                             <!-- Populated by JavaScript -->
                         </div>
@@ -512,6 +507,16 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
         <!-- Tap-to-close overlay (dims when drawer open) -->
         <label for="drawer-toggle" class="fixed inset-0 pointer-events-none peer-checked:pointer-events-auto peer-checked:bg-black/30 z-30 cursor-default transition-colors duration-300"></label>
+
+        <!-- Map (after sidebar in DOM for correct tab order, z-0 keeps it visually behind) -->
+        <div id="map-layout" class="fixed inset-0 z-0" style="height: calc(100dvh - 40px);">
+            <div id="map" class="w-full h-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                <div id="map-placeholder" class="text-center p-4">
+                    <p class="text-neutral-400 dark:text-neutral-600 text-lg mb-2">Loading Map...</p>
+                    <p class="text-neutral-300 dark:text-neutral-700 text-xs">If map doesn't load, run: <code class="bg-neutral-200 dark:bg-neutral-900 px-1 rounded">npx serve .</code></p>
+                </div>
+            </div>
+        </div>
 
         <!-- Disclaimer bar (below map) -->
         <div class="disclaimer-bar fixed bottom-0 left-0 right-0 h-10 px-4 flex items-center justify-center z-20 dark:border-t dark:border-dark-border" style="background-color: #8FC7CC;">
@@ -595,6 +600,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                         // Open target panel
                         panel.classList.remove('translate-x-full');
+                    }
+                });
+
+                // Keyboard support: Enter/Space opens panel
+                item.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
                     }
                 });
             });
@@ -900,10 +913,10 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     resultsCount.textContent = `${sorted.length} matches found`;
                 }
 
-                // Render list
+                // Render list - use buttons for WCAG keyboard navigation
                 const fmt = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
                 list.innerHTML = sorted.map(n => `
-                    <div class="neighborhood-item bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"
+                    <button type="button" class="neighborhood-item w-full text-left bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"
                          data-name="${n.name}" data-type="${n.propertyType}">
                         <div class="flex justify-between items-start gap-2 mb-1">
                             <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${n.name}</h3>
@@ -911,7 +924,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </div>
                         <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} Listings</div>
                         <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${(n.amenities || []).join(', ') || 'No amenities listed'}</div>
-                    </div>
+                    </button>
                 `).join('');
 
                 // Add click handlers
@@ -1442,6 +1455,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             if (window.neighborhoods && window.neighborhoods.length > 0) {
                 initApp();
             }
+
         });
     </script>
 
@@ -2091,13 +2105,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const hasNav = filtered.length > 1;
 
             const content = `
-                <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated outline-none" style="cursor: pointer;" tabindex="-1">
+                <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
                     <div class="flex items-center justify-center gap-2 mb-2">
                         <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
                         ${n.urlSlug ? `
                         <a href="https://www.truesouthcoastalhomes.com${n.urlSlug}"
                            target="_blank"
-                           class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors outline-none focus:outline-none"
+                           class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
                            onclick="event.stopPropagation();"
                            title="${n.name} ${n.propertyType} for Sale">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2138,7 +2152,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     <hr class="divider mb-3">
                     <div class="pt-3 flex items-center gap-2">
                         ${hasNav ? `
-                        <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus:outline-none" title="Previous Community">
+                        <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                         </button>
                         ` : ''}
@@ -2160,7 +2174,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             }
                         })()}
                         ${hasNav ? `
-                        <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus:outline-none" title="Next Community">
+                        <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </button>
                         ` : ''}

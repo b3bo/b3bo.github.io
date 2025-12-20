@@ -517,3 +517,51 @@ img[data-src].loaded {
   background-size: cover;
   background-position: center;
 }
+
+/* ========================================================================
+   WCAG Focus Ring Styles
+   ======================================================================== */
+
+/* Global default: All focusable elements get brand focus ring (inset to avoid clipping) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex="0"]:focus-visible,
+.focus-ring:focus,
+.focus-ring:focus-visible {
+  outline: none !important;
+  box-shadow: inset 0 0 0 2px rgba(103, 195, 207, 0.3) !important; /* brand-400/30 inset */
+}
+
+/* Exclude scroll containers from focus ring */
+.panel-content:focus-visible,
+.overflow-y-auto:focus-visible,
+[style*="overflow"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dark button:focus-visible,
+.dark a:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible,
+.dark [tabindex]:focus-visible,
+.dark .focus-ring:focus,
+.dark .focus-ring:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(107, 181, 190, 0.3) !important; /* brand-dark-hover/30 inset */
+}
+
+/* Focus ring with offset for buttons/cards */
+.focus-ring-offset:focus,
+.focus-ring-offset:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(76, 143, 150, 0.5);
+}
+
+.dark .focus-ring-offset:focus,
+.dark .focus-ring-offset:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-dark-bg-elevated), 0 0 0 4px rgba(91, 163, 171, 0.5);
+}

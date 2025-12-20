@@ -271,7 +271,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     }
     
     const content = `
-        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated outline-none" style="cursor: pointer;" tabindex="-1">
+        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">
                     ${neighborhood.name}
@@ -279,7 +279,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                 ${neighborhood.urlSlug ? `
                 <a href="https://www.truesouthcoastalhomes.com${neighborhood.urlSlug}"
                    target="_blank"
-                   class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors outline-none focus:outline-none"
+                   class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
                    onclick="event.stopPropagation();"
                    title="${neighborhood.name} ${neighborhood.propertyType === 'Condos' ? 'Condos' : neighborhood.propertyType === 'Townhomes' ? 'Townhomes' : 'Homes'} for Sale">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
