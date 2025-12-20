@@ -27,7 +27,8 @@ export function renderListItems(neighborhoodsToRender) {
             const card = document.createElement('div');
             // Use the same brand-hover/active visual language as the sidebar menu items.
             // Cards are not in tab order - use search to find neighborhoods.
-            card.className = 'bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30';
+            card.className = 'bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 focus:ring-brand-500/50';
+            card.setAttribute('tabindex', '0');
             card.innerHTML = `
                 <div class="flex justify-between items-start gap-2 mb-1">
                     <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${neighborhood.name}</h3>
@@ -85,6 +86,14 @@ export function renderListItems(neighborhoodsToRender) {
                 // On mobile, close drawer to show map
                 if (window.innerWidth < 768) {
                     document.getElementById('drawer-toggle').checked = false;
+                }
+            });
+
+            // Add keyboard support
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
                 }
             });
 
@@ -173,7 +182,7 @@ function positionSortMenu() {
     }
 
     sortMenu.style.position = 'fixed';
-    sortMenu.style.top = (sortRect.bottom + offsetY) + 'px';
+    sortMenu.style.top = Math.max(0, sortRect.bottom + offsetY) + 'px';
     sortMenu.style.left = left + 'px';
     sortMenu.style.width = dropdownWidth + 'px';
     sortMenu.style.zIndex = '2147483647';

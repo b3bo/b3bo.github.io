@@ -340,7 +340,8 @@ function positionDropdown() {
     }
 
     searchDropdown.style.position = 'fixed';
-    searchDropdown.style.top = (viewportTop + searchRect.bottom + offsetY) + 'px';
+    const top = Math.max(0, viewportTop + searchRect.bottom + offsetY);
+    searchDropdown.style.top = top + 'px';
     searchDropdown.style.left = left + 'px';
     searchDropdown.style.zIndex = '2147483647';
 }
