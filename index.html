@@ -254,7 +254,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
         <!-- Sidebar (pointer-events-auto ensures clicks don't pass through to overlay) -->
-        <aside id="sidebar" role="dialog" aria-modal="true" aria-labelledby="sidebar-title" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" role="dialog" aria-modal="true" aria-labelledby="sidebar-title" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
 
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
@@ -790,33 +790,50 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // Position dropdown centered under button (handles iOS viewport)
             function positionDropdown(dropdown, button) {
                 if (!dropdown || !button) return;
-                const rect = button.getBoundingClientRect();
-                const offsetY = 10;
-                const viewportPadding = 12;
-                const dropdownWidth = 280;
+                
+                // Use requestAnimationFrame to ensure layout has settled
+                requestAnimationFrame(() => {
+                    const rect = button.getBoundingClientRect();
+                    const offsetY = 10;
+                    const viewportPadding = 16; // Increased padding for mobile
+                    const dropdownWidth = 280;
 
-                // Account for iOS visual viewport shifts
-                const vv = window.visualViewport;
-                const viewportWidth = vv ? vv.width : window.innerWidth;
-                const viewportLeft = vv ? vv.offsetLeft : 0;
-                const viewportTop = vv ? vv.offsetTop : 0;
+                    // Account for iOS visual viewport shifts
+                    const vv = window.visualViewport;
+                    const viewportWidth = vv ? vv.width : window.innerWidth;
+                    const viewportLeft = vv ? vv.offsetLeft : 0;
+                    const viewportTop = vv ? vv.offsetTop : 0;
 
-                // Center on button
-                const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
-                let left = buttonCenter - (dropdownWidth / 2);
+                    // Center on button
+                    const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
+                    let left = buttonCenter - (dropdownWidth / 2);
 
-                // Viewport constraints
-                if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
-                    left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
-                }
-                if (left < viewportLeft + viewportPadding) {
-                    left = viewportLeft + viewportPadding;
-                }
+                    // More conservative viewport constraints for mobile
+                    const availableWidth = viewportLeft + viewportWidth - viewportPadding * 2;
+                    
+                    // If dropdown doesn't fit centered, position it to the right of the button
+                    if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
+                        left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
+                    }
+                    
+                    // If still doesn't fit, position from the left edge
+                    if (left < viewportLeft + viewportPadding) {
+                        left = viewportLeft + viewportPadding;
+                    }
 
-                dropdown.style.position = 'fixed';
-                dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
-                dropdown.style.left = left + 'px';
-                dropdown.style.zIndex = '2147483647';
+                    // Ensure dropdown doesn't exceed viewport bounds
+                    if (left + dropdownWidth > viewportLeft + viewportWidth) {
+                        left = viewportLeft + viewportWidth - dropdownWidth;
+                    }
+                    if (left < viewportLeft) {
+                        left = viewportLeft;
+                    }
+
+                    dropdown.style.position = 'fixed';
+                    dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
+                    dropdown.style.left = left + 'px';
+                    dropdown.style.zIndex = '2147483647';
+                });
             }
 
             // Search dropdown toggle
