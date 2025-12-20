@@ -43,15 +43,6 @@ function filterByName(query) {
 }
 
 /**
- * Escape HTML entities for safe use in attributes
- * @param {string} str - String to escape
- * @returns {string} Escaped string
- */
-function escapeAttr(str) {
-    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-/**
  * Highlight matching text in a string
  * @param {string} text - Original text
  * @param {string} query - Search query to highlight
@@ -121,9 +112,9 @@ function renderResults(results, isPopular = false) {
 
     const query = searchInput?.value?.trim() || '';
     searchResults.innerHTML = header + results.map((n, index) => `
-        <button type="button" tabindex="-1" role="option" id="search-option-${index}" aria-selected="false" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="${escapeAttr(n.name)}">
-            <span class="text-neutral-800 dark:text-dark-text-primary">${isPopular ? escapeAttr(n.name) : highlightMatch(escapeAttr(n.name), query)}</span>
-            <span class="text-neutral-500 dark:text-dark-text-secondary"> - ${escapeAttr(n.propertyType)}</span>
+        <button type="button" tabindex="-1" role="option" id="search-option-${index}" aria-selected="false" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="${n.name}">
+            <span class="text-neutral-800 dark:text-dark-text-primary">${isPopular ? n.name : highlightMatch(n.name, query)}</span>
+            <span class="text-neutral-500 dark:text-dark-text-secondary"> - ${n.propertyType}</span>
         </button>
     `).join('');
 
@@ -140,8 +131,8 @@ function renderResults(results, isPopular = false) {
 function navigateToNeighborhood(neighborhood) {
     if (!neighborhood) return;
 
-    // Find the marker by name (more reliable than object reference)
-    const markerObj = STATE.markers.find(m => m.neighborhood.name === neighborhood.name);
+    // Find the marker for this neighborhood
+    const markerObj = STATE.markers.find(m => m.neighborhood === neighborhood);
     const marker = markerObj ? markerObj.marker : null;
 
     // Close current info window

@@ -55,23 +55,3 @@ window.dispatchEvent(new Event('dataLoaded'));
 if (window.tryInitializeMarkers) {
     window.tryInitializeMarkers();
 }
-
-// Load app module (sets up UI, filters, search)
-await import('./app.js');
-
-// Setup UI directly (app.js initMap waits for googleMapsReady which HTML doesn't set)
-const { setupUI } = await import('./ui.js');
-const { setupFilters, applyFilters } = await import('./filters.js');
-
-// Wait for DOM to be ready, then setup UI
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        setupUI();
-        setupFilters();
-        applyFilters();
-    });
-} else {
-    setupUI();
-    setupFilters();
-    applyFilters();
-}

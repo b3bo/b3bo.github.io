@@ -41,8 +41,8 @@ export function renderListItems(neighborhoodsToRender) {
             
             // Add click listener to pan to marker (auto-open after landing when enabled)
             card.addEventListener('click', () => {
-                // Look up marker by name (more reliable than object reference)
-                const markerObj = STATE.markers.find(m => m.neighborhood.name === neighborhood.name);
+                // Look up marker dynamically (may not exist at list render time)
+                const markerObj = STATE.markers.find(m => m.neighborhood === neighborhood);
                 const marker = markerObj ? markerObj.marker : null;
                 if (!marker) return;
 
@@ -62,14 +62,14 @@ export function renderListItems(neighborhoodsToRender) {
                 // Clear active marker
                 STATE.activeMarker = null;
 
+                // Ensure map is initialized
+                if (!STATE.map) return;
+
                 // Calculate distance to determine animation timing
-                let isShortHop = false;
-                if (STATE.map) {
-                    const startPos = STATE.map.getCenter();
-                    const targetLatLng = new google.maps.LatLng(neighborhood.position);
-                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-                    isShortHop = distance < 2000;
-                }
+                const startPos = STATE.map.getCenter();
+                const targetLatLng = new google.maps.LatLng(neighborhood.position);
+                const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                const isShortHop = distance < 2000;
 
                 // Fly to new location
                 smoothFlyTo(neighborhood.position, 15);
@@ -96,18 +96,17 @@ export function renderListItems(neighborhoodsToRender) {
 export function navigateNeighborhood(direction) {
     if (event) event.stopPropagation();
     if (!window.currentNeighborhood || !STATE.allFilteredNeighborhoods.length) return;
-
-    // Find current index by name (more reliable than object reference)
-    const currentIndex = STATE.allFilteredNeighborhoods.findIndex(n => n.name === window.currentNeighborhood.name);
+    
+    const currentIndex = STATE.allFilteredNeighborhoods.indexOf(window.currentNeighborhood);
     if (currentIndex === -1) return;
-
+    
     let newIndex = currentIndex + direction;
     // Wrap around
     if (newIndex < 0) newIndex = STATE.allFilteredNeighborhoods.length - 1;
     if (newIndex >= STATE.allFilteredNeighborhoods.length) newIndex = 0;
-
+    
     const nextNeighborhood = STATE.allFilteredNeighborhoods[newIndex];
-    const markerObj = STATE.markers.find(m => m.neighborhood.name === nextNeighborhood.name);
+    const markerObj = STATE.markers.find(m => m.neighborhood === nextNeighborhood);
     
     if (markerObj) {
         const marker = markerObj.marker;
@@ -121,14 +120,14 @@ export function navigateNeighborhood(direction) {
             STATE.activeMarker = null;
         }
 
+        // Ensure map is initialized
+        if (!STATE.map) return;
+
         // Calculate distance to determine animation timing
-        let isShortHop = false;
-        if (STATE.map) {
-            const startPos = STATE.map.getCenter();
-            const targetLatLng = new google.maps.LatLng(nextNeighborhood.position);
-            const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-            isShortHop = distance < 2000;
-        }
+        const startPos = STATE.map.getCenter();
+        const targetLatLng = new google.maps.LatLng(nextNeighborhood.position);
+        const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+        const isShortHop = distance < 2000;
 
         // Fly to new location
         smoothFlyTo(nextNeighborhood.position, 15);
