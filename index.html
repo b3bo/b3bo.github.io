@@ -254,7 +254,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
         <!-- Sidebar (pointer-events-auto ensures clicks don't pass through to overlay) -->
-        <aside id="sidebar" role="dialog" aria-modal="true" aria-labelledby="sidebar-title" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-full peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" role="dialog" aria-modal="true" aria-labelledby="sidebar-title" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
 
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
@@ -353,7 +353,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 <!-- ========================================== -->
 
                 <!-- Property/Criteria Panel -->
-                <div id="property-panel" role="region" aria-labelledby="property-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="property-panel" role="region" aria-labelledby="property-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel will-change-transform">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button aria-label="Back to main menu" class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="property">
                             <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -420,7 +420,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 </div>
 
                 <!-- Areas Panel -->
-                <div id="areas-panel" role="region" aria-labelledby="areas-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="areas-panel" role="region" aria-labelledby="areas-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel will-change-transform">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button aria-label="Back to main menu" class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="areas">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -448,7 +448,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 </div>
 
                 <!-- Amenities Panel -->
-                <div id="amenities-panel" role="region" aria-labelledby="amenities-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="amenities-panel" role="region" aria-labelledby="amenities-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel will-change-transform">
                     <div class="flex items-center flex-shrink-0 py-3">
                         <button aria-label="Back to main menu" class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="amenities">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -484,7 +484,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 </div>
 
                 <!-- Results Panel -->
-                <div id="results-panel" role="region" aria-labelledby="results-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="results-panel" role="region" aria-labelledby="results-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel will-change-transform">
                     <div class="flex items-center justify-between py-4 flex-shrink-0">
                         <button aria-label="Back to main menu" class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4" data-close-panel="results">
                             <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -785,55 +785,42 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const sortBtn = document.getElementById('sort-button');
             const sortMenu = document.getElementById('sort-menu');
 
+            // Portal dropdowns to body for proper z-index and no content shift
+            if (searchDropdown) document.body.appendChild(searchDropdown);
+            if (sortMenu) document.body.appendChild(sortMenu);
+
             // NOTE: Dropdowns are portaled by ES modules (ui.js, search.js)
 
             // Position dropdown centered under button (handles iOS viewport)
             function positionDropdown(dropdown, button) {
                 if (!dropdown || !button) return;
-                
-                // Use requestAnimationFrame to ensure layout has settled
-                requestAnimationFrame(() => {
-                    const rect = button.getBoundingClientRect();
-                    const offsetY = 10;
-                    const viewportPadding = 16; // Increased padding for mobile
-                    const dropdownWidth = 280;
+                const rect = button.getBoundingClientRect();
+                const offsetY = 10;
+                const viewportPadding = 12;
+                const dropdownWidth = 280;
 
-                    // Account for iOS visual viewport shifts
-                    const vv = window.visualViewport;
-                    const viewportWidth = vv ? vv.width : window.innerWidth;
-                    const viewportLeft = vv ? vv.offsetLeft : 0;
-                    const viewportTop = vv ? vv.offsetTop : 0;
+                // Account for iOS visual viewport shifts
+                const vv = window.visualViewport;
+                const viewportWidth = vv ? vv.width : window.innerWidth;
+                const viewportLeft = vv ? vv.offsetLeft : 0;
+                const viewportTop = vv ? vv.offsetTop : 0;
 
-                    // Center on button
-                    const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
-                    let left = buttonCenter - (dropdownWidth / 2);
+                // Center on button
+                const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
+                let left = buttonCenter - (dropdownWidth / 2);
 
-                    // More conservative viewport constraints for mobile
-                    const availableWidth = viewportLeft + viewportWidth - viewportPadding * 2;
-                    
-                    // If dropdown doesn't fit centered, position it to the right of the button
-                    if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
-                        left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
-                    }
-                    
-                    // If still doesn't fit, position from the left edge
-                    if (left < viewportLeft + viewportPadding) {
-                        left = viewportLeft + viewportPadding;
-                    }
+                // Viewport constraints
+                if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
+                    left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
+                }
+                if (left < viewportLeft + viewportPadding) {
+                    left = viewportLeft + viewportPadding;
+                }
 
-                    // Ensure dropdown doesn't exceed viewport bounds
-                    if (left + dropdownWidth > viewportLeft + viewportWidth) {
-                        left = viewportLeft + viewportWidth - dropdownWidth;
-                    }
-                    if (left < viewportLeft) {
-                        left = viewportLeft;
-                    }
-
-                    dropdown.style.position = 'fixed';
-                    dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
-                    dropdown.style.left = left + 'px';
-                    dropdown.style.zIndex = '2147483647';
-                });
+                dropdown.style.position = 'fixed';
+                dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
+                dropdown.style.left = left + 'px';
+                dropdown.style.zIndex = '2147483647';
             }
 
             // Search dropdown toggle
@@ -843,7 +830,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     if (sortMenu) sortMenu.classList.add('hidden');
                     searchDropdown.classList.toggle('hidden');
                     if (!searchDropdown.classList.contains('hidden')) {
-                        positionDropdown(searchDropdown, searchBtn);
+                        setTimeout(() => positionDropdown(searchDropdown, searchBtn), 0);
                         if (searchInput) searchInput.focus();
                     }
                 });
@@ -856,7 +843,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     if (searchDropdown) searchDropdown.classList.add('hidden');
                     sortMenu.classList.toggle('hidden');
                     if (!sortMenu.classList.contains('hidden')) {
-                        positionDropdown(sortMenu, sortBtn);
+                        setTimeout(() => positionDropdown(sortMenu, sortBtn), 0);
                     }
                 });
             }
