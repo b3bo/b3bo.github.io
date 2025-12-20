@@ -11,6 +11,10 @@ import { smoothFlyTo } from './map.js?v=202501';
 import { applySortOnly } from './filters.js';
 import { setupSearch } from './search.js';
 
+console.log('ui.js loaded, setupSearch:', typeof setupSearch);
+
+let sortSelectedIndex = -1;
+
 export function renderListItems(neighborhoodsToRender) {
     const listContainer = document.getElementById('neighborhoodList');
 
@@ -182,6 +186,20 @@ function positionSortMenu() {
     sortMenu.style.zIndex = '2147483647';
 }
 
+/**
+ * Update visual highlight on sort options
+ */
+function updateSortSelectedHighlight(sortMenu) {
+    const items = sortMenu.querySelectorAll('.sort-option');
+    items.forEach((item, i) => {
+        if (i === sortSelectedIndex) {
+            item.classList.add('bg-brand-100', 'dark:bg-brand-dark/20');
+        } else if (!item.classList.contains('active')) {
+            item.classList.remove('bg-brand-100', 'dark:bg-brand-dark/20');
+        }
+    });
+}
+
 function setupSortDropdown() {
     const sortButton = document.getElementById('sort-button');
     const sortMenu = document.getElementById('sort-menu');
@@ -219,6 +237,8 @@ function setupSortDropdown() {
         sortMenu.classList.toggle('hidden');
         if (!sortMenu.classList.contains('hidden')) {
             positionSortMenu();
+            sortSelectedIndex = -1;
+            updateSortSelectedHighlight(sortMenu);
         }
     });
 
@@ -288,13 +308,54 @@ function setupSortDropdown() {
             positionSortMenu();
         }
     }, true);
+
+    // Keyboard navigation for sort menu
+    sortButton.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+            if (sortMenu.classList.contains('hidden')) {
+                e.preventDefault();
+                sortMenu.classList.remove('hidden');
+                positionSortMenu();
+                sortSelectedIndex = 0;
+                updateSortSelectedHighlight(sortMenu);
+            }
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (sortMenu.classList.contains('hidden')) return;
+
+        const items = sortMenu.querySelectorAll('.sort-option');
+        const itemCount = items.length;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            sortSelectedIndex = (sortSelectedIndex + 1) % itemCount;
+            updateSortSelectedHighlight(sortMenu);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            sortSelectedIndex = sortSelectedIndex <= 0 ? itemCount - 1 : sortSelectedIndex - 1;
+            updateSortSelectedHighlight(sortMenu);
+        } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (sortSelectedIndex >= 0 && items[sortSelectedIndex]) {
+                items[sortSelectedIndex].click();
+            }
+        } else if (e.key === 'Escape') {
+            e.preventDefault();
+            sortMenu.classList.add('hidden');
+            sortSelectedIndex = -1;
+        }
+    });
 }
 
 export function setupUI() {
+    console.log('setupUI called');
     // Setup sort dropdown
     setupSortDropdown();
 
     // Setup search functionality
+    console.log('About to call setupSearch');
     setupSearch();
 
     // (no filter button - sort button is used to toggle the dropdown)

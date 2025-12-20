@@ -50,3 +50,6 @@ window.dispatchEvent(new Event('dataLoaded'));
 if (window.tryInitializeMarkers) {
     window.tryInitializeMarkers();
 }
+
+// Load app module (sets up UI, filters, search)
+await import('./app.js');

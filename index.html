@@ -119,6 +119,16 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             background-color: var(--color-brand-dark);
         }
 
+        /* Fade mask for scroll containers */
+        .fade-mask {
+            -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 32px), transparent 100%);
+            mask-image: linear-gradient(to bottom, black calc(100% - 32px), transparent 100%);
+        }
+        #search-results {
+            -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to bottom, black calc(100% - 24px), transparent 100%);
+        }
+
         /* Sliding panel base */
         .sliding-panel {
             box-sizing: border-box;
@@ -479,7 +489,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                 <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border">
                                     <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off"
                                            class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none rounded-t-lg">
-                                    <div id="search-results" class="py-1" style="max-height: 320px; overflow-y: auto;">
+                                    <div id="search-results" class="pt-1 pb-6" style="max-height: 320px; overflow-y: auto;">
                                         <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
                                         <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
                                         <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watersound">Watersound - Homes</button>
@@ -524,8 +534,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         </div>
                     </div>
                     <hr class="divider mx-4 pb-4">
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3">
-                        <div id="neighborhoodList" class="space-y-2 pl-1">
+                    <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content fade-mask pr-3">
+                        <div id="neighborhoodList" class="space-y-2 pl-1 pb-8">
                             <!-- Populated by JavaScript -->
                         </div>
                     </div>

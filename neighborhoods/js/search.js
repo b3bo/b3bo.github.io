@@ -12,6 +12,7 @@ let searchDropdown = null;
 let searchInput = null;
 let searchResults = null;
 let searchButton = null;
+let selectedIndex = -1;
 
 /**
  * Get top communities by listing count (respects current filter criteria)
@@ -42,12 +43,41 @@ function filterByName(query) {
 }
 
 /**
+ * Highlight matching text in a string
+ * @param {string} text - Original text
+ * @param {string} query - Search query to highlight
+ * @returns {string} HTML with matching text wrapped in <mark>
+ */
+function highlightMatch(text, query) {
+    if (!query || !query.trim()) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
+    return text.replace(regex, '<strong class="font-semibold text-brand-700 dark:text-brand-dark">$1</strong>');
+}
+
+/**
+ * Update visual highlight on search results
+ */
+function updateSelectedHighlight() {
+    if (!searchResults) return;
+    const items = searchResults.querySelectorAll('.search-result');
+    items.forEach((item, i) => {
+        if (i === selectedIndex) {
+            item.classList.add('bg-brand-100', 'dark:bg-brand-dark/20');
+        } else {
+            item.classList.remove('bg-brand-100', 'dark:bg-brand-dark/20');
+        }
+    });
+}
+
+/**
  * Render search results in dropdown
  * @param {Array} results - Matching neighborhoods
  * @param {boolean} isPopular - Whether these are popular/suggested results
  */
 function renderResults(results, isPopular = false) {
     if (!searchResults) return;
+    selectedIndex = -1; // Reset selection on new results
 
     if (results.length === 0) {
         const query = searchInput?.value?.trim();
@@ -69,9 +99,10 @@ function renderResults(results, isPopular = false) {
         </div>
     ` : '';
 
+    const query = searchInput?.value?.trim() || '';
     searchResults.innerHTML = header + results.map(n => `
         <button type="button" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer focus:outline-none focus:bg-brand-100 dark:focus:bg-brand-dark/20" data-id="${n.name}">
-            <span class="text-neutral-800 dark:text-dark-text-primary">${n.name}</span>
+            <span class="text-neutral-800 dark:text-dark-text-primary">${isPopular ? n.name : highlightMatch(n.name, query)}</span>
             <span class="text-neutral-500 dark:text-dark-text-secondary"> - ${n.propertyType}</span>
         </button>
     `).join('');
@@ -287,15 +318,18 @@ function debounce(func, wait) {
  * Initialize search functionality
  */
 export function setupSearch() {
+    console.log('setupSearch called');
     searchButton = document.getElementById('search-button');
     searchDropdown = document.getElementById('search-dropdown');
     searchInput = document.getElementById('search-input');
     searchResults = document.getElementById('search-results');
+    console.log('Search elements:', { searchButton, searchDropdown, searchInput, searchResults });
 
     if (!searchButton || !searchDropdown || !searchInput || !searchResults) {
         console.warn('Search elements not found');
         return;
     }
+    console.log('Attaching keyboard listener to searchInput');
 
     // Portal the dropdown to body for proper z-index handling
     document.body.appendChild(searchDropdown);
@@ -324,11 +358,36 @@ export function setupSearch() {
 
     // Keyboard handling
     searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
+        console.log('Search keydown:', e.key, 'selectedIndex:', selectedIndex);
+        const items = searchResults.querySelectorAll('.search-result');
+        const itemCount = items.length;
+
+        if (e.key === 'ArrowDown') {
             e.preventDefault();
-            const query = searchInput.value.trim();
-            if (query) {
-                applySearchFilter(query);
+            if (itemCount > 0) {
+                selectedIndex = (selectedIndex + 1) % itemCount;
+                updateSelectedHighlight();
+                items[selectedIndex]?.scrollIntoView({ block: 'nearest' });
+            }
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (itemCount > 0) {
+                selectedIndex = selectedIndex <= 0 ? itemCount - 1 : selectedIndex - 1;
+                updateSelectedHighlight();
+                items[selectedIndex]?.scrollIntoView({ block: 'nearest' });
+            }
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            // If an item is selected, navigate to it
+            if (selectedIndex >= 0 && items[selectedIndex]) {
+                const name = items[selectedIndex].getAttribute('data-id');
+                handleResultClick(name);
+            } else {
+                // Otherwise apply as filter
+                const query = searchInput.value.trim();
+                if (query) {
+                    applySearchFilter(query);
+                }
             }
         } else if (e.key === 'Escape') {
             e.preventDefault();

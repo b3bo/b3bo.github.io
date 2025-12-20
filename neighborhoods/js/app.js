@@ -4,6 +4,7 @@
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  * @author John Bauman
  */
+console.log('app.js loading');
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, toSlug } from './utils.js?v=202501';
