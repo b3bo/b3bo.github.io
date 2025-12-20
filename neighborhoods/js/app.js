@@ -13,6 +13,7 @@ import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow, createMarkerIcon } from './markers.js';
 import { setupFilters, applyFilters } from './filters.js'; // Import setupFilters here
+import { initKeyboardNavigation } from './keyboard.js'; // WCAG keyboard navigation
 
 // Expose global functions needed by HTML
 window.navigateNeighborhood = navigateNeighborhood;
@@ -300,6 +301,9 @@ async function initMap() {
 
         // Setup UI interactions
         setupUI();
+
+        // Setup WCAG keyboard navigation (focus trapping, Escape handling)
+        initKeyboardNavigation();
 
         // Setup filter event listeners and generate amenity tags
         setupFilters();

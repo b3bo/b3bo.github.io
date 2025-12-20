@@ -784,18 +784,91 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 }
             });
 
+            // ========================================
+            // WCAG Focus Trap for Sidebar
+            // ========================================
+            const sidebar = document.getElementById('sidebar');
+            const drawerToggle = document.getElementById('drawer-toggle');
+
+            function getFocusableElements(container) {
+                return Array.from(container.querySelectorAll(
+                    'button:not([disabled]):not([tabindex="-1"]), ' +
+                    '[href]:not([tabindex="-1"]), ' +
+                    'input:not([disabled]):not([tabindex="-1"]), ' +
+                    'select:not([disabled]):not([tabindex="-1"]), ' +
+                    'textarea:not([disabled]):not([tabindex="-1"]), ' +
+                    '[tabindex="0"]'
+                )).filter(el => el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden');
+            }
+
+            function handleTabTrap(e) {
+                if (!sidebar || !drawerToggle || !drawerToggle.checked) return;
+
+                const focusable = getFocusableElements(sidebar);
+                if (focusable.length === 0) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Always prevent default - we manage Tab navigation manually
+                e.preventDefault();
+
+                const current = document.activeElement;
+                let currentIndex = focusable.indexOf(current);
+
+                // If current element not in our list, start from appropriate end
+                if (currentIndex === -1) {
+                    currentIndex = e.shiftKey ? 0 : focusable.length - 1;
+                }
+
+                // Calculate next index with wrap-around
+                let nextIndex;
+                if (e.shiftKey) {
+                    nextIndex = currentIndex === 0 ? focusable.length - 1 : currentIndex - 1;
+                } else {
+                    nextIndex = currentIndex === focusable.length - 1 ? 0 : currentIndex + 1;
+                }
+
+                focusable[nextIndex].focus();
+            }
+
             // Global keyboard handlers
             document.addEventListener('keydown', function(e) {
                 // Don't intercept if user is typing in an input/textarea
                 const isTyping = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
 
+                // Handle Tab within sidebar focus trap
+                if (e.key === 'Tab' && drawerToggle && drawerToggle.checked) {
+                    handleTabTrap(e);
+                    return; // Don't process other handlers
+                }
+
                 if (e.key === 'Escape') {
-                    // Close dropdowns
+                    // Close dropdowns first
                     if (searchDropdown) searchDropdown.classList.add('hidden');
                     if (sortMenu) sortMenu.classList.add('hidden');
+
                     // Close info window
                     if (window.infoWindow && window.infoWindow.getMap()) {
                         window.infoWindow.close();
+                    }
+
+                    // Close any open sliding panel
+                    const openPanel = document.querySelector('.sliding-panel:not(.translate-x-full)');
+                    if (openPanel) {
+                        openPanel.classList.add('translate-x-full');
+                        if (mainMenu) {
+                            mainMenu.style.removeProperty('display');
+                            mainMenu.scrollTop = 0;
+                        }
+                        return; // Don't close sidebar if we just closed a panel
+                    }
+
+                    // Close sidebar if open
+                    const drawerToggle = document.getElementById('drawer-toggle');
+                    if (drawerToggle && drawerToggle.checked) {
+                        drawerToggle.checked = false;
+                        drawerToggle.dispatchEvent(new Event('change', { bubbles: true }));
                     }
                 }
 
