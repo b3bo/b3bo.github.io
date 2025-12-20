@@ -43,6 +43,15 @@ function filterByName(query) {
 }
 
 /**
+ * Escape HTML entities for safe use in attributes
+ * @param {string} str - String to escape
+ * @returns {string} Escaped string
+ */
+function escapeAttr(str) {
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/**
  * Highlight matching text in a string
  * @param {string} text - Original text
  * @param {string} query - Search query to highlight
@@ -56,7 +65,7 @@ function highlightMatch(text, query) {
 }
 
 /**
- * Update visual highlight on search results
+ * Update visual highlight on search results and aria-activedescendant
  */
 function updateSelectedHighlight() {
     if (!searchResults) return;
@@ -64,10 +73,21 @@ function updateSelectedHighlight() {
     items.forEach((item, i) => {
         if (i === selectedIndex) {
             item.classList.add('bg-brand-100', 'dark:bg-brand-dark/20');
+            item.setAttribute('aria-selected', 'true');
         } else {
             item.classList.remove('bg-brand-100', 'dark:bg-brand-dark/20');
+            item.setAttribute('aria-selected', 'false');
         }
     });
+
+    // Update aria-activedescendant on the input
+    if (searchInput) {
+        if (selectedIndex >= 0 && items[selectedIndex]) {
+            searchInput.setAttribute('aria-activedescendant', items[selectedIndex].id);
+        } else {
+            searchInput.removeAttribute('aria-activedescendant');
+        }
+    }
 }
 
 /**
@@ -100,12 +120,17 @@ function renderResults(results, isPopular = false) {
     ` : '';
 
     const query = searchInput?.value?.trim() || '';
-    searchResults.innerHTML = header + results.map(n => `
-        <button type="button" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer focus:outline-none focus:bg-brand-100 dark:focus:bg-brand-dark/20" data-id="${n.name}">
-            <span class="text-neutral-800 dark:text-dark-text-primary">${isPopular ? n.name : highlightMatch(n.name, query)}</span>
-            <span class="text-neutral-500 dark:text-dark-text-secondary"> - ${n.propertyType}</span>
+    searchResults.innerHTML = header + results.map((n, index) => `
+        <button type="button" tabindex="-1" role="option" id="search-option-${index}" aria-selected="false" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="${escapeAttr(n.name)}">
+            <span class="text-neutral-800 dark:text-dark-text-primary">${isPopular ? escapeAttr(n.name) : highlightMatch(escapeAttr(n.name), query)}</span>
+            <span class="text-neutral-500 dark:text-dark-text-secondary"> - ${escapeAttr(n.propertyType)}</span>
         </button>
     `).join('');
+
+    // Clear aria-activedescendant since results were re-rendered
+    if (searchInput) {
+        searchInput.removeAttribute('aria-activedescendant');
+    }
 }
 
 /**
@@ -115,8 +140,8 @@ function renderResults(results, isPopular = false) {
 function navigateToNeighborhood(neighborhood) {
     if (!neighborhood) return;
 
-    // Find the marker for this neighborhood
-    const markerObj = STATE.markers.find(m => m.neighborhood === neighborhood);
+    // Find the marker by name (more reliable than object reference)
+    const markerObj = STATE.markers.find(m => m.neighborhood.name === neighborhood.name);
     const marker = markerObj ? markerObj.marker : null;
 
     // Close current info window
@@ -230,6 +255,11 @@ function openDropdown() {
     searchDropdown.classList.remove('hidden');
     positionDropdown();
 
+    // Update aria-expanded on trigger button
+    if (searchButton) {
+        searchButton.setAttribute('aria-expanded', 'true');
+    }
+
     // Focus the input
     if (searchInput) {
         searchInput.value = STATE.searchQuery || '';
@@ -249,6 +279,24 @@ function openDropdown() {
 function closeDropdown() {
     if (!searchDropdown) return;
     searchDropdown.classList.add('hidden');
+
+    // Update aria-expanded on trigger button
+    if (searchButton) {
+        searchButton.setAttribute('aria-expanded', 'false');
+    }
+
+    // Clear aria-activedescendant
+    if (searchInput) {
+        searchInput.removeAttribute('aria-activedescendant');
+    }
+
+    // Reset selection
+    selectedIndex = -1;
+
+    // Return focus to trigger button
+    if (searchButton && document.activeElement !== searchButton) {
+        searchButton.focus();
+    }
 }
 
 /**
@@ -318,18 +366,15 @@ function debounce(func, wait) {
  * Initialize search functionality
  */
 export function setupSearch() {
-    console.log('setupSearch called');
     searchButton = document.getElementById('search-button');
     searchDropdown = document.getElementById('search-dropdown');
     searchInput = document.getElementById('search-input');
     searchResults = document.getElementById('search-results');
-    console.log('Search elements:', { searchButton, searchDropdown, searchInput, searchResults });
 
     if (!searchButton || !searchDropdown || !searchInput || !searchResults) {
         console.warn('Search elements not found');
         return;
     }
-    console.log('Attaching keyboard listener to searchInput');
 
     // Portal the dropdown to body for proper z-index handling
     document.body.appendChild(searchDropdown);
@@ -358,7 +403,6 @@ export function setupSearch() {
 
     // Keyboard handling
     searchInput.addEventListener('keydown', (e) => {
-        console.log('Search keydown:', e.key, 'selectedIndex:', selectedIndex);
         const items = searchResults.querySelectorAll('.search-result');
         const itemCount = items.length;
 

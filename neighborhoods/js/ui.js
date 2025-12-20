@@ -11,18 +11,12 @@ import { smoothFlyTo } from './map.js?v=202501';
 import { applySortOnly } from './filters.js';
 import { setupSearch } from './search.js';
 
-console.log('ui.js loaded, setupSearch:', typeof setupSearch);
-
 let sortSelectedIndex = -1;
 
 export function renderListItems(neighborhoodsToRender) {
     const listContainer = document.getElementById('neighborhoodList');
 
     neighborhoodsToRender.forEach(neighborhood => {
-        // Find existing marker for this neighborhood to link click event
-        const markerObj = STATE.markers.find(m => m.neighborhood === neighborhood);
-        const marker = markerObj ? markerObj.marker : null;
-
         // Create List Item
         if (listContainer) {
             // Format price for card (e.g. $1.3M)
@@ -32,10 +26,8 @@ export function renderListItems(neighborhoodsToRender) {
 
             const card = document.createElement('div');
             // Use the same brand-hover/active visual language as the sidebar menu items.
-            // Also add focus-visible ring and keyboard support for accessibility.
-            card.className = 'bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark';
-            card.setAttribute('role', 'button');
-            card.tabIndex = 0;
+            // Cards are not in tab order - use search to find neighborhoods.
+            card.className = 'bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30';
             card.innerHTML = `
                 <div class="flex justify-between items-start gap-2 mb-1">
                     <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${neighborhood.name}</h3>
@@ -49,6 +41,9 @@ export function renderListItems(neighborhoodsToRender) {
             
             // Add click listener to pan to marker (auto-open after landing when enabled)
             card.addEventListener('click', () => {
+                // Look up marker by name (more reliable than object reference)
+                const markerObj = STATE.markers.find(m => m.neighborhood.name === neighborhood.name);
+                const marker = markerObj ? markerObj.marker : null;
                 if (!marker) return;
 
                 // Track neighborhood card click
@@ -68,10 +63,13 @@ export function renderListItems(neighborhoodsToRender) {
                 STATE.activeMarker = null;
 
                 // Calculate distance to determine animation timing
-                const startPos = STATE.map.getCenter();
-                const targetLatLng = new google.maps.LatLng(neighborhood.position);
-                const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-                const isShortHop = distance < 2000;
+                let isShortHop = false;
+                if (STATE.map) {
+                    const startPos = STATE.map.getCenter();
+                    const targetLatLng = new google.maps.LatLng(neighborhood.position);
+                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                    isShortHop = distance < 2000;
+                }
 
                 // Fly to new location
                 smoothFlyTo(neighborhood.position, 15);
@@ -90,14 +88,6 @@ export function renderListItems(neighborhoodsToRender) {
                 }
             });
 
-            // Support keyboard activation (Enter / Space) for accessibility
-            card.addEventListener('keydown', (ev) => {
-                if (ev.key === 'Enter' || ev.key === ' ') {
-                    ev.preventDefault();
-                    card.click();
-                }
-            });
-
             listContainer.appendChild(card);
         }
     });
@@ -106,17 +96,18 @@ export function renderListItems(neighborhoodsToRender) {
 export function navigateNeighborhood(direction) {
     if (event) event.stopPropagation();
     if (!window.currentNeighborhood || !STATE.allFilteredNeighborhoods.length) return;
-    
-    const currentIndex = STATE.allFilteredNeighborhoods.indexOf(window.currentNeighborhood);
+
+    // Find current index by name (more reliable than object reference)
+    const currentIndex = STATE.allFilteredNeighborhoods.findIndex(n => n.name === window.currentNeighborhood.name);
     if (currentIndex === -1) return;
-    
+
     let newIndex = currentIndex + direction;
     // Wrap around
     if (newIndex < 0) newIndex = STATE.allFilteredNeighborhoods.length - 1;
     if (newIndex >= STATE.allFilteredNeighborhoods.length) newIndex = 0;
-    
+
     const nextNeighborhood = STATE.allFilteredNeighborhoods[newIndex];
-    const markerObj = STATE.markers.find(m => m.neighborhood === nextNeighborhood);
+    const markerObj = STATE.markers.find(m => m.neighborhood.name === nextNeighborhood.name);
     
     if (markerObj) {
         const marker = markerObj.marker;
@@ -131,10 +122,13 @@ export function navigateNeighborhood(direction) {
         }
 
         // Calculate distance to determine animation timing
-        const startPos = STATE.map.getCenter();
-        const targetLatLng = new google.maps.LatLng(nextNeighborhood.position);
-        const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-        const isShortHop = distance < 2000;
+        let isShortHop = false;
+        if (STATE.map) {
+            const startPos = STATE.map.getCenter();
+            const targetLatLng = new google.maps.LatLng(nextNeighborhood.position);
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+            isShortHop = distance < 2000;
+        }
 
         // Fly to new location
         smoothFlyTo(nextNeighborhood.position, 15);
@@ -187,17 +181,29 @@ function positionSortMenu() {
 }
 
 /**
- * Update visual highlight on sort options
+ * Update visual highlight on sort options and aria-activedescendant
  */
 function updateSortSelectedHighlight(sortMenu) {
+    const sortButton = document.getElementById('sort-button');
     const items = sortMenu.querySelectorAll('.sort-option');
     items.forEach((item, i) => {
         if (i === sortSelectedIndex) {
             item.classList.add('bg-brand-100', 'dark:bg-brand-dark/20');
+            item.setAttribute('aria-selected', 'true');
         } else if (!item.classList.contains('active')) {
             item.classList.remove('bg-brand-100', 'dark:bg-brand-dark/20');
+            item.setAttribute('aria-selected', 'false');
         }
     });
+
+    // Update aria-activedescendant on the button
+    if (sortButton) {
+        if (sortSelectedIndex >= 0 && items[sortSelectedIndex]) {
+            sortButton.setAttribute('aria-activedescendant', items[sortSelectedIndex].id);
+        } else {
+            sortButton.removeAttribute('aria-activedescendant');
+        }
+    }
 }
 
 function setupSortDropdown() {
@@ -209,22 +215,17 @@ function setupSortDropdown() {
         return;
     }
 
-    console.log('Setting up sort dropdown');
-
     // Portal the sort menu to body for proper z-index handling
     document.body.appendChild(sortMenu);
 
-    // Generate sort options dynamically
-    // This generates the sort options padding.
-    // Render sort options as content-driven rows.
-    // Each button is sized by its contents (not forced full-width) so the container padding (p-6)
-    // applied in `index.html` is visible. We keep `py-2` to preserve vertical spacing between items.
-    sortMenu.innerHTML = CONFIG.ui.sortOptions.map(option => {
+    // Generate sort options dynamically with ARIA attributes
+    // Render sort options as content-driven rows with role="option" and unique IDs
+    sortMenu.innerHTML = CONFIG.ui.sortOptions.map((option, index) => {
         const isActive = STATE.currentSort === option.id;
         return `
-            <button class="sort-option w-full flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-brand-100 dark:hover:bg-brand-dark/20 rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:focus-visible:ring-brand-dark ${isActive ? 'active bg-brand-200 dark:bg-brand-dark/30 text-brand-700 dark:text-brand-dark font-medium' : 'text-neutral-800 dark:text-dark-text-primary font-normal'}" data-sort-id="${option.id}" type="button">
+            <button tabindex="-1" role="option" id="sort-option-${index}" aria-selected="${isActive}" class="sort-option w-full flex items-center justify-between px-4 py-2 text-sm cursor-pointer gap-2 text-left hover:bg-brand-100 dark:hover:bg-brand-dark/20 rounded-md transition-colors ${isActive ? 'active bg-brand-200 dark:bg-brand-dark/30 text-brand-700 dark:text-brand-dark font-medium' : 'text-neutral-800 dark:text-dark-text-primary font-normal'}" data-sort-id="${option.id}" type="button">
                 <span class="truncate">${option.label}</span>
-                ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
+                ${isActive ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="ml-3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
             </button>
         `;
     }).join('');
@@ -239,6 +240,10 @@ function setupSortDropdown() {
             positionSortMenu();
             sortSelectedIndex = -1;
             updateSortSelectedHighlight(sortMenu);
+            sortButton.setAttribute('aria-expanded', 'true');
+        } else {
+            sortButton.setAttribute('aria-expanded', 'false');
+            sortButton.removeAttribute('aria-activedescendant');
         }
     });
 
@@ -246,6 +251,8 @@ function setupSortDropdown() {
     document.addEventListener('click', (e) => {
         if (!sortButton.contains(e.target) && !sortMenu.contains(e.target)) {
             sortMenu.classList.add('hidden');
+            sortButton.setAttribute('aria-expanded', 'false');
+            sortButton.removeAttribute('aria-activedescendant');
         }
     });
 
@@ -277,17 +284,23 @@ function setupSortDropdown() {
                 opt.classList.toggle('dark:text-dark-text-primary', !isActive);
                 opt.classList.toggle('font-normal', !isActive);
 
+                // Update aria-selected
+                opt.setAttribute('aria-selected', isActive ? 'true' : 'false');
+
                 // Add/remove checkmark
                 const checkmark = opt.querySelector('svg');
                 if (isActive && !checkmark) {
-                    opt.innerHTML += '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+                    opt.innerHTML += '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
                 } else if (!isActive && checkmark) {
                     checkmark.remove();
                 }
             });
 
-            // Close dropdown
+            // Close dropdown and update ARIA state
             sortMenu.classList.add('hidden');
+            sortButton.setAttribute('aria-expanded', 'false');
+            sortButton.removeAttribute('aria-activedescendant');
+            sortButton.focus();
 
             // Re-sort and re-render list only (don't recreate markers)
             applySortOnly();
@@ -318,6 +331,7 @@ function setupSortDropdown() {
                 positionSortMenu();
                 sortSelectedIndex = 0;
                 updateSortSelectedHighlight(sortMenu);
+                sortButton.setAttribute('aria-expanded', 'true');
             }
         }
     });
@@ -344,18 +358,19 @@ function setupSortDropdown() {
         } else if (e.key === 'Escape') {
             e.preventDefault();
             sortMenu.classList.add('hidden');
+            sortButton.setAttribute('aria-expanded', 'false');
+            sortButton.removeAttribute('aria-activedescendant');
             sortSelectedIndex = -1;
+            sortButton.focus();
         }
     });
 }
 
 export function setupUI() {
-    console.log('setupUI called');
     // Setup sort dropdown
     setupSortDropdown();
 
     // Setup search functionality
-    console.log('About to call setupSearch');
     setupSearch();
 
     // (no filter button - sort button is used to toggle the dropdown)

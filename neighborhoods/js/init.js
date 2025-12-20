@@ -6,6 +6,7 @@ import { STATE } from './state.js';
 import { loadNeighborhoods } from './data.js';
 import { formatPrice } from './utils.js';
 
+
 // Expose CONFIG globally so other scripts can use it
 window.CONFIG = CONFIG;
 
@@ -31,6 +32,10 @@ console.log('Loaded', neighborhoods.length, 'neighborhoods from production data'
 // Expose to global scope for other scripts
 window.neighborhoods = neighborhoods;
 window.filteredNeighborhoods = [...neighborhoods];
+
+// Sync STATE for ES module consumers (search, filters)
+STATE.neighborhoods = neighborhoods;
+STATE.allFilteredNeighborhoods = [...neighborhoods];
 window.markers = window.markers || [];
 window.map = window.map || null;
 window.infoWindow = window.infoWindow || null;
@@ -53,3 +58,20 @@ if (window.tryInitializeMarkers) {
 
 // Load app module (sets up UI, filters, search)
 await import('./app.js');
+
+// Setup UI directly (app.js initMap waits for googleMapsReady which HTML doesn't set)
+const { setupUI } = await import('./ui.js');
+const { setupFilters, applyFilters } = await import('./filters.js');
+
+// Wait for DOM to be ready, then setup UI
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setupUI();
+        setupFilters();
+        applyFilters();
+    });
+} else {
+    setupUI();
+    setupFilters();
+    applyFilters();
+}

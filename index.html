@@ -58,7 +58,23 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
     <style>
         :root {
             --panel-duration: 300ms;
-            --color-brand-rgb: 0, 150, 136;
+            --color-primary-500-rgb: 76, 143, 150;
+        }
+
+        /* Focus uses primary-500/50 outline */
+        *:focus-visible {
+            outline: 2px solid rgba(var(--color-primary-500-rgb), 0.5) !important;
+            outline-offset: -2px !important;
+        }
+        *:focus:not(:focus-visible) {
+            outline: none !important;
+        }
+        /* Hide off-screen panel buttons from tab order */
+        .sliding-panel.translate-x-full *:is(button, input, a) {
+            visibility: hidden;
+        }
+        .sliding-panel:not(.translate-x-full) *:is(button, input, a) {
+            visibility: visible;
         }
 
         /* Divider style matching index.html */
@@ -88,7 +104,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         .panel-content::-webkit-scrollbar-thumb,
         #main-menu::-webkit-scrollbar-thumb,
         #search-results::-webkit-scrollbar-thumb {
-            background-color: var(--color-brand-100);
+            background-color: rgba(var(--color-brand-rgb), 0.5);
             border-radius: 20px;
             transition: background-color 0.2s;
             min-height: 60px;
@@ -96,27 +112,27 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         .panel-content::-webkit-scrollbar-thumb:hover,
         #main-menu::-webkit-scrollbar-thumb:hover,
         #search-results::-webkit-scrollbar-thumb:hover {
-            background-color: var(--color-brand-base);
+            background-color: rgba(var(--color-brand-rgb), 0.7);
         }
         .panel-content::-webkit-scrollbar-thumb:active,
         #main-menu::-webkit-scrollbar-thumb:active,
         #search-results::-webkit-scrollbar-thumb:active {
-            background-color: var(--color-brand-base);
+            background-color: rgba(var(--color-brand-rgb), 0.8);
         }
         .dark .panel-content::-webkit-scrollbar-thumb,
         .dark #main-menu::-webkit-scrollbar-thumb,
         html.dark #search-results::-webkit-scrollbar-thumb {
-            background-color: rgba(var(--color-brand-rgb), 0.2);
+            background-color: rgba(var(--color-brand-rgb), 0.5);
         }
         .dark .panel-content::-webkit-scrollbar-thumb:hover,
         .dark #main-menu::-webkit-scrollbar-thumb:hover,
         html.dark #search-results::-webkit-scrollbar-thumb:hover {
-            background-color: var(--color-brand-dark);
+            background-color: rgba(var(--color-brand-rgb), 0.7);
         }
         .dark .panel-content::-webkit-scrollbar-thumb:active,
         .dark #main-menu::-webkit-scrollbar-thumb:active,
         html.dark #search-results::-webkit-scrollbar-thumb:active {
-            background-color: var(--color-brand-dark);
+            background-color: rgba(var(--color-brand-rgb), 0.8);
         }
 
         /* Fade mask for scroll containers */
@@ -238,7 +254,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         <input type="checkbox" id="drawer-toggle" class="hidden peer" checked />
 
         <!-- Sidebar (pointer-events-auto ensures clicks don't pass through to overlay) -->
-        <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
+        <aside id="sidebar" role="dialog" aria-modal="true" aria-labelledby="sidebar-title" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
 
             <!-- Tab attached to drawer edge -->
             <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
@@ -262,7 +278,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
                     </div>
                     <div class="flex-1">
-                        <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
+                        <h1 id="sidebar-title" class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
                         <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
                     </div>
                 </div>
@@ -284,39 +300,39 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
                     <div class="space-y-2">
                         <!-- Criteria Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property">
+                        <button class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="property" aria-expanded="false" aria-controls="property-panel">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Criteria</span>
-                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </button>
 
                         <!-- Areas Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas">
+                        <button class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="areas" aria-expanded="false" aria-controls="areas-panel">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Areas</span>
-                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </button>
 
                         <!-- Amenities Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities">
+                        <button class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="amenities" aria-expanded="false" aria-controls="amenities-panel">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Amenities</span>
-                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </button>
 
                         <!-- Results Menu Item -->
-                        <div class="flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results">
+                        <button class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 menu-item px-3" data-panel="results" aria-expanded="false" aria-controls="results-panel">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Results</span>
-                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-dark-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
-                        </div>
+                        </button>
 
                         <!-- Theme Toggle -->
-                        <button id="theme-toggle" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
+                        <button id="theme-toggle" aria-label="Toggle dark mode" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
                             <div class="flex items-center gap-2">
                                 <!-- Sun icon (light mode) -->
@@ -337,13 +353,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 <!-- ========================================== -->
 
                 <!-- Property/Criteria Panel -->
-                <div id="property-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="property-panel" role="region" aria-labelledby="property-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
-                        <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="property">
-                            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button aria-label="Back to main menu" class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="property">
+                            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
-                            <span>Criteria</span>
+                            <span id="property-panel-title">Criteria</span>
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
@@ -404,13 +420,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 </div>
 
                 <!-- Areas Panel -->
-                <div id="areas-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="areas-panel" role="region" aria-labelledby="areas-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
-                        <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="areas">
-                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button aria-label="Back to main menu" class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="areas">
+                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
-                            <span>Areas</span>
+                            <span id="areas-panel-title">Areas</span>
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
@@ -432,13 +448,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 </div>
 
                 <!-- Amenities Panel -->
-                <div id="amenities-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="amenities-panel" role="region" aria-labelledby="amenities-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center flex-shrink-0 py-3">
-                        <button class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="amenities">
-                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button aria-label="Back to main menu" class="flex w-full items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 px-3" data-close-panel="amenities">
+                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
-                            <span>Amenities</span>
+                            <span id="amenities-panel-title">Amenities</span>
                         </button>
                     </div>
                     <hr class="divider mx-4 pb-4">
@@ -468,45 +484,46 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 </div>
 
                 <!-- Results Panel -->
-                <div id="results-panel" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
+                <div id="results-panel" role="region" aria-labelledby="results-panel-title" class="absolute top-0 left-0 w-full h-full bg-white dark:bg-dark-bg-elevated translate-x-full transition-transform duration-300 ease-out z-10 flex flex-col overflow-hidden px-5 box-border sliding-panel">
                     <div class="flex items-center justify-between py-4 flex-shrink-0">
-                        <button class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4" data-close-panel="results">
-                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button aria-label="Back to main menu" class="flex flex-1 items-center justify-start gap-2 bg-transparent border-0 text-neutral-700 dark:text-dark-text-primary text-[0.9375rem] font-semibold cursor-pointer rounded-lg transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 panel-back-btn text-left py-4 pl-4 pr-6 mr-4" data-close-panel="results">
+                            <svg class="w-5 h-5 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                             </svg>
-                            <span>Results</span>
+                            <span id="results-panel-title">Results</span>
                         </button>
                         <div class="flex items-center gap-2 mr-5">
                             <!-- Search button + dropdown -->
                             <div class="relative">
-                                <button id="search-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-800 dark:text-dark-text-primary">
+                                <button id="search-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="search-dropdown" aria-label="Search communities" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-800 dark:text-dark-text-primary" aria-hidden="true">
                                         <circle cx="11" cy="11" r="8"/>
                                         <path d="M21 21l-4.35-4.35"/>
                                     </svg>
                                 </button>
                                 <!-- Search dropdown (portaled to body by JS) -->
-                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border">
+                                <div id="search-dropdown" role="dialog" aria-label="Search communities" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border">
                                     <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off"
+                                           role="combobox" aria-autocomplete="list" aria-controls="search-results" aria-expanded="true"
                                            class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none rounded-t-lg">
-                                    <div id="search-results" class="pt-1 pb-6" style="max-height: 320px; overflow-y: auto;">
+                                    <div id="search-results" role="listbox" aria-label="Search results" class="pt-1 pb-6" style="max-height: 320px; overflow-y: auto;">
                                         <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
-                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
-                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watersound">Watersound - Homes</button>
-                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Rosemary Beach">Rosemary Beach - Homes</button>
+                                        <button tabindex="-1" role="option" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
+                                        <button tabindex="-1" role="option" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watersound">Watersound - Homes</button>
+                                        <button tabindex="-1" role="option" class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Rosemary Beach">Rosemary Beach - Homes</button>
                                     </div>
                                 </div>
                             </div>
                             <!-- Sort button + dropdown -->
                             <div class="relative">
-                                <button id="sort-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
-                                    <svg width="18" height="18" viewBox="0 0 20 20" class="text-neutral-800 dark:text-dark-text-primary">
+                                <button id="sort-button" aria-haspopup="true" aria-expanded="false" aria-controls="sort-menu" aria-label="Sort results" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 20 20" class="text-neutral-800 dark:text-dark-text-primary" aria-hidden="true">
                                         <polygon points="10,3 6,8 14,8" fill="currentColor" />
                                         <polygon points="10,17 6,12 14,12" fill="currentColor" />
                                     </svg>
                                 </button>
                                 <!-- Sort dropdown (portaled to body by JS) -->
-                                <div id="sort-menu" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-4">
+                                <div id="sort-menu" role="radiogroup" aria-label="Sort options" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-4">
                                     <div class="space-y-2">
                                         <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
                                             <input type="radio" name="sort" value="listings-desc" class="accent-brand-500" checked>
@@ -628,10 +645,15 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     const panel = document.getElementById(panelName + '-panel');
 
                     if (panel) {
-                        // Close all other panels
+                        // Close all other panels and reset their triggers
                         document.querySelectorAll('.sliding-panel').forEach(p => {
                             if (p.id !== panel.id) {
                                 p.classList.add('translate-x-full');
+                            }
+                        });
+                        menuItems.forEach(mi => {
+                            if (mi !== this) {
+                                mi.setAttribute('aria-expanded', 'false');
                             }
                         });
 
@@ -640,6 +662,15 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                         // Open target panel
                         panel.classList.remove('translate-x-full');
+
+                        // Update aria-expanded on this menu item
+                        this.setAttribute('aria-expanded', 'true');
+
+                        // Focus the back button in the panel
+                        const backBtn = panel.querySelector('.panel-back-btn');
+                        if (backBtn) {
+                            setTimeout(() => backBtn.focus(), 50);
+                        }
                     }
                 });
             });
@@ -660,10 +691,21 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         if (searchDropdown) searchDropdown.classList.add('hidden');
                         if (sortMenu) sortMenu.classList.add('hidden');
 
+                        // Find the menu item that triggered this panel
+                        const menuItem = document.querySelector(`.menu-item[data-panel="${panelName}"]`);
+                        if (menuItem) {
+                            menuItem.setAttribute('aria-expanded', 'false');
+                        }
+
                         // Show main menu
                         if (mainMenu) {
                             mainMenu.style.removeProperty('display');
                             mainMenu.scrollTop = 0;
+                        }
+
+                        // Return focus to the menu item
+                        if (menuItem) {
+                            setTimeout(() => menuItem.focus(), 50);
                         }
                     }
                 });
@@ -743,9 +785,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const sortBtn = document.getElementById('sort-button');
             const sortMenu = document.getElementById('sort-menu');
 
-            // Portal dropdowns to body for proper z-index and no content shift
-            if (searchDropdown) document.body.appendChild(searchDropdown);
-            if (sortMenu) document.body.appendChild(sortMenu);
+            // NOTE: Dropdowns are portaled by ES modules (ui.js, search.js)
 
             // Position dropdown centered under button (handles iOS viewport)
             function positionDropdown(dropdown, button) {
@@ -779,42 +819,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 dropdown.style.zIndex = '2147483647';
             }
 
-            // Search dropdown toggle
-            if (searchBtn && searchDropdown) {
-                searchBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    if (sortMenu) sortMenu.classList.add('hidden');
-                    searchDropdown.classList.toggle('hidden');
-                    if (!searchDropdown.classList.contains('hidden')) {
-                        positionDropdown(searchDropdown, searchBtn);
-                        if (searchInput) searchInput.focus();
-                    }
-                });
-            }
-
-            // Sort dropdown toggle
-            if (sortBtn && sortMenu) {
-                sortBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    if (searchDropdown) searchDropdown.classList.add('hidden');
-                    sortMenu.classList.toggle('hidden');
-                    if (!sortMenu.classList.contains('hidden')) {
-                        positionDropdown(sortMenu, sortBtn);
-                    }
-                });
-            }
-
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', function(e) {
-                if (searchDropdown && !searchDropdown.contains(e.target) &&
-                    e.target !== searchBtn && !searchBtn.contains(e.target)) {
-                    searchDropdown.classList.add('hidden');
-                }
-                if (sortMenu && !sortMenu.contains(e.target) &&
-                    e.target !== sortBtn && !sortBtn.contains(e.target)) {
-                    sortMenu.classList.add('hidden');
-                }
-            });
+            // NOTE: Search and sort dropdown handlers are now in ES modules (ui.js, search.js)
+            // The modules portal dropdowns and attach all event listeners
 
             // Global keyboard handlers
             document.addEventListener('keydown', function(e) {
@@ -843,23 +849,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 }
             });
 
-            // Search input keyboard handling
-            if (searchInput) {
-                searchInput.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        // Click first search result if available
-                        const firstResult = document.querySelector('#search-results .search-result');
-                        if (firstResult) {
-                            firstResult.click();
-                        }
-                    } else if (e.key === 'Escape') {
-                        e.preventDefault();
-                        searchDropdown.classList.add('hidden');
-                        searchInput.blur();
-                    }
-                });
-            }
+            // NOTE: Search input keyboard handling (Enter/Escape/arrows) is in ES module search.js
+            // NOTE: Focus trap is in a separate script block that runs on DOMContentLoaded
 
             // Reposition on resize/scroll (handles iOS keyboard/zoom)
             ['resize', 'orientationchange'].forEach(evt => {
@@ -1487,6 +1478,69 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             if (window.neighborhoods && window.neighborhoods.length > 0) {
                 initApp();
             }
+        });
+    </script>
+
+    <!-- Focus trap (runs immediately, doesn't depend on data) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            if (!sidebar) return;
+
+            function getSidebarFocusable() {
+                return Array.from(sidebar.querySelectorAll(
+                    'button:not([tabindex="-1"]), input:not([tabindex="-1"]), a:not([tabindex="-1"]), [tabindex="0"]'
+                )).filter(el => {
+                    if (getComputedStyle(el).visibility === 'hidden') return false;
+                    const panel = el.closest('.sliding-panel');
+                    if (panel && panel.classList.contains('translate-x-full')) return false;
+                    const mainMenu = el.closest('#main-menu');
+                    if (mainMenu && mainMenu.style.display === 'none') return false;
+                    return true;
+                });
+            }
+
+            // Set initial focus on first menu item
+            setTimeout(() => {
+                const focusable = getSidebarFocusable();
+                if (focusable.length > 0) focusable[0].focus();
+            }, 200);
+
+            // Tab focus trap
+            document.addEventListener('keydown', (e) => {
+                if (e.key !== 'Tab') return;
+
+                // Skip trap when dropdowns are open
+                const searchDD = document.getElementById('search-dropdown');
+                const sortDD = document.getElementById('sort-menu');
+                if ((searchDD && !searchDD.classList.contains('hidden')) ||
+                    (sortDD && !sortDD.classList.contains('hidden'))) {
+                    return;
+                }
+
+                const focusable = getSidebarFocusable();
+                if (focusable.length === 0) return;
+
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                const activeEl = document.activeElement;
+                const isInSidebar = sidebar.contains(activeEl);
+                const currentIndex = focusable.indexOf(activeEl);
+
+                if (!isInSidebar || currentIndex === -1) {
+                    e.preventDefault();
+                    (e.shiftKey ? last : first).focus();
+                    return;
+                }
+
+                if (e.shiftKey && currentIndex === 0) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && currentIndex === focusable.length - 1) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            });
         });
     </script>
 
