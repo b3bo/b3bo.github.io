@@ -819,6 +819,75 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 dropdown.style.zIndex = '2147483647';
             }
 
+            // Search dropdown toggle
+            if (searchBtn && searchDropdown) {
+                searchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                    searchDropdown.classList.toggle('hidden');
+                    if (!searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                        if (searchInput) searchInput.focus();
+                    }
+                });
+            }
+
+            // Sort dropdown toggle
+            if (sortBtn && sortMenu) {
+                sortBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    sortMenu.classList.toggle('hidden');
+                    if (!sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                    }
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (searchDropdown && !searchDropdown.contains(e.target) &&
+                    e.target !== searchBtn && !searchBtn.contains(e.target)) {
+                    searchDropdown.classList.add('hidden');
+                }
+                if (sortMenu && !sortMenu.contains(e.target) &&
+                    e.target !== sortBtn && !sortBtn.contains(e.target)) {
+                    sortMenu.classList.add('hidden');
+                }
+            });
+
+            // Sort radio button handlers
+            if (sortMenu) {
+                const sortRadios = sortMenu.querySelectorAll('input[name="sort"]');
+                sortRadios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        // Update sort order
+                        window.sortOrder = e.target.value;
+                        // Close dropdown
+                        sortMenu.classList.add('hidden');
+                        // Could trigger re-sort here if needed
+                    });
+                });
+            }
+
+            // Search input keyboard handling
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        // Click first search result if available
+                        const firstResult = document.querySelector('#search-results .search-result');
+                        if (firstResult) {
+                            firstResult.click();
+                        }
+                    } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        searchDropdown.classList.add('hidden');
+                        searchInput.blur();
+                    }
+                });
+            }
+
             // NOTE: Search and sort dropdown handlers are now in ES modules (ui.js, search.js)
             // The modules portal dropdowns and attach all event listeners
 

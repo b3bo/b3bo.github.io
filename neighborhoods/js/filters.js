@@ -582,6 +582,7 @@ export function applyFilters() {
             // Then ensure minimum zoom level for single-area/subarea selections
             if (selectedAreas.size === 1 || selectedSubareas.size === 1) {
                 setTimeout(() => {
+                    if (!STATE.map) return;
                     const currentZoom = STATE.map.getZoom();
                     if (currentZoom < 13) {
                         STATE.map.setZoom(13);

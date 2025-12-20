@@ -141,6 +141,9 @@ function navigateToNeighborhood(neighborhood) {
     }
     STATE.activeMarker = null;
 
+    // Ensure map is initialized
+    if (!STATE.map) return;
+
     // Fly to the neighborhood
     smoothFlyTo(neighborhood.position, 15);
 
