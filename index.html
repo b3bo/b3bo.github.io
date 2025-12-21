@@ -1629,8 +1629,21 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             let searchDebounceTimer = null;
             if (searchInput) {
                 searchInput.addEventListener('input', (e) => {
-                    const query = e.target.value.toLowerCase().trim();
+                    const queryRaw = e.target.value.trim();
+                    const query = queryRaw.toLowerCase();
                     const results = document.getElementById('search-results');
+
+                    // Highlight matching text within a label (case-insensitive, HTML-safe)
+                    const highlightMatch = (text) => {
+                        if (!queryRaw) return text;
+                        const safeText = text
+                            .replace(/&/g, '&amp;')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;');
+                        const pattern = queryRaw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const regex = new RegExp(`(${pattern})`, 'ig');
+                        return safeText.replace(regex, '<strong>$1</strong>');
+                    };
 
                     // Track search input (debounced)
                     if (query && typeof gtag !== 'undefined') {
@@ -1667,7 +1680,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         if (matches.length) {
                             results.innerHTML = matches.map(n => `
                                 <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
-                                    ${n.name} - ${n.propertyType}
+                                    ${highlightMatch(n.name)} - ${highlightMatch(n.propertyType)}
                                 </button>
                             `).join('');
                         } else {
