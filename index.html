@@ -201,8 +201,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             position: relative;
         }
         #search-results.has-overflow {
-            mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
         }
     </style>
 </head>
@@ -461,7 +461,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                     </svg>
                                 </button>
                                 <!-- Search dropdown (portaled to body by JS) -->
-                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border" tabindex="-1">
+                                <div id="search-dropdown" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border pb-4" tabindex="-1">
                                     <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off" tabindex="-1"
                                            class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus-ring rounded-t-lg">
                                     <div id="search-results" class="py-1" style="max-height: 320px; overflow-y: auto;">
