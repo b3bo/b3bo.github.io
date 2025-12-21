@@ -65,11 +65,7 @@ export function addMarkers() {
 
     STATE.neighborhoods.forEach((neighborhood, index) => {
         // Determine marker color based on searchId and urlSlug
-        const hasSearchId = (neighborhood.searchIdHomes && neighborhood.searchIdHomes !== '') || 
-                           (neighborhood.searchIdCondos && neighborhood.searchIdCondos !== '') || 
-                           (neighborhood.searchIdTownhomes && neighborhood.searchIdTownhomes !== '') || 
-                           (neighborhood.searchIdLots && neighborhood.searchIdLots !== '') || 
-                           (neighborhood.searchId && neighborhood.searchId !== '');
+        const hasSearchId = neighborhood.searchId && neighborhood.searchId !== '';
         const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
         
         let markerClass = 'ripple-marker';
@@ -118,11 +114,7 @@ export function addMarkers() {
 export function createMarkers(neighborhoodsToMap) {
     neighborhoodsToMap.forEach(neighborhood => {
         // Determine marker color based on searchId and urlSlug
-        const hasSearchId = (neighborhood.searchIdHomes && neighborhood.searchIdHomes !== '') || 
-                           (neighborhood.searchIdCondos && neighborhood.searchIdCondos !== '') || 
-                           (neighborhood.searchIdTownhomes && neighborhood.searchIdTownhomes !== '') || 
-                           (neighborhood.searchIdLots && neighborhood.searchIdLots !== '') || 
-                           (neighborhood.searchId && neighborhood.searchId !== '');
+        const hasSearchId = neighborhood.searchId && neighborhood.searchId !== '';
         const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
         
         let markerClass = 'ripple-marker';
@@ -212,61 +204,55 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
     const medianPriceDisplay = formatPrice(medianPrice);
     
-    // Dynamically construct listings URLs from searchId based on property type
+    // Dynamically construct listings URLs from searchId with property type fragment
     let listingsUrlMap = neighborhood.listingsUrlMap || neighborhood.listingsUrl || neighborhood.marketReportUrl; // Map View (backwards compatible)
     let listingsUrlList = neighborhood.listingsUrlList; // List View URL
-    let searchId = null;
-
-    // Determine which searchId to use based on property type
+    const searchId = neighborhood.searchId || null;
     const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
 
-    if (propertyType.includes('townhome')) {
-        // Townhomes
-        searchId = neighborhood.searchIdTownhomes !== undefined && neighborhood.searchIdTownhomes !== ''
-            ? neighborhood.searchIdTownhomes
-            : (neighborhood.searchId || null);
-    } else if (propertyType.includes('condo')) {
-        // Condos only
-        searchId = neighborhood.searchIdCondos !== undefined && neighborhood.searchIdCondos !== ''
-            ? neighborhood.searchIdCondos
-            : (neighborhood.searchId || null);
-    } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
-        searchId = neighborhood.searchIdLots !== undefined && neighborhood.searchIdLots !== ''
-            ? neighborhood.searchIdLots
-            : (neighborhood.searchId || null);
-    } else {
-        // Default to homes
-        searchId = neighborhood.searchIdHomes !== undefined && neighborhood.searchIdHomes !== ''
-            ? neighborhood.searchIdHomes
-            : (neighborhood.searchId || null);
-    }
-
-    // Construct URLs if we have a valid searchId (not null, not empty string)
+    // Construct URLs if we have a valid searchId
     if (searchId) {
+        // Determine property type descrip (goes at end of hash)
+        let typeDescrip = '';
+        if (propertyType.includes('townhome')) {
+            typeDescrip = 'listtypedescrip_attached%20single%20unit/';
+        } else if (propertyType.includes('condo')) {
+            typeDescrip = 'listtypedescrip_condominium/';
+        } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+            typeDescrip = ''; // blank for now
+        } else {
+            // Default to homes
+            typeDescrip = 'listtypedescrip_detached%20single%20family/';
+        }
+
         // Get current filter values (safe check for STATE.filters)
         const bedsMin = (STATE.filters && STATE.filters.bedsMin) || 1;
         const bathsMin = (STATE.filters && STATE.filters.bathsMin) || 1;
         const priceMin = STATE.filters && STATE.filters.priceMin;
         const priceMax = STATE.filters && STATE.filters.priceMax;
 
-        // Build URL slugs
+        // Build filter slugs
         const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
         const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-        // Always include lprice (default 250000), but only include uprice if it's been set and is not at max
         const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
         const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
 
-        // Combine all slugs and add # prefix
-        const allSlugs = bedsSlug + bathsSlug + priceMinSlug + priceMaxSlug;
-        const slugPart = `#${allSlugs}`;
+        // Determine listtype based on property type
+        let listType = 'listtype_1'; // Default for homes/condos/townhomes
+        if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+            listType = 'listtype_4';
+        }
+
+        // Combine: listtype + filters + property type descrip
+        const hashPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
 
         // Map View (searchtype=3) - only construct if not already set from legacy data
         if (!listingsUrlMap) {
-            listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
+            listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${hashPart}`;
         }
-        // List View (searchtype=2) - always construct for mobile use
+        // List View (searchtype=2) - for mobile use
         if (!listingsUrlList) {
-            listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${slugPart}`;
+            listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${hashPart}`;
         }
     }
     
