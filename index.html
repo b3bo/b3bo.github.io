@@ -195,6 +195,24 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             background: rgba(0,0,0,0.15);
             border-radius: 2px;
         }
+
+        /* Search dropdown fade effect */
+        #search-results {
+            position: relative;
+        }
+        #search-results.has-overflow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+            pointer-events: none;
+        }
+        .dark #search-results.has-overflow::after {
+            background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.6) 50%, transparent 100%);
+        }
     </style>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
@@ -1655,6 +1673,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         } else {
                             results.innerHTML = '<div class="px-4 py-3 text-sm text-neutral-400">No matches found</div>';
                         }
+                    }
+
+                    // Detect search results overflow and add fade class if needed
+                    const searchResultsEl = document.getElementById('search-results');
+                    if (searchResultsEl && searchResultsEl.scrollHeight > searchResultsEl.clientHeight + 4) {
+                        searchResultsEl.classList.add('has-overflow');
+                    } else if (searchResultsEl) {
+                        searchResultsEl.classList.remove('has-overflow');
                     }
 
                     // Add click handlers to search results
