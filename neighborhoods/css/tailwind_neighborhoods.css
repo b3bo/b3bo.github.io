@@ -2,7 +2,7 @@
  * ==========================================================================
  * MODIFIED: Translate classes changed from CSS 'translate' to 'transform'
  * ==========================================================================
- * Date: 2025-12-20
+ * Date: 2025-12-21
  * Reason: Tailwind v4 uses CSS 'translate' property, but CSS transitions
  *         only work with 'transform'. This broke sliding panel animations.
  *

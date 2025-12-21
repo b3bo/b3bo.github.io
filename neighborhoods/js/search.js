@@ -434,6 +434,11 @@ export function setupSearch() {
         } else if (e.key === 'Backspace' && searchInput.value === '' && STATE.searchQuery) {
             // Clear filter when backspacing on empty input
             clearSearchFilter();
+        } else if (e.key === 'Tab') {
+            // Close dropdown on Tab - prevent default to keep focus on search button
+            e.preventDefault();
+            e.stopPropagation();
+            closeDropdown();
         }
     });
 

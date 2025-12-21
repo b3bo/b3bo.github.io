@@ -89,7 +89,21 @@ export function renderListItems(neighborhoodsToRender) {
                 }
             });
 
-            // Buttons natively handle Enter/Space, no keydown handler needed
+            // Up/Down arrow navigation between cards
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const cards = Array.from(listContainer.querySelectorAll('button'));
+                    const currentIndex = cards.indexOf(card);
+                    let nextIndex;
+                    if (e.key === 'ArrowDown') {
+                        nextIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+                    } else {
+                        nextIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+                    }
+                    cards[nextIndex].focus();
+                }
+            });
 
             listContainer.appendChild(card);
         }
@@ -364,6 +378,13 @@ function setupSortDropdown() {
             sortButton.removeAttribute('aria-activedescendant');
             sortSelectedIndex = -1;
             sortButton.focus();
+        } else if (e.key === 'Tab') {
+            // Close sort menu on Tab to allow focus trap to work
+            sortMenu.classList.add('hidden');
+            sortButton.setAttribute('aria-expanded', 'false');
+            sortButton.removeAttribute('aria-activedescendant');
+            sortSelectedIndex = -1;
+            // Don't prevent default - let focus trap handle Tab navigation
         }
     });
 }

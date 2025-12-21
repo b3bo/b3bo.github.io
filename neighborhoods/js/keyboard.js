@@ -25,8 +25,10 @@ function getFocusableElements(container) {
         '[tabindex="0"]'
     )).filter(el => {
         // Element must be visible
-        return el.offsetParent !== null &&
-               getComputedStyle(el).visibility !== 'hidden';
+        if (el.offsetParent === null || getComputedStyle(el).visibility === 'hidden') return false;
+        // Exclude elements inside translated-off panels (off-screen)
+        if (el.closest('.translate-x-full')) return false;
+        return true;
     });
 }
 
@@ -121,13 +123,10 @@ function handleEscape() {
 
 /**
  * Global keydown handler
+ * Note: Tab focus trapping is handled in index.html inline script
+ * to properly coordinate with search dropdown state
  */
 function handleGlobalKeydown(e) {
-    // Handle Tab within focus trap
-    if (e.key === 'Tab' && focusTrapActive && focusTrapContainer) {
-        handleTabTrap(e);
-    }
-
     // Handle Escape
     if (e.key === 'Escape') {
         handleEscape();

@@ -299,7 +299,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3" tabindex="-1">
                         <!-- Toggle Buttons -->
-                        <div class="flex gap-2 pt-1 pb-6 px-3">
+                        <div role="group" aria-label="Property type" class="flex gap-2 pt-1 pb-6 px-3">
                             <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
                                 Homes
                             </button>
@@ -365,7 +365,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content" tabindex="-1">
-                        <div class="flex flex-wrap gap-2 pb-4">
+                        <div role="group" aria-label="Cities" class="flex flex-wrap gap-2 pb-4">
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32541">Destin</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32459">Santa Rosa Beach</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32550">Miramar Beach</button>
@@ -373,7 +373,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32413">Panama City Beach</button>
                         </div>
                         <hr class="divider mx-4 my-3 pb-4">
-                        <div class="flex flex-wrap gap-2">
+                        <div role="group" aria-label="Sub-areas" class="flex flex-wrap gap-2">
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="West 30A">West 30A</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="East 30A">East 30A</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="Sandestin">Sandestin</button>
@@ -393,7 +393,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content" tabindex="-1">
-                        <div class="flex flex-wrap gap-2 pb-4">
+                        <div role="group" aria-label="Amenities" class="flex flex-wrap gap-2 pb-4">
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Beach Access">Beach Access</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Clubhouse">Clubhouse</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Community Pool">Community Pool</button>
@@ -410,7 +410,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Waterview">Waterview</button>
                         </div>
                         <hr class="divider mx-4 my-3 pb-4">
-                        <div class="flex flex-wrap gap-2">
+                        <div role="group" aria-label="Rental policy" class="flex flex-wrap gap-2">
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Short-Term">Short-Term</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="No Short-Term">No Short-Term</button>
                         </div>
@@ -426,7 +426,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             </svg>
                             <span>Results</span>
                         </button>
-                        <div class="flex items-center gap-2 mr-5">
+                        <div role="toolbar" aria-label="List controls" class="flex items-center gap-2 mr-5">
                             <!-- Search button + dropdown -->
                             <div class="relative">
                                 <button id="search-button" class="flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors">
@@ -499,7 +499,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 20 | v1.1.0</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 21 | v1.1.0</p>
                 </div>
             </div>
 
@@ -846,7 +846,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     'select:not([disabled]):not([tabindex="-1"]), ' +
                     'textarea:not([disabled]):not([tabindex="-1"]), ' +
                     '[tabindex="0"]'
-                )).filter(el => el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden');
+                )).filter(el => {
+                    // Must be visible
+                    if (el.offsetParent === null || getComputedStyle(el).visibility === 'hidden') return false;
+                    // Exclude elements inside translated-off panels (off-screen)
+                    const translatedPanel = el.closest('.translate-x-full');
+                    if (translatedPanel) return false;
+                    return true;
+                });
             }
 
             function handleTabTrap(e) {
@@ -887,6 +894,20 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 // Handle Tab within sidebar focus trap
                 if (e.key === 'Tab' && drawerToggle && drawerToggle.checked) {
+                    // Skip if search dropdown is open (search.js handles its Tab behavior)
+                    const searchDropdownOpen = searchDropdown && !searchDropdown.classList.contains('hidden');
+                    if (searchDropdownOpen) return;
+
+                    // Close sort menu if open (focus is on sortButton which is in sidebar)
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        sortMenu.classList.add('hidden');
+                        const sortButton = document.getElementById('sort-button');
+                        if (sortButton) {
+                            sortButton.setAttribute('aria-expanded', 'false');
+                            sortButton.removeAttribute('aria-activedescendant');
+                        }
+                    }
+
                     handleTabTrap(e);
                     return; // Don't process other handlers
                 }
@@ -978,7 +999,69 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     }
                 }
 
-                // Arrow keys for info window navigation (only when not typing)
+                // Left/Right arrows for control group navigation (role="group")
+                if (!isTyping && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+                    const group = document.activeElement?.closest('[role="group"]');
+                    if (group) {
+                        e.preventDefault();
+                        const controls = Array.from(group.querySelectorAll('button:not([disabled])'));
+                        const currentIndex = controls.indexOf(document.activeElement);
+                        if (currentIndex !== -1) {
+                            let nextIndex;
+                            if (e.key === 'ArrowRight') {
+                                nextIndex = (currentIndex + 1) % controls.length;
+                            } else {
+                                nextIndex = currentIndex === 0 ? controls.length - 1 : currentIndex - 1;
+                            }
+                            controls[nextIndex].focus();
+                        }
+                        return;
+                    }
+                }
+
+                // Up/Down arrows for control group grid navigation (visual rows)
+                if (!isTyping && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+                    const group = document.activeElement?.closest('[role="group"]');
+                    if (group) {
+                        e.preventDefault();
+                        const controls = Array.from(group.querySelectorAll('button:not([disabled])'));
+                        const current = document.activeElement;
+                        const currentRect = current.getBoundingClientRect();
+                        const currentCenterX = currentRect.left + currentRect.width / 2;
+
+                        // Find buttons in other rows
+                        let candidates = controls.filter(btn => {
+                            if (btn === current) return false;
+                            const rect = btn.getBoundingClientRect();
+                            if (e.key === 'ArrowDown') {
+                                return rect.top > currentRect.bottom - 5; // Below current row
+                            } else {
+                                return rect.bottom < currentRect.top + 5; // Above current row
+                            }
+                        });
+
+                        if (candidates.length > 0) {
+                            // Find closest horizontally aligned button
+                            candidates.sort((a, b) => {
+                                const aRect = a.getBoundingClientRect();
+                                const bRect = b.getBoundingClientRect();
+                                const aCenterX = aRect.left + aRect.width / 2;
+                                const bCenterX = bRect.left + bRect.width / 2;
+                                const aDistX = Math.abs(aCenterX - currentCenterX);
+                                const bDistX = Math.abs(bCenterX - currentCenterX);
+                                // Primary: closest row, Secondary: closest horizontal
+                                const aDistY = e.key === 'ArrowDown' ? aRect.top : -aRect.bottom;
+                                const bDistY = e.key === 'ArrowDown' ? bRect.top : -bRect.bottom;
+                                if (Math.abs(aDistY - bDistY) > 10) return aDistY - bDistY;
+                                return aDistX - bDistX;
+                            });
+                            candidates[0].focus();
+                        }
+                        return;
+                    }
+                }
+
+                // Arrow keys for info window navigation (only when not typing and not in control group)
                 if (!isTyping && window.infoWindow && window.infoWindow.getMap()) {
                     if (e.key === 'ArrowLeft') {
                         e.preventDefault();
