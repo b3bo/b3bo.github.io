@@ -1185,6 +1185,31 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 return amenitiesArr.map(a => selected.has(a) ? `<strong>${a}</strong>` : a).join(', ') + '.';
             }
 
+            function listingLabelForType(typeString) {
+                const t = (typeString || '').toLowerCase();
+                if (t.includes('townhome')) return 'Active T/H Listings';
+                if (t.includes('condo')) return 'Active Condo Listings';
+                if (t.includes('home')) return 'Active Home Listings';
+                return 'Active Listings';
+            }
+
+            function aggregateListingLabel(count, neighborhoods = []) {
+                const types = new Set(neighborhoods.map(n => (n.propertyType || '').toLowerCase()));
+                const homesActive = homesBtn ? homesBtn.classList.contains('active') : false;
+                const condosActive = condosBtn ? condosBtn.classList.contains('active') : false;
+
+                let label = 'Active Listings';
+                if (types.size === 1) {
+                    label = listingLabelForType([...types][0]);
+                } else if (homesActive && !condosActive) {
+                    label = 'Active Home Listings';
+                } else if (condosActive && !homesActive) {
+                    label = 'Active Condo Listings';
+                }
+
+                return `${count} ${label}`;
+            }
+
             function renderResults() {
                 const list = document.getElementById('neighborhoodList');
                 const resultsCount = document.getElementById('resultsCount');
@@ -1217,7 +1242,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 // Update count
                 if (resultsCount) {
-                    resultsCount.textContent = `${sorted.length} matches found`;
+                    resultsCount.textContent = aggregateListingLabel(sorted.length, sorted);
                 }
 
                 // Render list - use buttons for WCAG keyboard navigation
@@ -1229,7 +1254,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${n.name}</h3>
                             <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)}</span>
                         </div>
-                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} Listings</div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} ${listingLabelForType(n.propertyType)}</div>
                         <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${formatAmenitiesWithSelection(n.amenities || [])}</div>
                     </button>
                 `).join('');
@@ -2396,6 +2421,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const medianPrice = stats.medianPrice || stats.avgPrice || 0;
             const medianPriceDisplay = formatPrice(medianPrice);
             const pricePerSqFt = stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
+            const listingLabel = (() => {
+                const t = (n.propertyType || '').toLowerCase();
+                if (t.includes('townhome')) return 'Active T/H Listings';
+                if (t.includes('condo')) return 'Active Condo Listings';
+                if (t.includes('home')) return 'Active Home Listings';
+                return 'Active Listings';
+            })();
             const selectedAmenities = (window.filterState && window.filterState.amenities) ? window.filterState.amenities : new Set();
             const formatAmenitiesList = (list = []) => {
                 const escape = (str) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -2460,7 +2492,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     <div class="grid grid-cols-2 gap-2 mb-2">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.listingCount || 0}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">All Active</div>
+                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">${listingLabel}</div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
