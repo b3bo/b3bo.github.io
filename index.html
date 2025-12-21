@@ -179,6 +179,22 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         .gm-style-iw *:focus {
             outline: none !important;
         }
+
+        /* Scrollable amenities (3-row max) - fade only when overflow */
+        .amenities-scroll {
+            max-height: 3.9em;  /* 3 lines × 1.25 line-height + buffer */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .amenities-scroll.has-overflow {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+        .amenities-scroll::-webkit-scrollbar { width: 3px; }
+        .amenities-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.15);
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
@@ -539,7 +555,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // Parse URL parameters for single mode
             const urlParams = new URLSearchParams(window.location.search);
             const isSingleMode = urlParams.get('mode') === 'single';
-            const neighborhoodSlug = urlParams.get('neighborhood');
+            const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
             window.isSingleMode = isSingleMode;
             const isInIframe = window.self !== window.top;
 
@@ -1185,7 +1201,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)}</span>
                         </div>
                         <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} Listings</div>
-                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${(n.amenities || []).join(', ') || 'No amenities listed'}</div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${(n.amenities || []).join(', ') + '.' || 'No amenities listed'}</div>
                     </button>
                 `).join('');
 
@@ -1735,7 +1751,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // Check for single mode
             const urlParams = new URLSearchParams(window.location.search);
             const isSingleMode = urlParams.get('mode') === 'single';
-            const neighborhoodSlug = urlParams.get('neighborhood');
+            const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
 
             // Determine initial center and zoom
             let initialCenter = { lat: 30.32, lng: -86.05 };  // Default: Emerald Coast
@@ -1814,7 +1830,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 const urlParams = new URLSearchParams(window.location.search);
                 const isSingleMode = urlParams.get('mode') === 'single';
-                const neighborhoodSlug = urlParams.get('neighborhood');
+                const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
 
                 if (isSingleMode && neighborhoodSlug && neighborhoods.length > 0) {
                     const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
@@ -2407,7 +2423,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     <div class="mb-3">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed">${n.amenities.join(', ')}</div>
+                            <div class="amenities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${n.amenities.join(', ') + '.'}</div>
                         </div>
                     </div>
                     ` : ''}
@@ -2425,7 +2441,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                 const neighborhoodSlug = window.toSlug(n.name);
                                 const propertyTypeParam = n.propertyType ? '&propertyType=' + encodeURIComponent(n.propertyType) : '';
                                 const baseUrl = window.location.hostname === 'localhost'
-                                    ? window.location.origin + '/assets/html/index.html'
+                                    ? window.location.origin
                                     : 'https://neighborhoods.truesouthcoastalhomes.com';
                                 const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
                                 return '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + n.name + ' in Community Finder">Community Finder</a>';
@@ -2446,6 +2462,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             targetInfoWindow.setContent(content);
             targetInfoWindow.open({ map: window.map, anchor: marker });
+
+            // Detect amenities overflow and add fade class if needed (4px tolerance for rounding)
+            google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+                const amenitiesEl = document.querySelector('.amenities-scroll');
+                if (amenitiesEl && amenitiesEl.scrollHeight > amenitiesEl.clientHeight + 4) {
+                    amenitiesEl.classList.add('has-overflow');
+                }
+            });
 
             // Handle close events for primary window only
             if (targetInfoWindow === window.infoWindow) {

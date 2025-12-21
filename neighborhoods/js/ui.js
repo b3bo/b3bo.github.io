@@ -36,7 +36,7 @@ export function renderListItems(neighborhoodsToRender) {
                 </div>
                 <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${neighborhood.stats.listingCount} Listings</div>
                 <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">
-                    ${neighborhood.amenities.join(', ')}
+                    ${neighborhood.amenities.join(', ') + '.'}
                 </div>
             `;
             

@@ -74,9 +74,10 @@ async function initMap() {
         const urlParams = getUrlParams();
         
         // Handle single neighborhood mode
-        if (urlParams.neighborhood) {
+        const targetSlug = urlParams.neighborhood || urlParams.marker;
+        if (targetSlug) {
             // If propertyType is not specified in URL, prefer "Homes" entry (find all matches first)
-            const matchingNeighborhoods = STATE.neighborhoods.filter(n => toSlug(n.name) === urlParams.neighborhood);
+            const matchingNeighborhoods = STATE.neighborhoods.filter(n => toSlug(n.name) === targetSlug);
             let targetNeighborhood;
             
 

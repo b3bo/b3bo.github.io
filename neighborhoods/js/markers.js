@@ -316,7 +316,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
             <div class="mb-3">
                 <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
                     <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
-                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed">${neighborhood.amenities.join(', ')}</div>
+                    <div class="amenities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${neighborhood.amenities.join(', ') + '.'}</div>
                 </div>
             </div>
             ` : ''}
@@ -394,6 +394,14 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     targetInfoWindow.close();
     targetInfoWindow.setContent(content);
     targetInfoWindow.open(STATE.map, marker);
+
+    // Detect amenities overflow and add fade class if needed (4px tolerance for rounding)
+    google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+        const amenitiesEl = document.querySelector('.amenities-scroll');
+        if (amenitiesEl && amenitiesEl.scrollHeight > amenitiesEl.clientHeight + 4) {
+            amenitiesEl.classList.add('has-overflow');
+        }
+    });
 
     // Handle close events for primary window
     if (targetInfoWindow === STATE.infoWindow) {
