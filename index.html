@@ -190,6 +190,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
         }
+        /* Keep amenity highlights readable inside info window */
+        .amenities-scroll strong {
+            font-weight: 700;
+            color: inherit;
+        }
         .amenities-scroll::-webkit-scrollbar { width: 3px; }
         .amenities-scroll::-webkit-scrollbar-thumb {
             background: rgba(0,0,0,0.15);
@@ -1174,6 +1179,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             // ==========================================
             // RESULTS LIST RENDERING
             // ==========================================
+            function formatAmenitiesWithSelection(amenitiesArr) {
+                if (!amenitiesArr || amenitiesArr.length === 0) return 'No amenities listed';
+                const selected = window.filterState?.amenities || new Set();
+                return amenitiesArr.map(a => selected.has(a) ? `<strong>${a}</strong>` : a).join(', ') + '.';
+            }
+
             function renderResults() {
                 const list = document.getElementById('neighborhoodList');
                 const resultsCount = document.getElementById('resultsCount');
@@ -1219,7 +1230,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)}</span>
                         </div>
                         <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} Listings</div>
-                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${(n.amenities || []).join(', ') + '.' || 'No amenities listed'}</div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${formatAmenitiesWithSelection(n.amenities || [])}</div>
                     </button>
                 `).join('');
 
@@ -2385,6 +2396,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const medianPrice = stats.medianPrice || stats.avgPrice || 0;
             const medianPriceDisplay = formatPrice(medianPrice);
             const pricePerSqFt = stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
+            const selectedAmenities = (window.filterState && window.filterState.amenities) ? window.filterState.amenities : new Set();
+            const formatAmenitiesList = (list = []) => {
+                const escape = (str) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                return list.map(a => {
+                    const safe = escape(a);
+                    return selectedAmenities.has(a) ? `<strong>${safe}</strong>` : safe;
+                }).join(', ') + '.';
+            };
 
             // Build listings URL with filter slugs (matches production markers.js)
             let listingsUrl = null;
@@ -2462,7 +2481,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     <div class="mb-3">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
-                            <div class="amenities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${n.amenities.join(', ') + '.'}</div>
+                            <div class="amenities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${formatAmenitiesList(n.amenities || [])}</div>
                         </div>
                     </div>
                     ` : ''}
