@@ -196,22 +196,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             border-radius: 2px;
         }
 
-        /* Search dropdown fade effect */
+        /* Search dropdown fade effect (stationary mask on container) */
         #search-results {
             position: relative;
         }
-        #search-results.has-overflow::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
-            pointer-events: none;
-        }
-        .dark #search-results.has-overflow::after {
-            background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.6) 50%, transparent 100%);
+        #search-results.has-overflow {
+            mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
         }
     </style>
 </head>
@@ -824,6 +815,15 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     if (!searchDropdown.classList.contains('hidden')) {
                         positionDropdown(searchDropdown, searchBtn);
                         if (searchInput) searchInput.focus();
+                        // Detect initial overflow and apply stationary fade
+                        const searchResultsEl = document.getElementById('search-results');
+                        if (searchResultsEl) {
+                            if (searchResultsEl.scrollHeight > searchResultsEl.clientHeight + 4) {
+                                searchResultsEl.classList.add('has-overflow');
+                            } else {
+                                searchResultsEl.classList.remove('has-overflow');
+                            }
+                        }
                     }
                 });
             }
