@@ -191,7 +191,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         <aside id="sidebar" class="fixed top-4 left-4 w-4/5 max-w-xs shadow-2xl rounded-2xl transform -translate-x-[calc(100%-5px)] peer-checked:translate-x-0 transition-transform duration-300 z-40 flex flex-col bg-white dark:bg-dark-bg-elevated border border-neutral-200 dark:border-dark-border pointer-events-auto" style="height: calc(100dvh - 2rem); max-height: calc(100dvh - 2rem);">
 
             <!-- Tab attached to drawer edge -->
-            <label for="drawer-toggle" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
+            <label for="drawer-toggle" id="sidebar-toggle-tab" tabindex="-1" role="button" aria-label="Toggle sidebar" class="absolute left-full top-1/2 -translate-y-1/2 bg-neutral-700 dark:bg-neutral-600 px-2 py-4 cursor-pointer shadow-lg hover:bg-neutral-800 dark:hover:bg-neutral-500 transition-colors rounded-r-lg">
                 <!-- Hamburger icon (shows when closed) -->
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-5 h-5 tab-icon-closed">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -456,25 +456,25 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                     </svg>
                                 </button>
                                 <!-- Sort dropdown (portaled to body by JS) -->
-                                <div id="sort-menu" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-4">
+                                <div id="sort-menu" class="hidden w-[280px] bg-white dark:bg-dark-bg-elevated rounded-lg shadow-lg border border-neutral-200 dark:border-dark-border p-4" role="radiogroup" aria-label="Sort options">
                                     <div class="space-y-2">
-                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                        <label class="sort-option flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark" tabindex="0">
                                             <input type="radio" name="sort" value="listings-desc" class="accent-brand-500" checked>
                                             <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Most Listings</span>
                                         </label>
-                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                        <label class="sort-option flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark" tabindex="0">
                                             <input type="radio" name="sort" value="name-asc" class="accent-brand-500">
                                             <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Name A→Z</span>
                                         </label>
-                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                        <label class="sort-option flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark" tabindex="0">
                                             <input type="radio" name="sort" value="name-desc" class="accent-brand-500">
                                             <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Name Z→A</span>
                                         </label>
-                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                        <label class="sort-option flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark" tabindex="0">
                                             <input type="radio" name="sort" value="price-asc" class="accent-brand-500">
                                             <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Price Low→High</span>
                                         </label>
-                                        <label class="flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark">
+                                        <label class="sort-option flex items-center gap-2 cursor-pointer py-1 hover:text-brand-700 dark:hover:text-brand-dark" tabindex="0">
                                             <input type="radio" name="sort" value="price-desc" class="accent-brand-500">
                                             <span class="text-sm text-neutral-700 dark:text-dark-text-primary">Price High→Low</span>
                                         </label>
@@ -519,7 +519,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
         </div>
 
         <!-- Disclaimer bar (below map) -->
-        <div class="disclaimer-bar fixed bottom-0 left-0 right-0 h-10 px-4 flex items-center justify-center z-20 dark:border-t dark:border-dark-border" style="background-color: #8FC7CC;">
+        <div class="disclaimer-bar fixed bottom-0 left-0 right-0 h-10 px-4 flex items-center justify-center z-20 dark:border-t dark:border-dark-border" tabindex="-1" style="background-color: #8FC7CC;">
             <p class="text-xs text-white dark:text-dark-text-secondary leading-tight">
                 &copy; 2025 Kimberly Bauman, P.A. | Information deemed reliable but not guaranteed | Data: ECAR MLS
             </p>
@@ -600,13 +600,24 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                         // Open target panel
                         panel.classList.remove('translate-x-full');
+
+                        // Focus the back button after panel opens (for keyboard users)
+                        const backBtn = panel.querySelector('.panel-back-btn');
+                        if (backBtn) {
+                            setTimeout(() => backBtn.focus(), 100);
+                        }
                     }
                 });
 
                 // Keyboard support: Enter/Space opens panel
                 item.addEventListener('keydown', function(e) {
+                    // Only respond if sidebar is open
+                    const toggle = document.getElementById('drawer-toggle');
+                    if (!toggle || !toggle.checked) return;
+
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
+                        window.lastFocusedMenuItem = this; // Store for focus return
                         this.click();
                     }
                 });
@@ -628,14 +639,37 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         if (searchDropdown) searchDropdown.classList.add('hidden');
                         if (sortMenu) sortMenu.classList.add('hidden');
 
-                        // Show main menu
+                        // Show main menu and return focus
                         if (mainMenu) {
                             mainMenu.style.removeProperty('display');
                             mainMenu.scrollTop = 0;
+                            // Return focus to the menu item that opened this panel
+                            if (window.lastFocusedMenuItem) {
+                                setTimeout(() => window.lastFocusedMenuItem.focus(), 50);
+                            }
                         }
                     }
                 });
             });
+
+            // Sidebar toggle keyboard support (Enter/Space to open/close)
+            const sidebarToggleTab = document.getElementById('sidebar-toggle-tab');
+            if (sidebarToggleTab) {
+                sidebarToggleTab.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+
+                // Toggle tabindex based on sidebar state - focusable only when closed
+                const updateToggleTabindex = () => {
+                    const toggle = document.getElementById('drawer-toggle');
+                    sidebarToggleTab.tabIndex = (toggle && toggle.checked) ? -1 : 0;
+                };
+                document.getElementById('drawer-toggle')?.addEventListener('change', updateToggleTabindex);
+                updateToggleTabindex(); // Set initial state
+            }
 
             // Theme toggle - also updates map colorScheme
             const themeToggle = document.getElementById('theme-toggle');
@@ -768,6 +802,20 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     sortMenu.classList.toggle('hidden');
                     if (!sortMenu.classList.contains('hidden')) {
                         positionDropdown(sortMenu, sortBtn);
+                        // Focus the checked option or first option
+                        const checkedRadio = sortMenu.querySelector('input[type="radio"]:checked');
+                        const checkedOption = checkedRadio ? checkedRadio.closest('.sort-option') : sortMenu.querySelector('.sort-option');
+                        if (checkedOption) {
+                            setTimeout(() => checkedOption.focus(), 50);
+                        }
+                    }
+                });
+
+                // Keyboard support for sort button
+                sortBtn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
                     }
                 });
             }
@@ -860,6 +908,10 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         if (mainMenu) {
                             mainMenu.style.removeProperty('display');
                             mainMenu.scrollTop = 0;
+                            // Return focus to the menu item that opened this panel
+                            if (window.lastFocusedMenuItem) {
+                                setTimeout(() => window.lastFocusedMenuItem.focus(), 50);
+                            }
                         }
                         return; // Don't close sidebar if we just closed a panel
                     }
@@ -869,6 +921,60 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     if (drawerToggle && drawerToggle.checked) {
                         drawerToggle.checked = false;
                         drawerToggle.dispatchEvent(new Event('change', { bubbles: true }));
+                        // Clear stored menu item and focus the toggle tab for reopening
+                        window.lastFocusedMenuItem = null;
+                        const toggleTab = document.getElementById('sidebar-toggle-tab');
+                        if (toggleTab) {
+                            setTimeout(() => toggleTab.focus(), 50);
+                        }
+                    }
+                }
+
+                // Up/Down arrows for menu item and sort option navigation
+                if (!isTyping && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
+                    // Menu items
+                    const focusedMenuItem = document.activeElement?.closest('.menu-item');
+                    if (focusedMenuItem) {
+                        e.preventDefault();
+                        const allMenuItems = Array.from(document.querySelectorAll('.menu-item'));
+                        const currentIndex = allMenuItems.indexOf(focusedMenuItem);
+                        let nextIndex;
+                        if (e.key === 'ArrowDown') {
+                            nextIndex = (currentIndex + 1) % allMenuItems.length;
+                        } else {
+                            nextIndex = currentIndex === 0 ? allMenuItems.length - 1 : currentIndex - 1;
+                        }
+                        allMenuItems[nextIndex].focus();
+                        return;
+                    }
+
+                    // Sort options
+                    const focusedSortOption = document.activeElement?.closest('.sort-option');
+                    if (focusedSortOption) {
+                        e.preventDefault();
+                        const allSortOptions = Array.from(document.querySelectorAll('.sort-option'));
+                        const currentIndex = allSortOptions.indexOf(focusedSortOption);
+                        let nextIndex;
+                        if (e.key === 'ArrowDown') {
+                            nextIndex = (currentIndex + 1) % allSortOptions.length;
+                        } else {
+                            nextIndex = currentIndex === 0 ? allSortOptions.length - 1 : currentIndex - 1;
+                        }
+                        allSortOptions[nextIndex].focus();
+                        return;
+                    }
+                }
+
+                // Enter/Space on sort option selects it
+                if (!isTyping && (e.key === 'Enter' || e.key === ' ')) {
+                    const focusedSortOption = document.activeElement?.closest('.sort-option');
+                    if (focusedSortOption) {
+                        e.preventDefault();
+                        const radio = focusedSortOption.querySelector('input[type="radio"]');
+                        if (radio) {
+                            radio.checked = true;
+                            radio.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
                     }
                 }
 
