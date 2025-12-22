@@ -2465,7 +2465,26 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
                 const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
                 const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
-                const slugPart = `#${bedsSlug}${bathsSlug}${priceMinSlug}${priceMaxSlug}`;
+                
+                // Determine property type descrip
+                let typeDescrip = '';
+                if (propertyType.includes('townhome')) {
+                    typeDescrip = 'listtypedescrip_attached%20single%20unit/';
+                } else if (propertyType.includes('condo')) {
+                    typeDescrip = 'listtypedescrip_condominium/';
+                } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+                    typeDescrip = '';
+                } else {
+                    typeDescrip = 'listtypedescrip_detached%20single%20family/';
+                }
+                
+                // Determine listtype based on property type
+                let listType = 'listtype_1';
+                if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+                    listType = 'listtype_4';
+                }
+                
+                const slugPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
                 listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
             }
 

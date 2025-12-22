@@ -245,13 +245,14 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
 
         // Combine: listtype + filters + property type descrip
         const hashPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
+        console.log('Debug hashPart:', hashPart, 'for propertyType:', propertyType, 'typeDescrip:', typeDescrip, 'listType:', listType);
 
         // Map View (searchtype=3) - only construct if not already set from legacy data
-        if (!listingsUrlMap) {
+        if (!listingsUrlMap || listingsUrlMap === '') {
             listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${hashPart}`;
         }
         // List View (searchtype=2) - for mobile use
-        if (!listingsUrlList) {
+        if (!listingsUrlList || listingsUrlList === '') {
             listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${hashPart}`;
         }
     }
