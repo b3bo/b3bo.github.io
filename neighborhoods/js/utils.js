@@ -7,6 +7,17 @@
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 
+// Simple HTML escape to prevent XSS
+export function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 // Helper to format price (e.g. $1.25M)
 export function formatPrice(price) {
     if (!price) return '$0';

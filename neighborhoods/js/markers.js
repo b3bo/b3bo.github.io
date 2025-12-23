@@ -6,7 +6,7 @@
  */
 import { STATE } from './state.js';
 import { CONFIG } from './config.js';
-import { formatPrice, getUrlParams, toSlug } from './utils.js';
+import { formatPrice, getUrlParams, toSlug, escapeHtml } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
 
 // Professional SVG marker icons with ripple effects
@@ -261,14 +261,14 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
         <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">
-                    ${neighborhood.name}
+                    ${escapeHtml(neighborhood.name)}
                 </h3>
                 ${neighborhood.urlSlug ? `
                 <a href="https://www.truesouthcoastalhomes.com${neighborhood.urlSlug}"
                    target="_blank"
                    class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
                    onclick="event.stopPropagation();"
-                   title="${neighborhood.name} ${neighborhood.propertyType === 'Condos' ? 'Condos' : neighborhood.propertyType === 'Townhomes' ? 'Townhomes' : 'Homes'} for Sale">
+                   title="${escapeHtml(neighborhood.name)} ${neighborhood.propertyType === 'Condos' ? 'Condos' : neighborhood.propertyType === 'Townhomes' ? 'Townhomes' : 'Homes'} for Sale">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
@@ -279,7 +279,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                    target="_blank"
                    class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
                    onclick="event.stopPropagation();"
-                   title="View ${neighborhood.name} listings">
+                   title="View ${escapeHtml(neighborhood.name)} listings">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
@@ -345,8 +345,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             <a href="${finderUrl}"
                                target="_blank"
                                class="flex items-center justify-center gap-2 flex-1 bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
-                               onclick="event.stopPropagation(); if(typeof gtag !== 'undefined') gtag('event', 'open_community_finder', {neighborhood_name: '${neighborhood.name}', property_type: '${neighborhood.propertyType}'});"
-                               title="Open ${neighborhood.name} in Community Finder">
+                               onclick="event.stopPropagation(); if(typeof gtag !== 'undefined') gtag('event', 'open_community_finder', {neighborhood_name: '${escapeHtml(neighborhood.name)}', property_type: '${neighborhood.propertyType}'});"
+                               title="Open ${escapeHtml(neighborhood.name)} in Community Finder">
                                 Community Finder
                                 <svg style="width: 1rem; height: 1rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -362,8 +362,8 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                             <a href="${listingsUrl}"
                                target="_blank"
                                class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors"
-                               onclick="event.stopPropagation(); if(typeof gtag !== 'undefined') gtag('event', 'view_listings', {neighborhood_name: '${neighborhood.name}', listing_count: ${neighborhood.stats.listingCount}, property_type: '${neighborhood.propertyType}'});"
-                               title="View all ${neighborhood.name} ${neighborhood.propertyType} for sale">
+                               onclick="event.stopPropagation(); if(typeof gtag !== 'undefined') gtag('event', 'view_listings', {neighborhood_name: '${escapeHtml(neighborhood.name)}', listing_count: ${neighborhood.stats.listingCount}, property_type: '${neighborhood.propertyType}'});"
+                               title="View all ${escapeHtml(neighborhood.name)} ${neighborhood.propertyType} for sale">
                                 Matching Listings
                             </a>
                             `;
@@ -372,7 +372,7 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
                         return `
                         <button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed"
                                 disabled
-                                title="MLS listings coming soon for ${neighborhood.name}">
+                                title="MLS listings coming soon for ${escapeHtml(neighborhood.name)}">
                             Coming Soon!
                         </button>
                         `;

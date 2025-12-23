@@ -83,6 +83,9 @@ function applyMapTheme(theme) {
 }
 
 export function initializeMap(center, zoom) {
+    // Get URL params early so they're available for all event handlers
+    const params = getUrlParams();
+
     // Check initial theme to set colorScheme on map creation
     const initialTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 
@@ -382,7 +385,6 @@ export function initializeMap(center, zoom) {
     addMarkers();
     
     // Only setup filters if NOT in single mode.
-    const params = getUrlParams();
     if (params.mode !== 'single') {
         // setupFilters(); // Commented out - filter elements removed
         // applyFilters(); // Commented out - filter elements removed
