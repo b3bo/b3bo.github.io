@@ -410,21 +410,35 @@ hr.divider {
 }
 
 /* Missing Tailwind classes - manually defined (NOT processed by Tailwind) */
-/* CRITICAL: translate: none unsets Tailwind v4's translate property so transform works */
+/* CRITICAL: translate: initial unsets Tailwind v4's translate property so transform works */
 .-translate-x-full {
-  translate: none !important;
+  translate: initial !important;
   transform: translateX(-100%) !important;
 }
 
 /* Positive translate for hiding sliding panels off-screen right */
 .translate-x-full {
-  translate: none !important;
+  translate: initial !important;
   transform: translateX(100%) !important;
 }
 
 .translate-x-0 {
-  translate: none !important;
+  translate: initial !important;
   transform: translateX(0) !important;
+}
+
+/* Sidebar closed state - shows 5px peek edge */
+.-translate-x-\[calc\(100\%-5px\)\] {
+  --tw-translate-x: 0 !important;
+  --tw-translate-y: 0 !important;
+  translate: initial !important;
+  transform: translateX(calc(-100% + 5px)) !important;
+}
+
+/* Direct sidebar default (closed) state - ID selector for specificity */
+#sidebar {
+  translate: initial !important;
+  transform: translateX(calc(-100% + 5px)) !important;
 }
 
 /* Sliding panel visibility with delayed hide for close animation */
@@ -447,7 +461,7 @@ hr.divider {
 
 /* Sidebar peer-checked override (NOT processed by Tailwind) */
 #drawer-toggle:checked ~ #sidebar {
-  translate: none !important;
+  translate: initial !important;
   transform: translateX(0) !important;
   --tw-translate-x: 0 !important;
   --tw-translate-y: 0 !important;
