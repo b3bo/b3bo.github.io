@@ -34,6 +34,9 @@ StockTonePrototype/
 .claude/
 assets/css/archive/
 
+# Neighborhood Finder (generated/deployed)
+neighborhoods/README.md
+
 # Misc
 assets/css/custom - Copy.css
 assets/css/archive/
