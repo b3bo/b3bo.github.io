@@ -54,9 +54,9 @@ export function createMarkerIcon(color, isActive = false) {
 
 // Marker color palette
 const MARKER_COLORS = {
-    urlSlug: '#4c8f96',    // Teal - has URL slug (primary)
-    searchId: '#4a5462',   // Dark gray - has search ID
-    noData: '#9ca3af'      // Light gray - no data
+    urlSlug: '#4c8f96',      // Teal - has URL slug (SEO page)
+    listingsLink: '#4a5462', // Dark gray - has dynamic listings link (via subdivision)
+    noData: '#9ca3af'        // Light gray - no data
 };
 
 export function addMarkers() {
@@ -64,22 +64,23 @@ export function addMarkers() {
     STATE.markers = [];
 
     STATE.neighborhoods.forEach((neighborhood, index) => {
-        // Determine marker color based on searchId and urlSlug
-        const hasSearchId = neighborhood.searchId && neighborhood.searchId !== '';
+        // Determine marker color based on urlSlug and dynamic listings link availability
         const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
-        
+        const hasListingsLink = (neighborhood.mlsSubdivisions && neighborhood.mlsSubdivisions.length > 0) ||
+                                (neighborhood.name && neighborhood.name !== '');
+
         let markerClass = 'ripple-marker';
         if (hasUrlSlug) {
-            markerClass += ' has-urlslug';   // primary-500 (takes priority)
-        } else if (hasSearchId) {
-            markerClass += ' has-searchid';  // neutral-700
+            markerClass += ' has-urlslug';      // primary-500 (takes priority)
+        } else if (hasListingsLink) {
+            markerClass += ' has-listingslink'; // neutral-700
         } else {
-            markerClass += ' no-data';       // neutral-300
+            markerClass += ' no-data';          // neutral-300
         }
-        
+
         // Determine marker color based on data availability
         const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
-                           (hasSearchId ? MARKER_COLORS.searchId : MARKER_COLORS.noData);
+                           (hasListingsLink ? MARKER_COLORS.listingsLink : MARKER_COLORS.noData);
 
         // Create marker with professional SVG icon
         const marker = new google.maps.Marker({
@@ -113,22 +114,23 @@ export function addMarkers() {
 
 export function createMarkers(neighborhoodsToMap) {
     neighborhoodsToMap.forEach(neighborhood => {
-        // Determine marker color based on searchId and urlSlug
-        const hasSearchId = neighborhood.searchId && neighborhood.searchId !== '';
+        // Determine marker color based on urlSlug and dynamic listings link availability
         const hasUrlSlug = neighborhood.urlSlug && neighborhood.urlSlug !== '';
-        
+        const hasListingsLink = (neighborhood.mlsSubdivisions && neighborhood.mlsSubdivisions.length > 0) ||
+                                (neighborhood.name && neighborhood.name !== '');
+
         let markerClass = 'ripple-marker';
         if (hasUrlSlug) {
-            markerClass += ' has-urlslug';   // primary-500 (takes priority)
-        } else if (hasSearchId) {
-            markerClass += ' has-searchid';  // neutral-700
+            markerClass += ' has-urlslug';      // primary-500 (takes priority)
+        } else if (hasListingsLink) {
+            markerClass += ' has-listingslink'; // neutral-700
         } else {
-            markerClass += ' no-data';       // neutral-300
+            markerClass += ' no-data';          // neutral-300
         }
-        
+
         // Determine marker color based on data availability
         const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
-                           (hasSearchId ? MARKER_COLORS.searchId : MARKER_COLORS.noData);
+                           (hasListingsLink ? MARKER_COLORS.listingsLink : MARKER_COLORS.noData);
 
         // Create marker with professional SVG icon
         const marker = new google.maps.Marker({
@@ -204,14 +206,14 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
     const medianPrice = neighborhood.stats.medianPrice || neighborhood.stats.avgPrice;
     const medianPriceDisplay = formatPrice(medianPrice);
     
-    // Dynamically construct listings URLs from searchId with property type fragment
+    // Dynamically construct listings URLs from searchId OR subdivision name
     let listingsUrlMap = neighborhood.listingsUrlMap || neighborhood.listingsUrl || neighborhood.marketReportUrl; // Map View (backwards compatible)
     let listingsUrlList = neighborhood.listingsUrlList; // List View URL
     const searchId = neighborhood.searchId || null;
     const propertyType = (neighborhood.propertyType || 'homes').toLowerCase();
 
-    // Construct URLs if we have a valid searchId
-    if (searchId) {
+    // Construct URLs using subdivision name (all communities get dynamic listing links)
+    if (neighborhood.name) {
         // Determine property type descrip (goes at end of hash)
         let typeDescrip = '';
         if (propertyType.includes('townhome')) {
@@ -245,15 +247,30 @@ export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.in
 
         // Combine: listtype + filters + property type descrip
         const hashPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
-        console.log('Debug hashPart:', hashPart, 'for propertyType:', propertyType, 'typeDescrip:', typeDescrip, 'listType:', listType);
+
+        // Build the search parameter using subdivision names (dynamic linking)
+        // Priority: 1) mlsSubdivisions (comma-separated MLS names), 2) neighborhood.name (canonical)
+        // Note: searchId is preserved in data for other uses but not used for listing URLs
+        let searchParam;
+        if (neighborhood.mlsSubdivisions && neighborhood.mlsSubdivisions.length > 0) {
+            // Use MLS subdivision variants (comma-separated, spaces become +)
+            const subdivisions = neighborhood.mlsSubdivisions
+                .map(s => s.replace(/ /g, '+'))
+                .join(',');
+            searchParam = `subdivision=${subdivisions}`;
+        } else {
+            // Fallback to canonical name (spaces become +)
+            const subdivisionName = neighborhood.name.replace(/ /g, '+');
+            searchParam = `subdivision=${subdivisionName}`;
+        }
 
         // Map View (searchtype=3) - only construct if not already set from legacy data
         if (!listingsUrlMap || listingsUrlMap === '') {
-            listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${hashPart}`;
+            listingsUrlMap = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&${searchParam}${hashPart}`;
         }
         // List View (searchtype=2) - for mobile use
         if (!listingsUrlList || listingsUrlList === '') {
-            listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&searchid=${searchId}${hashPart}`;
+            listingsUrlList = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&${searchParam}${hashPart}`;
         }
     }
     

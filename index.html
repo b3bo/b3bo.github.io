@@ -538,7 +538,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 27 | v1.1.0</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 28 | v1.1.0</p>
                 </div>
             </div>
 
@@ -2373,9 +2373,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
         // Marker colors (matches production markers.js)
         const MARKER_COLORS = {
-            urlSlug: '#4c8f96',    // Teal - has URL slug (primary)
-            searchId: '#4a5462',   // Dark gray - has search ID
-            noData: '#9ca3af'      // Light gray - no data
+            urlSlug: '#4c8f96',      // Teal - has URL slug (SEO page)
+            listingsLink: '#4a5462', // Dark gray - has dynamic listings link (via subdivision)
+            noData: '#9ca3af'        // Light gray - no data
         };
 
         // Track active marker for ripple animation
@@ -2445,56 +2445,55 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 }).join(', ') + '.';
             };
 
-            // Build listings URL with filter slugs (matches production markers.js)
-            let listingsUrl = null;
-
-            // Property type routing for searchId (from production)
+            // Build listings URL with filter slugs (dynamic subdivision linking)
             const propertyType = (n.propertyType || 'homes').toLowerCase();
-            let searchId = null;
+
+            // Dynamic filter slugs from filterState
+            const fs = window.filterState || {};
+            const bedsMin = fs.bedsMin || 1;
+            const bathsMin = fs.bathsMin || 1;
+            const priceMin = fs.priceMin > 0 ? window.PRICE_STEPS[fs.priceMin] : null;
+            const priceMax = fs.priceMax < 41 ? window.PRICE_STEPS[fs.priceMax] : null;
+
+            const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
+            const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
+            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
+            const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
+
+            // Determine property type descrip
+            let typeDescrip = '';
             if (propertyType.includes('townhome')) {
-                searchId = n.searchIdTownhomes || n.searchId || null;
+                typeDescrip = 'listtypedescrip_attached%20single%20unit/';
             } else if (propertyType.includes('condo')) {
-                searchId = n.searchIdCondos || n.searchId || null;
-            } else if (propertyType.includes('lot') || propertyType.includes('land')) {
-                searchId = n.searchIdLots || n.searchId || null;
+                typeDescrip = 'listtypedescrip_condominium/';
+            } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+                typeDescrip = '';
             } else {
-                searchId = n.searchIdHomes || n.searchId || null;
+                typeDescrip = 'listtypedescrip_detached%20single%20family/';
             }
 
-            if (searchId) {
-                // Dynamic filter slugs from filterState
-                const fs = window.filterState || {};
-                const bedsMin = fs.bedsMin || 1;
-                const bathsMin = fs.bathsMin || 1;
-                const priceMin = fs.priceMin > 0 ? window.PRICE_STEPS[fs.priceMin] : null;
-                const priceMax = fs.priceMax < 41 ? window.PRICE_STEPS[fs.priceMax] : null;
-
-                const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
-                const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-                const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
-                const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
-                
-                // Determine property type descrip
-                let typeDescrip = '';
-                if (propertyType.includes('townhome')) {
-                    typeDescrip = 'listtypedescrip_attached%20single%20unit/';
-                } else if (propertyType.includes('condo')) {
-                    typeDescrip = 'listtypedescrip_condominium/';
-                } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
-                    typeDescrip = '';
-                } else {
-                    typeDescrip = 'listtypedescrip_detached%20single%20family/';
-                }
-                
-                // Determine listtype based on property type
-                let listType = 'listtype_1';
-                if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
-                    listType = 'listtype_4';
-                }
-                
-                const slugPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
-                listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&searchid=${searchId}${slugPart}`;
+            // Determine listtype based on property type
+            let listType = 'listtype_1';
+            if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+                listType = 'listtype_4';
             }
+
+            const slugPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
+
+            // Build search parameter using subdivision names (dynamic linking)
+            // Priority: 1) mlsSubdivisions (comma-separated MLS names), 2) n.name (canonical)
+            let searchParam;
+            if (n.mlsSubdivisions && n.mlsSubdivisions.length > 0) {
+                const subdivisions = n.mlsSubdivisions
+                    .map(s => s.replace(/ /g, '+'))
+                    .join(',');
+                searchParam = `subdivision=${subdivisions}`;
+            } else {
+                const subdivisionName = n.name.replace(/ /g, '+');
+                searchParam = `subdivision=${subdivisionName}`;
+            }
+
+            const listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&${searchParam}${slugPart}`;
 
             const filtered = window.filteredNeighborhoods || [];
             const hasNav = filtered.length > 1;
@@ -2639,16 +2638,13 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
 
             filteredNeighborhoods.forEach(n => {
-                // Determine marker color based on searchId and urlSlug (matches production)
-                const hasSearchId = (n.searchIdHomes && n.searchIdHomes !== '') ||
-                                   (n.searchIdCondos && n.searchIdCondos !== '') ||
-                                   (n.searchIdTownhomes && n.searchIdTownhomes !== '') ||
-                                   (n.searchIdLots && n.searchIdLots !== '') ||
-                                   (n.searchId && n.searchId !== '');
+                // Determine marker color based on urlSlug and dynamic listings link availability
                 const hasUrlSlug = n.urlSlug && n.urlSlug !== '';
+                const hasListingsLink = (n.mlsSubdivisions && n.mlsSubdivisions.length > 0) ||
+                                        (n.name && n.name !== '');
 
                 const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
-                                   (hasSearchId ? MARKER_COLORS.searchId : MARKER_COLORS.noData);
+                                   (hasListingsLink ? MARKER_COLORS.listingsLink : MARKER_COLORS.noData);
 
                 // Create marker with colored dot (matches production style)
                 const markerContent = document.createElement('div');
