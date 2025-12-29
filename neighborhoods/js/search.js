@@ -383,12 +383,22 @@ export function setupSearch() {
         toggleDropdown();
     });
 
-    // Input handler with debounce
+    // Input handler with debounce - updates both dropdown AND filters main list
     const debouncedSearch = debounce((query) => {
         if (query.trim()) {
             renderResults(filterByName(query));
+            // Also apply as filter to main list (live filtering)
+            STATE.searchQuery = query.trim();
+            updateButtonState();
+            applyFilters();
         } else {
             renderResults(getTopCommunities(), true);
+            // Clear filter when input is cleared
+            if (STATE.searchQuery) {
+                STATE.searchQuery = '';
+                updateButtonState();
+                applyFilters();
+            }
         }
     }, 150);
 
