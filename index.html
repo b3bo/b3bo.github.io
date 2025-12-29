@@ -259,7 +259,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 <!-- Results count -->
                 <div class="px-5">
                     <hr class="divider">
-                    <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4">42 matches found</p>
+                    <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4">Loading...</p>
                     <hr class="divider">
                 </div>
             </div>
@@ -538,7 +538,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.11</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.12</p>
                 </div>
             </div>
 
@@ -1203,20 +1203,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             }
 
             function aggregateListingLabel(count, neighborhoods = []) {
-                const types = new Set(neighborhoods.map(n => (n.propertyType || '').toLowerCase()));
-                const homesActive = homesBtn ? homesBtn.classList.contains('active') : false;
-                const condosActive = condosBtn ? condosBtn.classList.contains('active') : false;
-
-                let label = 'Active Listings';
-                if (types.size === 1) {
-                    label = listingLabelForType([...types][0]);
-                } else if (homesActive && !condosActive) {
-                    label = 'Active Home Listings';
-                } else if (condosActive && !homesActive) {
-                    label = 'Active Condo Listings';
-                }
-
-                return `${count} ${label}`;
+                // Show neighborhood/community count, not listing count
+                return `${count} ${count === 1 ? 'Community' : 'Communities'}`;
             }
 
             function renderResults() {
@@ -1740,6 +1728,19 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         searchResultsEl.classList.remove('has-overflow');
                     }
 
+                    // Live filter the main results list
+                    window.searchQuery = query;
+                    if (query) {
+                        // Filter neighborhoods by search query
+                        window.filteredNeighborhoods = (window.neighborhoods || []).filter(n =>
+                            n.name.toLowerCase().includes(query)
+                        );
+                    } else {
+                        // Reset to all neighborhoods when search is cleared
+                        window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+                    }
+                    renderResults();
+
                     // Add click handlers to search results
                     results.querySelectorAll('.search-result').forEach(btn => {
                         btn.addEventListener('click', () => {
@@ -1778,6 +1779,10 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             }
                             searchDropdown.classList.add('hidden');
                             searchInput.value = '';
+                            // Clear search filter and reset list
+                            window.searchQuery = '';
+                            window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+                            renderResults();
                         });
                     });
                 });

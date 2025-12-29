@@ -9,7 +9,7 @@ import { CONFIG } from './config.js';
 import { formatPrice } from './utils.js';
 import { smoothFlyTo } from './map.js?v=202501';
 import { applySortOnly } from './filters.js';
-import { setupSearch } from './search.js';
+import { setupSearch } from './search.js?v=202512';
 
 let sortSelectedIndex = -1;
 
