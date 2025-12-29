@@ -538,7 +538,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.12</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.13</p>
                 </div>
             </div>
 
@@ -1126,11 +1126,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 searchInput.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter') {
                         e.preventDefault();
-                        // Click first search result if available
-                        const firstResult = document.querySelector('#search-results .search-result');
-                        if (firstResult) {
-                            firstResult.click();
-                        }
+                        // Just close dropdown - filter is already applied from input handler
+                        searchDropdown.classList.add('hidden');
+                        searchInput.blur();
                     } else if (e.key === 'Escape') {
                         e.preventDefault();
                         searchDropdown.classList.add('hidden');
@@ -1728,7 +1726,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         searchResultsEl.classList.remove('has-overflow');
                     }
 
-                    // Live filter the main results list
+                    // Live filter the main results list AND markers
                     window.searchQuery = query;
                     if (query) {
                         // Filter neighborhoods by search query
@@ -1740,6 +1738,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         window.filteredNeighborhoods = [...(window.neighborhoods || [])];
                     }
                     renderResults();
+                    // Update markers on map to match filtered list
+                    if (window.addMarkers) window.addMarkers();
 
                     // Add click handlers to search results
                     results.querySelectorAll('.search-result').forEach(btn => {
@@ -1779,10 +1779,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                             }
                             searchDropdown.classList.add('hidden');
                             searchInput.value = '';
-                            // Clear search filter and reset list
+                            // Clear search filter and reset list + markers
                             window.searchQuery = '';
                             window.filteredNeighborhoods = [...(window.neighborhoods || [])];
                             renderResults();
+                            if (window.addMarkers) window.addMarkers();
                         });
                     });
                 });
