@@ -538,7 +538,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.16</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.17</p>
                 </div>
             </div>
 
@@ -1207,18 +1207,28 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             // Animated counter - spins numbers up/down
             let lastDisplayedCount = null;
+            let countAnimationFrame = null;
             function animateCount(element, targetCount, duration = 700) {
-                const start = lastDisplayedCount !== null ? lastDisplayedCount : targetCount;
+                // Cancel any pending animation
+                if (countAnimationFrame) {
+                    cancelAnimationFrame(countAnimationFrame);
+                    countAnimationFrame = null;
+                }
+
+                // Get current displayed value (in case animation was interrupted)
+                const countSpan = element.querySelector('.count-number');
+                const currentDisplayed = countSpan ? parseInt(countSpan.textContent, 10) : null;
+                const start = (currentDisplayed !== null && !isNaN(currentDisplayed)) ? currentDisplayed : (lastDisplayedCount !== null ? lastDisplayedCount : targetCount);
                 const diff = targetCount - start;
 
                 // Skip animation if no change or first load
                 if (diff === 0 || lastDisplayedCount === null) {
                     lastDisplayedCount = targetCount;
+                    if (countSpan) countSpan.textContent = targetCount;
                     return;
                 }
 
                 const startTime = performance.now();
-                const suffix = targetCount === 1 ? ' Community' : ' Communities';
 
                 function update(currentTime) {
                     const elapsed = currentTime - startTime;
@@ -1229,19 +1239,19 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     const current = Math.round(start + diff * eased);
 
                     // Update just the number part
-                    const countSpan = element.querySelector('.count-number');
                     if (countSpan) {
                         countSpan.textContent = current;
                     }
 
                     if (progress < 1) {
-                        requestAnimationFrame(update);
+                        countAnimationFrame = requestAnimationFrame(update);
                     } else {
+                        countAnimationFrame = null;
                         lastDisplayedCount = targetCount;
                     }
                 }
 
-                requestAnimationFrame(update);
+                countAnimationFrame = requestAnimationFrame(update);
             }
 
             // Check if any filters are active (non-default values)
@@ -1446,10 +1456,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                 }, delay);
                             }
 
-                            // On mobile, close drawer to show map
-                            if (window.innerWidth < 768) {
-                                document.getElementById('drawer-toggle').checked = false;
-                            }
+                            // Keep drawer open so users can browse multiple results
+                            // They can manually close it to focus on the map
                         }
                     });
                 });
@@ -1931,10 +1939,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                     }, delay);
                                 }
 
-                                // On mobile, close drawer
-                                if (window.innerWidth < 768) {
-                                    document.getElementById('drawer-toggle').checked = false;
-                                }
+                                // Keep drawer open so users can browse multiple results
                             }
                             searchDropdown.classList.add('hidden');
                             searchInput.value = '';

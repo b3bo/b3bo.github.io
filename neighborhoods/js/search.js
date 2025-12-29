@@ -160,11 +160,7 @@ function navigateToNeighborhood(neighborhood) {
         }, delay);
     }
 
-    // On mobile, close drawer to show map
-    if (window.innerWidth < 768) {
-        const drawerToggle = document.getElementById('drawer-toggle');
-        if (drawerToggle) drawerToggle.checked = false;
-    }
+    // Keep drawer open so users can browse multiple results
 }
 
 /**
