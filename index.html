@@ -538,7 +538,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.13</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.14</p>
                 </div>
             </div>
 
@@ -1205,6 +1205,105 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 return `${count} ${count === 1 ? 'Community' : 'Communities'}`;
             }
 
+            // Check if any filters are active (non-default values)
+            function hasActiveFilters() {
+                const fs = window.filterState || {};
+                const totalNeighborhoods = (window.neighborhoods || []).length;
+                const filteredCount = (window.filteredNeighborhoods || []).length;
+
+                // If filtered count differs from total, filters are active
+                if (filteredCount < totalNeighborhoods) return true;
+
+                // Also check explicit filter states
+                if (window.searchQuery) return true;
+                if (fs.propertyType) return true;
+                if (fs.areas && fs.areas.size > 0) return true;
+                if (fs.amenities && fs.amenities.size > 0) return true;
+                if (fs.priceMin > 0 || fs.priceMax < 41) return true;
+                if (fs.bedsMin > 1 || fs.bathsMin > 1) return true;
+
+                return false;
+            }
+
+            // Reset all filters to defaults
+            function clearAllFilters() {
+                // Reset filter state
+                window.filterState = {
+                    propertyType: null,
+                    areas: new Set(),
+                    amenities: new Set(),
+                    priceMin: 0,
+                    priceMax: 41,
+                    bedsMin: 1,
+                    bathsMin: 1
+                };
+
+                // Reset search
+                window.searchQuery = '';
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) searchInput.value = '';
+
+                // Reset UI controls
+                const priceMin = document.getElementById('price-min');
+                const priceMax = document.getElementById('price-max');
+                if (priceMin) priceMin.value = 0;
+                if (priceMax) priceMax.value = 41;
+
+                const bedsSlider = document.getElementById('beds-slider');
+                const bathsSlider = document.getElementById('baths-slider');
+                if (bedsSlider) bedsSlider.value = 1;
+                if (bathsSlider) bathsSlider.value = 1;
+
+                // Reset property type buttons
+                document.querySelectorAll('[data-filter-type]').forEach(btn => {
+                    btn.classList.remove('bg-brand-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-neutral-700');
+                });
+
+                // Reset area tag buttons (remove selected class)
+                document.querySelectorAll('.area-tag').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+
+                // Reset amenity checkboxes and tags
+                document.querySelectorAll('input[data-amenity]').forEach(cb => {
+                    cb.checked = false;
+                });
+                document.querySelectorAll('.amenity-tag').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+
+                // Clear any visible map boundaries
+                if (window.customBoundaries && window.hideCustomBoundary) {
+                    const boundariesToClear = [...window.customBoundaries];
+                    boundariesToClear.forEach(zipCode => {
+                        window.hideCustomBoundary(zipCode);
+                    });
+                }
+
+                // Reset filtered neighborhoods to all
+                window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+
+                // Re-render
+                renderResults();
+                if (window.addMarkers) window.addMarkers();
+
+                // Update price display
+                const priceDisplay = document.getElementById('price-display');
+                if (priceDisplay) priceDisplay.textContent = '$250K - $35M+';
+
+                // Update beds/baths displays
+                const bedsDisplay = document.getElementById('beds-display');
+                const bathsDisplay = document.getElementById('baths-display');
+                if (bedsDisplay) bedsDisplay.textContent = '1+';
+                if (bathsDisplay) bathsDisplay.textContent = '1+';
+
+                // Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'clear_filters');
+                }
+            }
+
             function renderResults() {
                 const list = document.getElementById('neighborhoodList');
                 const resultsCount = document.getElementById('resultsCount');
@@ -1235,9 +1334,22 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     }
                 });
 
-                // Update count
+                // Update count with optional Clear pill
                 if (resultsCount) {
-                    resultsCount.textContent = aggregateListingLabel(sorted.length, sorted);
+                    const countText = aggregateListingLabel(sorted.length, sorted);
+                    if (hasActiveFilters()) {
+                        resultsCount.innerHTML = `${countText} <button id="clear-filters" class="ml-2 px-3 py-1 text-sm font-medium rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>`;
+                        // Add click handler for Clear
+                        const clearBtn = document.getElementById('clear-filters');
+                        if (clearBtn) {
+                            clearBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                clearAllFilters();
+                            });
+                        }
+                    } else {
+                        resultsCount.textContent = countText;
+                    }
                 }
 
                 // Render list - use buttons for WCAG keyboard navigation
