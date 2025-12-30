@@ -479,10 +479,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                     <input id="search-input" type="text" placeholder="Search communities..." autocomplete="off" tabindex="-1"
                                            class="w-full px-4 py-3 text-base border-b border-neutral-200 dark:border-dark-border bg-transparent text-neutral-700 dark:text-dark-text-primary placeholder-neutral-400 dark:placeholder-neutral-500 focus-ring rounded-t-lg">
                                     <div id="search-results" class="py-1" style="max-height: 320px; overflow-y: auto;">
-                                        <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
-                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watercolor">Watercolor - Homes</button>
-                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Watersound">Watersound - Homes</button>
-                                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-id="Rosemary Beach">Rosemary Beach - Homes</button>
+                                        <!-- Populated dynamically when dropdown opens -->
                                     </div>
                                 </div>
                             </div>
@@ -538,7 +535,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.17</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 29 | v1.1.18</p>
                 </div>
             </div>
 
@@ -820,6 +817,23 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 dropdown.style.zIndex = '2147483647';
             }
 
+            // Render "Most Listings" in search dropdown
+            function renderMostListings() {
+                const results = document.getElementById('search-results');
+                const neighborhoods = window.neighborhoods || [];
+                if (!results || !neighborhoods.length) return;
+
+                const topListings = [...neighborhoods].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 5);
+                results.innerHTML = `
+                    <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                    ${topListings.map(n => `
+                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                            ${n.name} - ${n.propertyType}
+                        </button>
+                    `).join('')}
+                `;
+            }
+
             // Search dropdown toggle
             if (searchBtn && searchDropdown) {
                 searchBtn.addEventListener('click', function(e) {
@@ -828,7 +842,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     searchDropdown.classList.toggle('hidden');
                     if (!searchDropdown.classList.contains('hidden')) {
                         positionDropdown(searchDropdown, searchBtn);
-                        if (searchInput) searchInput.focus();
+                        if (searchInput) {
+                            searchInput.value = ''; // Clear any previous input
+                            searchInput.focus();
+                        }
+                        // Render initial "Most Listings" results
+                        renderMostListings();
                         // Detect initial overflow and apply stationary fade
                         const searchResultsEl = document.getElementById('search-results');
                         if (searchResultsEl) {
@@ -1907,49 +1926,57 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     renderResults();
                     // Update markers on map to match filtered list
                     if (window.addMarkers) window.addMarkers();
+                });
+            }
 
-                    // Add click handlers to search results
-                    results.querySelectorAll('.search-result').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            const name = btn.dataset.name;
-                            const type = btn.dataset.type;
-                            const n = (window.neighborhoods || []).find(x => x.name === name && x.propertyType === type);
-                            if (n && window.map) {
-                                // Analytics
-                                if (typeof gtag !== 'undefined') {
-                                    gtag('event', 'search_select', {
-                                        neighborhood_name: n.name,
-                                        search_query: searchInput.value
-                                    });
-                                }
+            // Event delegation for search result clicks (handles both "Most Listings" and search results)
+            const searchResultsContainer = document.getElementById('search-results');
+            if (searchResultsContainer) {
+                searchResultsContainer.addEventListener('click', function(e) {
+                    const btn = e.target.closest('.search-result');
+                    if (!btn) return;
 
-                                // Smooth fly animation
-                                window.smoothFlyTo(n.position);
+                    const name = btn.dataset.name;
+                    const type = btn.dataset.type;
+                    const n = (window.neighborhoods || []).find(x => x.name === name && x.propertyType === type);
 
-                                const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
-                                if (marker) {
-                                    // Calculate distance to determine delay
-                                    const startPos = window.map.getCenter();
-                                    const targetLatLng = new google.maps.LatLng(n.position);
-                                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-                                    const delay = distance < 2000 ? 450 : 2200;
+                    if (n && window.map) {
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'search_select', {
+                                neighborhood_name: n.name,
+                                search_query: searchInput?.value || ''
+                            });
+                        }
 
-                                    setTimeout(() => {
-                                        google.maps.event.trigger(marker.marker, 'click');
-                                    }, delay);
-                                }
+                        // Smooth fly animation
+                        window.smoothFlyTo(n.position);
 
-                                // Keep drawer open so users can browse multiple results
-                            }
-                            searchDropdown.classList.add('hidden');
-                            searchInput.value = '';
-                            // Clear search filter and reset list + markers
-                            window.searchQuery = '';
-                            window.filteredNeighborhoods = [...(window.neighborhoods || [])];
-                            renderResults();
-                            if (window.addMarkers) window.addMarkers();
-                        });
-                    });
+                        const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                        if (marker) {
+                            // Calculate distance to determine delay
+                            const startPos = window.map.getCenter();
+                            const targetLatLng = new google.maps.LatLng(n.position);
+                            const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                            const delay = distance < 2000 ? 450 : 2200;
+
+                            setTimeout(() => {
+                                google.maps.event.trigger(marker.marker, 'click');
+                            }, delay);
+                        }
+
+                        // Keep drawer open so users can browse multiple results
+                    }
+
+                    // Close dropdown and clear search
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    if (searchInput) searchInput.value = '';
+
+                    // Clear search filter and reset list + markers
+                    window.searchQuery = '';
+                    window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+                    renderResults();
+                    if (window.addMarkers) window.addMarkers();
                 });
             }
 
