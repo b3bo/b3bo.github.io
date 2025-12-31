@@ -535,7 +535,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.27</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.28</p>
                 </div>
             </div>
 
@@ -2065,14 +2065,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             });
 
             // SINGLE MODE CENTERING
-            // Calculate offset center directly (no pan needed)
-            if (singleModeTarget) {
-                google.maps.event.addListenerOnce(window.map, 'projection_changed', () => {
-                    const panAmount = calculateCenteredOffset(initialZoom, 0); // 0 = no disclaimer
-                    const offsetCenter = offsetLatLng(singleModeTarget, panAmount, initialZoom);
-                    window.map.setCenter(offsetCenter);
-                });
-            }
+            // Offset is now applied in showInfoWindowContent's domready callback
+            // to ensure timing is correct (after info window renders)
 
             // Create info windows (click and hover)
             // disableAutoPan prevents Google Maps from moving the map when info window opens
@@ -2201,11 +2195,14 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             });
 
             // Re-anchor InfoWindow during pan (workaround for AdvancedMarkerElement)
-            window.map.addListener('center_changed', () => {
-                if (window.infoWindow && window.infoWindow.getMap() && window.activeMarker) {
-                    window.infoWindow.open({ map: window.map, anchor: window.activeMarker });
-                }
-            });
+            // Skip in single mode - interferes with offset centering timing
+            if (!window.isSingleMode) {
+                window.map.addListener('center_changed', () => {
+                    if (window.infoWindow && window.infoWindow.getMap() && window.activeMarker) {
+                        window.infoWindow.open({ map: window.map, anchor: window.activeMarker });
+                    }
+                });
+            }
         }
 
         // ==========================================
@@ -2763,6 +2760,20 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     amenitiesEl.classList.add('has-overflow');
                 }
             });
+
+            // Single mode: apply offset centering after info window opens
+            // Using setTimeout instead of domready for consistent timing across cached/uncached loads
+            if (window.isSingleMode && marker) {
+                setTimeout(() => {
+                    const position = marker.position || n.position;
+                    const zoom = window.map.getZoom();
+                    const panAmount = calculateCenteredOffset(zoom, 0); // 0 = no disclaimer in single mode
+                    const offsetCenter = offsetLatLng(position, panAmount, zoom);
+                    window.map.setCenter(offsetCenter);
+                    // Re-anchor info window after center change
+                    targetInfoWindow.open({ map: window.map, anchor: marker });
+                }, 100);
+            }
 
             // Handle close events for primary window only
             if (targetInfoWindow === window.infoWindow) {
