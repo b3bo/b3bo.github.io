@@ -74,17 +74,25 @@ export function toSlug(name) {
     return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-// Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6"
+// Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6" or "3-4"
 export function parseRange(rangeStr) {
-    if (!rangeStr) return null;
+    if (!rangeStr || rangeStr === 'N/A') return null;
     // Remove '$', ',', and whitespace
     const cleanStr = rangeStr.replace(/[$,\s]/g, '');
     const parts = cleanStr.split('-');
     if (parts.length === 2) {
-        return {
-            min: parseInt(parts[0]),
-            max: parseInt(parts[1])
-        };
+        const min = parseFloat(parts[0]);
+        const max = parseFloat(parts[1]);
+        // Validate both are valid numbers
+        if (!isNaN(min) && !isNaN(max)) {
+            return { min, max };
+        }
+    } else if (parts.length === 1) {
+        // Handle single value like "3" -> {min: 3, max: 3}
+        const val = parseFloat(parts[0]);
+        if (!isNaN(val)) {
+            return { min: val, max: val };
+        }
     }
     return null;
 }

@@ -535,7 +535,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.28</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.29</p>
                 </div>
             </div>
 
@@ -566,6 +566,12 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
     <script type="module" src="./neighborhoods/js/init.js"></script>
 
     <script>
+        // Helper: Parse URL params with HTML entity decoding (handles &amp; from WYSIWYG editors)
+        function getUrlParams() {
+            const search = window.location.search.replace(/&amp;/g, '&');
+            return new URLSearchParams(search);
+        }
+
         // Panel navigation - wait for both DOM and data
         function initApp() {
             // Guard against double initialization
@@ -573,7 +579,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             window.appInitialized = true;
 
             // Parse URL parameters for single mode
-            const urlParams = new URLSearchParams(window.location.search);
+            const urlParams = getUrlParams();
             const isSingleMode = urlParams.get('mode') === 'single';
             const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
             window.isSingleMode = isSingleMode;
@@ -1752,6 +1758,10 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 const priceMinIdx = window.filterState.priceMin || 0;
                 const priceMaxIdx = window.filterState.priceMax || 41;
 
+                // Get beds/baths from filter state
+                const minBeds = window.filterState.bedsMin || 1;
+                const minBaths = window.filterState.bathsMin || 1;
+
                 // Convert to actual prices
                 // priceMinIdx=0 means "no minimum" (show all), priceMaxIdx=41 means "no maximum"
                 let minPrice = priceMinIdx === 0 ? 0 : (PRICE_STEPS[priceMinIdx] || 0);
@@ -1762,10 +1772,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     let matchesType = true;
                     if (isHomesActive || isCondosActive) {
                         matchesType = false;
-                        if (isHomesActive && (n.propertyType === 'Homes' || n.propertyType === 'Townhomes')) {
+                        const propType = (n.propertyType || '').toLowerCase();
+                        if (isHomesActive && (propType === 'homes' || propType === 'townhomes')) {
                             matchesType = true;
                         }
-                        if (isCondosActive && n.propertyType === 'Condos') {
+                        if (isCondosActive && propType === 'condos') {
                             matchesType = true;
                         }
                     }
@@ -1816,7 +1827,25 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         inPriceRange = stats.avgPrice >= minPrice && stats.avgPrice <= maxPrice;
                     }
 
-                    return matchesType && matchesArea && matchesAmenities && inPriceRange;
+                    // Beds filter - check if neighborhood has listings >= minBeds
+                    let inBedsRange = true;
+                    if (minBeds > 1) {
+                        const nbMaxBeds = stats.maxBeds !== undefined ? parseFloat(stats.maxBeds) : null;
+                        if (nbMaxBeds !== null && !isNaN(nbMaxBeds)) {
+                            inBedsRange = nbMaxBeds >= minBeds;
+                        }
+                    }
+
+                    // Baths filter - check if neighborhood has listings >= minBaths
+                    let inBathsRange = true;
+                    if (minBaths > 1) {
+                        const nbMaxBaths = stats.maxBaths !== undefined ? parseFloat(stats.maxBaths) : null;
+                        if (nbMaxBaths !== null && !isNaN(nbMaxBaths)) {
+                            inBathsRange = nbMaxBaths >= minBaths;
+                        }
+                    }
+
+                    return matchesType && matchesArea && matchesAmenities && inPriceRange && inBedsRange && inBathsRange;
                 });
 
                 // Re-render results and markers
@@ -2029,7 +2058,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             mapDiv.innerHTML = '';
 
             // Check for single mode
-            const urlParams = new URLSearchParams(window.location.search);
+            const urlParams = getUrlParams();
             const isSingleMode = urlParams.get('mode') === 'single';
             const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
 
@@ -2093,7 +2122,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
                 window.markersInitialized = true;
 
-                const urlParams = new URLSearchParams(window.location.search);
+                const urlParams = getUrlParams();
                 const isSingleMode = urlParams.get('mode') === 'single';
                 const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
 

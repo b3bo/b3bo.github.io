@@ -421,12 +421,13 @@ export function applyFilters() {
         let matchesPropertyType = true; // default: no property-type filtering
         if (isHomesActive || isCondosActive) {
             matchesPropertyType = false; // we'll check conditions below
+            const propType = (neighborhood.propertyType || '').toLowerCase();
 
-            if (isHomesActive && (neighborhood.propertyType === 'Homes' || neighborhood.propertyType === 'Townhomes')) {
+            if (isHomesActive && (propType === 'homes' || propType === 'townhomes')) {
                 matchesPropertyType = true;
             }
 
-            if (isCondosActive && neighborhood.propertyType === 'Condos') {
+            if (isCondosActive && propType === 'condos') {
                 matchesPropertyType = true;
             }
         }
