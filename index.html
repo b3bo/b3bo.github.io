@@ -535,7 +535,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.26</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.27</p>
                 </div>
             </div>
 
@@ -2048,19 +2048,10 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 }
             }
 
-            // Only offset for sidebar in normal mode (sidebar hidden in single mode)
-            let adjustedCenter = initialCenter;
-            if (!isSingleMode) {
-                const lngOffset = calculateSidebarOffsetLng(initialZoom);
-                adjustedCenter = {
-                    lat: initialCenter.lat,
-                    lng: initialCenter.lng + lngOffset
-                };
-            }
-
+            // Map center - no sidebar offset needed (sidebar is overlay, not inset)
             window.map = new google.maps.Map(mapDiv, {
                 zoom: initialZoom,
-                center: adjustedCenter,
+                center: initialCenter,
                 mapId: '92b2f4ea8b2fce54a50ed2e9',
                 mapTypeControl: true,
                 mapTypeControlOptions: {
@@ -2278,12 +2269,15 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             // Only fit if we have valid bounds
             if (!bounds.isEmpty()) {
+                // Responsive padding: more breathing room on desktop
+                const isMobile = window.innerWidth < 768;
+                const sidePadding = isMobile ? 50 : 150;
                 // Use smooth animation via panToBounds with padding
                 map.fitBounds(bounds, {
                     top: 50,
-                    right: 50,
+                    right: sidePadding,
                     bottom: 60,  // Account for disclaimer bar
-                    left: window.innerWidth < 768 ? 50 : 350  // Account for sidebar on desktop
+                    left: sidePadding
                 });
 
                 // Limit max zoom to prevent over-zooming on single result
@@ -2294,20 +2288,6 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     google.maps.event.removeListener(listener);
                 });
             }
-        }
-
-        // ==========================================
-        // OFFSET CALCULATION (from production map.js)
-        // ==========================================
-        // Calculate longitude offset for sidebar (shifts center right by sidebar width / 2)
-        function calculateSidebarOffsetLng(zoom) {
-            const sidebar = document.getElementById('sidebar');
-            if (!sidebar) return 0;
-            const sidebarWidth = sidebar.offsetWidth || 320;  // fallback to max-w-xs
-            const halfSidebar = sidebarWidth / 2;
-            // At zoom Z, world is 256 * 2^Z pixels wide, spanning 360 degrees
-            const degreesPerPixel = 360 / (256 * Math.pow(2, zoom));
-            return halfSidebar * degreesPerPixel;
         }
 
         /**
