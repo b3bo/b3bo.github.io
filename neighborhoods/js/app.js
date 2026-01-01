@@ -117,15 +117,10 @@ async function initMap() {
         // Check if we're in an iframe
         const isInIframe = window.self !== window.top;
 
-        // Hide drawer, footer in single mode
+        // Hide footer in single mode (sidebar hiding handled by CSS in <head>)
         if (urlParams.mode === 'single') {
-            const drawer = document.getElementById('sidebar');
-            const drawerToggle = document.getElementById('drawer-toggle');
             const footer = document.querySelector('.bg-neutral-800');
-            if (drawer) drawer.style.setProperty('display', 'none', 'important');
-            if (drawerToggle) drawerToggle.style.display = 'none';
             if (footer) footer.style.display = 'none';
-            document.querySelector('label[for="drawer-toggle"]')?.remove(); // Remove tab
         }
 
         // Hide disclaimer and expand map when in iframe (regardless of single/full mode)
@@ -164,9 +159,9 @@ async function initMap() {
             });
         }
 
-        // Single/iframe mode: no animation (no pan/zoom/ripple). Set static offset center then open card.
+        // Single/iframe mode: no animation (no pan/zoom/ripple). Wait for map to settle, then open card.
         if (urlParams.mode === 'single' && STATE.neighborhoods.length === 1) {
-            // Use 'idle' event for stable timing (fires after map fully renders)
+            // Use 'idle' event for centering (fires reliably on both fresh and cached loads)
             google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
                 // Use the computed zoom value directly (more reliable than getZoom after setZoom)
                 const targetZoom = zoom;
@@ -176,7 +171,7 @@ async function initMap() {
                 STATE.map.setCenter(offsetTarget); // instant center change (no animation)
             });
 
-            // Poll for markers to be ready, then open info window
+            // Poll for markers to be ready, then open info window after map settles
             const openSingleModeMarker = () => {
                 if (STATE.markers.length > 0) {
                     const first = STATE.markers[0];
@@ -195,18 +190,20 @@ async function initMap() {
                 return false;
             };
 
-            // Poll every 100ms for up to 3 seconds
-            let singleAttempts = 0;
-            const pollSingleMode = () => {
-                singleAttempts++;
-                if (openSingleModeMarker()) return;
-                if (singleAttempts < 30) {
-                    setTimeout(pollSingleMode, 100);
-                } else {
-                    console.log('Single mode: marker not found after 3 seconds');
-                }
-            };
-            setTimeout(pollSingleMode, 200);
+            // Wait for map to settle (300ms) then poll for markers
+            setTimeout(() => {
+                let singleAttempts = 0;
+                const pollSingleMode = () => {
+                    singleAttempts++;
+                    if (openSingleModeMarker()) return;
+                    if (singleAttempts < 30) {
+                        setTimeout(pollSingleMode, 100);
+                    } else {
+                        console.log('Single mode: marker not found after 3 seconds');
+                    }
+                };
+                pollSingleMode();
+            }, 300);
         }
         
         // Hide loading screen

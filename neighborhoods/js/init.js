@@ -29,9 +29,29 @@ CONFIG.data.neighborhoodFiles = [
 const neighborhoods = await loadNeighborhoods();
 console.log('Loaded', neighborhoods.length, 'neighborhoods from production data');
 
+// Load subarea stats for single mode
+async function loadSubareaStats() {
+    try {
+        const statsFile = CONFIG.data.subareaStatsFile || './neighborhoods/jsons/586d18ae76449d78.json.b64';
+        const response = await fetch(statsFile);
+        if (!response.ok) throw new Error('Failed to load subarea stats');
+        const text = await response.text();
+        const jsonStr = new TextDecoder().decode(Uint8Array.from(atob(text), c => c.charCodeAt(0)));
+        return JSON.parse(jsonStr);
+    } catch (e) {
+        console.error('Error loading subarea stats:', e);
+        return null;
+    }
+}
+const subareaStats = await loadSubareaStats();
+if (subareaStats) {
+    console.log('Loaded', subareaStats.subareas?.length || 0, 'subarea stats');
+}
+
 // Expose to global scope for other scripts
 window.neighborhoods = neighborhoods;
 window.filteredNeighborhoods = [...neighborhoods];
+window.subareaStats = subareaStats;
 
 // Sync STATE for ES module consumers (search, filters)
 STATE.neighborhoods = neighborhoods;

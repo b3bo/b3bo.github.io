@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <!--
 ================================================================================
-COMMUNITY FINDER - Emerald Coast Real Estate Map
-================================================================================
 
-Precompiled Tailwind v4 CSS with custom sliding panel animations.
-See: assets/docs/TAILWIND_BUILD.md for build documentation.
+NEIGHBORHOOD FINDER - 30A & FLORIDA'S Emerald Coast
+Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+
 ================================================================================
 -->
 <html lang="en">
@@ -218,7 +217,30 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
         }
+
+        /* Single mode: hide sidebar before paint */
+        .single-mode #sidebar,
+        .single-mode #drawer-toggle,
+        .single-mode label[for="drawer-toggle"],
+        .single-mode .disclaimer-bar {
+            display: none !important;
+        }
+        .single-mode #map-layout {
+            height: 100dvh !important;
+        }
+
+        /* Marker fade transition for area filter */
+        .marker-fade-out {
+            opacity: 0 !important;
+            transition: opacity 0.4s ease-out !important;
+        }
     </style>
+    <script>
+        // Prevent sidebar flash in single mode - runs before body renders
+        if (new URLSearchParams(window.location.search).get('mode') === 'single') {
+            document.documentElement.classList.add('single-mode');
+        }
+    </script>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
     <div class="flex flex-col h-dvh">
@@ -535,7 +557,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Dec 31 | v1.1.30</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 1 | v1.1.31</p>
                 </div>
             </div>
 
@@ -585,24 +607,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             window.isSingleMode = isSingleMode;
             const isInIframe = window.self !== window.top;
 
-            // Single mode: hide sidebar, drawer, footer completely
+            // Single mode: CSS in <head> handles hiding sidebar/drawer/disclaimer
             if (isSingleMode) {
-                const sidebar = document.getElementById('sidebar');
-                const drawerToggle = document.getElementById('drawer-toggle');
-                const drawerLabel = document.querySelector('label[for="drawer-toggle"]');
-                const overlay = document.querySelectorAll('label[for="drawer-toggle"]');
-                const disclaimer = document.querySelector('.disclaimer-bar');
-                const mapLayout = document.getElementById('map-layout');
-
-                if (sidebar) sidebar.style.setProperty('display', 'none', 'important');
-                if (drawerToggle) drawerToggle.style.display = 'none';
-                // Hide all drawer toggle labels (tab and overlay)
-                overlay.forEach(el => el.style.display = 'none');
-                // Hide disclaimer bar
-                if (disclaimer) disclaimer.style.display = 'none';
-                // Expand map to full height
-                if (mapLayout) mapLayout.style.height = '100dvh';
-
                 console.log('Single mode active:', neighborhoodSlug);
             }
 
@@ -1735,6 +1741,21 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             });
 
             // ==========================================
+            // URL PARAM: AUTO-SELECT SUBAREA FILTER
+            // ==========================================
+            const urlSubarea = getUrlParams().get('subarea');
+            if (urlSubarea) {
+                // Find and click the matching area-tag button
+                const matchingTag = Array.from(document.querySelectorAll('.area-tag')).find(tag => {
+                    const tagSubarea = tag.getAttribute('data-subarea');
+                    return tagSubarea === urlSubarea;
+                });
+                if (matchingTag) {
+                    matchingTag.click();
+                }
+            }
+
+            // ==========================================
             // DEBOUNCE HELPER
             // ==========================================
             function debounce(func, wait) {
@@ -1848,12 +1869,42 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                     return matchesType && matchesArea && matchesAmenities && inPriceRange && inBedsRange && inBathsRange;
                 });
 
+                // Add area marker data when exactly one subarea filter is selected
+                const subareaFilters = [...selectedAreas].filter(area => {
+                    return window.subareaStats?.subareas?.some(s =>
+                        s.filterValue === area || s.name === area
+                    );
+                });
+
+                let hasAreaMarker = false;
+                if (subareaFilters.length === 1 && window.subareaStats?.subareas) {
+                    const selectedSubarea = subareaFilters[0];
+                    const subareaData = window.subareaStats.subareas.find(s =>
+                        s.filterValue === selectedSubarea || s.name === selectedSubarea
+                    );
+
+                    if (subareaData) {
+                        // Add area marker to filteredNeighborhoods - addMarkers will create it
+                        window.filteredNeighborhoods.push({
+                            name: subareaData.name,
+                            position: subareaData.position,
+                            stats: subareaData.stats,
+                            neighborhoods: subareaData.neighborhoods,
+                            filterValue: subareaData.filterValue,
+                            isAreaMarker: true
+                        });
+                        hasAreaMarker = true;
+                    }
+                }
+
                 // Re-render results and markers
                 renderResults();
                 window.addMarkers();
 
-                // Always fit bounds to show filtered neighborhoods
-                window.fitBoundsToNeighborhoods();
+                // Skip fitBounds when area marker is shown - avoids jarring zoom animation
+                if (!hasAreaMarker) {
+                    window.fitBoundsToNeighborhoods();
+                }
             }
 
             // ==========================================
@@ -2050,6 +2101,46 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
          GOOGLE MAPS INITIALIZATION
          ========================================== -->
     <script>
+        // Pre-calculate offset latitude using Mercator projection math
+        // (independent of map object - can run before map exists)
+        function preCalculateOffsetLat(lat, offsetPixels, zoom) {
+            const TILE_SIZE = 256;
+            const scale = Math.pow(2, zoom);
+
+            // Convert lat to Mercator y
+            const latRad = lat * Math.PI / 180;
+            const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+
+            // Apply pixel offset in Mercator space
+            const pixelsPerRadian = TILE_SIZE * scale / (2 * Math.PI);
+            const offsetRadians = offsetPixels / pixelsPerRadian;
+            const newMercY = mercY + offsetRadians;
+
+            // Convert back to lat
+            const newLatRad = 2 * Math.atan(Math.exp(newMercY)) - Math.PI / 2;
+            return newLatRad * 180 / Math.PI;
+        }
+
+        // Calculate initial offset pixels (simplified version of calculateCenteredOffset)
+        function calculateInitialOffset(zoomLevel) {
+            const dvh = window.innerHeight;
+            const w = window.innerWidth;
+
+            // Card height based on viewport
+            const cfg = window.CONFIG?.map?.cardHeight || {};
+            const mobileHeight = cfg.mobile || 360;
+            const tabletHeight = cfg.tablet || 320;
+            const desktopHeight = cfg.desktop || 280;
+            const cardHeight = w < 640 ? mobileHeight : w < 1024 ? tabletHeight : desktopHeight;
+
+            // Calculate pan amount to center marker+card
+            const dotFromBottom = cardHeight + 20; // Card height + gap
+            const dotStartsAt = dvh / 2;
+            const panAmount = (dvh - dotFromBottom) - dotStartsAt;
+
+            return Math.round(panAmount);
+        }
+
         function initMap() {
             const mapDiv = document.getElementById('map');
             if (!mapDiv) return;
@@ -2066,21 +2157,55 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             let initialCenter = { lat: 30.32, lng: -86.05 };  // Default: Emerald Coast
             let initialZoom = 11;  // Default: zoomed out
 
-            // In single mode, center on target neighborhood (offset applied after map ready)
+            // In single mode, center on target neighborhood or area (offset applied after map ready)
             let singleModeTarget = null;
+            const areaSlug = urlParams.get('area');
+
             if (isSingleMode && neighborhoodSlug && window.neighborhoods) {
                 const target = window.neighborhoods.find(n => window.toSlug && window.toSlug(n.name) === neighborhoodSlug);
                 if (target && target.position) {
                     initialZoom = parseInt(urlParams.get('zoom')) || 13;
                     initialCenter = target.position;
                     singleModeTarget = target.position;
+                } else {
+                    // No neighborhood match - check if it's a preset area
+                    const subareaData = window.subareaStats?.subareas?.find(s => s.slug === neighborhoodSlug);
+                    if (subareaData && subareaData.position) {
+                        initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                        initialCenter = subareaData.position;
+                        singleModeTarget = subareaData.position;
+                        window.singleModeIsArea = true;
+                        console.log('Single mode: matched preset area', subareaData.name);
+                    }
+                }
+            } else if (isSingleMode && areaSlug) {
+                // Area single mode via ?area= param
+                const subareaData = window.subareaStats?.subareas?.find(s => s.slug === areaSlug);
+                if (subareaData && subareaData.position) {
+                    initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                    initialCenter = subareaData.position;
+                    singleModeTarget = subareaData.position;
+                    window.singleModeIsArea = true;
                 }
             }
 
-            // Map center - no sidebar offset needed (sidebar is overlay, not inset)
+            // Pre-calculate offset center for single mode (before map exists)
+            let mapCenter = initialCenter;
+            window.singleModeOffsetApplied = false;
+            if (isSingleMode && singleModeTarget) {
+                const offsetPx = calculateInitialOffset(initialZoom);
+                mapCenter = {
+                    lat: preCalculateOffsetLat(singleModeTarget.lat, offsetPx, initialZoom),
+                    lng: singleModeTarget.lng
+                };
+                window.singleModeOffsetApplied = true;
+                console.log('Single mode: pre-calculated offset applied', offsetPx, 'px');
+            }
+
+            // Map center - uses pre-offset center in single mode
             window.map = new google.maps.Map(mapDiv, {
                 zoom: initialZoom,
-                center: initialCenter,
+                center: mapCenter,
                 mapId: '92b2f4ea8b2fce54a50ed2e9',
                 mapTypeControl: true,
                 mapTypeControlOptions: {
@@ -2092,10 +2217,6 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 zoomControl: true,
                 clickableIcons: false
             });
-
-            // SINGLE MODE CENTERING
-            // Offset is now applied in showInfoWindowContent's domready callback
-            // to ensure timing is correct (after info window renders)
 
             // Create info windows (click and hover)
             // disableAutoPan prevents Google Maps from moving the map when info window opens
@@ -2125,7 +2246,9 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 const urlParams = getUrlParams();
                 const isSingleMode = urlParams.get('mode') === 'single';
                 const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
+                const areaSlug = urlParams.get('area');
 
+                // Neighborhood single mode
                 if (isSingleMode && neighborhoodSlug && neighborhoods.length > 0) {
                     const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
                     if (matching.length > 0) {
@@ -2134,6 +2257,32 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                         window.neighborhoods = [target];
                         window.filteredNeighborhoods = [target];
                         console.log('Single mode: filtered to', target.name, target.propertyType);
+                    }
+                }
+
+                // Area single mode - instant display (no animation)
+                // Supports both ?area=slug and ?marker=slug (when marker matches preset area)
+                const areaSlugToUse = areaSlug || (window.singleModeIsArea ? neighborhoodSlug : null);
+                if (isSingleMode && areaSlugToUse) {
+                    // Look up subarea by slug from loaded JSON
+                    const subareaData = window.subareaStats?.subareas?.find(s => s.slug === areaSlugToUse);
+
+                    if (subareaData) {
+                        // Create virtual neighborhood from precalculated JSON data
+                        const target = {
+                            name: subareaData.name,
+                            subarea: subareaData.filterValue,
+                            isAreaMarker: true,
+                            position: subareaData.position,
+                            stats: subareaData.stats,
+                            neighborhoods: subareaData.neighborhoods,
+                            propertyType: 'Area'
+                        };
+                        window.neighborhoods = [target];
+                        window.filteredNeighborhoods = [target];
+                        console.log('Single mode: using precalculated subarea stats for', subareaData.name);
+                    } else {
+                        console.warn('Single mode: subarea not found in JSON:', areaSlugToUse);
                     }
                 }
 
@@ -2151,8 +2300,11 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                 }
 
                 function afterMarkersAdded() {
-                    if (isSingleMode && neighborhoodSlug) {
-                        google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                    // Single mode (both neighborhoods and areas) - instant, no fly animation
+                    if (isSingleMode && (neighborhoodSlug || areaSlug)) {
+                        // Wait for map to settle then poll for markers
+                        // (don't rely on 'idle' event - may have already fired on cached refresh)
+                        setTimeout(() => {
                             let attempts = 0;
                             const pollMarker = () => {
                                 attempts++;
@@ -2161,32 +2313,83 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                 else console.warn('Single mode: marker not found after 3 seconds');
                             };
                             pollMarker();
-                        });
+                        }, 300);
                     } else {
+                        // Full mode
                         window.fitBoundsToNeighborhoods();
                         const markerSlug = urlParams.get('marker');
                         const propertyType = urlParams.get('propertyType') || 'Homes';
-                        if (markerSlug) {
-                            const allNeighborhoods = window.neighborhoods || [];
-                            const matching = allNeighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
-                            const target = matching.find(n => n.propertyType === propertyType) || matching[0];
-                            if (target) {
-                                console.log('Full mode: deep link to', target.name, target.propertyType);
-                                const markerObj = (window.markers || []).find(m =>
-                                    m.neighborhood.name === target.name && m.neighborhood.propertyType === target.propertyType
-                                );
-                                if (markerObj) {
+
+                        // Shared function for fly animation + open marker
+                        const flyToAndOpenMarker = (options) => {
+                            const { position, zoom, filterValue, findMarker, label } = options;
+                            google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                                console.log('Full mode: fly to', label);
+                                window.smoothFlyTo(position, zoom);
+
+                                // Apply area filter during flight (if provided)
+                                if (filterValue) {
+                                    // Fade out markers NOT in the target area
                                     setTimeout(() => {
-                                        window.smoothFlyTo(target.position, 15);
-                                        setTimeout(() => {
-                                            showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
-                                            markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
-                                            window.activeMarker = markerObj.marker;
-                                        }, 2500);
-                                    }, 500);
+                                        (window.markers || []).forEach(m => {
+                                            if (m.marker?.content && m.neighborhood?.subArea !== filterValue) {
+                                                m.marker.content.classList.add('marker-fade-out');
+                                            }
+                                        });
+                                    }, 1600); // Start fade 400ms before filter
+
+                                    // Apply filter after fade completes
+                                    setTimeout(() => {
+                                        const areaTag = document.querySelector(`.area-tag[data-subarea="${filterValue}"]`);
+                                        if (areaTag) {
+                                            console.log('Full mode: applying area filter', filterValue);
+                                            areaTag.click();
+                                        }
+                                    }, 2000);
                                 }
+
+                                // Open marker after flight
+                                setTimeout(() => {
+                                    const markerObj = findMarker();
+                                    if (markerObj) {
+                                        console.log('Full mode: opening marker', markerObj.neighborhood.name);
+                                        showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
+                                        markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+                                        window.activeMarker = markerObj.marker;
+                                    }
+                                }, 2500);
+                            });
+                        };
+
+                        if (markerSlug) {
+                            // First check if this is an AREA marker (from subarea stats)
+                            const subareaData = window.subareaStats?.subareas?.find(s => s.slug === markerSlug);
+                            if (subareaData) {
+                                flyToAndOpenMarker({
+                                    position: subareaData.position,
+                                    zoom: 13,
+                                    filterValue: subareaData.filterValue,
+                                    findMarker: () => (window.markers || []).find(m => m.neighborhood?.isAreaMarker),
+                                    label: 'area ' + subareaData.name
+                                });
                             } else {
-                                console.warn('Full mode: neighborhood not found for marker=', markerSlug);
+                                // Look for neighborhood marker
+                                const allNeighborhoods = window.neighborhoods || [];
+                                const matching = allNeighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
+                                const target = matching.find(n => n.propertyType === propertyType) || matching[0];
+                                if (target) {
+                                    flyToAndOpenMarker({
+                                        position: target.position,
+                                        zoom: 15,
+                                        filterValue: null,
+                                        findMarker: () => (window.markers || []).find(m =>
+                                            m.neighborhood.name === target.name && m.neighborhood.propertyType === target.propertyType
+                                        ),
+                                        label: target.name
+                                    });
+                                } else {
+                                    console.warn('Full mode: marker not found for', markerSlug);
+                                }
                             }
                         }
                     }
@@ -2619,9 +2822,104 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             `;
         }
 
+        // Show info window content for area markers
+        function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
+            const stats = area.stats || {};
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+            const neighborhoodsList = (area.neighborhoods || [])
+                .slice(0, 10)
+                .map(n => n.name)
+                .join(', ');
+
+            const content = `
+                <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
+                    <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${area.name}</h3>
+                    <div class="grid grid-cols-2 gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
+                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
+                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
+                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
+                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-3">
+                        <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+                    </div>
+                    <hr class="divider mb-3">
+                    <div class="pt-3 flex items-center gap-2">
+                        ${(() => {
+                            const filtered = window.filteredNeighborhoods || [];
+                            const hasNav = filtered.length > 1;
+                            const prevBtn = hasNav ? '<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>' : '';
+                            const nextBtn = hasNav ? '<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>' : '';
+
+                            if (window.isSingleMode) {
+                                // Single mode: Neighborhood Finder button with popout icon
+                                const baseUrl = window.location.hostname === 'localhost'
+                                    ? window.location.origin
+                                    : 'https://neighborhoods.truesouthcoastalhomes.com';
+                                const areaSlug = area.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                                const finderUrl = baseUrl + '?marker=' + areaSlug;
+                                return prevBtn + '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + area.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>' + nextBtn;
+                            } else {
+                                // Full mode: Matching Listings button
+                                // Build MLS search URL based on area type
+                                const areaUrlMap = {
+                                    'Sandestin': 'subarea_%2F1503%2F/',
+                                    'Miramar Beach': 'zipcode_32550/',
+                                    '30A East': 'area_30A%20East/',
+                                    '30A West': 'area_30A%20West/',
+                                    'Destin': 'zipcode_32541/',
+                                    'Santa Rosa Beach': 'zipcode_32459/'
+                                };
+                                const areaParam = areaUrlMap[area.name] || 'area_' + encodeURIComponent(area.name) + '/';
+                                const listingsUrl = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3#listtype_1/' + areaParam;
+                                return prevBtn + '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all ' + area.name + ' listings">Matching Listings</a>' + nextBtn;
+                            }
+                        })()}
+                    </div>
+                </div>
+            `;
+
+            targetInfoWindow.setContent(content);
+            targetInfoWindow.open(window.map, marker);
+
+            // Single mode: apply offset centering after info window opens (SAME as neighborhood)
+            // Skip if offset was already pre-calculated during map init
+            if (window.isSingleMode && marker && !window.singleModeOffsetApplied) {
+                setTimeout(() => {
+                    const position = marker.position || area.position;
+                    const zoom = window.map.getZoom();
+                    const panAmount = calculateCenteredOffset(zoom, 0); // 0 = no disclaimer in single mode
+                    const offsetCenter = offsetLatLng(position, panAmount, zoom);
+                    window.map.setCenter(offsetCenter);
+                    // Re-anchor info window after center change
+                    targetInfoWindow.open({ map: window.map, anchor: marker });
+                }, 100);
+            }
+        }
+
         // Show info window content (matches production markers.js)
         // Called by both click and hover handlers
         function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true) {
+            // Handle area markers
+            if (n.isAreaMarker) {
+                return showAreaInfoWindowContent(marker, n, targetInfoWindow);
+            }
+
             // Only store as current neighborhood for primary (click) window
             if (storeAsActive && targetInfoWindow === window.infoWindow) {
                 window.currentNeighborhood = n;
@@ -2660,7 +2958,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
 
             const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
             const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
-            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : 'lprice_250000/';
+            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : '';
             const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
 
             // Determine property type descrip
@@ -2763,7 +3061,7 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
                                     ? window.location.origin
                                     : 'https://neighborhoods.truesouthcoastalhomes.com';
                                 const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
-                                return '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + n.name + ' in Community Finder">Community Finder</a>';
+                                return '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + n.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>';
                             } else if (listingsUrl) {
                                 return '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation(); if(typeof gtag!==\'undefined\')gtag(\'event\',\'view_listings\',{neighborhood_name:\'' + n.name + '\',listing_count:' + (stats.listingCount || 0) + ',property_type:\'' + n.propertyType + '\'});" title="View all ' + n.name + ' ' + n.propertyType + ' for sale">Matching Listings</a>';
                             } else {
@@ -2791,8 +3089,8 @@ See: assets/docs/TAILWIND_BUILD.md for build documentation.
             });
 
             // Single mode: apply offset centering after info window opens
-            // Using setTimeout instead of domready for consistent timing across cached/uncached loads
-            if (window.isSingleMode && marker) {
+            // Skip if offset was already pre-calculated during map init
+            if (window.isSingleMode && marker && !window.singleModeOffsetApplied) {
                 setTimeout(() => {
                     const position = marker.position || n.position;
                     const zoom = window.map.getZoom();

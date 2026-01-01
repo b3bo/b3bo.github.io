@@ -1,0 +1,3552 @@
+{
+  "area": "16 - North Santa Rosa Beach",
+  "updated": "2026-01-01T09:37:17.722529",
+  "neighborhoods": [
+    {
+      "name": "30 North",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.38892,
+        "lng": -86.196401
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 460983,
+        "avgPriceDisplay": "$460,983",
+        "medianPrice": 466000,
+        "avgSqft": 1965,
+        "avgPricePerSqFt": 235,
+        "avgDom": 132,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "30 North at Eden Park"
+      ],
+      "searchId": "7126129"
+    },
+    {
+      "name": "Bay Pine Shores",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.39363,
+        "lng": -86.192632
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2568725,
+        "avgPriceDisplay": "$2,568,725",
+        "medianPrice": 3350000,
+        "avgSqft": 4105,
+        "avgPricePerSqFt": 626,
+        "avgDom": 174,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-9",
+        "bathsRange": "2-7",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 9.0,
+        "minBaths": 2.0,
+        "maxBaths": 7.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "BAY PINE SHORES"
+      ],
+      "searchId": "7113531"
+    },
+    {
+      "name": "Bay Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.392582,
+        "lng": -86.191753
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2512250,
+        "avgPriceDisplay": "$2,512,250",
+        "medianPrice": 1300000,
+        "avgSqft": 3079,
+        "avgPricePerSqFt": 816,
+        "avgDom": 50,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-6",
+        "bathsRange": "3-8",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 6.0,
+        "minBaths": 3.0,
+        "maxBaths": 8.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "BAY PINES",
+        "BAYPINES (SANDESTIN)"
+      ],
+      "searchId": "7113537"
+    },
+    {
+      "name": "Bayou Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.39832,
+        "lng": -86.304557
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 456200,
+        "avgPriceDisplay": "$456,200",
+        "medianPrice": 482500,
+        "avgSqft": 2057,
+        "avgPricePerSqFt": 222,
+        "avgDom": 108,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-4",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "BAYOU LANDING"
+      ],
+      "searchId": "7113582"
+    },
+    {
+      "name": "Bayou Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.392247,
+        "lng": -86.300782
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1182000,
+        "avgPriceDisplay": "$1,182,000",
+        "medianPrice": 1250000,
+        "avgSqft": 3252,
+        "avgPricePerSqFt": 364,
+        "avgDom": 134,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-6",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 6.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "BAYOU PINES UNREC"
+      ],
+      "searchId": "7113590"
+    },
+    {
+      "name": "Botany Bayou",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.393227,
+        "lng": -86.291864
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 1416700,
+        "avgPriceDisplay": "$1,416,700",
+        "medianPrice": 1099000,
+        "avgSqft": 2948,
+        "avgPricePerSqFt": 481,
+        "avgDom": 112,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Dock",
+        "Gated",
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "BOTANY BAYOU",
+        "Botany Bayou"
+      ],
+      "searchId": "4715430",
+      "urlSlug": "/santa-rosa-beach/botany-bayou/"
+    },
+    {
+      "name": "Brizo",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.391145,
+        "lng": -86.268756
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 695350,
+        "avgPriceDisplay": "$695,350",
+        "medianPrice": 709900,
+        "avgSqft": 2491,
+        "avgPricePerSqFt": 279,
+        "avgDom": 101,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "3-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 3.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Brizo"
+      ],
+      "searchId": "7114339"
+    },
+    {
+      "name": "Cano Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.376509,
+        "lng": -86.244275
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1026383,
+        "avgPriceDisplay": "$1,026,383",
+        "medianPrice": 884150,
+        "avgSqft": 3316,
+        "avgPricePerSqFt": 310,
+        "avgDom": 77,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "4-6",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 4.0,
+        "maxBaths": 6.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CANO ESTATES"
+      ]
+    },
+    {
+      "name": "Carson Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.395203,
+        "lng": -86.307423
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 731067,
+        "avgPriceDisplay": "$731,067",
+        "medianPrice": 749000,
+        "avgSqft": 2015,
+        "avgPricePerSqFt": 363,
+        "avgDom": 71,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Dock",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Pickleball",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CARSON OAKS"
+      ],
+      "searchId": "7121702"
+    },
+    {
+      "name": "Cessna Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.401329,
+        "lng": -86.229292
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2239000,
+        "avgPriceDisplay": "$2,239,000",
+        "medianPrice": 3490000,
+        "avgSqft": 3060,
+        "avgPricePerSqFt": 732,
+        "avgDom": 146,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CESSNA LANDING"
+      ],
+      "searchId": "7121707"
+    },
+    {
+      "name": "Cessna Village",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.397931,
+        "lng": -86.228265
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 755998,
+        "avgPriceDisplay": "$755,998",
+        "medianPrice": 749000,
+        "avgSqft": 2264,
+        "avgPricePerSqFt": 334,
+        "avgDom": 152,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CESSNA VILLAGE",
+        "Cessna Village"
+      ]
+    },
+    {
+      "name": "Church Street Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.379677,
+        "lng": -86.240663
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 587000,
+        "avgPriceDisplay": "$587,000",
+        "medianPrice": 589000,
+        "avgSqft": 1881,
+        "avgPricePerSqFt": 312,
+        "avgDom": 122,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Church Street Landing"
+      ],
+      "searchId": "7121708"
+    },
+    {
+      "name": "Church Street Village",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.376328,
+        "lng": -86.235271
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 513508,
+        "avgPriceDisplay": "$513,508",
+        "medianPrice": 524900,
+        "avgSqft": 1719,
+        "avgPricePerSqFt": 299,
+        "avgDom": 121,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-4",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Community Pool",
+        "Fitness",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CHURCH STREET VILLAGE"
+      ],
+      "searchId": "7121710"
+    },
+    {
+      "name": "Church Street Village",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.376366,
+        "lng": -86.235789
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 450000,
+        "avgPriceDisplay": "$450,000",
+        "medianPrice": 450000,
+        "avgSqft": 1616,
+        "avgPricePerSqFt": 278,
+        "avgDom": 419,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Community Pool",
+        "Fitness",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CHURCH STREET VILLAGE"
+      ],
+      "searchId": "7121710"
+    },
+    {
+      "name": "Churchill Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.388294,
+        "lng": -86.247718
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 9,
+        "avgPrice": 3622825,
+        "avgPriceDisplay": "$3,622,825",
+        "medianPrice": 3595000,
+        "avgSqft": 4171,
+        "avgPricePerSqFt": 869,
+        "avgDom": 162,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-6",
+        "bathsRange": "5-8",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 6.0,
+        "minBaths": 5.0,
+        "maxBaths": 8.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Community Pool",
+        "Dock",
+        "Fitness",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "CHURCHILL OAKS"
+      ],
+      "searchId": "3579840",
+      "urlSlug": "/santa-rosa-beach/churchill-oaks/"
+    },
+    {
+      "name": "Daxton on the Bay",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.388104,
+        "lng": -86.255218
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 654998,
+        "avgPriceDisplay": "$654,998",
+        "medianPrice": 630000,
+        "avgSqft": 2262,
+        "avgPricePerSqFt": 290,
+        "avgDom": 78,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Dock",
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Daxton On The Bay",
+        "Daxton on the Bay"
+      ]
+    },
+    {
+      "name": "Driftwood Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.414416,
+        "lng": -86.313733
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 19,
+        "avgPrice": 1539485,
+        "avgPriceDisplay": "$1,539,485",
+        "medianPrice": 595000,
+        "avgSqft": 2902,
+        "avgPricePerSqFt": 530,
+        "avgDom": 136,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-7",
+        "bathsRange": "2-8",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 7.0,
+        "minBaths": 2.0,
+        "maxBaths": 8.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Playgrounds",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "DRIFTWOOD ESTATES",
+        "Driftwood Estates",
+        "Grand Cove in Driftwood Estates"
+      ],
+      "searchId": "378857",
+      "urlSlug": "/driftwood-estates/"
+    },
+    {
+      "name": "Eagle Bay",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.396091,
+        "lng": -86.280991
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 6,
+        "avgPrice": 654992,
+        "avgPriceDisplay": "$654,992",
+        "medianPrice": 675000,
+        "avgSqft": 1843,
+        "avgPricePerSqFt": 355,
+        "avgDom": 150,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EAGLE BAY"
+      ],
+      "searchId": "7121743"
+    },
+    {
+      "name": "Eagle Bay",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.393164,
+        "lng": -86.280411
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 319478,
+        "avgPriceDisplay": "$319,478",
+        "medianPrice": 315000,
+        "avgSqft": 1459,
+        "avgPricePerSqFt": 219,
+        "avgDom": 107,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EAGLE BAY",
+        "Eagle Bay"
+      ],
+      "searchId": "7121743"
+    },
+    {
+      "name": "Eagle Bay Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.39212,
+        "lng": -86.267979
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 567160,
+        "avgPriceDisplay": "$567,160",
+        "medianPrice": 569900,
+        "avgSqft": 2172,
+        "avgPricePerSqFt": 261,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Gated",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EAGLE BAY LANDING",
+        "Eagle Bay Landing"
+      ],
+      "searchId": "7121745"
+    },
+    {
+      "name": "Eastern Lake",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.376627,
+        "lng": -86.220961
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 494500,
+        "avgPriceDisplay": "$494,500",
+        "medianPrice": 494500,
+        "avgSqft": 1654,
+        "avgPricePerSqFt": 299,
+        "avgDom": 151,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EASTERN LAKE"
+      ],
+      "searchId": "7100766"
+    },
+    {
+      "name": "Elizabeth Farms",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.383724,
+        "lng": -86.285806
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 477500,
+        "avgPriceDisplay": "$477,500",
+        "medianPrice": 580000,
+        "avgSqft": 1841,
+        "avgPricePerSqFt": 259,
+        "avgDom": 193,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "ELIZABETH FARMS 2ND ADDN UNREC",
+        "ELIZABETH FARMS 4TH ADDN UNREC"
+      ],
+      "searchId": "7121756"
+    },
+    {
+      "name": "Enchanted Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.393343,
+        "lng": -86.296817
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 396000,
+        "avgPriceDisplay": "$396,000",
+        "medianPrice": 399999,
+        "avgSqft": 1724,
+        "avgPricePerSqFt": 230,
+        "avgDom": 53,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "ENCHANTED ESTATES"
+      ],
+      "searchId": "7121764"
+    },
+    {
+      "name": "Exclusive Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.390615,
+        "lng": -86.262606
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 652000,
+        "avgPriceDisplay": "$652,000",
+        "medianPrice": 675000,
+        "avgSqft": 1750,
+        "avgPricePerSqFt": 372,
+        "avgDom": 61,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EXCLUSIVE BEACH"
+      ]
+    },
+    {
+      "name": "Harbor Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.397347,
+        "lng": -86.305427
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 799000,
+        "avgPriceDisplay": "$799,000",
+        "medianPrice": 799000,
+        "avgSqft": 2008,
+        "avgPricePerSqFt": 398,
+        "avgDom": 95,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-4",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "HARBOR OAKS"
+      ]
+    },
+    {
+      "name": "Harstvedt Plantation",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.389908,
+        "lng": -86.199834
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 491200,
+        "avgPriceDisplay": "$491,200",
+        "medianPrice": 479900,
+        "avgSqft": 1978,
+        "avgPricePerSqFt": 248,
+        "avgDom": 126,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Harstvedt Plantation"
+      ]
+    },
+    {
+      "name": "Hewitt Bayou",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.395331,
+        "lng": -86.287002
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 3250000,
+        "avgPriceDisplay": "$3,250,000",
+        "medianPrice": 3250000,
+        "avgSqft": 3840,
+        "avgPricePerSqFt": 846,
+        "avgDom": 313,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-4",
+        "bathsRange": "5-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 4.0,
+        "minBaths": 5.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "HEWETT BAYOU North Santa Rosa Beach"
+      ]
+    },
+    {
+      "name": "Hidden Grove",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.393735,
+        "lng": -86.284194
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 677938,
+        "avgPriceDisplay": "$677,938",
+        "medianPrice": 599000,
+        "avgSqft": 2117,
+        "avgPricePerSqFt": 320,
+        "avgDom": 117,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "HIDDEN GROVE",
+        "Hidden Grove"
+      ],
+      "searchId": "4737875",
+      "urlSlug": "/santa-rosa-beach/hidden-grove/"
+    },
+    {
+      "name": "Indian Woman",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.395085,
+        "lng": -86.220423
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 349999,
+        "avgPriceDisplay": "$349,999",
+        "medianPrice": 349999,
+        "avgSqft": 1200,
+        "avgPricePerSqFt": 292,
+        "avgDom": 608,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Indian Woman"
+      ]
+    },
+    {
+      "name": "Kara Lake",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.37619,
+        "lng": -86.221923
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 478000,
+        "avgPriceDisplay": "$478,000",
+        "medianPrice": 484000,
+        "avgSqft": 1765,
+        "avgPricePerSqFt": 271,
+        "avgDom": 99,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "KARA LAKE TOWNHOMES",
+        "Kara Lake Townhomes"
+      ]
+    },
+    {
+      "name": "Lighthouse Pointe",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.387463,
+        "lng": -86.178033
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 479000,
+        "avgPriceDisplay": "$479,000",
+        "medianPrice": 479000,
+        "avgSqft": 1777,
+        "avgPricePerSqFt": 270,
+        "avgDom": 525,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "LIGHTHOUSE POINTE"
+      ]
+    },
+    {
+      "name": "Mack Bayou Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.387219,
+        "lng": -86.296981
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 908180,
+        "avgPriceDisplay": "$908,180",
+        "medianPrice": 729000,
+        "avgSqft": 2796,
+        "avgPricePerSqFt": 325,
+        "avgDom": 93,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-11",
+        "bathsRange": "3-8",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 11.0,
+        "minBaths": 3.0,
+        "maxBaths": 8.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MACK BAYOU ESTATES"
+      ]
+    },
+    {
+      "name": "Mack Bayou Park",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.389471,
+        "lng": -86.299993
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 442500,
+        "avgPriceDisplay": "$442,500",
+        "medianPrice": 450000,
+        "avgSqft": 1402,
+        "avgPricePerSqFt": 316,
+        "avgDom": 24,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MACK BAYOU PARK",
+        "MACK BAYOU PARK S/D"
+      ]
+    },
+    {
+      "name": "Mack Bayou Pointe",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.404489,
+        "lng": -86.309969
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 568000,
+        "avgPriceDisplay": "$568,000",
+        "medianPrice": 574000,
+        "avgSqft": 2482,
+        "avgPricePerSqFt": 229,
+        "avgDom": 77,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-4",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MACK BAYOU POINTE S/D"
+      ]
+    },
+    {
+      "name": "Magnolia Creek",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.379838,
+        "lng": -86.225905
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 441000,
+        "avgPriceDisplay": "$441,000",
+        "medianPrice": 434000,
+        "avgSqft": 2030,
+        "avgPricePerSqFt": 217,
+        "avgDom": 118,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MAGNOLIA CREEK PHASE 2"
+      ]
+    },
+    {
+      "name": "Millers Crossing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.38248,
+        "lng": -86.185489
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 281870,
+        "avgPriceDisplay": "$281,870",
+        "medianPrice": 279900,
+        "avgSqft": 1519,
+        "avgPricePerSqFt": 186,
+        "avgDom": 107,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Miller's Crossing"
+      ]
+    },
+    {
+      "name": "Moores Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.401522,
+        "lng": -86.306277
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 834000,
+        "avgPriceDisplay": "$834,000",
+        "medianPrice": 988000,
+        "avgSqft": 2350,
+        "avgPricePerSqFt": 355,
+        "avgDom": 110,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MOORES LANDING"
+      ]
+    },
+    {
+      "name": "Mosaic Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.38901,
+        "lng": -86.204416
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 419750,
+        "avgPriceDisplay": "$419,750",
+        "medianPrice": 419000,
+        "avgSqft": 1817,
+        "avgPricePerSqFt": 231,
+        "avgDom": 68,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Mosaic Oaks"
+      ]
+    },
+    {
+      "name": "Mussett Bayou Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.386425,
+        "lng": -86.256235
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 799500,
+        "avgPriceDisplay": "$799,500",
+        "medianPrice": 899000,
+        "avgSqft": 2828,
+        "avgPricePerSqFt": 283,
+        "avgDom": 146,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MUSSETT BAYOU ESTATES"
+      ]
+    },
+    {
+      "name": "Nellie Preserve",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.401722,
+        "lng": -86.21255
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 527482,
+        "avgPriceDisplay": "$527,482",
+        "medianPrice": 516000,
+        "avgSqft": 2219,
+        "avgPricePerSqFt": 238,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Nellie Preserve"
+      ]
+    },
+    {
+      "name": "Palmetto Plantation",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.384085,
+        "lng": -86.226994
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 337360,
+        "avgPriceDisplay": "$337,360",
+        "medianPrice": 364000,
+        "avgSqft": 1110,
+        "avgPricePerSqFt": 304,
+        "avgDom": 92,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-3",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "PALMETTO PLANTATION",
+        "Palmetto Plantation"
+      ]
+    },
+    {
+      "name": "Pelican Bay",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.398997,
+        "lng": -86.298865
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 1287989,
+        "avgPriceDisplay": "$1,287,989",
+        "medianPrice": 985000,
+        "avgSqft": 2674,
+        "avgPricePerSqFt": 482,
+        "avgDom": 124,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "2-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "Gated",
+        "No Short-Term",
+        "Pickleball",
+        "Tennis",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "PELICAN BAY",
+        "PELICAN BAY S/D",
+        "Pelican Bay"
+      ]
+    },
+    {
+      "name": "Pisces Cove",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.388668,
+        "lng": -86.192081
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1050000,
+        "avgPriceDisplay": "$1,050,000",
+        "medianPrice": 1050000,
+        "avgSqft": 1898,
+        "avgPricePerSqFt": 553,
+        "avgDom": 42,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-4",
+        "bathsRange": "4-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 4.0,
+        "minBaths": 4.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "PISCES COVE 2ND ADDN"
+      ]
+    },
+    {
+      "name": "Plantation at Santa Rosa",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.380233,
+        "lng": -86.260964
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 747073,
+        "avgPriceDisplay": "$747,073",
+        "medianPrice": 427000,
+        "avgSqft": 1853,
+        "avgPricePerSqFt": 403,
+        "avgDom": 179,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-4",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "PLANTATION AT SANTA ROSA",
+        "SANTA ROSA PLANTATION",
+        "The Plantation at Santa Rosa Beach"
+      ],
+      "searchId": "7114366"
+    },
+    {
+      "name": "Royal Palms",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.386267,
+        "lng": -86.275442
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 2299999,
+        "avgPriceDisplay": "$2,299,999",
+        "medianPrice": 2299999,
+        "avgSqft": 5570,
+        "avgPricePerSqFt": 413,
+        "avgDom": 258,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "5-5",
+        "bathsRange": "6-6",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 5.0,
+        "maxBeds": 5.0,
+        "minBaths": 6.0,
+        "maxBaths": 6.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "ROYAL PALMS"
+      ]
+    },
+    {
+      "name": "Sacred Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.400528,
+        "lng": -86.306297
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 855878,
+        "avgPriceDisplay": "$855,878",
+        "medianPrice": 634900,
+        "avgSqft": 2181,
+        "avgPricePerSqFt": 392,
+        "avgDom": 195,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "SACRED OAKS PH 1",
+        "SACRED OAKS PH 2",
+        "Sacred Oaks"
+      ]
+    },
+    {
+      "name": "Sandhill Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.393757,
+        "lng": -86.307244
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 357822,
+        "avgPriceDisplay": "$357,822",
+        "medianPrice": 350000,
+        "avgSqft": 1549,
+        "avgPricePerSqFt": 231,
+        "avgDom": 264,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Pet-Friendly",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Sandhill Pines"
+      ]
+    },
+    {
+      "name": "Santa Rosa",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.402869,
+        "lng": -86.230182
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1415000,
+        "avgPriceDisplay": "$1,415,000",
+        "medianPrice": 1435000,
+        "avgSqft": 2814,
+        "avgPricePerSqFt": 503,
+        "avgDom": 147,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-4",
+        "bathsRange": "5-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 4.0,
+        "minBaths": 5.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Santa Rosa"
+      ]
+    },
+    {
+      "name": "Santa Rosa Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.400925,
+        "lng": -86.222373
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 695050,
+        "avgPriceDisplay": "$695,050",
+        "medianPrice": 475000,
+        "avgSqft": 1856,
+        "avgPricePerSqFt": 375,
+        "avgDom": 112,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "SANTA ROSA BEACH",
+        "Santa Rosa Beach"
+      ]
+    },
+    {
+      "name": "Sea Drift",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.377557,
+        "lng": -86.268209
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 587250,
+        "avgPriceDisplay": "$587,250",
+        "medianPrice": 599600,
+        "avgSqft": 2052,
+        "avgPricePerSqFt": 286,
+        "avgDom": 143,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Sea Drift"
+      ]
+    },
+    {
+      "name": "Shelter Cove Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.39828,
+        "lng": -86.296409
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1158000,
+        "avgPriceDisplay": "$1,158,000",
+        "medianPrice": 945000,
+        "avgSqft": 2480,
+        "avgPricePerSqFt": 467,
+        "avgDom": 113,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "SHELTER COVE ESTATES"
+      ]
+    },
+    {
+      "name": "Southern Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.392809,
+        "lng": -86.20973
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 501475,
+        "avgPriceDisplay": "$501,475",
+        "medianPrice": 469000,
+        "avgSqft": 1990,
+        "avgPricePerSqFt": 252,
+        "avgDom": 55,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "SOUTHERN PINES"
+      ]
+    },
+    {
+      "name": "Stonegate",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.382901,
+        "lng": -86.288955
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 603225,
+        "avgPriceDisplay": "$603,225",
+        "medianPrice": 635000,
+        "avgSqft": 2154,
+        "avgPricePerSqFt": 280,
+        "avgDom": 219,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "STONEGATE"
+      ]
+    },
+    {
+      "name": "Town",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.399141,
+        "lng": -86.220351
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 499000,
+        "avgPriceDisplay": "$499,000",
+        "medianPrice": 499000,
+        "avgSqft": 1344,
+        "avgPricePerSqFt": 371,
+        "avgDom": 63,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Town of Santa Rosa Beach"
+      ]
+    },
+    {
+      "name": "Town of Santa Rosa",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.393153,
+        "lng": -86.225326
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 17,
+        "avgPrice": 437880,
+        "avgPriceDisplay": "$437,880",
+        "medianPrice": 445000,
+        "avgSqft": 1431,
+        "avgPricePerSqFt": 306,
+        "avgDom": 132,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-4",
+        "bathsRange": "1-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 4.0,
+        "minBaths": 1.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "TOWN OF SANTA ROSA"
+      ],
+      "searchId": "7121693"
+    },
+    {
+      "name": "Tranquility By the Bay",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.401043,
+        "lng": -86.208171
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 441000,
+        "avgPriceDisplay": "$441,000",
+        "medianPrice": 451999,
+        "avgSqft": 1788,
+        "avgPricePerSqFt": 247,
+        "avgDom": 152,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "TRANQUILITY BY THE BAY"
+      ]
+    },
+    {
+      "name": "Treasure Trove Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.397151,
+        "lng": -86.295235
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 565000,
+        "avgPriceDisplay": "$565,000",
+        "medianPrice": 590000,
+        "avgSqft": 2106,
+        "avgPricePerSqFt": 268,
+        "avgDom": 118,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Treasure Trove Estates"
+      ]
+    },
+    {
+      "name": "Turquoise Beach",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.406281,
+        "lng": -86.304597
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1611000,
+        "avgPriceDisplay": "$1,611,000",
+        "medianPrice": 1999999,
+        "avgSqft": 3052,
+        "avgPricePerSqFt": 528,
+        "avgDom": 126,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "TURQUOISE BEACH",
+        "Turquoise Beach 3rd Addn"
+      ]
+    },
+    {
+      "name": "Waltons Landing",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.391596,
+        "lng": -86.214786
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 595599,
+        "avgPriceDisplay": "$595,599",
+        "medianPrice": 609000,
+        "avgSqft": 2292,
+        "avgPricePerSqFt": 260,
+        "avgDom": 104,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WALTON'S LANDING",
+        "Walton's Landing",
+        "Waltons Landing"
+      ]
+    },
+    {
+      "name": "Water Oaks",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.377043,
+        "lng": -86.254808
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 303758,
+        "avgPriceDisplay": "$303,758",
+        "medianPrice": 299900,
+        "avgSqft": 1571,
+        "avgPricePerSqFt": 193,
+        "avgDom": 169,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WATER OAKS",
+        "WATER OAKS T/H"
+      ]
+    },
+    {
+      "name": "Whispering Lake",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.377693,
+        "lng": -86.218602
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 563986,
+        "avgPriceDisplay": "$563,986",
+        "medianPrice": 525000,
+        "avgSqft": 2263,
+        "avgPricePerSqFt": 249,
+        "avgDom": 142,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "No Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WHISPERING LAKE",
+        "WHISPERING LAKES ESTATES",
+        "Whispering Lake"
+      ]
+    },
+    {
+      "name": "Whispering Pines",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1605 - SRB North of Chat Holley Rd",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.420283,
+        "lng": -86.239061
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1299000,
+        "avgPriceDisplay": "$1,299,000",
+        "medianPrice": 1299000,
+        "avgSqft": 2726,
+        "avgPricePerSqFt": 477,
+        "avgDom": 27,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WHISPERING PINES"
+      ]
+    },
+    {
+      "name": "Windsor Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.385557,
+        "lng": -86.262776
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 547500,
+        "avgPriceDisplay": "$547,500",
+        "medianPrice": 580000,
+        "avgSqft": 2257,
+        "avgPricePerSqFt": 243,
+        "avgDom": 110,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Gated",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WINDSOR ESTATES",
+        "Windsor Estates"
+      ]
+    },
+    {
+      "name": "Winston Manor",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "townhomes",
+      "position": {
+        "lat": 30.376321,
+        "lng": -86.263998
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 285000,
+        "avgPriceDisplay": "$285,000",
+        "medianPrice": 285000,
+        "avgSqft": 1002,
+        "avgPricePerSqFt": 284,
+        "avgDom": 146,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-2",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 2.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WINSTON MANOR T/H"
+      ]
+    },
+    {
+      "name": "Woodland Bayou Estates",
+      "area": "16 - North Santa Rosa Beach",
+      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.391889,
+        "lng": -86.259922
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 2113300,
+        "avgPriceDisplay": "$2,113,300",
+        "medianPrice": 1250000,
+        "avgSqft": 4414,
+        "avgPricePerSqFt": 479,
+        "avgDom": 61,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-7",
+        "bathsRange": "3-8",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 7.0,
+        "minBaths": 3.0,
+        "maxBaths": 8.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "WOODLAND BAYOU ESTATES"
+      ]
+    }
+  ]
+}

@@ -559,6 +559,65 @@ export function applyFilters() {
         // Create markers for ALL filtered neighborhoods
         createMarkers(sortedNeighborhoods);
 
+        // Add area marker when exactly one subarea is selected (shows aggregate stats)
+        if (selectedSubareas.size === 1 && window.subareaStats?.subareas) {
+            const selectedSubarea = [...selectedSubareas][0];
+            // Find matching subarea in preloaded stats by filterValue or name
+            // (some buttons use filterValue like "1503 - Sandestin Resort", others use name like "West 30A")
+            const subareaData = window.subareaStats.subareas.find(s =>
+                s.filterValue === selectedSubarea || s.name === selectedSubarea
+            );
+            if (subareaData) {
+                // Create area marker with aggregate stats
+                const areaNeighborhood = {
+                    name: subareaData.name,
+                    position: subareaData.position,
+                    stats: subareaData.stats,
+                    neighborhoods: subareaData.neighborhoods,
+                    isAreaMarker: true
+                };
+
+                // Create the area marker
+                const areaMarker = new google.maps.Marker({
+                    position: subareaData.position,
+                    map: STATE.map,
+                    title: subareaData.name + ' (Area)',
+                    icon: {
+                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                            <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="22" cy="22" r="10" fill="#4c8f96" stroke="white" stroke-opacity="0.75" stroke-width="3"/>
+                            </svg>
+                        `),
+                        scaledSize: new google.maps.Size(44, 44),
+                        anchor: new google.maps.Point(22, 22)
+                    },
+                    optimized: false,
+                    zIndex: 1000 // Keep area marker on top
+                });
+                areaMarker.markerColor = '#4c8f96';
+
+                // Add click handler to show area info window
+                areaMarker.addListener('click', () => {
+                    // Import and use the marker toggle
+                    import('./markers.js').then(({ toggleMarker }) => {
+                        toggleMarker(areaMarker, areaNeighborhood);
+                    });
+                });
+
+                // Store area marker for cleanup
+                STATE.markers.push({ marker: areaMarker, neighborhood: areaNeighborhood });
+
+                // Auto-open area info window when filter is selected
+                setTimeout(() => {
+                    import('./markers.js').then(({ showInfoWindow, createMarkerIcon }) => {
+                        showInfoWindow(areaMarker, areaNeighborhood);
+                        areaMarker.setIcon(createMarkerIcon('#4c8f96', true));
+                        STATE.activeMarker = areaMarker;
+                    });
+                }, 300);
+            }
+        }
+
         // Paginate and render list items
         renderListItems(sortedNeighborhoods.slice(STATE.currentRenderCount, STATE.currentRenderCount + CONFIG.data.batchSize));
         STATE.currentRenderCount += CONFIG.data.batchSize;

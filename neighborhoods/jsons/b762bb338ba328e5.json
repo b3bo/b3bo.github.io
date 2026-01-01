@@ -1,0 +1,983 @@
+{
+  "area": "19 - Point Washington",
+  "updated": "2026-01-01T09:37:17.736784",
+  "neighborhoods": [
+    {
+      "name": "Audubon Point",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.364039,
+        "lng": -86.124931
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 596400,
+        "avgPriceDisplay": "$596,400",
+        "medianPrice": 589000,
+        "avgSqft": 2078,
+        "avgPricePerSqFt": 287,
+        "avgDom": 133,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "AUDUBON POINT"
+      ],
+      "searchId": "7113394"
+    },
+    {
+      "name": "Bayside Heights Ranchettes",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.378537,
+        "lng": -86.149288
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 1074500,
+        "avgPriceDisplay": "$1,074,500",
+        "medianPrice": 1199000,
+        "avgSqft": 1890,
+        "avgPricePerSqFt": 568,
+        "avgDom": 108,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-4",
+        "bathsRange": "1-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 4.0,
+        "minBaths": 1.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "BAYSIDE HEIGHTS RANCHETTES"
+      ],
+      "searchId": "7114310"
+    },
+    {
+      "name": "Daughettes",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.37474,
+        "lng": -86.15697
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 1312364,
+        "avgPriceDisplay": "$1,312,364",
+        "medianPrice": 999000,
+        "avgSqft": 2309,
+        "avgPricePerSqFt": 568,
+        "avgDom": 88,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "1-6",
+        "bathsRange": "1-7",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 1.0,
+        "maxBeds": 6.0,
+        "minBaths": 1.0,
+        "maxBaths": 7.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "DAUGETTE ADDN",
+        "DAUGHETTES",
+        "DAUGHETTES AMENDED",
+        "Daughettes"
+      ]
+    },
+    {
+      "name": "Eden Estates",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.370301,
+        "lng": -86.109616
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 2496000,
+        "avgPriceDisplay": "$2,496,000",
+        "medianPrice": 2700000,
+        "avgSqft": 3652,
+        "avgPricePerSqFt": 684,
+        "avgDom": 100,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-7",
+        "bathsRange": "2-8",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 7.0,
+        "minBaths": 2.0,
+        "maxBaths": 8.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "Dock",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EDEN ESTATES",
+        "EDEN ESTATES S/D",
+        "EDEN ESTATES UNREC"
+      ],
+      "searchId": "7121751"
+    },
+    {
+      "name": "Edens Landing",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.36581,
+        "lng": -86.121588
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 574900,
+        "avgPriceDisplay": "$574,900",
+        "medianPrice": 599900,
+        "avgSqft": 1700,
+        "avgPricePerSqFt": 338,
+        "avgDom": 145,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EDEN'S LANDING"
+      ],
+      "searchId": "7121754"
+    },
+    {
+      "name": "Estuary",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.382384,
+        "lng": -86.167906
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 6043000,
+        "avgPriceDisplay": "$6,043,000",
+        "medianPrice": 4250000,
+        "avgSqft": 4952,
+        "avgPricePerSqFt": 1220,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "5-6",
+        "bathsRange": "4-7",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 5.0,
+        "maxBeds": 6.0,
+        "minBaths": 4.0,
+        "maxBaths": 7.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Dock",
+        "Gated",
+        "No Short-Term",
+        "Pet-Friendly",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "ESTUARY S/D"
+      ],
+      "searchId": "7121766"
+    },
+    {
+      "name": "Garage 30A Luxury Motor",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "condos",
+      "position": {
+        "lat": 30.356748,
+        "lng": -86.095583
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 550000,
+        "avgPriceDisplay": "$550,000",
+        "medianPrice": 550000,
+        "avgSqft": 2400,
+        "avgPricePerSqFt": 229,
+        "avgDom": 4,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "N/A",
+        "bathsRange": "1-1",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": null,
+        "maxBeds": null,
+        "minBaths": 1.0,
+        "maxBaths": 1.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Clubhouse",
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "GARAGE 30A LUXURY MOTOR CONDOS"
+      ],
+      "searchId": "7124230"
+    },
+    {
+      "name": "Grayton Bayou",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.374206,
+        "lng": -86.146081
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 994333,
+        "avgPriceDisplay": "$994,333",
+        "medianPrice": 929000,
+        "avgSqft": 2384,
+        "avgPricePerSqFt": 417,
+        "avgDom": 103,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "3-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 3.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "GRAYTON BAYOU",
+        "Grayton Bayou"
+      ],
+      "searchId": "7114359"
+    },
+    {
+      "name": "Holley Grove At Peach Creek",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.367177,
+        "lng": -86.104357
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 537542,
+        "avgPriceDisplay": "$537,542",
+        "medianPrice": 498000,
+        "avgSqft": 2284,
+        "avgPricePerSqFt": 235,
+        "avgDom": 37,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Holley Grove at Peach Creek"
+      ]
+    },
+    {
+      "name": "Magnolia Bay",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.373583,
+        "lng": -86.137445
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 699000,
+        "avgPriceDisplay": "$699,000",
+        "medianPrice": 699000,
+        "avgSqft": 1988,
+        "avgPricePerSqFt": 352,
+        "avgDom": 139,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "4-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 4.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MAGNOLIA BAY"
+      ],
+      "searchId": "378766",
+      "urlSlug": "/sandestin/magnolia-bay/"
+    },
+    {
+      "name": "Magnolia Beach",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.375059,
+        "lng": -86.134589
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 7,
+        "avgPrice": 796353,
+        "avgPriceDisplay": "$796,353",
+        "medianPrice": 699000,
+        "avgSqft": 1937,
+        "avgPricePerSqFt": 411,
+        "avgDom": 122,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-5",
+        "bathsRange": "2-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "MAGNOLIA BEACH",
+        "Magnolia Beach"
+      ]
+    },
+    {
+      "name": "Oak Grove at Watercolor",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.367531,
+        "lng": -86.122353
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 1671750,
+        "avgPriceDisplay": "$1,671,750",
+        "medianPrice": 1799000,
+        "avgSqft": 3417,
+        "avgPricePerSqFt": 489,
+        "avgDom": 214,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "4-6",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 4.0,
+        "maxBaths": 6.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Oak Grove at Eden's Landing"
+      ]
+    },
+    {
+      "name": "Oaks at Eden",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.366575,
+        "lng": -86.116277
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 577967,
+        "avgPriceDisplay": "$577,967",
+        "medianPrice": 559000,
+        "avgSqft": 1810,
+        "avgPricePerSqFt": 319,
+        "avgDom": 169,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "2-2",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 2.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Oaks at Eden"
+      ]
+    },
+    {
+      "name": "Paradise Cove",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.359847,
+        "lng": -86.118769
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 635750,
+        "avgPriceDisplay": "$635,750",
+        "medianPrice": 679000,
+        "avgSqft": 2392,
+        "avgPricePerSqFt": 266,
+        "avgDom": 144,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-4",
+        "bathsRange": "3-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 4.0,
+        "minBaths": 3.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Community Pool",
+        "No Short-Term",
+        "Pet-Friendly"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "PARADISE COVE",
+        "Paradise Cove"
+      ]
+    },
+    {
+      "name": "Peach Creek",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.361447,
+        "lng": -86.104336
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 5,
+        "avgPrice": 580880,
+        "avgPriceDisplay": "$580,880",
+        "medianPrice": 589000,
+        "avgSqft": 2434,
+        "avgPricePerSqFt": 239,
+        "avgDom": 113,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "2-4",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 4.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "PEACH CREEK",
+        "PEACH CREEK PH 1",
+        "PEACH CREEK PH 3",
+        "PEACH CREEK PH 4",
+        "PEACH CREEK PH 5",
+        "Peach Creek",
+        "Peach Creek PH 5",
+        "Peach Creek Ph I"
+      ]
+    },
+    {
+      "name": "Point Washington",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.374525,
+        "lng": -86.136801
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 1,
+        "avgPrice": 649999,
+        "avgPriceDisplay": "$649,999",
+        "medianPrice": 649999,
+        "avgSqft": 1871,
+        "avgPricePerSqFt": 347,
+        "avgDom": 208,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-3",
+        "bathsRange": "3-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 3.0,
+        "minBaths": 3.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Point Washington"
+      ]
+    },
+    {
+      "name": "Preserve at Paradise Cove",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.362227,
+        "lng": -86.115894
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 3,
+        "avgPrice": 568200,
+        "avgPriceDisplay": "$568,200",
+        "medianPrice": 559000,
+        "avgSqft": 2019,
+        "avgPricePerSqFt": 281,
+        "avgDom": 91,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "4-5",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 4.0,
+        "maxBeds": 5.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "Preserve at Paradise Cove",
+        "The Preserve at Paradise Cove"
+      ]
+    },
+    {
+      "name": "Shoal River",
+      "area": "19 - Point Washington",
+      "subArea": "1902 - Pt Washington/N. of 98 W",
+      "propertyType": "homes",
+      "position": {
+        "lat": 30.369921,
+        "lng": -86.130331
+      },
+      "location": {
+        "city": "Santa Rosa Beach",
+        "state": "FL",
+        "zipCode": "32459"
+      },
+      "zipCode": "32459",
+      "stats": {
+        "listingCount": 4,
+        "avgPrice": 837848,
+        "avgPriceDisplay": "$837,848",
+        "medianPrice": 857400,
+        "avgSqft": 2728,
+        "avgPricePerSqFt": 307,
+        "avgDom": 56,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "3-5",
+        "bathsRange": "3-5",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 3.0,
+        "maxBeds": 5.0,
+        "minBaths": 3.0,
+        "maxBaths": 5.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "No Short-Term"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "THE SHOAL",
+        "The Shoal"
+      ]
+    }
+  ]
+}

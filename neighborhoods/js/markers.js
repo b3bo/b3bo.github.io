@@ -188,7 +188,55 @@ export function toggleMarker(marker, neighborhood) {
     }
 }
 
+// Show area info window with aggregate stats (used when subarea filter is selected)
+function showAreaInfoWindow(marker, area, targetInfoWindow = STATE.infoWindow) {
+    const stats = area.stats || {};
+    const neighborhoodsList = (area.neighborhoods || [])
+        .slice(0, 10)
+        .map(n => n.name)
+        .join(', ');
+
+    const content = `
+        <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
+            <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${escapeHtml(area.name)}</h3>
+            <div class="grid grid-cols-2 gap-2 mb-2">
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
+                </div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mb-2">
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                </div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                    <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
+                    <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                </div>
+            </div>
+            <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-3">
+                <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
+                <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+            </div>
+        </div>
+    `;
+
+    targetInfoWindow.close();
+    targetInfoWindow.setContent(content);
+    targetInfoWindow.open(STATE.map, marker);
+}
+
 export function showInfoWindow(marker, neighborhood, targetInfoWindow = STATE.infoWindow) {
+    // Handle area markers (aggregate stats for subarea)
+    if (neighborhood.isAreaMarker) {
+        return showAreaInfoWindow(marker, neighborhood, targetInfoWindow);
+    }
+
     // Store current neighborhood for navigation ONLY if this is the primary window
     if (targetInfoWindow === STATE.infoWindow) {
         window.currentNeighborhood = neighborhood;

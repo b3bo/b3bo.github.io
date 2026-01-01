@@ -1,0 +1,414 @@
+{
+  "type": "subarea-stats",
+  "updated": "2026-01-01T09:37:17.738996",
+  "subareas": [
+    {
+      "name": "Destin",
+      "slug": "destin",
+      "filterField": "subArea",
+      "filterValue": "Destin",
+      "position": {
+        "lat": 30.387751,
+        "lng": -86.474735
+      },
+      "stats": {
+        "listingCount": 565,
+        "medianPrice": 649000,
+        "avgPricePerSqFt": 484,
+        "avgDom": 140
+      },
+      "neighborhoods": [
+        {
+          "name": "Palms",
+          "propertyType": "condos",
+          "listingCount": 45
+        },
+        {
+          "name": "Sandpiper Cove",
+          "propertyType": "condos",
+          "listingCount": 29
+        },
+        {
+          "name": "Gulf Terrace",
+          "propertyType": "condos",
+          "listingCount": 21
+        },
+        {
+          "name": "Jetty East",
+          "propertyType": "condos",
+          "listingCount": 21
+        },
+        {
+          "name": "Regatta Bay",
+          "propertyType": "homes",
+          "listingCount": 16
+        },
+        {
+          "name": "Crystal Beach",
+          "propertyType": "homes",
+          "listingCount": 15
+        },
+        {
+          "name": "Emerald Grande East - Whole",
+          "propertyType": "condos",
+          "listingCount": 14
+        },
+        {
+          "name": "Destiny East",
+          "propertyType": "homes",
+          "listingCount": 13
+        },
+        {
+          "name": "Holiday Isle",
+          "propertyType": "homes",
+          "listingCount": 13
+        },
+        {
+          "name": "Sterling Shores",
+          "propertyType": "condos",
+          "listingCount": 13
+        }
+      ]
+    },
+    {
+      "name": "Santa Rosa Beach",
+      "slug": "santa-rosa-beach",
+      "filterField": "subArea",
+      "filterValue": "Santa Rosa Beach",
+      "position": {
+        "lat": 30.3506,
+        "lng": -86.228536
+      },
+      "stats": {
+        "listingCount": 236,
+        "medianPrice": 1100000,
+        "avgPricePerSqFt": 598,
+        "avgDom": 144
+      },
+      "neighborhoods": [
+        {
+          "name": "Gulfview Heights",
+          "propertyType": "homes",
+          "listingCount": 14
+        },
+        {
+          "name": "Highland Parks At Blue",
+          "propertyType": "homes",
+          "listingCount": 13
+        },
+        {
+          "name": "Cypress Breeze Plantation",
+          "propertyType": "homes",
+          "listingCount": 12
+        },
+        {
+          "name": "Beach Highland",
+          "propertyType": "homes",
+          "listingCount": 9
+        },
+        {
+          "name": "Serenity At Dune Allen",
+          "propertyType": "homes",
+          "listingCount": 9
+        },
+        {
+          "name": "Dune Allen",
+          "propertyType": "homes",
+          "listingCount": 8
+        },
+        {
+          "name": "Gulf Place Caribbean",
+          "propertyType": "condos",
+          "listingCount": 8
+        },
+        {
+          "name": "Cypress Dunes",
+          "propertyType": "homes",
+          "listingCount": 7
+        },
+        {
+          "name": "Blue Gulf Resort",
+          "propertyType": "homes",
+          "listingCount": 6
+        },
+        {
+          "name": "Escada",
+          "propertyType": "homes",
+          "listingCount": 6
+        }
+      ]
+    },
+    {
+      "name": "Miramar Beach",
+      "slug": "miramar-beach",
+      "filterField": "subArea",
+      "filterValue": "1502 - Miramar Beach",
+      "position": {
+        "lat": 30.378026,
+        "lng": -86.375587
+      },
+      "stats": {
+        "listingCount": 296,
+        "medianPrice": 835000,
+        "avgPricePerSqFt": 576,
+        "avgDom": 164
+      },
+      "neighborhoods": [
+        {
+          "name": "Ariel Dunes",
+          "propertyType": "condos",
+          "listingCount": 24
+        },
+        {
+          "name": "Frangista Beach",
+          "propertyType": "homes",
+          "listingCount": 21
+        },
+        {
+          "name": "Seascape Resort",
+          "propertyType": "condos",
+          "listingCount": 19
+        },
+        {
+          "name": "Destin Surfside",
+          "propertyType": "condos",
+          "listingCount": 14
+        },
+        {
+          "name": "Hidden Dunes",
+          "propertyType": "condos",
+          "listingCount": 13
+        },
+        {
+          "name": "Maravilla",
+          "propertyType": "condos",
+          "listingCount": 11
+        },
+        {
+          "name": "Mainsail",
+          "propertyType": "condos",
+          "listingCount": 10
+        },
+        {
+          "name": "Alerio",
+          "propertyType": "condos",
+          "listingCount": 9
+        },
+        {
+          "name": "Summit At Topsl",
+          "propertyType": "condos",
+          "listingCount": 8
+        },
+        {
+          "name": "Beachhouse",
+          "propertyType": "condos",
+          "listingCount": 6
+        }
+      ]
+    },
+    {
+      "name": "West 30A",
+      "slug": "west-30a",
+      "filterField": "area",
+      "filterValue": "17 - 30A West",
+      "position": {
+        "lat": 30.348628,
+        "lng": -86.226253
+      },
+      "stats": {
+        "listingCount": 309,
+        "medianPrice": 1399000,
+        "avgPricePerSqFt": 773,
+        "avgDom": 141
+      },
+      "neighborhoods": [
+        {
+          "name": "Gulfview Heights",
+          "propertyType": "homes",
+          "listingCount": 14
+        },
+        {
+          "name": "Highland Parks At Blue",
+          "propertyType": "homes",
+          "listingCount": 13
+        },
+        {
+          "name": "Cypress Breeze Plantation",
+          "propertyType": "homes",
+          "listingCount": 12
+        },
+        {
+          "name": "Beach Highland",
+          "propertyType": "homes",
+          "listingCount": 9
+        },
+        {
+          "name": "Blue Mountain Beach",
+          "propertyType": "homes",
+          "listingCount": 9
+        },
+        {
+          "name": "Serenity At Dune Allen",
+          "propertyType": "homes",
+          "listingCount": 9
+        },
+        {
+          "name": "Dune Allen",
+          "propertyType": "homes",
+          "listingCount": 8
+        },
+        {
+          "name": "Gulf Place Caribbean",
+          "propertyType": "condos",
+          "listingCount": 8
+        },
+        {
+          "name": "Cypress Dunes",
+          "propertyType": "homes",
+          "listingCount": 7
+        },
+        {
+          "name": "Grayton Beach",
+          "propertyType": "homes",
+          "listingCount": 7
+        }
+      ]
+    },
+    {
+      "name": "East 30A",
+      "slug": "east-30a",
+      "filterField": "area",
+      "filterValue": "18 - 30A East",
+      "position": {
+        "lat": 30.303917,
+        "lng": -86.071294
+      },
+      "stats": {
+        "listingCount": 648,
+        "medianPrice": 1895000,
+        "avgPricePerSqFt": 977,
+        "avgDom": 155
+      },
+      "neighborhoods": [
+        {
+          "name": "Watersound Origins",
+          "propertyType": "homes",
+          "listingCount": 62
+        },
+        {
+          "name": "Watercolor",
+          "propertyType": "homes",
+          "listingCount": 38
+        },
+        {
+          "name": "Prominence",
+          "propertyType": "townhomes",
+          "listingCount": 26
+        },
+        {
+          "name": "Seacrest Beach",
+          "propertyType": "homes",
+          "listingCount": 25
+        },
+        {
+          "name": "Watersound Beach",
+          "propertyType": "homes",
+          "listingCount": 23
+        },
+        {
+          "name": "Gulf Shore Manor",
+          "propertyType": "homes",
+          "listingCount": 18
+        },
+        {
+          "name": "Watersound Camp Creek",
+          "propertyType": "homes",
+          "listingCount": 18
+        },
+        {
+          "name": "Seagrove",
+          "propertyType": "homes",
+          "listingCount": 16
+        },
+        {
+          "name": "Alys Beach",
+          "propertyType": "homes",
+          "listingCount": 15
+        },
+        {
+          "name": "Grande Pointe at Inlet Beach",
+          "propertyType": "homes",
+          "listingCount": 15
+        }
+      ]
+    },
+    {
+      "name": "Sandestin",
+      "slug": "sandestin",
+      "filterField": "subArea",
+      "filterValue": "1503 - Sandestin Resort",
+      "position": {
+        "lat": 30.385773,
+        "lng": -86.32587
+      },
+      "stats": {
+        "listingCount": 290,
+        "medianPrice": 875000,
+        "avgPricePerSqFt": 531,
+        "avgDom": 159
+      },
+      "neighborhoods": [
+        {
+          "name": "Grand Sandestin",
+          "propertyType": "condos",
+          "listingCount": 24
+        },
+        {
+          "name": "Luau Condominum",
+          "propertyType": "condos",
+          "listingCount": 22
+        },
+        {
+          "name": "Burnt Pine",
+          "propertyType": "homes",
+          "listingCount": 19
+        },
+        {
+          "name": "Lasata",
+          "propertyType": "condos",
+          "listingCount": 19
+        },
+        {
+          "name": "Bahia",
+          "propertyType": "condos",
+          "listingCount": 18
+        },
+        {
+          "name": "Bayside",
+          "propertyType": "condos",
+          "listingCount": 12
+        },
+        {
+          "name": "Beachside",
+          "propertyType": "condos",
+          "listingCount": 12
+        },
+        {
+          "name": "Pointe Of View",
+          "propertyType": "condos",
+          "listingCount": 12
+        },
+        {
+          "name": "Elation",
+          "propertyType": "condos",
+          "listingCount": 11
+        },
+        {
+          "name": "Pilot House",
+          "propertyType": "condos",
+          "listingCount": 11
+        }
+      ]
+    }
+  ]
+}
