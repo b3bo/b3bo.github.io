@@ -23,3 +23,8 @@ export const STATE = {
         priceMax: null  // null = no filter (show all)
     }
 };
+
+// Expose STATE to window for Playwright tests
+if (typeof window !== 'undefined') {
+    window.STATE = STATE;
+}
