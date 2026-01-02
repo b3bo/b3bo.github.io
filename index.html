@@ -598,7 +598,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.32</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.33</p>
                 </div>
             </div>
 
@@ -2299,41 +2299,40 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
                 const areaSlug = urlParams.get('area');
 
-                // Neighborhood single mode
-                if (isSingleMode && neighborhoodSlug && !areaSlug && neighborhoods.length > 0) {
-                    const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
-                    if (matching.length > 0) {
-                        const homes = matching.find(n => n.propertyType === 'Homes');
-                        const target = homes || matching[0];
-                        window.neighborhoods = [target];
-                        window.filteredNeighborhoods = [target];
-                        console.log('Single mode neighborhood: filtered to', target.name, target.propertyType);
+                // UNIFIED single mode handler for BOTH neighborhoods AND areas
+                if (isSingleMode) {
+                    let target = null;
 
-                        // Apply offset centering if not done during initMap (race condition fix)
-                        // Use moveCamera for instant atomic update (no animation)
-                        if (!window.singleModeOffsetApplied && target.position) {
-                            const targetZoom = 13;
-                            const offsetPx = calculateInitialOffset(targetZoom);
-                            const offsetCenter = {
-                                lat: preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom),
-                                lng: target.position.lng
-                            };
-                            window.map.moveCamera({ center: offsetCenter, zoom: targetZoom });
-                            window.singleModeOffsetApplied = true;
-                            console.log('Single mode neighborhood: late offset applied', offsetPx, 'px');
+                    // Find target - neighborhood or area
+                    if (neighborhoodSlug && !areaSlug && neighborhoods.length > 0) {
+                        const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
+                        if (matching.length > 0) {
+                            const homes = matching.find(n => n.propertyType === 'Homes');
+                            target = homes || matching[0];
+                            window.neighborhoods = [target];
+                            window.filteredNeighborhoods = [target];
+                            console.log('Single mode: neighborhood', target.name);
+                        }
+                    } else if (areaSlug) {
+                        const presetData = window.areaPresets?.presets?.find(s => s.slug === areaSlug);
+                        if (presetData) {
+                            target = window.createAreaMarkerData(presetData);
+                            window.filteredNeighborhoods = [target];
+                            console.log('Single mode: area', presetData.name);
                         }
                     }
-                }
 
-                // Area single mode - use unified selectArea with instant mode
-                if (isSingleMode && areaSlug) {
-                    // Mark as area single mode for later processing
-                    window.singleModeAreaSlug = areaSlug;
-                    // Pre-filter to just the area marker (selectArea will handle the rest)
-                    const presetData = window.areaPresets?.presets?.find(s => s.slug === areaSlug);
-                    if (presetData) {
-                        window.filteredNeighborhoods = [window.createAreaMarkerData(presetData)];
-                        console.log('Single mode area: using unified selectArea for', presetData.name);
+                    // UNIFIED offset centering for BOTH neighborhoods AND areas
+                    if (target && target.position) {
+                        const targetZoom = 13;
+                        const offsetPx = calculateInitialOffset(targetZoom);
+                        const offsetCenter = {
+                            lat: preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom),
+                            lng: target.position.lng
+                        };
+                        window.map.moveCamera({ center: offsetCenter, zoom: targetZoom });
+                        window.singleModeOffsetApplied = true;
+                        console.log('Single mode: offset applied', offsetPx, 'px');
                     }
                 }
 
