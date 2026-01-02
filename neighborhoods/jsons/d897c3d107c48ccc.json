@@ -1,6 +1,6 @@
 {
   "area": "16 - North Santa Rosa Beach",
-  "updated": "2026-01-01T09:37:17.722529",
+  "updated": "2026-01-02T09:27:02.760011",
   "neighborhoods": [
     {
       "name": "30 North",
@@ -281,7 +281,7 @@
       "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
       "propertyType": "homes",
       "position": {
-        "lat": 30.393227,
+        "lat": 30.39309,
         "lng": -86.291864
       },
       "location": {
@@ -291,13 +291,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 6,
-        "avgPrice": 1416700,
-        "avgPriceDisplay": "$1,416,700",
-        "medianPrice": 1099000,
-        "avgSqft": 2948,
-        "avgPricePerSqFt": 481,
-        "avgDom": 112,
+        "listingCount": 5,
+        "avgPrice": 1452000,
+        "avgPriceDisplay": "$1,452,000",
+        "medianPrice": 1075000,
+        "avgSqft": 2987,
+        "avgPricePerSqFt": 486,
+        "avgDom": 104,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -357,7 +357,7 @@
         "medianPrice": 709900,
         "avgSqft": 2491,
         "avgPricePerSqFt": 279,
-        "avgDom": 101,
+        "avgDom": 102,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -463,7 +463,7 @@
         "medianPrice": 749000,
         "avgSqft": 2015,
         "avgPricePerSqFt": 363,
-        "avgDom": 71,
+        "avgDom": 72,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -578,7 +578,7 @@
         "medianPrice": 749000,
         "avgSqft": 2264,
         "avgPricePerSqFt": 334,
-        "avgDom": 152,
+        "avgDom": 153,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -633,7 +633,7 @@
         "medianPrice": 589000,
         "avgSqft": 1881,
         "avgPricePerSqFt": 312,
-        "avgDom": 122,
+        "avgDom": 123,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -686,7 +686,7 @@
         "medianPrice": 524900,
         "avgSqft": 1719,
         "avgPricePerSqFt": 299,
-        "avgDom": 121,
+        "avgDom": 122,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -699,64 +699,6 @@
         "maxBeds": 4.0,
         "minBaths": 2.0,
         "maxBaths": 4.0,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Clubhouse",
-        "Community Pool",
-        "Fitness",
-        "No Short-Term",
-        "Pet-Friendly",
-        "Playgrounds"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "mlsSubdivisions": [
-        "CHURCH STREET VILLAGE"
-      ],
-      "searchId": "7121710"
-    },
-    {
-      "name": "Church Street Village",
-      "area": "16 - North Santa Rosa Beach",
-      "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
-      "propertyType": "townhomes",
-      "position": {
-        "lat": 30.376366,
-        "lng": -86.235789
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 450000,
-        "avgPriceDisplay": "$450,000",
-        "medianPrice": 450000,
-        "avgSqft": 1616,
-        "avgPricePerSqFt": 278,
-        "avgDom": 419,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "3-3",
-        "bathsRange": "3-3",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": 3.0,
-        "maxBeds": 3.0,
-        "minBaths": 3.0,
-        "maxBaths": 3.0,
         "minSqft": null,
         "maxSqft": null,
         "minDom": null,
@@ -916,13 +858,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 19,
-        "avgPrice": 1539485,
-        "avgPriceDisplay": "$1,539,485",
-        "medianPrice": 595000,
-        "avgSqft": 2902,
-        "avgPricePerSqFt": 530,
-        "avgDom": 136,
+        "listingCount": 17,
+        "avgPrice": 1553112,
+        "avgPriceDisplay": "$1,553,112",
+        "medianPrice": 594900,
+        "avgSqft": 2901,
+        "avgPricePerSqFt": 535,
+        "avgDom": 133,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -982,7 +924,7 @@
         "medianPrice": 675000,
         "avgSqft": 1843,
         "avgPricePerSqFt": 355,
-        "avgDom": 150,
+        "avgDom": 151,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1037,7 +979,7 @@
         "medianPrice": 315000,
         "avgSqft": 1459,
         "avgPricePerSqFt": 219,
-        "avgDom": 107,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1075,7 +1017,7 @@
       "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
       "propertyType": "homes",
       "position": {
-        "lat": 30.39212,
+        "lat": 30.392719,
         "lng": -86.267979
       },
       "location": {
@@ -1086,12 +1028,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 3,
-        "avgPrice": 567160,
-        "avgPriceDisplay": "$567,160",
+        "avgPrice": 562700,
+        "avgPriceDisplay": "$562,700",
         "medianPrice": 569900,
-        "avgSqft": 2172,
-        "avgPricePerSqFt": 261,
-        "avgDom": 142,
+        "avgSqft": 2095,
+        "avgPricePerSqFt": 269,
+        "avgDom": 168,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1147,7 +1089,7 @@
         "medianPrice": 494500,
         "avgSqft": 1654,
         "avgPricePerSqFt": 299,
-        "avgDom": 151,
+        "avgDom": 152,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1202,7 +1144,7 @@
         "medianPrice": 580000,
         "avgSqft": 1841,
         "avgPricePerSqFt": 259,
-        "avgDom": 193,
+        "avgDom": 194,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1256,7 +1198,7 @@
         "medianPrice": 399999,
         "avgSqft": 1724,
         "avgPricePerSqFt": 230,
-        "avgDom": 53,
+        "avgDom": 54,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1311,7 +1253,7 @@
         "medianPrice": 675000,
         "avgSqft": 1750,
         "avgPricePerSqFt": 372,
-        "avgDom": 61,
+        "avgDom": 62,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1358,12 +1300,12 @@
       "zipCode": "32459",
       "stats": {
         "listingCount": 2,
-        "avgPrice": 799000,
-        "avgPriceDisplay": "$799,000",
+        "avgPrice": 798500,
+        "avgPriceDisplay": "$798,500",
         "medianPrice": 799000,
         "avgSqft": 2008,
         "avgPricePerSqFt": 398,
-        "avgDom": 95,
+        "avgDom": 96,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1470,7 +1412,7 @@
         "medianPrice": 3250000,
         "avgSqft": 3840,
         "avgPricePerSqFt": 846,
-        "avgDom": 313,
+        "avgDom": 314,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1526,7 +1468,7 @@
         "medianPrice": 599000,
         "avgSqft": 2117,
         "avgPricePerSqFt": 320,
-        "avgDom": 117,
+        "avgDom": 118,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1563,58 +1505,6 @@
       "urlSlug": "/santa-rosa-beach/hidden-grove/"
     },
     {
-      "name": "Indian Woman",
-      "area": "16 - North Santa Rosa Beach",
-      "subArea": "1605 - SRB North of Chat Holley Rd",
-      "propertyType": "homes",
-      "position": {
-        "lat": 30.395085,
-        "lng": -86.220423
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 349999,
-        "avgPriceDisplay": "$349,999",
-        "medianPrice": 349999,
-        "avgSqft": 1200,
-        "avgPricePerSqFt": 292,
-        "avgDom": 608,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "3-3",
-        "bathsRange": "2-2",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": 3.0,
-        "maxBeds": 3.0,
-        "minBaths": 2.0,
-        "maxBaths": 2.0,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "mlsSubdivisions": [
-        "Indian Woman"
-      ]
-    },
-    {
       "name": "Kara Lake",
       "area": "16 - North Santa Rosa Beach",
       "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
@@ -1636,7 +1526,7 @@
         "medianPrice": 484000,
         "avgSqft": 1765,
         "avgPricePerSqFt": 271,
-        "avgDom": 99,
+        "avgDom": 100,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1693,7 +1583,7 @@
         "medianPrice": 479000,
         "avgSqft": 1777,
         "avgPricePerSqFt": 270,
-        "avgDom": 525,
+        "avgDom": 526,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -1828,59 +1718,6 @@
       "mlsSubdivisions": [
         "MACK BAYOU PARK",
         "MACK BAYOU PARK S/D"
-      ]
-    },
-    {
-      "name": "Mack Bayou Pointe",
-      "area": "16 - North Santa Rosa Beach",
-      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
-      "propertyType": "homes",
-      "position": {
-        "lat": 30.404489,
-        "lng": -86.309969
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 568000,
-        "avgPriceDisplay": "$568,000",
-        "medianPrice": 574000,
-        "avgSqft": 2482,
-        "avgPricePerSqFt": 229,
-        "avgDom": 77,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "4-4",
-        "bathsRange": "2-3",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": 4.0,
-        "maxBeds": 4.0,
-        "minBaths": 2.0,
-        "maxBaths": 3.0,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Community Pool",
-        "Short-Term"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "mlsSubdivisions": [
-        "MACK BAYOU POINTE S/D"
       ]
     },
     {
@@ -2062,7 +1899,7 @@
         "medianPrice": 419000,
         "avgSqft": 1817,
         "avgPricePerSqFt": 231,
-        "avgDom": 68,
+        "avgDom": 69,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2098,7 +1935,7 @@
       "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
       "propertyType": "homes",
       "position": {
-        "lat": 30.386425,
+        "lat": 30.385923,
         "lng": -86.256235
       },
       "location": {
@@ -2108,23 +1945,23 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
-        "avgPrice": 799500,
-        "avgPriceDisplay": "$799,500",
-        "medianPrice": 899000,
-        "avgSqft": 2828,
-        "avgPricePerSqFt": 283,
-        "avgDom": 146,
+        "listingCount": 1,
+        "avgPrice": 700000,
+        "avgPriceDisplay": "$700,000",
+        "medianPrice": 700000,
+        "avgSqft": 2610,
+        "avgPricePerSqFt": 268,
+        "avgDom": 103,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
-        "bedsRange": "3-5",
+        "bedsRange": "3-3",
         "bathsRange": "3-3",
         "sqftRange": "N/A",
         "domRange": "N/A",
         "yearBuiltRange": "N/A",
         "minBeds": 3.0,
-        "maxBeds": 5.0,
+        "maxBeds": 3.0,
         "minBaths": 3.0,
         "maxBaths": 3.0,
         "minSqft": null,
@@ -2274,7 +2111,7 @@
         "medianPrice": 985000,
         "avgSqft": 2674,
         "avgPricePerSqFt": 482,
-        "avgDom": 124,
+        "avgDom": 125,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2334,7 +2171,7 @@
         "medianPrice": 1050000,
         "avgSqft": 1898,
         "avgPricePerSqFt": 553,
-        "avgDom": 42,
+        "avgDom": 43,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2444,7 +2281,7 @@
         "medianPrice": 2299999,
         "avgSqft": 5570,
         "avgPricePerSqFt": 413,
-        "avgDom": 258,
+        "avgDom": 259,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2497,7 +2334,7 @@
         "medianPrice": 634900,
         "avgSqft": 2181,
         "avgPricePerSqFt": 392,
-        "avgDom": 195,
+        "avgDom": 196,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2539,7 +2376,7 @@
       "propertyType": "townhomes",
       "position": {
         "lat": 30.393757,
-        "lng": -86.307244
+        "lng": -86.307125
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2548,13 +2385,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 5,
-        "avgPrice": 357822,
-        "avgPriceDisplay": "$357,822",
+        "listingCount": 4,
+        "avgPrice": 358800,
+        "avgPriceDisplay": "$358,800",
         "medianPrice": 350000,
-        "avgSqft": 1549,
+        "avgSqft": 1550,
         "avgPricePerSqFt": 231,
-        "avgDom": 264,
+        "avgDom": 230,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2607,7 +2444,7 @@
         "medianPrice": 1435000,
         "avgSqft": 2814,
         "avgPricePerSqFt": 503,
-        "avgDom": 147,
+        "avgDom": 148,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2715,7 +2552,7 @@
         "medianPrice": 599600,
         "avgSqft": 2052,
         "avgPricePerSqFt": 286,
-        "avgDom": 143,
+        "avgDom": 144,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2819,7 +2656,7 @@
         "medianPrice": 469000,
         "avgSqft": 1990,
         "avgPricePerSqFt": 252,
-        "avgDom": 55,
+        "avgDom": 56,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2923,7 +2760,7 @@
         "medianPrice": 499000,
         "avgSqft": 1344,
         "avgPricePerSqFt": 371,
-        "avgDom": 63,
+        "avgDom": 64,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2959,8 +2796,8 @@
       "subArea": "1605 - SRB North of Chat Holley Rd",
       "propertyType": "homes",
       "position": {
-        "lat": 30.393153,
-        "lng": -86.225326
+        "lat": 30.393256,
+        "lng": -86.225271
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -2969,13 +2806,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 17,
-        "avgPrice": 437880,
-        "avgPriceDisplay": "$437,880",
+        "listingCount": 16,
+        "avgPrice": 434229,
+        "avgPriceDisplay": "$434,229",
         "medianPrice": 445000,
-        "avgSqft": 1431,
-        "avgPricePerSqFt": 306,
-        "avgDom": 132,
+        "avgSqft": 1409,
+        "avgPricePerSqFt": 308,
+        "avgDom": 114,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3081,7 +2918,7 @@
         "medianPrice": 590000,
         "avgSqft": 2106,
         "avgPricePerSqFt": 268,
-        "avgDom": 118,
+        "avgDom": 119,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3111,62 +2948,6 @@
       "listingsUrlMap": "",
       "mlsSubdivisions": [
         "Treasure Trove Estates"
-      ]
-    },
-    {
-      "name": "Turquoise Beach",
-      "area": "16 - North Santa Rosa Beach",
-      "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
-      "propertyType": "homes",
-      "position": {
-        "lat": 30.406281,
-        "lng": -86.304597
-      },
-      "location": {
-        "city": "Santa Rosa Beach",
-        "state": "FL",
-        "zipCode": "32459"
-      },
-      "zipCode": "32459",
-      "stats": {
-        "listingCount": 1,
-        "avgPrice": 1611000,
-        "avgPriceDisplay": "$1,611,000",
-        "medianPrice": 1999999,
-        "avgSqft": 3052,
-        "avgPricePerSqFt": 528,
-        "avgDom": 126,
-        "priceRange": "N/A",
-        "minPrice": null,
-        "maxPrice": null,
-        "bedsRange": "3-4",
-        "bathsRange": "3-5",
-        "sqftRange": "N/A",
-        "domRange": "N/A",
-        "yearBuiltRange": "N/A",
-        "minBeds": 3.0,
-        "maxBeds": 4.0,
-        "minBaths": 3.0,
-        "maxBaths": 5.0,
-        "minSqft": null,
-        "maxSqft": null,
-        "minDom": null,
-        "maxDom": null
-      },
-      "amenities": [
-        "Dock",
-        "Short-Term",
-        "Waterfront",
-        "Waterview"
-      ],
-      "photos": {
-        "hero": "",
-        "samples": []
-      },
-      "listingsUrlMap": "",
-      "mlsSubdivisions": [
-        "TURQUOISE BEACH",
-        "Turquoise Beach 3rd Addn"
       ]
     },
     {
@@ -3230,8 +3011,8 @@
       "subArea": "1601 - SRB NW of Hwy 98 to Church Hill Bayou",
       "propertyType": "townhomes",
       "position": {
-        "lat": 30.377043,
-        "lng": -86.254808
+        "lat": 30.37707,
+        "lng": -86.254726
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -3240,13 +3021,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 303758,
-        "avgPriceDisplay": "$303,758",
-        "medianPrice": 299900,
-        "avgSqft": 1571,
-        "avgPricePerSqFt": 193,
-        "avgDom": 169,
+        "listingCount": 3,
+        "avgPrice": 304722,
+        "avgPriceDisplay": "$304,722",
+        "medianPrice": 310000,
+        "avgSqft": 1570,
+        "avgPricePerSqFt": 194,
+        "avgDom": 172,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3283,8 +3064,8 @@
       "subArea": "1604 - SRB North of 98 S. of Chat Holley Rd",
       "propertyType": "homes",
       "position": {
-        "lat": 30.377693,
-        "lng": -86.218602
+        "lat": 30.377708,
+        "lng": -86.21854
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -3293,13 +3074,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 4,
-        "avgPrice": 563986,
-        "avgPriceDisplay": "$563,986",
-        "medianPrice": 525000,
-        "avgSqft": 2263,
-        "avgPricePerSqFt": 249,
-        "avgDom": 142,
+        "listingCount": 3,
+        "avgPrice": 576317,
+        "avgPriceDisplay": "$576,317",
+        "medianPrice": 579900,
+        "avgSqft": 2324,
+        "avgPricePerSqFt": 248,
+        "avgDom": 135,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3330,8 +3111,7 @@
       "listingsUrlMap": "",
       "mlsSubdivisions": [
         "WHISPERING LAKE",
-        "WHISPERING LAKES ESTATES",
-        "Whispering Lake"
+        "WHISPERING LAKES ESTATES"
       ]
     },
     {
@@ -3356,7 +3136,7 @@
         "medianPrice": 1299000,
         "avgSqft": 2726,
         "avgPricePerSqFt": 477,
-        "avgDom": 27,
+        "avgDom": 28,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -3464,7 +3244,7 @@
         "medianPrice": 285000,
         "avgSqft": 1002,
         "avgPricePerSqFt": 284,
-        "avgDom": 146,
+        "avgDom": 147,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,

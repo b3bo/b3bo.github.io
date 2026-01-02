@@ -432,25 +432,38 @@ export function hideCustomBoundary(zipCode) {
     });
 }
 
-// Smooth camera transition
-export function smoothFlyTo(targetPosition, targetZoom = 15) {
+/**
+ * Core animation function for smooth camera transitions.
+ * Used by both single-marker navigation and bounds-based navigation.
+ * @param {Object} targetCenter - Target center {lat, lng} or google.maps.LatLng
+ * @param {number} targetZoom - Target zoom level
+ * @param {Object} options - Animation options
+ * @param {boolean} options.applyOffset - Whether to apply info window offset (default: false)
+ */
+function animateCameraTo(targetCenter, targetZoom, options = {}) {
+    const { applyOffset = false } = options;
     const map = STATE.map;
     const startPos = map.getCenter();
     const startZoom = map.getZoom();
-    const targetLatLng = new google.maps.LatLng(targetPosition);
-    
-    // Calculate the final offset position BEFORE flight
-    // Use geometric calculation for precise centering (90-95% accuracy)
-    const offsetPixels = calculateCenteredOffset(targetZoom);
-    const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
-    
-    // Calculate distance (requires geometry library)
+
+    // Normalize target to {lat, lng} object
+    let finalTarget;
+    if (applyOffset) {
+        const offsetPixels = calculateCenteredOffset(targetZoom);
+        finalTarget = offsetLatLng(targetCenter, offsetPixels, targetZoom);
+    } else {
+        finalTarget = typeof targetCenter.lat === 'function'
+            ? { lat: targetCenter.lat(), lng: targetCenter.lng() }
+            : targetCenter;
+    }
+
+    // Calculate distance
+    const targetLatLng = new google.maps.LatLng(finalTarget);
     const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-    
+
     // If close (< 2km), just standard pan/zoom
     if (distance < 2000) {
-        map.panTo(offsetTarget);
-        // Simple zoom animation
+        map.panTo(finalTarget);
         const zoomDiff = targetZoom - startZoom;
         if (Math.abs(zoomDiff) > 0.1) {
             let steps = 20;
@@ -468,51 +481,52 @@ export function smoothFlyTo(targetPosition, targetZoom = 15) {
         return;
     }
 
-    // Long distance flight animation - fly directly to offset position
+    // Long distance flight animation
     const startTime = performance.now();
     const duration = CONFIG.map.flyToDuration;
-    const minZoom = 11; // Cruising altitude
-    
+    const minZoom = Math.min(startZoom, targetZoom, 11); // Cruising altitude
+
     function animate(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // EaseInOutCubic for position
-        const ease = progress < 0.5 
-            ? 4 * progress * progress * progress 
+        const ease = progress < 0.5
+            ? 4 * progress * progress * progress
             : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-        
-        // Interpolate Position directly to offset target
-        const curLat = startPos.lat() + (offsetTarget.lat - startPos.lat()) * ease;
-        const curLng = startPos.lng() + (offsetTarget.lng - startPos.lng()) * ease;
-        
+
+        // Interpolate Position
+        const curLat = startPos.lat() + (finalTarget.lat - startPos.lat()) * ease;
+        const curLng = startPos.lng() + (finalTarget.lng - startPos.lng()) * ease;
+
         // Interpolate Zoom (Parabolic arc)
         let curZoom;
         if (progress < 0.5) {
-            // 0% to 50%: Zoom out from startZoom to minZoom
-            const zoomProgress = progress * 2; // 0 to 1
-            // Ease out to slow down as we reach peak
-            const zoomEase = 1 - Math.pow(1 - zoomProgress, 2); 
+            const zoomProgress = progress * 2;
+            const zoomEase = 1 - Math.pow(1 - zoomProgress, 2);
             curZoom = startZoom + (minZoom - startZoom) * zoomEase;
         } else {
-            // 50% to 100%: Zoom in from minZoom to targetZoom
-            const zoomProgress = (progress - 0.5) * 2; // 0 to 1
-            // Ease in to speed up as we land
+            const zoomProgress = (progress - 0.5) * 2;
             const zoomEase = zoomProgress * zoomProgress;
             curZoom = minZoom + (targetZoom - minZoom) * zoomEase;
         }
-        
+
         map.moveCamera({
             center: { lat: curLat, lng: curLng },
             zoom: curZoom
         });
-        
+
         if (progress < 1) {
             requestAnimationFrame(animate);
         }
     }
-    
+
     requestAnimationFrame(animate);
+}
+
+// Smooth camera transition to a single marker (with info window offset)
+export function smoothFlyTo(targetPosition, targetZoom = 15) {
+    animateCameraTo(targetPosition, targetZoom, { applyOffset: true });
 }
 
 /**
@@ -592,12 +606,13 @@ export function offsetLatLng(latLng, offsetPixels, zoomLevel) {
 }
 
 /**
- * Fits map viewport to show all neighborhoods optimally.
+ * Fits map viewport to show all neighborhoods optimally with smooth animation.
  * Automatically calculates center point and zoom level based on bounds.
  * @param {Array} neighborhoods - Array of neighborhood objects with position {lat, lng}
  * @param {number} padding - Optional padding in pixels (default: 50)
+ * @param {number} minZoom - Optional minimum zoom level (default: 0, no minimum)
  */
-export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
+export function fitBoundsToNeighborhoods(neighborhoods, padding = 50, minZoom = 0) {
 
     if (!STATE.map || !neighborhoods || neighborhoods.length === 0) return;
 
@@ -617,8 +632,32 @@ export function fitBoundsToNeighborhoods(neighborhoods, padding = 50) {
     console.log('Current map center before fitBounds:', STATE.map.getCenter().lat(), STATE.map.getCenter().lng());
     console.log('Current zoom before fitBounds:', STATE.map.getZoom());
 
-    // Fit map to bounds with padding
-    STATE.map.fitBounds(bounds, padding);
+    // Calculate target center and zoom from bounds
+    const targetCenter = bounds.getCenter();
 
-    console.log('fitBounds called');
+    // Calculate the zoom level that fits the bounds
+    const mapDiv = STATE.map.getDiv();
+    const mapWidth = mapDiv.offsetWidth - (padding * 2);
+    const mapHeight = mapDiv.offsetHeight - (padding * 2);
+
+    const latSpan = ne.lat() - sw.lat();
+    const lngSpan = ne.lng() - sw.lng();
+
+    // Calculate zoom based on the span (with safety guards for small/zero spans)
+    const latZoom = latSpan > 0.0001
+        ? Math.log2(mapHeight / (latSpan * 111320 / 156543.03392))
+        : 15;
+    const lngZoom = lngSpan > 0.0001
+        ? Math.log2(mapWidth / (lngSpan * 111320 * Math.cos(targetCenter.lat() * Math.PI / 180) / 156543.03392))
+        : 15;
+
+    // Apply min/max constraints with safety bounds for NaN/Infinity
+    const calculatedZoom = Math.floor(Math.min(latZoom, lngZoom));
+    const safeCalculatedZoom = Number.isFinite(calculatedZoom) ? calculatedZoom : 13;
+    const targetZoom = Math.max(Math.min(safeCalculatedZoom, 18), minZoom || 10);
+
+    // Use the common animation function (no offset for bounds-based navigation)
+    animateCameraTo(targetCenter, targetZoom, { applyOffset: false });
+
+    console.log('animateCameraTo called for bounds, targetZoom:', targetZoom);
 }

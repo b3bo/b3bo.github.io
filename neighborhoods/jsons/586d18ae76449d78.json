@@ -1,21 +1,21 @@
 {
-  "type": "subarea-stats",
-  "updated": "2026-01-01T09:37:17.738996",
-  "subareas": [
+  "type": "area-presets",
+  "updated": "2026-01-02T09:27:02.779564",
+  "presets": [
     {
       "name": "Destin",
       "slug": "destin",
       "filterField": "subArea",
       "filterValue": "Destin",
       "position": {
-        "lat": 30.387751,
-        "lng": -86.474735
+        "lat": 30.387816,
+        "lng": -86.475373
       },
       "stats": {
-        "listingCount": 565,
-        "medianPrice": 649000,
-        "avgPricePerSqFt": 484,
-        "avgDom": 140
+        "listingCount": 530,
+        "medianPrice": 675000,
+        "avgPricePerSqFt": 487,
+        "avgDom": 139
       },
       "neighborhoods": [
         {
@@ -26,22 +26,17 @@
         {
           "name": "Sandpiper Cove",
           "propertyType": "condos",
-          "listingCount": 29
+          "listingCount": 23
         },
         {
           "name": "Gulf Terrace",
           "propertyType": "condos",
-          "listingCount": 21
+          "listingCount": 20
         },
         {
           "name": "Jetty East",
           "propertyType": "condos",
-          "listingCount": 21
-        },
-        {
-          "name": "Regatta Bay",
-          "propertyType": "homes",
-          "listingCount": 16
+          "listingCount": 20
         },
         {
           "name": "Crystal Beach",
@@ -49,24 +44,29 @@
           "listingCount": 15
         },
         {
-          "name": "Emerald Grande East - Whole",
-          "propertyType": "condos",
-          "listingCount": 14
-        },
-        {
-          "name": "Destiny East",
+          "name": "Regatta Bay",
           "propertyType": "homes",
-          "listingCount": 13
+          "listingCount": 15
         },
         {
           "name": "Holiday Isle",
           "propertyType": "homes",
-          "listingCount": 13
+          "listingCount": 12
+        },
+        {
+          "name": "Villages Crystal Beach",
+          "propertyType": "homes",
+          "listingCount": 12
+        },
+        {
+          "name": "Destiny East",
+          "propertyType": "homes",
+          "listingCount": 11
         },
         {
           "name": "Sterling Shores",
           "propertyType": "condos",
-          "listingCount": 13
+          "listingCount": 11
         }
       ]
     },
@@ -80,17 +80,12 @@
         "lng": -86.228536
       },
       "stats": {
-        "listingCount": 236,
+        "listingCount": 223,
         "medianPrice": 1100000,
-        "avgPricePerSqFt": 598,
-        "avgDom": 144
+        "avgPricePerSqFt": 599,
+        "avgDom": 145
       },
       "neighborhoods": [
-        {
-          "name": "Gulfview Heights",
-          "propertyType": "homes",
-          "listingCount": 14
-        },
         {
           "name": "Highland Parks At Blue",
           "propertyType": "homes",
@@ -99,7 +94,12 @@
         {
           "name": "Cypress Breeze Plantation",
           "propertyType": "homes",
-          "listingCount": 12
+          "listingCount": 10
+        },
+        {
+          "name": "Gulfview Heights",
+          "propertyType": "homes",
+          "listingCount": 10
         },
         {
           "name": "Beach Highland",
@@ -122,12 +122,12 @@
           "listingCount": 8
         },
         {
-          "name": "Cypress Dunes",
+          "name": "Blue Gulf Resort",
           "propertyType": "homes",
-          "listingCount": 7
+          "listingCount": 6
         },
         {
-          "name": "Blue Gulf Resort",
+          "name": "Cypress Dunes",
           "propertyType": "homes",
           "listingCount": 6
         },
@@ -144,30 +144,30 @@
       "filterField": "subArea",
       "filterValue": "1502 - Miramar Beach",
       "position": {
-        "lat": 30.378026,
-        "lng": -86.375587
+        "lat": 30.377898,
+        "lng": -86.369745
       },
       "stats": {
-        "listingCount": 296,
-        "medianPrice": 835000,
+        "listingCount": 272,
+        "medianPrice": 859900,
         "avgPricePerSqFt": 576,
-        "avgDom": 164
+        "avgDom": 166
       },
       "neighborhoods": [
         {
           "name": "Ariel Dunes",
           "propertyType": "condos",
-          "listingCount": 24
+          "listingCount": 20
         },
         {
           "name": "Frangista Beach",
           "propertyType": "homes",
-          "listingCount": 21
+          "listingCount": 18
         },
         {
           "name": "Seascape Resort",
           "propertyType": "condos",
-          "listingCount": 19
+          "listingCount": 16
         },
         {
           "name": "Destin Surfside",
@@ -195,12 +195,148 @@
           "listingCount": 9
         },
         {
-          "name": "Summit At Topsl",
+          "name": "Beachhouse",
+          "propertyType": "condos",
+          "listingCount": 6
+        },
+        {
+          "name": "Ciboney",
+          "propertyType": "condos",
+          "listingCount": 6
+        }
+      ]
+    },
+    {
+      "name": "Inlet Beach",
+      "slug": "inlet-beach",
+      "filterField": "zipCode",
+      "filterValue": "32461",
+      "position": {
+        "lat": 30.285986,
+        "lng": -86.024128
+      },
+      "stats": {
+        "listingCount": 366,
+        "medianPrice": 2300000,
+        "avgPricePerSqFt": 1025,
+        "avgDom": 154
+      },
+      "neighborhoods": [
+        {
+          "name": "Watersound Origins",
+          "propertyType": "homes",
+          "listingCount": 60
+        },
+        {
+          "name": "Prominence",
+          "propertyType": "townhomes",
+          "listingCount": 22
+        },
+        {
+          "name": "Seacrest Beach",
+          "propertyType": "homes",
+          "listingCount": 22
+        },
+        {
+          "name": "Watersound Beach",
+          "propertyType": "homes",
+          "listingCount": 22
+        },
+        {
+          "name": "Watersound Camp Creek",
+          "propertyType": "homes",
+          "listingCount": 18
+        },
+        {
+          "name": "Alys Beach",
+          "propertyType": "homes",
+          "listingCount": 15
+        },
+        {
+          "name": "Grande Pointe at Inlet Beach",
+          "propertyType": "homes",
+          "listingCount": 14
+        },
+        {
+          "name": "Inlet Beach",
+          "propertyType": "homes",
+          "listingCount": 11
+        },
+        {
+          "name": "Naturewalk At Watersound Origins",
+          "propertyType": "homes",
+          "listingCount": 9
+        },
+        {
+          "name": "Prominence",
+          "propertyType": "homes",
+          "listingCount": 8
+        }
+      ]
+    },
+    {
+      "name": "Panama City Beach",
+      "slug": "panama-city-beach",
+      "filterField": "zipCode",
+      "filterValue": "32413",
+      "position": {
+        "lat": 30.24186,
+        "lng": -85.911332
+      },
+      "stats": {
+        "listingCount": 246,
+        "medianPrice": 599757,
+        "avgPricePerSqFt": 449,
+        "avgDom": 129
+      },
+      "neighborhoods": [
+        {
+          "name": "Laguna Beach",
+          "propertyType": "homes",
+          "listingCount": 16
+        },
+        {
+          "name": "Latitude Margaritaville",
+          "propertyType": "townhomes",
+          "listingCount": 12
+        },
+        {
+          "name": "Pinnacle Port",
+          "propertyType": "condos",
+          "listingCount": 12
+        },
+        {
+          "name": "Tidewater",
+          "propertyType": "condos",
+          "listingCount": 12
+        },
+        {
+          "name": "Riviera Beach",
+          "propertyType": "homes",
+          "listingCount": 10
+        },
+        {
+          "name": "Endless Summer",
           "propertyType": "condos",
           "listingCount": 8
         },
         {
-          "name": "Beachhouse",
+          "name": "Breakwater At Ward Creek",
+          "propertyType": "homes",
+          "listingCount": 7
+        },
+        {
+          "name": "Calypso Towers",
+          "propertyType": "condos",
+          "listingCount": 7
+        },
+        {
+          "name": "Carillon Beach",
+          "propertyType": "homes",
+          "listingCount": 7
+        },
+        {
+          "name": "Origin At Seahaven",
           "propertyType": "condos",
           "listingCount": 6
         }
@@ -213,20 +349,15 @@
       "filterValue": "17 - 30A West",
       "position": {
         "lat": 30.348628,
-        "lng": -86.226253
+        "lng": -86.225585
       },
       "stats": {
-        "listingCount": 309,
-        "medianPrice": 1399000,
-        "avgPricePerSqFt": 773,
-        "avgDom": 141
+        "listingCount": 297,
+        "medianPrice": 1479000,
+        "avgPricePerSqFt": 777,
+        "avgDom": 142
       },
       "neighborhoods": [
-        {
-          "name": "Gulfview Heights",
-          "propertyType": "homes",
-          "listingCount": 14
-        },
         {
           "name": "Highland Parks At Blue",
           "propertyType": "homes",
@@ -235,7 +366,12 @@
         {
           "name": "Cypress Breeze Plantation",
           "propertyType": "homes",
-          "listingCount": 12
+          "listingCount": 10
+        },
+        {
+          "name": "Gulfview Heights",
+          "propertyType": "homes",
+          "listingCount": 10
         },
         {
           "name": "Beach Highland",
@@ -263,12 +399,12 @@
           "listingCount": 8
         },
         {
-          "name": "Cypress Dunes",
+          "name": "Grayton Beach",
           "propertyType": "homes",
           "listingCount": 7
         },
         {
-          "name": "Grayton Beach",
+          "name": "Retreat",
           "propertyType": "homes",
           "listingCount": 7
         }
@@ -280,20 +416,20 @@
       "filterField": "area",
       "filterValue": "18 - 30A East",
       "position": {
-        "lat": 30.303917,
-        "lng": -86.071294
+        "lat": 30.303523,
+        "lng": -86.066628
       },
       "stats": {
-        "listingCount": 648,
+        "listingCount": 608,
         "medianPrice": 1895000,
-        "avgPricePerSqFt": 977,
+        "avgPricePerSqFt": 979,
         "avgDom": 155
       },
       "neighborhoods": [
         {
           "name": "Watersound Origins",
           "propertyType": "homes",
-          "listingCount": 62
+          "listingCount": 60
         },
         {
           "name": "Watercolor",
@@ -303,22 +439,17 @@
         {
           "name": "Prominence",
           "propertyType": "townhomes",
-          "listingCount": 26
+          "listingCount": 22
         },
         {
           "name": "Seacrest Beach",
           "propertyType": "homes",
-          "listingCount": 25
+          "listingCount": 22
         },
         {
           "name": "Watersound Beach",
           "propertyType": "homes",
-          "listingCount": 23
-        },
-        {
-          "name": "Gulf Shore Manor",
-          "propertyType": "homes",
-          "listingCount": 18
+          "listingCount": 22
         },
         {
           "name": "Watersound Camp Creek",
@@ -326,9 +457,9 @@
           "listingCount": 18
         },
         {
-          "name": "Seagrove",
+          "name": "Gulf Shore Manor",
           "propertyType": "homes",
-          "listingCount": 16
+          "listingCount": 17
         },
         {
           "name": "Alys Beach",
@@ -336,9 +467,14 @@
           "listingCount": 15
         },
         {
-          "name": "Grande Pointe at Inlet Beach",
+          "name": "Seagrove",
           "propertyType": "homes",
           "listingCount": 15
+        },
+        {
+          "name": "Grande Pointe at Inlet Beach",
+          "propertyType": "homes",
+          "listingCount": 14
         }
       ]
     },
@@ -348,11 +484,11 @@
       "filterField": "subArea",
       "filterValue": "1503 - Sandestin Resort",
       "position": {
-        "lat": 30.385773,
+        "lat": 30.385554,
         "lng": -86.32587
       },
       "stats": {
-        "listingCount": 290,
+        "listingCount": 280,
         "medianPrice": 875000,
         "avgPricePerSqFt": 531,
         "avgDom": 159
@@ -366,12 +502,7 @@
         {
           "name": "Luau Condominum",
           "propertyType": "condos",
-          "listingCount": 22
-        },
-        {
-          "name": "Burnt Pine",
-          "propertyType": "homes",
-          "listingCount": 19
+          "listingCount": 20
         },
         {
           "name": "Lasata",
@@ -381,6 +512,11 @@
         {
           "name": "Bahia",
           "propertyType": "condos",
+          "listingCount": 18
+        },
+        {
+          "name": "Burnt Pine",
+          "propertyType": "homes",
           "listingCount": 18
         },
         {
@@ -394,19 +530,19 @@
           "listingCount": 12
         },
         {
-          "name": "Pointe Of View",
+          "name": "Elation",
           "propertyType": "condos",
-          "listingCount": 12
+          "listingCount": 11
         },
         {
-          "name": "Elation",
+          "name": "Pointe Of View",
           "propertyType": "condos",
           "listingCount": 11
         },
         {
           "name": "Pilot House",
           "propertyType": "condos",
-          "listingCount": 11
+          "listingCount": 10
         }
       ]
     }
