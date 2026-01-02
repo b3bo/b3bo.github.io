@@ -89,8 +89,8 @@ export const CONFIG = {
             './neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
         ],
 
-        // Path to area presets file for single mode (precalculated area aggregates)
-        areaPresetsFile: './neighborhoods/jsons/586d18ae76449d78.json.b64',
+        // Path to subarea stats file for single mode (precalculated area aggregates)
+        subareaStatsFile: './neighborhoods/jsons/586d18ae76449d78.json.b64',
 
         // Path to geojson boundary files (zip code boundaries)
         geojsonPath: './neighborhoods/jsons/'

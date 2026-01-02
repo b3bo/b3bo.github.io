@@ -20,26 +20,6 @@ function debounce(func, wait) {
     };
 }
 
-// Lookup preset data from JSON (unified for all 8 area preset selections)
-// Uses button text to get area name - works for both zip codes and MLS area codes
-function findPresetData(selectedAreas) {
-    if (!window.areaPresets?.presets) return null;
-    if (selectedAreas.size !== 1) return null;
-
-    const presets = window.areaPresets.presets;
-    const selectedValue = [...selectedAreas][0];
-
-    // Look up the area name from the button text (unified for all 8 areas)
-    const btn = document.querySelector(`.area-tag[data-zipcode="${selectedValue}"]`) ||
-                document.querySelector(`.area-tag[data-subarea="${selectedValue}"]`);
-    const areaName = btn?.textContent.trim();
-
-    // Find preset by name (works for all 8) or by filterValue (fallback)
-    return presets.find(s =>
-        s.name === areaName || s.filterValue === selectedValue || s.name === selectedValue
-    );
-}
-
 const debouncedApplyFilters = debounce(() => applyFilters(), 100);
 
 // Update results count display
@@ -244,7 +224,7 @@ export function setupFilters() {
         });
     });
 
-    // Sub-area Filters Logic (area codes like "17 - 30A West" or subArea codes like "1503 - Sandestin Resort")
+    // Sub-area Filters Logic (West 30A / East 30A)
     document.querySelectorAll('#subareaFilters .amenity-tag').forEach(tag => {
         tag.addEventListener('click', function() {
             this.classList.toggle('selected');
@@ -370,7 +350,7 @@ export function applyFilters() {
         selectedAreas.add(tag.getAttribute('data-zipcode'));
     });
 
-    // Get selected sub-areas (area codes or subArea codes)
+    // Get selected sub-areas (West 30A / East 30A)
     document.querySelectorAll('#subareaFilters .amenity-tag.selected').forEach(tag => {
         selectedSubareas.add(tag.getAttribute('data-subarea'));
     });
@@ -453,14 +433,16 @@ export function applyFilters() {
         }
 
         // Area/Subarea Filter - use OR logic when both are selected
-        // Buttons use correct filter values: zipCode (32541), area code (17 - 30A West), or subArea code (1503 - Sandestin Resort)
+        // This allows selecting "Destin" + "West 30A" to show neighborhoods from either
         let inSelectedLocation = true;
         const hasAreaFilter = selectedAreas.size > 0;
         const hasSubareaFilter = selectedSubareas.size > 0;
 
         if (hasAreaFilter || hasSubareaFilter) {
             const matchesArea = hasAreaFilter && selectedAreas.has(neighborhood.zipCode);
+            // Check both area and subArea fields - allows filtering by Area code (17 - 30A West) or SubArea code (1503 - Sandestin Resort)
             const matchesSubarea = hasSubareaFilter && (selectedSubareas.has(neighborhood.area) || selectedSubareas.has(neighborhood.subArea));
+            // OR logic: match if in selected areas OR in selected subareas
             inSelectedLocation = matchesArea || matchesSubarea;
         }
 
@@ -577,59 +559,63 @@ export function applyFilters() {
         // Create markers for ALL filtered neighborhoods
         createMarkers(sortedNeighborhoods);
 
-        // Add area marker when exactly one area OR one subarea is selected
-        // Unified logic for all 8 filters (5 zip codes + 3 subareas) using precomputed JSON
-        // Use window.filterState.areas as the single source of truth
-        const allSelectedAreas = window.filterState?.areas || new Set([...selectedAreas, ...selectedSubareas]);
-        const presetData = findPresetData(allSelectedAreas);
+        // Add area marker when exactly one subarea is selected (shows aggregate stats)
+        if (selectedSubareas.size === 1 && window.subareaStats?.subareas) {
+            const selectedSubarea = [...selectedSubareas][0];
+            // Find matching subarea in preloaded stats by filterValue or name
+            // (some buttons use filterValue like "1503 - Sandestin Resort", others use name like "West 30A")
+            const subareaData = window.subareaStats.subareas.find(s =>
+                s.filterValue === selectedSubarea || s.name === selectedSubarea
+            );
+            if (subareaData) {
+                // Create area marker with aggregate stats
+                const areaNeighborhood = {
+                    name: subareaData.name,
+                    position: subareaData.position,
+                    stats: subareaData.stats,
+                    neighborhoods: subareaData.neighborhoods,
+                    isAreaMarker: true
+                };
 
-        if (presetData && sortedNeighborhoods.length > 0) {
-            // Use precomputed data from JSON
-            const areaNeighborhood = {
-                name: presetData.name,
-                position: presetData.position,
-                stats: presetData.stats,
-                neighborhoods: presetData.neighborhoods,
-                isAreaMarker: true
-            };
-
-            // Create the area marker
-            const areaMarker = new google.maps.Marker({
-                position: presetData.position,
-                map: STATE.map,
-                title: presetData.name + ' (Area)',
-                icon: {
-                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-                        <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="22" cy="22" r="10" fill="#4c8f96" stroke="white" stroke-opacity="0.75" stroke-width="3"/>
-                        </svg>
-                    `),
-                    scaledSize: new google.maps.Size(44, 44),
-                    anchor: new google.maps.Point(22, 22)
-                },
-                optimized: false,
-                zIndex: 1000
-            });
-            areaMarker.markerColor = '#4c8f96';
-
-            // Add click handler
-            areaMarker.addListener('click', () => {
-                import('./markers.js').then(({ toggleMarker }) => {
-                    toggleMarker(areaMarker, areaNeighborhood);
+                // Create the area marker
+                const areaMarker = new google.maps.Marker({
+                    position: subareaData.position,
+                    map: STATE.map,
+                    title: subareaData.name + ' (Area)',
+                    icon: {
+                        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                            <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="22" cy="22" r="10" fill="#4c8f96" stroke="white" stroke-opacity="0.75" stroke-width="3"/>
+                            </svg>
+                        `),
+                        scaledSize: new google.maps.Size(44, 44),
+                        anchor: new google.maps.Point(22, 22)
+                    },
+                    optimized: false,
+                    zIndex: 1000 // Keep area marker on top
                 });
-            });
+                areaMarker.markerColor = '#4c8f96';
 
-            // Store for cleanup
-            STATE.markers.push({ marker: areaMarker, neighborhood: areaNeighborhood });
-
-            // Auto-open area info window
-            setTimeout(() => {
-                import('./markers.js').then(({ showInfoWindow, createMarkerIcon }) => {
-                    showInfoWindow(areaMarker, areaNeighborhood);
-                    areaMarker.setIcon(createMarkerIcon('#4c8f96', true));
-                    STATE.activeMarker = areaMarker;
+                // Add click handler to show area info window
+                areaMarker.addListener('click', () => {
+                    // Import and use the marker toggle
+                    import('./markers.js').then(({ toggleMarker }) => {
+                        toggleMarker(areaMarker, areaNeighborhood);
+                    });
                 });
-            }, 300);
+
+                // Store area marker for cleanup
+                STATE.markers.push({ marker: areaMarker, neighborhood: areaNeighborhood });
+
+                // Auto-open area info window when filter is selected
+                setTimeout(() => {
+                    import('./markers.js').then(({ showInfoWindow, createMarkerIcon }) => {
+                        showInfoWindow(areaMarker, areaNeighborhood);
+                        areaMarker.setIcon(createMarkerIcon('#4c8f96', true));
+                        STATE.activeMarker = areaMarker;
+                    });
+                }, 300);
+            }
         }
 
         // Paginate and render list items
@@ -640,21 +626,33 @@ export function applyFilters() {
     // Update results count
     updateResultsCount(STATE.allFilteredNeighborhoods.length);
 
-    // Auto-pan when areas are updated (using unified areas Set)
-    const currentAreas = window.filterState?.areas || new Set([...selectedAreas, ...selectedSubareas]);
-    const areasChanged = currentAreas.size !== previousSelectedAreas.size ||
-                         ![...currentAreas].every(area => previousSelectedAreas.has(area));
+    // Auto-pan when areas or subareas are updated
+    const areasChanged = selectedAreas.size !== previousSelectedAreas.size ||
+                         ![...selectedAreas].every(area => previousSelectedAreas.has(area));
+    const subareasChanged = selectedSubareas.size !== previousSelectedSubareas.size ||
+                            ![...selectedSubareas].every(subarea => previousSelectedSubareas.has(subarea));
 
-    if (areasChanged && sortedNeighborhoods.length > 0) {
+    if ((areasChanged || subareasChanged) && sortedNeighborhoods.length > 0) {
         // Small delay to ensure markers are rendered, then fit bounds
         setTimeout(() => {
             console.log('Calling fitBoundsToNeighborhoods');
-            // For single area selections, enforce minimum zoom of 13 for detail
-            const minZoom = currentAreas.size === 1 ? 13 : 0;
-            fitBoundsToNeighborhoods(sortedNeighborhoods, 80, minZoom);
+            // Fit bounds with comfortable padding
+            fitBoundsToNeighborhoods(sortedNeighborhoods, 80);
+
+            // Then ensure minimum zoom level for single-area/subarea selections
+            if (selectedAreas.size === 1 || selectedSubareas.size === 1) {
+                setTimeout(() => {
+                    if (!STATE.map) return;
+                    const currentZoom = STATE.map.getZoom();
+                    if (currentZoom < 13) {
+                        STATE.map.setZoom(13);
+                    }
+                }, 100);
+            }
         }, 200);
     }
 
-    // Update previous areas for next comparison (using unified areas Set)
-    previousSelectedAreas = new Set(currentAreas);
+    // Update previous areas/subareas for next comparison
+    previousSelectedAreas = new Set(selectedAreas);
+    previousSelectedSubareas = new Set(selectedSubareas);
 }

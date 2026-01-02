@@ -13,46 +13,45 @@ window.CONFIG = CONFIG;
 // Expose PRICE_STEPS globally for filter scripts
 window.PRICE_STEPS = CONFIG.ui.priceSteps;
 
-// Configure paths for local dev (Vite middleware maps /neighborhoods/ to assets/)
-CONFIG.data.geojsonPath = '/neighborhoods/jsons/';
-CONFIG.data.areaPresetsFile = '/neighborhoods/jsons/586d18ae76449d78.json.b64';
+// Configure paths for local dev (absolute paths for Vite)
+CONFIG.data.geojsonPath = './neighborhoods/jsons/';
 CONFIG.data.neighborhoodFiles = [
-    '/neighborhoods/jsons/7ea1bf14d884d192.json.b64',
-    '/neighborhoods/jsons/b762bb338ba328e5.json.b64',
-    '/neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
-    '/neighborhoods/jsons/d897c3d107c48ccc.json.b64',
-    '/neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
-    '/neighborhoods/jsons/e0e3b36d8e692892.json.b64',
-    '/neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
+    './neighborhoods/jsons/7ea1bf14d884d192.json.b64',
+    './neighborhoods/jsons/b762bb338ba328e5.json.b64',
+    './neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
+    './neighborhoods/jsons/d897c3d107c48ccc.json.b64',
+    './neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
+    './neighborhoods/jsons/e0e3b36d8e692892.json.b64',
+    './neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
 ];
 
 // Load production data
 const neighborhoods = await loadNeighborhoods();
 console.log('Loaded', neighborhoods.length, 'neighborhoods from production data');
 
-// Load area presets for single mode
-async function loadAreaPresets() {
+// Load subarea stats for single mode
+async function loadSubareaStats() {
     try {
-        const presetsFile = CONFIG.data.areaPresetsFile || './neighborhoods/jsons/586d18ae76449d78.json.b64';
-        const response = await fetch(presetsFile);
-        if (!response.ok) throw new Error('Failed to load area presets');
+        const statsFile = CONFIG.data.subareaStatsFile || './neighborhoods/jsons/586d18ae76449d78.json.b64';
+        const response = await fetch(statsFile);
+        if (!response.ok) throw new Error('Failed to load subarea stats');
         const text = await response.text();
         const jsonStr = new TextDecoder().decode(Uint8Array.from(atob(text), c => c.charCodeAt(0)));
         return JSON.parse(jsonStr);
     } catch (e) {
-        console.error('Error loading area presets:', e);
+        console.error('Error loading subarea stats:', e);
         return null;
     }
 }
-const areaPresets = await loadAreaPresets();
-if (areaPresets) {
-    console.log('Loaded', areaPresets.presets?.length || 0, 'area presets');
+const subareaStats = await loadSubareaStats();
+if (subareaStats) {
+    console.log('Loaded', subareaStats.subareas?.length || 0, 'subarea stats');
 }
 
 // Expose to global scope for other scripts
 window.neighborhoods = neighborhoods;
 window.filteredNeighborhoods = [...neighborhoods];
-window.areaPresets = areaPresets;
+window.subareaStats = subareaStats;
 
 // Sync STATE for ES module consumers (search, filters)
 STATE.neighborhoods = neighborhoods;
