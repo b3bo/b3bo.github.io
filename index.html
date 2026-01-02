@@ -598,7 +598,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.33</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.34</p>
                 </div>
             </div>
 
@@ -2323,16 +2323,19 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     }
 
                     // UNIFIED offset centering for BOTH neighborhoods AND areas
+                    // Use requestAnimationFrame to ensure iframe layout is complete
                     if (target && target.position) {
-                        const targetZoom = 13;
-                        const offsetPx = calculateInitialOffset(targetZoom);
-                        const offsetCenter = {
-                            lat: preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom),
-                            lng: target.position.lng
-                        };
-                        window.map.moveCamera({ center: offsetCenter, zoom: targetZoom });
-                        window.singleModeOffsetApplied = true;
-                        console.log('Single mode: offset applied', offsetPx, 'px');
+                        requestAnimationFrame(() => {
+                            const targetZoom = 13;
+                            const offsetPx = calculateInitialOffset(targetZoom);
+                            const offsetCenter = {
+                                lat: preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom),
+                                lng: target.position.lng
+                            };
+                            window.map.moveCamera({ center: offsetCenter, zoom: targetZoom });
+                            window.singleModeOffsetApplied = true;
+                            console.log('Single mode: offset applied', offsetPx, 'px, innerHeight:', window.innerHeight);
+                        });
                     }
                 }
 
