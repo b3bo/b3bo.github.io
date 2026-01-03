@@ -262,30 +262,30 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
     window.AREA_POSITIONS = {
   "destin": {
     "lat": 30.387816,
-    "lng": -86.475409
+    "lng": -86.475373
   },
   "santa-rosa-beach": {
     "lat": 30.349433,
     "lng": -86.205098
   },
   "miramar-beach": {
-    "lat": 30.380688,
+    "lat": 30.380643,
     "lng": -86.35016
   },
   "inlet-beach": {
-    "lat": 30.285986,
+    "lat": 30.286378,
     "lng": -86.024128
   },
   "panama-city-beach": {
-    "lat": 30.24186,
-    "lng": -85.911332
+    "lat": 30.244556,
+    "lng": -85.911347
   },
   "west-30a": {
     "lat": 30.348628,
     "lng": -86.225585
   },
   "east-30a": {
-    "lat": 30.303523,
+    "lat": 30.303881,
     "lng": -86.066628
   },
   "sandestin": {
@@ -610,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.39</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.40</p>
                 </div>
             </div>
 
@@ -3012,34 +3012,34 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 .join(', ');
 
             const content = `
-                <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
-                    <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${area.name}</h3>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
+                <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
+                    <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${area.name}</h3>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
                         </div>
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
-                        </div>
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
                         </div>
                     </div>
-                    <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-3">
-                        <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
-                        <div class="communities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                        </div>
                     </div>
-                    <hr class="divider mb-3">
-                    <div class="pt-3 flex items-center gap-2">
+                    <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-2 sm:mb-3">
+                        <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
+                        <div class="communities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+                    </div>
+                    <hr class="divider mb-2 sm:mb-3">
+                    <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
                         ${(() => {
                             const filtered = window.filteredNeighborhoods || [];
                             const hasNav = filtered.length > 1;
@@ -3056,16 +3056,9 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                                 return prevBtn + '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + area.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>' + nextBtn;
                             } else {
                                 // Full mode: Matching Listings button
-                                // Build MLS search URL based on area type
-                                const areaUrlMap = {
-                                    'Sandestin': 'subarea_%2F1503%2F/',
-                                    'Miramar Beach': 'zipcode_32550/',
-                                    '30A East': 'area_30A%20East/',
-                                    '30A West': 'area_30A%20West/',
-                                    'Destin': 'zipcode_32541/',
-                                    'Santa Rosa Beach': 'zipcode_32459/'
-                                };
-                                const areaParam = areaUrlMap[area.name] || 'area_' + encodeURIComponent(area.name) + '/';
+                                // Look up listingsParam from area_mappings.json (loaded as areaPresets)
+                                const areaConfig = (window.areaPresets?.presets || []).find(p => p.name === area.name);
+                                const areaParam = areaConfig?.listingsParam || 'area_' + encodeURIComponent(area.name) + '/';
                                 const listingsUrl = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3#listtype_1/' + areaParam;
                                 return prevBtn + '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all ' + area.name + ' listings">Matching Listings</a>' + nextBtn;
                             }
@@ -3175,9 +3168,9 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             const hasNav = filtered.length > 1;
 
             const content = `
-                <div class="info-window p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
+                <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
                     <div class="flex items-center justify-center gap-2 mb-2">
-                        <h3 class="text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
+                        <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
                         ${n.urlSlug ? `
                         <a href="https://www.truesouthcoastalhomes.com${n.urlSlug}"
                            target="_blank"
@@ -3191,36 +3184,36 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         </a>
                         ` : ''}
                     </div>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.listingCount || 0}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">${listingLabel}</div>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.listingCount || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${listingLabel}</div>
                         </div>
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 mb-2">
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
                         </div>
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-3 py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.avgDom || 0}</div>
-                            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.avgDom || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
                         </div>
                     </div>
                     ${(n.amenities || []).length > 0 ? `
-                    <div class="mb-3">
-                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
-                            <div class="amenities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${formatAmenitiesList(n.amenities || [])}</div>
+                    <div class="mb-2 sm:mb-3">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
+                            <div class="amenities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${formatAmenitiesList(n.amenities || [])}</div>
                         </div>
                     </div>
                     ` : ''}
-                    <hr class="divider mb-3">
-                    <div class="pt-3 flex items-center gap-2">
+                    <hr class="divider mb-2 sm:mb-3">
+                    <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
                         ${hasNav ? `
                         <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>

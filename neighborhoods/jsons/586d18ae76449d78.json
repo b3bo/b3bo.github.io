@@ -1,6 +1,6 @@
 {
   "type": "area-presets",
-  "updated": "2026-01-02T20:46:21.356026",
+  "updated": "2026-01-03T13:17:43.349381",
   "presets": [
     {
       "name": "Destin",
@@ -9,44 +9,44 @@
       "filterValue": "32541",
       "position": {
         "lat": 30.387816,
-        "lng": -86.475409
+        "lng": -86.475373
       },
       "stats": {
-        "listingCount": 530,
+        "listingCount": 534,
         "medianPrice": 675000,
-        "avgPricePerSqFt": 488,
-        "avgDom": 140
+        "avgPricePerSqFt": 490,
+        "avgDom": 141
       },
       "neighborhoods": [
         {
           "name": "Palms",
           "propertyType": "condos",
-          "listingCount": 45
+          "listingCount": 46
         },
         {
           "name": "Sandpiper Cove",
           "propertyType": "condos",
-          "listingCount": 23
+          "listingCount": 24
         },
         {
           "name": "Gulf Terrace",
           "propertyType": "condos",
-          "listingCount": 20
+          "listingCount": 19
         },
         {
           "name": "Jetty East",
           "propertyType": "condos",
-          "listingCount": 20
+          "listingCount": 19
         },
         {
           "name": "Crystal Beach",
           "propertyType": "homes",
-          "listingCount": 15
+          "listingCount": 14
         },
         {
           "name": "Regatta Bay",
           "propertyType": "homes",
-          "listingCount": 15
+          "listingCount": 14
         },
         {
           "name": "Holiday Isle",
@@ -64,9 +64,9 @@
           "listingCount": 11
         },
         {
-          "name": "Sterling Shores",
-          "propertyType": "condos",
-          "listingCount": 11
+          "name": "Kelly Plantation",
+          "propertyType": "homes",
+          "listingCount": 10
         }
       ]
     },
@@ -80,16 +80,16 @@
         "lng": -86.205098
       },
       "stats": {
-        "listingCount": 747,
-        "medianPrice": 1110000,
-        "avgPricePerSqFt": 696,
-        "avgDom": 140
+        "listingCount": 751,
+        "medianPrice": 1100000,
+        "avgPricePerSqFt": 694,
+        "avgDom": 139
       },
       "neighborhoods": [
         {
           "name": "Watercolor",
           "propertyType": "homes",
-          "listingCount": 38
+          "listingCount": 37
         },
         {
           "name": "Driftwood Estates",
@@ -112,14 +112,14 @@
           "listingCount": 15
         },
         {
-          "name": "Highland Parks At Blue",
+          "name": "Naturewalk at Seagrove",
           "propertyType": "homes",
           "listingCount": 13
         },
         {
-          "name": "Naturewalk at Seagrove",
+          "name": "Highland Parks At Blue",
           "propertyType": "homes",
-          "listingCount": 12
+          "listingCount": 13
         },
         {
           "name": "Beachside Villas",
@@ -144,14 +144,14 @@
       "filterField": "zipCode",
       "filterValue": "32550",
       "position": {
-        "lat": 30.380688,
+        "lat": 30.380643,
         "lng": -86.35016
       },
       "stats": {
-        "listingCount": 581,
+        "listingCount": 583,
         "medianPrice": 769900,
-        "avgPricePerSqFt": 537,
-        "avgDom": 159
+        "avgPricePerSqFt": 538,
+        "avgDom": 160
       },
       "neighborhoods": [
         {
@@ -162,15 +162,20 @@
         {
           "name": "Ariel Dunes",
           "propertyType": "condos",
-          "listingCount": 20
+          "listingCount": 19
         },
         {
-          "name": "Luau Condominum",
-          "propertyType": "condos",
-          "listingCount": 20
+          "name": "Frangista Beach",
+          "propertyType": "homes",
+          "listingCount": 19
         },
         {
           "name": "Lasata",
+          "propertyType": "condos",
+          "listingCount": 19
+        },
+        {
+          "name": "Luau Condominum",
           "propertyType": "condos",
           "listingCount": 19
         },
@@ -182,12 +187,7 @@
         {
           "name": "Burnt Pine",
           "propertyType": "homes",
-          "listingCount": 18
-        },
-        {
-          "name": "Frangista Beach",
-          "propertyType": "homes",
-          "listingCount": 18
+          "listingCount": 17
         },
         {
           "name": "Seascape Resort",
@@ -212,20 +212,20 @@
       "filterField": "zipCode",
       "filterValue": "32461",
       "position": {
-        "lat": 30.285986,
+        "lat": 30.286378,
         "lng": -86.024128
       },
       "stats": {
-        "listingCount": 366,
-        "medianPrice": 2300000,
-        "avgPricePerSqFt": 1025,
-        "avgDom": 154
+        "listingCount": 365,
+        "medianPrice": 2295000,
+        "avgPricePerSqFt": 1011,
+        "avgDom": 155
       },
       "neighborhoods": [
         {
           "name": "Watersound Origins",
           "propertyType": "homes",
-          "listingCount": 60
+          "listingCount": 61
         },
         {
           "name": "Prominence",
@@ -268,9 +268,9 @@
           "listingCount": 9
         },
         {
-          "name": "Prominence",
-          "propertyType": "homes",
-          "listingCount": 8
+          "name": "Village Of South Walton Beach",
+          "propertyType": "condos",
+          "listingCount": 9
         }
       ]
     },
@@ -280,34 +280,34 @@
       "filterField": "zipCode",
       "filterValue": "32413",
       "position": {
-        "lat": 30.24186,
-        "lng": -85.911332
+        "lat": 30.244556,
+        "lng": -85.911347
       },
       "stats": {
-        "listingCount": 246,
+        "listingCount": 249,
         "medianPrice": 599757,
         "avgPricePerSqFt": 449,
-        "avgDom": 129
+        "avgDom": 128
       },
       "neighborhoods": [
         {
           "name": "Laguna Beach",
           "propertyType": "homes",
-          "listingCount": 16
-        },
-        {
-          "name": "Latitude Margaritaville",
-          "propertyType": "townhomes",
-          "listingCount": 12
+          "listingCount": 17
         },
         {
           "name": "Pinnacle Port",
           "propertyType": "condos",
-          "listingCount": 12
+          "listingCount": 13
         },
         {
           "name": "Tidewater",
           "propertyType": "condos",
+          "listingCount": 13
+        },
+        {
+          "name": "Latitude Margaritaville",
+          "propertyType": "townhomes",
           "listingCount": 12
         },
         {
@@ -338,7 +338,7 @@
         {
           "name": "Origin At Seahaven",
           "propertyType": "condos",
-          "listingCount": 6
+          "listingCount": 7
         }
       ]
     },
@@ -352,10 +352,10 @@
         "lng": -86.225585
       },
       "stats": {
-        "listingCount": 296,
-        "medianPrice": 1479000,
-        "avgPricePerSqFt": 777,
-        "avgDom": 142
+        "listingCount": 298,
+        "medianPrice": 1496000,
+        "avgPricePerSqFt": 774,
+        "avgDom": 141
       },
       "neighborhoods": [
         {
@@ -404,9 +404,9 @@
           "listingCount": 7
         },
         {
-          "name": "Retreat",
+          "name": "Blue Gulf Resort",
           "propertyType": "homes",
-          "listingCount": 7
+          "listingCount": 6
         }
       ]
     },
@@ -416,25 +416,25 @@
       "filterField": "area",
       "filterValue": "18 - 30A East",
       "position": {
-        "lat": 30.303523,
+        "lat": 30.303881,
         "lng": -86.066628
       },
       "stats": {
         "listingCount": 607,
-        "medianPrice": 1895000,
-        "avgPricePerSqFt": 979,
-        "avgDom": 155
+        "medianPrice": 1799000,
+        "avgPricePerSqFt": 970,
+        "avgDom": 152
       },
       "neighborhoods": [
         {
           "name": "Watersound Origins",
           "propertyType": "homes",
-          "listingCount": 60
+          "listingCount": 61
         },
         {
           "name": "Watercolor",
           "propertyType": "homes",
-          "listingCount": 38
+          "listingCount": 37
         },
         {
           "name": "Prominence",
@@ -488,10 +488,10 @@
         "lng": -86.32587
       },
       "stats": {
-        "listingCount": 280,
+        "listingCount": 278,
         "medianPrice": 875000,
-        "avgPricePerSqFt": 531,
-        "avgDom": 159
+        "avgPricePerSqFt": 530,
+        "avgDom": 160
       },
       "neighborhoods": [
         {
@@ -500,12 +500,12 @@
           "listingCount": 24
         },
         {
-          "name": "Luau Condominum",
+          "name": "Lasata",
           "propertyType": "condos",
-          "listingCount": 20
+          "listingCount": 19
         },
         {
-          "name": "Lasata",
+          "name": "Luau Condominum",
           "propertyType": "condos",
           "listingCount": 19
         },
@@ -517,7 +517,7 @@
         {
           "name": "Burnt Pine",
           "propertyType": "homes",
-          "listingCount": 18
+          "listingCount": 17
         },
         {
           "name": "Bayside",
@@ -530,14 +530,14 @@
           "listingCount": 12
         },
         {
-          "name": "Elation",
+          "name": "Pointe Of View",
           "propertyType": "condos",
           "listingCount": 11
         },
         {
-          "name": "Pointe Of View",
+          "name": "Elation",
           "propertyType": "condos",
-          "listingCount": 11
+          "listingCount": 10
         },
         {
           "name": "Pilot House",
