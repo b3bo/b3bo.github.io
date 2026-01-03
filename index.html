@@ -610,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.36</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.37</p>
                 </div>
             </div>
 
@@ -2496,11 +2496,40 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                                     const btn = window.findAreaButton(presetData);
                                     if (btn) btn.click();
 
-                                    // Then click the marker after animation
-                                    setTimeout(() => {
-                                        const m = (window.markers || []).find(x => x.neighborhood?.isAreaMarker);
-                                        if (m?.marker?.content) m.marker.content.click();
-                                    }, 1500);
+                                    // Wait for fitBoundsToNeighborhoods animation to complete
+                                    google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                                        // Create area marker data
+                                        const areaData = window.createAreaMarkerData(presetData);
+
+                                        // Create marker element (same as addMarkers does for area markers)
+                                        const markerContent = document.createElement('div');
+                                        markerContent.className = 'marker-pin area-marker';
+                                        markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
+                                        markerContent.style.cursor = 'pointer';
+                                        markerContent.style.zIndex = '1000';
+
+                                        const marker = new google.maps.marker.AdvancedMarkerElement({
+                                            map: window.map,
+                                            position: areaData.position,
+                                            content: markerContent,
+                                            title: areaData.name + ' (Area)',
+                                            zIndex: 1000
+                                        });
+                                        marker.markerColor = '#4c8f96';
+
+                                        // Click handler for area marker
+                                        marker.addListener('click', () => {
+                                            showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                                            window.activeMarker = marker;
+                                        });
+
+                                        // Add to markers array
+                                        window.markers.push({ marker, neighborhood: areaData });
+
+                                        // Open info window immediately
+                                        showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                                        window.activeMarker = marker;
+                                    });
                                 }, 400);
                             });
                         }
