@@ -610,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.38</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.39</p>
                 </div>
             </div>
 
@@ -2814,6 +2814,17 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 minZoom = arc.long?.minZoom || 10;
                 jumpType = 'long';
             }
+
+            // Smart arc: only zoom out when starting from a zoomed-in view
+            // When at fitBounds (zoomed out), pan at current level then zoom in
+            if (startZoom >= targetZoom) {
+                // Starting zoomed in - apply arc (zoom out, then back in)
+                minZoom = Math.min(minZoom, startZoom - 1, targetZoom - 1);
+            } else {
+                // Starting zoomed out (fitBounds view) - no arc, pan then zoom in
+                minZoom = startZoom;
+            }
+
             console.log(`Flight: ${jumpType} | ${(distance/1000).toFixed(2)}km | minZoom=${minZoom}`);
 
             function animate(currentTime) {
@@ -2857,19 +2868,56 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
         // Navigate between neighborhoods (Prev/Next buttons in info window)
         window.navigateNeighborhood = function(direction) {
             const filtered = window.filteredNeighborhoods || [];
+            if (filtered.length < 1) return;
+
+            console.log('[Nav Debug] filteredNeighborhoods count:', filtered.length, 'first 3:', filtered.slice(0, 3).map(n => n.name));
+
+            // Sort by current sort order (matches sidebar list order)
+            const currentSort = window.sortOrder || 'listings-desc';
+            const sorted = [...filtered].sort((a, b) => {
+                const aPrice = a.stats?.medianPrice || a.stats?.avgPrice || 0;
+                const bPrice = b.stats?.medianPrice || b.stats?.avgPrice || 0;
+                const aListings = a.stats?.listingCount || 0;
+                const bListings = b.stats?.listingCount || 0;
+                switch (currentSort) {
+                    case 'name-asc':
+                        return a.name.localeCompare(b.name);
+                    case 'name-desc':
+                        return b.name.localeCompare(a.name);
+                    case 'price-asc':
+                        return aPrice - bPrice;
+                    case 'price-desc':
+                        return bPrice - aPrice;
+                    case 'listings-desc':
+                        return bListings - aListings;
+                    default:
+                        return a.name.localeCompare(b.name);
+                }
+            });
+
+            // Find current index - if no current neighborhood (e.g., from area marker), start from beginning/end
             const current = window.currentNeighborhood;
-            if (!current || filtered.length < 2) return;
+            let currentIndex = -1;
+            if (current && !current.isAreaMarker) {
+                currentIndex = sorted.findIndex(n => n.name === current.name && n.propertyType === current.propertyType);
+            }
 
-            const currentIndex = filtered.findIndex(n => n.name === current.name && n.propertyType === current.propertyType);
-            if (currentIndex === -1) return;
+            // Calculate next index
+            let nextIndex;
+            if (currentIndex === -1) {
+                // No current neighborhood (area marker or first navigation) - go to first or last
+                nextIndex = direction === 1 ? 0 : sorted.length - 1;
+            } else {
+                // Normal navigation with wrap around
+                nextIndex = currentIndex + direction;
+                if (nextIndex < 0) nextIndex = sorted.length - 1;
+                if (nextIndex >= sorted.length) nextIndex = 0;
+            }
 
-            // Calculate next index (wrap around)
-            let nextIndex = currentIndex + direction;
-            if (nextIndex < 0) nextIndex = filtered.length - 1;
-            if (nextIndex >= filtered.length) nextIndex = 0;
-
-            const nextN = filtered[nextIndex];
+            const nextN = sorted[nextIndex];
             if (!nextN) return;
+
+            console.log('[Nav Debug] navigating to:', nextN.name, 'position:', nextN.position, 'index:', nextIndex, 'of', sorted.length);
 
             // Find marker and trigger flight animation
             const markerData = (window.markers || []).find(m => m.neighborhood.name === nextN.name && m.neighborhood.propertyType === nextN.propertyType);
@@ -2893,8 +2941,8 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         window.activeMarker = null;
                     }
 
-                    // Fly to new location
-                    window.smoothFlyTo(nextN.position);
+                    // Fly to new location (maintain current zoom to preserve sub-area context)
+                    window.smoothFlyTo(nextN.position, window.map.getZoom());
 
                     // Open info window after flight completes
                     const startPos = window.map.getCenter();
