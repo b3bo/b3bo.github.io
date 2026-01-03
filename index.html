@@ -610,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.37</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.38</p>
                 </div>
             </div>
 
@@ -2498,8 +2498,22 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
 
                                     // Wait for fitBoundsToNeighborhoods animation to complete
                                     google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                                        // Create area marker data
+                                        // Calculate marker position for centered card+marker combo
+                                        // Map center is fixed by fitBoundsToNeighborhoods, place marker BELOW center
+                                        const mapCenter = window.map.getCenter();
+                                        const currentZoom = window.map.getZoom();
+                                        const offsetPx = computeOffsetPx(currentZoom, true); // true = area marker (taller card)
+
+                                        // Offset DOWN (negative) from map center
+                                        const markerPosition = offsetLatLng(
+                                            { lat: mapCenter.lat(), lng: mapCenter.lng() },
+                                            -offsetPx,
+                                            currentZoom
+                                        );
+
+                                        // Create area marker data with calculated position
                                         const areaData = window.createAreaMarkerData(presetData);
+                                        areaData.position = markerPosition;
 
                                         // Create marker element (same as addMarkers does for area markers)
                                         const markerContent = document.createElement('div');
@@ -2510,7 +2524,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
 
                                         const marker = new google.maps.marker.AdvancedMarkerElement({
                                             map: window.map,
-                                            position: areaData.position,
+                                            position: markerPosition,
                                             content: markerContent,
                                             title: areaData.name + ' (Area)',
                                             zIndex: 1000
