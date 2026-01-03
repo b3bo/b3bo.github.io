@@ -209,6 +209,22 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             border-radius: 2px;
         }
 
+        /* Scrollable communities (3-row max) - fade only when overflow */
+        .communities-scroll {
+            max-height: 3.9em;  /* 3 lines × 1.25 line-height + buffer */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .communities-scroll.has-overflow {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+        .communities-scroll::-webkit-scrollbar { width: 3px; }
+        .communities-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.15);
+            border-radius: 2px;
+        }
+
         /* Search dropdown fade effect (stationary mask on container) */
         #search-results {
             position: relative;
@@ -246,7 +262,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
     window.AREA_POSITIONS = {
   "destin": {
     "lat": 30.387816,
-    "lng": -86.475373
+    "lng": -86.475409
   },
   "santa-rosa-beach": {
     "lat": 30.3506,
@@ -277,10 +293,6 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
     "lng": -86.32587
   }
 };
-    // Neighborhood positions for race-free single mode (add more as needed)
-    window.NEIGHBORHOOD_POSITIONS = {
-      "watersound-origins": { "lat": 30.293273, "lng": -86.000981 }
-    };
     </script>
 </head>
 <body class="overflow-hidden font-body text-neutral-700 dark:bg-dark-bg-base dark:text-dark-text-primary h-dvh">
@@ -598,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.34</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.35</p>
                 </div>
             </div>
 
@@ -2129,6 +2141,12 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
 
             // Apply pixel offset in Mercator space
+            // Note: In Google Maps Mercator, Y increases South (down).
+            // But the math here uses standard Mercator where Y increases North (up).
+            // If we want to shift the center North (so marker moves Down), we need to INCREASE Lat.
+            // Increasing Lat increases mercY (log(tan(pi/4 + lat/2))).
+            // So adding a positive offsetRadians moves the center North.
+            // This is correct for our "offsetPx" which represents "how far South the marker is from center".
             const pixelsPerRadian = TILE_SIZE * scale / (2 * Math.PI);
             const offsetRadians = offsetPixels / pixelsPerRadian;
             const newMercY = mercY + offsetRadians;
@@ -2138,24 +2156,157 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             return newLatRad * 180 / Math.PI;
         }
 
-        // Calculate initial offset pixels (simplified version of calculateCenteredOffset)
-        function calculateInitialOffset(zoomLevel) {
-            const dvh = window.innerHeight;
-            const w = window.innerWidth;
+        /**
+         * Computes vertical pixel offset for centering card+marker combo.
+         * Single source of truth - all other offset functions call this.
+         * @param {number} zoomLevel - Current map zoom (unused, kept for API)
+         * @param {boolean} isAreaMarker - Area cards are taller (+70px)
+         * @returns {number} Offset in pixels
+         */
+        function computeOffsetPx(zoomLevel, isAreaMarker = false) {
+            const mapDiv = document.getElementById('map');
+            const w = mapDiv?.offsetWidth || window.innerWidth;
+            const dvh = mapDiv?.offsetHeight || window.innerHeight;
 
-            // Card height based on viewport
-            const cfg = window.CONFIG?.map?.cardHeight || {};
-            const mobileHeight = cfg.mobile || 360;
-            const tabletHeight = cfg.tablet || 320;
-            const desktopHeight = cfg.desktop || 280;
-            const cardHeight = w < 640 ? mobileHeight : w < 1024 ? tabletHeight : desktopHeight;
+            // Card height by breakpoint + 70 for area cards
+            // Mobile cards are taller due to text wrapping (amenities, etc.)
+            const baseCardHeight = w < 640 ? 450 : w < 1024 ? 380 : 340;
+            const cardHeight = isAreaMarker ? baseCardHeight + 70 : baseCardHeight;
+            
+            // Centering geometry:
+            // - tailHeight: effective visual gap for centering (card bottom to marker center + Google Maps offset)
+            // - markerRadius: only 10px extends below anchor (not full 20px diameter)
+            const tailHeight = 78;  // Calibrated for visual centering (45px physical + 33px GM offset)
+            const markerRadius = 10;
 
-            // Calculate pan amount to center marker+card
-            const dotFromBottom = cardHeight + 20; // Card height + gap
-            const dotStartsAt = dvh / 2;
-            const panAmount = (dvh - dotFromBottom) - dotStartsAt;
+            const comboHeight = cardHeight + tailHeight + markerRadius;
 
-            return Math.round(panAmount);
+            // Only center in viewports where combo fits with margin
+            // Small viewports: show card from top to avoid clipping
+            const canCenter = dvh >= 450 && comboHeight < dvh - 40;
+
+            if (canCenter) {
+                // Large viewport: center the combo
+                // Combo center is (cardHeight + tailHeight - markerRadius)/2 above marker anchor
+                return Math.round((cardHeight + tailHeight - markerRadius) / 2);
+            } else {
+                // Small viewport OR tight fit: show card from top (20px padding)
+                // Card top at 20px, marker at card bottom + tail + marker radius
+                const markerY = 20 + cardHeight + tailHeight + markerRadius;
+                const offset = markerY - (dvh / 2);
+                return Math.round(Math.max(0, offset));
+            }
+        }
+
+        // Wrapper - all callers use this
+        function calculateInitialOffset(zoomLevel, isAreaMarker = false) {
+            return computeOffsetPx(zoomLevel, isAreaMarker);
+        }
+
+        // Measure the real, rendered InfoWindow height (works in iframes too).
+        function getOpenInfoWindowCardHeightPx() {
+            const iw = document.querySelector('.gm-style-iw-c');
+            if (iw) return iw.getBoundingClientRect().height;
+            const fallback = document.querySelector('.info-window');
+            return fallback ? fallback.getBoundingClientRect().height : 0;
+        }
+
+        // Single centering rule:
+        // 1) Center X on marker.lng
+        // 2) Compute Y offset from the *rendered* card height
+        // 3) Apply by pre-offsetting the center latitude (no projection/pan-by-pixels)
+        // 4) Observe height changes (images loading, text wrapping) and re-center
+        let singleModeResizeObserver = null;
+
+        function applySingleModeCenteringFromRenderedCard(markerLatLng, attempt = 0) {
+            const map = window.map;
+            if (!map || !markerLatLng) return;
+
+            const iwContainer = document.querySelector('.gm-style-iw-c');
+            if (!iwContainer) {
+                if (attempt < 20) {
+                    return requestAnimationFrame(() => applySingleModeCenteringFromRenderedCard(markerLatLng, attempt + 1));
+                }
+                return;
+            }
+
+            // Setup ResizeObserver to handle content loading (images, wrapping text)
+            // This ensures we re-center if the card grows after initial render.
+            if (!singleModeResizeObserver) {
+                singleModeResizeObserver = new ResizeObserver(() => {
+                    // Re-run centering when size changes
+                    applySingleModeCenteringFromRenderedCard(markerLatLng, 999);
+                });
+                singleModeResizeObserver.observe(iwContainer);
+            }
+
+            const cardH = iwContainer.getBoundingClientRect().height;
+            const mapEl = document.getElementById('map') || map.getDiv();
+            const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
+
+            // Centering geometry:
+            // - tailHeight: effective visual gap for centering (card bottom to marker center + Google Maps offset)
+            // - markerRadius: only 10px extends below anchor
+            const tailHeight = 78;  // Calibrated for visual centering (45px physical + 33px GM offset)
+            const markerRadius = 10;
+
+            const comboH = cardH + tailHeight + markerRadius;
+            const canCenter = dvh >= 450 && comboH < dvh - 40;
+            
+            // Combo center is (cardH + tailHeight - markerRadius)/2 above marker anchor.
+            // For centering: offset = (cardH + tailHeight - markerRadius) / 2
+            // For small viewports: show card from top with 20px padding
+
+            const offsetPx = canCenter
+                ? Math.round((cardH + tailHeight - markerRadius) / 2)
+                : Math.round(Math.max(0, (20 + cardH + tailHeight + markerRadius) - (dvh / 2)));
+
+            // Debug logging for centering calculation
+            const debugMode = new URLSearchParams(window.location.search).get('debug') === 'true';
+            if (debugMode) {
+                console.log('=== CENTERING DEBUG ===');
+                console.log('dvh (viewport):', dvh);
+                console.log('cardH (measured):', cardH);
+                console.log('tailHeight:', tailHeight);
+                console.log('markerRadius:', markerRadius);
+                console.log('comboH:', comboH);
+                console.log('canCenter:', canCenter);
+                console.log('offsetPx:', offsetPx);
+                console.log('--- Expected positions ---');
+                console.log('Card top at:', Math.round((dvh / 2) + offsetPx - tailHeight - cardH), 'px');
+                console.log('Card bottom at:', Math.round((dvh / 2) + offsetPx - tailHeight), 'px');
+                console.log('Marker center at:', Math.round((dvh / 2) + offsetPx), 'px (' + Math.round(((dvh / 2) + offsetPx) / dvh * 100) + '%)');
+                console.log('Marker bottom at:', Math.round((dvh / 2) + offsetPx + markerRadius), 'px');
+                console.log('Top padding:', Math.round((dvh / 2) + offsetPx - tailHeight - cardH), 'px');
+                console.log('Bottom padding:', Math.round(dvh - (dvh / 2) - offsetPx - markerRadius), 'px');
+
+                // Measure ACTUAL DOM positions after a brief delay
+                setTimeout(() => {
+                    const cardRect = iwContainer.getBoundingClientRect();
+                    const markerEl = document.querySelector('.marker-pin');
+                    const markerRect = markerEl?.getBoundingClientRect();
+                    console.log('--- ACTUAL DOM positions ---');
+                    console.log('Card actual top:', Math.round(cardRect.top), 'px');
+                    console.log('Card actual bottom:', Math.round(cardRect.bottom), 'px');
+                    console.log('Card actual height:', Math.round(cardRect.height), 'px');
+                    if (markerRect) {
+                        console.log('Marker actual top:', Math.round(markerRect.top), 'px');
+                        console.log('Marker actual bottom:', Math.round(markerRect.bottom), 'px');
+                        console.log('Marker actual center:', Math.round(markerRect.top + markerRect.height/2), 'px');
+                        console.log('ACTUAL gap (card bottom to marker center):', Math.round((markerRect.top + markerRect.height/2) - cardRect.bottom), 'px');
+                        console.log('ACTUAL top padding:', Math.round(cardRect.top), 'px');
+                        console.log('ACTUAL bottom padding:', Math.round(dvh - markerRect.bottom), 'px');
+                    }
+                }, 500);
+            }
+
+            const zoom = map.getZoom();
+            const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), offsetPx, zoom);
+
+            // Only set center if it's significantly different to avoid jitter?
+            // Google Maps handles small updates well, but let's be safe.
+            map.setCenter({ lat: adjustedLat, lng: markerLatLng.lng() });
+            window.singleModeOffsetApplied = true;
         }
 
         function initMap() {
@@ -2229,17 +2380,17 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 }
             }
 
-            // Pre-calculate offset center for single mode (before map exists)
+            // Single mode: apply a pre-offset to the initial center.
+            // This avoids relying on projection/InfoWindow DOM timing (which can be flaky in iframes)
+            // and prevents pan logic from accidentally pushing the marker off-screen.
             let mapCenter = initialCenter;
             window.singleModeOffsetApplied = false;
             if (isSingleMode && singleModeTarget) {
-                const offsetPx = calculateInitialOffset(initialZoom);
-                mapCenter = {
-                    lat: preCalculateOffsetLat(singleModeTarget.lat, offsetPx, initialZoom),
-                    lng: singleModeTarget.lng
-                };
+                const isAreaMarker = !!window.singleModeIsArea;
+                const offsetPixels = calculateInitialOffset(initialZoom, isAreaMarker);
+                const adjustedLat = preCalculateOffsetLat(singleModeTarget.lat, offsetPixels, initialZoom);
+                mapCenter = { lat: adjustedLat, lng: singleModeTarget.lng };
                 window.singleModeOffsetApplied = true;
-                console.log('Single mode: pre-calculated offset applied', offsetPx, 'px');
             }
 
             // Map center - uses pre-offset center in single mode
@@ -2322,21 +2473,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         }
                     }
 
-                    // UNIFIED offset centering for BOTH neighborhoods AND areas
-                    // Use requestAnimationFrame to ensure iframe layout is complete
-                    if (target && target.position) {
-                        requestAnimationFrame(() => {
-                            const targetZoom = 13;
-                            const offsetPx = calculateInitialOffset(targetZoom);
-                            const offsetCenter = {
-                                lat: preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom),
-                                lng: target.position.lng
-                            };
-                            window.map.moveCamera({ center: offsetCenter, zoom: targetZoom });
-                            window.singleModeOffsetApplied = true;
-                            console.log('Single mode: offset applied', offsetPx, 'px, innerHeight:', window.innerHeight);
-                        });
-                    }
+                    // No pre-offset here. We center precisely after the InfoWindow DOM is ready.
                 }
 
                 function openSingleModeMarker() {
@@ -2350,6 +2487,20 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         } else {
                             showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
                         }
+
+                        // After the card renders, re-apply centering using the real rendered height.
+                        // This corrects mismatches from heuristic card-height guesses across iframe sizes.
+                        google.maps.event.addListenerOnce(window.infoWindow, 'domready', () => {
+                            requestAnimationFrame(() => {
+                                const rawPos = markerObj.neighborhood?.position || markerObj.marker?.position || (markerObj.marker?.getPosition && markerObj.marker.getPosition());
+                                if (!rawPos) return;
+                                const markerLatLng = (rawPos instanceof google.maps.LatLng)
+                                    ? rawPos
+                                    : new google.maps.LatLng(rawPos);
+                                applySingleModeCenteringFromRenderedCard(markerLatLng);
+                            });
+                        });
+
                         markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
                         window.activeMarker = markerObj.marker;
                         return true;
@@ -2625,43 +2776,9 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
          * @returns {number} Pixel offset for panBy()
          */
         function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0) {
-            const dvh = window.innerHeight;
-            const w = window.innerWidth;
-
-            // Get card heights from CONFIG (with fallbacks)
-            const cfg = window.CONFIG?.map?.cardHeight || {};
-            const mobileHeight = cfg.mobile || 360;
-            const tabletHeight = cfg.tablet || 320;
-            const desktopHeight = cfg.desktop || 280;
-
-            // Select card height based on viewport width
-            let cardHeight;
-            if (w < 640) {
-                cardHeight = mobileHeight;
-            } else if (w < 1024) {
-                cardHeight = tabletHeight;
-            } else {
-                cardHeight = desktopHeight;
-            }
-
-            const tailAndMarker = 20;      // Distance from card bottom to dot center
-            const markerRadius = 10;       // Radius of marker circle
-            const anchorToDot = 22;        // SVG anchor (bottom) to dot center
-            const comboHeight = cardHeight + tailAndMarker + markerRadius;  // 390px
-
-            // Center combo in effective viewport (dvh minus disclaimer)
-            const effectiveViewport = dvh - disclaimerHeight;
-            const padding = (effectiveViewport - comboHeight) / 2;
-            const dotFromBottom = padding + markerRadius;  // Where dot center should be from bottom
-
-            // Pan amount: dot starts at (center - anchorToDot), needs to reach target
-            const dotStartsAt = (effectiveViewport / 2) - anchorToDot;
-            const dotTarget = effectiveViewport - dotFromBottom;
-            const panAmount = dotTarget - dotStartsAt;
-
-            console.log(`calculateCenteredOffset: ${Math.round(dotFromBottom)}px from bottom`);
-
-            return Math.round(panAmount);
+            // Use computeOffsetPx as base, then adjust for disclaimer bar
+            const baseOffset = computeOffsetPx(zoomLevel, false);
+            return Math.round(baseOffset + disclaimerHeight / 2);
         }
 
         function offsetLatLng(latLng, offsetPixels, zoomLevel) {
@@ -2918,7 +3035,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     </div>
                     <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-3">
                         <div class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
-                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+                        <div class="communities-scroll text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
                     </div>
                     <hr class="divider mb-3">
                     <div class="pt-3 flex items-center gap-2">
@@ -2959,20 +3076,14 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             targetInfoWindow.setContent(content);
             targetInfoWindow.open(window.map, marker);
 
-            // Apply offset centering after info window opens (click only, not hover)
-            // Skip if: hover window, offset already applied, or we're in an animated flow
-            const isHoverWindow = targetInfoWindow === window.hoverInfoWindow;
-            if (marker && !isHoverWindow && !window.singleModeOffsetApplied && !window.skipAreaAnimation) {
-                setTimeout(() => {
-                    const position = marker.position || area.position;
-                    const zoom = window.map.getZoom();
-                    const panAmount = calculateCenteredOffset(zoom, 0); // 0 = no disclaimer in single mode
-                    const offsetCenter = offsetLatLng(position, panAmount, zoom);
-                    window.map.setCenter(offsetCenter);
-                    // Re-anchor info window after center change
-                    targetInfoWindow.open({ map: window.map, anchor: marker });
-                }, 100);
-            }
+            // After info window renders: detect overflow AND fine-tune centering based on actual height
+            google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+                // Detect communities overflow and add fade class
+                const communitiesEl = document.querySelector('.communities-scroll');
+                if (communitiesEl && communitiesEl.scrollHeight > communitiesEl.clientHeight + 4) {
+                    communitiesEl.classList.add('has-overflow');
+                }
+            });
         }
 
         // Show info window content (matches production markers.js)
@@ -3150,21 +3261,6 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     amenitiesEl.classList.add('has-overflow');
                 }
             });
-
-            // Apply offset centering after info window opens (click only, not hover)
-            // Skip if: hover window, offset already applied, or we're in an animated flow
-            const isHoverWindow = targetInfoWindow === window.hoverInfoWindow;
-            if (marker && !isHoverWindow && !window.singleModeOffsetApplied && !window.skipAreaAnimation) {
-                setTimeout(() => {
-                    const position = marker.position || n.position;
-                    const zoom = window.map.getZoom();
-                    const panAmount = calculateCenteredOffset(zoom, 0);
-                    const offsetCenter = offsetLatLng(position, panAmount, zoom);
-                    window.map.setCenter(offsetCenter);
-                    // Re-anchor info window after center change
-                    targetInfoWindow.open({ map: window.map, anchor: marker });
-                }, 100);
-            }
 
             // Handle close events for primary window only
             if (targetInfoWindow === window.infoWindow) {

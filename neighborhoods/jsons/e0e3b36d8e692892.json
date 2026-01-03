@@ -1,6 +1,6 @@
 {
   "area": "14 - Destin",
-  "updated": "2026-01-02T09:27:02.767725",
+  "updated": "2026-01-02T12:43:44.207424",
   "neighborhoods": [
     {
       "name": "Aegean",
@@ -2240,13 +2240,13 @@
       },
       "zipCode": "32541",
       "stats": {
-        "listingCount": 7,
-        "avgPrice": 891667,
-        "avgPriceDisplay": "$891,667",
-        "medianPrice": 740000,
-        "avgSqft": 1480,
-        "avgPricePerSqFt": 603,
-        "avgDom": 206,
+        "listingCount": 5,
+        "avgPrice": 978000,
+        "avgPriceDisplay": "$978,000",
+        "medianPrice": 1095000,
+        "avgSqft": 1552,
+        "avgPricePerSqFt": 630,
+        "avgDom": 190,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -2282,6 +2282,65 @@
       "mlsSubdivisions": [
         "EMERALD GRANDE",
         "Emerald Grande"
+      ]
+    },
+    {
+      "name": "Emerald Grande West",
+      "area": "14 - Destin",
+      "subArea": "1401 - Destin Beach West",
+      "propertyType": "condos",
+      "position": {
+        "lat": 30.394533,
+        "lng": -86.512053
+      },
+      "location": {
+        "city": "Destin",
+        "state": "FL",
+        "zipCode": "32541"
+      },
+      "zipCode": "32541",
+      "stats": {
+        "listingCount": 2,
+        "avgPrice": 719000,
+        "avgPriceDisplay": "$719,000",
+        "medianPrice": 733000,
+        "avgSqft": 1335,
+        "avgPricePerSqFt": 538,
+        "avgDom": 237,
+        "priceRange": "N/A",
+        "minPrice": null,
+        "maxPrice": null,
+        "bedsRange": "2-3",
+        "bathsRange": "2-3",
+        "sqftRange": "N/A",
+        "domRange": "N/A",
+        "yearBuiltRange": "N/A",
+        "minBeds": 2.0,
+        "maxBeds": 3.0,
+        "minBaths": 2.0,
+        "maxBaths": 3.0,
+        "minSqft": null,
+        "maxSqft": null,
+        "minDom": null,
+        "maxDom": null
+      },
+      "amenities": [
+        "Beach Access",
+        "Community Pool",
+        "Elevator",
+        "Fitness",
+        "Gulf-Front",
+        "Short-Term",
+        "Waterfront",
+        "Waterview"
+      ],
+      "photos": {
+        "hero": "",
+        "samples": []
+      },
+      "listingsUrlMap": "",
+      "mlsSubdivisions": [
+        "EMERALD GRANDE"
       ]
     },
     {
@@ -3980,7 +4039,7 @@
       "propertyType": "homes",
       "position": {
         "lat": 30.392655,
-        "lng": -86.455179
+        "lng": -86.457202
       },
       "location": {
         "city": "Destin",
@@ -3990,12 +4049,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 579890,
-        "avgPriceDisplay": "$579,890",
-        "medianPrice": 595000,
-        "avgSqft": 1993,
-        "avgPricePerSqFt": 291,
-        "avgDom": 117,
+        "avgPrice": 579445,
+        "avgPriceDisplay": "$579,445",
+        "medianPrice": 575000,
+        "avgSqft": 1977,
+        "avgPricePerSqFt": 293,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4025,7 +4084,8 @@
         "INDIAN LAKE",
         "INDIAN LAKE PH 1",
         "INDIAN LAKE PH 2",
-        "INDIAN LAKE PH 3"
+        "INDIAN LAKE PH 3",
+        "Indian Lakes"
       ],
       "searchId": "4004642",
       "urlSlug": "/indian-lake/"
