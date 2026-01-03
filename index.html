@@ -265,12 +265,12 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
     "lng": -86.475409
   },
   "santa-rosa-beach": {
-    "lat": 30.3506,
-    "lng": -86.228536
+    "lat": 30.349433,
+    "lng": -86.205098
   },
   "miramar-beach": {
-    "lat": 30.377898,
-    "lng": -86.369745
+    "lat": 30.380688,
+    "lng": -86.35016
   },
   "inlet-beach": {
     "lat": 30.285986,
@@ -610,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 2 | v1.1.35</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.36</p>
                 </div>
             </div>
 
@@ -1826,6 +1826,20 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             }
 
             // ==========================================
+            // FIND AREA BUTTON HELPER
+            // ==========================================
+            // Find area filter button by preset data (uses filterField to select correct attribute)
+            // Exposed on window for access from map initialization code
+            window.findAreaButton = function(presetData) {
+                if (!presetData) return null;
+                const { filterField, filterValue } = presetData;
+                if (filterField === 'zipCode') {
+                    return document.querySelector(`.area-tag[data-zipcode="${filterValue}"]`);
+                }
+                return document.querySelector(`.area-tag[data-subarea="${filterValue}"]`);
+            };
+
+            // ==========================================
             // UNIFIED AREA SELECTION (ALL 8 AREAS USE THIS)
             // ==========================================
             // Helper: Create area marker data from preset (exposed on window for map script)
@@ -2130,80 +2144,43 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
          GOOGLE MAPS INITIALIZATION
          ========================================== -->
     <script>
-        // Pre-calculate offset latitude using Mercator projection math
-        // (independent of map object - can run before map exists)
+        // Convert pixel offset to latitude offset using Mercator projection
         function preCalculateOffsetLat(lat, offsetPixels, zoom) {
             const TILE_SIZE = 256;
             const scale = Math.pow(2, zoom);
-
-            // Convert lat to Mercator y
             const latRad = lat * Math.PI / 180;
             const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-
-            // Apply pixel offset in Mercator space
-            // Note: In Google Maps Mercator, Y increases South (down).
-            // But the math here uses standard Mercator where Y increases North (up).
-            // If we want to shift the center North (so marker moves Down), we need to INCREASE Lat.
-            // Increasing Lat increases mercY (log(tan(pi/4 + lat/2))).
-            // So adding a positive offsetRadians moves the center North.
-            // This is correct for our "offsetPx" which represents "how far South the marker is from center".
             const pixelsPerRadian = TILE_SIZE * scale / (2 * Math.PI);
-            const offsetRadians = offsetPixels / pixelsPerRadian;
-            const newMercY = mercY + offsetRadians;
-
-            // Convert back to lat
+            const newMercY = mercY + offsetPixels / pixelsPerRadian;
             const newLatRad = 2 * Math.atan(Math.exp(newMercY)) - Math.PI / 2;
             return newLatRad * 180 / Math.PI;
         }
 
-        /**
-         * Computes vertical pixel offset for centering card+marker combo.
-         * Single source of truth - all other offset functions call this.
-         * @param {number} zoomLevel - Current map zoom (unused, kept for API)
-         * @param {boolean} isAreaMarker - Area cards are taller (+70px)
-         * @returns {number} Offset in pixels
-         */
+        // Centering offset for card+marker combo (see DOCUMENTATION.md for details)
         function computeOffsetPx(zoomLevel, isAreaMarker = false) {
             const mapDiv = document.getElementById('map');
             const w = mapDiv?.offsetWidth || window.innerWidth;
             const dvh = mapDiv?.offsetHeight || window.innerHeight;
 
-            // Card height by breakpoint + 70 for area cards
-            // Mobile cards are taller due to text wrapping (amenities, etc.)
             const baseCardHeight = w < 640 ? 450 : w < 1024 ? 380 : 340;
             const cardHeight = isAreaMarker ? baseCardHeight + 70 : baseCardHeight;
-            
-            // Centering geometry:
-            // - tailHeight: effective visual gap for centering (card bottom to marker center + Google Maps offset)
-            // - markerRadius: only 10px extends below anchor (not full 20px diameter)
-            const tailHeight = 78;  // Calibrated for visual centering (45px physical + 33px GM offset)
+            const tailHeight = 78;
             const markerRadius = 10;
-
             const comboHeight = cardHeight + tailHeight + markerRadius;
-
-            // Only center in viewports where combo fits with margin
-            // Small viewports: show card from top to avoid clipping
             const canCenter = dvh >= 450 && comboHeight < dvh - 40;
 
             if (canCenter) {
-                // Large viewport: center the combo
-                // Combo center is (cardHeight + tailHeight - markerRadius)/2 above marker anchor
                 return Math.round((cardHeight + tailHeight - markerRadius) / 2);
             } else {
-                // Small viewport OR tight fit: show card from top (20px padding)
-                // Card top at 20px, marker at card bottom + tail + marker radius
                 const markerY = 20 + cardHeight + tailHeight + markerRadius;
-                const offset = markerY - (dvh / 2);
-                return Math.round(Math.max(0, offset));
+                return Math.round(Math.max(0, markerY - (dvh / 2)));
             }
         }
 
-        // Wrapper - all callers use this
         function calculateInitialOffset(zoomLevel, isAreaMarker = false) {
             return computeOffsetPx(zoomLevel, isAreaMarker);
         }
 
-        // Measure the real, rendered InfoWindow height (works in iframes too).
         function getOpenInfoWindowCardHeightPx() {
             const iw = document.querySelector('.gm-style-iw-c');
             if (iw) return iw.getBoundingClientRect().height;
@@ -2211,11 +2188,6 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             return fallback ? fallback.getBoundingClientRect().height : 0;
         }
 
-        // Single centering rule:
-        // 1) Center X on marker.lng
-        // 2) Compute Y offset from the *rendered* card height
-        // 3) Apply by pre-offsetting the center latitude (no projection/pan-by-pixels)
-        // 4) Observe height changes (images loading, text wrapping) and re-center
         let singleModeResizeObserver = null;
 
         function applySingleModeCenteringFromRenderedCard(markerLatLng, attempt = 0) {
@@ -2230,11 +2202,9 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 return;
             }
 
-            // Setup ResizeObserver to handle content loading (images, wrapping text)
-            // This ensures we re-center if the card grows after initial render.
+            // Re-center when card size changes (images loading, etc.)
             if (!singleModeResizeObserver) {
                 singleModeResizeObserver = new ResizeObserver(() => {
-                    // Re-run centering when size changes
                     applySingleModeCenteringFromRenderedCard(markerLatLng, 999);
                 });
                 singleModeResizeObserver.observe(iwContainer);
@@ -2243,19 +2213,10 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             const cardH = iwContainer.getBoundingClientRect().height;
             const mapEl = document.getElementById('map') || map.getDiv();
             const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
-
-            // Centering geometry:
-            // - tailHeight: effective visual gap for centering (card bottom to marker center + Google Maps offset)
-            // - markerRadius: only 10px extends below anchor
-            const tailHeight = 78;  // Calibrated for visual centering (45px physical + 33px GM offset)
+            const tailHeight = 78;
             const markerRadius = 10;
-
             const comboH = cardH + tailHeight + markerRadius;
             const canCenter = dvh >= 450 && comboH < dvh - 40;
-            
-            // Combo center is (cardH + tailHeight - markerRadius)/2 above marker anchor.
-            // For centering: offset = (cardH + tailHeight - markerRadius) / 2
-            // For small viewports: show card from top with 20px padding
 
             const offsetPx = canCenter
                 ? Math.round((cardH + tailHeight - markerRadius) / 2)
@@ -2302,9 +2263,6 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
 
             const zoom = map.getZoom();
             const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), offsetPx, zoom);
-
-            // Only set center if it's significantly different to avoid jitter?
-            // Google Maps handles small updates well, but let's be safe.
             map.setCenter({ lat: adjustedLat, lng: markerLatLng.lng() });
             window.singleModeOffsetApplied = true;
         }
@@ -2524,80 +2482,27 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         return;
                     }
 
-                    // Full mode - use fly animation
-                    window.fitBoundsToNeighborhoods();
+                    // Full mode
                     const markerSlug = urlParams.get('marker');
-                    const propertyType = urlParams.get('propertyType') || 'Homes';
-
-                    // Shared function for fly animation + open marker
-                    const flyToAndOpenMarker = (options) => {
-                        const { position, zoom, filterValue, findMarker, label } = options;
-                        google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                            console.log('Full mode: fly to', label);
-                            window.smoothFlyTo(position, zoom);
-
-                            // Apply area filter during flight (if provided)
-                            if (filterValue) {
-                                // Fade out markers NOT in the target area
-                                setTimeout(() => {
-                                    (window.markers || []).forEach(m => {
-                                        if (m.marker?.content && m.neighborhood?.subArea !== filterValue) {
-                                            m.marker.content.classList.add('marker-fade-out');
-                                        }
-                                    });
-                                }, 1600); // Start fade 400ms before filter
-
-                                // Apply filter after fade completes
-                                setTimeout(() => {
-                                    const areaTag = document.querySelector(`.area-tag[data-subarea="${filterValue}"]`);
-                                    if (areaTag) {
-                                        console.log('Full mode: applying area filter', filterValue);
-                                        areaTag.click();
-                                    }
-                                }, 2000);
-                            }
-
-                            // Open marker after flight
-                            setTimeout(() => {
-                                const markerObj = findMarker();
-                                if (markerObj) {
-                                    console.log('Full mode: opening marker', markerObj.neighborhood.name);
-                                    showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
-                                    markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
-                                    window.activeMarker = markerObj.marker;
-                                }
-                            }, 2500);
-                        });
-                    };
+                    window.fitBoundsToNeighborhoods();
 
                     if (markerSlug) {
-                        // First check if this is an AREA marker (from area presets)
                         const presetData = window.areaPresets?.presets?.find(s => s.slug === markerSlug);
                         if (presetData) {
-                            flyToAndOpenMarker({
-                                position: presetData.position,
-                                zoom: 13,
-                                filterValue: presetData.filterValue,
-                                findMarker: () => (window.markers || []).find(m => m.neighborhood?.isAreaMarker),
-                                label: 'area ' + presetData.name
+                            // Wait for tiles to render so user sees region
+                            google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
+                                // Brief delay for map to stabilize (enables fitBounds animation)
+                                setTimeout(() => {
+                                    const btn = window.findAreaButton(presetData);
+                                    if (btn) btn.click();
+
+                                    // Then click the marker after animation
+                                    setTimeout(() => {
+                                        const m = (window.markers || []).find(x => x.neighborhood?.isAreaMarker);
+                                        if (m?.marker?.content) m.marker.content.click();
+                                    }, 1500);
+                                }, 400);
                             });
-                        } else {
-                            // Look for neighborhood marker
-                            const allNeighborhoods = window.neighborhoods || [];
-                            const matching = allNeighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
-                            const target = matching.find(n => n.propertyType === propertyType) || matching[0];
-                            if (target) {
-                                flyToAndOpenMarker({
-                                    position: target.position,
-                                    zoom: 15,
-                                    findMarker: () => (window.markers || []).find(m =>
-                                        m.neighborhood.name === target.name && m.neighborhood.propertyType === target.propertyType
-                                    ),
-                                    label: target.name
-                                });
-                            } else {
-                                console.warn('Full mode: marker not found for', markerSlug);
-                            }
                         }
                     }
                 }
@@ -2708,7 +2613,11 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 // Responsive padding: more breathing room on desktop
                 const isMobile = window.innerWidth < 768;
                 const sidePadding = isMobile ? 50 : 150;
-                // Use smooth animation via panToBounds with padding
+
+                // Set maxZoom constraint BEFORE fitBounds so animation respects it
+                map.setOptions({ maxZoom: 15 });
+
+                // Use smooth animation via fitBounds with padding
                 map.fitBounds(bounds, {
                     top: 50,
                     right: sidePadding,
@@ -2716,16 +2625,17 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     left: sidePadding
                 });
 
-                // Enforce min/max zoom limits after fitting
+                // After animation completes, reset maxZoom and apply minZoom if needed
                 const listener = google.maps.event.addListener(map, 'idle', () => {
-                    const currentZoom = map.getZoom();
-                    // Apply minZoom (for single area selections, want more detail)
-                    if (minZoom > 0 && currentZoom < minZoom) {
-                        map.setZoom(minZoom);
-                    }
-                    // Limit max zoom to prevent over-zooming on single result
-                    if (currentZoom > 15) {
-                        map.setZoom(15);
+                    // Reset maxZoom so user can manually zoom closer if desired
+                    map.setOptions({ maxZoom: 22 });
+
+                    if (!window.skipZoomAdjust) {
+                        const currentZoom = map.getZoom();
+                        // Apply minZoom (for single area selections, want more detail)
+                        if (minZoom > 0 && currentZoom < minZoom) {
+                            map.setZoom(minZoom);
+                        }
                     }
                     google.maps.event.removeListener(listener);
                 });

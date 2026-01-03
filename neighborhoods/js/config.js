@@ -17,17 +17,17 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.1.35',
+    version: '1.1.36',
 
     // ===================================================================
     // MAP SETTINGS
     // ===================================================================
     map: {
-        // Default map center coordinates (Emerald Coast)
-        defaultCenter: { lat: 30.294396274692907, lng: -86.01317525044458 },
+        // Default map center coordinates (Centered on Emerald Coast region)
+        defaultCenter: { lat: 30.305, lng: -86.15 },
 
-        // Default zoom level for map view
-        defaultZoom: 14,
+        // Default zoom level for map view (Region view)
+        defaultZoom: 11,
 
         // Zoom level when displaying single neighborhood
         singleNeighborhoodZoom: 12,

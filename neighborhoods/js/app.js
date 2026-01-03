@@ -72,6 +72,38 @@ async function initMap() {
         
         STATE.neighborhoods = await loadNeighborhoods();
         const urlParams = getUrlParams();
+
+        // Check for area/subarea marker (e.g. ?marker=sandestin)
+        // If found, select the filter button and clear the marker param so it doesn't trigger single-neighborhood logic
+        const areaSlug = urlParams.marker ? urlParams.marker.toLowerCase() : null;
+        const areaMapping = {
+            'destin': { type: 'zipcode', value: '32541' },
+            'santa-rosa-beach': { type: 'zipcode', value: '32459' },
+            'miramar-beach': { type: 'zipcode', value: '32550' },
+            'inlet-beach': { type: 'zipcode', value: '32461' },
+            'panama-city-beach': { type: 'zipcode', value: '32413' },
+            'west-30a': { type: 'subarea', value: '17 - 30A West' },
+            'east-30a': { type: 'subarea', value: '18 - 30A East' },
+            'sandestin': { type: 'subarea', value: '1503 - Sandestin Resort' }
+        };
+
+        let isAreaFilter = false;
+        let areaFilterSelector = null;
+
+        if (areaSlug && areaMapping[areaSlug]) {
+            const mapping = areaMapping[areaSlug];
+            areaFilterSelector = mapping.type === 'zipcode' 
+                ? `.area-tag[data-zipcode="${mapping.value}"]`
+                : `.area-tag[data-subarea="${mapping.value}"]`;
+            
+            // Check if button exists but DON'T select it yet
+            // We defer selection until map is idle to ensure proper animation
+            if (document.querySelector(areaFilterSelector)) {
+                // Clear marker param so it doesn't trigger single-neighborhood logic
+                delete urlParams.marker;
+                isAreaFilter = true;
+            }
+        }
         
         // Handle single neighborhood mode
         const targetSlug = urlParams.neighborhood || urlParams.marker;
@@ -145,7 +177,7 @@ async function initMap() {
             // Default zoom single-neighborhood vs full app
             zoom = urlParams.zoom || (urlParams.mode === 'single' ? CONFIG.map.singleNeighborhoodZoom : 14);
         } else {
-            // Default: center on Watersound Origins area
+            // Default: center on Emerald Coast region
             center = CONFIG.map.defaultCenter;
             zoom = urlParams.zoom || CONFIG.map.defaultZoom;
         }
@@ -153,7 +185,8 @@ async function initMap() {
         initializeMap(center, zoom);
 
         // Auto-fit map to all neighborhoods (unless in single mode or explicit coords provided)
-        if (!urlParams.mode && !urlParams.lat && !urlParams.lng && STATE.neighborhoods.length > 1) {
+        // Skip if we have an active area filter (it will handle its own bounds)
+        if (!isAreaFilter && !urlParams.mode && !urlParams.lat && !urlParams.lng && STATE.neighborhoods.length > 1) {
             google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
                 fitBoundsToNeighborhoods(STATE.neighborhoods, 80);
             });
@@ -307,7 +340,22 @@ async function initMap() {
         setupFilters();
 
         // Apply initial filters to show communities count
-        applyFilters();
+        if (isAreaFilter && areaFilterSelector) {
+            // If we have an area filter, wait for map to be idle before applying
+            // This ensures the map is drawn before we animate to the area
+            google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
+                // Add a small delay to ensure the user sees the initial region view
+                setTimeout(() => {
+                    const button = document.querySelector(areaFilterSelector);
+                    if (button) {
+                        button.classList.add('selected');
+                        applyFilters();
+                    }
+                }, 500);
+            });
+        } else {
+            applyFilters();
+        }
 
         // Setup Property Type Buttons
         const activeClasses = ['bg-brand-500', 'text-white', 'border-brand-500', 'hover:bg-brand-600', 'active:bg-brand-700', 'dark:bg-brand-dark', 'dark:text-white', 'dark:border-brand-dark', 'dark:hover:bg-brand-dark-hover'];

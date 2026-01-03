@@ -1,12 +1,12 @@
 {
   "type": "area-presets",
-  "updated": "2026-01-02T12:43:44.220043",
+  "updated": "2026-01-02T20:46:21.356026",
   "presets": [
     {
       "name": "Destin",
       "slug": "destin",
-      "filterField": "subArea",
-      "filterValue": "Destin",
+      "filterField": "zipCode",
+      "filterValue": "32541",
       "position": {
         "lat": 30.387816,
         "lng": -86.475409
@@ -73,23 +73,58 @@
     {
       "name": "Santa Rosa Beach",
       "slug": "santa-rosa-beach",
-      "filterField": "subArea",
-      "filterValue": "Santa Rosa Beach",
+      "filterField": "zipCode",
+      "filterValue": "32459",
       "position": {
-        "lat": 30.3506,
-        "lng": -86.228536
+        "lat": 30.349433,
+        "lng": -86.205098
       },
       "stats": {
-        "listingCount": 222,
-        "medianPrice": 1100000,
-        "avgPricePerSqFt": 599,
-        "avgDom": 145
+        "listingCount": 747,
+        "medianPrice": 1110000,
+        "avgPricePerSqFt": 696,
+        "avgDom": 140
       },
       "neighborhoods": [
+        {
+          "name": "Watercolor",
+          "propertyType": "homes",
+          "listingCount": 38
+        },
+        {
+          "name": "Driftwood Estates",
+          "propertyType": "homes",
+          "listingCount": 17
+        },
+        {
+          "name": "Gulf Shore Manor",
+          "propertyType": "homes",
+          "listingCount": 17
+        },
+        {
+          "name": "Town of Santa Rosa",
+          "propertyType": "homes",
+          "listingCount": 16
+        },
+        {
+          "name": "Seagrove",
+          "propertyType": "homes",
+          "listingCount": 15
+        },
         {
           "name": "Highland Parks At Blue",
           "propertyType": "homes",
           "listingCount": 13
+        },
+        {
+          "name": "Naturewalk at Seagrove",
+          "propertyType": "homes",
+          "listingCount": 12
+        },
+        {
+          "name": "Beachside Villas",
+          "propertyType": "condos",
+          "listingCount": 11
         },
         {
           "name": "Cypress Breeze Plantation",
@@ -100,64 +135,54 @@
           "name": "Gulfview Heights",
           "propertyType": "homes",
           "listingCount": 10
-        },
-        {
-          "name": "Beach Highland",
-          "propertyType": "homes",
-          "listingCount": 9
-        },
-        {
-          "name": "Serenity At Dune Allen",
-          "propertyType": "homes",
-          "listingCount": 9
-        },
-        {
-          "name": "Dune Allen",
-          "propertyType": "homes",
-          "listingCount": 8
-        },
-        {
-          "name": "Gulf Place Caribbean",
-          "propertyType": "condos",
-          "listingCount": 8
-        },
-        {
-          "name": "Blue Gulf Resort",
-          "propertyType": "homes",
-          "listingCount": 6
-        },
-        {
-          "name": "Cypress Dunes",
-          "propertyType": "homes",
-          "listingCount": 6
-        },
-        {
-          "name": "Escada",
-          "propertyType": "homes",
-          "listingCount": 6
         }
       ]
     },
     {
       "name": "Miramar Beach",
       "slug": "miramar-beach",
-      "filterField": "subArea",
-      "filterValue": "1502 - Miramar Beach",
+      "filterField": "zipCode",
+      "filterValue": "32550",
       "position": {
-        "lat": 30.377898,
-        "lng": -86.369745
+        "lat": 30.380688,
+        "lng": -86.35016
       },
       "stats": {
-        "listingCount": 272,
-        "medianPrice": 859900,
-        "avgPricePerSqFt": 576,
-        "avgDom": 166
+        "listingCount": 581,
+        "medianPrice": 769900,
+        "avgPricePerSqFt": 537,
+        "avgDom": 159
       },
       "neighborhoods": [
+        {
+          "name": "Grand Sandestin",
+          "propertyType": "condos",
+          "listingCount": 24
+        },
         {
           "name": "Ariel Dunes",
           "propertyType": "condos",
           "listingCount": 20
+        },
+        {
+          "name": "Luau Condominum",
+          "propertyType": "condos",
+          "listingCount": 20
+        },
+        {
+          "name": "Lasata",
+          "propertyType": "condos",
+          "listingCount": 19
+        },
+        {
+          "name": "Bahia",
+          "propertyType": "condos",
+          "listingCount": 18
+        },
+        {
+          "name": "Burnt Pine",
+          "propertyType": "homes",
+          "listingCount": 18
         },
         {
           "name": "Frangista Beach",
@@ -178,31 +203,6 @@
           "name": "Hidden Dunes",
           "propertyType": "condos",
           "listingCount": 13
-        },
-        {
-          "name": "Maravilla",
-          "propertyType": "condos",
-          "listingCount": 11
-        },
-        {
-          "name": "Mainsail",
-          "propertyType": "condos",
-          "listingCount": 10
-        },
-        {
-          "name": "Alerio",
-          "propertyType": "condos",
-          "listingCount": 9
-        },
-        {
-          "name": "Beachhouse",
-          "propertyType": "condos",
-          "listingCount": 6
-        },
-        {
-          "name": "Ciboney",
-          "propertyType": "condos",
-          "listingCount": 6
         }
       ]
     },
