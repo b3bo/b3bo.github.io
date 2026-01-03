@@ -1,12 +1,13 @@
 {
   "type": "area-presets",
-  "updated": "2026-01-03T13:17:43.349381",
+  "updated": "2026-01-03T13:49:58.495488",
   "presets": [
     {
       "name": "Destin",
       "slug": "destin",
       "filterField": "zipCode",
       "filterValue": "32541",
+      "listingsParam": "zip_32541/",
       "position": {
         "lat": 30.387816,
         "lng": -86.475373
@@ -75,6 +76,7 @@
       "slug": "santa-rosa-beach",
       "filterField": "zipCode",
       "filterValue": "32459",
+      "listingsParam": "zip_32459/",
       "position": {
         "lat": 30.349433,
         "lng": -86.205098
@@ -143,6 +145,7 @@
       "slug": "miramar-beach",
       "filterField": "zipCode",
       "filterValue": "32550",
+      "listingsParam": "zip_32550/",
       "position": {
         "lat": 30.380643,
         "lng": -86.35016
@@ -211,6 +214,7 @@
       "slug": "inlet-beach",
       "filterField": "zipCode",
       "filterValue": "32461",
+      "listingsParam": "zip_32461/",
       "position": {
         "lat": 30.286378,
         "lng": -86.024128
@@ -279,6 +283,7 @@
       "slug": "panama-city-beach",
       "filterField": "zipCode",
       "filterValue": "32413",
+      "listingsParam": "zip_32413/",
       "position": {
         "lat": 30.244556,
         "lng": -85.911347
@@ -347,6 +352,7 @@
       "slug": "west-30a",
       "filterField": "area",
       "filterValue": "17 - 30A West",
+      "listingsParam": "area_30A%20West/",
       "position": {
         "lat": 30.348628,
         "lng": -86.225585
@@ -415,6 +421,7 @@
       "slug": "east-30a",
       "filterField": "area",
       "filterValue": "18 - 30A East",
+      "listingsParam": "area_30A%20East/",
       "position": {
         "lat": 30.303881,
         "lng": -86.066628
@@ -483,6 +490,7 @@
       "slug": "sandestin",
       "filterField": "subArea",
       "filterValue": "1503 - Sandestin Resort",
+      "listingsParam": "subarea_%2F1503%2F/",
       "position": {
         "lat": 30.385554,
         "lng": -86.32587
