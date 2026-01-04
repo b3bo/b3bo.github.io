@@ -530,14 +530,38 @@ export function smoothFlyTo(targetPosition, targetZoom = 15) {
 }
 
 /**
+ * Measures the actual height of an open InfoWindow from the DOM.
+ * Returns null if no InfoWindow is currently visible.
+ *
+ * @returns {number|null} The measured height in pixels, or null if not measurable
+ */
+export function getInfoWindowHeight() {
+    // Google Maps InfoWindow uses .gm-style-iw-c as the outer container
+    const iwContainer = document.querySelector('.gm-style-iw-c');
+    if (!iwContainer) {
+        return null;
+    }
+
+    // Get the actual rendered height
+    const height = iwContainer.offsetHeight;
+
+    // Sanity check - ignore unreasonable values
+    if (height < 50 || height > 800) {
+        return null;
+    }
+
+    return height;
+}
+
+/**
  * Calculates precise offset for centering marker + info window visually.
  * Uses geometric calculation based on actual viewport and element dimensions.
- * Accuracy: 90-95% across all viewports and zoom levels.
  *
  * @param {number} zoomLevel - Target zoom level (unused, kept for API compatibility)
+ * @param {number|null} measuredCardHeight - Optional measured card height (uses estimate if null)
  * @returns {number} Pixel offset to center visual combo at viewport center
  */
-export function calculateCenteredOffset(zoomLevel) {
+export function calculateCenteredOffset(zoomLevel, measuredCardHeight = null) {
     const params = getUrlParams();
 
     // URL overrides take precedence (for debugging/testing)
@@ -549,15 +573,20 @@ export function calculateCenteredOffset(zoomLevel) {
         return clamp((viewportHeight * params.offsetPct) / 100, 100, 300);
     }
 
-    // Viewport-aware card height estimation
-    const w = window.innerWidth;
+    // Use measured height if provided, otherwise estimate based on viewport
     let cardHeight;
-    if (w < 640) {
-        cardHeight = 320; // Mobile: taller cards (more stacking)
-    } else if (w < 1024) {
-        cardHeight = 300; // Tablet: medium cards
+    if (measuredCardHeight !== null) {
+        cardHeight = measuredCardHeight;
     } else {
-        cardHeight = 280; // Desktop: compact cards
+        // Fallback: viewport-aware estimation
+        const w = window.innerWidth;
+        if (w < 640) {
+            cardHeight = 320; // Mobile: taller cards (more stacking)
+        } else if (w < 1024) {
+            cardHeight = 300; // Tablet: medium cards
+        } else {
+            cardHeight = 280; // Desktop: compact cards
+        }
     }
 
     // Known marker dimensions
@@ -579,10 +608,9 @@ export function calculateCenteredOffset(zoomLevel) {
     return Math.round(offset + buffer);
 }
 
-// Legacy heuristic offset computation (kept for reference/fallback)
-// Use calculateCenteredOffset() instead for better accuracy
-export function computeOffsetPx(zoomLevel) {
-    return calculateCenteredOffset(zoomLevel);
+// Legacy alias for calculateCenteredOffset (kept for API compatibility)
+export function computeOffsetPx(zoomLevel, measuredCardHeight = null) {
+    return calculateCenteredOffset(zoomLevel, measuredCardHeight);
 }
 
 // Helper function to offset lat/lng by pixels

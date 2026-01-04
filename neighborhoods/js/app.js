@@ -8,7 +8,7 @@ console.log('app.js loading');
 import { CONFIG } from './config.js';
 import { STATE } from './state.js';
 import { getUrlParams, toSlug } from './utils.js?v=202501';
-import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods, smoothFlyTo } from './map.js?v=202501'; // computeOffsetPx needed for single mode
+import { initializeMap, computeOffsetPx, offsetLatLng, fitBoundsToNeighborhoods, smoothFlyTo, getInfoWindowHeight } from './map.js?v=202501';
 import { loadNeighborhoods } from './data.js';
 import { setupUI, navigateNeighborhood } from './ui.js';
 import { showInfoWindow, createMarkerIcon } from './markers.js';
@@ -192,19 +192,20 @@ async function initMap() {
             });
         }
 
-        // Single/iframe mode: no animation (no pan/zoom/ripple). Wait for map to settle, then open card.
+        // Single/iframe mode: no animation. Open card first, measure actual height, then center precisely.
         if (urlParams.mode === 'single' && STATE.neighborhoods.length === 1) {
-            // Use 'idle' event for centering (fires reliably on both fresh and cached loads)
-            google.maps.event.addListenerOnce(STATE.map, 'idle', () => {
-                // Use the computed zoom value directly (more reliable than getZoom after setZoom)
-                const targetZoom = zoom;
-                // Use geometric calculation for precise centering (same as full mode)
-                const offsetPixels = computeOffsetPx(targetZoom);
-                const offsetTarget = offsetLatLng(center, offsetPixels, targetZoom);
-                STATE.map.setCenter(offsetTarget); // instant center change (no animation)
-            });
+            const targetZoom = zoom;
 
-            // Poll for markers to be ready, then open info window after map settles
+            // Function to center map using measured card height
+            const centerWithMeasuredHeight = () => {
+                const measuredHeight = getInfoWindowHeight();
+                const offsetPixels = computeOffsetPx(targetZoom, measuredHeight);
+                const offsetTarget = offsetLatLng(center, offsetPixels, targetZoom);
+                STATE.map.setCenter(offsetTarget);
+                console.log('Single mode: centered with measured height:', measuredHeight, 'offset:', offsetPixels);
+            };
+
+            // Poll for markers to be ready, then open info window
             const openSingleModeMarker = () => {
                 if (STATE.markers.length > 0) {
                     const first = STATE.markers[0];
@@ -218,6 +219,13 @@ async function initMap() {
                     // Show info window
                     showInfoWindow(marker, neighborhood);
                     console.log('Single mode: opened info window for', neighborhood.name);
+
+                    // Wait for InfoWindow to render, then measure and center
+                    // Using setTimeout since domready event may have already fired inside showInfoWindow
+                    setTimeout(() => {
+                        centerWithMeasuredHeight();
+                    }, 100);
+
                     return true;
                 }
                 return false;

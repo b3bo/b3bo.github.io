@@ -610,7 +610,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.41</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 3 | v1.1.42</p>
                 </div>
             </div>
 
@@ -1404,6 +1404,13 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     btn.classList.remove('selected');
                 });
 
+                // Clear area markers
+                if (window.areaMarkers) {
+                    window.areaMarkers.forEach((marker, slug) => {
+                        if (window.hideAreaMarker) window.hideAreaMarker(slug);
+                    });
+                }
+
                 // Reset amenity checkboxes and tags
                 document.querySelectorAll('input[data-amenity]').forEach(cb => {
                     cb.checked = false;
@@ -1760,6 +1767,18 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         }
                     }
                     applyFilters();
+
+                    // Show/hide area marker
+                    const presetData = window.areaPresets?.presets?.find(p =>
+                        (zipCode && p.filterValue === zipCode) || (subarea && p.filterValue === subarea)
+                    );
+                    if (presetData && window.showAreaMarker && window.hideAreaMarker) {
+                        if (isSelected) {
+                            window.showAreaMarker(presetData);
+                        } else {
+                            window.hideAreaMarker(presetData.slug);
+                        }
+                    }
                 });
             });
 
@@ -2489,61 +2508,12 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     if (markerSlug) {
                         const presetData = window.areaPresets?.presets?.find(s => s.slug === markerSlug);
                         if (presetData) {
-                            // Wait for tiles to render so user sees region
+                            // Wait for tiles to render, then click the button
+                            // Button click handler triggers showAreaMarker
                             google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
-                                // Brief delay for map to stabilize (enables fitBounds animation)
                                 setTimeout(() => {
                                     const btn = window.findAreaButton(presetData);
                                     if (btn) btn.click();
-
-                                    // Wait for fitBoundsToNeighborhoods animation to complete
-                                    google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                                        // Calculate marker position for centered card+marker combo
-                                        // Map center is fixed by fitBoundsToNeighborhoods, place marker BELOW center
-                                        const mapCenter = window.map.getCenter();
-                                        const currentZoom = window.map.getZoom();
-                                        const offsetPx = computeOffsetPx(currentZoom, true); // true = area marker (taller card)
-
-                                        // Offset DOWN (negative) from map center
-                                        const markerPosition = offsetLatLng(
-                                            { lat: mapCenter.lat(), lng: mapCenter.lng() },
-                                            -offsetPx,
-                                            currentZoom
-                                        );
-
-                                        // Create area marker data with calculated position
-                                        const areaData = window.createAreaMarkerData(presetData);
-                                        areaData.position = markerPosition;
-
-                                        // Create marker element (same as addMarkers does for area markers)
-                                        const markerContent = document.createElement('div');
-                                        markerContent.className = 'marker-pin area-marker';
-                                        markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
-                                        markerContent.style.cursor = 'pointer';
-                                        markerContent.style.zIndex = '1000';
-
-                                        const marker = new google.maps.marker.AdvancedMarkerElement({
-                                            map: window.map,
-                                            position: markerPosition,
-                                            content: markerContent,
-                                            title: areaData.name + ' (Area)',
-                                            zIndex: 1000
-                                        });
-                                        marker.markerColor = '#4c8f96';
-
-                                        // Click handler for area marker
-                                        marker.addListener('click', () => {
-                                            showAreaInfoWindowContent(marker, areaData, window.infoWindow);
-                                            window.activeMarker = marker;
-                                        });
-
-                                        // Add to markers array
-                                        window.markers.push({ marker, neighborhood: areaData });
-
-                                        // Open info window immediately
-                                        showAreaInfoWindowContent(marker, areaData, window.infoWindow);
-                                        window.activeMarker = marker;
-                                    });
                                 }, 400);
                             });
                         }
@@ -3294,6 +3264,72 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 window.activeMarker = marker;
             }
         }
+
+        // ==========================================
+        // AREA MARKER MANAGEMENT
+        // ==========================================
+        window.areaMarkers = new Map(); // slug -> marker
+
+        // Show area marker and info window (called from button click handler)
+        window.showAreaMarker = function(presetData) {
+            // Wait for fitBounds animation to complete
+            google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                // Compute centered marker position
+                const mapCenter = window.map.getCenter();
+                const currentZoom = window.map.getZoom();
+                const offsetPx = computeOffsetPx(currentZoom, true);
+                const markerPosition = offsetLatLng(
+                    { lat: mapCenter.lat(), lng: mapCenter.lng() },
+                    -offsetPx,
+                    currentZoom
+                );
+
+                const areaData = window.createAreaMarkerData(presetData);
+                areaData.position = markerPosition;
+
+                // Create marker
+                const markerContent = document.createElement('div');
+                markerContent.className = 'marker-pin area-marker';
+                markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
+                markerContent.style.cursor = 'pointer';
+                markerContent.style.zIndex = '1000';
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map: window.map,
+                    position: markerPosition,
+                    content: markerContent,
+                    title: areaData.name + ' (Area)',
+                    zIndex: 1000
+                });
+                marker.markerColor = '#4c8f96';
+
+                marker.addListener('click', () => {
+                    showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                    window.activeMarker = marker;
+                });
+
+                window.markers.push({ marker, neighborhood: areaData });
+                window.areaMarkers.set(presetData.slug, marker);
+
+                showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                window.activeMarker = marker;
+            });
+        };
+
+        // Hide area marker (called when filter is deselected)
+        window.hideAreaMarker = function(slug) {
+            const marker = window.areaMarkers.get(slug);
+            if (marker) {
+                marker.map = null;
+                window.areaMarkers.delete(slug);
+                window.markers = window.markers.filter(m => m.marker !== marker);
+                // Close info window if this marker was active
+                if (window.activeMarker === marker) {
+                    window.infoWindow?.close();
+                    window.activeMarker = null;
+                }
+            }
+        };
 
         // Expose addMarkers globally for theme toggle
         window.addMarkers = function addMarkers() {

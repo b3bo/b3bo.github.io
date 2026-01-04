@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.1.41',
+    version: '1.1.42',
 
     // ===================================================================
     // MAP SETTINGS
@@ -55,16 +55,7 @@ export const CONFIG = {
         },
 
         // Google Maps Cloud mapId for styling
-        mapId: '92b2f4ea8b2fce54a50ed2e9',
-
-        // Estimated info card heights for centering algorithm (pixels)
-        // Used to calculate vertical offset so marker+card combo is centered
-        // Increase values to move combo DOWN, decrease to move combo UP
-        cardHeight: {
-            mobile: 380,   // Fixed height with constrained amenities
-            tablet: 380,   // viewport width 640-1023px
-            desktop: 380   // viewport width >= 1024px
-        }
+        mapId: '92b2f4ea8b2fce54a50ed2e9'
     },
 
     // ===================================================================
