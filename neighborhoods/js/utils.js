@@ -106,6 +106,74 @@ export function debounce(func, wait) {
     };
 }
 
+// Throttle helper - ensures function is called at most once per interval
+export function throttle(func, limit) {
+    let inThrottle = false;
+    let lastArgs = null;
+
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => {
+                inThrottle = false;
+                if (lastArgs) {
+                    func.apply(this, lastArgs);
+                    lastArgs = null;
+                }
+            }, limit);
+        } else {
+            lastArgs = args;
+        }
+    };
+}
+
+/**
+ * RequestAnimationFrame wrapper with automatic cleanup tracking.
+ * @param {Function} callback - Animation callback (timestamp) => boolean (return false to stop)
+ * @returns {Object} Controller with cancel() method and isRunning property
+ */
+export function createAnimation(callback) {
+    let frameId = null;
+    let cancelled = false;
+
+    const animate = (timestamp) => {
+        if (cancelled) return;
+        const shouldContinue = callback(timestamp);
+        if (shouldContinue !== false && !cancelled) {
+            frameId = requestAnimationFrame(animate);
+        } else {
+            frameId = null;
+        }
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    return {
+        cancel() {
+            cancelled = true;
+            if (frameId !== null) {
+                cancelAnimationFrame(frameId);
+                frameId = null;
+            }
+        },
+        get isRunning() {
+            return frameId !== null && !cancelled;
+        }
+    };
+}
+
+// Easing functions for animations
+export const Easing = {
+    linear: t => t,
+    easeInQuad: t => t * t,
+    easeOutQuad: t => t * (2 - t),
+    easeInOutQuad: t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
+    easeInCubic: t => t * t * t,
+    easeOutCubic: t => (--t) * t * t + 1,
+    easeInOutCubic: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+};
+
 export function clamp(val, min, max) {
     return Math.min(max, Math.max(min, val));
 }

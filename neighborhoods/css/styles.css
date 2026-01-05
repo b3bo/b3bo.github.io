@@ -579,3 +579,215 @@ textarea:focus-visible,
 .dark .focus-ring-offset:focus-visible {
   box-shadow: 0 0 0 2px var(--color-dark-bg-elevated), 0 0 0 4px rgba(91, 163, 171, 0.5);
 }
+
+/* ========================================================================
+   INLINE CSS EXTRACTION (from index.html)
+   ======================================================================== */
+
+/* Custom scrollbar - uses brand CSS variables */
+.panel-content::-webkit-scrollbar,
+#main-menu::-webkit-scrollbar,
+#search-results::-webkit-scrollbar {
+  width: 10px;
+}
+.panel-content::-webkit-scrollbar-track,
+#main-menu::-webkit-scrollbar-track,
+#search-results::-webkit-scrollbar-track {
+  background: transparent;
+}
+.panel-content::-webkit-scrollbar-thumb,
+#main-menu::-webkit-scrollbar-thumb,
+#search-results::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-100);
+  border-radius: 20px;
+  transition: background-color 0.2s;
+  min-height: 60px;
+}
+.panel-content::-webkit-scrollbar-thumb:hover,
+#main-menu::-webkit-scrollbar-thumb:hover,
+#search-results::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-brand-base);
+}
+.panel-content::-webkit-scrollbar-thumb:active,
+#main-menu::-webkit-scrollbar-thumb:active,
+#search-results::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-brand-base);
+}
+.dark .panel-content::-webkit-scrollbar-thumb,
+.dark #main-menu::-webkit-scrollbar-thumb,
+html.dark #search-results::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--color-brand-rgb), 0.2);
+}
+.dark .panel-content::-webkit-scrollbar-thumb:hover,
+.dark #main-menu::-webkit-scrollbar-thumb:hover,
+html.dark #search-results::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-brand-dark);
+}
+.dark .panel-content::-webkit-scrollbar-thumb:active,
+.dark #main-menu::-webkit-scrollbar-thumb:active,
+html.dark #search-results::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-brand-dark);
+}
+
+/* Tab icon switching - show X when drawer is open */
+#drawer-toggle:checked ~ aside .tab-icon-closed {
+  display: none;
+}
+#drawer-toggle:checked ~ aside .tab-icon-open {
+  display: block;
+}
+
+/* Info window close button removal - CSS fallback before JS removes it */
+.gm-style-iw-chr {
+  display: none !important;
+}
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  outline: none !important;
+  border-radius: 12px !important;
+}
+.gm-style .gm-style-iw-tc::after {
+  background: transparent !important;
+}
+.dark .gm-style .gm-style-iw-c {
+  background-color: #262626 !important;
+}
+
+/* Prevent black focus outlines on map and marker elements */
+#map:focus,
+.gm-style *:focus,
+.marker-pin:focus,
+.gm-style-iw:focus,
+.gm-style-iw *:focus {
+  outline: none !important;
+}
+
+/* Scrollable amenities (3-row max) - fade only when overflow */
+.amenities-scroll {
+  max-height: 3.9em;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.amenities-scroll.has-overflow {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+.amenities-scroll strong {
+  font-weight: 700;
+  color: inherit;
+}
+.amenities-scroll::-webkit-scrollbar { width: 3px; }
+.amenities-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 2px;
+}
+
+/* Scrollable communities (3-row max) - fade only when overflow */
+.communities-scroll {
+  max-height: 3.9em;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.communities-scroll.has-overflow {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+.communities-scroll::-webkit-scrollbar { width: 3px; }
+.communities-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 2px;
+}
+
+/* Search dropdown fade effect (stationary mask on container) */
+#search-results.has-overflow {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* Single mode: hide sidebar before paint */
+.single-mode #sidebar,
+.single-mode #drawer-toggle,
+.single-mode label[for="drawer-toggle"],
+.single-mode .disclaimer-bar {
+  display: none !important;
+}
+.single-mode #map-layout {
+  height: 100dvh !important;
+}
+
+/* Marker fade transition for area filter */
+.marker-fade-out {
+  opacity: 0 !important;
+  transition: opacity 0.4s ease-out !important;
+}
+
+/* Dark mode disclaimer bar */
+.dark .disclaimer-bar {
+  background-color: #2E2E2E !important;
+}
+
+/* ========================================================================
+   LOADER ANIMATION (from index.html)
+   ======================================================================== */
+
+/* Dual-shape rotating loader */
+.loader-dual-shape {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+.loader-dual-shape:before,
+.loader-dual-shape:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+.loader-dual-shape:before {
+  animation: loader-before 2s infinite;
+}
+.loader-dual-shape:after {
+  animation: loader-after 2s infinite;
+}
+
+/* Light mode loader */
+@keyframes loader-before {
+  0% { width: 0.5em; box-shadow: 1em -0.5em rgba(76, 143, 150, 0.75), -1em 0.5em rgba(163, 163, 163, 0.75); }
+  35% { width: 2.5em; box-shadow: 0 -0.5em rgba(76, 143, 150, 0.75), 0 0.5em rgba(163, 163, 163, 0.75); }
+  70% { width: 0.5em; box-shadow: -1em -0.5em rgba(76, 143, 150, 0.75), 1em 0.5em rgba(163, 163, 163, 0.75); }
+  100% { box-shadow: 1em -0.5em rgba(76, 143, 150, 0.75), -1em 0.5em rgba(163, 163, 163, 0.75); }
+}
+@keyframes loader-after {
+  0% { height: 0.5em; box-shadow: 0.5em 1em rgba(91, 163, 171, 0.75), -0.5em -1em rgba(115, 115, 115, 0.75); }
+  35% { height: 2.5em; box-shadow: 0.5em 0 rgba(91, 163, 171, 0.75), -0.5em 0 rgba(115, 115, 115, 0.75); }
+  70% { height: 0.5em; box-shadow: 0.5em -1em rgba(91, 163, 171, 0.75), -0.5em 1em rgba(115, 115, 115, 0.75); }
+  100% { box-shadow: 0.5em 1em rgba(91, 163, 171, 0.75), -0.5em -1em rgba(115, 115, 115, 0.75); }
+}
+
+/* Dark mode loader */
+.dark .loader-dual-shape:before {
+  animation: loader-before-dark 2s infinite;
+}
+.dark .loader-dual-shape:after {
+  animation: loader-after-dark 2s infinite;
+}
+@keyframes loader-before-dark {
+  0% { width: 0.5em; box-shadow: 1em -0.5em rgba(91, 163, 171, 0.85), -1em 0.5em rgba(163, 163, 163, 0.85); }
+  35% { width: 2.5em; box-shadow: 0 -0.5em rgba(91, 163, 171, 0.85), 0 0.5em rgba(163, 163, 163, 0.85); }
+  70% { width: 0.5em; box-shadow: -1em -0.5em rgba(91, 163, 171, 0.85), 1em 0.5em rgba(163, 163, 163, 0.85); }
+  100% { box-shadow: 1em -0.5em rgba(91, 163, 171, 0.85), -1em 0.5em rgba(163, 163, 163, 0.85); }
+}
+@keyframes loader-after-dark {
+  0% { height: 0.5em; box-shadow: 0.5em 1em rgba(76, 143, 150, 0.85), -0.5em -1em rgba(192, 192, 192, 0.85); }
+  35% { height: 2.5em; box-shadow: 0.5em 0 rgba(76, 143, 150, 0.85), -0.5em 0 rgba(192, 192, 192, 0.85); }
+  70% { height: 0.5em; box-shadow: 0.5em -1em rgba(76, 143, 150, 0.85), -0.5em 1em rgba(192, 192, 192, 0.85); }
+  100% { box-shadow: 0.5em 1em rgba(76, 143, 150, 0.85), -0.5em -1em rgba(192, 192, 192, 0.85); }
+}

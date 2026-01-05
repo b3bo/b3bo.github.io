@@ -1627,46 +1627,6 @@
                 ? Math.round((cardH + tailHeight - markerRadius) / 2)
                 : Math.round(Math.max(0, (20 + cardH + tailHeight + markerRadius) - (dvh / 2)));
 
-            // Debug logging for centering calculation
-            const debugMode = new URLSearchParams(window.location.search).get('debug') === 'true';
-            if (debugMode) {
-                console.log('=== CENTERING DEBUG ===');
-                console.log('isInitialCentering:', isInitialCentering);
-                console.log('dvh (viewport):', dvh);
-                console.log('cardH (measured):', cardH);
-                console.log('tailHeight:', tailHeight);
-                console.log('markerRadius:', markerRadius);
-                console.log('comboH:', comboH);
-                console.log('canCenter:', canCenter);
-                console.log('offsetPx:', offsetPx);
-                console.log('--- Expected positions ---');
-                console.log('Card top at:', Math.round((dvh / 2) + offsetPx - tailHeight - cardH), 'px');
-                console.log('Card bottom at:', Math.round((dvh / 2) + offsetPx - tailHeight), 'px');
-                console.log('Marker center at:', Math.round((dvh / 2) + offsetPx), 'px (' + Math.round(((dvh / 2) + offsetPx) / dvh * 100) + '%)');
-                console.log('Marker bottom at:', Math.round((dvh / 2) + offsetPx + markerRadius), 'px');
-                console.log('Top padding:', Math.round((dvh / 2) + offsetPx - tailHeight - cardH), 'px');
-                console.log('Bottom padding:', Math.round(dvh - (dvh / 2) - offsetPx - markerRadius), 'px');
-
-                // Measure ACTUAL DOM positions after a brief delay
-                setTimeout(() => {
-                    const cardRect = iwContainer.getBoundingClientRect();
-                    const markerEl = document.querySelector('.marker-pin');
-                    const markerRect = markerEl?.getBoundingClientRect();
-                    console.log('--- ACTUAL DOM positions ---');
-                    console.log('Card actual top:', Math.round(cardRect.top), 'px');
-                    console.log('Card actual bottom:', Math.round(cardRect.bottom), 'px');
-                    console.log('Card actual height:', Math.round(cardRect.height), 'px');
-                    if (markerRect) {
-                        console.log('Marker actual top:', Math.round(markerRect.top), 'px');
-                        console.log('Marker actual bottom:', Math.round(markerRect.bottom), 'px');
-                        console.log('Marker actual center:', Math.round(markerRect.top + markerRect.height/2), 'px');
-                        console.log('ACTUAL gap (card bottom to marker center):', Math.round((markerRect.top + markerRect.height/2) - cardRect.bottom), 'px');
-                        console.log('ACTUAL top padding:', Math.round(cardRect.top), 'px');
-                        console.log('ACTUAL bottom padding:', Math.round(dvh - markerRect.bottom), 'px');
-                    }
-                }, 500);
-            }
-
             const zoom = map.getZoom();
             const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), offsetPx, zoom);
 
@@ -1680,6 +1640,13 @@
                     console.log('Single mode: map idle after initial centering');
                     initialCenteringComplete = true;
                     fadeOutOverlay();
+
+                    // Log centering diagnostics once after initial centering
+                    setTimeout(() => {
+                        if (window.logCenteringDiagnostics) {
+                            window.logCenteringDiagnostics(markerLatLng);
+                        }
+                    }, 500);
 
                     // Now set up ResizeObserver for subsequent changes (images loading, etc.)
                     if (!singleModeResizeObserver) {
@@ -1937,6 +1904,41 @@
                                     if (btn) btn.click();
                                 }, 400);
                             });
+                        } else {
+                            // Not an area preset - try to find a regular neighborhood
+                            const propertyType = urlParams.get('propertyType') || 'Homes';
+                            const matching = neighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
+                            if (matching.length > 0) {
+                                // Prefer the specified propertyType, fallback to first match
+                                const target = matching.find(n => n.propertyType === propertyType) || matching[0];
+
+                                google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
+                                    setTimeout(() => {
+                                        // Find the marker for this neighborhood
+                                        const markerObj = (window.markers || []).find(m =>
+                                            m.neighborhood.name === target.name &&
+                                            m.neighborhood.propertyType === target.propertyType
+                                        );
+                                        if (markerObj) {
+                                            // Fly to marker and open info window
+                                            window.smoothFlyTo(target.position);
+                                            setTimeout(() => {
+                                                showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
+                                                window.activeMarker = markerObj.marker;
+                                                markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+
+                                                // Apply centering after card renders
+                                                setTimeout(() => {
+                                                    requestAnimationFrame(() => {
+                                                        const markerLatLng = new google.maps.LatLng(target.position);
+                                                        applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                                                    });
+                                                }, 100);
+                                            }, 800);
+                                        }
+                                    }, 400);
+                                });
+                            }
                         }
                     }
                 }
@@ -2734,6 +2736,21 @@
 
                 showAreaInfoWindowContent(marker, areaData, window.infoWindow);
                 window.activeMarker = marker;
+
+                // Apply proper centering after card renders
+                setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        const markerLatLng = new google.maps.LatLng(markerPosition);
+                        applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                    });
+                }, 100);
+
+                // Log centering diagnostics after info window renders
+                setTimeout(() => {
+                    if (window.logCenteringDiagnostics) {
+                        window.logCenteringDiagnostics(markerPosition);
+                    }
+                }, 500);
             });
         };
 
@@ -2858,6 +2875,15 @@
                     setTimeout(() => {
                         showAreaInfoWindowContent(areaMarkerToOpen.marker, areaMarkerToOpen.neighborhood, window.infoWindow);
                         window.activeMarker = areaMarkerToOpen.marker;
+
+                        // Apply proper centering after card renders (fixes offset issue)
+                        // Use setTimeout since domready may have already fired
+                        setTimeout(() => {
+                            requestAnimationFrame(() => {
+                                const markerLatLng = new google.maps.LatLng(areaMarkerToOpen.neighborhood.position);
+                                applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                            });
+                        }, 100);
                     }, 200);
                 }, 300);
             }

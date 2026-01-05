@@ -6,6 +6,24 @@ import { STATE } from './state.js';
 import { loadNeighborhoods } from './data.js';
 import { formatPrice } from './utils.js';
 
+// Core infrastructure
+import { store } from './core/store.js';
+import { eventBus, Events } from './core/eventBus.js';
+import { initEventDelegation } from './core/events.js';
+
+// Feature modules (exposes window.* during transition)
+import { animateCount } from './animations/index.js';
+import './map/centering.js';
+import './map/boundaries.js';
+import './ui/results.js';
+import './ui/infoWindow.js';
+import './filters/index.js';
+import './search/index.js';
+import './keyboard/index.js';
+
+
+// Initialize event delegation layer (single listeners for performance)
+initEventDelegation();
 
 // Expose CONFIG globally so other scripts can use it
 window.CONFIG = CONFIG;
