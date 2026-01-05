@@ -2784,17 +2784,19 @@
             // Use true geographic position from preset (same as single mode)
             const markerPosition = presetData.position;
 
-            // Pan to pre-offset position for proper centering (both button clicks and ?marker)
+            // Pan to pre-offset position for proper centering
+            // Use heuristic offset first, then correct with actual card height after render
             const targetZoom = 13;
-            const offsetPx = computeOffsetPx(targetZoom, true); // true = isAreaMarker
+            const offsetPx = computeOffsetPx(targetZoom, false); // Use neighborhood card height as base
             const offsetLat = preCalculateOffsetLat(markerPosition.lat, offsetPx, targetZoom);
             const centeredPosition = { lat: offsetLat, lng: markerPosition.lng };
 
-            // Set zoom first, then pan to offset position
+            // Use setCenter (instant) instead of panTo (animated) to avoid visible shift
+            // when correction is applied after card renders
             window.map.setZoom(targetZoom);
-            window.map.panTo(centeredPosition);
+            window.map.setCenter(centeredPosition);
 
-            // Wait for map animation to complete
+            // Wait for map to be ready
             google.maps.event.addListenerOnce(window.map, 'idle', () => {
 
                 const areaData = window.createAreaMarkerData(presetData);
@@ -2827,7 +2829,8 @@
                 showAreaInfoWindowContent(marker, areaData, window.infoWindow);
                 window.activeMarker = marker;
 
-                // Apply centering after card renders using single mode logic
+                // Apply correction after card renders using actual measured height
+                // This corrects any heuristic inaccuracy (no visible shift since both are instant setCenter)
                 setTimeout(() => {
                     requestAnimationFrame(() => {
                         const markerLatLng = new google.maps.LatLng(markerPosition);
