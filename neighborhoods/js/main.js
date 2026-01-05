@@ -1585,6 +1585,7 @@
 
         let singleModeResizeObserver = null;
         let initialCenteringComplete = false;
+        let diagnosticsLogged = false;
 
         // Fade out the loading overlay
         function fadeOutOverlay() {
@@ -1610,15 +1611,6 @@
                 return;
             }
 
-            // Only set up ResizeObserver AFTER initial centering is complete
-            // This prevents double-centering during initial load
-            if (initialCenteringComplete && !singleModeResizeObserver) {
-                singleModeResizeObserver = new ResizeObserver(() => {
-                    applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
-                });
-                singleModeResizeObserver.observe(iwContainer);
-            }
-
             const cardH = iwContainer.getBoundingClientRect().height;
             const mapEl = document.getElementById('map') || map.getDiv();
             const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
@@ -1632,49 +1624,21 @@
                 ? Math.round((cardH + tailHeight - markerRadius) / 2)
                 : Math.round(Math.max(0, (20 + cardH + tailHeight + markerRadius) - (dvh / 2)));
 
-            // Calculate estimated offset (same formula used during init)
-            const isAreaMarker = window.singleModeIsArea || false;
-            const estimatedOffsetPx = computeOffsetPx(map.getZoom(), isAreaMarker);
-
-            // Only apply correction if difference exceeds threshold (15px)
-            const offsetDiff = Math.abs(actualOffsetPx - estimatedOffsetPx);
-            const CORRECTION_THRESHOLD = 15;
-
-            if (offsetDiff > CORRECTION_THRESHOLD) {
-                const zoom = map.getZoom();
-                const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), actualOffsetPx, zoom);
-
-                console.log('Single mode: applying micro-correction, diff:', offsetDiff, 'px, isInitial:', isInitialCentering);
-                // Use panTo for smooth adjustment instead of abrupt setCenter
-                map.panTo({ lat: adjustedLat, lng: markerLatLng.lng() });
-            } else {
-                console.log('Single mode: no correction needed, diff:', offsetDiff, 'px (threshold:', CORRECTION_THRESHOLD, 'px)');
-            }
+            // Always apply correction based on actual rendered card height (more accurate than heuristic)
+            const zoom = map.getZoom();
+            const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), actualOffsetPx, zoom);
+            map.setCenter({ lat: adjustedLat, lng: markerLatLng.lng() });
+            console.log('Single mode: applied centering with actual card height, offset:', actualOffsetPx, 'px');
             window.singleModeOffsetApplied = true;
 
-            // For initial centering: wait for map idle, then fade overlay and enable ResizeObserver
-            if (isInitialCentering && !initialCenteringComplete) {
-                google.maps.event.addListenerOnce(map, 'idle', () => {
-                    console.log('Single mode: map idle after initial centering');
-                    initialCenteringComplete = true;
-                    fadeOutOverlay();
-
-                    // Log centering diagnostics once after initial centering
-                    setTimeout(() => {
-                        if (window.logCenteringDiagnostics) {
-                            window.logCenteringDiagnostics(markerLatLng);
-                        }
-                    }, 500);
-
-                    // Now set up ResizeObserver for subsequent changes (images loading, etc.)
-                    if (!singleModeResizeObserver) {
-                        singleModeResizeObserver = new ResizeObserver(() => {
-                            applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
-                        });
-                        singleModeResizeObserver.observe(iwContainer);
-                    }
-                });
+            // Log diagnostics once
+            if (!diagnosticsLogged) {
+                diagnosticsLogged = true;
+                setTimeout(() => {
+                    window.logCenteringDiagnostics?.(markerLatLng);
+                }, 500);
             }
+
         }
 
         function initMap() {
@@ -1794,6 +1758,9 @@
                 clickableIcons: false
             });
 
+            // Trigger resize to ensure map renders properly
+            google.maps.event.trigger(window.map, 'resize');
+
             // Create info windows (click and hover)
             // disableAutoPan prevents Google Maps from moving the map when info window opens
             window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
@@ -1882,8 +1849,23 @@
                                 const markerLatLng = (rawPos instanceof google.maps.LatLng)
                                     ? rawPos
                                     : new google.maps.LatLng(rawPos);
-                                // Pass isInitialCentering=true to trigger overlay fade after idle
-                                applySingleModeCenteringFromRenderedCard(markerLatLng, 0, true);
+                                // Apply centering and fade overlay immediately
+                                applySingleModeCenteringFromRenderedCard(markerLatLng, 0, true); // true to trigger diagnostics
+                                fadeOutOverlay();
+                                // Set up ResizeObserver with debounce for subsequent changes
+                                if (!window.singleModeResizeObserver) {
+                                    let resizeTimeout = null;
+                                    window.singleModeResizeObserver = new ResizeObserver(() => {
+                                        if (resizeTimeout) clearTimeout(resizeTimeout);
+                                        resizeTimeout = setTimeout(() => {
+                                            applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
+                                        }, 150);
+                                    });
+                                    const iwContainer = document.querySelector('.gm-style-iw-c');
+                                    if (iwContainer) {
+                                        window.singleModeResizeObserver.observe(iwContainer);
+                                    }
+                                }
                             });
                         });
 
@@ -2500,6 +2482,19 @@
                 if (communitiesEl && communitiesEl.scrollHeight > communitiesEl.clientHeight + 4) {
                     communitiesEl.classList.add('has-overflow');
                 }
+                // Apply centering correction and log diagnostics (skip for single mode - handled separately)
+                if (!window.isSingleMode) {
+                    setTimeout(() => {
+                        if (marker?.position) {
+                            if (window.applyMicroCenteringCorrection) {
+                                window.applyMicroCenteringCorrection(marker.position, 100);
+                            }
+                            if (window.logCenteringDiagnostics) {
+                                window.logCenteringDiagnostics(marker.position);
+                            }
+                        }
+                    }, 300);
+                }
             });
         }
 
@@ -2676,6 +2671,19 @@
                 const amenitiesEl = document.querySelector('.amenities-scroll');
                 if (amenitiesEl && amenitiesEl.scrollHeight > amenitiesEl.clientHeight + 4) {
                     amenitiesEl.classList.add('has-overflow');
+                }
+                // Apply centering correction and log diagnostics (skip for single mode - handled separately)
+                if (!window.isSingleMode) {
+                    setTimeout(() => {
+                        if (marker?.position) {
+                            if (window.applyMicroCenteringCorrection) {
+                                window.applyMicroCenteringCorrection(marker.position, 100);
+                            }
+                            if (window.logCenteringDiagnostics) {
+                                window.logCenteringDiagnostics(marker.position);
+                            }
+                        }
+                    }, 300);
                 }
             });
 
