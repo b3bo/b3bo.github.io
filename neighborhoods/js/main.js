@@ -6,4 +6,2935 @@
  * This file was extracted from inline scripts in index.html
  * for better maintainability and caching.
  */
-function e(){const e=window.location.search.replace(/&amp;/g,"&");return new URLSearchParams(e)}function t(){if(window.appInitialized)return;window.appInitialized=!0;const t=e(),n="single"===t.get("mode"),o=t.get("neighborhood")||t.get("marker");window.isSingleMode=n;const i=window.self!==window.top;if(n){console.log("Single mode active:",o);const e=document.getElementById("single-mode-overlay");e&&(e.style.display="flex",e.style.opacity="1",console.log("Single mode: overlay shown (early, in initApp)"))}if(i){const e=document.querySelector(".disclaimer-bar"),t=document.getElementById("map-layout");e&&(e.style.display="none"),t&&(t.style.height="100dvh")}if(!n&&window.innerWidth>=768){const e=document.getElementById("drawer-toggle");e&&(e.checked=!0)}const r=window.neighborhoods||[];window.filteredNeighborhoods,window.sortOrder,window.formatPrice;const a=document.querySelectorAll(".menu-item"),d=document.querySelectorAll(".panel-back-btn"),s=document.getElementById("main-menu");a.forEach(e=>{e.addEventListener("click",function(){const e=this.getAttribute("data-panel"),t=document.getElementById(e+"-panel");if(t){document.querySelectorAll(".sliding-panel").forEach(e=>{e.id!==t.id&&e.classList.add("translate-x-full")}),s&&(s.style.display="none"),t.classList.remove("translate-x-full");const e=t.querySelector(".panel-back-btn");e&&setTimeout(()=>e.focus(),100)}}),e.addEventListener("keydown",function(e){const t=document.getElementById("drawer-toggle");t&&t.checked&&("Enter"!==e.key&&" "!==e.key||(e.preventDefault(),window.lastFocusedMenuItem=this,this.click()))})}),d.forEach(e=>{e.addEventListener("click",function(e){e.stopPropagation();const t=this.getAttribute("data-close-panel"),n=document.getElementById(t+"-panel");if(n){n.classList.add("translate-x-full");const e=document.getElementById("search-dropdown"),t=document.getElementById("sort-menu");e&&e.classList.add("hidden"),t&&t.classList.add("hidden"),s&&(s.style.removeProperty("display"),s.scrollTop=0,window.lastFocusedMenuItem&&setTimeout(()=>window.lastFocusedMenuItem.focus(),50))}})});const l=document.getElementById("sidebar-toggle-tab");if(l){l.addEventListener("keydown",function(e){"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),this.click())});const e=()=>{const e=document.getElementById("drawer-toggle");l.tabIndex=e&&e.checked?-1:0};document.getElementById("drawer-toggle")?.addEventListener("change",e),e()}const c=document.getElementById("theme-toggle");c&&c.addEventListener("click",function(){document.documentElement.classList.toggle("dark");const e=document.documentElement.classList.contains("dark");if(window.map&&"undefined"!=typeof google){const t=window.map.getCenter(),n=window.map.getZoom();function o(){const e=document.querySelector(".gm-style-iw-chr");e&&e.remove()}if(window.markers,window.map=new google.maps.Map(document.getElementById("map"),{zoom:n,center:t,mapId:"92b2f4ea8b2fce54a50ed2e9",colorScheme:e?"DARK":"LIGHT",mapTypeControl:!0,mapTypeControlOptions:{style:google.maps.MapTypeControlStyle.HORIZONTAL_BAR,position:google.maps.ControlPosition.TOP_RIGHT},streetViewControl:!0,fullscreenControl:!0,zoomControl:!0,clickableIcons:!1}),window.infoWindow=new google.maps.InfoWindow({maxWidth:320}),window.hoverInfoWindow=new google.maps.InfoWindow({maxWidth:320}),window.infoWindow.addListener("domready",o),window.hoverInfoWindow.addListener("domready",o),window.addMarkers(),window.customBoundaries&&window.customBoundaries.size>0){const i=new Set(window.customBoundaries);window.customBoundaries.clear(),i.forEach(e=>{window.showCustomBoundary(e)})}}"undefined"!=typeof gtag&&gtag("event","theme_toggle",{theme:e?"dark":"light"})});const m=document.getElementById("search-button"),w=document.getElementById("search-dropdown"),g=document.getElementById("search-input"),u=document.getElementById("sort-button"),p=document.getElementById("sort-menu");function h(e,t){if(!e||!t)return;const n=t.getBoundingClientRect(),o=window.visualViewport,i=o?o.width:window.innerWidth,r=o?o.offsetLeft:0,a=o?o.offsetTop:0;let d=r+n.left+n.width/2-140;d+280>r+i-12&&(d=r+i-280-12),d<r+12&&(d=r+12),e.style.position="fixed",e.style.top=a+n.bottom+10+"px",e.style.left=d+"px",e.style.zIndex="2147483647"}w&&document.body.appendChild(w),p&&document.body.appendChild(p),m&&w&&m.addEventListener("click",function(e){if(e.stopPropagation(),p&&p.classList.add("hidden"),w.classList.toggle("hidden"),!w.classList.contains("hidden")){h(w,m),g&&(g.value="",g.focus()),function(){const e=document.getElementById("search-results"),t=window.neighborhoods||[];if(!e||!t.length)return;const n=[...t].sort((e,t)=>(t.stats?.listingCount||0)-(e.stats?.listingCount||0)).slice(0,5);e.innerHTML=`\n                    <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>\n                    ${n.map(e=>`\n                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${e.name}" data-type="${e.propertyType}">\n                            ${e.name} - ${e.propertyType}\n                        </button>\n                    `).join("")}\n                `}();const e=document.getElementById("search-results");e&&(e.scrollHeight>e.clientHeight+4?e.classList.add("has-overflow"):e.classList.remove("has-overflow"))}}),u&&p&&(u.addEventListener("click",function(e){if(e.stopPropagation(),w&&w.classList.add("hidden"),p.classList.toggle("hidden"),!p.classList.contains("hidden")){h(p,u);const e=p.querySelector('input[type="radio"]:checked'),t=e?e.closest(".sort-option"):p.querySelector(".sort-option");t&&setTimeout(()=>t.focus(),50)}}),u.addEventListener("keydown",function(e){"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),this.click())})),document.addEventListener("click",function(e){!w||w.contains(e.target)||e.target===m||m.contains(e.target)||w.classList.add("hidden"),!p||p.contains(e.target)||e.target===u||u.contains(e.target)||p.classList.add("hidden")});const f=document.getElementById("sidebar"),b=document.getElementById("drawer-toggle");document.addEventListener("keydown",function(e){const t="INPUT"===e.target.tagName||"TEXTAREA"===e.target.tagName;if("Tab"===e.key&&b&&b.checked){if(w&&!w.classList.contains("hidden"))return;if(p&&!p.classList.contains("hidden")){p.classList.add("hidden");const e=document.getElementById("sort-button");e&&(e.setAttribute("aria-expanded","false"),e.removeAttribute("aria-activedescendant"))}!function(e){if(!f||!b||!b.checked)return;const t=(n=f,Array.from(n.querySelectorAll('button:not([disabled]):not([tabindex="-1"]), [href]:not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex="0"]')).filter(e=>null!==e.offsetParent&&"hidden"!==getComputedStyle(e).visibility&&!e.closest(".translate-x-full")));var n;if(0===t.length)return void e.preventDefault();e.preventDefault();const o=document.activeElement;let i,r=t.indexOf(o);-1===r&&(r=e.shiftKey?0:t.length-1),i=e.shiftKey?0===r?t.length-1:r-1:r===t.length-1?0:r+1,t[i].focus()}(e)}else{if("Escape"===e.key){w&&w.classList.add("hidden"),p&&p.classList.add("hidden"),window.infoWindow&&window.infoWindow.getMap()&&window.infoWindow.close();const e=document.querySelector(".sliding-panel:not(.translate-x-full)");if(e)return e.classList.add("translate-x-full"),void(s&&(s.style.removeProperty("display"),s.scrollTop=0,window.lastFocusedMenuItem&&setTimeout(()=>window.lastFocusedMenuItem.focus(),50)));const t=document.getElementById("drawer-toggle");if(t&&t.checked){t.checked=!1,t.dispatchEvent(new Event("change",{bubbles:!0})),window.lastFocusedMenuItem=null;const e=document.getElementById("sidebar-toggle-tab");e&&setTimeout(()=>e.focus(),50)}}if(!t&&("ArrowDown"===e.key||"ArrowUp"===e.key)){const t=document.activeElement?.closest(".menu-item");if(t){e.preventDefault();const n=Array.from(document.querySelectorAll(".menu-item")),o=n.indexOf(t);let i;return i="ArrowDown"===e.key?(o+1)%n.length:0===o?n.length-1:o-1,void n[i].focus()}const n=document.activeElement?.closest(".sort-option");if(n){e.preventDefault();const t=Array.from(document.querySelectorAll(".sort-option")),o=t.indexOf(n);let i;return i="ArrowDown"===e.key?(o+1)%t.length:0===o?t.length-1:o-1,void t[i].focus()}}if(!t&&("Enter"===e.key||" "===e.key)){const t=document.activeElement?.closest(".sort-option");if(t){e.preventDefault();const n=t.querySelector('input[type="radio"]');n&&(n.checked=!0,n.dispatchEvent(new Event("change",{bubbles:!0})))}}if(!t&&("ArrowLeft"===e.key||"ArrowRight"===e.key)){const t=document.activeElement?.closest('[role="group"]');if(t){e.preventDefault();const n=Array.from(t.querySelectorAll("button:not([disabled])")),o=n.indexOf(document.activeElement);if(-1!==o){let t;t="ArrowRight"===e.key?(o+1)%n.length:0===o?n.length-1:o-1,n[t].focus()}return}}if(!t&&("ArrowUp"===e.key||"ArrowDown"===e.key)){const t=document.activeElement?.closest('[role="group"]');if(t){e.preventDefault();const n=Array.from(t.querySelectorAll("button:not([disabled])")),o=document.activeElement,i=o.getBoundingClientRect(),r=i.left+i.width/2;let a=n.filter(t=>{if(t===o)return!1;const n=t.getBoundingClientRect();return"ArrowDown"===e.key?n.top>i.bottom-5:n.bottom<i.top+5});return void(a.length>0&&(a.sort((t,n)=>{const o=t.getBoundingClientRect(),i=n.getBoundingClientRect(),a=o.left+o.width/2,d=i.left+i.width/2,s=Math.abs(a-r),l=Math.abs(d-r),c="ArrowDown"===e.key?o.top:-o.bottom,m="ArrowDown"===e.key?i.top:-i.bottom;return Math.abs(c-m)>10?c-m:s-l}),a[0].focus()))}}!t&&window.infoWindow&&window.infoWindow.getMap()&&("ArrowLeft"===e.key?(e.preventDefault(),window.navigateNeighborhood(-1)):"ArrowRight"===e.key&&(e.preventDefault(),window.navigateNeighborhood(1)))}}),g&&g.addEventListener("keydown",function(e){("Enter"===e.key||"Escape"===e.key)&&(e.preventDefault(),w.classList.add("hidden"),g.blur())}),["resize","orientationchange"].forEach(e=>{window.addEventListener(e,()=>{w&&!w.classList.contains("hidden")&&h(w,m),p&&!p.classList.contains("hidden")&&h(p,u)})}),window.addEventListener("scroll",()=>{w&&!w.classList.contains("hidden")&&h(w,m),p&&!p.classList.contains("hidden")&&h(p,u)},!0),window.visualViewport&&["resize","scroll"].forEach(e=>{window.visualViewport.addEventListener(e,()=>{w&&!w.classList.contains("hidden")&&h(w,m),p&&!p.classList.contains("hidden")&&h(p,u)})}),g&&g.addEventListener("blur",()=>{setTimeout(()=>{window.scrollTo(0,0),document.documentElement.scrollLeft=0,document.body.scrollLeft=0},100)});let v=null,k=null;function y(){const e=window.filterState||{},t=(window.neighborhoods||[]).length;return(window.filteredNeighborhoods||[]).length<t||!!window.searchQuery||!!e.propertyType||!!(e.areas&&e.areas.size>0)||!!(e.amenities&&e.amenities.size>0)||e.priceMin>0||e.priceMax<41||e.bedsMin>1||e.bathsMin>1}function x(){const e=document.getElementById("neighborhoodList"),t=document.getElementById("resultsCount");if(!e)return;const n=window.filteredNeighborhoods||[],o=window.sortOrder||"listings-desc",i=[...n].sort((e,t)=>{const n=e.stats?.medianPrice||e.stats?.avgPrice||0,i=t.stats?.medianPrice||t.stats?.avgPrice||0,r=e.stats?.listingCount||0,a=t.stats?.listingCount||0;switch(o){case"name-asc":default:return e.name.localeCompare(t.name);case"name-desc":return t.name.localeCompare(e.name);case"price-asc":return n-i;case"price-desc":return i-n;case"listings-desc":return a-r}});if(t){const e=i.length,n=1===e?" Community":" Communities",o=y()?' <button id="clear-filters" class="ml-2 px-3 py-1 text-sm font-medium rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>':"";if(t.innerHTML=`<span class="count-number">${null!==v?v:e}</span>${n}${o}`,function(e,t,n=700){k&&(cancelAnimationFrame(k),k=null);const o=e.querySelector(".count-number"),i=o?parseInt(o.textContent,10):null,r=null===i||isNaN(i)?null!==v?v:t:i,a=t-r;if(0===a||null===v)return v=t,void(o&&(o.textContent=t));const d=performance.now();k=requestAnimationFrame(function e(i){const s=i-d,l=Math.min(s/n,1),c=1-Math.pow(1-l,3),m=Math.round(r+a*c);o&&(o.textContent=m),l<1?k=requestAnimationFrame(e):(k=null,v=t)})}(t,e),y()){const e=document.getElementById("clear-filters");e&&e.addEventListener("click",e=>{e.stopPropagation(),function(){window.filterState={propertyType:null,areas:new Set,amenities:new Set,priceMin:0,priceMax:41,bedsMin:1,bathsMin:1},window.searchQuery="";const e=document.getElementById("search-input");e&&(e.value="");const t=document.getElementById("price-min"),n=document.getElementById("price-max");t&&(t.value=0),n&&(n.value=41);const o=document.getElementById("beds-slider"),i=document.getElementById("baths-slider");o&&(o.value=1),i&&(i.value=1),document.querySelectorAll("[data-filter-type]").forEach(e=>{e.classList.remove("bg-brand-600","text-white"),e.classList.add("bg-white","text-neutral-700")}),document.querySelectorAll(".area-tag").forEach(e=>{e.classList.remove("selected")}),window.areaMarkers&&window.areaMarkers.forEach((e,t)=>{window.hideAreaMarker&&window.hideAreaMarker(t)}),document.querySelectorAll("input[data-amenity]").forEach(e=>{e.checked=!1}),document.querySelectorAll(".amenity-tag").forEach(e=>{e.classList.remove("selected")}),window.customBoundaries&&window.hideCustomBoundary&&[...window.customBoundaries].forEach(e=>{window.hideCustomBoundary(e)}),window.filteredNeighborhoods=[...window.neighborhoods||[]],x(),window.addMarkers&&window.addMarkers();const r=document.getElementById("price-display");r&&(r.textContent="$250K - $35M+");const a=document.getElementById("beds-display"),d=document.getElementById("baths-display");a&&(a.textContent="1+"),d&&(d.textContent="1+"),"undefined"!=typeof gtag&&gtag("event","clear_filters")}()})}}const r=window.formatPrice||(e=>"$"+(e/1e6).toFixed(1)+"M");e.innerHTML=i.map(e=>`\n                    <button type="button" class="neighborhood-item w-full text-left bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"\n                         data-name="${e.name}" data-type="${e.propertyType}">\n                        <div class="flex justify-between items-start gap-2 mb-1">\n                            <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${e.name}</h3>\n                            <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${r(e.stats?.medianPrice||e.stats?.avgPrice||0)}</span>\n                        </div>\n                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${e.stats?.listingCount||0} ${function(e){const t=(e||"").toLowerCase();return t.includes("townhome")?"Active T/H Listings":t.includes("condo")?"Active Condo Listings":t.includes("home")?"Active Home Listings":"Active Listings"}(e.propertyType)}</div>\n                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${function(e){if(!e||0===e.length)return"No amenities listed";const t=window.filterState?.amenities||new Set;return e.map(e=>t.has(e)?`<strong>${e}</strong>`:e).join(", ")+"."}(e.amenities||[])}</div>\n                    </button>\n                `).join(""),e.querySelectorAll(".neighborhood-item").forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.name,n=e.dataset.type,o=(window.filteredNeighborhoods||[]).find(e=>e.name===t&&e.propertyType===n);if(o&&window.map){"undefined"!=typeof gtag&&gtag("event","select_neighborhood",{neighborhood_name:o.name,listing_count:o.stats?.listingCount||0,price:r(o.stats?.medianPrice||o.stats?.avgPrice||0)}),window.smoothFlyTo(o.position);const e=(window.markers||[]).find(e=>e.neighborhood.name===t&&e.neighborhood.propertyType===n);if(e){const t=window.map.getCenter(),n=new google.maps.LatLng(o.position),i=google.maps.geometry.spherical.computeDistanceBetween(t,n);setTimeout(()=>{google.maps.event.trigger(e.marker,"click")},i<2e3?450:2200)}}})})}window.PRICE_STEPS=window.PRICE_STEPS||[25e4,3e5,35e4,4e5,45e4,5e5,55e4,6e5,65e4,7e5,75e4,8e5,85e4,9e5,95e4,1e6,125e4,15e5,175e4,2e6,225e4,25e5,275e4,3e6,325e4,35e5,375e4,4e6,425e4,45e5,475e4,5e6,6e6,7e6,8e6,9e6,1e7,15e6,2e7,25e6,3e7,35e6];const L=window.PRICE_STEPS;window.filterState={propertyType:null,areas:new Set,amenities:new Set,priceMin:0,priceMax:41};const M=document.getElementById("price-min"),E=document.getElementById("price-max"),I=document.getElementById("price-display"),S=document.getElementById("price-fill");function T(e){return e>=1e6?"$"+(e/1e6).toFixed(e%1e6==0?0:1)+"M":"$"+(e/1e3).toFixed(0)+"K"}function C(){if(!M||!E)return;let e=parseInt(M.value)||0,t=parseInt(E.value)||41;if(e>t&&(this===E?(M.value=t,e=t):(E.value=e,t=e)),window.filterState.priceMin=e,window.filterState.priceMax=t,I)if(0===e&&0===t)I.textContent="$250K - $35M+";else{const n=L[e]||L[0],o=L[t]||L[L.length-1];I.textContent=`${T(n)} - ${T(o)}${41===t?"+":""}`}if(S){const n=e/41,o=t/41;0===e?(S.style.left="0",S.style.width=100*o+"%"):(S.style.left=100*n+"%",S.style.width=100*(o-n)+"%")}q()}M&&M.addEventListener("input",C),E&&E.addEventListener("input",C);const A=document.getElementById("beds-min"),B=document.getElementById("beds-display"),$=document.getElementById("beds-fill"),P=document.getElementById("baths-min"),N=document.getElementById("baths-display"),W=document.getElementById("baths-fill");window.filterState.bedsMin=1,window.filterState.bathsMin=1,A&&A.addEventListener("input",function(){if(!A)return;const e=parseInt(A.value)||1;if(window.filterState.bedsMin=e,B&&(B.textContent=e>=6?"6+":`${e}+`),$){const t=(e-1)/5*100;$.style.width=`${t}%`}q()}),P&&P.addEventListener("input",function(){if(!P)return;const e=parseInt(P.value)||1;if(window.filterState.bathsMin=e,N&&(N.textContent=e>=6?"6+":`${e}+`),W){const t=(e-1)/5*100;W.style.width=`${t}%`}q()});const O=document.getElementById("btn-homes"),_=document.getElementById("btn-condos");O&&O.addEventListener("click",function(){this.classList.toggle("active"),q()}),_&&_.addEventListener("click",function(){this.classList.toggle("active"),q()}),document.querySelectorAll(".area-tag").forEach(e=>{e.addEventListener("click",function(){this.classList.toggle("selected");const e=this.getAttribute("data-zipcode"),t=this.getAttribute("data-subarea"),n=this.classList.contains("selected");e&&(n?(window.filterState.areas.add(e),window.showCustomBoundary(e)):(window.filterState.areas.delete(e),window.hideCustomBoundary(e)),"undefined"!=typeof gtag&&gtag("event","filter_area",{area:e,action:n?"selected":"deselected"})),t&&(n?window.filterState.areas.add(t):window.filterState.areas.delete(t),"undefined"!=typeof gtag&&gtag("event","filter_subarea",{subarea:t,action:n?"selected":"deselected"})),q();const o=window.areaPresets?.presets?.find(n=>e&&n.filterValue===e||t&&n.filterValue===t);o&&window.showAreaMarker&&window.hideAreaMarker&&(n?window.showAreaMarker(o):window.hideAreaMarker(o.slug))})}),document.querySelectorAll(".amenity-tag").forEach(e=>{e.addEventListener("click",function(){this.classList.toggle("selected");const e=this.getAttribute("data-amenity"),t=this.classList.contains("selected");e&&(t?(window.filterState.amenities.add(e),"Short-Term"===e?(window.filterState.amenities.delete("No Short-Term"),document.querySelector('.amenity-tag[data-amenity="No Short-Term"]')?.classList.remove("selected")):"No Short-Term"===e&&(window.filterState.amenities.delete("Short-Term"),document.querySelector('.amenity-tag[data-amenity="Short-Term"]')?.classList.remove("selected"))):window.filterState.amenities.delete(e),"undefined"!=typeof gtag&&gtag("event","filter_amenity",{amenity:e,action:t?"selected":"deselected"})),q()})});const F=e().get("subarea");if(F){const e=Array.from(document.querySelectorAll(".area-tag")).find(e=>e.getAttribute("data-subarea")===F);e&&e.click()}function q(){const e=!!O&&O.classList.contains("active"),t=!!_&&_.classList.contains("active"),n=window.filterState.areas,o=window.filterState.amenities,i=window.filterState.priceMin||0,r=window.filterState.priceMax||41,a=window.filterState.bedsMin||1,d=window.filterState.bathsMin||1;let s=0===i?0:L[i]||0,l=r>=41?Number.MAX_SAFE_INTEGER:L[r]||Number.MAX_SAFE_INTEGER;window.filteredNeighborhoods=(window.neighborhoods||[]).filter(i=>{let r=!0;if(e||t){r=!1;const n=(i.propertyType||"").toLowerCase();!e||"homes"!==n&&"townhomes"!==n||(r=!0),t&&"condos"===n&&(r=!0)}let c=!0;n.size>0&&(c=n.has(i.zipCode)||n.has(i.area)||n.has(i.subArea));let m=!0;o.size>0&&(m=[...o].every(e=>i.amenities&&i.amenities.includes(e)));let w=!0;const g=i.stats||{},u=void 0!==g.minPrice?parseFloat(g.minPrice):null,p=void 0!==g.maxPrice?parseFloat(g.maxPrice):null;null===u||null===p||isNaN(u)||isNaN(p)?g.avgPrice>0&&(w=g.avgPrice>=s&&g.avgPrice<=l):w=l>=u&&s<=p;let h=!0;if(a>1){const e=void 0!==g.maxBeds?parseFloat(g.maxBeds):null;null===e||isNaN(e)||(h=e>=a)}let f=!0;if(d>1){const e=void 0!==g.maxBaths?parseFloat(g.maxBaths):null;null===e||isNaN(e)||(f=e>=d)}return r&&c&&m&&w&&h&&f}),x(),window.addMarkers(),window.fitBoundsToNeighborhoods()}window.findAreaButton=function(e){if(!e)return null;const{filterField:t,filterValue:n}=e;return"zipCode"===t?document.querySelector(`.area-tag[data-zipcode="${n}"]`):document.querySelector(`.area-tag[data-subarea="${n}"]`)},window.createAreaMarkerData=function(e){return{name:e.name,position:e.position,stats:e.stats,neighborhoods:e.neighborhoods,filterField:e.filterField,filterValue:e.filterValue,isAreaMarker:!0}},document.querySelectorAll('input[name="sort"]').forEach(e=>{e.addEventListener("change",e=>{window.sortOrder=e.target.value,x(),p&&p.classList.add("hidden")})});let H=null;g&&g.addEventListener("input",e=>{const t=e.target.value.trim(),n=t.toLowerCase(),o=document.getElementById("search-results"),i=e=>{if(!t)return e;const n=e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),o=t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),i=new RegExp(`(${o})`,"ig");return n.replace(i,"<strong>$1</strong>")};if(n&&"undefined"!=typeof gtag&&(clearTimeout(H),H=setTimeout(()=>{gtag("event","search_filter",{search_term:n})},500)),n){const e=r.filter(e=>e.name.toLowerCase().includes(n)||(e.location?.city||"").toLowerCase().includes(n)||(e.zipCode||"").includes(n)).sort((e,t)=>{const o=e.name.toLowerCase().includes(n)?0:1,i=t.name.toLowerCase().includes(n)?0:1;return o!==i?o-i:e.name.localeCompare(t.name)});e.length?o.innerHTML=e.map(e=>`\n                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${e.name}" data-type="${e.propertyType}">\n                                    ${i(e.name)} - ${i(e.propertyType)}\n                                </button>\n                            `).join(""):o.innerHTML='<div class="px-4 py-3 text-sm text-neutral-400">No matches found</div>'}else{const e=[...r].sort((e,t)=>(t.stats?.listingCount||0)-(e.stats?.listingCount||0)).slice(0,5);o.innerHTML=`\n                            <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>\n                            ${e.map(e=>`\n                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${e.name}" data-type="${e.propertyType}">\n                                    ${e.name} - ${e.propertyType}\n                                </button>\n                            `).join("")}\n                        `}const a=document.getElementById("search-results");a&&a.scrollHeight>a.clientHeight+4?a.classList.add("has-overflow"):a&&a.classList.remove("has-overflow"),window.searchQuery=n,window.filteredNeighborhoods=n?(window.neighborhoods||[]).filter(e=>e.name.toLowerCase().includes(n)):[...window.neighborhoods||[]],x(),window.addMarkers&&window.addMarkers()});const D=document.getElementById("search-results");if(D&&D.addEventListener("click",function(e){const t=e.target.closest(".search-result");if(!t)return;const n=t.dataset.name,o=t.dataset.type,i=(window.neighborhoods||[]).find(e=>e.name===n&&e.propertyType===o);if(i&&window.map){"undefined"!=typeof gtag&&gtag("event","search_select",{neighborhood_name:i.name,search_query:g?.value||""}),window.smoothFlyTo(i.position);const e=(window.markers||[]).find(e=>e.neighborhood.name===n&&e.neighborhood.propertyType===o);if(e){const t=window.map.getCenter(),n=new google.maps.LatLng(i.position),o=google.maps.geometry.spherical.computeDistanceBetween(t,n);setTimeout(()=>{google.maps.event.trigger(e.marker,"click")},o<2e3?450:2200)}}w&&w.classList.add("hidden"),g&&(g.value=""),window.searchQuery="",window.filteredNeighborhoods=[...window.neighborhoods||[]],x(),window.addMarkers&&window.addMarkers()}),x(),window.visualViewport){const e=()=>{const e=document.getElementById("sort-menu"),t=document.getElementById("search-dropdown");if(e&&!e.classList.contains("hidden")&&(e.classList.add("hidden"),setTimeout(()=>e.classList.remove("hidden"),10)),t&&!t.classList.contains("hidden")){const e=document.getElementById("search-input");document.activeElement!==e&&t.classList.add("hidden")}};window.visualViewport.addEventListener("resize",e),window.visualViewport.addEventListener("scroll",e)}}window.addEventListener("dataLoaded",t),document.addEventListener("DOMContentLoaded",()=>{window.neighborhoods&&window.neighborhoods.length>0&&t()});let n=null,o=!1;function i(){const e=document.getElementById("single-mode-overlay");e&&(e.style.opacity="0",setTimeout(()=>{e.style.display="none",console.log("Single mode: overlay hidden")},300))}function r(e,t=0,a=!1){const d=window.map;if(!d||!e)return;const s=document.querySelector(".gm-style-iw-c");if(!s)return t<20?requestAnimationFrame(()=>r(e,t+1,a)):void 0;o&&!n&&(n=new ResizeObserver(()=>{r(e,999,!1)}),n.observe(s));const l=s.getBoundingClientRect().height,c=document.getElementById("map")||d.getDiv(),m=c?.getBoundingClientRect?.().height||c?.offsetHeight||window.innerHeight,w=m>=450&&l+78+10<m-40?Math.round((l+78-10)/2):Math.round(Math.max(0,20+l+78+10-m/2)),g=d.getZoom(),u=function(e,t,n){const o=Math.pow(2,n),i=e*Math.PI/180,r=Math.log(Math.tan(Math.PI/4+i/2))+t/(256*o/(2*Math.PI));return 180*(2*Math.atan(Math.exp(r))-Math.PI/2)/Math.PI}(e.lat(),w,g);console.log("Single mode: applying setCenter, isInitial:",a),d.setCenter({lat:u,lng:e.lng()}),window.singleModeOffsetApplied=!0,a&&!o&&google.maps.event.addListenerOnce(d,"idle",()=>{console.log("Single mode: map idle after initial centering"),o=!0,i(),setTimeout(()=>{window.logCenteringDiagnostics&&window.logCenteringDiagnostics(e)},500),n||(n=new ResizeObserver(()=>{r(e,999,!1)}),n.observe(s))})}function a(){const t=document.getElementById("map");if(!t)return;t.innerHTML="";const n=e(),a="single"===n.get("mode"),d=n.get("neighborhood")||n.get("marker");window.isSingleMode=a;let s={lat:30.32,lng:-86.05},w=11,g=null;const u=n.get("area");if(a&&d){const e=window.NEIGHBORHOOD_POSITIONS?.[d];if(e)w=parseInt(n.get("zoom"))||13,s=e,g=e,console.log("Single mode: using NEIGHBORHOOD_POSITIONS for",d);else if(window.neighborhoods){const e=window.neighborhoods.find(e=>window.toSlug&&window.toSlug(e.name)===d);e&&e.position&&(w=parseInt(n.get("zoom"))||13,s=e.position,g=e.position)}if(!g){const e=window.AREA_POSITIONS?.[d];e&&(w=parseInt(n.get("zoom"))||13,s=e,g=e,window.singleModeIsArea=!0,console.log("Single mode: using AREA_POSITIONS for",d))}}else if(a&&u){const e=window.AREA_POSITIONS?.[u];if(e)w=parseInt(n.get("zoom"))||13,s=e,g=e,window.singleModeIsArea=!0,console.log("Single mode: using AREA_POSITIONS for",u);else{const e=window.areaPresets?.presets?.find(e=>e.slug===u);e&&e.position&&(w=parseInt(n.get("zoom"))||13,s=e.position,g=e.position,window.singleModeIsArea=!0)}}let p=s;if(window.singleModeOffsetApplied=!1,window.singleModeTarget=g,a&&g){const e=document.getElementById("single-mode-overlay");e&&(e.style.display="flex",e.style.opacity="1"),p=s,console.log("Single mode: starting at TRUE center (no pre-offset), overlay shown"),setTimeout(()=>{o||(console.warn("Single mode: fallback timeout - fading overlay"),i(),o=!0)},5e3)}function h(){const e=document.querySelector(".gm-style-iw-chr");e&&e.remove()}window.map=new google.maps.Map(t,{zoom:w,center:p,mapId:"92b2f4ea8b2fce54a50ed2e9",mapTypeControl:!0,mapTypeControlOptions:{style:google.maps.MapTypeControlStyle.HORIZONTAL_BAR,position:google.maps.ControlPosition.TOP_RIGHT},streetViewControl:!0,fullscreenControl:!0,zoomControl:!0,clickableIcons:!1}),window.infoWindow=new google.maps.InfoWindow({maxWidth:320,disableAutoPan:!0}),window.hoverInfoWindow=new google.maps.InfoWindow({maxWidth:320,disableAutoPan:!0}),window.infoWindow.addListener("domready",h),window.hoverInfoWindow.addListener("domready",h),["32541","32459","32550","32461","32413"].forEach(e=>{fetch(`./neighborhoods/jsons/${e}.geojson`).then(e=>e.json()).catch(()=>{})}),window.tryInitializeMarkers=function(){if(window.markersInitialized)return;const t=window.neighborhoods||[];if(!t.length||!window.map||!window.addMarkers)return;window.markersInitialized=!0;const n=e(),o="single"===n.get("mode"),i=n.get("neighborhood")||n.get("marker"),a=n.get("area");if(o){let e=null;if(i&&!a&&t.length>0){const n=t.filter(e=>window.toSlug(e.name)===i);n.length>0&&(e=n.find(e=>"Homes"===e.propertyType)||n[0],window.neighborhoods=[e],window.filteredNeighborhoods=[e],console.log("Single mode: neighborhood",e.name))}else if(a){const t=window.areaPresets?.presets?.find(e=>e.slug===a);t&&(e=window.createAreaMarkerData(t),window.filteredNeighborhoods=[e],console.log("Single mode: area",t.name))}}window.filteredNeighborhoods&&window.filteredNeighborhoods.length||(window.filteredNeighborhoods=[...t]),window.addMarkers(),console.log("Map initialized with",window.filteredNeighborhoods.length,"neighborhoods"),function(){if(o&&(a||i))return void setTimeout(()=>{let e=0;const t=()=>{e++,function(){if(!window.markers||0===window.markers.length)return!1;const e=window.markers[0];return!!(e&&e.marker&&e.neighborhood)&&(console.log("Single mode: opening",e.neighborhood.name),e.neighborhood.isAreaMarker?c(e.marker,e.neighborhood,window.infoWindow):m(e.marker,e.neighborhood,window.infoWindow,!0),google.maps.event.addListenerOnce(window.infoWindow,"domready",()=>{requestAnimationFrame(()=>{const t=e.neighborhood?.position||e.marker?.position||e.marker?.getPosition&&e.marker.getPosition();t&&r(t instanceof google.maps.LatLng?t:new google.maps.LatLng(t),0,!0)})}),e.marker.content.innerHTML=l(e.marker.markerColor,!0),window.activeMarker=e.marker,!0)}()||(e<30?setTimeout(t,100):console.warn("Single mode: marker not found after 3 seconds"))};t()},300);const e=n.get("marker");if(window.fitBoundsToNeighborhoods(),e){const o=window.areaPresets?.presets?.find(t=>t.slug===e);if(o)google.maps.event.addListenerOnce(window.map,"tilesloaded",()=>{setTimeout(()=>{const e=window.findAreaButton(o);e&&e.click()},400)});else{const o=n.get("propertyType")||"Homes",i=t.filter(t=>window.toSlug(t.name)===e);if(i.length>0){const e=i.find(e=>e.propertyType===o)||i[0];google.maps.event.addListenerOnce(window.map,"tilesloaded",()=>{setTimeout(()=>{const t=(window.markers||[]).find(t=>t.neighborhood.name===e.name&&t.neighborhood.propertyType===e.propertyType);t&&(window.smoothFlyTo(e.position),setTimeout(()=>{m(t.marker,e,window.infoWindow,!0),window.activeMarker=t.marker,t.marker.content.innerHTML=l(t.marker.markerColor,!0),setTimeout(()=>{requestAnimationFrame(()=>{r(new google.maps.LatLng(e.position),0,!1)})},100)},800))},400)})}}}}()},window.tryInitializeMarkers(),window.map.addListener("idle",()=>{window.map&&console.log("Zoom:",window.map.getZoom().toFixed(2))}),window.map.addListener("click",()=>{window.infoWindow&&window.infoWindow.getMap()&&window.infoWindow.close(),window.hoverInfoWindow&&window.hoverInfoWindow.getMap()&&window.hoverInfoWindow.close(),window.activeMarker&&window.activeMarker.content&&(window.activeMarker.content.innerHTML=l(window.activeMarker.markerColor,!1),window.activeMarker=null)}),window.isSingleMode||window.map.addListener("center_changed",()=>{window.infoWindow&&window.infoWindow.getMap()&&window.activeMarker&&window.infoWindow.open({map:window.map,anchor:window.activeMarker})})}function d(e,t=0){const n=function(e,t=!1){const n=document.getElementById("map"),o=n?.offsetWidth||window.innerWidth,i=n?.offsetHeight||window.innerHeight,r=o<640?450:o<1024?380:340,a=t?r+70:r;if(i>=450&&a+78+10<i-40)return Math.round((a+78-10)/2);{const e=20+a+78+10;return Math.round(Math.max(0,e-i/2))}}(0,!1);return Math.round(n+t/2)}function s(e,t,n){const o=window.map,i=Math.pow(2,n||o.getZoom()),r=o.getProjection().fromLatLngToPoint(new google.maps.LatLng(e)),a=new google.maps.Point(0,-t/i),d=new google.maps.Point(r.x,r.y+a.y),s=o.getProjection().fromPointToLatLng(d);return console.log("offsetLatLng:",{inputLat:e.lat,offsetPx:t,zoom:n,scale:i,outputLat:s.lat(),latDiff:s.lat()-e.lat}),{lat:s.lat(),lng:e.lng}}window.customBoundaries=new Set,window.showCustomBoundary=function(e){window.map&&!window.customBoundaries.has(e)&&(window.customBoundaries.add(e),window.map.data.loadGeoJson(`./neighborhoods/jsons/${e}.geojson`,{idPropertyName:"ZCTA5CE20"},function(e){window.map.data.setStyle(function(e){const t=e.getProperty("ZCTA5CE20")||e.getProperty("ZCTA5CE10");if(window.customBoundaries.has(t)){const e=document.documentElement.classList.contains("dark")?"#5ba3ab":"#4c8f96";return{strokeColor:e,strokeWeight:1.5,strokeOpacity:.35,fillColor:e,fillOpacity:.15,clickable:!1}}return{visible:!1}})}))},window.hideCustomBoundary=function(e){window.map&&window.customBoundaries.has(e)&&(window.customBoundaries.delete(e),window.map.data.forEach(function(t){(t.getProperty("ZCTA5CE20")||t.getProperty("ZCTA5CE10"))===e&&window.map.data.remove(t)}))},window.fitBoundsToNeighborhoods=function(e=0){const t=window.map,n=window.filteredNeighborhoods||[];if(!t||0===n.length)return;const o=new google.maps.LatLngBounds;if(n.forEach(e=>{e.position&&o.extend(new google.maps.LatLng(e.position))}),!o.isEmpty()){const n=window.innerWidth<768?50:150;t.setOptions({maxZoom:15}),t.fitBounds(o,{top:50,right:n,bottom:60,left:n});const i=google.maps.event.addListener(t,"idle",()=>{if(t.setOptions({maxZoom:22}),!window.skipZoomAdjust){const n=t.getZoom();e>0&&n<e&&t.setZoom(e)}google.maps.event.removeListener(i)})}},window.smoothFlyTo=function(e,t){const n=window.map;if(!n)return;const o=window.CONFIG?.map||{};void 0===t&&(t=o.defaultZoom||14);const i=n.getCenter(),r=n.getZoom(),a=new google.maps.LatLng(e),l=s(e,d(0,40),t),c=d(0,40),m=s({lat:i.lat(),lng:i.lng()},-c,r),w=new google.maps.LatLng(m),g=google.maps.geometry.spherical.computeDistanceBetween(w,a),u=o.flightZoomArc||{},p=o.flightDuration||{},h=performance.now();let f,b,v;f=g<1e3?p.micro||800:g<2e3?p.short||1200:p.medium||2e3,g<(u.micro?.maxDistance||2e3)?(b=u.micro?.minZoom||13,v="micro"):g<(u.short?.maxDistance||5e3)?(b=u.short?.minZoom||13,v="short"):g<(u.medium?.maxDistance||2e4)?(b=u.medium?.minZoom||12,v="med"):(b=u.long?.minZoom||10,v="long"),b=r>=t?Math.min(b,r-1,t-1):r,console.log(`Flight: ${v} | ${(g/1e3).toFixed(2)}km | minZoom=${b}`),requestAnimationFrame(function e(o){const a=o-h,d=Math.min(a/f,1),s=d<.5?4*d*d*d:1-Math.pow(-2*d+2,3)/2,c=i.lat()+(l.lat-i.lat())*s,m=i.lng()+(l.lng-i.lng())*s;let w;if(d<.5){const e=2*d,t=1-Math.pow(1-e,2);w=r+(b-r)*t}else{const e=2*(d-.5);w=b+e*e*(t-b)}n.moveCamera({center:{lat:c,lng:m},zoom:w}),d<1&&requestAnimationFrame(e)})},window.navigateNeighborhood=function(e){const t=window.filteredNeighborhoods||[];if(t.length<1)return;console.log("[Nav Debug] filteredNeighborhoods count:",t.length,"first 3:",t.slice(0,3).map(e=>e.name));const n=window.sortOrder||"listings-desc",o=[...t].sort((e,t)=>{const o=e.stats?.medianPrice||e.stats?.avgPrice||0,i=t.stats?.medianPrice||t.stats?.avgPrice||0,r=e.stats?.listingCount||0,a=t.stats?.listingCount||0;switch(n){case"name-asc":default:return e.name.localeCompare(t.name);case"name-desc":return t.name.localeCompare(e.name);case"price-asc":return o-i;case"price-desc":return i-o;case"listings-desc":return a-r}}),i=window.currentNeighborhood;let r,a=-1;i&&!i.isAreaMarker&&(a=o.findIndex(e=>e.name===i.name&&e.propertyType===i.propertyType)),-1===a?r=1===e?0:o.length-1:(r=a+e,r<0&&(r=o.length-1),r>=o.length&&(r=0));const d=o[r];if(!d)return;console.log("[Nav Debug] navigating to:",d.name,"position:",d.position,"index:",r,"of",o.length);const s=(window.markers||[]).find(e=>e.neighborhood.name===d.name&&e.neighborhood.propertyType===d.propertyType);if(s&&s.marker){const t=-1===e?"nav-prev":"nav-next",n=document.getElementById(t);n&&n.classList.add("bg-brand-100","dark:bg-brand-dark/20"),setTimeout(()=>{window.infoWindow&&window.infoWindow.getMap()&&window.infoWindow.close(),window.activeMarker&&window.activeMarker.content&&(window.activeMarker.content.innerHTML=l(window.activeMarker.markerColor,!1),window.activeMarker=null),window.smoothFlyTo(d.position,window.map.getZoom());const e=window.map.getCenter(),t=new google.maps.LatLng(d.position),n=google.maps.geometry.spherical.computeDistanceBetween(e,t);setTimeout(()=>{google.maps.event.trigger(s.marker,"click")},n<2e3?450:2200)},150)}};function l(e,t=!1){const n=t?44:32,o=t?10:6;return`\n                <svg width="${n}" height="${n}" viewBox="0 0 ${n} ${n}" xmlns="http://www.w3.org/2000/svg">\n                    ${t?`\n                        <circle cx="${n/2}" cy="${n/2}" r="${o}"\n                            fill="none"\n                            stroke="${e}"\n                            stroke-width="4"\n                            opacity="0.7">\n                            <animate attributeName="r"\n                                from="${o}"\n                                to="${n/2-2}"\n                                dur="1.5s"\n                                repeatCount="indefinite"/>\n                            <animate attributeName="opacity"\n                                from="0.7"\n                                to="0"\n                                dur="1.5s"\n                                repeatCount="indefinite"/>\n                        </circle>\n                    `:""}\n                    <circle cx="${n/2}" cy="${n/2}" r="${o}"\n                        fill="${e}"\n                        stroke="white"\n                        stroke-opacity="0.75"\n                        stroke-width="${t?3:2}"/>\n                </svg>\n            `}function c(e,t,n){const o=t.stats||{},i=window.formatPrice||(e=>"$"+(e/1e6).toFixed(1)+"M"),r=(t.neighborhoods||[]).slice(0,10).map(e=>e.name).join(", "),a=`\n                <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">\n                    <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${t.name}</h3>\n                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${o.listingCount||0}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>\n                        </div>\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${i(o.medianPrice||0)}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>\n                        </div>\n                    </div>\n                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(o.avgPricePerSqFt||0).toLocaleString()}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>\n                        </div>\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${o.avgDom||0}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>\n                        </div>\n                    </div>\n                    <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-2 sm:mb-3">\n                        <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>\n                        <div class="communities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${r}</div>\n                    </div>\n                    <hr class="divider mb-2 sm:mb-3">\n                    <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">\n                        ${(()=>{const e=(window.filteredNeighborhoods||[]).length>1,n=e?'<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>':"",o=e?'<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>':"";if(window.isSingleMode)return n+'<a href="'+("localhost"===window.location.hostname?window.location.origin:"https://neighborhoods.truesouthcoastalhomes.com")+"?marker="+t.name.toLowerCase().replace(/[^a-z0-9]+/g,"-")+'" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open '+t.name+' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>'+o;{const e=(window.areaPresets?.presets||[]).find(e=>e.name===t.name);return n+'<a href="https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3#listtype_1/'+(e?.listingsParam||"area_"+encodeURIComponent(t.name)+"/")+'" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all '+t.name+' listings">Matching Listings</a>'+o}})()}\n                    </div>\n                </div>\n            `;n.setContent(a),n.open(window.map,e),google.maps.event.addListenerOnce(n,"domready",()=>{const e=document.querySelector(".communities-scroll");e&&e.scrollHeight>e.clientHeight+4&&e.classList.add("has-overflow")})}function m(e,t,n,o=!0){if(t.isAreaMarker)return c(e,t,n);o&&n===window.infoWindow&&(window.currentNeighborhood=t);const i=window.formatPrice||(e=>"$"+(e/1e6).toFixed(1)+"M"),r=t.stats||{},a=i(r.medianPrice||r.avgPrice||0),d=r.avgPricePerSqFt||(r.avgSqft>0?Math.round((r.avgPrice||0)/r.avgSqft):0),s=(()=>{const e=(t.propertyType||"").toLowerCase();return e.includes("townhome")?"Active T/H Listings":e.includes("condo")?"Active Condo Listings":e.includes("home")?"Active Home Listings":"Active Listings"})(),m=window.filterState&&window.filterState.amenities?window.filterState.amenities:new Set,w=(t.propertyType||"homes").toLowerCase(),g=window.filterState||{},u=g.bedsMin||1,p=g.bathsMin||1,h=g.priceMin>0?window.PRICE_STEPS[g.priceMin]:null,f=g.priceMax<41?window.PRICE_STEPS[g.priceMax]:null,b=u>1?`beds_${u}/`:"",v=p>1?`baths_${p}/`:"",k=h?`lprice_${h}/`:"",y=f&&f<35e6?`uprice_${f}/`:"";let x="";x=w.includes("townhome")?"listtypedescrip_attached%20single%20unit/":w.includes("condo")?"listtypedescrip_condominium/":w.includes("lot")||w.includes("land")||w.includes("vacant")?"":"listtypedescrip_detached%20single%20family/";let L="listtype_1";(w.includes("lot")||w.includes("land")||w.includes("vacant"))&&(L="listtype_4");const M=`#${L}/${k}${y}${b}${v}${x}`;let E;E=t.mlsSubdivisions&&t.mlsSubdivisions.length>0?`subdivision=${t.mlsSubdivisions.map(e=>e.replace(/ /g,"+")).join(",")}`:`subdivision=${t.name.replace(/ /g,"+")}`;const I=`https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&${E}${M}`,S=(window.filteredNeighborhoods||[]).length>1,T=`\n                <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">\n                    <div class="flex items-center justify-center gap-2 mb-2">\n                        <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${t.name}</h3>\n                        ${t.urlSlug?`\n                        <a href="https://www.truesouthcoastalhomes.com${t.urlSlug}"\n                           target="_blank"\n                           class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"\n                           onclick="event.stopPropagation();"\n                           title="${t.name} ${t.propertyType} for Sale">\n                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>\n                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>\n                            </svg>\n                        </a>\n                        `:""}\n                    </div>\n                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${r.listingCount||0}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${s}</div>\n                        </div>\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${a}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>\n                        </div>\n                    </div>\n                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${d.toLocaleString()}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>\n                        </div>\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${r.avgDom||0}</div>\n                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>\n                        </div>\n                    </div>\n                    ${(t.amenities||[]).length>0?`\n                    <div class="mb-2 sm:mb-3">\n                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border">\n                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>\n                            <div class="amenities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${((e=[])=>e.map(e=>{const t=e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");return m.has(e)?`<strong>${t}</strong>`:t}).join(", ")+".")(t.amenities||[])}</div>\n                        </div>\n                    </div>\n                    `:""}\n                    <hr class="divider mb-2 sm:mb-3">\n                    <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">\n                        ${S?'\n                        <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community">\n                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>\n                        </button>\n                        ':""}\n                        ${(()=>{if(window.isSingleMode){const e=window.toSlug(t.name),n=t.propertyType?"&propertyType="+encodeURIComponent(t.propertyType):"";return'<a href="'+("localhost"===window.location.hostname?window.location.origin:"https://neighborhoods.truesouthcoastalhomes.com")+"?marker="+e+n+'" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open '+t.name+' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>'}return I?'<a href="'+I+"\" target=\"_blank\" class=\"flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors\" onclick=\"event.stopPropagation(); if(typeof gtag!=='undefined')gtag('event','view_listings',{neighborhood_name:'"+t.name+"',listing_count:"+(r.listingCount||0)+",property_type:'"+t.propertyType+'\'});" title="View all '+t.name+" "+t.propertyType+' for sale">Matching Listings</a>':'<button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed" disabled title="MLS listings coming soon for '+t.name+'">Coming Soon!</button>'})()}\n                        ${S?'\n                        <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community">\n                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>\n                        </button>\n                        ':""}\n                    </div>\n                </div>\n            `;n.setContent(T),n.open({map:window.map,anchor:e}),google.maps.event.addListenerOnce(n,"domready",()=>{const e=document.querySelector(".amenities-scroll");e&&e.scrollHeight>e.clientHeight+4&&e.classList.add("has-overflow")}),n===window.infoWindow&&(google.maps.event.clearListeners(window.infoWindow,"closeclick"),window.infoWindow.addListener("closeclick",()=>{window.activeMarker&&window.activeMarker.content&&(window.activeMarker.content.innerHTML=l(window.activeMarker.markerColor,!1)),window.activeMarker=null}))}window.activeMarker=null,window.areaMarkers=new Map,window.showAreaMarker=function(e){google.maps.event.addListenerOnce(window.map,"idle",()=>{const t=e.position,n=window.createAreaMarkerData(e);n.position=t;const o=document.createElement("div");o.className="marker-pin area-marker",o.innerHTML=l("#4c8f96",!0),o.style.cursor="pointer",o.style.zIndex="1000";const i=new google.maps.marker.AdvancedMarkerElement({map:window.map,position:t,content:o,title:n.name+" (Area)",zIndex:1e3});i.markerColor="#4c8f96",i.addListener("click",()=>{c(i,n,window.infoWindow),window.activeMarker=i}),window.markers.push({marker:i,neighborhood:n}),window.areaMarkers.set(e.slug,i),c(i,n,window.infoWindow),window.activeMarker=i,setTimeout(()=>{requestAnimationFrame(()=>{r(new google.maps.LatLng(t),0,!1)})},100),setTimeout(()=>{window.logCenteringDiagnostics&&window.logCenteringDiagnostics(t)},500)})},window.hideAreaMarker=function(e){const t=window.areaMarkers.get(e);t&&(t.map=null,window.areaMarkers.delete(e),window.markers=window.markers.filter(e=>e.marker!==t),window.activeMarker===t&&(window.infoWindow?.close(),window.activeMarker=null))},window.addMarkers=function(){if(!window.map)return;(window.markers||[]).forEach(e=>e.marker.setMap(null)),window.markers=[];const e=window.filteredNeighborhoods||[];window.formatPrice;let t=null;e.forEach(e=>{if(e.isAreaMarker){const n="#4c8f96",o=document.createElement("div");o.className="marker-pin area-marker",o.innerHTML=l(n,!0),o.style.cursor="pointer",o.style.zIndex="1000";const i=new google.maps.marker.AdvancedMarkerElement({map:window.map,position:e.position,content:o,title:e.name+" (Area)",zIndex:1e3});return i.markerColor=n,i.addListener("click",()=>{m(i,e,window.infoWindow,!0),window.activeMarker=i}),window.markers.push({marker:i,neighborhood:e}),void(t={marker:i,neighborhood:e})}const n=e.urlSlug&&""!==e.urlSlug,o=e.mlsSubdivisions&&e.mlsSubdivisions.length>0||e.name&&""!==e.name,i=n?"#4c8f96":o?"#4a5462":"#9ca3af",r=document.createElement("div");r.className="marker-pin",r.innerHTML=l(i,!1),r.style.cursor="pointer";const a=new google.maps.marker.AdvancedMarkerElement({map:window.map,position:e.position,content:r,title:e.name});a.markerColor=i,a.addListener("click",()=>{!function(e,t,n){const o=e.markerColor;window.activeMarker===e?window.infoWindow&&window.infoWindow.getMap()?(window.infoWindow.close(),e.content.innerHTML=l(o,!1),window.activeMarker=null):(n(),e.content.innerHTML=l(o,!0)):(window.activeMarker&&window.activeMarker.content&&(window.activeMarker.content.innerHTML=l(window.activeMarker.markerColor,!1)),n(),e.content.innerHTML=l(o,!0),window.activeMarker=e)}(a,0,()=>{m(a,e,window.infoWindow,!0)})}),r.addEventListener("mouseenter",()=>{window.activeMarker!==a&&m(a,e,window.hoverInfoWindow,!1)}),r.addEventListener("mouseleave",()=>{window.hoverInfoWindow&&window.hoverInfoWindow.close()}),window.markers.push({marker:a,neighborhood:e})}),!t||window.skipAreaAnimation||window.isSingleMode||setTimeout(()=>{window.smoothFlyTo&&t.neighborhood.position&&window.smoothFlyTo(t.neighborhood.position,13),setTimeout(()=>{c(t.marker,t.neighborhood,window.infoWindow),window.activeMarker=t.marker,setTimeout(()=>{requestAnimationFrame(()=>{r(new google.maps.LatLng(t.neighborhood.position),0,!1)})},100)},200)},300)},"undefined"!=typeof google&&google.maps&&a(),window.gm_authFailure=function(){const e=document.getElementById("map-placeholder");e&&(e.innerHTML='\n                    <div class="text-center">\n                        <svg class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">\n                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />\n                        </svg>\n                        <p class="text-neutral-500 dark:text-neutral-400 font-medium mb-2">Map requires local server</p>\n                        <p class="text-neutral-400 dark:text-neutral-500 text-sm mb-3">Google Maps API key is restricted to specific domains.</p>\n                        <div class="bg-neutral-200 dark:bg-neutral-800 rounded-lg p-3 text-left text-xs">\n                            <p class="text-neutral-600 dark:text-neutral-300 mb-1">To test with map, run:</p>\n                            <code class="text-brand-700 dark:text-brand-dark">cd NeighborhoodFinder && npx serve .</code>\n                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">Then open: <span class="text-brand-700 dark:text-brand-dark">http://localhost:3000/tests/drawer-prototype.html</span></p>\n                        </div>\n                    </div>\n                '),console.warn("Google Maps API auth failed - likely running from file:// URL")},setTimeout(()=>{if(!window.map){const e=document.getElementById("map-placeholder");e&&e.querySelector("p").textContent.includes("Loading")&&window.gm_authFailure()}},5e3),window.initMap=a;
+
+        // Helper: Parse URL params with HTML entity decoding (handles &amp; from WYSIWYG editors)
+        function getUrlParams() {
+            const search = window.location.search.replace(/&amp;/g, '&');
+            return new URLSearchParams(search);
+        }
+
+        // Panel navigation - wait for both DOM and data
+        function initApp() {
+            // Guard against double initialization
+            if (window.appInitialized) return;
+            window.appInitialized = true;
+
+            // Parse URL parameters for single mode
+            const urlParams = getUrlParams();
+            const isSingleMode = urlParams.get('mode') === 'single';
+            const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
+            window.isSingleMode = isSingleMode;
+            const isInIframe = window.self !== window.top;
+
+            // Single mode: CSS in <head> handles hiding sidebar/drawer/disclaimer
+            if (isSingleMode) {
+                console.log('Single mode active:', neighborhoodSlug);
+                // Show overlay IMMEDIATELY - before map even starts loading
+                const overlay = document.getElementById('single-mode-overlay');
+                if (overlay) {
+                    overlay.style.display = 'flex';
+                    overlay.style.opacity = '1';
+                    console.log('Single mode: overlay shown (early, in initApp)');
+                }
+            }
+
+            // Also hide disclaimer when in iframe (even if not single mode)
+            if (isInIframe) {
+                const disclaimer = document.querySelector('.disclaimer-bar');
+                const mapLayout = document.getElementById('map-layout');
+                if (disclaimer) disclaimer.style.display = 'none';
+                if (mapLayout) mapLayout.style.height = '100dvh';
+            }
+
+            // Open sidebar on desktop in full mode (mobile stays closed to show animation)
+            if (!isSingleMode && window.innerWidth >= 768) {
+                const drawerToggle = document.getElementById('drawer-toggle');
+                if (drawerToggle) drawerToggle.checked = true;
+            }
+
+            // Use global variables set by ES module
+            const neighborhoods = window.neighborhoods || [];
+            const filteredNeighborhoods = window.filteredNeighborhoods || [];
+            let sortOrder = window.sortOrder || 'listings-desc';
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000).toFixed(0) + 'K');
+            const menuItems = document.querySelectorAll('.menu-item');
+            const backButtons = document.querySelectorAll('.panel-back-btn');
+            const mainMenu = document.getElementById('main-menu');
+
+            // Open panel on menu item click
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const panelName = this.getAttribute('data-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        // Close all other panels
+                        document.querySelectorAll('.sliding-panel').forEach(p => {
+                            if (p.id !== panel.id) {
+                                p.classList.add('translate-x-full');
+                            }
+                        });
+
+                        // Hide main menu
+                        if (mainMenu) mainMenu.style.display = 'none';
+
+                        // Open target panel
+                        panel.classList.remove('translate-x-full');
+
+                        // Focus the back button after panel opens (for keyboard users)
+                        const backBtn = panel.querySelector('.panel-back-btn');
+                        if (backBtn) {
+                            setTimeout(() => backBtn.focus(), 100);
+                        }
+                    }
+                });
+
+                // Keyboard support: Enter/Space opens panel
+                item.addEventListener('keydown', function(e) {
+                    // Only respond if sidebar is open
+                    const toggle = document.getElementById('drawer-toggle');
+                    if (!toggle || !toggle.checked) return;
+
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.lastFocusedMenuItem = this; // Store for focus return
+                        this.click();
+                    }
+                });
+            });
+
+            // Close panel on back button click
+            backButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const panelName = this.getAttribute('data-close-panel');
+                    const panel = document.getElementById(panelName + '-panel');
+
+                    if (panel) {
+                        panel.classList.add('translate-x-full');
+
+                        // Hide any open dropdowns when navigating back
+                        const searchDropdown = document.getElementById('search-dropdown');
+                        const sortMenu = document.getElementById('sort-menu');
+                        if (searchDropdown) searchDropdown.classList.add('hidden');
+                        if (sortMenu) sortMenu.classList.add('hidden');
+
+                        // Show main menu and return focus
+                        if (mainMenu) {
+                            mainMenu.style.removeProperty('display');
+                            mainMenu.scrollTop = 0;
+                            // Return focus to the menu item that opened this panel
+                            if (window.lastFocusedMenuItem) {
+                                setTimeout(() => window.lastFocusedMenuItem.focus(), 50);
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Sidebar toggle keyboard support (Enter/Space to open/close)
+            const sidebarToggleTab = document.getElementById('sidebar-toggle-tab');
+            if (sidebarToggleTab) {
+                sidebarToggleTab.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+
+                // Toggle tabindex based on sidebar state - focusable only when closed
+                const updateToggleTabindex = () => {
+                    const toggle = document.getElementById('drawer-toggle');
+                    sidebarToggleTab.tabIndex = (toggle && toggle.checked) ? -1 : 0;
+                };
+                document.getElementById('drawer-toggle')?.addEventListener('change', updateToggleTabindex);
+                updateToggleTabindex(); // Set initial state
+            }
+
+            // Theme toggle - also updates map colorScheme
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.documentElement.classList.toggle('dark');
+                    const isDark = document.documentElement.classList.contains('dark');
+
+                    // Recreate map with new colorScheme (Google Maps requires this)
+                    if (window.map && typeof google !== 'undefined') {
+                        const currentCenter = window.map.getCenter();
+                        const currentZoom = window.map.getZoom();
+
+                        // Store current markers
+                        const existingMarkers = window.markers || [];
+
+                        // Recreate map
+                        window.map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: currentZoom,
+                            center: currentCenter,
+                            mapId: '92b2f4ea8b2fce54a50ed2e9',
+                            colorScheme: isDark ? 'DARK' : 'LIGHT',
+                            mapTypeControl: true,
+                            mapTypeControlOptions: {
+                                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                                position: google.maps.ControlPosition.TOP_RIGHT
+                            },
+                            streetViewControl: true,
+                            fullscreenControl: true,
+                            zoomControl: true,
+                            clickableIcons: false
+                        });
+
+                        // Recreate info windows
+                        window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+                        window.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320 });
+
+                        // Re-add close button removal listeners
+                        function removeInfoWindowCloseButton() {
+                            const closeBtn = document.querySelector('.gm-style-iw-chr');
+                            if (closeBtn) closeBtn.remove();
+                        }
+                        window.infoWindow.addListener('domready', removeInfoWindowCloseButton);
+                        window.hoverInfoWindow.addListener('domready', removeInfoWindowCloseButton);
+
+                        // Re-add markers
+                        window.addMarkers();
+
+                        // Re-show GeoJSON boundaries if any selected
+                        if (window.customBoundaries && window.customBoundaries.size > 0) {
+                            // Clear and re-add boundaries since map was recreated
+                            const savedBoundaries = new Set(window.customBoundaries);
+                            window.customBoundaries.clear();
+                            savedBoundaries.forEach(zip => {
+                                window.showCustomBoundary(zip);
+                            });
+                        }
+                    }
+
+                    // Track theme change
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'theme_toggle', { theme: isDark ? 'dark' : 'light' });
+                    }
+                });
+            }
+
+            // ==========================================
+            // PORTAL DROPDOWNS (same logic as production)
+            // ==========================================
+            const searchBtn = document.getElementById('search-button');
+            const searchDropdown = document.getElementById('search-dropdown');
+            const searchInput = document.getElementById('search-input');
+            const sortBtn = document.getElementById('sort-button');
+            const sortMenu = document.getElementById('sort-menu');
+
+            // Portal dropdowns to body for proper z-index and no content shift
+            if (searchDropdown) document.body.appendChild(searchDropdown);
+            if (sortMenu) document.body.appendChild(sortMenu);
+
+            // Position dropdown centered under button (handles iOS viewport)
+            function positionDropdown(dropdown, button) {
+                if (!dropdown || !button) return;
+                const rect = button.getBoundingClientRect();
+                const offsetY = 10;
+                const viewportPadding = 12;
+                const dropdownWidth = 280;
+
+                // Account for iOS visual viewport shifts
+                const vv = window.visualViewport;
+                const viewportWidth = vv ? vv.width : window.innerWidth;
+                const viewportLeft = vv ? vv.offsetLeft : 0;
+                const viewportTop = vv ? vv.offsetTop : 0;
+
+                // Center on button
+                const buttonCenter = viewportLeft + rect.left + (rect.width / 2);
+                let left = buttonCenter - (dropdownWidth / 2);
+
+                // Viewport constraints
+                if (left + dropdownWidth > viewportLeft + viewportWidth - viewportPadding) {
+                    left = viewportLeft + viewportWidth - dropdownWidth - viewportPadding;
+                }
+                if (left < viewportLeft + viewportPadding) {
+                    left = viewportLeft + viewportPadding;
+                }
+
+                dropdown.style.position = 'fixed';
+                dropdown.style.top = (viewportTop + rect.bottom + offsetY) + 'px';
+                dropdown.style.left = left + 'px';
+                dropdown.style.zIndex = '2147483647';
+            }
+
+            // Render "Most Listings" in search dropdown
+            function renderMostListings() {
+                const results = document.getElementById('search-results');
+                const neighborhoods = window.neighborhoods || [];
+                if (!results || !neighborhoods.length) return;
+
+                const topListings = [...neighborhoods].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 5);
+                results.innerHTML = `
+                    <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                    ${topListings.map(n => `
+                        <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                            ${n.name} - ${n.propertyType}
+                        </button>
+                    `).join('')}
+                `;
+            }
+
+            // Search dropdown toggle
+            if (searchBtn && searchDropdown) {
+                searchBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                    searchDropdown.classList.toggle('hidden');
+                    if (!searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                        if (searchInput) {
+                            searchInput.value = ''; // Clear any previous input
+                            searchInput.focus();
+                        }
+                        // Render initial "Most Listings" results
+                        renderMostListings();
+                        // Detect initial overflow and apply stationary fade
+                        const searchResultsEl = document.getElementById('search-results');
+                        if (searchResultsEl) {
+                            if (searchResultsEl.scrollHeight > searchResultsEl.clientHeight + 4) {
+                                searchResultsEl.classList.add('has-overflow');
+                            } else {
+                                searchResultsEl.classList.remove('has-overflow');
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Sort dropdown toggle
+            if (sortBtn && sortMenu) {
+                sortBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    sortMenu.classList.toggle('hidden');
+                    if (!sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                        // Focus the checked option or first option
+                        const checkedRadio = sortMenu.querySelector('input[type="radio"]:checked');
+                        const checkedOption = checkedRadio ? checkedRadio.closest('.sort-option') : sortMenu.querySelector('.sort-option');
+                        if (checkedOption) {
+                            setTimeout(() => checkedOption.focus(), 50);
+                        }
+                    }
+                });
+
+                // Keyboard support for sort button
+                sortBtn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (searchDropdown && !searchDropdown.contains(e.target) &&
+                    e.target !== searchBtn && !searchBtn.contains(e.target)) {
+                    searchDropdown.classList.add('hidden');
+                }
+                if (sortMenu && !sortMenu.contains(e.target) &&
+                    e.target !== sortBtn && !sortBtn.contains(e.target)) {
+                    sortMenu.classList.add('hidden');
+                }
+            });
+
+            // ========================================
+            // WCAG Focus Trap for Sidebar
+            // ========================================
+            const sidebar = document.getElementById('sidebar');
+            const drawerToggle = document.getElementById('drawer-toggle');
+
+            function getFocusableElements(container) {
+                return Array.from(container.querySelectorAll(
+                    'button:not([disabled]):not([tabindex="-1"]), ' +
+                    '[href]:not([tabindex="-1"]), ' +
+                    'input:not([disabled]):not([tabindex="-1"]), ' +
+                    'select:not([disabled]):not([tabindex="-1"]), ' +
+                    'textarea:not([disabled]):not([tabindex="-1"]), ' +
+                    '[tabindex="0"]'
+                )).filter(el => {
+                    // Must be visible
+                    if (el.offsetParent === null || getComputedStyle(el).visibility === 'hidden') return false;
+                    // Exclude elements inside translated-off panels (off-screen)
+                    const translatedPanel = el.closest('.translate-x-full');
+                    if (translatedPanel) return false;
+                    return true;
+                });
+            }
+
+            function handleTabTrap(e) {
+                if (!sidebar || !drawerToggle || !drawerToggle.checked) return;
+
+                const focusable = getFocusableElements(sidebar);
+                if (focusable.length === 0) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Always prevent default - we manage Tab navigation manually
+                e.preventDefault();
+
+                const current = document.activeElement;
+                let currentIndex = focusable.indexOf(current);
+
+                // If current element not in our list, start from appropriate end
+                if (currentIndex === -1) {
+                    currentIndex = e.shiftKey ? 0 : focusable.length - 1;
+                }
+
+                // Calculate next index with wrap-around
+                let nextIndex;
+                if (e.shiftKey) {
+                    nextIndex = currentIndex === 0 ? focusable.length - 1 : currentIndex - 1;
+                } else {
+                    nextIndex = currentIndex === focusable.length - 1 ? 0 : currentIndex + 1;
+                }
+
+                focusable[nextIndex].focus();
+            }
+
+            // Global keyboard handlers
+            document.addEventListener('keydown', function(e) {
+                // Don't intercept if user is typing in an input/textarea
+                const isTyping = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+
+                // Handle Tab within sidebar focus trap
+                if (e.key === 'Tab' && drawerToggle && drawerToggle.checked) {
+                    // Skip if search dropdown is open (search.js handles its Tab behavior)
+                    const searchDropdownOpen = searchDropdown && !searchDropdown.classList.contains('hidden');
+                    if (searchDropdownOpen) return;
+
+                    // Close sort menu if open (focus is on sortButton which is in sidebar)
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        sortMenu.classList.add('hidden');
+                        const sortButton = document.getElementById('sort-button');
+                        if (sortButton) {
+                            sortButton.setAttribute('aria-expanded', 'false');
+                            sortButton.removeAttribute('aria-activedescendant');
+                        }
+                    }
+
+                    handleTabTrap(e);
+                    return; // Don't process other handlers
+                }
+
+                if (e.key === 'Escape') {
+                    // Close dropdowns first
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    if (sortMenu) sortMenu.classList.add('hidden');
+
+                    // Close info window
+                    if (window.infoWindow && window.infoWindow.getMap()) {
+                        window.infoWindow.close();
+                    }
+
+                    // Close any open sliding panel
+                    const openPanel = document.querySelector('.sliding-panel:not(.translate-x-full)');
+                    if (openPanel) {
+                        openPanel.classList.add('translate-x-full');
+                        if (mainMenu) {
+                            mainMenu.style.removeProperty('display');
+                            mainMenu.scrollTop = 0;
+                            // Return focus to the menu item that opened this panel
+                            if (window.lastFocusedMenuItem) {
+                                setTimeout(() => window.lastFocusedMenuItem.focus(), 50);
+                            }
+                        }
+                        return; // Don't close sidebar if we just closed a panel
+                    }
+
+                    // Close sidebar if open
+                    const drawerToggle = document.getElementById('drawer-toggle');
+                    if (drawerToggle && drawerToggle.checked) {
+                        drawerToggle.checked = false;
+                        drawerToggle.dispatchEvent(new Event('change', { bubbles: true }));
+                        // Clear stored menu item and focus the toggle tab for reopening
+                        window.lastFocusedMenuItem = null;
+                        const toggleTab = document.getElementById('sidebar-toggle-tab');
+                        if (toggleTab) {
+                            setTimeout(() => toggleTab.focus(), 50);
+                        }
+                    }
+                }
+
+                // Up/Down arrows for menu item and sort option navigation
+                if (!isTyping && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
+                    // Menu items
+                    const focusedMenuItem = document.activeElement?.closest('.menu-item');
+                    if (focusedMenuItem) {
+                        e.preventDefault();
+                        const allMenuItems = Array.from(document.querySelectorAll('.menu-item'));
+                        const currentIndex = allMenuItems.indexOf(focusedMenuItem);
+                        let nextIndex;
+                        if (e.key === 'ArrowDown') {
+                            nextIndex = (currentIndex + 1) % allMenuItems.length;
+                        } else {
+                            nextIndex = currentIndex === 0 ? allMenuItems.length - 1 : currentIndex - 1;
+                        }
+                        allMenuItems[nextIndex].focus();
+                        return;
+                    }
+
+                    // Sort options
+                    const focusedSortOption = document.activeElement?.closest('.sort-option');
+                    if (focusedSortOption) {
+                        e.preventDefault();
+                        const allSortOptions = Array.from(document.querySelectorAll('.sort-option'));
+                        const currentIndex = allSortOptions.indexOf(focusedSortOption);
+                        let nextIndex;
+                        if (e.key === 'ArrowDown') {
+                            nextIndex = (currentIndex + 1) % allSortOptions.length;
+                        } else {
+                            nextIndex = currentIndex === 0 ? allSortOptions.length - 1 : currentIndex - 1;
+                        }
+                        allSortOptions[nextIndex].focus();
+                        return;
+                    }
+                }
+
+                // Enter/Space on sort option selects it
+                if (!isTyping && (e.key === 'Enter' || e.key === ' ')) {
+                    const focusedSortOption = document.activeElement?.closest('.sort-option');
+                    if (focusedSortOption) {
+                        e.preventDefault();
+                        const radio = focusedSortOption.querySelector('input[type="radio"]');
+                        if (radio) {
+                            radio.checked = true;
+                            radio.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    }
+                }
+
+                // Left/Right arrows for control group navigation (role="group")
+                if (!isTyping && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+                    const group = document.activeElement?.closest('[role="group"]');
+                    if (group) {
+                        e.preventDefault();
+                        const controls = Array.from(group.querySelectorAll('button:not([disabled])'));
+                        const currentIndex = controls.indexOf(document.activeElement);
+                        if (currentIndex !== -1) {
+                            let nextIndex;
+                            if (e.key === 'ArrowRight') {
+                                nextIndex = (currentIndex + 1) % controls.length;
+                            } else {
+                                nextIndex = currentIndex === 0 ? controls.length - 1 : currentIndex - 1;
+                            }
+                            controls[nextIndex].focus();
+                        }
+                        return;
+                    }
+                }
+
+                // Up/Down arrows for control group grid navigation (visual rows)
+                if (!isTyping && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+                    const group = document.activeElement?.closest('[role="group"]');
+                    if (group) {
+                        e.preventDefault();
+                        const controls = Array.from(group.querySelectorAll('button:not([disabled])'));
+                        const current = document.activeElement;
+                        const currentRect = current.getBoundingClientRect();
+                        const currentCenterX = currentRect.left + currentRect.width / 2;
+
+                        // Find buttons in other rows
+                        let candidates = controls.filter(btn => {
+                            if (btn === current) return false;
+                            const rect = btn.getBoundingClientRect();
+                            if (e.key === 'ArrowDown') {
+                                return rect.top > currentRect.bottom - 5; // Below current row
+                            } else {
+                                return rect.bottom < currentRect.top + 5; // Above current row
+                            }
+                        });
+
+                        if (candidates.length > 0) {
+                            // Find closest horizontally aligned button
+                            candidates.sort((a, b) => {
+                                const aRect = a.getBoundingClientRect();
+                                const bRect = b.getBoundingClientRect();
+                                const aCenterX = aRect.left + aRect.width / 2;
+                                const bCenterX = bRect.left + bRect.width / 2;
+                                const aDistX = Math.abs(aCenterX - currentCenterX);
+                                const bDistX = Math.abs(bCenterX - currentCenterX);
+                                // Primary: closest row, Secondary: closest horizontal
+                                const aDistY = e.key === 'ArrowDown' ? aRect.top : -aRect.bottom;
+                                const bDistY = e.key === 'ArrowDown' ? bRect.top : -bRect.bottom;
+                                if (Math.abs(aDistY - bDistY) > 10) return aDistY - bDistY;
+                                return aDistX - bDistX;
+                            });
+                            candidates[0].focus();
+                        }
+                        return;
+                    }
+                }
+
+                // Arrow keys for info window navigation (only when not typing and not in control group)
+                if (!isTyping && window.infoWindow && window.infoWindow.getMap()) {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        window.navigateNeighborhood(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        window.navigateNeighborhood(1);
+                    }
+                }
+            });
+
+            // Search input keyboard handling
+            if (searchInput) {
+                searchInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        // Just close dropdown - filter is already applied from input handler
+                        searchDropdown.classList.add('hidden');
+                        searchInput.blur();
+                    } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        searchDropdown.classList.add('hidden');
+                        searchInput.blur();
+                    }
+                });
+            }
+
+            // Reposition on resize/scroll (handles iOS keyboard/zoom)
+            ['resize', 'orientationchange'].forEach(evt => {
+                window.addEventListener(evt, () => {
+                    if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                        positionDropdown(searchDropdown, searchBtn);
+                    }
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        positionDropdown(sortMenu, sortBtn);
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                    positionDropdown(searchDropdown, searchBtn);
+                }
+                if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                    positionDropdown(sortMenu, sortBtn);
+                }
+            }, true);
+
+            // Handle iOS visual viewport changes
+            if (window.visualViewport) {
+                ['resize', 'scroll'].forEach(evt => {
+                    window.visualViewport.addEventListener(evt, () => {
+                        if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                            positionDropdown(searchDropdown, searchBtn);
+                        }
+                        if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                            positionDropdown(sortMenu, sortBtn);
+                        }
+                    });
+                });
+            }
+
+            // iOS viewport reset on search input blur
+            if (searchInput) {
+                searchInput.addEventListener('blur', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 0);
+                        document.documentElement.scrollLeft = 0;
+                        document.body.scrollLeft = 0;
+                    }, 100);
+                });
+            }
+
+            // ==========================================
+            // RESULTS LIST RENDERING
+            // ==========================================
+            function formatAmenitiesWithSelection(amenitiesArr) {
+                if (!amenitiesArr || amenitiesArr.length === 0) return 'No amenities listed';
+                const selected = window.filterState?.amenities || new Set();
+                return amenitiesArr.map(a => selected.has(a) ? `<strong>${a}</strong>` : a).join(', ') + '.';
+            }
+
+            function listingLabelForType(typeString) {
+                const t = (typeString || '').toLowerCase();
+                if (t.includes('townhome')) return 'Active T/H Listings';
+                if (t.includes('condo')) return 'Active Condo Listings';
+                if (t.includes('home')) return 'Active Home Listings';
+                return 'Active Listings';
+            }
+
+            function aggregateListingLabel(count, neighborhoods = []) {
+                // Show neighborhood/community count, not listing count
+                return `${count} ${count === 1 ? 'Community' : 'Communities'}`;
+            }
+
+            // Animated counter - spins numbers up/down
+            let lastDisplayedCount = null;
+            let countAnimationFrame = null;
+            function animateCount(element, targetCount, duration = 700) {
+                // Cancel any pending animation
+                if (countAnimationFrame) {
+                    cancelAnimationFrame(countAnimationFrame);
+                    countAnimationFrame = null;
+                }
+
+                // Get current displayed value (in case animation was interrupted)
+                const countSpan = element.querySelector('.count-number');
+                const currentDisplayed = countSpan ? parseInt(countSpan.textContent, 10) : null;
+                const start = (currentDisplayed !== null && !isNaN(currentDisplayed)) ? currentDisplayed : (lastDisplayedCount !== null ? lastDisplayedCount : targetCount);
+                const diff = targetCount - start;
+
+                // Skip animation if no change or first load
+                if (diff === 0 || lastDisplayedCount === null) {
+                    lastDisplayedCount = targetCount;
+                    if (countSpan) countSpan.textContent = targetCount;
+                    return;
+                }
+
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Ease out cubic for smooth deceleration
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.round(start + diff * eased);
+
+                    // Update just the number part
+                    if (countSpan) {
+                        countSpan.textContent = current;
+                    }
+
+                    if (progress < 1) {
+                        countAnimationFrame = requestAnimationFrame(update);
+                    } else {
+                        countAnimationFrame = null;
+                        lastDisplayedCount = targetCount;
+                    }
+                }
+
+                countAnimationFrame = requestAnimationFrame(update);
+            }
+
+            // Check if any filters are active (non-default values)
+            function hasActiveFilters() {
+                const fs = window.filterState || {};
+                const totalNeighborhoods = (window.neighborhoods || []).length;
+                const filteredCount = (window.filteredNeighborhoods || []).length;
+
+                // If filtered count differs from total, filters are active
+                if (filteredCount < totalNeighborhoods) return true;
+
+                // Also check explicit filter states
+                if (window.searchQuery) return true;
+                if (fs.propertyType) return true;
+                if (fs.areas && fs.areas.size > 0) return true;
+                if (fs.amenities && fs.amenities.size > 0) return true;
+                if (fs.priceMin > 0 || fs.priceMax < 41) return true;
+                if (fs.bedsMin > 1 || fs.bathsMin > 1) return true;
+
+                return false;
+            }
+
+            // Reset all filters to defaults
+            function clearAllFilters() {
+                // Reset filter state
+                window.filterState = {
+                    propertyType: null,
+                    areas: new Set(),
+                    amenities: new Set(),
+                    priceMin: 0,
+                    priceMax: 41,
+                    bedsMin: 1,
+                    bathsMin: 1
+                };
+
+                // Reset search
+                window.searchQuery = '';
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) searchInput.value = '';
+
+                // Reset UI controls
+                const priceMin = document.getElementById('price-min');
+                const priceMax = document.getElementById('price-max');
+                if (priceMin) priceMin.value = 0;
+                if (priceMax) priceMax.value = 41;
+
+                const bedsSlider = document.getElementById('beds-slider');
+                const bathsSlider = document.getElementById('baths-slider');
+                if (bedsSlider) bedsSlider.value = 1;
+                if (bathsSlider) bathsSlider.value = 1;
+
+                // Reset property type buttons
+                document.querySelectorAll('[data-filter-type]').forEach(btn => {
+                    btn.classList.remove('bg-brand-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-neutral-700');
+                });
+
+                // Reset area tag buttons (remove selected class)
+                document.querySelectorAll('.area-tag').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+
+                // Clear area markers
+                if (window.areaMarkers) {
+                    window.areaMarkers.forEach((marker, slug) => {
+                        if (window.hideAreaMarker) window.hideAreaMarker(slug);
+                    });
+                }
+
+                // Reset amenity checkboxes and tags
+                document.querySelectorAll('input[data-amenity]').forEach(cb => {
+                    cb.checked = false;
+                });
+                document.querySelectorAll('.amenity-tag').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+
+                // Clear any visible map boundaries
+                if (window.customBoundaries && window.hideCustomBoundary) {
+                    const boundariesToClear = [...window.customBoundaries];
+                    boundariesToClear.forEach(zipCode => {
+                        window.hideCustomBoundary(zipCode);
+                    });
+                }
+
+                // Reset filtered neighborhoods to all
+                window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+
+                // Re-render
+                renderResults();
+                if (window.addMarkers) window.addMarkers();
+
+                // Update price display
+                const priceDisplay = document.getElementById('price-display');
+                if (priceDisplay) priceDisplay.textContent = '$250K - $35M+';
+
+                // Update beds/baths displays
+                const bedsDisplay = document.getElementById('beds-display');
+                const bathsDisplay = document.getElementById('baths-display');
+                if (bedsDisplay) bedsDisplay.textContent = '1+';
+                if (bathsDisplay) bathsDisplay.textContent = '1+';
+
+                // Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'clear_filters');
+                }
+            }
+
+            function renderResults() {
+                const list = document.getElementById('neighborhoodList');
+                const resultsCount = document.getElementById('resultsCount');
+
+                if (!list) return;
+
+                // Sort neighborhoods (read from window for current state)
+                const currentFiltered = window.filteredNeighborhoods || [];
+                const currentSort = window.sortOrder || 'listings-desc';
+                const sorted = [...currentFiltered].sort((a, b) => {
+                    const aPrice = a.stats?.medianPrice || a.stats?.avgPrice || 0;
+                    const bPrice = b.stats?.medianPrice || b.stats?.avgPrice || 0;
+                    const aListings = a.stats?.listingCount || 0;
+                    const bListings = b.stats?.listingCount || 0;
+                    switch (currentSort) {
+                        case 'name-asc':
+                            return a.name.localeCompare(b.name);
+                        case 'name-desc':
+                            return b.name.localeCompare(a.name);
+                        case 'price-asc':
+                            return aPrice - bPrice;
+                        case 'price-desc':
+                            return bPrice - aPrice;
+                        case 'listings-desc':
+                            return bListings - aListings;
+                        default:
+                            return a.name.localeCompare(b.name);
+                    }
+                });
+
+                // Update count with optional Clear pill (animated number)
+                if (resultsCount) {
+                    const count = sorted.length;
+                    const suffix = count === 1 ? ' Community' : ' Communities';
+                    const clearBtn = hasActiveFilters()
+                        ? ` <button id="clear-filters" class="ml-2 px-3 py-1 text-sm font-medium rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>`
+                        : '';
+
+                    // Use span for animated number
+                    resultsCount.innerHTML = `<span class="count-number">${lastDisplayedCount !== null ? lastDisplayedCount : count}</span>${suffix}${clearBtn}`;
+
+                    // Animate the count change
+                    animateCount(resultsCount, count);
+
+                    // Add click handler for Clear button
+                    if (hasActiveFilters()) {
+                        const clearBtnEl = document.getElementById('clear-filters');
+                        if (clearBtnEl) {
+                            clearBtnEl.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                clearAllFilters();
+                            });
+                        }
+                    }
+                }
+
+                // Render list - use buttons for WCAG keyboard navigation
+                const fmt = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+                list.innerHTML = sorted.map(n => `
+                    <button type="button" class="neighborhood-item w-full text-left bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"
+                         data-name="${n.name}" data-type="${n.propertyType}">
+                        <div class="flex justify-between items-start gap-2 mb-1">
+                            <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${n.name}</h3>
+                            <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)}</span>
+                        </div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} ${listingLabelForType(n.propertyType)}</div>
+                        <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${formatAmenitiesWithSelection(n.amenities || [])}</div>
+                    </button>
+                `).join('');
+
+                // Add click handlers
+                list.querySelectorAll('.neighborhood-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const name = item.dataset.name;
+                        const type = item.dataset.type;
+                        const n = (window.filteredNeighborhoods || []).find(x => x.name === name && x.propertyType === type);
+                        if (n && window.map) {
+                            // Analytics
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'select_neighborhood', {
+                                    neighborhood_name: n.name,
+                                    listing_count: n.stats?.listingCount || 0,
+                                    price: fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)
+                                });
+                            }
+
+                            // Smooth fly animation
+                            window.smoothFlyTo(n.position);
+
+                            // Find and click marker after flight
+                            const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                            if (marker) {
+                                // Calculate distance to determine delay
+                                const startPos = window.map.getCenter();
+                                const targetLatLng = new google.maps.LatLng(n.position);
+                                const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                                const delay = distance < 2000 ? 450 : 2200;
+
+                                setTimeout(() => {
+                                    google.maps.event.trigger(marker.marker, 'click');
+                                }, delay);
+                            }
+
+                            // Keep drawer open so users can browse multiple results
+                            // They can manually close it to focus on the map
+                        }
+                    });
+                });
+            }
+
+            // ==========================================
+            // FILTER STATE & PRICE STEPS
+            // ==========================================
+            // PRICE_STEPS is set by init.js from CONFIG.ui.priceSteps
+            // Fallback only if init.js hasn't loaded yet
+            window.PRICE_STEPS = window.PRICE_STEPS || [
+                250000, 300000, 350000, 400000, 450000, 500000,
+                550000, 600000, 650000, 700000, 750000, 800000, 850000, 900000, 950000, 1000000,
+                1250000, 1500000, 1750000, 2000000, 2250000, 2500000, 2750000, 3000000, 3250000, 3500000, 3750000, 4000000, 4250000, 4500000, 4750000, 5000000,
+                6000000, 7000000, 8000000, 9000000, 10000000,
+                15000000, 20000000, 25000000, 30000000, 35000000
+            ];
+            const PRICE_STEPS = window.PRICE_STEPS; // Local reference
+
+            window.filterState = {
+                propertyType: null,  // null = all, 'Homes', 'Condos'
+                areas: new Set(),     // selected zip codes
+                amenities: new Set(), // selected amenities
+                priceMin: 0,          // min price index
+                priceMax: 41          // max price index
+            };
+
+            // ==========================================
+            // PRICE SLIDER SETUP
+            // ==========================================
+            const priceMinInput = document.getElementById('price-min');
+            const priceMaxInput = document.getElementById('price-max');
+            const priceDisplay = document.getElementById('price-display');
+            const priceFill = document.getElementById('price-fill');
+
+            function formatSliderPrice(price) {
+                if (price >= 1000000) {
+                    return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
+                }
+                return '$' + (price / 1000).toFixed(0) + 'K';
+            }
+
+            function updatePriceSlider() {
+                if (!priceMinInput || !priceMaxInput) return;
+
+                let minVal = parseInt(priceMinInput.value) || 0;
+                let maxVal = parseInt(priceMaxInput.value) || 41;
+                const totalSteps = 41;
+
+                // Push behavior
+                if (minVal > maxVal) {
+                    if (this === priceMaxInput) {
+                        priceMinInput.value = maxVal;
+                        minVal = maxVal;
+                    } else {
+                        priceMaxInput.value = minVal;
+                        maxVal = minVal;
+                    }
+                }
+
+                // Update filter state
+                window.filterState.priceMin = minVal;
+                window.filterState.priceMax = maxVal;
+
+                // Update display
+                if (priceDisplay) {
+                    if (minVal === 0 && maxVal === 0) {
+                        priceDisplay.textContent = '$250K - $35M+';
+                    } else {
+                        const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0];
+                        const maxPrice = PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1];
+                        priceDisplay.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+                    }
+                }
+
+                // Update track fill
+                if (priceFill) {
+                    const minPct = minVal / totalSteps;
+                    const maxPct = maxVal / totalSteps;
+                    if (minVal === 0) {
+                        priceFill.style.left = '0';
+                        priceFill.style.width = `${maxPct * 100}%`;
+                    } else {
+                        priceFill.style.left = `${minPct * 100}%`;
+                        priceFill.style.width = `${(maxPct - minPct) * 100}%`;
+                    }
+                }
+
+                applyFilters();
+            }
+
+            if (priceMinInput) priceMinInput.addEventListener('input', updatePriceSlider);
+            if (priceMaxInput) priceMaxInput.addEventListener('input', updatePriceSlider);
+
+            // ==========================================
+            // BEDS/BATHS SLIDER SETUP
+            // ==========================================
+            const bedsInput = document.getElementById('beds-min');
+            const bedsDisplay = document.getElementById('beds-display');
+            const bedsFill = document.getElementById('beds-fill');
+            const bathsInput = document.getElementById('baths-min');
+            const bathsDisplay = document.getElementById('baths-display');
+            const bathsFill = document.getElementById('baths-fill');
+
+            // Initialize filter state for beds/baths
+            window.filterState.bedsMin = 1;
+            window.filterState.bathsMin = 1;
+
+            function updateBedsSlider() {
+                if (!bedsInput) return;
+                const val = parseInt(bedsInput.value) || 1;
+                window.filterState.bedsMin = val;
+
+                // Update display
+                if (bedsDisplay) {
+                    bedsDisplay.textContent = val >= 6 ? '6+' : `${val}+`;
+                }
+
+                // Update track fill (1-6 range)
+                if (bedsFill) {
+                    const pct = ((val - 1) / 5) * 100;
+                    bedsFill.style.width = `${pct}%`;
+                }
+
+                applyFilters();
+            }
+
+            function updateBathsSlider() {
+                if (!bathsInput) return;
+                const val = parseInt(bathsInput.value) || 1;
+                window.filterState.bathsMin = val;
+
+                // Update display
+                if (bathsDisplay) {
+                    bathsDisplay.textContent = val >= 6 ? '6+' : `${val}+`;
+                }
+
+                // Update track fill (1-6 range)
+                if (bathsFill) {
+                    const pct = ((val - 1) / 5) * 100;
+                    bathsFill.style.width = `${pct}%`;
+                }
+
+                applyFilters();
+            }
+
+            if (bedsInput) bedsInput.addEventListener('input', updateBedsSlider);
+            if (bathsInput) bathsInput.addEventListener('input', updateBathsSlider);
+
+            // ==========================================
+            // PROPERTY TYPE TOGGLE (Homes/Condos)
+            // ==========================================
+            const homesBtn = document.getElementById('btn-homes');
+            const condosBtn = document.getElementById('btn-condos');
+
+            if (homesBtn) {
+                homesBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    applyFilters();
+                });
+            }
+
+            if (condosBtn) {
+                condosBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    applyFilters();
+                });
+            }
+
+            // ==========================================
+            // AREA FILTER BUTTONS
+            // ==========================================
+            document.querySelectorAll('.area-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const zipCode = this.getAttribute('data-zipcode');
+                    const subarea = this.getAttribute('data-subarea');
+                    const isSelected = this.classList.contains('selected');
+
+                    if (zipCode) {
+                        if (isSelected) {
+                            window.filterState.areas.add(zipCode);
+                            window.showCustomBoundary(zipCode);
+                        } else {
+                            window.filterState.areas.delete(zipCode);
+                            window.hideCustomBoundary(zipCode);
+                        }
+
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_area', {
+                                area: zipCode,
+                                action: isSelected ? 'selected' : 'deselected'
+                            });
+                        }
+                    }
+                    if (subarea) {
+                        if (isSelected) {
+                            window.filterState.areas.add(subarea);
+                        } else {
+                            window.filterState.areas.delete(subarea);
+                        }
+
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_subarea', {
+                                subarea: subarea,
+                                action: isSelected ? 'selected' : 'deselected'
+                            });
+                        }
+                    }
+                    applyFilters();
+
+                    // Show/hide area marker
+                    const presetData = window.areaPresets?.presets?.find(p =>
+                        (zipCode && p.filterValue === zipCode) || (subarea && p.filterValue === subarea)
+                    );
+                    if (presetData && window.showAreaMarker && window.hideAreaMarker) {
+                        if (isSelected) {
+                            window.showAreaMarker(presetData);
+                        } else {
+                            window.hideAreaMarker(presetData.slug);
+                        }
+                    }
+                });
+            });
+
+            // ==========================================
+            // AMENITY FILTER BUTTONS
+            // ==========================================
+            document.querySelectorAll('.amenity-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                    const amenity = this.getAttribute('data-amenity');
+                    const isSelected = this.classList.contains('selected');
+                    if (amenity) {
+                        if (isSelected) {
+                            window.filterState.amenities.add(amenity);
+
+                            // Mutual exclusivity: Short-Term and No Short-Term can't both be selected
+                            if (amenity === 'Short-Term') {
+                                window.filterState.amenities.delete('No Short-Term');
+                                document.querySelector('.amenity-tag[data-amenity="No Short-Term"]')?.classList.remove('selected');
+                            } else if (amenity === 'No Short-Term') {
+                                window.filterState.amenities.delete('Short-Term');
+                                document.querySelector('.amenity-tag[data-amenity="Short-Term"]')?.classList.remove('selected');
+                            }
+                        } else {
+                            window.filterState.amenities.delete(amenity);
+                        }
+
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'filter_amenity', {
+                                amenity: amenity,
+                                action: isSelected ? 'selected' : 'deselected'
+                            });
+                        }
+                    }
+                    applyFilters();
+                });
+            });
+
+            // ==========================================
+            // URL PARAM: AUTO-SELECT SUBAREA FILTER
+            // ==========================================
+            const urlSubarea = getUrlParams().get('subarea');
+            if (urlSubarea) {
+                // Find and click the matching area-tag button
+                const matchingTag = Array.from(document.querySelectorAll('.area-tag')).find(tag => {
+                    const tagSubarea = tag.getAttribute('data-subarea');
+                    return tagSubarea === urlSubarea;
+                });
+                if (matchingTag) {
+                    matchingTag.click();
+                }
+            }
+
+            // ==========================================
+            // DEBOUNCE HELPER
+            // ==========================================
+            function debounce(func, wait) {
+                let timeout;
+                return function(...args) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            }
+
+            // ==========================================
+            // FIND AREA BUTTON HELPER
+            // ==========================================
+            // Find area filter button by preset data (uses filterField to select correct attribute)
+            // Exposed on window for access from map initialization code
+            window.findAreaButton = function(presetData) {
+                if (!presetData) return null;
+                const { filterField, filterValue } = presetData;
+                if (filterField === 'zipCode') {
+                    return document.querySelector(`.area-tag[data-zipcode="${filterValue}"]`);
+                }
+                return document.querySelector(`.area-tag[data-subarea="${filterValue}"]`);
+            };
+
+            // ==========================================
+            // UNIFIED AREA SELECTION (ALL 8 AREAS USE THIS)
+            // ==========================================
+            // Helper: Create area marker data from preset (exposed on window for map script)
+            window.createAreaMarkerData = function(presetData) {
+                return {
+                    name: presetData.name,
+                    position: presetData.position,
+                    stats: presetData.stats,
+                    neighborhoods: presetData.neighborhoods,
+                    filterField: presetData.filterField,
+                    filterValue: presetData.filterValue,
+                    isAreaMarker: true
+                };
+            };
+
+            // ==========================================
+            // APPLY FILTERS FUNCTION
+            // ==========================================
+            function applyFilters() {
+                const isHomesActive = homesBtn ? homesBtn.classList.contains('active') : false;
+                const isCondosActive = condosBtn ? condosBtn.classList.contains('active') : false;
+                const selectedAreas = window.filterState.areas;
+                const selectedAmenities = window.filterState.amenities;
+
+                // Get price range from filter state
+                const priceMinIdx = window.filterState.priceMin || 0;
+                const priceMaxIdx = window.filterState.priceMax || 41;
+
+                // Get beds/baths from filter state
+                const minBeds = window.filterState.bedsMin || 1;
+                const minBaths = window.filterState.bathsMin || 1;
+
+                // Convert to actual prices
+                // priceMinIdx=0 means "no minimum" (show all), priceMaxIdx=41 means "no maximum"
+                let minPrice = priceMinIdx === 0 ? 0 : (PRICE_STEPS[priceMinIdx] || 0);
+                let maxPrice = priceMaxIdx >= 41 ? Number.MAX_SAFE_INTEGER : (PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER);
+
+                window.filteredNeighborhoods = (window.neighborhoods || []).filter(n => {
+                    // Property type filter
+                    let matchesType = true;
+                    if (isHomesActive || isCondosActive) {
+                        matchesType = false;
+                        const propType = (n.propertyType || '').toLowerCase();
+                        if (isHomesActive && (propType === 'homes' || propType === 'townhomes')) {
+                            matchesType = true;
+                        }
+                        if (isCondosActive && propType === 'condos') {
+                            matchesType = true;
+                        }
+                    }
+
+                    // Area filter (OR logic)
+                    let matchesArea = true;
+                    if (selectedAreas.size > 0) {
+                        // Check exact matches first
+                        // Direct matching - buttons use correct filter values (zipCode, area code, or subArea code)
+                        matchesArea = selectedAreas.has(n.zipCode) ||
+                                     selectedAreas.has(n.area) ||
+                                     selectedAreas.has(n.subArea);
+                    }
+
+                    // Amenity filter (AND logic - must have ALL selected)
+                    let matchesAmenities = true;
+                    if (selectedAmenities.size > 0) {
+                        matchesAmenities = [...selectedAmenities].every(a =>
+                            n.amenities && n.amenities.includes(a)
+                        );
+                    }
+
+                    // Price filter (overlap check)
+                    let inPriceRange = true;
+                    const stats = n.stats || {};
+                    const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
+                    const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
+
+                    if (nbMinPrice !== null && nbMaxPrice !== null && !isNaN(nbMinPrice) && !isNaN(nbMaxPrice)) {
+                        // Check for overlap: UserMax >= NbMin && UserMin <= NbMax
+                        inPriceRange = maxPrice >= nbMinPrice && minPrice <= nbMaxPrice;
+                    } else if (stats.avgPrice > 0) {
+                        // Fallback to avgPrice
+                        inPriceRange = stats.avgPrice >= minPrice && stats.avgPrice <= maxPrice;
+                    }
+
+                    // Beds filter - check if neighborhood has listings >= minBeds
+                    let inBedsRange = true;
+                    if (minBeds > 1) {
+                        const nbMaxBeds = stats.maxBeds !== undefined ? parseFloat(stats.maxBeds) : null;
+                        if (nbMaxBeds !== null && !isNaN(nbMaxBeds)) {
+                            inBedsRange = nbMaxBeds >= minBeds;
+                        }
+                    }
+
+                    // Baths filter - check if neighborhood has listings >= minBaths
+                    let inBathsRange = true;
+                    if (minBaths > 1) {
+                        const nbMaxBaths = stats.maxBaths !== undefined ? parseFloat(stats.maxBaths) : null;
+                        if (nbMaxBaths !== null && !isNaN(nbMaxBaths)) {
+                            inBathsRange = nbMaxBaths >= minBaths;
+                        }
+                    }
+
+                    return matchesType && matchesArea && matchesAmenities && inPriceRange && inBedsRange && inBathsRange;
+                });
+
+                // Re-render results and markers
+                renderResults();
+                window.addMarkers();
+                window.fitBoundsToNeighborhoods();
+            }
+
+            // ==========================================
+            // SORT HANDLER
+            // ==========================================
+            const sortRadios = document.querySelectorAll('input[name="sort"]');
+            sortRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    window.sortOrder = e.target.value;
+                    renderResults();
+                    if (sortMenu) sortMenu.classList.add('hidden');
+                });
+            });
+
+            // ==========================================
+            // SEARCH HANDLER
+            // ==========================================
+            let searchDebounceTimer = null;
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const queryRaw = e.target.value.trim();
+                    const query = queryRaw.toLowerCase();
+                    const results = document.getElementById('search-results');
+
+                    // Highlight matching text within a label (case-insensitive, HTML-safe)
+                    const highlightMatch = (text) => {
+                        if (!queryRaw) return text;
+                        const safeText = text
+                            .replace(/&/g, '&amp;')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;');
+                        const pattern = queryRaw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const regex = new RegExp(`(${pattern})`, 'ig');
+                        return safeText.replace(regex, '<strong>$1</strong>');
+                    };
+
+                    // Track search input (debounced)
+                    if (query && typeof gtag !== 'undefined') {
+                        clearTimeout(searchDebounceTimer);
+                        searchDebounceTimer = setTimeout(() => {
+                            gtag('event', 'search_filter', { search_term: query });
+                        }, 500);
+                    }
+
+                    if (!query) {
+                        // Show default "Most Listings" results
+                        const topListings = [...neighborhoods].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 5);
+                        results.innerHTML = `
+                            <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
+                            ${topListings.map(n => `
+                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                                    ${n.name} - ${n.propertyType}
+                                </button>
+                            `).join('')}
+                        `;
+                    } else {
+                        // Filter by query - prioritize name matches, all scrollable
+                        const matches = neighborhoods.filter(n =>
+                            n.name.toLowerCase().includes(query) ||
+                            (n.location?.city || '').toLowerCase().includes(query) ||
+                            (n.zipCode || '').includes(query)
+                        ).sort((a, b) => {
+                            const aNameMatch = a.name.toLowerCase().includes(query) ? 0 : 1;
+                            const bNameMatch = b.name.toLowerCase().includes(query) ? 0 : 1;
+                            if (aNameMatch !== bNameMatch) return aNameMatch - bNameMatch;
+                            return a.name.localeCompare(b.name);
+                        });
+
+                        if (matches.length) {
+                            results.innerHTML = matches.map(n => `
+                                <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
+                                    ${highlightMatch(n.name)} - ${highlightMatch(n.propertyType)}
+                                </button>
+                            `).join('');
+                        } else {
+                            results.innerHTML = '<div class="px-4 py-3 text-sm text-neutral-400">No matches found</div>';
+                        }
+                    }
+
+                    // Detect search results overflow and add fade class if needed
+                    const searchResultsEl = document.getElementById('search-results');
+                    if (searchResultsEl && searchResultsEl.scrollHeight > searchResultsEl.clientHeight + 4) {
+                        searchResultsEl.classList.add('has-overflow');
+                    } else if (searchResultsEl) {
+                        searchResultsEl.classList.remove('has-overflow');
+                    }
+
+                    // Live filter the main results list AND markers
+                    window.searchQuery = query;
+                    if (query) {
+                        // Filter neighborhoods by search query
+                        window.filteredNeighborhoods = (window.neighborhoods || []).filter(n =>
+                            n.name.toLowerCase().includes(query)
+                        );
+                    } else {
+                        // Reset to all neighborhoods when search is cleared
+                        window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+                    }
+                    renderResults();
+                    // Update markers on map to match filtered list
+                    if (window.addMarkers) window.addMarkers();
+                });
+            }
+
+            // Event delegation for search result clicks (handles both "Most Listings" and search results)
+            const searchResultsContainer = document.getElementById('search-results');
+            if (searchResultsContainer) {
+                searchResultsContainer.addEventListener('click', function(e) {
+                    const btn = e.target.closest('.search-result');
+                    if (!btn) return;
+
+                    const name = btn.dataset.name;
+                    const type = btn.dataset.type;
+                    const n = (window.neighborhoods || []).find(x => x.name === name && x.propertyType === type);
+
+                    if (n && window.map) {
+                        // Analytics
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'search_select', {
+                                neighborhood_name: n.name,
+                                search_query: searchInput?.value || ''
+                            });
+                        }
+
+                        // Smooth fly animation
+                        window.smoothFlyTo(n.position);
+
+                        const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                        if (marker) {
+                            // Calculate distance to determine delay
+                            const startPos = window.map.getCenter();
+                            const targetLatLng = new google.maps.LatLng(n.position);
+                            const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                            const delay = distance < 2000 ? 450 : 2200;
+
+                            setTimeout(() => {
+                                google.maps.event.trigger(marker.marker, 'click');
+                            }, delay);
+                        }
+
+                        // Keep drawer open so users can browse multiple results
+                    }
+
+                    // Close dropdown and clear search
+                    if (searchDropdown) searchDropdown.classList.add('hidden');
+                    if (searchInput) searchInput.value = '';
+
+                    // Clear search filter and reset list + markers
+                    window.searchQuery = '';
+                    window.filteredNeighborhoods = [...(window.neighborhoods || [])];
+                    renderResults();
+                    if (window.addMarkers) window.addMarkers();
+                });
+            }
+
+            // Initial render
+            renderResults();
+
+            // iOS viewport handling - reposition dropdowns when keyboard appears/disappears
+            if (window.visualViewport) {
+                const repositionDropdowns = () => {
+                    const sortMenu = document.getElementById('sort-menu');
+                    const searchDropdown = document.getElementById('search-dropdown');
+                    if (sortMenu && !sortMenu.classList.contains('hidden')) {
+                        // Trigger reposition by toggling visibility
+                        sortMenu.classList.add('hidden');
+                        setTimeout(() => sortMenu.classList.remove('hidden'), 10);
+                    }
+                    if (searchDropdown && !searchDropdown.classList.contains('hidden')) {
+                        const searchInput = document.getElementById('search-input');
+                        // Don't close if search input is focused (iOS keyboard appearing)
+                        if (document.activeElement !== searchInput) {
+                            searchDropdown.classList.add('hidden');
+                        }
+                    }
+                };
+                window.visualViewport.addEventListener('resize', repositionDropdowns);
+                window.visualViewport.addEventListener('scroll', repositionDropdowns);
+            }
+        }
+
+        // Run when data is loaded (from ES module)
+        window.addEventListener('dataLoaded', initApp);
+        // Also run on DOMContentLoaded if data already loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.neighborhoods && window.neighborhoods.length > 0) {
+                initApp();
+            }
+
+        });
+
+// ==========================================
+// MAP INITIALIZATION AND MARKERS
+// ==========================================
+
+        // Convert pixel offset to latitude offset using Mercator projection
+        function preCalculateOffsetLat(lat, offsetPixels, zoom) {
+            const TILE_SIZE = 256;
+            const scale = Math.pow(2, zoom);
+            const latRad = lat * Math.PI / 180;
+            const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+            const pixelsPerRadian = TILE_SIZE * scale / (2 * Math.PI);
+            const newMercY = mercY + offsetPixels / pixelsPerRadian;
+            const newLatRad = 2 * Math.atan(Math.exp(newMercY)) - Math.PI / 2;
+            return newLatRad * 180 / Math.PI;
+        }
+
+        // Centering offset for card+marker combo (see DOCUMENTATION.md for details)
+        function computeOffsetPx(zoomLevel, isAreaMarker = false) {
+            const mapDiv = document.getElementById('map');
+            const w = mapDiv?.offsetWidth || window.innerWidth;
+            const dvh = mapDiv?.offsetHeight || window.innerHeight;
+
+            const baseCardHeight = w < 640 ? 450 : w < 1024 ? 380 : 340;
+            const cardHeight = isAreaMarker ? baseCardHeight + 70 : baseCardHeight;
+            const tailHeight = 78;
+            const markerRadius = 10;
+            const comboHeight = cardHeight + tailHeight + markerRadius;
+            const canCenter = dvh >= 450 && comboHeight < dvh - 40;
+
+            if (canCenter) {
+                return Math.round((cardHeight + tailHeight - markerRadius) / 2);
+            } else {
+                const markerY = 20 + cardHeight + tailHeight + markerRadius;
+                return Math.round(Math.max(0, markerY - (dvh / 2)));
+            }
+        }
+
+        function calculateInitialOffset(zoomLevel, isAreaMarker = false) {
+            return computeOffsetPx(zoomLevel, isAreaMarker);
+        }
+
+        function getOpenInfoWindowCardHeightPx() {
+            const iw = document.querySelector('.gm-style-iw-c');
+            if (iw) return iw.getBoundingClientRect().height;
+            const fallback = document.querySelector('.info-window');
+            return fallback ? fallback.getBoundingClientRect().height : 0;
+        }
+
+        let singleModeResizeObserver = null;
+        let initialCenteringComplete = false;
+
+        // Fade out the loading overlay
+        function fadeOutOverlay() {
+            const overlay = document.getElementById('single-mode-overlay');
+            if (overlay) {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    console.log('Single mode: overlay hidden');
+                }, 300); // Match CSS transition duration
+            }
+        }
+
+        function applySingleModeCenteringFromRenderedCard(markerLatLng, attempt = 0, isInitialCentering = false) {
+            const map = window.map;
+            if (!map || !markerLatLng) return;
+
+            const iwContainer = document.querySelector('.gm-style-iw-c');
+            if (!iwContainer) {
+                if (attempt < 20) {
+                    return requestAnimationFrame(() => applySingleModeCenteringFromRenderedCard(markerLatLng, attempt + 1, isInitialCentering));
+                }
+                return;
+            }
+
+            // Only set up ResizeObserver AFTER initial centering is complete
+            // This prevents double-centering during initial load
+            if (initialCenteringComplete && !singleModeResizeObserver) {
+                singleModeResizeObserver = new ResizeObserver(() => {
+                    applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
+                });
+                singleModeResizeObserver.observe(iwContainer);
+            }
+
+            const cardH = iwContainer.getBoundingClientRect().height;
+            const mapEl = document.getElementById('map') || map.getDiv();
+            const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
+            const tailHeight = 78;
+            const markerRadius = 10;
+            const comboH = cardH + tailHeight + markerRadius;
+            const canCenter = dvh >= 450 && comboH < dvh - 40;
+
+            // Calculate actual offset from rendered card
+            const actualOffsetPx = canCenter
+                ? Math.round((cardH + tailHeight - markerRadius) / 2)
+                : Math.round(Math.max(0, (20 + cardH + tailHeight + markerRadius) - (dvh / 2)));
+
+            // Calculate estimated offset (same formula used during init)
+            const isAreaMarker = window.singleModeIsArea || false;
+            const estimatedOffsetPx = computeOffsetPx(map.getZoom(), isAreaMarker);
+
+            // Only apply correction if difference exceeds threshold (15px)
+            const offsetDiff = Math.abs(actualOffsetPx - estimatedOffsetPx);
+            const CORRECTION_THRESHOLD = 15;
+
+            if (offsetDiff > CORRECTION_THRESHOLD) {
+                const zoom = map.getZoom();
+                const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), actualOffsetPx, zoom);
+
+                console.log('Single mode: applying micro-correction, diff:', offsetDiff, 'px, isInitial:', isInitialCentering);
+                // Use panTo for smooth adjustment instead of abrupt setCenter
+                map.panTo({ lat: adjustedLat, lng: markerLatLng.lng() });
+            } else {
+                console.log('Single mode: no correction needed, diff:', offsetDiff, 'px (threshold:', CORRECTION_THRESHOLD, 'px)');
+            }
+            window.singleModeOffsetApplied = true;
+
+            // For initial centering: wait for map idle, then fade overlay and enable ResizeObserver
+            if (isInitialCentering && !initialCenteringComplete) {
+                google.maps.event.addListenerOnce(map, 'idle', () => {
+                    console.log('Single mode: map idle after initial centering');
+                    initialCenteringComplete = true;
+                    fadeOutOverlay();
+
+                    // Log centering diagnostics once after initial centering
+                    setTimeout(() => {
+                        if (window.logCenteringDiagnostics) {
+                            window.logCenteringDiagnostics(markerLatLng);
+                        }
+                    }, 500);
+
+                    // Now set up ResizeObserver for subsequent changes (images loading, etc.)
+                    if (!singleModeResizeObserver) {
+                        singleModeResizeObserver = new ResizeObserver(() => {
+                            applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
+                        });
+                        singleModeResizeObserver.observe(iwContainer);
+                    }
+                });
+            }
+        }
+
+        function initMap() {
+            const mapDiv = document.getElementById('map');
+            if (!mapDiv) return;
+
+            // Clear placeholder
+            mapDiv.innerHTML = '';
+
+            // Check for single mode
+            const urlParams = getUrlParams();
+            const isSingleMode = urlParams.get('mode') === 'single';
+            const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
+            window.isSingleMode = isSingleMode; // Set early to prevent race condition with center_changed listener
+
+            // Determine initial center and zoom
+            let initialCenter = { lat: 30.32, lng: -86.05 };  // Default: Emerald Coast
+            let initialZoom = 11;  // Default: zoomed out
+
+            // In single mode, center on target neighborhood or area (offset applied after map ready)
+            // Use synchronous position objects first - no race condition
+            let singleModeTarget = null;
+            const areaSlug = urlParams.get('area');
+
+            if (isSingleMode && neighborhoodSlug) {
+                // Check NEIGHBORHOOD_POSITIONS first (synchronous, race-free)
+                const neighborhoodPosition = window.NEIGHBORHOOD_POSITIONS?.[neighborhoodSlug];
+                if (neighborhoodPosition) {
+                    initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                    initialCenter = neighborhoodPosition;
+                    singleModeTarget = neighborhoodPosition;
+                    console.log('Single mode: using NEIGHBORHOOD_POSITIONS for', neighborhoodSlug);
+                } else if (window.neighborhoods) {
+                    // Fallback to async neighborhoods data
+                    const target = window.neighborhoods.find(n => window.toSlug && window.toSlug(n.name) === neighborhoodSlug);
+                    if (target && target.position) {
+                        initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                        initialCenter = target.position;
+                        singleModeTarget = target.position;
+                    }
+                }
+                // If still no match, check AREA_POSITIONS (might be area slug in neighborhood param)
+                if (!singleModeTarget) {
+                    const areaPosition = window.AREA_POSITIONS?.[neighborhoodSlug];
+                    if (areaPosition) {
+                        initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                        initialCenter = areaPosition;
+                        singleModeTarget = areaPosition;
+                        window.singleModeIsArea = true;
+                        console.log('Single mode: using AREA_POSITIONS for', neighborhoodSlug);
+                    }
+                }
+            } else if (isSingleMode && areaSlug) {
+                // Area single mode via ?area= param - use AREA_POSITIONS first (synchronous)
+                const areaPosition = window.AREA_POSITIONS?.[areaSlug];
+                if (areaPosition) {
+                    initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                    initialCenter = areaPosition;
+                    singleModeTarget = areaPosition;
+                    window.singleModeIsArea = true;
+                    console.log('Single mode: using AREA_POSITIONS for', areaSlug);
+                } else {
+                    // Fallback to async areaPresets
+                    const presetData = window.areaPresets?.presets?.find(s => s.slug === areaSlug);
+                    if (presetData && presetData.position) {
+                        initialZoom = parseInt(urlParams.get('zoom')) || 13;
+                        initialCenter = presetData.position;
+                        singleModeTarget = presetData.position;
+                        window.singleModeIsArea = true;
+                    }
+                }
+            }
+
+            // Single mode: Show loading overlay, initialize at PRE-OFFSET position
+            // Pre-offset uses estimated card height; micro-correction applied after InfoWindow renders if needed
+            let mapCenter = initialCenter;
+            window.singleModeOffsetApplied = false;
+            window.singleModeTarget = singleModeTarget; // Store for later centering
+
+            if (isSingleMode && singleModeTarget) {
+                // Show loading overlay immediately
+                const overlay = document.getElementById('single-mode-overlay');
+                if (overlay) {
+                    overlay.style.display = 'flex';
+                    overlay.style.opacity = '1';
+                }
+                // Pre-calculate offset so map starts at correct position (no shift when card renders)
+                const isAreaMarker = window.singleModeIsArea || false;
+                const estimatedOffsetPx = computeOffsetPx(initialZoom, isAreaMarker);
+                const preOffsetLat = preCalculateOffsetLat(initialCenter.lat, estimatedOffsetPx, initialZoom);
+                mapCenter = { lat: preOffsetLat, lng: initialCenter.lng };
+                console.log('Single mode: pre-offset applied, estimated offset:', estimatedOffsetPx, 'px');
+
+                // Fallback: fade overlay after 5s even if something goes wrong
+                setTimeout(() => {
+                    if (!initialCenteringComplete) {
+                        console.warn('Single mode: fallback timeout - fading overlay');
+                        fadeOutOverlay();
+                        initialCenteringComplete = true;
+                    }
+                }, 5000);
+            }
+
+            // Map center - pre-offset position in single mode (micro-correction after InfoWindow renders if needed)
+            window.map = new google.maps.Map(mapDiv, {
+                zoom: initialZoom,
+                center: mapCenter,
+                mapId: '92b2f4ea8b2fce54a50ed2e9',
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                streetViewControl: true,
+                fullscreenControl: true,
+                zoomControl: true,
+                clickableIcons: false
+            });
+
+            // Create info windows (click and hover)
+            // disableAutoPan prevents Google Maps from moving the map when info window opens
+            window.infoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
+            window.hoverInfoWindow = new google.maps.InfoWindow({ maxWidth: 320, disableAutoPan: true });
+
+            // Remove close button from info windows when they open
+            // Using MutationObserver to actually remove element, not just hide
+            function removeInfoWindowCloseButton() {
+                const closeBtn = document.querySelector('.gm-style-iw-chr');
+                if (closeBtn) {
+                    closeBtn.remove();
+                }
+            }
+
+            window.infoWindow.addListener('domready', removeInfoWindowCloseButton);
+            window.hoverInfoWindow.addListener('domready', removeInfoWindowCloseButton);
+
+            // ==========================================
+            // PRELOAD GEOJSON BOUNDARIES (for instant button clicks)
+            // Delete this block if preloading causes issues
+            // ==========================================
+            const zipCodesToPreload = ['32541', '32459', '32550', '32461', '32413'];
+            zipCodesToPreload.forEach(zip => {
+                fetch(`./neighborhoods/jsons/${zip}.geojson`)
+                    .then(r => r.json())
+                    .catch(() => {}); // Silent fail - will load on-demand if preload fails
+            });
+
+            // Rendezvous: whoever finishes second (data or map) triggers markers
+            window.tryInitializeMarkers = function() {
+                if (window.markersInitialized) return;
+                const neighborhoods = window.neighborhoods || [];
+                if (!neighborhoods.length || !window.map || !window.addMarkers) return;
+
+                window.markersInitialized = true;
+
+                const urlParams = getUrlParams();
+                const isSingleMode = urlParams.get('mode') === 'single';
+                const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
+                const areaSlug = urlParams.get('area');
+
+                // UNIFIED single mode handler for BOTH neighborhoods AND areas
+                if (isSingleMode) {
+                    let target = null;
+
+                    // Find target - neighborhood or area
+                    if (neighborhoodSlug && !areaSlug && neighborhoods.length > 0) {
+                        const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
+                        if (matching.length > 0) {
+                            const homes = matching.find(n => n.propertyType === 'Homes');
+                            target = homes || matching[0];
+                            window.neighborhoods = [target];
+                            window.filteredNeighborhoods = [target];
+                            console.log('Single mode: neighborhood', target.name);
+                        }
+                    } else if (areaSlug) {
+                        const presetData = window.areaPresets?.presets?.find(s => s.slug === areaSlug);
+                        if (presetData) {
+                            target = window.createAreaMarkerData(presetData);
+                            window.filteredNeighborhoods = [target];
+                            console.log('Single mode: area', presetData.name);
+                        }
+                    }
+
+                    // No pre-offset here. We center precisely after the InfoWindow DOM is ready.
+                }
+
+                function openSingleModeMarker() {
+                    if (!window.markers || window.markers.length === 0) return false;
+                    const markerObj = window.markers[0];
+                    if (markerObj && markerObj.marker && markerObj.neighborhood) {
+                        console.log('Single mode: opening', markerObj.neighborhood.name);
+                        // Use correct info window function based on marker type
+                        if (markerObj.neighborhood.isAreaMarker) {
+                            showAreaInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow);
+                        } else {
+                            showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
+                        }
+
+                        // After the card renders, re-apply centering using the real rendered height.
+                        // This corrects mismatches from heuristic card-height guesses across iframe sizes.
+                        google.maps.event.addListenerOnce(window.infoWindow, 'domready', () => {
+                            requestAnimationFrame(() => {
+                                const rawPos = markerObj.neighborhood?.position || markerObj.marker?.position || (markerObj.marker?.getPosition && markerObj.marker.getPosition());
+                                if (!rawPos) return;
+                                const markerLatLng = (rawPos instanceof google.maps.LatLng)
+                                    ? rawPos
+                                    : new google.maps.LatLng(rawPos);
+                                // Pass isInitialCentering=true to trigger overlay fade after idle
+                                applySingleModeCenteringFromRenderedCard(markerLatLng, 0, true);
+                            });
+                        });
+
+                        markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+                        window.activeMarker = markerObj.marker;
+                        return true;
+                    }
+                    return false;
+                }
+
+                function afterMarkersAdded() {
+                    // Single mode (both area and neighborhood) - just poll and open marker, no centering
+                    if (isSingleMode && (areaSlug || neighborhoodSlug)) {
+                        setTimeout(() => {
+                            let attempts = 0;
+                            const pollMarker = () => {
+                                attempts++;
+                                if (openSingleModeMarker()) return;
+                                if (attempts < 30) setTimeout(pollMarker, 100);
+                                else console.warn('Single mode: marker not found after 3 seconds');
+                            };
+                            pollMarker();
+                        }, 300);
+                        return;
+                    }
+
+                    // Full mode
+                    const markerSlug = urlParams.get('marker');
+                    window.fitBoundsToNeighborhoods();
+
+                    if (markerSlug) {
+                        const presetData = window.areaPresets?.presets?.find(s => s.slug === markerSlug);
+                        if (presetData) {
+                            // Wait for tiles to render, then click the button
+                            // Button click handler triggers showAreaMarker
+                            google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
+                                setTimeout(() => {
+                                    const btn = window.findAreaButton(presetData);
+                                    if (btn) btn.click();
+                                }, 400);
+                            });
+                        } else {
+                            // Not an area preset - try to find a regular neighborhood
+                            const propertyType = urlParams.get('propertyType') || 'Homes';
+                            const matching = neighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
+                            if (matching.length > 0) {
+                                // Prefer the specified propertyType, fallback to first match
+                                const target = matching.find(n => n.propertyType === propertyType) || matching[0];
+
+                                google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
+                                    setTimeout(() => {
+                                        // Find the marker for this neighborhood
+                                        const markerObj = (window.markers || []).find(m =>
+                                            m.neighborhood.name === target.name &&
+                                            m.neighborhood.propertyType === target.propertyType
+                                        );
+                                        if (markerObj) {
+                                            // Fly to marker and open info window
+                                            window.smoothFlyTo(target.position);
+                                            setTimeout(() => {
+                                                showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
+                                                window.activeMarker = markerObj.marker;
+                                                markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+
+                                                // Apply centering after card renders
+                                                setTimeout(() => {
+                                                    requestAnimationFrame(() => {
+                                                        const markerLatLng = new google.maps.LatLng(target.position);
+                                                        applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                                                    });
+                                                }, 100);
+                                            }, 800);
+                                        }
+                                    }, 400);
+                                });
+                            }
+                        }
+                    }
+                }
+
+                if (!window.filteredNeighborhoods || !window.filteredNeighborhoods.length) {
+                    window.filteredNeighborhoods = [...neighborhoods];
+                }
+                window.addMarkers();
+                console.log('Map initialized with', window.filteredNeighborhoods.length, 'neighborhoods');
+                afterMarkersAdded();
+            };
+            window.tryInitializeMarkers();
+
+            // Log zoom level changes to console
+            window.map.addListener('idle', () => {
+                if (window.map) {
+                    console.log('Zoom:', window.map.getZoom().toFixed(2));
+                }
+            });
+
+            // Close info windows when clicking on the map background
+            window.map.addListener('click', () => {
+                if (window.infoWindow && window.infoWindow.getMap()) {
+                    window.infoWindow.close();
+                }
+                if (window.hoverInfoWindow && window.hoverInfoWindow.getMap()) {
+                    window.hoverInfoWindow.close();
+                }
+                // Deactivate ripple on active marker
+                if (window.activeMarker && window.activeMarker.content) {
+                    window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                    window.activeMarker = null;
+                }
+            });
+
+            // Re-anchor InfoWindow during pan (workaround for AdvancedMarkerElement)
+            // Skip in single mode - interferes with offset centering timing
+            if (!window.isSingleMode) {
+                window.map.addListener('center_changed', () => {
+                    if (window.infoWindow && window.infoWindow.getMap() && window.activeMarker) {
+                        window.infoWindow.open({ map: window.map, anchor: window.activeMarker });
+                    }
+                });
+            }
+        }
+
+        // ==========================================
+        // GEOJSON BOUNDARY DISPLAY
+        // ==========================================
+        window.customBoundaries = new Set();
+
+        // Expose showCustomBoundary globally for theme toggle and filters
+        window.showCustomBoundary = function showCustomBoundary(zipCode) {
+            if (!window.map || window.customBoundaries.has(zipCode)) return;
+            window.customBoundaries.add(zipCode);
+
+            window.map.data.loadGeoJson(`./neighborhoods/jsons/${zipCode}.geojson`, { idPropertyName: 'ZCTA5CE20' }, function(features) {
+                window.map.data.setStyle(function(feature) {
+                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                    if (window.customBoundaries.has(featureZip)) {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        const primaryColor = isDark ? '#5ba3ab' : '#4c8f96';
+                        return {
+                            strokeColor: primaryColor,
+                            strokeWeight: 1.5,
+                            strokeOpacity: 0.35,
+                            fillColor: primaryColor,
+                            fillOpacity: 0.15,
+                            clickable: false
+                        };
+                    }
+                    return { visible: false };
+                });
+            });
+        }
+
+        // Expose hideCustomBoundary globally for filters
+        window.hideCustomBoundary = function hideCustomBoundary(zipCode) {
+            if (!window.map || !window.customBoundaries.has(zipCode)) return;
+            window.customBoundaries.delete(zipCode);
+
+            window.map.data.forEach(function(feature) {
+                const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                if (featureZip === zipCode) {
+                    window.map.data.remove(feature);
+                }
+            });
+        }
+
+        // ==========================================
+        // FIT BOUNDS TO FILTERED NEIGHBORHOODS
+        // ==========================================
+        window.fitBoundsToNeighborhoods = function fitBoundsToNeighborhoods(minZoom = 0) {
+            const map = window.map;
+            const filtered = window.filteredNeighborhoods || [];
+            if (!map || filtered.length === 0) return;
+
+            // Create bounds from all filtered neighborhoods
+            const bounds = new google.maps.LatLngBounds();
+            filtered.forEach(n => {
+                if (n.position) {
+                    bounds.extend(new google.maps.LatLng(n.position));
+                }
+            });
+
+            // Only fit if we have valid bounds
+            if (!bounds.isEmpty()) {
+                // Responsive padding: more breathing room on desktop
+                const isMobile = window.innerWidth < 768;
+                const sidePadding = isMobile ? 50 : 150;
+
+                // Set maxZoom constraint BEFORE fitBounds so animation respects it
+                map.setOptions({ maxZoom: 15 });
+
+                // Use smooth animation via fitBounds with padding
+                map.fitBounds(bounds, {
+                    top: 50,
+                    right: sidePadding,
+                    bottom: 60,  // Account for disclaimer bar
+                    left: sidePadding
+                });
+
+                // After animation completes, reset maxZoom and apply minZoom if needed
+                const listener = google.maps.event.addListener(map, 'idle', () => {
+                    // Reset maxZoom so user can manually zoom closer if desired
+                    map.setOptions({ maxZoom: 22 });
+
+                    if (!window.skipZoomAdjust) {
+                        const currentZoom = map.getZoom();
+                        // Apply minZoom (for single area selections, want more detail)
+                        if (minZoom > 0 && currentZoom < minZoom) {
+                            map.setZoom(minZoom);
+                        }
+                    }
+                    google.maps.event.removeListener(listener);
+                });
+            }
+        }
+
+        /**
+         * Calculate vertical pixel offset to center (card + marker) combo in viewport.
+         *
+         * SINGLE MODE (550px dvh, NO disclaimer):
+         * ┌─────────────────────────┐ ← 0px
+         * │     75px padding        │
+         * ├─────────────────────────┤ ← 75px
+         * │                         │
+         * │     360px info card     │
+         * │                         │
+         * ├─────────────────────────┤ ← 435px
+         * │  40px tail + marker     │  ← marker anchor at 475px
+         * ├─────────────────────────┤ ← 475px
+         * │     75px padding        │
+         * └─────────────────────────┘ ← 550px (dvh)
+         *
+         * padding = (550 - 400) / 2 = 75px
+         * markerAnchorFromTop = 75 + 400 = 475px
+         * offset = 475 - 275 + 16 = 216px
+         *
+         * FULL MODE (550px dvh, 40px disclaimer):
+         * ┌─────────────────────────┐ ← 0px
+         * │     55px padding        │
+         * ├─────────────────────────┤ ← 55px
+         * │                         │
+         * │     360px info card     │  effectiveViewport = 510px
+         * │                         │
+         * ├─────────────────────────┤ ← 415px
+         * │  40px tail + marker     │  ← marker anchor at 455px
+         * ├─────────────────────────┤ ← 455px
+         * │     55px padding        │
+         * ├─────────────────────────┤ ← 510px
+         * │  40px disclaimer bar    │
+         * └─────────────────────────┘ ← 550px (dvh)
+         *
+         * padding = (510 - 400) / 2 = 55px
+         * markerAnchorFromTop = 55 + 400 = 455px
+         * offset = 455 - 275 + 16 = 196px
+         *
+         * @param {number} zoomLevel - Current map zoom (unused, kept for API consistency)
+         * @param {number} disclaimerHeight - Bottom bar height (0 for single mode, 40 for full mode)
+         * @returns {number} Pixel offset for panBy()
+         */
+        function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0) {
+            // Use computeOffsetPx as base, then adjust for disclaimer bar
+            const baseOffset = computeOffsetPx(zoomLevel, false);
+            return Math.round(baseOffset + disclaimerHeight / 2);
+        }
+
+        function offsetLatLng(latLng, offsetPixels, zoomLevel) {
+            const map = window.map;
+            const scale = Math.pow(2, zoomLevel || map.getZoom());
+            const worldCoordinate = map.getProjection().fromLatLngToPoint(new google.maps.LatLng(latLng));
+            const pixelOffset = new google.maps.Point(0, -offsetPixels / scale);
+            const newWorldCoordinate = new google.maps.Point(worldCoordinate.x, worldCoordinate.y + pixelOffset.y);
+            const newLatLng = map.getProjection().fromPointToLatLng(newWorldCoordinate);
+            console.log('offsetLatLng:', {
+                inputLat: latLng.lat,
+                offsetPx: offsetPixels,
+                zoom: zoomLevel,
+                scale,
+                outputLat: newLatLng.lat(),
+                latDiff: newLatLng.lat() - latLng.lat
+            });
+            return { lat: newLatLng.lat(), lng: latLng.lng };
+        }
+
+        // ==========================================
+        // SMOOTH FLY ANIMATION
+        // ==========================================
+        window.smoothFlyTo = function smoothFlyTo(targetPosition, targetZoom) {
+            const map = window.map;
+            if (!map) return;
+
+            // Use CONFIG for default zoom
+            const cfg = window.CONFIG?.map || {};
+            if (targetZoom === undefined) {
+                targetZoom = cfg.defaultZoom || 14;
+            }
+
+            const startPos = map.getCenter();
+            const startZoom = map.getZoom();
+            const targetLatLng = new google.maps.LatLng(targetPosition);
+
+            // Calculate offset for visual centering (marker + info card)
+            // Full mode has 40px disclaimer bar
+            const disclaimerHeight = 40;
+            const offsetPixels = calculateCenteredOffset(targetZoom, disclaimerHeight);
+            const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
+
+            // Calculate distance from marker-to-marker (not center-to-marker)
+            // Reverse the offset on startPos to get approximate marker position
+            const startOffsetPixels = calculateCenteredOffset(startZoom, disclaimerHeight);
+            const startMarkerPos = offsetLatLng({ lat: startPos.lat(), lng: startPos.lng() }, -startOffsetPixels, startZoom);
+            const startMarkerLatLng = new google.maps.LatLng(startMarkerPos);
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(startMarkerLatLng, targetLatLng);
+
+            // Get flight settings from CONFIG
+            const arc = cfg.flightZoomArc || {};
+            const dur = cfg.flightDuration || {};
+
+            // Animated flight with zoom arc (all distances get arc now)
+            const startTime = performance.now();
+
+            // Duration from CONFIG.map.flightDuration
+            let duration;
+            if (distance < 1000) {
+                duration = dur.micro || 800;
+            } else if (distance < 2000) {
+                duration = dur.short || 1200;
+            } else {
+                duration = dur.medium || 2000;
+            }
+
+            // minZoom from CONFIG.map.flightZoomArc
+            let minZoom, jumpType;
+            if (distance < (arc.micro?.maxDistance || 2000)) {
+                minZoom = arc.micro?.minZoom || 13;
+                jumpType = 'micro';
+            } else if (distance < (arc.short?.maxDistance || 5000)) {
+                minZoom = arc.short?.minZoom || 13;
+                jumpType = 'short';
+            } else if (distance < (arc.medium?.maxDistance || 20000)) {
+                minZoom = arc.medium?.minZoom || 12;
+                jumpType = 'med';
+            } else {
+                minZoom = arc.long?.minZoom || 10;
+                jumpType = 'long';
+            }
+
+            // Smart arc: only zoom out when starting from a zoomed-in view
+            // When at fitBounds (zoomed out), pan at current level then zoom in
+            if (startZoom >= targetZoom) {
+                // Starting zoomed in - apply arc (zoom out, then back in)
+                minZoom = Math.min(minZoom, startZoom - 1, targetZoom - 1);
+            } else {
+                // Starting zoomed out (fitBounds view) - no arc, pan then zoom in
+                minZoom = startZoom;
+            }
+
+            console.log(`Flight: ${jumpType} | ${(distance/1000).toFixed(2)}km | minZoom=${minZoom}`);
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // EaseInOutCubic
+                const ease = progress < 0.5
+                    ? 4 * progress * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                // Interpolate position to offset target
+                const curLat = startPos.lat() + (offsetTarget.lat - startPos.lat()) * ease;
+                const curLng = startPos.lng() + (offsetTarget.lng - startPos.lng()) * ease;
+
+                // Parabolic zoom arc
+                let curZoom;
+                if (progress < 0.5) {
+                    const zoomProgress = progress * 2;
+                    const zoomEase = 1 - Math.pow(1 - zoomProgress, 2);
+                    curZoom = startZoom + (minZoom - startZoom) * zoomEase;
+                } else {
+                    const zoomProgress = (progress - 0.5) * 2;
+                    const zoomEase = zoomProgress * zoomProgress;
+                    curZoom = minZoom + (targetZoom - minZoom) * zoomEase;
+                }
+
+                map.moveCamera({
+                    center: { lat: curLat, lng: curLng },
+                    zoom: curZoom
+                });
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Navigate between neighborhoods (Prev/Next buttons in info window)
+        window.navigateNeighborhood = function(direction) {
+            const filtered = window.filteredNeighborhoods || [];
+            if (filtered.length < 1) return;
+
+            console.log('[Nav Debug] filteredNeighborhoods count:', filtered.length, 'first 3:', filtered.slice(0, 3).map(n => n.name));
+
+            // Sort by current sort order (matches sidebar list order)
+            const currentSort = window.sortOrder || 'listings-desc';
+            const sorted = [...filtered].sort((a, b) => {
+                const aPrice = a.stats?.medianPrice || a.stats?.avgPrice || 0;
+                const bPrice = b.stats?.medianPrice || b.stats?.avgPrice || 0;
+                const aListings = a.stats?.listingCount || 0;
+                const bListings = b.stats?.listingCount || 0;
+                switch (currentSort) {
+                    case 'name-asc':
+                        return a.name.localeCompare(b.name);
+                    case 'name-desc':
+                        return b.name.localeCompare(a.name);
+                    case 'price-asc':
+                        return aPrice - bPrice;
+                    case 'price-desc':
+                        return bPrice - aPrice;
+                    case 'listings-desc':
+                        return bListings - aListings;
+                    default:
+                        return a.name.localeCompare(b.name);
+                }
+            });
+
+            // Find current index - if no current neighborhood (e.g., from area marker), start from beginning/end
+            const current = window.currentNeighborhood;
+            let currentIndex = -1;
+            if (current && !current.isAreaMarker) {
+                currentIndex = sorted.findIndex(n => n.name === current.name && n.propertyType === current.propertyType);
+            }
+
+            // Calculate next index
+            let nextIndex;
+            if (currentIndex === -1) {
+                // No current neighborhood (area marker or first navigation) - go to first or last
+                nextIndex = direction === 1 ? 0 : sorted.length - 1;
+            } else {
+                // Normal navigation with wrap around
+                nextIndex = currentIndex + direction;
+                if (nextIndex < 0) nextIndex = sorted.length - 1;
+                if (nextIndex >= sorted.length) nextIndex = 0;
+            }
+
+            const nextN = sorted[nextIndex];
+            if (!nextN) return;
+
+            console.log('[Nav Debug] navigating to:', nextN.name, 'position:', nextN.position, 'index:', nextIndex, 'of', sorted.length);
+
+            // Find marker and trigger flight animation
+            const markerData = (window.markers || []).find(m => m.neighborhood.name === nextN.name && m.neighborhood.propertyType === nextN.propertyType);
+            if (markerData && markerData.marker) {
+                // Highlight the clicked nav button
+                const btnId = direction === -1 ? 'nav-prev' : 'nav-next';
+                const navBtn = document.getElementById(btnId);
+                if (navBtn) {
+                    navBtn.classList.add('bg-brand-100', 'dark:bg-brand-dark/20');
+                }
+
+                // Delay to show highlight, then close and animate
+                setTimeout(() => {
+                    // Close current info window
+                    if (window.infoWindow && window.infoWindow.getMap()) {
+                        window.infoWindow.close();
+                    }
+                    // Deactivate current marker ripple
+                    if (window.activeMarker && window.activeMarker.content) {
+                        window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                        window.activeMarker = null;
+                    }
+
+                    // Fly to new location (maintain current zoom to preserve sub-area context)
+                    window.smoothFlyTo(nextN.position, window.map.getZoom());
+
+                    // Open info window after flight completes
+                    const startPos = window.map.getCenter();
+                    const targetLatLng = new google.maps.LatLng(nextN.position);
+                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                    const delay = distance < 2000 ? 450 : 2200;
+
+                    setTimeout(() => {
+                        google.maps.event.trigger(markerData.marker, 'click');
+                    }, delay);
+                }, 150); // Show highlight for 150ms before closing
+            }
+        };
+
+        // Marker colors (matches production markers.js)
+        const MARKER_COLORS = {
+            urlSlug: '#4c8f96',      // Teal - has URL slug (SEO page)
+            listingsLink: '#4a5462', // Dark gray - has dynamic listings link (via subdivision)
+            noData: '#9ca3af'        // Light gray - no data
+        };
+
+        // Track active marker for ripple animation
+        window.activeMarker = null;
+
+        // Create marker SVG (matches production createMarkerIcon)
+        function createMarkerSVG(color, isActive = false) {
+            const size = isActive ? 44 : 32;
+            const dotSize = isActive ? 10 : 6;
+            const strokeWidth = isActive ? 3 : 2;
+
+            return `
+                <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+                    ${isActive ? `
+                        <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
+                            fill="none"
+                            stroke="${color}"
+                            stroke-width="4"
+                            opacity="0.7">
+                            <animate attributeName="r"
+                                from="${dotSize}"
+                                to="${size/2 - 2}"
+                                dur="1.5s"
+                                repeatCount="indefinite"/>
+                            <animate attributeName="opacity"
+                                from="0.7"
+                                to="0"
+                                dur="1.5s"
+                                repeatCount="indefinite"/>
+                        </circle>
+                    ` : ''}
+                    <circle cx="${size/2}" cy="${size/2}" r="${dotSize}"
+                        fill="${color}"
+                        stroke="white"
+                        stroke-opacity="0.75"
+                        stroke-width="${strokeWidth}"/>
+                </svg>
+            `;
+        }
+
+        // Show info window content for area markers
+        function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
+            const stats = area.stats || {};
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+            const neighborhoodsList = (area.neighborhoods || [])
+                .slice(0, 10)
+                .map(n => n.name)
+                .join(', ');
+
+            const content = `
+                <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
+                    <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${area.name}</h3>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-2 sm:mb-3">
+                        <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
+                        <div class="communities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+                    </div>
+                    <hr class="divider mb-2 sm:mb-3">
+                    <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
+                        ${(() => {
+                            const filtered = window.filteredNeighborhoods || [];
+                            const hasNav = filtered.length > 1;
+                            const prevBtn = hasNav ? '<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>' : '';
+                            const nextBtn = hasNav ? '<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>' : '';
+
+                            if (window.isSingleMode) {
+                                // Single mode: Neighborhood Finder button with popout icon
+                                const baseUrl = window.location.hostname === 'localhost'
+                                    ? window.location.origin
+                                    : 'https://neighborhoods.truesouthcoastalhomes.com';
+                                const areaSlug = area.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                                const finderUrl = baseUrl + '?marker=' + areaSlug;
+                                return prevBtn + '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + area.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>' + nextBtn;
+                            } else {
+                                // Full mode: Matching Listings button
+                                // Look up listingsParam from area_mappings.json (loaded as areaPresets)
+                                const areaConfig = (window.areaPresets?.presets || []).find(p => p.name === area.name);
+                                const areaParam = areaConfig?.listingsParam || 'area_' + encodeURIComponent(area.name) + '/';
+                                const listingsUrl = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3#listtype_1/' + areaParam;
+                                return prevBtn + '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all ' + area.name + ' listings">Matching Listings</a>' + nextBtn;
+                            }
+                        })()}
+                    </div>
+                </div>
+            `;
+
+            targetInfoWindow.setContent(content);
+            targetInfoWindow.open(window.map, marker);
+
+            // After info window renders: detect overflow AND fine-tune centering based on actual height
+            google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+                // Detect communities overflow and add fade class
+                const communitiesEl = document.querySelector('.communities-scroll');
+                if (communitiesEl && communitiesEl.scrollHeight > communitiesEl.clientHeight + 4) {
+                    communitiesEl.classList.add('has-overflow');
+                }
+            });
+        }
+
+        // Show info window content (matches production markers.js)
+        // Called by both click and hover handlers
+        function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true) {
+            // Handle area markers
+            if (n.isAreaMarker) {
+                return showAreaInfoWindowContent(marker, n, targetInfoWindow);
+            }
+
+            // Only store as current neighborhood for primary (click) window
+            if (storeAsActive && targetInfoWindow === window.infoWindow) {
+                window.currentNeighborhood = n;
+            }
+
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+            const stats = n.stats || {};
+            const medianPrice = stats.medianPrice || stats.avgPrice || 0;
+            const medianPriceDisplay = formatPrice(medianPrice);
+            const pricePerSqFt = stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
+            const listingLabel = (() => {
+                const t = (n.propertyType || '').toLowerCase();
+                if (t.includes('townhome')) return 'Active T/H Listings';
+                if (t.includes('condo')) return 'Active Condo Listings';
+                if (t.includes('home')) return 'Active Home Listings';
+                return 'Active Listings';
+            })();
+            const selectedAmenities = (window.filterState && window.filterState.amenities) ? window.filterState.amenities : new Set();
+            const formatAmenitiesList = (list = []) => {
+                const escape = (str) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                return list.map(a => {
+                    const safe = escape(a);
+                    return selectedAmenities.has(a) ? `<strong>${safe}</strong>` : safe;
+                }).join(', ') + '.';
+            };
+
+            // Build listings URL with filter slugs (dynamic subdivision linking)
+            const propertyType = (n.propertyType || 'homes').toLowerCase();
+
+            // Dynamic filter slugs from filterState
+            const fs = window.filterState || {};
+            const bedsMin = fs.bedsMin || 1;
+            const bathsMin = fs.bathsMin || 1;
+            const priceMin = fs.priceMin > 0 ? window.PRICE_STEPS[fs.priceMin] : null;
+            const priceMax = fs.priceMax < 41 ? window.PRICE_STEPS[fs.priceMax] : null;
+
+            const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
+            const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
+            const priceMinSlug = priceMin ? `lprice_${priceMin}/` : '';
+            const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
+
+            // Determine property type descrip
+            let typeDescrip = '';
+            if (propertyType.includes('townhome')) {
+                typeDescrip = 'listtypedescrip_attached%20single%20unit/';
+            } else if (propertyType.includes('condo')) {
+                typeDescrip = 'listtypedescrip_condominium/';
+            } else if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+                typeDescrip = '';
+            } else {
+                typeDescrip = 'listtypedescrip_detached%20single%20family/';
+            }
+
+            // Determine listtype based on property type
+            let listType = 'listtype_1';
+            if (propertyType.includes('lot') || propertyType.includes('land') || propertyType.includes('vacant')) {
+                listType = 'listtype_4';
+            }
+
+            const slugPart = `#${listType}/${priceMinSlug}${priceMaxSlug}${bedsSlug}${bathsSlug}${typeDescrip}`;
+
+            // Build search parameter using subdivision names (dynamic linking)
+            // Priority: 1) mlsSubdivisions (comma-separated MLS names), 2) n.name (canonical)
+            let searchParam;
+            if (n.mlsSubdivisions && n.mlsSubdivisions.length > 0) {
+                const subdivisions = n.mlsSubdivisions
+                    .map(s => s.replace(/ /g, '+'))
+                    .join(',');
+                searchParam = `subdivision=${subdivisions}`;
+            } else {
+                const subdivisionName = n.name.replace(/ /g, '+');
+                searchParam = `subdivision=${subdivisionName}`;
+            }
+
+            const listingsUrl = `https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&${searchParam}${slugPart}`;
+
+            const filtered = window.filteredNeighborhoods || [];
+            const hasNav = filtered.length > 1;
+
+            const content = `
+                <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
+                        ${n.urlSlug ? `
+                        <a href="https://www.truesouthcoastalhomes.com${n.urlSlug}"
+                           target="_blank"
+                           class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
+                           onclick="event.stopPropagation();"
+                           title="${n.name} ${n.propertyType} for Sale">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </a>
+                        ` : ''}
+                    </div>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.listingCount || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${listingLabel}</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.avgDom || 0}</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                        </div>
+                    </div>
+                    ${(n.amenities || []).length > 0 ? `
+                    <div class="mb-2 sm:mb-3">
+                        <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
+                            <div class="amenities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${formatAmenitiesList(n.amenities || [])}</div>
+                        </div>
+                    </div>
+                    ` : ''}
+                    <hr class="divider mb-2 sm:mb-3">
+                    <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
+                        ${hasNav ? `
+                        <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        ` : ''}
+                        ${(() => {
+                            const isSingleMode = window.isSingleMode;
+                            if (isSingleMode) {
+                                // Single mode: link to Community Finder with marker parameter
+                                const neighborhoodSlug = window.toSlug(n.name);
+                                const propertyTypeParam = n.propertyType ? '&propertyType=' + encodeURIComponent(n.propertyType) : '';
+                                const baseUrl = window.location.hostname === 'localhost'
+                                    ? window.location.origin
+                                    : 'https://neighborhoods.truesouthcoastalhomes.com';
+                                const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
+                                return '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + n.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>';
+                            } else if (listingsUrl) {
+                                return '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation(); if(typeof gtag!==\'undefined\')gtag(\'event\',\'view_listings\',{neighborhood_name:\'' + n.name + '\',listing_count:' + (stats.listingCount || 0) + ',property_type:\'' + n.propertyType + '\'});" title="View all ' + n.name + ' ' + n.propertyType + ' for sale">Matching Listings</a>';
+                            } else {
+                                return '<button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed" disabled title="MLS listings coming soon for ' + n.name + '">Coming Soon!</button>';
+                            }
+                        })()}
+                        ${hasNav ? `
+                        <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            targetInfoWindow.setContent(content);
+            targetInfoWindow.open({ map: window.map, anchor: marker });
+
+            // Detect amenities overflow and add fade class if needed (4px tolerance for rounding)
+            google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
+                const amenitiesEl = document.querySelector('.amenities-scroll');
+                if (amenitiesEl && amenitiesEl.scrollHeight > amenitiesEl.clientHeight + 4) {
+                    amenitiesEl.classList.add('has-overflow');
+                }
+            });
+
+            // Handle close events for primary window only
+            if (targetInfoWindow === window.infoWindow) {
+                google.maps.event.clearListeners(window.infoWindow, 'closeclick');
+                window.infoWindow.addListener('closeclick', () => {
+                    if (window.activeMarker && window.activeMarker.content) {
+                        window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                    }
+                    window.activeMarker = null;
+                });
+            }
+        }
+
+        // Toggle marker ripple animation (from production markers.js)
+        function toggleMarker(marker, neighborhood, showInfoFn) {
+            const color = marker.markerColor;
+
+            // If clicking same marker, toggle info window
+            if (window.activeMarker === marker) {
+                if (window.infoWindow && window.infoWindow.getMap()) {
+                    window.infoWindow.close();
+                    marker.content.innerHTML = createMarkerSVG(color, false);
+                    window.activeMarker = null;
+                } else {
+                    showInfoFn();
+                    marker.content.innerHTML = createMarkerSVG(color, true);
+                }
+            } else {
+                // Deactivate previous marker ripple
+                if (window.activeMarker && window.activeMarker.content) {
+                    window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                }
+
+                // Clicking different marker - open with ripple
+                showInfoFn();
+                marker.content.innerHTML = createMarkerSVG(color, true);
+                window.activeMarker = marker;
+            }
+        }
+
+        // ==========================================
+        // AREA MARKER MANAGEMENT
+        // ==========================================
+        window.areaMarkers = new Map(); // slug -> marker
+
+        // Show area marker and info window (called from button click handler)
+        window.showAreaMarker = function(presetData) {
+            // Wait for fitBounds animation to complete
+            google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                // Use true geographic position from preset (same as single mode)
+                const markerPosition = presetData.position;
+
+                const areaData = window.createAreaMarkerData(presetData);
+                areaData.position = markerPosition;
+
+                // Create marker at true position
+                const markerContent = document.createElement('div');
+                markerContent.className = 'marker-pin area-marker';
+                markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
+                markerContent.style.cursor = 'pointer';
+                markerContent.style.zIndex = '1000';
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map: window.map,
+                    position: markerPosition,
+                    content: markerContent,
+                    title: areaData.name + ' (Area)',
+                    zIndex: 1000
+                });
+                marker.markerColor = '#4c8f96';
+
+                marker.addListener('click', () => {
+                    showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                    window.activeMarker = marker;
+                });
+
+                window.markers.push({ marker, neighborhood: areaData });
+                window.areaMarkers.set(presetData.slug, marker);
+
+                showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                window.activeMarker = marker;
+
+                // Apply centering after card renders using single mode logic
+                setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        const markerLatLng = new google.maps.LatLng(markerPosition);
+                        applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                    });
+                }, 100);
+
+                // Log centering diagnostics after info window renders
+                setTimeout(() => {
+                    if (window.logCenteringDiagnostics) {
+                        window.logCenteringDiagnostics(markerPosition);
+                    }
+                }, 500);
+            });
+        };
+
+        // Hide area marker (called when filter is deselected)
+        window.hideAreaMarker = function(slug) {
+            const marker = window.areaMarkers.get(slug);
+            if (marker) {
+                marker.map = null;
+                window.areaMarkers.delete(slug);
+                window.markers = window.markers.filter(m => m.marker !== marker);
+                // Close info window if this marker was active
+                if (window.activeMarker === marker) {
+                    window.infoWindow?.close();
+                    window.activeMarker = null;
+                }
+            }
+        };
+
+        // Expose addMarkers globally for theme toggle
+        window.addMarkers = function addMarkers() {
+            if (!window.map) return;
+
+            // Clear existing markers
+            (window.markers || []).forEach(m => m.marker.setMap(null));
+            window.markers = [];
+
+            const filteredNeighborhoods = window.filteredNeighborhoods || [];
+            const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+            let areaMarkerToOpen = null;
+
+            filteredNeighborhoods.forEach(n => {
+                // Special handling for area markers (preset markers)
+                if (n.isAreaMarker) {
+                    const areaMarkerColor = '#4c8f96'; // Teal color for area markers
+                    const markerContent = document.createElement('div');
+                    markerContent.className = 'marker-pin area-marker';
+                    markerContent.innerHTML = createMarkerSVG(areaMarkerColor, true); // Selected state
+                    markerContent.style.cursor = 'pointer';
+                    markerContent.style.zIndex = '1000';
+
+                    const marker = new google.maps.marker.AdvancedMarkerElement({
+                        map: window.map,
+                        position: n.position,
+                        content: markerContent,
+                        title: n.name + ' (Area)',
+                        zIndex: 1000
+                    });
+
+                    marker.markerColor = areaMarkerColor;
+
+                    // Click handler for area marker
+                    marker.addListener('click', () => {
+                        showInfoWindowContent(marker, n, window.infoWindow, true);
+                        window.activeMarker = marker;
+                    });
+
+                    window.markers.push({ marker, neighborhood: n });
+                    areaMarkerToOpen = { marker, neighborhood: n };
+                    return; // Skip regular marker creation
+                }
+
+                // Regular neighborhood markers
+                const hasUrlSlug = n.urlSlug && n.urlSlug !== '';
+                const hasListingsLink = (n.mlsSubdivisions && n.mlsSubdivisions.length > 0) ||
+                                        (n.name && n.name !== '');
+
+                const markerColor = hasUrlSlug ? MARKER_COLORS.urlSlug :
+                                   (hasListingsLink ? MARKER_COLORS.listingsLink : MARKER_COLORS.noData);
+
+                // Create marker with colored dot (matches production style)
+                const markerContent = document.createElement('div');
+                markerContent.className = 'marker-pin';
+                markerContent.innerHTML = createMarkerSVG(markerColor, false);
+                markerContent.style.cursor = 'pointer';
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map: window.map,
+                    position: n.position,
+                    content: markerContent,
+                    title: n.name
+                });
+
+                // Store marker color for reference
+                marker.markerColor = markerColor;
+
+                // Click handler - uses toggleMarker for ripple animation
+                marker.addListener('click', () => {
+                    const showInfoWindow = () => {
+                        showInfoWindowContent(marker, n, window.infoWindow, true);
+                    };
+                    toggleMarker(marker, n, showInfoWindow);
+                });
+
+                // Hover handler - AdvancedMarkerElement requires DOM events on content
+                // Shows full info window card (matches production behavior)
+                markerContent.addEventListener('mouseenter', () => {
+                    // Don't show hover if click info window is open for this marker
+                    if (window.activeMarker === marker) return;
+
+                    // Show the same full info window content as click (storeAsActive=false for hover)
+                    showInfoWindowContent(marker, n, window.hoverInfoWindow, false);
+                });
+
+                markerContent.addEventListener('mouseleave', () => {
+                    if (window.hoverInfoWindow) {
+                        window.hoverInfoWindow.close();
+                    }
+                });
+
+                window.markers.push({ marker, neighborhood: n });
+            });
+
+            // Auto-open area marker info window and center it (for full mode only)
+            // Skip if: single mode (handled by openSingleModeMarker), or already in fly animation
+            if (areaMarkerToOpen && !window.skipAreaAnimation && !window.isSingleMode) {
+                setTimeout(() => {
+                    // Center the area marker in viewport with smooth animation
+                    if (window.smoothFlyTo && areaMarkerToOpen.neighborhood.position) {
+                        window.smoothFlyTo(areaMarkerToOpen.neighborhood.position, 13);
+                    }
+                    // Open info window after centering starts
+                    setTimeout(() => {
+                        showAreaInfoWindowContent(areaMarkerToOpen.marker, areaMarkerToOpen.neighborhood, window.infoWindow);
+                        window.activeMarker = areaMarkerToOpen.marker;
+
+                        // Apply proper centering after card renders (fixes offset issue)
+                        // Use setTimeout since domready may have already fired
+                        setTimeout(() => {
+                            requestAnimationFrame(() => {
+                                const markerLatLng = new google.maps.LatLng(areaMarkerToOpen.neighborhood.position);
+                                applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                            });
+                        }, 100);
+                    }, 200);
+                }, 300);
+            }
+        }
+
+        // Check if Google Maps is ready
+        if (typeof google !== 'undefined' && google.maps) {
+            initMap();
+        }
+
+        // Handle Google Maps API errors (e.g., RefererNotAllowedMapError)
+        window.gm_authFailure = function() {
+            const placeholder = document.getElementById('map-placeholder');
+            if (placeholder) {
+                placeholder.innerHTML = `
+                    <div class="text-center">
+                        <svg class="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-600 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                        </svg>
+                        <p class="text-neutral-500 dark:text-neutral-400 font-medium mb-2">Map requires local server</p>
+                        <p class="text-neutral-400 dark:text-neutral-500 text-sm mb-3">Google Maps API key is restricted to specific domains.</p>
+                        <div class="bg-neutral-200 dark:bg-neutral-800 rounded-lg p-3 text-left text-xs">
+                            <p class="text-neutral-600 dark:text-neutral-300 mb-1">To test with map, run:</p>
+                            <code class="text-brand-700 dark:text-brand-dark">cd NeighborhoodFinder && npx serve .</code>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">Then open: <span class="text-brand-700 dark:text-brand-dark">http://localhost:3000/tests/drawer-prototype.html</span></p>
+                        </div>
+                    </div>
+                `;
+            }
+            console.warn('Google Maps API auth failed - likely running from file:// URL');
+        };
+
+        // Timeout fallback if map doesn't load
+        setTimeout(() => {
+            if (!window.map) {
+                const placeholder = document.getElementById('map-placeholder');
+                if (placeholder && placeholder.querySelector('p').textContent.includes('Loading')) {
+                    window.gm_authFailure();
+                }
+            }
+        }, 5000);
+
+        // Expose initMap globally for Google Maps API callback
+        window.initMap = initMap;

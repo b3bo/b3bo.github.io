@@ -1,1 +1,96 @@
-import{CONFIG as o}from"./config.js";import{STATE as e}from"./state.js";import{loadNeighborhoods as r}from"./data.js";import{formatPrice as s}from"./utils.js";import{store as n}from"./core/store.js";import{eventBus as i,Events as d}from"./core/eventBus.js";import{initEventDelegation as t}from"./core/events.js";import{animateCount as a}from"./animations/index.js";import"./map/centering.js";import"./map/boundaries.js";import"./ui/results.js";import"./ui/infoWindow.js";import"./filters/index.js";import"./search/index.js";import"./keyboard/index.js";t(),window.CONFIG=o,window.PRICE_STEPS=o.ui.priceSteps,o.data.geojsonPath="/neighborhoods/jsons/",o.data.areaPresetsFile="/neighborhoods/jsons/586d18ae76449d78.json.b64",o.data.neighborhoodFiles=["/neighborhoods/jsons/7ea1bf14d884d192.json.b64","/neighborhoods/jsons/b762bb338ba328e5.json.b64","/neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64","/neighborhoods/jsons/d897c3d107c48ccc.json.b64","/neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64","/neighborhoods/jsons/e0e3b36d8e692892.json.b64","/neighborhoods/jsons/f7e6349b564cdbb2.json.b64"];const w=await r();console.log("Loaded",w.length,"neighborhoods from production data");const h=await async function(){try{const e=o.data.areaPresetsFile||"./neighborhoods/jsons/586d18ae76449d78.json.b64",r=await fetch(e);if(!r.ok)throw new Error("Failed to load area presets");const s=await r.text(),n=(new TextDecoder).decode(Uint8Array.from(atob(s),o=>o.charCodeAt(0)));return JSON.parse(n)}catch(o){return console.error("Error loading area presets:",o),null}}();h&&console.log("Loaded",h.presets?.length||0,"area presets"),window.neighborhoods=w,window.filteredNeighborhoods=[...w],window.areaPresets=h,e.neighborhoods=w,e.allFilteredNeighborhoods=[...w],window.markers=window.markers||[],window.map=window.map||null,window.infoWindow=window.infoWindow||null,window.sortOrder=window.sortOrder||"listings-desc",window.formatPrice=s,window.toSlug=function(o){return o.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"")},window.dataReady=!0,window.dispatchEvent(new Event("dataLoaded")),window.tryInitializeMarkers&&window.tryInitializeMarkers();
+// ==========================================
+// PRODUCTION ES MODULE IMPORTS
+// ==========================================
+import { CONFIG } from './config.js';
+import { STATE } from './state.js';
+import { loadNeighborhoods } from './data.js';
+import { formatPrice } from './utils.js';
+
+// Core infrastructure
+import { store } from './core/store.js';
+import { eventBus, Events } from './core/eventBus.js';
+import { initEventDelegation } from './core/events.js';
+
+// Feature modules (exposes window.* during transition)
+import { animateCount } from './animations/index.js';
+import './map/centering.js';
+import './map/boundaries.js';
+import './ui/results.js';
+import './ui/infoWindow.js';
+import './filters/index.js';
+import './search/index.js';
+import './keyboard/index.js';
+
+
+// Initialize event delegation layer (single listeners for performance)
+initEventDelegation();
+
+// Expose CONFIG globally so other scripts can use it
+window.CONFIG = CONFIG;
+
+// Expose PRICE_STEPS globally for filter scripts
+window.PRICE_STEPS = CONFIG.ui.priceSteps;
+
+// Configure paths for local dev (Vite middleware maps /neighborhoods/ to assets/)
+CONFIG.data.geojsonPath = '/neighborhoods/jsons/';
+CONFIG.data.areaPresetsFile = '/neighborhoods/jsons/586d18ae76449d78.json.b64';
+CONFIG.data.neighborhoodFiles = [
+    '/neighborhoods/jsons/7ea1bf14d884d192.json.b64',
+    '/neighborhoods/jsons/b762bb338ba328e5.json.b64',
+    '/neighborhoods/jsons/d2ea7fdfc87ff3e7.json.b64',
+    '/neighborhoods/jsons/d897c3d107c48ccc.json.b64',
+    '/neighborhoods/jsons/dcb3d8a92cc6eb54.json.b64',
+    '/neighborhoods/jsons/e0e3b36d8e692892.json.b64',
+    '/neighborhoods/jsons/f7e6349b564cdbb2.json.b64'
+];
+
+// Load production data
+const neighborhoods = await loadNeighborhoods();
+console.log('Loaded', neighborhoods.length, 'neighborhoods from production data');
+
+// Load area presets for single mode
+async function loadAreaPresets() {
+    try {
+        const presetsFile = CONFIG.data.areaPresetsFile || './neighborhoods/jsons/586d18ae76449d78.json.b64';
+        const response = await fetch(presetsFile);
+        if (!response.ok) throw new Error('Failed to load area presets');
+        const text = await response.text();
+        const jsonStr = new TextDecoder().decode(Uint8Array.from(atob(text), c => c.charCodeAt(0)));
+        return JSON.parse(jsonStr);
+    } catch (e) {
+        console.error('Error loading area presets:', e);
+        return null;
+    }
+}
+const areaPresets = await loadAreaPresets();
+if (areaPresets) {
+    console.log('Loaded', areaPresets.presets?.length || 0, 'area presets');
+}
+
+// Expose to global scope for other scripts
+window.neighborhoods = neighborhoods;
+window.filteredNeighborhoods = [...neighborhoods];
+window.areaPresets = areaPresets;
+
+// Sync STATE for ES module consumers (search, filters)
+STATE.neighborhoods = neighborhoods;
+STATE.allFilteredNeighborhoods = [...neighborhoods];
+window.markers = window.markers || [];
+window.map = window.map || null;
+window.infoWindow = window.infoWindow || null;
+window.sortOrder = window.sortOrder || 'listings-desc';
+window.formatPrice = formatPrice;
+
+function toSlug(str) {
+    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+window.toSlug = toSlug;
+
+// Signal data ready and trigger coordination
+window.dataReady = true;
+window.dispatchEvent(new Event('dataLoaded'));
+
+// If map already initialized, trigger marker creation
+if (window.tryInitializeMarkers) {
+    window.tryInitializeMarkers();
+}
