@@ -1607,8 +1607,9 @@
 
             const baseCardHeight = w < 640 ? 450 : w < 1024 ? 380 : 340;
             const cardHeight = isAreaMarker ? baseCardHeight + 70 : baseCardHeight;
-            const tailHeight = 124;  // Measured: 78 base + 46 correction for actual tail+gap
-            const markerRadius = 10;
+            // Use constants from centering.js (single source of truth)
+            const tailHeight = window.TAIL_HEIGHT || 78;
+            const markerRadius = window.MARKER_RADIUS || 10;
             const comboHeight = cardHeight + tailHeight + markerRadius;
             const canCenter = dvh >= 450 && comboHeight < dvh - 40;
 
@@ -1662,8 +1663,9 @@
             const cardH = iwContainer.getBoundingClientRect().height;
             const mapEl = document.getElementById('map') || map.getDiv();
             const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
-            const tailHeight = 124;  // Measured: 78 base + 46 correction for actual tail+gap
-            const markerRadius = 10;
+            // Use constants from centering.js (single source of truth)
+            const tailHeight = window.TAIL_HEIGHT || 78;
+            const markerRadius = window.MARKER_RADIUS || 10;
             const comboH = cardH + tailHeight + markerRadius;
             const canCenter = dvh >= 450 && comboH < dvh - 40;
 
