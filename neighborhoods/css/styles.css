@@ -15,8 +15,21 @@
     --one-dvh: 1dvh;
   }
 
+  /* Security: Prevent text selection (except inputs) */
   body {
     font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Allow selection in form elements */
+  input, textarea, [contenteditable="true"] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
   }
   
   h1, h2, h3, h4, h5, h6 {

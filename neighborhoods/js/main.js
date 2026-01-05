@@ -2,10 +2,58 @@
  * @file main.js
  * @description Main application logic for Neighborhood Finder
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
- * 
+ *
  * This file was extracted from inline scripts in index.html
  * for better maintainability and caching.
  */
+
+// ============================================================
+// SECURITY: UI Hardening (disable dev tools unless ?debug=true)
+// ============================================================
+(function() {
+    const urlParams = new URLSearchParams(window.location.search.replace(/&amp;/g, '&'));
+    const debugMode = urlParams.get('debug') === 'true';
+
+    if (debugMode) {
+        console.log('🔓 Debug mode: Developer tools enabled');
+        return; // Skip all security restrictions
+    }
+
+    // Block right-click context menu
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+    });
+
+    // Block developer tools keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        // F12
+        if (e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Dev Tools)
+        if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+U (View Source)
+        if (e.ctrlKey && e.keyCode === 85) {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+S (Save Page)
+        if (e.ctrlKey && e.keyCode === 83) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    console.log('🔒 Security: UI hardening active');
+})();
 
         // Helper: Parse URL params with HTML entity decoding (handles &amp; from WYSIWYG editors)
         function getUrlParams() {
