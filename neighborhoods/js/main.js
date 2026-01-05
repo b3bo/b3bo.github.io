@@ -2697,20 +2697,13 @@
         window.showAreaMarker = function(presetData) {
             // Wait for fitBounds animation to complete
             google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                // Compute centered marker position
-                const mapCenter = window.map.getCenter();
-                const currentZoom = window.map.getZoom();
-                const offsetPx = computeOffsetPx(currentZoom, true);
-                const markerPosition = offsetLatLng(
-                    { lat: mapCenter.lat(), lng: mapCenter.lng() },
-                    -offsetPx,
-                    currentZoom
-                );
+                // Use true geographic position from preset (same as single mode)
+                const markerPosition = presetData.position;
 
                 const areaData = window.createAreaMarkerData(presetData);
                 areaData.position = markerPosition;
 
-                // Create marker
+                // Create marker at true position
                 const markerContent = document.createElement('div');
                 markerContent.className = 'marker-pin area-marker';
                 markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
@@ -2737,7 +2730,7 @@
                 showAreaInfoWindowContent(marker, areaData, window.infoWindow);
                 window.activeMarker = marker;
 
-                // Apply proper centering after card renders
+                // Apply centering after card renders using single mode logic
                 setTimeout(() => {
                     requestAnimationFrame(() => {
                         const markerLatLng = new google.maps.LatLng(markerPosition);
