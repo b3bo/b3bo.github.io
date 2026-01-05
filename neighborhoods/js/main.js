@@ -1339,7 +1339,11 @@
                 // Re-render results and markers
                 renderResults();
                 window.addMarkers();
-                window.fitBoundsToNeighborhoods();
+                // Skip fitBounds when marker param present - centering handled by showAreaMarker
+                const markerParam = getUrlParams().get('marker');
+                if (!markerParam) {
+                    window.fitBoundsToNeighborhoods();
+                }
             }
 
             // ==========================================
@@ -1636,9 +1640,6 @@
             const offsetDiff = Math.abs(actualOffsetPx - estimatedOffsetPx);
             const CORRECTION_THRESHOLD = 15;
 
-            // Track if we're moving the map (affects how we wait for completion)
-            let mapWillMove = false;
-
             if (offsetDiff > CORRECTION_THRESHOLD) {
                 const zoom = map.getZoom();
                 const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), actualOffsetPx, zoom);
@@ -1646,16 +1647,15 @@
                 console.log('Single mode: applying micro-correction, diff:', offsetDiff, 'px, isInitial:', isInitialCentering);
                 // Use panTo for smooth adjustment instead of abrupt setCenter
                 map.panTo({ lat: adjustedLat, lng: markerLatLng.lng() });
-                mapWillMove = true;
             } else {
                 console.log('Single mode: no correction needed, diff:', offsetDiff, 'px (threshold:', CORRECTION_THRESHOLD, 'px)');
             }
             window.singleModeOffsetApplied = true;
 
-            // For initial centering: fade overlay and enable ResizeObserver
+            // For initial centering: wait for map idle, then fade overlay and enable ResizeObserver
             if (isInitialCentering && !initialCenteringComplete) {
-                const completeInitialCentering = () => {
-                    console.log('Single mode: completing initial centering');
+                google.maps.event.addListenerOnce(map, 'idle', () => {
+                    console.log('Single mode: map idle after initial centering');
                     initialCenteringComplete = true;
                     fadeOutOverlay();
 
@@ -1673,15 +1673,7 @@
                         });
                         singleModeResizeObserver.observe(iwContainer);
                     }
-                };
-
-                if (mapWillMove) {
-                    // Wait for map to finish moving
-                    google.maps.event.addListenerOnce(map, 'idle', completeInitialCentering);
-                } else {
-                    // Map already idle, complete immediately
-                    completeInitialCentering();
-                }
+                });
             }
         }
 
@@ -1920,7 +1912,11 @@
 
                     // Full mode
                     const markerSlug = urlParams.get('marker');
-                    window.fitBoundsToNeighborhoods();
+
+                    // Only fit to all neighborhoods if no marker param - otherwise we center on the marker
+                    if (!markerSlug) {
+                        window.fitBoundsToNeighborhoods();
+                    }
 
                     if (markerSlug) {
                         const presetData = window.areaPresets?.presets?.find(s => s.slug === markerSlug);
@@ -1949,8 +1945,13 @@
                                             m.neighborhood.propertyType === target.propertyType
                                         );
                                         if (markerObj) {
-                                            // Fly to marker and open info window
-                                            window.smoothFlyTo(target.position);
+                                            // Pan to pre-offset position for proper centering
+                                            const targetZoom = 14;
+                                            const offsetPx = computeOffsetPx(targetZoom, false); // false = not area marker
+                                            const offsetLat = preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom);
+                                            const centeredPosition = { lat: offsetLat, lng: target.position.lng };
+                                            window.map.setZoom(targetZoom);
+                                            window.map.panTo(centeredPosition);
                                             setTimeout(() => {
                                                 showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
                                                 window.activeMarker = markerObj.marker;
@@ -2724,10 +2725,21 @@
 
         // Show area marker and info window (called from button click handler)
         window.showAreaMarker = function(presetData) {
-            // Wait for fitBounds animation to complete
+            // Use true geographic position from preset (same as single mode)
+            const markerPosition = presetData.position;
+
+            // Pan to pre-offset position for proper centering (both button clicks and ?marker)
+            const targetZoom = 13;
+            const offsetPx = computeOffsetPx(targetZoom, true); // true = isAreaMarker
+            const offsetLat = preCalculateOffsetLat(markerPosition.lat, offsetPx, targetZoom);
+            const centeredPosition = { lat: offsetLat, lng: markerPosition.lng };
+
+            // Set zoom first, then pan to offset position
+            window.map.setZoom(targetZoom);
+            window.map.panTo(centeredPosition);
+
+            // Wait for map animation to complete
             google.maps.event.addListenerOnce(window.map, 'idle', () => {
-                // Use true geographic position from preset (same as single mode)
-                const markerPosition = presetData.position;
 
                 const areaData = window.createAreaMarkerData(presetData);
                 areaData.position = markerPosition;
