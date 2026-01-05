@@ -1636,6 +1636,9 @@
             const offsetDiff = Math.abs(actualOffsetPx - estimatedOffsetPx);
             const CORRECTION_THRESHOLD = 15;
 
+            // Track if we're moving the map (affects how we wait for completion)
+            let mapWillMove = false;
+
             if (offsetDiff > CORRECTION_THRESHOLD) {
                 const zoom = map.getZoom();
                 const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), actualOffsetPx, zoom);
@@ -1643,15 +1646,16 @@
                 console.log('Single mode: applying micro-correction, diff:', offsetDiff, 'px, isInitial:', isInitialCentering);
                 // Use panTo for smooth adjustment instead of abrupt setCenter
                 map.panTo({ lat: adjustedLat, lng: markerLatLng.lng() });
+                mapWillMove = true;
             } else {
                 console.log('Single mode: no correction needed, diff:', offsetDiff, 'px (threshold:', CORRECTION_THRESHOLD, 'px)');
             }
             window.singleModeOffsetApplied = true;
 
-            // For initial centering: wait for map idle, then fade overlay and enable ResizeObserver
+            // For initial centering: fade overlay and enable ResizeObserver
             if (isInitialCentering && !initialCenteringComplete) {
-                google.maps.event.addListenerOnce(map, 'idle', () => {
-                    console.log('Single mode: map idle after initial centering');
+                const completeInitialCentering = () => {
+                    console.log('Single mode: completing initial centering');
                     initialCenteringComplete = true;
                     fadeOutOverlay();
 
@@ -1669,7 +1673,15 @@
                         });
                         singleModeResizeObserver.observe(iwContainer);
                     }
-                });
+                };
+
+                if (mapWillMove) {
+                    // Wait for map to finish moving
+                    google.maps.event.addListenerOnce(map, 'idle', completeInitialCentering);
+                } else {
+                    // Map already idle, complete immediately
+                    completeInitialCentering();
+                }
             }
         }
 
