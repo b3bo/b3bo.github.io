@@ -2014,10 +2014,15 @@
             };
             window.tryInitializeMarkers();
 
-            // Log zoom level changes to console
+            // Log zoom level changes (only when integer zoom changes, not during animation)
+            let lastLoggedZoom = null;
             window.map.addListener('idle', () => {
                 if (window.map) {
-                    console.log('Zoom:', window.map.getZoom().toFixed(2));
+                    const currentZoom = Math.round(window.map.getZoom());
+                    if (currentZoom !== lastLoggedZoom) {
+                        console.log('Zoom:', currentZoom);
+                        lastLoggedZoom = currentZoom;
+                    }
                 }
             });
 
@@ -2780,88 +2785,119 @@
         // AREA MARKER MANAGEMENT
         // ==========================================
         window.areaMarkers = new Map(); // slug -> marker
+        window.activeAreaSlug = null; // Track which area is currently being viewed
 
         // Show area marker and info window (called from button click handler)
         window.showAreaMarker = function(presetData) {
-            // Use true geographic position from preset (same as single mode)
             const markerPosition = presetData.position;
-
-            // Pan to pre-offset position for proper centering
-            // Use heuristic offset first, then correct with actual card height after render
             const targetZoom = 13;
-            const offsetPx = computeOffsetPx(targetZoom, false); // Use neighborhood card height as base
-            const offsetLat = preCalculateOffsetLat(markerPosition.lat, offsetPx, targetZoom);
-            const centeredPosition = { lat: offsetLat, lng: markerPosition.lng };
 
-            // Use setCenter (instant) instead of panTo (animated) to avoid visible shift
-            // when correction is applied after card renders
-            window.map.setZoom(targetZoom);
-            window.map.setCenter(centeredPosition);
+            // Track this as the active area
+            window.activeAreaSlug = presetData.slug;
 
-            // Wait for map to be ready
-            google.maps.event.addListenerOnce(window.map, 'idle', () => {
+            // Create marker data and DOM element first (so it exists during flight)
+            const areaData = window.createAreaMarkerData(presetData);
+            areaData.position = markerPosition;
 
-                const areaData = window.createAreaMarkerData(presetData);
-                areaData.position = markerPosition;
+            const markerContent = document.createElement('div');
+            markerContent.className = 'marker-pin area-marker';
+            markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
+            markerContent.style.cursor = 'pointer';
+            markerContent.style.zIndex = '1000';
 
-                // Create marker at true position
-                const markerContent = document.createElement('div');
-                markerContent.className = 'marker-pin area-marker';
-                markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
-                markerContent.style.cursor = 'pointer';
-                markerContent.style.zIndex = '1000';
+            const marker = new google.maps.marker.AdvancedMarkerElement({
+                map: window.map,
+                position: markerPosition,
+                content: markerContent,
+                title: areaData.name + ' (Area)',
+                zIndex: 1000
+            });
+            marker.markerColor = '#4c8f96';
+            marker.areaSlug = presetData.slug; // Store slug on marker for lookup
 
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    map: window.map,
-                    position: markerPosition,
-                    content: markerContent,
-                    title: areaData.name + ' (Area)',
-                    zIndex: 1000
-                });
-                marker.markerColor = '#4c8f96';
-
-                marker.addListener('click', () => {
-                    showAreaInfoWindowContent(marker, areaData, window.infoWindow);
-                    window.activeMarker = marker;
-                });
-
-                window.markers.push({ marker, neighborhood: areaData });
-                window.areaMarkers.set(presetData.slug, marker);
-
+            marker.addListener('click', () => {
                 showAreaInfoWindowContent(marker, areaData, window.infoWindow);
                 window.activeMarker = marker;
-
-                // Apply correction after card renders using actual measured height
-                // This corrects any heuristic inaccuracy (no visible shift since both are instant setCenter)
-                setTimeout(() => {
-                    requestAnimationFrame(() => {
-                        const markerLatLng = new google.maps.LatLng(markerPosition);
-                        applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
-                    });
-                }, 100);
-
-                // Log centering diagnostics after info window renders
-                setTimeout(() => {
-                    if (window.logCenteringDiagnostics) {
-                        window.logCenteringDiagnostics(markerPosition);
-                    }
-                }, 500);
+                window.activeAreaSlug = presetData.slug;
             });
+
+            // Store marker data for info window access, but DON'T add to window.markers
+            // (addMarkers clears window.markers, which would wipe out our area markers)
+            marker.areaData = areaData;
+            window.areaMarkers.set(presetData.slug, marker);
+
+            // Smooth fly to the marker (smoothFlyTo handles offset calculation)
+            window.smoothFlyTo(markerPosition, targetZoom);
+
+            // Open info window after flight completes
+            const onFlyComplete = () => {
+                // Only open if this is still the active area (user may have clicked another)
+                if (window.activeAreaSlug === presetData.slug) {
+                    showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+                    window.activeMarker = marker;
+
+                    // Apply micro-correction after card renders
+                    setTimeout(() => {
+                        requestAnimationFrame(() => {
+                            const markerLatLng = new google.maps.LatLng(markerPosition);
+                            applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                        });
+                    }, 100);
+
+                    // Log centering diagnostics
+                    setTimeout(() => {
+                        if (window.logCenteringDiagnostics) {
+                            window.logCenteringDiagnostics(markerPosition);
+                        }
+                    }, 500);
+                }
+                // Remove listener after handling
+                window.eventBus?.off(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+            };
+            window.eventBus?.on(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
         };
 
         // Hide area marker (called when filter is deselected)
         window.hideAreaMarker = function(slug) {
             const marker = window.areaMarkers.get(slug);
-            if (marker) {
-                marker.map = null;
-                window.areaMarkers.delete(slug);
-                window.markers = window.markers.filter(m => m.marker !== marker);
-                // Close info window if this marker was active
-                if (window.activeMarker === marker) {
-                    window.infoWindow?.close();
-                    window.activeMarker = null;
+            if (!marker) return;
+
+            // Remove the marker from map
+            marker.map = null;
+            window.areaMarkers.delete(slug);
+
+            // Check if this was the active (currently viewed) area
+            const wasActiveArea = window.activeAreaSlug === slug;
+
+            if (wasActiveArea) {
+                window.infoWindow?.close();
+                window.activeMarker = null;
+                window.activeAreaSlug = null;
+
+                // Find the last remaining selected area and fly to it
+                const remainingAreas = Array.from(window.areaMarkers.keys());
+                if (remainingAreas.length > 0) {
+                    // Get the last one (most recently selected)
+                    const lastSlug = remainingAreas[remainingAreas.length - 1];
+                    const lastMarker = window.areaMarkers.get(lastSlug);
+                    if (lastMarker && lastMarker.position) {
+                        // Set as active and fly to it
+                        window.activeAreaSlug = lastSlug;
+                        window.smoothFlyTo(lastMarker.position, 13);
+
+                        // Open info window after flight (use marker.areaData)
+                        const onFlyComplete = () => {
+                            if (window.activeAreaSlug === lastSlug && lastMarker.areaData) {
+                                showAreaInfoWindowContent(lastMarker, lastMarker.areaData, window.infoWindow);
+                                window.activeMarker = lastMarker;
+                            }
+                            window.eventBus?.off(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+                        };
+                        window.eventBus?.on(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+                    }
                 }
             }
+            // If not the active area, just remove it - don't close info window or fly anywhere
         };
 
         // Expose addMarkers globally for theme toggle
