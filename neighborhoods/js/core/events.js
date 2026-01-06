@@ -270,6 +270,35 @@ export function registerCommonHandlers() {
             window._filterDebounce = setTimeout(() => window.applyFilters(), 50);
         }
     });
+
+    // Price preset clicks
+    onClick('.price-preset', (event, element) => {
+        const minIdx = parseInt(element.dataset.min, 10);
+        const maxIdx = parseInt(element.dataset.max, 10);
+
+        const priceMinSlider = document.getElementById('price-min');
+        const priceMaxSlider = document.getElementById('price-max');
+
+        if (priceMinSlider && priceMaxSlider) {
+            priceMinSlider.value = minIdx;
+            priceMaxSlider.value = maxIdx;
+
+            // Trigger input events to update display and filters
+            priceMinSlider.dispatchEvent(new Event('input', { bubbles: true }));
+            priceMaxSlider.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+
+        // Visual feedback - same pattern as amenity buttons
+        document.querySelectorAll('.price-preset').forEach(btn => {
+            btn.classList.remove('filter-btn-active');
+            btn.classList.add('filter-btn-inactive');
+        });
+        element.classList.remove('filter-btn-inactive');
+        element.classList.add('filter-btn-active');
+
+        if (window.applyFilters) window.applyFilters();
+        eventBus.emit(Events.FILTERS_CHANGED, { type: 'pricePreset' });
+    });
 }
 
 /**

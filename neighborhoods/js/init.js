@@ -9,7 +9,7 @@ import { formatPrice } from './utils.js';
 // Core infrastructure
 import { store } from './core/store.js';
 import { eventBus, Events } from './core/eventBus.js';
-import { initEventDelegation } from './core/events.js';
+import { initEventDelegation, registerCommonHandlers } from './core/events.js';
 
 // Feature modules (exposes window.* during transition)
 import { animateCount } from './animations/index.js';
@@ -24,6 +24,7 @@ import './keyboard/index.js';
 
 // Initialize event delegation layer (single listeners for performance)
 initEventDelegation();
+registerCommonHandlers();
 
 // Expose CONFIG globally so other scripts can use it
 window.CONFIG = CONFIG;

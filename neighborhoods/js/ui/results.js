@@ -90,14 +90,22 @@ export function renderResults() {
     // Update count with optional Clear pill (animated number)
     if (resultsCount) {
         const count = sorted.length;
-        const suffix = count === 1 ? ' Community' : ' Communities';
+        const suffix = count === 1 ? 'Neighborhood' : 'Neighborhoods';
         const clearBtn = hasActiveFilters()
-            ? ` <button id="clear-filters" class="ml-2 px-3 py-1 text-sm font-medium rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>`
+            ? ` <button id="clear-filters" class="ml-2 px-2 py-0.5 text-xs font-medium rounded-md border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-600 dark:text-dark-text-secondary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>`
             : '';
 
         // Use span for animated number - get last count from window
         const lastCount = window.lastDisplayedCount !== null ? window.lastDisplayedCount : count;
-        resultsCount.innerHTML = `<span class="count-number">${lastCount}</span>${suffix}${clearBtn}`;
+
+        // Put just the number in resultsCount
+        resultsCount.innerHTML = `<span class="count-number">${lastCount}</span>`;
+
+        // Put label + clear button in resultsLabel
+        const resultsLabel = document.getElementById('resultsLabel');
+        if (resultsLabel) {
+            resultsLabel.innerHTML = `${suffix}${clearBtn}`;
+        }
 
         // Animate the count change
         if (window.animateCount) {

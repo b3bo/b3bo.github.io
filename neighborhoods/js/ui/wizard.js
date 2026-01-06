@@ -252,16 +252,16 @@ function generateAmenitiesStep() {
     const amenityButtons = amenities
         .map(a => {
             const selected = wizardState.selections.amenities.has(a) ? 'selected' : '';
-            return `<button class="wizard-amenity-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${a}">${a}</button>`;
+            return `<button class="wizard-amenity-tag btn btn--pill hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${a}">${a}</button>`;
         })
-        .join('\n                ');
+            .join('\n                ');
 
     const rentalButtons = rentalPolicies
         .map(r => {
             const selected = wizardState.selections.amenities.has(r) ? 'selected' : '';
-            return `<button class="wizard-amenity-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${r}">${r === 'Short-Term' ? 'Short-Term OK' : 'No Short-Term'}</button>`;
+            return `<button class="wizard-amenity-tag btn btn--pill hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${r}">${r === 'Short-Term' ? 'Short-Term OK' : 'No Short-Term'}</button>`;
         })
-        .join('\n                ');
+            .join('\n                ');
 
     return `
         <div class="py-4">
@@ -295,37 +295,35 @@ function generateSummaryStep() {
                 These neighborhoods match your criteria.
             </p>
 
-            <!-- Results Stats Table -->
-            <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 mb-4">
-                <table class="w-full text-sm">
-                    <tbody>
-                        <tr class="border-b border-neutral-200 dark:border-dark-border">
-                            <td class="py-3 text-neutral-600 dark:text-dark-text-secondary">Matching Communities</td>
-                            <td class="py-3 text-right font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-communities">--</td>
-                        </tr>
-                        <tr class="border-b border-neutral-200 dark:border-dark-border">
-                            <td class="py-3 text-neutral-600 dark:text-dark-text-secondary">Total Active Listings</td>
-                            <td class="py-3 text-right font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-listings">--</td>
-                        </tr>
-                        <tr class="border-b border-neutral-200 dark:border-dark-border">
-                            <td class="py-3 text-neutral-600 dark:text-dark-text-secondary">Price Range</td>
-                            <td class="py-3 text-right font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-price-range">--</td>
-                        </tr>
-                        <tr class="border-b border-neutral-200 dark:border-dark-border">
-                            <td class="py-3 text-neutral-600 dark:text-dark-text-secondary">Median Price</td>
-                            <td class="py-3 text-right font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-median">--</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 text-neutral-600 dark:text-dark-text-secondary">Avg Days on Market</td>
-                            <td class="py-3 text-right font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-dom">--</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Hero Number -->
+            <div class="text-center mb-6">
+                <div class="text-5xl font-bold text-brand-600 dark:text-brand-dark" id="wizard-stat-communities">--</div>
+                <div class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Matching Neighborhoods</div>
             </div>
 
-            <!-- Top Communities Preview -->
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
+                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-listings">--</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Active Listings</div>
+                </div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
+                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-median">--</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Median Price</div>
+                </div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
+                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-price-range">--</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Price Range</div>
+                </div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
+                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-dom">--</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Avg Days on Market</div>
+                </div>
+            </div>
+
+            <!-- Top Neighborhoods Preview -->
             <div id="wizard-top-communities">
-                <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2 block">Top Communities by Listings</span>
+                <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2 block">Top Neighborhoods by Listings</span>
                 <div id="wizard-top-list" class="space-y-2">
                     <!-- Populated dynamically -->
                 </div>
@@ -760,7 +758,7 @@ function calculateAndDisplayStats() {
     if (medianEl) medianEl.textContent = medianPrice > 0 ? formatPrice(medianPrice) : 'N/A';
     if (domEl) domEl.textContent = avgDom > 0 ? `${avgDom} days` : 'N/A';
 
-    // Top 3 communities by listings
+    // Top 3 neighborhoods by listings
     const top3 = [...filtered].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 3);
 
     const topListEl = document.getElementById('wizard-top-list');
@@ -778,7 +776,7 @@ function calculateAndDisplayStats() {
                 .join('');
         } else {
             topListEl.innerHTML =
-                '<p class="text-sm text-neutral-500 dark:text-neutral-400 text-center py-2">No matching communities found</p>';
+                '<p class="text-sm text-neutral-500 dark:text-neutral-400 text-center py-2">No matching neighborhoods found</p>';
         }
     }
 }

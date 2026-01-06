@@ -329,6 +329,12 @@ export function clearAllFilters() {
         btn.classList.remove('selected');
     });
 
+    // Reset price preset buttons to default (unselected) state
+    document.querySelectorAll('.price-preset').forEach(btn => {
+        btn.classList.remove('filter-btn-active');
+        btn.classList.add('filter-btn-inactive');
+    });
+
     // Clear any visible map boundaries
     if (window.customBoundaries && window.hideCustomBoundary) {
         const boundariesToClear = [...window.customBoundaries];

@@ -510,6 +510,26 @@ hr.divider {
     border-color: var(--color-brand-dark);
     color: white;
 }
+
+/* Property type button icons and text when active */
+#btn-homes.active svg,
+#btn-condos.active svg,
+#btn-homes.active span,
+#btn-condos.active span {
+    color: white;
+}
+
+/* Property type button default icon/text colors */
+#btn-homes:not(.active) svg,
+#btn-condos:not(.active) svg {
+    color: var(--color-neutral-400);
+}
+
+#btn-homes:not(.active) span,
+#btn-condos:not(.active) span {
+    color: var(--color-neutral-600);
+}
+
 /* ========================================================================
    LAZY LOADING - Image Performance
    ======================================================================== */
@@ -1148,6 +1168,64 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
     background-color: var(--color-brand-dark) !important;
     border-color: var(--color-brand-dark) !important;
     color: white !important;
+}
+
+/* Generic button system (professional BEM-like) */
+/* Base button */
+button.btn,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .375rem .75rem; /* approx px-3 py-1.5 */
+    border-radius: .5rem; /* rounded-lg */
+    font-size: .875rem; /* text-sm */
+    font-weight: 500;
+    border: 1px solid var(--color-neutral-300);
+    background-color: #ffffff;
+    color: var(--color-neutral-700);
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.dark button.btn,
+.dark .btn {
+    background-color: var(--color-dark-bg-elevated);
+    color: var(--color-dark-text-primary);
+    border-color: var(--color-dark-border);
+}
+
+/* Pill modifier */
+.btn--pill {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+/* Selected / active state (matches amenity selected look) */
+.btn.selected,
+.btn.is-selected,
+button.btn.selected,
+button.btn.is-selected {
+    background-color: var(--color-brand-base);
+    border-color: var(--color-brand-base);
+    color: white;
+}
+.dark .btn.selected,
+.dark .btn.is-selected,
+.dark button.btn.selected,
+.dark button.btn.is-selected {
+    background-color: var(--color-brand-dark);
+    border-color: var(--color-brand-dark);
+    color: white;
+}
+
+/* Ensure existing 'amenity-tag' and 'price-preset' still behave as buttons */
+.amenity-tag,
+.wizard-amenity-tag,
+.price-preset,
+.area-tag,
+.wizard-area-tag {
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 
 /* Summary stats highlight animation */

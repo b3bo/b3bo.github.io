@@ -2918,20 +2918,23 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <!-- ========================================== -->
             <div class="flex-shrink-0 w-full overflow-x-hidden">
                 <!-- Logo + Title -->
-                <div class="p-5 pb-4 flex items-center gap-3">
+                <div class="pt-7 pl-8 pr-5 pb-4 flex items-center gap-3">
                     <div class="w-10 h-10 bg-neutral-800 dark:bg-neutral-700 rounded-lg flex items-center justify-center shrink-0">
                         <span style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
                     </div>
                     <div class="flex-1">
-                        <h1 class="text-lg font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
-                        <p class="text-xs text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
+                        <h1 class="text-xl font-heading font-semibold text-neutral-700 dark:text-dark-text-primary">Neighborhood Finder&trade;</h1>
+                        <p class="text-sm text-neutral-500 dark:text-dark-text-secondary">30A & Florida's Emerald Coast</p>
                     </div>
                 </div>
 
                 <!-- Results count -->
                 <div class="px-5">
                     <hr class="divider">
-                    <p id="resultsCount" class="text-sm text-neutral-500 dark:text-dark-text-secondary font-medium text-center py-4">Loading...</p>
+                    <div class="text-center py-6">
+                        <div id="resultsCount" class="text-2xl font-semibold text-neutral-700 dark:text-dark-text-primary">--</div>
+                        <div id="resultsLabel" class="text-sm text-neutral-500 dark:text-dark-text-secondary mt-1">Neighborhoods</div>
+                    </div>
                     <hr class="divider">
                 </div>
             </div>
@@ -2945,11 +2948,11 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                 <div id="main-menu" class="pt-3 h-full overflow-y-auto overflow-x-hidden overscroll-contain px-5">
                     <div class="space-y-2">
                         <!-- Get Started / Wizard Trigger -->
-                        <button id="wizard-trigger" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
-                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Get Started</span>
+                        <button id="wizard-trigger" class="w-full flex items-center gap-3 py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
                             <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                             </svg>
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Get Started</span>
                         </button>
 
                         <!-- Property Type Menu Item -->
@@ -2993,18 +2996,16 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                         </div>
 
                         <!-- Theme Toggle -->
-                        <button id="theme-toggle" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
+                        <button id="theme-toggle" class="w-full flex items-center gap-3 py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
+                            <!-- Sun icon (light mode) -->
+                            <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <!-- Moon icon (dark mode) -->
+                            <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
-                            <div class="flex items-center gap-2">
-                                <!-- Sun icon (light mode) -->
-                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-light dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                                <!-- Moon icon (dark mode) -->
-                                <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark theme-icon-dark hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                </svg>
-                            </div>
                         </button>
                     </div>
                 </div>
@@ -3025,12 +3026,18 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3" tabindex="-1">
-                        <div role="group" aria-label="Property type" class="flex gap-2 pt-1 pb-6 px-3">
-                            <button id="btn-homes" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
-                                Homes
+                        <div role="group" aria-label="Property type" class="flex gap-3 pt-1 pb-6 px-3">
+                            <button id="btn-homes" class="flex-1 flex flex-col items-center gap-2 p-4 rounded-xl border border-neutral-200 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-all cursor-pointer">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                                <span class="text-sm font-medium">Homes</span>
                             </button>
-                            <button id="btn-condos" class="flex-1 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer">
-                                Condos
+                            <button id="btn-condos" class="flex-1 flex flex-col items-center gap-2 p-4 rounded-xl border border-neutral-200 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-all cursor-pointer">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                                <span class="text-sm font-medium">Condos</span>
                             </button>
                         </div>
                     </div>
@@ -3049,6 +3056,18 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content pr-3" tabindex="-1">
                         <div class="space-y-6 px-3">
+                            <!-- Price Presets -->
+                            <div>
+                                <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3 block">Presets</span>
+                                <div role="group" aria-label="Price presets" class="flex flex-wrap gap-2">
+                                    <button class="price-preset amenity-tag btn btn--pill inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-min="0" data-max="10">Value</button>
+                                    <button class="price-preset amenity-tag btn btn--pill inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-min="10" data-max="17">Mid-Tier</button>
+                                    <button class="price-preset amenity-tag btn btn--pill inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-min="17" data-max="23">Premium</button>
+                                    <button class="price-preset amenity-tag btn btn--pill inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-min="23" data-max="33">Luxury</button>
+                                    <button class="price-preset amenity-tag btn btn--pill inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-min="33" data-max="41">Ultra-Lux</button>
+                                </div>
+                            </div>
+
                             <!-- Price Range (dual-thumb) -->
                             <div>
                                 <div class="flex justify-between items-baseline mb-1">
@@ -3104,19 +3123,21 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content" tabindex="-1">
-                        <div role="group" aria-label="Cities" class="flex flex-wrap gap-2 pb-4">
+                        <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3 block px-3">Cities</span>
+                        <div role="group" aria-label="Cities" class="flex flex-wrap gap-2 pb-6 px-3">
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32541">Destin</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32459">Santa Rosa Beach</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32550">Miramar Beach</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32461">Inlet Beach</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-zipcode="32413">Panama City Beach</button>
                         </div>
-                        <hr class="divider mx-4 my-3 pb-4">
-                        <div role="group" aria-label="Sub-areas" class="flex flex-wrap gap-2">
+                        <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3 block px-3">Sub-Areas</span>
+                        <div role="group" aria-label="Sub-areas" class="flex flex-wrap gap-2 px-3">
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="17 - 30A West">West 30A</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="18 - 30A East">East 30A</button>
                             <button class="area-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-subarea="1503 - Sandestin Resort">Sandestin</button>
                         </div>
+                        <p class="text-xs text-neutral-400 dark:text-neutral-500 text-center mt-6 px-3">Or skip to search the entire coast</p>
                     </div>
                 </div>
 
@@ -3132,7 +3153,8 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                     </div>
                     <hr class="divider mx-4 pb-4">
                     <div class="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain panel-content" tabindex="-1">
-                        <div role="group" aria-label="Amenities" class="flex flex-wrap gap-2 pb-4">
+                        <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3 block px-3">Features</span>
+                        <div role="group" aria-label="Amenities" class="flex flex-wrap gap-2 pb-6 px-3">
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Beach Access">Beach Access</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Clubhouse">Clubhouse</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Community Pool">Community Pool</button>
@@ -3148,11 +3170,12 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Waterfront">Waterfront</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Waterview">Waterview</button>
                         </div>
-                        <hr class="divider mx-4 my-3 pb-4">
-                        <div role="group" aria-label="Rental policy" class="flex flex-wrap gap-2">
-                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Short-Term">Short-Term</button>
+                        <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3 block px-3">Rental Policy</span>
+                        <div role="group" aria-label="Rental policy" class="flex flex-wrap gap-2 px-3">
+                            <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="Short-Term Allowed">Short-Term OK</button>
                             <button class="amenity-tag inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors cursor-pointer" data-amenity="No Short-Term">No Short-Term</button>
                         </div>
+                        <p class="text-xs text-neutral-400 dark:text-neutral-500 text-center mt-6 px-3">Select the amenities that matter most to you.</p>
                     </div>
                 </div>
 
@@ -3235,7 +3258,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 6 | v1.1.53</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 6 | v1.1.54</p>
                 </div>
             </div>
 
@@ -3362,9 +3385,6 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
 
                     <!-- Left: Vertical Step Indicator -->
                     <div class="hidden sm:flex flex-col w-52 bg-neutral-50 dark:bg-dark-bg-elevated-2 p-5 border-r border-neutral-200 dark:border-dark-border flex-shrink-0">
-                        <h3 class="text-sm font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Neighborhood Finder</h3>
-                        <p class="text-xs text-neutral-500 dark:text-neutral-400 mb-6">Find your perfect community</p>
-
                         <!-- Vertical Steps Container -->
                         <div id="wizard-steps-vertical" class="relative flex-1">
                             <!-- Step items rendered by JS -->
