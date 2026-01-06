@@ -762,7 +762,8 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
 }
 
 /* Panel content fade effect when scrollable */
-.panel-content.has-overflow {
+.panel-content.has-overflow,
+#main-menu.has-overflow {
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }

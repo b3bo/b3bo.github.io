@@ -401,6 +401,14 @@ export function registerCommonHandlers() {
         if (window.applyFilters) window.applyFilters();
         eventBus.emit(Events.FILTERS_CHANGED, { type: 'pricePreset' });
     });
+
+    // Check main menu overflow on load
+    setTimeout(() => {
+        const mainMenu = document.getElementById('main-menu');
+        if (mainMenu && mainMenu.scrollHeight > mainMenu.clientHeight + 4) {
+            mainMenu.classList.add('has-overflow');
+        }
+    }, 200);
 }
 
 /**
