@@ -145,6 +145,16 @@ export function registerCommonHandlers() {
             setTimeout(() => {
                 const focusable = panel.querySelector('button, input, [tabindex="0"]');
                 focusable?.focus();
+
+                // Detect overflow and add fade class if panel content is scrollable
+                const panelContent = panel.querySelector('.panel-content');
+                if (panelContent) {
+                    if (panelContent.scrollHeight > panelContent.clientHeight + 4) {
+                        panelContent.classList.add('has-overflow');
+                    } else {
+                        panelContent.classList.remove('has-overflow');
+                    }
+                }
             }, 100);
 
             eventBus.emit(Events.PANEL_OPENED, { panelId });

@@ -761,6 +761,12 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
+/* Panel content fade effect when scrollable */
+.panel-content.has-overflow {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
 /* Single mode: hide sidebar before paint */
 .single-mode #sidebar,
 .single-mode #drawer-toggle,

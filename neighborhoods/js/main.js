@@ -809,13 +809,13 @@ function initApp() {
 
     // Reset all filters to defaults
     function clearAllFilters() {
-        // Reset filter state
+        // Reset filter state (both price at 0 = no filter)
         window.filterState = {
             propertyType: null,
             areas: new Set(),
             amenities: new Set(),
             priceMin: 0,
-            priceMax: 41,
+            priceMax: 0,
             bedsMin: 1,
             bathsMin: 1
         };
@@ -825,11 +825,11 @@ function initApp() {
         const searchInput = document.getElementById('search-input');
         if (searchInput) searchInput.value = '';
 
-        // Reset UI controls
+        // Reset UI controls - both sliders at 0 for "no filter" state
         const priceMin = document.getElementById('price-min');
         const priceMax = document.getElementById('price-max');
         if (priceMin) priceMin.value = 0;
-        if (priceMax) priceMax.value = 41;
+        if (priceMax) priceMax.value = 0;
 
         const bedsSlider = document.getElementById('beds-slider');
         const bathsSlider = document.getElementById('baths-slider');
@@ -880,6 +880,13 @@ function initApp() {
         // Update price display
         const priceDisplay = document.getElementById('price-display');
         if (priceDisplay) priceDisplay.textContent = '$250K - $35M+';
+
+        // Update price fill (0,0 = no fill)
+        const priceFill = document.getElementById('price-fill');
+        if (priceFill) {
+            priceFill.style.left = '0';
+            priceFill.style.width = '0';
+        }
 
         // Update beds/baths displays
         const bedsDisplay = document.getElementById('beds-display');

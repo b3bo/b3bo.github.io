@@ -277,13 +277,13 @@ export function applyFilters() {
  * Reset all filters to default state.
  */
 export function clearAllFilters() {
-    // Reset filter state
+    // Reset filter state (both price at 0 = no filter)
     window.filterState = {
         propertyType: null,
         areas: new Set(),
         amenities: new Set(),
         priceMin: 0,
-        priceMax: 41,
+        priceMax: 0,
         bedsMin: 1,
         bathsMin: 1
     };
@@ -293,11 +293,11 @@ export function clearAllFilters() {
     const searchInput = document.getElementById('search-input');
     if (searchInput) searchInput.value = '';
 
-    // Reset UI controls
+    // Reset UI controls - both sliders at 0 for "no filter" state
     const priceMin = document.getElementById('price-min');
     const priceMax = document.getElementById('price-max');
     if (priceMin) priceMin.value = 0;
-    if (priceMax) priceMax.value = 41;
+    if (priceMax) priceMax.value = 0;
 
     const bedsSlider = document.getElementById('beds-min');
     const bathsSlider = document.getElementById('baths-min');
@@ -366,13 +366,13 @@ export function clearAllFilters() {
     if (bedsDisplay) bedsDisplay.textContent = 'Any';
     if (bathsDisplay) bathsDisplay.textContent = 'Any';
 
-    // Update fills to default
+    // Update fills to default (price at 0,0 = no fill)
     const priceFill = document.getElementById('price-fill');
     const bedsFill = document.getElementById('beds-fill');
     const bathsFill = document.getElementById('baths-fill');
     if (priceFill) {
         priceFill.style.left = '0';
-        priceFill.style.width = '100%';
+        priceFill.style.width = '0';
     }
     if (bedsFill) bedsFill.style.width = '0%';
     if (bathsFill) bathsFill.style.width = '0%';
