@@ -743,7 +743,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
   },
   "lakewood-pointe-estates": {
     "lat": 30.311823,
-    "lng": -86.089456
+    "lng": -86.091482
   },
   "lakewood-of-seagrove-beach": {
     "lat": 30.310474,
@@ -1083,7 +1083,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
   },
   "beachview-heights": {
     "lat": 30.360733,
-    "lng": -86.265249
+    "lng": -86.264103
   },
   "bella-vita": {
     "lat": 30.339644,
@@ -2976,6 +2976,14 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                             </svg>
                         </div>
 
+                        <!-- Get Started / Wizard Trigger -->
+                        <button id="wizard-trigger" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
+                            <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Get Started</span>
+                            <svg class="w-5 h-5 text-brand-500 dark:text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                            </svg>
+                        </button>
+
                         <!-- Theme Toggle -->
                         <button id="theme-toggle" class="w-full flex items-center justify-between py-4 cursor-pointer transition-colors rounded-lg hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30 px-3">
                             <span class="text-[0.9375rem] font-medium text-neutral-700 dark:text-dark-text-primary">Theme</span>
@@ -3039,7 +3047,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                             <div>
                                 <div class="flex justify-between items-baseline mb-1">
                                     <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Beds</span>
-                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="beds-display">1+</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="beds-display">Any</span>
                                 </div>
                                 <div class="range-slider">
                                     <div class="range-track-bg"></div>
@@ -3052,7 +3060,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
                             <div>
                                 <div class="flex justify-between items-baseline mb-1">
                                     <span class="text-xs font-medium text-neutral-500 dark:text-dark-text-secondary">Baths</span>
-                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="baths-display">1+</span>
+                                    <span class="text-sm font-semibold text-neutral-700 dark:text-dark-text-primary" id="baths-display">Any</span>
                                 </div>
                                 <div class="range-slider">
                                     <div class="range-track-bg"></div>
@@ -3207,7 +3215,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 5 | v1.1.49</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 5 | v1.1.50</p>
                 </div>
             </div>
 
@@ -3309,6 +3317,68 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             </p>
         </div>
 
+    </div>
+
+    <!-- ========================================== -->
+    <!-- ONBOARDING WIZARD MODAL                   -->
+    <!-- ========================================== -->
+    <div id="wizard-modal" class="fixed inset-0 z-[1200] hidden" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
+        <!-- Backdrop -->
+        <div id="wizard-backdrop" class="absolute inset-0 bg-black/50 dark:bg-black/70 transition-opacity"></div>
+
+        <!-- Centered Card Container -->
+        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div id="wizard-card" class="relative bg-white dark:bg-dark-bg-elevated rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden pointer-events-auto transform transition-all">
+
+                <!-- Close Button -->
+                <button id="wizard-close" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors z-10" aria-label="Close wizard">
+                    <svg class="w-5 h-5 text-neutral-500 dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+
+                <!-- Main Layout: Vertical Stepper + Content -->
+                <div class="flex flex-col sm:flex-row min-h-[520px]">
+
+                    <!-- Left: Vertical Step Indicator -->
+                    <div class="hidden sm:flex flex-col w-52 bg-neutral-50 dark:bg-dark-bg-elevated-2 p-5 border-r border-neutral-200 dark:border-dark-border flex-shrink-0">
+                        <h3 class="text-sm font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Neighborhood Finder</h3>
+                        <p class="text-xs text-neutral-500 dark:text-neutral-400 mb-6">Find your perfect community</p>
+
+                        <!-- Vertical Steps Container -->
+                        <div id="wizard-steps-vertical" class="relative flex-1">
+                            <!-- Step items rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Content Area -->
+                    <div class="flex-1 flex flex-col min-w-0">
+                        <!-- Mobile: Horizontal Progress -->
+                        <div class="sm:hidden flex items-center gap-3 px-5 pt-5 pb-2">
+                            <div class="flex-1 h-1.5 bg-neutral-200 dark:bg-dark-border rounded-full overflow-hidden">
+                                <div id="wizard-progress-bar" class="h-full bg-brand-500 dark:bg-brand-dark transition-all duration-300" style="width: 16.67%;"></div>
+                            </div>
+                            <span id="wizard-step-count" class="text-xs font-medium text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Step 1/6</span>
+                        </div>
+
+                        <!-- Step Content -->
+                        <div id="wizard-content" class="flex-1 px-6 py-4 overflow-y-auto">
+                            <!-- Rendered by JavaScript -->
+                        </div>
+
+                        <!-- Navigation Footer -->
+                        <div class="flex justify-between items-center px-6 py-4 border-t border-neutral-200 dark:border-dark-border">
+                            <button id="wizard-back" class="px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                Back
+                            </button>
+                            <button id="wizard-next" class="px-6 py-2.5 text-sm font-medium text-white bg-brand-500 hover:bg-brand-600 dark:bg-brand-dark dark:hover:bg-brand-dark-hover rounded-lg transition-colors">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="./neighborhoods/js/init.js"></script>

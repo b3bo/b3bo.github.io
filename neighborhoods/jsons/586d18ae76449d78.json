@@ -1,6 +1,6 @@
 {
   "type": "area-presets",
-  "updated": "2026-01-05T11:53:19.585697",
+  "updated": "2026-01-05T21:47:07.422072",
   "presets": [
     {
       "name": "Destin",
@@ -82,7 +82,7 @@
         "lng": -86.205098
       },
       "stats": {
-        "listingCount": 741,
+        "listingCount": 739,
         "medianPrice": 1100000,
         "avgPricePerSqFt": 695,
         "avgDom": 140
@@ -358,7 +358,7 @@
         "lng": -86.226185
       },
       "stats": {
-        "listingCount": 298,
+        "listingCount": 297,
         "medianPrice": 1496000,
         "avgPricePerSqFt": 778,
         "avgDom": 143
@@ -427,7 +427,7 @@
         "lng": -86.066628
       },
       "stats": {
-        "listingCount": 599,
+        "listingCount": 598,
         "medianPrice": 1799000,
         "avgPricePerSqFt": 970,
         "avgDom": 154

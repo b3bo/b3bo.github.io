@@ -17,6 +17,7 @@ import './map/centering.js';
 import './map/boundaries.js';
 import './ui/results.js';
 import './ui/infoWindow.js';
+import { initWizard } from './ui/wizard.js';
 import './filters/index.js';
 import './search/index.js';
 import './keyboard/index.js';
@@ -94,3 +95,6 @@ window.dispatchEvent(new Event('dataLoaded'));
 if (window.tryInitializeMarkers) {
     window.tryInitializeMarkers();
 }
+
+// Initialize onboarding wizard
+initWizard();

@@ -804,3 +804,199 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
   70% { height: 0.5em; box-shadow: 0.5em -1em rgba(76, 143, 150, 0.85), -0.5em 1em rgba(192, 192, 192, 0.85); }
   100% { box-shadow: 0.5em 1em rgba(76, 143, 150, 0.85), -0.5em -1em rgba(192, 192, 192, 0.85); }
 }
+
+/* ========================================================================
+   ONBOARDING WIZARD STYLES
+   ======================================================================== */
+
+/* Modal entrance/exit animation */
+#wizard-modal {
+  transition: opacity 0.2s ease-out;
+}
+#wizard-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#wizard-modal:not(.hidden) {
+  opacity: 1;
+}
+
+/* Card entrance animation */
+#wizard-card {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+#wizard-modal.hidden #wizard-card {
+  transform: scale(0.95) translateY(10px);
+  opacity: 0;
+}
+#wizard-modal:not(.hidden) #wizard-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Vertical Step Indicator */
+.wizard-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  position: relative;
+}
+
+/* Connecting line between steps */
+.wizard-step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 42px;
+  width: 2px;
+  height: calc(100% - 18px);
+  background-color: var(--color-neutral-200);
+}
+.dark .wizard-step-item:not(:last-child)::after {
+  background-color: var(--color-dark-border, #2d3440);
+}
+.wizard-step-item.completed:not(:last-child)::after {
+  background-color: var(--color-neutral-800);
+}
+.dark .wizard-step-item.completed:not(:last-child)::after {
+  background-color: var(--color-neutral-700);
+}
+
+/* Step circle (number or checkmark) */
+.wizard-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  border: 2px solid var(--color-neutral-300);
+  background-color: white;
+  color: var(--color-neutral-500);
+}
+.dark .wizard-step-circle {
+  border-color: var(--color-dark-border, #2d3440);
+  background-color: var(--color-dark-bg-elevated, #1a1f26);
+  color: var(--color-neutral-400);
+}
+
+/* Active step */
+.wizard-step-item.active .wizard-step-circle {
+  border-color: var(--color-brand-base);
+  background-color: var(--color-brand-base);
+  color: white;
+}
+.dark .wizard-step-item.active .wizard-step-circle {
+  border-color: var(--color-brand-dark);
+  background-color: var(--color-brand-dark);
+  color: white;
+}
+
+/* Completed step - dark neutral checkmark */
+.wizard-step-item.completed .wizard-step-circle {
+  border-color: var(--color-neutral-800);
+  background-color: var(--color-neutral-800);
+  color: white;
+}
+.dark .wizard-step-item.completed .wizard-step-circle {
+  border-color: var(--color-neutral-700);
+  background-color: var(--color-neutral-700);
+}
+
+/* Step text labels */
+.wizard-step-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-neutral-600);
+  line-height: 1.3;
+}
+.wizard-step-sublabel {
+  font-size: 0.6875rem;
+  color: var(--color-neutral-400);
+  margin-top: 2px;
+}
+.dark .wizard-step-label {
+  color: var(--color-dark-text-secondary, #9ca3af);
+}
+.dark .wizard-step-sublabel {
+  color: var(--color-neutral-500);
+}
+.wizard-step-item.active .wizard-step-label {
+  color: var(--color-brand-base);
+  font-weight: 600;
+}
+.dark .wizard-step-item.active .wizard-step-label {
+  color: var(--color-brand-dark);
+}
+.wizard-step-item.completed .wizard-step-label {
+  color: var(--color-neutral-700);
+}
+.dark .wizard-step-item.completed .wizard-step-label {
+  color: var(--color-dark-text-primary, #e8eaed);
+}
+
+/* Property type selection cards */
+.wizard-prop-type {
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.wizard-prop-type.selected {
+  border-color: var(--color-brand-base) !important;
+  background-color: var(--color-brand-light) !important;
+}
+.wizard-prop-type.selected svg {
+  color: var(--color-brand-base);
+}
+.dark .wizard-prop-type.selected {
+  border-color: var(--color-brand-dark) !important;
+  background-color: rgba(var(--color-brand-rgb), 0.15) !important;
+}
+.dark .wizard-prop-type.selected svg {
+  color: var(--color-brand-dark);
+}
+
+/* Area and Amenity tag selection */
+.wizard-area-tag,
+.wizard-amenity-tag {
+  transition: all 0.15s ease;
+}
+.wizard-area-tag.selected,
+.wizard-amenity-tag.selected {
+  background-color: var(--color-brand-base) !important;
+  border-color: var(--color-brand-base) !important;
+  color: white !important;
+}
+.dark .wizard-area-tag.selected,
+.dark .wizard-amenity-tag.selected {
+  background-color: var(--color-brand-dark) !important;
+  border-color: var(--color-brand-dark) !important;
+  color: white !important;
+}
+
+/* Summary stats highlight animation */
+@keyframes wizard-stat-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+.wizard-stat-highlight {
+  animation: wizard-stat-pop 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  #wizard-card {
+    margin: 0.5rem;
+    max-height: calc(100vh - 1rem);
+  }
+  #wizard-content {
+    max-height: calc(100vh - 160px) !important;
+  }
+  .wizard-prop-type {
+    padding: 1rem !important;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "area": "14 - Destin",
-  "updated": "2026-01-05T11:53:19.574936",
+  "updated": "2026-01-05T21:47:07.410690",
   "neighborhoods": [
     {
       "name": "Aegean",
@@ -3988,7 +3988,7 @@
       "propertyType": "homes",
       "position": {
         "lat": 30.392655,
-        "lng": -86.455179
+        "lng": -86.457202
       },
       "location": {
         "city": "Destin",
@@ -3998,12 +3998,12 @@
       "zipCode": "32541",
       "stats": {
         "listingCount": 1,
-        "avgPrice": 579890,
-        "avgPriceDisplay": "$579,890",
-        "medianPrice": 595000,
-        "avgSqft": 1993,
-        "avgPricePerSqFt": 291,
-        "avgDom": 118,
+        "avgPrice": 579445,
+        "avgPriceDisplay": "$579,445",
+        "medianPrice": 575000,
+        "avgSqft": 1977,
+        "avgPricePerSqFt": 293,
+        "avgDom": 108,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -4033,7 +4033,8 @@
         "INDIAN LAKE",
         "INDIAN LAKE PH 1",
         "INDIAN LAKE PH 2",
-        "INDIAN LAKE PH 3"
+        "INDIAN LAKE PH 3",
+        "Indian Lakes"
       ],
       "searchId": "4004642",
       "urlSlug": "/indian-lake/"

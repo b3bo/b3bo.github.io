@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2026-01-05T11:53:19.572928",
+  "updated": "2026-01-05T21:47:07.408613",
   "neighborhoods": [
     {
       "name": "Adagio",
@@ -348,7 +348,7 @@
       "propertyType": "homes",
       "position": {
         "lat": 30.360733,
-        "lng": -86.265249
+        "lng": -86.264103
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -357,13 +357,13 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 3,
-        "avgPrice": 3075700,
-        "avgPriceDisplay": "$3,075,700",
-        "medianPrice": 2890000,
-        "avgSqft": 4799,
-        "avgPricePerSqFt": 641,
-        "avgDom": 127,
+        "listingCount": 2,
+        "avgPrice": 3270875,
+        "avgPriceDisplay": "$3,270,875",
+        "medianPrice": 2995000,
+        "avgSqft": 4987,
+        "avgPricePerSqFt": 656,
+        "avgDom": 116,
         "priceRange": "N/A",
         "minPrice": null,
         "maxPrice": null,
@@ -391,7 +391,6 @@
       },
       "listingsUrlMap": "",
       "mlsSubdivisions": [
-        "BEACH VIEW HEIGHTS UNREC",
         "BEACH VIEW HGTS S/D",
         "Beach View Heights",
         "Beachview Heights"
