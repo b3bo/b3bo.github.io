@@ -3,4 +3,181 @@
  * @description Results list rendering and sorting for neighborhood sidebar.
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  */
-import{eventBus as e,Events as t}from"../core/eventBus.js";export function formatAmenitiesWithSelection(e){if(!e||0===e.length)return"No amenities listed";const t=window.filterState?.amenities||new Set;return e.map(e=>t.has(e)?`<strong>${e}</strong>`:e).join(", ")+"."}export function listingLabelForType(e){const t=(e||"").toLowerCase();return t.includes("townhome")?"Active T/H Listings":t.includes("condo")?"Active Condo Listings":t.includes("home")?"Active Home Listings":"Active Listings"}export function hasActiveFilters(){const e=window.filterState||{},t=(window.neighborhoods||[]).length;return(window.filteredNeighborhoods||[]).length<t||!!window.searchQuery||!!e.propertyType||!!(e.areas&&e.areas.size>0)||!!(e.amenities&&e.amenities.size>0)||e.priceMin>0||e.priceMax<41||e.bedsMin>1||e.bathsMin>1}export function renderResults(){const n=document.getElementById("neighborhoodList"),r=document.getElementById("resultsCount");if(!n)return;const i=window.filteredNeighborhoods||[],o=window.sortOrder||"listings-desc",a=[...i].sort((e,t)=>{const n=e.stats?.medianPrice||e.stats?.avgPrice||0,r=t.stats?.medianPrice||t.stats?.avgPrice||0,i=e.stats?.listingCount||0,a=t.stats?.listingCount||0;switch(o){case"name-asc":default:return e.name.localeCompare(t.name);case"name-desc":return t.name.localeCompare(e.name);case"price-asc":return n-r;case"price-desc":return r-n;case"listings-desc":return a-i}});if(r){const e=a.length,t=1===e?" Community":" Communities",n=hasActiveFilters()?' <button id="clear-filters" class="ml-2 px-3 py-1 text-sm font-medium rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>':"",i=null!==window.lastDisplayedCount?window.lastDisplayedCount:e;if(r.innerHTML=`<span class="count-number">${i}</span>${t}${n}`,window.animateCount&&window.animateCount(r,e),hasActiveFilters()){const e=document.getElementById("clear-filters");e&&e.addEventListener("click",e=>{e.stopPropagation(),window.clearAllFilters&&window.clearAllFilters()})}}const s=window.formatPrice||(e=>"$"+(e/1e6).toFixed(1)+"M");n.innerHTML=a.map(e=>`\n        <button type="button" class="neighborhood-item w-full text-left bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"\n             data-name="${e.name}" data-type="${e.propertyType}">\n            <div class="flex justify-between items-start gap-2 mb-1">\n                <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${e.name}</h3>\n                <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${s(e.stats?.medianPrice||e.stats?.avgPrice||0)}</span>\n            </div>\n            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${e.stats?.listingCount||0} ${listingLabelForType(e.propertyType)}</div>\n            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${formatAmenitiesWithSelection(e.amenities||[])}</div>\n        </button>\n    `).join(""),n.querySelectorAll(".neighborhood-item").forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.name,n=e.dataset.type,r=(window.filteredNeighborhoods||[]).find(e=>e.name===t&&e.propertyType===n);if(r&&window.map){"undefined"!=typeof gtag&&gtag("event","select_neighborhood",{neighborhood_name:r.name,listing_count:r.stats?.listingCount||0,price:s(r.stats?.medianPrice||r.stats?.avgPrice||0)}),window.smoothFlyTo&&window.smoothFlyTo(r.position);const e=(window.markers||[]).find(e=>e.neighborhood.name===t&&e.neighborhood.propertyType===n);if(e){const t=window.map.getCenter(),n=new google.maps.LatLng(r.position),i=google.maps.geometry.spherical.computeDistanceBetween(t,n);setTimeout(()=>{google.maps.event.trigger(e.marker,"click")},i<2e3?450:2200)}}})}),e.emit(t.RESULTS_RENDERED,{count:a.length})}"undefined"!=typeof window&&(window.renderResults=renderResults,window.formatAmenitiesWithSelection=formatAmenitiesWithSelection,window.listingLabelForType=listingLabelForType,window.hasActiveFilters=hasActiveFilters);
+
+import { eventBus, Events } from '../core/eventBus.js';
+
+/**
+ * Format amenities with selected ones highlighted in bold.
+ * @param {string[]} amenitiesArr - Array of amenity names
+ * @returns {string} Formatted HTML string
+ */
+export function formatAmenitiesWithSelection(amenitiesArr) {
+    if (!amenitiesArr || amenitiesArr.length === 0) return 'No amenities listed';
+    const selected = window.filterState?.amenities || new Set();
+    return amenitiesArr.map(a => selected.has(a) ? `<strong>${a}</strong>` : a).join(', ') + '.';
+}
+
+/**
+ * Get listing label based on property type.
+ * @param {string} typeString - Property type (e.g., 'Homes', 'Condos', 'Townhomes')
+ * @returns {string} Formatted label
+ */
+export function listingLabelForType(typeString) {
+    const t = (typeString || '').toLowerCase();
+    if (t.includes('townhome')) return 'Active T/H Listings';
+    if (t.includes('condo')) return 'Active Condo Listings';
+    if (t.includes('home')) return 'Active Home Listings';
+    return 'Active Listings';
+}
+
+/**
+ * Check if any filters are active (non-default values).
+ * @returns {boolean} True if filters are active
+ */
+export function hasActiveFilters() {
+    const fs = window.filterState || {};
+    const totalNeighborhoods = (window.neighborhoods || []).length;
+    const filteredCount = (window.filteredNeighborhoods || []).length;
+
+    // If filtered count differs from total, filters are active
+    if (filteredCount < totalNeighborhoods) return true;
+
+    // Also check explicit filter states
+    if (window.searchQuery) return true;
+    if (fs.propertyType) return true;
+    if (fs.areas && fs.areas.size > 0) return true;
+    if (fs.amenities && fs.amenities.size > 0) return true;
+    if (fs.priceMin > 0 || fs.priceMax < 41) return true;
+    if (fs.bedsMin > 1 || fs.bathsMin > 1) return true;
+
+    return false;
+}
+
+/**
+ * Render the results list in the sidebar.
+ * Sorts neighborhoods and updates count with optional Clear button.
+ */
+export function renderResults() {
+    const list = document.getElementById('neighborhoodList');
+    const resultsCount = document.getElementById('resultsCount');
+
+    if (!list) return;
+
+    // Sort neighborhoods (read from window for current state)
+    const currentFiltered = window.filteredNeighborhoods || [];
+    const currentSort = window.sortOrder || 'listings-desc';
+    const sorted = [...currentFiltered].sort((a, b) => {
+        const aPrice = a.stats?.medianPrice || a.stats?.avgPrice || 0;
+        const bPrice = b.stats?.medianPrice || b.stats?.avgPrice || 0;
+        const aListings = a.stats?.listingCount || 0;
+        const bListings = b.stats?.listingCount || 0;
+        switch (currentSort) {
+            case 'name-asc':
+                return a.name.localeCompare(b.name);
+            case 'name-desc':
+                return b.name.localeCompare(a.name);
+            case 'price-asc':
+                return aPrice - bPrice;
+            case 'price-desc':
+                return bPrice - aPrice;
+            case 'listings-desc':
+                return bListings - aListings;
+            default:
+                return a.name.localeCompare(b.name);
+        }
+    });
+
+    // Update count with optional Clear pill (animated number)
+    if (resultsCount) {
+        const count = sorted.length;
+        const suffix = count === 1 ? ' Community' : ' Communities';
+        const clearBtn = hasActiveFilters()
+            ? ` <button id="clear-filters" class="ml-2 px-3 py-1 text-sm font-medium rounded-lg border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 hover:text-brand-700 dark:hover:text-brand-dark transition-colors">Clear</button>`
+            : '';
+
+        // Use span for animated number - get last count from window
+        const lastCount = window.lastDisplayedCount !== null ? window.lastDisplayedCount : count;
+        resultsCount.innerHTML = `<span class="count-number">${lastCount}</span>${suffix}${clearBtn}`;
+
+        // Animate the count change
+        if (window.animateCount) {
+            window.animateCount(resultsCount, count);
+        }
+
+        // Add click handler for Clear button
+        if (hasActiveFilters()) {
+            const clearBtnEl = document.getElementById('clear-filters');
+            if (clearBtnEl) {
+                clearBtnEl.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (window.clearAllFilters) {
+                        window.clearAllFilters();
+                    }
+                });
+            }
+        }
+    }
+
+    // Render list - use buttons for WCAG keyboard navigation
+    const fmt = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+    list.innerHTML = sorted.map(n => `
+        <button type="button" class="neighborhood-item w-full text-left bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"
+             data-name="${n.name}" data-type="${n.propertyType}">
+            <div class="flex justify-between items-start gap-2 mb-1">
+                <h3 class="text-base font-semibold text-neutral-800 dark:text-dark-text-primary break-words">${n.name}</h3>
+                <span class="text-sm font-semibold text-neutral-800 dark:text-dark-text-primary whitespace-nowrap">${fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)}</span>
+            </div>
+            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} ${listingLabelForType(n.propertyType)}</div>
+            <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${formatAmenitiesWithSelection(n.amenities || [])}</div>
+        </button>
+    `).join('');
+
+    // Add click handlers for neighborhood items
+    list.querySelectorAll('.neighborhood-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const name = item.dataset.name;
+            const type = item.dataset.type;
+            const n = (window.filteredNeighborhoods || []).find(x => x.name === name && x.propertyType === type);
+            if (n && window.map) {
+                // Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'select_neighborhood', {
+                        neighborhood_name: n.name,
+                        listing_count: n.stats?.listingCount || 0,
+                        price: fmt(n.stats?.medianPrice || n.stats?.avgPrice || 0)
+                    });
+                }
+
+                // Smooth fly animation
+                if (window.smoothFlyTo) {
+                    window.smoothFlyTo(n.position);
+                }
+
+                // Find and click marker after flight
+                const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                if (marker) {
+                    // Calculate distance to determine delay
+                    const startPos = window.map.getCenter();
+                    const targetLatLng = new google.maps.LatLng(n.position);
+                    const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
+                    const delay = distance < 2000 ? 450 : 2200;
+
+                    setTimeout(() => {
+                        google.maps.event.trigger(marker.marker, 'click');
+                    }, delay);
+                }
+            }
+        });
+    });
+
+    // Emit event for other modules
+    eventBus.emit(Events.RESULTS_RENDERED, { count: sorted.length });
+}
+
+// Expose on window for legacy code during transition
+if (typeof window !== 'undefined') {
+    window.renderResults = renderResults;
+    window.formatAmenitiesWithSelection = formatAmenitiesWithSelection;
+    window.listingLabelForType = listingLabelForType;
+    window.hasActiveFilters = hasActiveFilters;
+}

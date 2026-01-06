@@ -3,4 +3,280 @@
  * @description WCAG-compliant keyboard navigation and focus management.
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  */
-import{eventBus as e,Events as t}from"../core/eventBus.js";export function getFocusableElements(e){return Array.from(e.querySelectorAll('button:not([disabled]):not([tabindex="-1"]), [href]:not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex="0"]')).filter(e=>null!==e.offsetParent&&"hidden"!==getComputedStyle(e).visibility&&!e.closest(".translate-x-full"))}export function handleTabTrap(e,t){const n=document.getElementById("drawer-toggle");if(!t||!n||!n.checked)return;const o=getFocusableElements(t);if(0===o.length)return void e.preventDefault();e.preventDefault();const r=document.activeElement;let l,i=o.indexOf(r);-1===i&&(i=e.shiftKey?0:o.length-1),l=e.shiftKey?0===i?o.length-1:i-1:i===o.length-1?0:i+1,o[l].focus()}export function handleEscapeKey(){const e=document.getElementById("search-dropdown"),t=document.getElementById("sort-menu"),n=document.getElementById("main-menu");e&&e.classList.add("hidden"),t&&t.classList.add("hidden"),window.infoWindow&&window.infoWindow.getMap()&&window.infoWindow.close();const o=document.querySelector(".sliding-panel:not(.translate-x-full)");if(o)return o.classList.add("translate-x-full"),void(n&&(n.style.removeProperty("display"),n.scrollTop=0,window.lastFocusedMenuItem&&setTimeout(()=>window.lastFocusedMenuItem.focus(),50)));const r=document.getElementById("drawer-toggle");if(r&&r.checked){r.checked=!1,r.dispatchEvent(new Event("change",{bubbles:!0})),window.lastFocusedMenuItem=null;const e=document.getElementById("sidebar-toggle-tab");e&&setTimeout(()=>e.focus(),50)}}export function handleMenuArrowNav(e){const t=document.activeElement?.closest(".menu-item");if(!t)return!1;e.preventDefault();const n=Array.from(document.querySelectorAll(".menu-item")),o=n.indexOf(t);let r;return r="ArrowDown"===e.key?(o+1)%n.length:0===o?n.length-1:o-1,n[r].focus(),!0}export function handleSortArrowNav(e){const t=document.activeElement?.closest(".sort-option");if(!t)return!1;e.preventDefault();const n=Array.from(document.querySelectorAll(".sort-option")),o=n.indexOf(t);let r;return r="ArrowDown"===e.key?(o+1)%n.length:0===o?n.length-1:o-1,n[r].focus(),!0}export function handleControlGroupHorizontalNav(e){const t=document.activeElement?.closest('[role="group"]');if(!t)return!1;e.preventDefault();const n=Array.from(t.querySelectorAll("button:not([disabled])")),o=n.indexOf(document.activeElement);if(-1===o)return!1;let r;return r="ArrowRight"===e.key?(o+1)%n.length:0===o?n.length-1:o-1,n[r].focus(),!0}export function handleControlGroupVerticalNav(e){const t=document.activeElement?.closest('[role="group"]');if(!t)return!1;e.preventDefault();const n=Array.from(t.querySelectorAll("button:not([disabled])")),o=document.activeElement,r=o.getBoundingClientRect(),l=r.left+r.width/2;let i=n.filter(t=>{if(t===o)return!1;const n=t.getBoundingClientRect();return"ArrowDown"===e.key?n.top>r.bottom-5:n.bottom<r.top+5});return i.length>0&&(i.sort((t,n)=>{const o=t.getBoundingClientRect(),r=n.getBoundingClientRect(),i=o.left+o.width/2,d=r.left+r.width/2,a=Math.abs(i-l),c=Math.abs(d-l),u="ArrowDown"===e.key?o.top:-o.bottom,s="ArrowDown"===e.key?r.top:-r.bottom;return Math.abs(u-s)>10?u-s:a-c}),i[0].focus()),!0}export function handleSortOptionSelect(e){const t=document.activeElement?.closest(".sort-option");if(!t)return!1;e.preventDefault();const n=t.querySelector('input[type="radio"]');return n&&(n.checked=!0,n.dispatchEvent(new Event("change",{bubbles:!0}))),!0}export function handleInfoWindowArrowNav(e){window.infoWindow&&window.infoWindow.getMap()&&window.navigateNeighborhood&&("ArrowLeft"===e.key?(e.preventDefault(),window.navigateNeighborhood(-1)):"ArrowRight"===e.key&&(e.preventDefault(),window.navigateNeighborhood(1)))}"undefined"!=typeof window&&(window.getFocusableElements=getFocusableElements,window.handleTabTrap=handleTabTrap,window.handleEscapeKey=handleEscapeKey);
+
+import { eventBus, Events } from '../core/eventBus.js';
+
+// ==========================================
+// FOCUS MANAGEMENT
+// ==========================================
+
+/**
+ * Get all focusable elements within a container.
+ * Filters out hidden, disabled, and off-screen elements.
+ * @param {HTMLElement} container - Container to search within
+ * @returns {HTMLElement[]} Array of focusable elements
+ */
+export function getFocusableElements(container) {
+    return Array.from(container.querySelectorAll(
+        'button:not([disabled]):not([tabindex="-1"]), ' +
+        '[href]:not([tabindex="-1"]), ' +
+        'input:not([disabled]):not([tabindex="-1"]), ' +
+        'select:not([disabled]):not([tabindex="-1"]), ' +
+        'textarea:not([disabled]):not([tabindex="-1"]), ' +
+        '[tabindex="0"]'
+    )).filter(el => {
+        // Must be visible
+        if (el.offsetParent === null || getComputedStyle(el).visibility === 'hidden') return false;
+        // Exclude elements inside translated-off panels (off-screen)
+        const translatedPanel = el.closest('.translate-x-full');
+        if (translatedPanel) return false;
+        return true;
+    });
+}
+
+/**
+ * Handle Tab key trapping within sidebar.
+ * Wraps focus at boundaries for WCAG compliance.
+ * @param {KeyboardEvent} e - Keyboard event
+ * @param {HTMLElement} sidebar - Sidebar container
+ */
+export function handleTabTrap(e, sidebar) {
+    const drawerToggle = document.getElementById('drawer-toggle');
+    if (!sidebar || !drawerToggle || !drawerToggle.checked) return;
+
+    const focusable = getFocusableElements(sidebar);
+    if (focusable.length === 0) {
+        e.preventDefault();
+        return;
+    }
+
+    // Always prevent default - we manage Tab navigation manually
+    e.preventDefault();
+
+    const current = document.activeElement;
+    let currentIndex = focusable.indexOf(current);
+
+    // If current element not in our list, start from appropriate end
+    if (currentIndex === -1) {
+        currentIndex = e.shiftKey ? 0 : focusable.length - 1;
+    }
+
+    // Calculate next index with wrap-around
+    let nextIndex;
+    if (e.shiftKey) {
+        nextIndex = currentIndex === 0 ? focusable.length - 1 : currentIndex - 1;
+    } else {
+        nextIndex = currentIndex === focusable.length - 1 ? 0 : currentIndex + 1;
+    }
+
+    focusable[nextIndex].focus();
+}
+
+// ==========================================
+// ESCAPE KEY HANDLER
+// ==========================================
+
+/**
+ * Handle Escape key - close dropdowns, panels, info windows.
+ */
+export function handleEscapeKey() {
+    const searchDropdown = document.getElementById('search-dropdown');
+    const sortMenu = document.getElementById('sort-menu');
+    const mainMenu = document.getElementById('main-menu');
+
+    // Close dropdowns first
+    if (searchDropdown) searchDropdown.classList.add('hidden');
+    if (sortMenu) sortMenu.classList.add('hidden');
+
+    // Close info window
+    if (window.infoWindow && window.infoWindow.getMap()) {
+        window.infoWindow.close();
+    }
+
+    // Close any open sliding panel
+    const openPanel = document.querySelector('.sliding-panel:not(.translate-x-full)');
+    if (openPanel) {
+        openPanel.classList.add('translate-x-full');
+        if (mainMenu) {
+            mainMenu.style.removeProperty('display');
+            mainMenu.scrollTop = 0;
+            // Return focus to the menu item that opened this panel
+            if (window.lastFocusedMenuItem) {
+                setTimeout(() => window.lastFocusedMenuItem.focus(), 50);
+            }
+        }
+        return; // Don't close sidebar if we just closed a panel
+    }
+
+    // Close sidebar if open
+    const drawerToggle = document.getElementById('drawer-toggle');
+    if (drawerToggle && drawerToggle.checked) {
+        drawerToggle.checked = false;
+        drawerToggle.dispatchEvent(new Event('change', { bubbles: true }));
+        // Clear stored menu item and focus the toggle tab for reopening
+        window.lastFocusedMenuItem = null;
+        const toggleTab = document.getElementById('sidebar-toggle-tab');
+        if (toggleTab) {
+            setTimeout(() => toggleTab.focus(), 50);
+        }
+    }
+}
+
+// ==========================================
+// ARROW KEY NAVIGATION
+// ==========================================
+
+/**
+ * Handle arrow key navigation for menu items.
+ * @param {KeyboardEvent} e - Keyboard event
+ * @returns {boolean} True if handled
+ */
+export function handleMenuArrowNav(e) {
+    const focusedMenuItem = document.activeElement?.closest('.menu-item');
+    if (!focusedMenuItem) return false;
+
+    e.preventDefault();
+    const allMenuItems = Array.from(document.querySelectorAll('.menu-item'));
+    const currentIndex = allMenuItems.indexOf(focusedMenuItem);
+    let nextIndex;
+    if (e.key === 'ArrowDown') {
+        nextIndex = (currentIndex + 1) % allMenuItems.length;
+    } else {
+        nextIndex = currentIndex === 0 ? allMenuItems.length - 1 : currentIndex - 1;
+    }
+    allMenuItems[nextIndex].focus();
+    return true;
+}
+
+/**
+ * Handle arrow key navigation for sort options.
+ * @param {KeyboardEvent} e - Keyboard event
+ * @returns {boolean} True if handled
+ */
+export function handleSortArrowNav(e) {
+    const focusedSortOption = document.activeElement?.closest('.sort-option');
+    if (!focusedSortOption) return false;
+
+    e.preventDefault();
+    const allSortOptions = Array.from(document.querySelectorAll('.sort-option'));
+    const currentIndex = allSortOptions.indexOf(focusedSortOption);
+    let nextIndex;
+    if (e.key === 'ArrowDown') {
+        nextIndex = (currentIndex + 1) % allSortOptions.length;
+    } else {
+        nextIndex = currentIndex === 0 ? allSortOptions.length - 1 : currentIndex - 1;
+    }
+    allSortOptions[nextIndex].focus();
+    return true;
+}
+
+/**
+ * Handle left/right arrow navigation within control groups.
+ * @param {KeyboardEvent} e - Keyboard event
+ * @returns {boolean} True if handled
+ */
+export function handleControlGroupHorizontalNav(e) {
+    const group = document.activeElement?.closest('[role="group"]');
+    if (!group) return false;
+
+    e.preventDefault();
+    const controls = Array.from(group.querySelectorAll('button:not([disabled])'));
+    const currentIndex = controls.indexOf(document.activeElement);
+    if (currentIndex === -1) return false;
+
+    let nextIndex;
+    if (e.key === 'ArrowRight') {
+        nextIndex = (currentIndex + 1) % controls.length;
+    } else {
+        nextIndex = currentIndex === 0 ? controls.length - 1 : currentIndex - 1;
+    }
+    controls[nextIndex].focus();
+    return true;
+}
+
+/**
+ * Handle up/down arrow navigation within control groups (visual grid).
+ * @param {KeyboardEvent} e - Keyboard event
+ * @returns {boolean} True if handled
+ */
+export function handleControlGroupVerticalNav(e) {
+    const group = document.activeElement?.closest('[role="group"]');
+    if (!group) return false;
+
+    e.preventDefault();
+    const controls = Array.from(group.querySelectorAll('button:not([disabled])'));
+    const current = document.activeElement;
+    const currentRect = current.getBoundingClientRect();
+    const currentCenterX = currentRect.left + currentRect.width / 2;
+
+    // Find buttons in other rows
+    let candidates = controls.filter(btn => {
+        if (btn === current) return false;
+        const rect = btn.getBoundingClientRect();
+        if (e.key === 'ArrowDown') {
+            return rect.top > currentRect.bottom - 5;
+        } else {
+            return rect.bottom < currentRect.top + 5;
+        }
+    });
+
+    if (candidates.length > 0) {
+        // Find closest horizontally aligned button
+        candidates.sort((a, b) => {
+            const aRect = a.getBoundingClientRect();
+            const bRect = b.getBoundingClientRect();
+            const aCenterX = aRect.left + aRect.width / 2;
+            const bCenterX = bRect.left + bRect.width / 2;
+            const aDistX = Math.abs(aCenterX - currentCenterX);
+            const bDistX = Math.abs(bCenterX - currentCenterX);
+            const aDistY = e.key === 'ArrowDown' ? aRect.top : -aRect.bottom;
+            const bDistY = e.key === 'ArrowDown' ? bRect.top : -bRect.bottom;
+            if (Math.abs(aDistY - bDistY) > 10) return aDistY - bDistY;
+            return aDistX - bDistX;
+        });
+        candidates[0].focus();
+    }
+    return true;
+}
+
+/**
+ * Handle Enter/Space on sort option to select it.
+ * @param {KeyboardEvent} e - Keyboard event
+ * @returns {boolean} True if handled
+ */
+export function handleSortOptionSelect(e) {
+    const focusedSortOption = document.activeElement?.closest('.sort-option');
+    if (!focusedSortOption) return false;
+
+    e.preventDefault();
+    const radio = focusedSortOption.querySelector('input[type="radio"]');
+    if (radio) {
+        radio.checked = true;
+        radio.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    return true;
+}
+
+/**
+ * Handle info window navigation with arrow keys.
+ * @param {KeyboardEvent} e - Keyboard event
+ */
+export function handleInfoWindowArrowNav(e) {
+    if (!window.infoWindow || !window.infoWindow.getMap()) return;
+    if (!window.navigateNeighborhood) return;
+
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        window.navigateNeighborhood(-1);
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        window.navigateNeighborhood(1);
+    }
+}
+
+// Expose on window for legacy code during transition
+if (typeof window !== 'undefined') {
+    window.getFocusableElements = getFocusableElements;
+    window.handleTabTrap = handleTabTrap;
+    window.handleEscapeKey = handleEscapeKey;
+}

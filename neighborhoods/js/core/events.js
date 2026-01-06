@@ -3,4 +3,281 @@
  * @description Centralized event delegation for performance and memory efficiency.
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  */
-import{eventBus as e,Events as t}from"./eventBus.js";const n=new Map,o=new Map,i=new Map;export function onClick(e,t){return n.has(e)||n.set(e,new Set),n.get(e).add(t),()=>n.get(e)?.delete(t)}export function onKeydown(e,t){return o.has(e)||o.set(e,new Set),o.get(e).add(t),()=>o.get(e)?.delete(t)}export function onInput(e,t){return i.has(e)||i.set(e,new Set),i.get(e).add(t),()=>i.get(e)?.delete(t)}function s(e,t){return"document"===t?document.documentElement:e.closest(t)}function a(e,t){for(const[n,o]of e){const e=s(t.target,n);if(e)for(const i of o)try{if(i(t,e),t.defaultPrevented)return}catch(e){console.error(`Error in ${t.type} handler for "${n}":`,e)}}}export function initEventDelegation(){document.addEventListener("click",e=>{a(n,e)},{capture:!1}),document.addEventListener("keydown",e=>{a(o,e)},{capture:!1}),document.addEventListener("input",e=>{a(i,e)},{capture:!1}),console.log("Event delegation initialized")}export function registerCommonHandlers(){onClick(".menu-item",(n,o)=>{const i=o.dataset.panel;if(!i)return;const s=document.getElementById(i),a=document.getElementById("main-menu");s&&(window.lastFocusedMenuItem=o,s.classList.remove("translate-x-full"),a&&(a.style.display="none"),setTimeout(()=>{const e=s.querySelector('button, input, [tabindex="0"]');e?.focus()},100),e.emit(t.PANEL_OPENED,{panelId:i}))}),onKeydown(".menu-item",(e,t)=>{"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),t.click())}),onClick('.sliding-panel button[onclick*="translate-x-full"]',(n,o)=>{const i=o.closest(".sliding-panel"),s=document.getElementById("main-menu");i&&(i.classList.add("translate-x-full"),s&&(s.style.removeProperty("display"),s.scrollTop=0,window.lastFocusedMenuItem&&setTimeout(()=>window.lastFocusedMenuItem.focus(),50)),e.emit(t.PANEL_CLOSED,{panelId:i.id}))}),onClick(".sort-option",(e,t)=>{const n=t.querySelector('input[type="radio"]');n&&!n.checked&&(n.checked=!0,n.dispatchEvent(new Event("change",{bubbles:!0})))}),onClick("#homes-btn, #condos-btn",(n,o)=>{const i=o.classList.contains("filter-btn-active");o.classList.toggle("filter-btn-active",!i),o.classList.toggle("filter-btn-inactive",i),window.applyFilters&&window.applyFilters(),e.emit(t.FILTERS_CHANGED,{type:"propertyType"})}),onClick(".amenity-tag",(n,o)=>{const i=o.classList.contains("filter-btn-active");o.classList.toggle("filter-btn-active",!i),o.classList.toggle("filter-btn-inactive",i);const s=o.dataset.opposite;if(s&&!i){const e=document.getElementById(s);e&&(e.classList.remove("filter-btn-active"),e.classList.add("filter-btn-inactive"))}window.applyFilters&&window.applyFilters(),e.emit(t.FILTERS_CHANGED,{type:"amenity"})}),onClick(".area-tag",(n,o)=>{const i=o.classList.contains("filter-btn-active");o.classList.toggle("filter-btn-active",!i),o.classList.toggle("filter-btn-inactive",i);const s=o.dataset.zipcode;s&&(!i&&window.showCustomBoundary?window.showCustomBoundary(s):i&&window.hideCustomBoundary&&window.hideCustomBoundary(s)),window.applyFilters&&window.applyFilters(),e.emit(t.FILTERS_CHANGED,{type:"area"})}),onClick("#search-results .search-result",(e,t)=>{window.handleSearchResultClick&&window.handleSearchResultClick(t)}),onKeydown("document",e=>{"Escape"===e.key&&window.handleEscapeKey&&window.handleEscapeKey()}),onKeydown("document",e=>{"ArrowLeft"!==e.key&&"ArrowRight"!==e.key||window.infoWindow?.getMap()&&window.navigateNeighborhood&&(e.preventDefault(),window.navigateNeighborhood("ArrowLeft"===e.key?-1:1))}),onInput("#price-min, #price-max, #beds-slider, #baths-slider",(e,t)=>{window.applyFilters&&(clearTimeout(window._filterDebounce),window._filterDebounce=setTimeout(()=>window.applyFilters(),50))})}export function getHandlerCounts(){return{click:Array.from(n.values()).reduce((e,t)=>e+t.size,0),keydown:Array.from(o.values()).reduce((e,t)=>e+t.size,0),input:Array.from(i.values()).reduce((e,t)=>e+t.size,0)}}"undefined"!=typeof window&&(window._eventDelegation={onClick:onClick,onKeydown:onKeydown,onInput:onInput,getHandlerCounts:getHandlerCounts});
+
+import { eventBus, Events } from './eventBus.js';
+
+// Handler registries
+const clickHandlers = new Map();
+const keydownHandlers = new Map();
+const inputHandlers = new Map();
+
+/**
+ * Register a click handler for elements matching a selector.
+ * @param {string} selector - CSS selector to match
+ * @param {Function} handler - Handler function (event, element) => void
+ * @returns {Function} Unregister function
+ */
+export function onClick(selector, handler) {
+    if (!clickHandlers.has(selector)) {
+        clickHandlers.set(selector, new Set());
+    }
+    clickHandlers.get(selector).add(handler);
+    return () => clickHandlers.get(selector)?.delete(handler);
+}
+
+/**
+ * Register a keydown handler for elements matching a selector.
+ * @param {string} selector - CSS selector to match (use 'document' for global)
+ * @param {Function} handler - Handler function (event, element) => void
+ * @returns {Function} Unregister function
+ */
+export function onKeydown(selector, handler) {
+    if (!keydownHandlers.has(selector)) {
+        keydownHandlers.set(selector, new Set());
+    }
+    keydownHandlers.get(selector).add(handler);
+    return () => keydownHandlers.get(selector)?.delete(handler);
+}
+
+/**
+ * Register an input handler for elements matching a selector.
+ * @param {string} selector - CSS selector to match
+ * @param {Function} handler - Handler function (event, element) => void
+ * @returns {Function} Unregister function
+ */
+export function onInput(selector, handler) {
+    if (!inputHandlers.has(selector)) {
+        inputHandlers.set(selector, new Set());
+    }
+    inputHandlers.get(selector).add(handler);
+    return () => inputHandlers.get(selector)?.delete(handler);
+}
+
+/**
+ * Find matching element for a selector, starting from target and going up.
+ * @param {Element} target - Event target
+ * @param {string} selector - CSS selector
+ * @returns {Element|null} Matching element or null
+ */
+function findMatchingElement(target, selector) {
+    if (selector === 'document') return document.documentElement;
+    return target.closest(selector);
+}
+
+/**
+ * Execute handlers for matching elements.
+ * @param {Map} registry - Handler registry
+ * @param {Event} event - DOM event
+ */
+function executeHandlers(registry, event) {
+    for (const [selector, handlers] of registry) {
+        const element = findMatchingElement(event.target, selector);
+        if (element) {
+            for (const handler of handlers) {
+                try {
+                    handler(event, element);
+                    // If handler prevented default or stopped propagation, respect it
+                    if (event.defaultPrevented) return;
+                } catch (error) {
+                    console.error(`Error in ${event.type} handler for "${selector}":`, error);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Initialize event delegation on document.
+ * Should be called once when app starts.
+ */
+export function initEventDelegation() {
+    // Single delegated click handler
+    document.addEventListener('click', (event) => {
+        executeHandlers(clickHandlers, event);
+    }, { capture: false });
+
+    // Single delegated keydown handler
+    document.addEventListener('keydown', (event) => {
+        executeHandlers(keydownHandlers, event);
+    }, { capture: false });
+
+    // Single delegated input handler
+    document.addEventListener('input', (event) => {
+        executeHandlers(inputHandlers, event);
+    }, { capture: false });
+
+    console.log('Event delegation initialized');
+}
+
+/**
+ * Register common UI patterns for event delegation.
+ * These replace scattered addEventListener calls.
+ */
+export function registerCommonHandlers() {
+    // Menu item click - opens sliding panels
+    onClick('.menu-item', (event, element) => {
+        const panelId = element.dataset.panel;
+        if (!panelId) return;
+
+        const panel = document.getElementById(panelId);
+        const mainMenu = document.getElementById('main-menu');
+
+        if (panel) {
+            // Store last focused item for Escape key return
+            window.lastFocusedMenuItem = element;
+            panel.classList.remove('translate-x-full');
+            if (mainMenu) mainMenu.style.display = 'none';
+
+            // Focus first focusable element in panel
+            setTimeout(() => {
+                const focusable = panel.querySelector('button, input, [tabindex="0"]');
+                focusable?.focus();
+            }, 100);
+
+            eventBus.emit(Events.PANEL_OPENED, { panelId });
+        }
+    });
+
+    // Menu item keyboard navigation
+    onKeydown('.menu-item', (event, element) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            element.click();
+        }
+    });
+
+    // Back button in sliding panels
+    onClick('.sliding-panel button[onclick*="translate-x-full"]', (event, element) => {
+        const panel = element.closest('.sliding-panel');
+        const mainMenu = document.getElementById('main-menu');
+
+        if (panel) {
+            panel.classList.add('translate-x-full');
+            if (mainMenu) {
+                mainMenu.style.removeProperty('display');
+                mainMenu.scrollTop = 0;
+                // Return focus to menu item
+                if (window.lastFocusedMenuItem) {
+                    setTimeout(() => window.lastFocusedMenuItem.focus(), 50);
+                }
+            }
+            eventBus.emit(Events.PANEL_CLOSED, { panelId: panel.id });
+        }
+    });
+
+    // Sort option selection
+    onClick('.sort-option', (event, element) => {
+        const radio = element.querySelector('input[type="radio"]');
+        if (radio && !radio.checked) {
+            radio.checked = true;
+            radio.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    });
+
+    // Property type filter buttons (homes/condos)
+    onClick('#homes-btn, #condos-btn', (event, element) => {
+        const isActive = element.classList.contains('filter-btn-active');
+        element.classList.toggle('filter-btn-active', !isActive);
+        element.classList.toggle('filter-btn-inactive', isActive);
+
+        if (window.applyFilters) window.applyFilters();
+        eventBus.emit(Events.FILTERS_CHANGED, { type: 'propertyType' });
+    });
+
+    // Amenity tag clicks
+    onClick('.amenity-tag', (event, element) => {
+        const isActive = element.classList.contains('filter-btn-active');
+        element.classList.toggle('filter-btn-active', !isActive);
+        element.classList.toggle('filter-btn-inactive', isActive);
+
+        // Handle mutually exclusive pairs
+        const oppositeId = element.dataset.opposite;
+        if (oppositeId && !isActive) {
+            const opposite = document.getElementById(oppositeId);
+            if (opposite) {
+                opposite.classList.remove('filter-btn-active');
+                opposite.classList.add('filter-btn-inactive');
+            }
+        }
+
+        if (window.applyFilters) window.applyFilters();
+        eventBus.emit(Events.FILTERS_CHANGED, { type: 'amenity' });
+    });
+
+    // Area tag clicks
+    onClick('.area-tag', (event, element) => {
+        const isActive = element.classList.contains('filter-btn-active');
+        element.classList.toggle('filter-btn-active', !isActive);
+        element.classList.toggle('filter-btn-inactive', isActive);
+
+        // Show/hide boundary
+        const zipCode = element.dataset.zipcode;
+        if (zipCode) {
+            if (!isActive && window.showCustomBoundary) {
+                window.showCustomBoundary(zipCode);
+            } else if (isActive && window.hideCustomBoundary) {
+                window.hideCustomBoundary(zipCode);
+            }
+        }
+
+        if (window.applyFilters) window.applyFilters();
+        eventBus.emit(Events.FILTERS_CHANGED, { type: 'area' });
+    });
+
+    // Search result clicks (delegated in container)
+    onClick('#search-results .search-result', (event, element) => {
+        if (window.handleSearchResultClick) {
+            window.handleSearchResultClick(element);
+        }
+    });
+
+    // Escape key - close dropdowns, panels, info windows
+    onKeydown('document', (event) => {
+        if (event.key === 'Escape') {
+            if (window.handleEscapeKey) {
+                window.handleEscapeKey();
+            }
+        }
+    });
+
+    // Arrow key navigation for info windows
+    onKeydown('document', (event) => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            if (window.infoWindow?.getMap() && window.navigateNeighborhood) {
+                event.preventDefault();
+                window.navigateNeighborhood(event.key === 'ArrowLeft' ? -1 : 1);
+            }
+        }
+    });
+
+    // Slider input handling
+    onInput('#price-min, #price-max, #beds-slider, #baths-slider', (event, element) => {
+        if (window.applyFilters) {
+            // Debounce filter application
+            clearTimeout(window._filterDebounce);
+            window._filterDebounce = setTimeout(() => window.applyFilters(), 50);
+        }
+    });
+}
+
+/**
+ * Get handler count for debugging.
+ * @returns {Object} Handler counts by type
+ */
+export function getHandlerCounts() {
+    return {
+        click: Array.from(clickHandlers.values()).reduce((sum, set) => sum + set.size, 0),
+        keydown: Array.from(keydownHandlers.values()).reduce((sum, set) => sum + set.size, 0),
+        input: Array.from(inputHandlers.values()).reduce((sum, set) => sum + set.size, 0)
+    };
+}
+
+// Expose for debugging
+if (typeof window !== 'undefined') {
+    window._eventDelegation = {
+        onClick,
+        onKeydown,
+        onInput,
+        getHandlerCounts
+    };
+}
