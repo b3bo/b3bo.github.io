@@ -17,14 +17,16 @@ import { eventBus, Events } from '../core/eventBus.js';
  * @returns {HTMLElement[]} Array of focusable elements
  */
 export function getFocusableElements(container) {
-    return Array.from(container.querySelectorAll(
-        'button:not([disabled]):not([tabindex="-1"]), ' +
-        '[href]:not([tabindex="-1"]), ' +
-        'input:not([disabled]):not([tabindex="-1"]), ' +
-        'select:not([disabled]):not([tabindex="-1"]), ' +
-        'textarea:not([disabled]):not([tabindex="-1"]), ' +
-        '[tabindex="0"]'
-    )).filter(el => {
+    return Array.from(
+        container.querySelectorAll(
+            'button:not([disabled]):not([tabindex="-1"]), ' +
+                '[href]:not([tabindex="-1"]), ' +
+                'input:not([disabled]):not([tabindex="-1"]), ' +
+                'select:not([disabled]):not([tabindex="-1"]), ' +
+                'textarea:not([disabled]):not([tabindex="-1"]), ' +
+                '[tabindex="0"]'
+        )
+    ).filter(el => {
         // Must be visible
         if (el.offsetParent === null || getComputedStyle(el).visibility === 'hidden') return false;
         // Exclude elements inside translated-off panels (off-screen)

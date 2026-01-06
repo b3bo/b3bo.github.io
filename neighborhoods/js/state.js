@@ -15,12 +15,12 @@ export const STATE = {
     customBoundaries: new Set(),
     currentRenderCount: 0,
     currentSort: 'listings-desc',
-    searchQuery: '',  // Current search filter for neighborhood names
+    searchQuery: '', // Current search filter for neighborhood names
     filters: {
         bedsMin: 1,
         bathsMin: 1,
-        priceMin: null,  // null = no filter (show all)
-        priceMax: null  // null = no filter (show all)
+        priceMin: null, // null = no filter (show all)
+        priceMax: null // null = no filter (show all)
     }
 };
 

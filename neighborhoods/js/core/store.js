@@ -126,7 +126,7 @@ if (typeof window !== 'undefined') {
     window.store = store;
 
     // Sync to legacy window.STATE for backwards compatibility
-    store.subscribe((state) => {
+    store.subscribe(state => {
         if (window.STATE) {
             Object.assign(window.STATE, {
                 map: state.map,

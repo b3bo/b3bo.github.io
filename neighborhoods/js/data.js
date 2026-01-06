@@ -11,7 +11,7 @@ export async function loadNeighborhoods() {
     // Currently in "Soft Mode" (Logging only) to troubleshoot local environments
     const allowedDomains = ['b3bo.github.io', 'localhost', '127.0.0.1'];
     const currentDomain = window.location.hostname;
-    
+
     // Log for debugging
     // console.log(`[Security] Current Domain: "${currentDomain}"`);
 
@@ -23,11 +23,11 @@ export async function loadNeighborhoods() {
     }
 
     const files = CONFIG.data.neighborhoodFiles;
-    
+
     let allNeighborhoods = [];
 
     try {
-        const promises = files.map(async (file) => {
+        const promises = files.map(async file => {
             try {
                 const response = await fetch(file);
                 if (!response.ok) throw new Error(`Failed to load ${file}`);
@@ -45,14 +45,13 @@ export async function loadNeighborhoods() {
 
         const results = await Promise.all(promises);
         allNeighborhoods = results.flat();
-        
+
         // Sort alphabetically by name
         allNeighborhoods.sort((a, b) => a.name.localeCompare(b.name));
-        
-        // console.log(`Loaded ${allNeighborhoods.length} neighborhoods.`);
-        
-        return allNeighborhoods;
 
+        // console.log(`Loaded ${allNeighborhoods.length} neighborhoods.`);
+
+        return allNeighborhoods;
     } catch (error) {
         console.error('Error loading neighborhoods:', error);
         return [];

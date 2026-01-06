@@ -92,19 +92,31 @@ function executeHandlers(registry, event) {
  */
 export function initEventDelegation() {
     // Single delegated click handler
-    document.addEventListener('click', (event) => {
-        executeHandlers(clickHandlers, event);
-    }, { capture: false });
+    document.addEventListener(
+        'click',
+        event => {
+            executeHandlers(clickHandlers, event);
+        },
+        { capture: false }
+    );
 
     // Single delegated keydown handler
-    document.addEventListener('keydown', (event) => {
-        executeHandlers(keydownHandlers, event);
-    }, { capture: false });
+    document.addEventListener(
+        'keydown',
+        event => {
+            executeHandlers(keydownHandlers, event);
+        },
+        { capture: false }
+    );
 
     // Single delegated input handler
-    document.addEventListener('input', (event) => {
-        executeHandlers(inputHandlers, event);
-    }, { capture: false });
+    document.addEventListener(
+        'input',
+        event => {
+            executeHandlers(inputHandlers, event);
+        },
+        { capture: false }
+    );
 
     console.log('Event delegation initialized');
 }
@@ -232,7 +244,7 @@ export function registerCommonHandlers() {
     });
 
     // Escape key - close dropdowns, panels, info windows
-    onKeydown('document', (event) => {
+    onKeydown('document', event => {
         if (event.key === 'Escape') {
             if (window.handleEscapeKey) {
                 window.handleEscapeKey();
@@ -241,7 +253,7 @@ export function registerCommonHandlers() {
     });
 
     // Arrow key navigation for info windows
-    onKeydown('document', (event) => {
+    onKeydown('document', event => {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             if (window.infoWindow?.getMap() && window.navigateNeighborhood) {
                 event.preventDefault();

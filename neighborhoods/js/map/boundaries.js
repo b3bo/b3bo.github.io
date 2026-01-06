@@ -107,7 +107,7 @@ export async function showBoundary(zipCode) {
     map.data.addGeoJson(data, { idPropertyName: 'ZCTA5CE20' });
 
     // Apply style
-    map.data.setStyle((feature) => {
+    map.data.setStyle(feature => {
         const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
         if (visibleBoundaries.has(featureZip)) {
             return getBoundaryStyle();
@@ -130,7 +130,7 @@ export function hideBoundary(zipCode) {
     visibleBoundaries.delete(zipCode);
 
     // Remove features for this zip code
-    map.data.forEach((feature) => {
+    map.data.forEach(feature => {
         const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
         if (featureZip === zipCode) {
             map.data.remove(feature);
@@ -172,7 +172,7 @@ export function refreshBoundaryStyles() {
     const map = window.map;
     if (!map) return;
 
-    map.data.setStyle((feature) => {
+    map.data.setStyle(feature => {
         const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
         if (visibleBoundaries.has(featureZip)) {
             return getBoundaryStyle();

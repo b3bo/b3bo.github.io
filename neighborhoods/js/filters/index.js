@@ -15,11 +15,11 @@ import { eventBus, Events } from '../core/eventBus.js';
  */
 export function initFilterState() {
     window.filterState = window.filterState || {
-        propertyType: null,  // null = all, 'Homes', 'Condos'
-        areas: new Set(),     // selected zip codes
+        propertyType: null, // null = all, 'Homes', 'Condos'
+        areas: new Set(), // selected zip codes
         amenities: new Set(), // selected amenities
-        priceMin: 0,          // min price index
-        priceMax: 41,         // max price index
+        priceMin: 0, // min price index
+        priceMax: 41, // max price index
         bedsMin: 1,
         bathsMin: 1
     };
@@ -114,7 +114,7 @@ export function updateBedsSlider() {
 
     // Update display
     if (bedsDisplay) {
-        bedsDisplay.textContent = val === 1 ? 'Any' : (val >= 6 ? '6+' : `${val}+`);
+        bedsDisplay.textContent = val === 1 ? 'Any' : val >= 6 ? '6+' : `${val}+`;
     }
 
     // Update track fill (1-6 range)
@@ -140,7 +140,7 @@ export function updateBathsSlider() {
 
     // Update display
     if (bathsDisplay) {
-        bathsDisplay.textContent = val === 1 ? 'Any' : (val >= 6 ? '6+' : `${val}+`);
+        bathsDisplay.textContent = val === 1 ? 'Any' : val >= 6 ? '6+' : `${val}+`;
     }
 
     // Update track fill (1-6 range)
@@ -180,8 +180,8 @@ export function applyFilters() {
     const minBaths = window.filterState.bathsMin || 1;
 
     // Convert to actual prices
-    let minPrice = priceMinIdx === 0 ? 0 : (PRICE_STEPS[priceMinIdx] || 0);
-    let maxPrice = priceMaxIdx >= 41 ? Number.MAX_SAFE_INTEGER : (PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER);
+    let minPrice = priceMinIdx === 0 ? 0 : PRICE_STEPS[priceMinIdx] || 0;
+    let maxPrice = priceMaxIdx >= 41 ? Number.MAX_SAFE_INTEGER : PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER;
 
     window.filteredNeighborhoods = (window.neighborhoods || []).filter(n => {
         // Property type filter
@@ -200,17 +200,13 @@ export function applyFilters() {
         // Area filter (OR logic)
         let matchesArea = true;
         if (selectedAreas.size > 0) {
-            matchesArea = selectedAreas.has(n.zipCode) ||
-                         selectedAreas.has(n.area) ||
-                         selectedAreas.has(n.subArea);
+            matchesArea = selectedAreas.has(n.zipCode) || selectedAreas.has(n.area) || selectedAreas.has(n.subArea);
         }
 
         // Amenity filter (AND logic - must have ALL selected)
         let matchesAmenities = true;
         if (selectedAmenities.size > 0) {
-            matchesAmenities = [...selectedAmenities].every(a =>
-                n.amenities && n.amenities.includes(a)
-            );
+            matchesAmenities = [...selectedAmenities].every(a => n.amenities && n.amenities.includes(a));
         }
 
         // Price filter (overlap check)
@@ -255,7 +251,7 @@ export function applyFilters() {
     eventBus.emit(Events.FILTERS_APPLIED, {
         count: window.filteredNeighborhoods.length,
         filters: {
-            propertyType: isHomesActive ? 'homes' : (isCondosActive ? 'condos' : null),
+            propertyType: isHomesActive ? 'homes' : isCondosActive ? 'condos' : null,
             areas: [...selectedAreas],
             amenities: [...selectedAmenities],
             priceMin: minPrice,

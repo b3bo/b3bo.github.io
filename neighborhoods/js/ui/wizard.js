@@ -16,20 +16,20 @@ const TOTAL_STEPS = 6;
 const STEP_META = [
     { label: 'Welcome', sublabel: 'Get started' },
     { label: 'Property Type', sublabel: 'Homes or condos' },
-    { label: 'Budget & Size', sublabel: 'Price and bedrooms' },
-    { label: 'Areas', sublabel: 'Select locations' },
-    { label: 'Amenities', sublabel: 'Choose features' },
-    { label: 'Summary', sublabel: 'Review results' }
+    { label: 'Budget & Size', sublabel: 'Price and size' },
+    { label: 'Location', sublabel: 'Where to look' },
+    { label: 'Amenities', sublabel: 'Must-haves' },
+    { label: 'Summary', sublabel: 'Your matches' }
 ];
 
 const wizardState = {
     isOpen: false,
     currentStep: 0,
     selections: {
-        homes: false,            // independent toggle (like sidebar)
-        condos: false,           // independent toggle (like sidebar)
-        priceMin: 0,             // both thumbs stacked left = Any price
-        priceMax: 0,             // both thumbs stacked left = Any price
+        homes: false, // independent toggle (like sidebar)
+        condos: false, // independent toggle (like sidebar)
+        priceMin: 0, // both thumbs stacked left = Any price
+        priceMax: 0, // both thumbs stacked left = Any price
         bedsMin: 1,
         bathsMin: 1,
         areas: new Set(),
@@ -46,7 +46,7 @@ let previousActiveElement = null;
 
 function generateWelcomeStep() {
     return `
-        <div class="text-center py-6">
+<div class="text-center py-6">
             <div class="w-16 h-16 bg-neutral-800 dark:bg-neutral-700 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <span style="font-family: 'Cinzel', serif; font-size: 1.75rem; font-weight: 600; color: white; letter-spacing: 0.05em;">TS</span>
             </div>
@@ -72,10 +72,10 @@ function generatePropertyTypeStep() {
     return `
         <div class="py-4">
             <h2 class="text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">
-                What type of property?
+                Are you looking for a home or condo?
             </h2>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6 text-center">
-                Select one or both to see available communities.
+                You can select both if you're open to either.
             </p>
             <div class="flex gap-4 justify-center py-4">
                 <button class="wizard-prop-type flex-1 max-w-[140px] flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-all ${homesSelected}" data-type="Homes">
@@ -92,7 +92,7 @@ function generatePropertyTypeStep() {
                 </button>
             </div>
             <p class="text-xs text-neutral-400 dark:text-neutral-500 text-center mt-2">
-                Skip to see all property types
+                Or skip to see everything
             </p>
         </div>
     `;
@@ -105,24 +105,37 @@ function generateBudgetStep() {
 
     // When both at 0 (stacked left), show full range
     const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0] || 250000;
-    const maxPrice = (maxVal === 0) ? (PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000) : (PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000);
-    const priceDisplay = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${(maxVal === 0 || maxVal >= 41) ? '+' : ''}`;
+    const maxPrice =
+        maxVal === 0
+            ? PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000
+            : PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000;
+    const priceDisplay = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 0 || maxVal >= 41 ? '+' : ''}`;
 
     // Fill: when both at 0, no fill shown (thumbs stacked left)
     const priceFillLeft = 0;
-    const priceFillWidth = (maxVal === 0) ? 0 : (minVal === 0 ? (maxVal / 41) * 100 : ((maxVal - minVal) / 41) * 100);
-    const bedsDisplay = wizardState.selections.bedsMin === 1 ? 'Any' : (wizardState.selections.bedsMin >= 6 ? '6+' : `${wizardState.selections.bedsMin}+`);
-    const bathsDisplay = wizardState.selections.bathsMin === 1 ? 'Any' : (wizardState.selections.bathsMin >= 6 ? '6+' : `${wizardState.selections.bathsMin}+`);
+    const priceFillWidth = maxVal === 0 ? 0 : minVal === 0 ? (maxVal / 41) * 100 : ((maxVal - minVal) / 41) * 100;
+    const bedsDisplay =
+        wizardState.selections.bedsMin === 1
+            ? 'Any'
+            : wizardState.selections.bedsMin >= 6
+              ? '6+'
+              : `${wizardState.selections.bedsMin}+`;
+    const bathsDisplay =
+        wizardState.selections.bathsMin === 1
+            ? 'Any'
+            : wizardState.selections.bathsMin >= 6
+              ? '6+'
+              : `${wizardState.selections.bathsMin}+`;
     const bedsFill = ((wizardState.selections.bedsMin - 1) / 5) * 100;
     const bathsFill = ((wizardState.selections.bathsMin - 1) / 5) * 100;
 
     return `
         <div class="py-4">
             <h2 class="text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">
-                Budget & Size Preferences
+                What's your budget and size needs?
             </h2>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6 text-center">
-                Adjust the sliders to match your criteria.
+                Don't worry, you can always adjust these later.
             </p>
             <div class="space-y-8 py-4">
                 <!-- Price -->
@@ -183,23 +196,27 @@ function generateAreasStep() {
         { name: 'Sandestin', subarea: '1503 - Sandestin Resort' }
     ];
 
-    const areaButtons = areas.map(a => {
-        const selected = wizardState.selections.areas.has(a.zipcode) ? 'selected' : '';
-        return `<button class="wizard-area-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-zipcode="${a.zipcode}">${a.name}</button>`;
-    }).join('\n                ');
+    const areaButtons = areas
+        .map(a => {
+            const selected = wizardState.selections.areas.has(a.zipcode) ? 'selected' : '';
+            return `<button class="wizard-area-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-zipcode="${a.zipcode}">${a.name}</button>`;
+        })
+        .join('\n                ');
 
-    const subareaButtons = subareas.map(s => {
-        const selected = wizardState.selections.areas.has(s.subarea) ? 'selected' : '';
-        return `<button class="wizard-area-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-subarea="${s.subarea}">${s.name}</button>`;
-    }).join('\n                ');
+    const subareaButtons = subareas
+        .map(s => {
+            const selected = wizardState.selections.areas.has(s.subarea) ? 'selected' : '';
+            return `<button class="wizard-area-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-subarea="${s.subarea}">${s.name}</button>`;
+        })
+        .join('\n                ');
 
     return `
         <div class="py-4">
             <h2 class="text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">
-                Preferred Areas
+                Where would you like to live?
             </h2>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6 text-center">
-                Select the cities and sub-areas you'd like to explore.
+                Pick as many areas as you'd like to explore.
             </p>
             <div class="py-2">
                 <span class="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-3 block">Cities</span>
@@ -212,7 +229,7 @@ function generateAreasStep() {
                 </div>
             </div>
             <p class="text-xs text-neutral-400 dark:text-neutral-500 text-center mt-4">
-                Skip to search all areas
+                Or skip to search the entire coast
             </p>
         </div>
     `;
@@ -220,28 +237,39 @@ function generateAreasStep() {
 
 function generateAmenitiesStep() {
     const amenities = [
-        'Beach Access', 'Community Pool', 'Gated', 'Golf', 'Tennis',
-        'Pickleball', 'Fitness', 'Waterfront', 'Pet-Friendly'
+        'Beach Access',
+        'Community Pool',
+        'Gated',
+        'Golf',
+        'Tennis',
+        'Pickleball',
+        'Fitness',
+        'Waterfront',
+        'Pet-Friendly'
     ];
     const rentalPolicies = ['Short-Term', 'No Short-Term'];
 
-    const amenityButtons = amenities.map(a => {
-        const selected = wizardState.selections.amenities.has(a) ? 'selected' : '';
-        return `<button class="wizard-amenity-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${a}">${a}</button>`;
-    }).join('\n                ');
+    const amenityButtons = amenities
+        .map(a => {
+            const selected = wizardState.selections.amenities.has(a) ? 'selected' : '';
+            return `<button class="wizard-amenity-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${a}">${a}</button>`;
+        })
+        .join('\n                ');
 
-    const rentalButtons = rentalPolicies.map(r => {
-        const selected = wizardState.selections.amenities.has(r) ? 'selected' : '';
-        return `<button class="wizard-amenity-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${r}">${r === 'Short-Term' ? 'Short-Term OK' : 'No Short-Term'}</button>`;
-    }).join('\n                ');
+    const rentalButtons = rentalPolicies
+        .map(r => {
+            const selected = wizardState.selections.amenities.has(r) ? 'selected' : '';
+            return `<button class="wizard-amenity-tag px-3 py-2 rounded-lg text-sm font-medium border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated text-neutral-700 dark:text-dark-text-primary hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors ${selected}" data-amenity="${r}">${r === 'Short-Term' ? 'Short-Term OK' : 'No Short-Term'}</button>`;
+        })
+        .join('\n                ');
 
     return `
         <div class="py-4">
             <h2 class="text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">
-                Desired Amenities
+                Any must-have features?
             </h2>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6 text-center">
-                Select features that are important to you.
+                Select the amenities that matter most to you.
             </p>
             <div class="py-2">
                 <div class="flex flex-wrap gap-2 justify-center">
@@ -261,10 +289,10 @@ function generateSummaryStep() {
     return `
         <div class="py-4">
             <h2 class="text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">
-                Your Search Results
+                Here's what we found.
             </h2>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6 text-center">
-                Based on your preferences, here's what we found:
+                These neighborhoods match your criteria.
             </p>
 
             <!-- Results Stats Table -->
@@ -331,7 +359,9 @@ export function openWizard() {
 
     // Check if there are saved selections (non-default values)
     const sel = wizardState.selections;
-    const hasSavedValues = sel.homes || sel.condos ||
+    const hasSavedValues =
+        sel.homes ||
+        sel.condos ||
         sel.priceMin !== 0 ||
         sel.priceMax !== 0 ||
         sel.bedsMin !== 1 ||
@@ -500,9 +530,7 @@ function updateNavigationButtons() {
     }
 
     if (nextBtn) {
-        nextBtn.textContent = wizardState.currentStep === TOTAL_STEPS - 1
-            ? 'Explore Results'
-            : 'Next';
+        nextBtn.textContent = wizardState.currentStep === TOTAL_STEPS - 1 ? 'Explore Results' : 'Next';
     }
 }
 
@@ -588,18 +616,18 @@ function applyWizardFilters() {
         window.applyFilters();
     }
 
-    // Open the Results panel in sidebar
-    const resultsPanel = document.getElementById('results-panel');
+    // Open the Summary panel in sidebar
+    const summaryPanel = document.getElementById('summary-panel');
     const mainMenu = document.getElementById('main-menu');
-    if (resultsPanel) {
+    if (summaryPanel) {
         // Close all other panels first
         document.querySelectorAll('.sliding-panel').forEach(p => {
             p.classList.add('translate-x-full');
         });
         // Hide main menu
         if (mainMenu) mainMenu.style.display = 'none';
-        // Open results panel
-        resultsPanel.classList.remove('translate-x-full');
+        // Open summary panel
+        summaryPanel.classList.remove('translate-x-full');
     }
 }
 
@@ -615,16 +643,19 @@ function calculateAndDisplayStats() {
     const PRICE_STEPS = window.PRICE_STEPS || [];
 
     console.log('[Wizard] Calculating stats with', neighborhoods.length, 'neighborhoods');
-    console.log('[Wizard] Selections:', JSON.stringify({
-        homes: wizardState.selections.homes,
-        condos: wizardState.selections.condos,
-        priceMin: wizardState.selections.priceMin,
-        priceMax: wizardState.selections.priceMax,
-        bedsMin: wizardState.selections.bedsMin,
-        bathsMin: wizardState.selections.bathsMin,
-        areas: [...wizardState.selections.areas],
-        amenities: [...wizardState.selections.amenities]
-    }));
+    console.log(
+        '[Wizard] Selections:',
+        JSON.stringify({
+            homes: wizardState.selections.homes,
+            condos: wizardState.selections.condos,
+            priceMin: wizardState.selections.priceMin,
+            priceMax: wizardState.selections.priceMax,
+            bedsMin: wizardState.selections.bedsMin,
+            bathsMin: wizardState.selections.bathsMin,
+            areas: [...wizardState.selections.areas],
+            amenities: [...wizardState.selections.amenities]
+        })
+    );
 
     // If no neighborhoods loaded yet, show loading state
     if (neighborhoods.length === 0) {
@@ -651,18 +682,17 @@ function calculateAndDisplayStats() {
 
         // Areas
         if (wizardState.selections.areas.size > 0) {
-            const matchesArea = wizardState.selections.areas.has(n.zipCode) ||
-                               wizardState.selections.areas.has(n.area) ||
-                               wizardState.selections.areas.has(n.subArea);
+            const matchesArea =
+                wizardState.selections.areas.has(n.zipCode) ||
+                wizardState.selections.areas.has(n.area) ||
+                wizardState.selections.areas.has(n.subArea);
             if (!matchesArea) return false;
         }
 
         // Amenities (AND logic)
         if (wizardState.selections.amenities.size > 0) {
             const nAmenities = n.amenities || [];
-            const hasAll = [...wizardState.selections.amenities].every(a =>
-                nAmenities.includes(a)
-            );
+            const hasAll = [...wizardState.selections.amenities].every(a => nAmenities.includes(a));
             if (!hasAll) return false;
         }
 
@@ -670,8 +700,11 @@ function calculateAndDisplayStats() {
         const stats = n.stats || {};
         const priceMinIdx = wizardState.selections.priceMin;
         const priceMaxIdx = wizardState.selections.priceMax;
-        const minPrice = priceMinIdx === 0 ? 0 : (PRICE_STEPS[priceMinIdx] || 0);
-        const maxPrice = (priceMaxIdx === 0 || priceMaxIdx >= 41) ? Number.MAX_SAFE_INTEGER : (PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER);
+        const minPrice = priceMinIdx === 0 ? 0 : PRICE_STEPS[priceMinIdx] || 0;
+        const maxPrice =
+            priceMaxIdx === 0 || priceMaxIdx >= 41
+                ? Number.MAX_SAFE_INTEGER
+                : PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER;
 
         const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
         const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
@@ -705,12 +738,11 @@ function calculateAndDisplayStats() {
     const prices = filtered.map(n => n.stats?.medianPrice || n.stats?.avgPrice || 0).filter(p => p > 0);
     const minResultPrice = prices.length > 0 ? Math.min(...prices) : 0;
     const maxResultPrice = prices.length > 0 ? Math.max(...prices) : 0;
-    const medianPrice = prices.length > 0
-        ? prices.sort((a, b) => a - b)[Math.floor(prices.length / 2)]
-        : 0;
-    const avgDom = filtered.length > 0
-        ? Math.round(filtered.reduce((sum, n) => sum + (n.stats?.avgDom || 0), 0) / filtered.length)
-        : 0;
+    const medianPrice = prices.length > 0 ? prices.sort((a, b) => a - b)[Math.floor(prices.length / 2)] : 0;
+    const avgDom =
+        filtered.length > 0
+            ? Math.round(filtered.reduce((sum, n) => sum + (n.stats?.avgDom || 0), 0) / filtered.length)
+            : 0;
 
     // Update UI
     const communitiesEl = document.getElementById('wizard-stat-communities');
@@ -722,29 +754,31 @@ function calculateAndDisplayStats() {
     if (communitiesEl) communitiesEl.textContent = filtered.length.toLocaleString();
     if (listingsEl) listingsEl.textContent = totalListings.toLocaleString();
     if (priceRangeEl) {
-        priceRangeEl.textContent = prices.length > 0
-            ? `${formatPrice(minResultPrice)} - ${formatPrice(maxResultPrice)}`
-            : 'N/A';
+        priceRangeEl.textContent =
+            prices.length > 0 ? `${formatPrice(minResultPrice)} - ${formatPrice(maxResultPrice)}` : 'N/A';
     }
     if (medianEl) medianEl.textContent = medianPrice > 0 ? formatPrice(medianPrice) : 'N/A';
     if (domEl) domEl.textContent = avgDom > 0 ? `${avgDom} days` : 'N/A';
 
     // Top 3 communities by listings
-    const top3 = [...filtered]
-        .sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0))
-        .slice(0, 3);
+    const top3 = [...filtered].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 3);
 
     const topListEl = document.getElementById('wizard-top-list');
     if (topListEl) {
         if (top3.length > 0) {
-            topListEl.innerHTML = top3.map(n => `
+            topListEl.innerHTML = top3
+                .map(
+                    n => `
                 <div class="flex justify-between items-center py-2 px-3 bg-white dark:bg-dark-bg-elevated rounded-lg border border-neutral-200 dark:border-dark-border">
                     <span class="text-sm font-medium text-neutral-700 dark:text-dark-text-primary">${n.name}</span>
                     <span class="text-xs text-neutral-500 dark:text-neutral-400">${n.stats?.listingCount || 0} listings</span>
                 </div>
-            `).join('');
+            `
+                )
+                .join('');
         } else {
-            topListEl.innerHTML = '<p class="text-sm text-neutral-500 dark:text-neutral-400 text-center py-2">No matching communities found</p>';
+            topListEl.innerHTML =
+                '<p class="text-sm text-neutral-500 dark:text-neutral-400 text-center py-2">No matching communities found</p>';
         }
     }
 }
@@ -814,7 +848,7 @@ function attachStepEventListeners() {
     const priceMin = document.getElementById('wizard-price-min');
     const priceMax = document.getElementById('wizard-price-max');
     if (priceMin && priceMax) {
-        const updatePriceDisplay = (event) => {
+        const updatePriceDisplay = event => {
             const PRICE_STEPS = window.PRICE_STEPS || [];
             const totalSteps = 41;
 
@@ -840,8 +874,11 @@ function attachStepEventListeners() {
             const display = document.getElementById('wizard-price-display');
             if (display) {
                 const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0];
-                const maxPrice = (maxVal === 0) ? PRICE_STEPS[PRICE_STEPS.length - 1] : (PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1]);
-                display.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${(maxVal === 0 || maxVal >= 41) ? '+' : ''}`;
+                const maxPrice =
+                    maxVal === 0
+                        ? PRICE_STEPS[PRICE_STEPS.length - 1]
+                        : PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1];
+                display.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 0 || maxVal >= 41 ? '+' : ''}`;
             }
 
             // Update track fill
@@ -860,8 +897,8 @@ function attachStepEventListeners() {
             }
         };
 
-        priceMin.addEventListener('input', (e) => updatePriceDisplay(e));
-        priceMax.addEventListener('input', (e) => updatePriceDisplay(e));
+        priceMin.addEventListener('input', e => updatePriceDisplay(e));
+        priceMax.addEventListener('input', e => updatePriceDisplay(e));
     }
 
     // Beds/Baths sliders
@@ -876,7 +913,7 @@ function attachStepEventListeners() {
                 wizardState.selections[stateKey] = val;
 
                 if (display) {
-                    display.textContent = val === 1 ? 'Any' : (val >= 6 ? '6+' : `${val}+`);
+                    display.textContent = val === 1 ? 'Any' : val >= 6 ? '6+' : `${val}+`;
                 }
                 if (fill) {
                     fill.style.width = `${((val - 1) / 5) * 100}%`;
@@ -941,7 +978,7 @@ export function initWizard() {
     if (backBtn) backBtn.addEventListener('click', prevStep);
 
     // Keyboard: Escape to close
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', e => {
         if (e.key === 'Escape' && wizardState.isOpen) {
             closeWizard();
         }

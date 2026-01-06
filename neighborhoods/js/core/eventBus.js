@@ -63,7 +63,7 @@ export function createEventBus() {
          * @returns {Function} Unsubscribe function
          */
         once(event, callback) {
-            const wrapper = (data) => {
+            const wrapper = data => {
                 this.off(event, wrapper);
                 callback(data);
             };

@@ -17,10 +17,7 @@ let searchDebounceTimer = null;
  */
 export function highlightMatch(text, query) {
     if (!query) return text;
-    const safeText = text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
+    const safeText = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const pattern = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`(${pattern})`, 'ig');
     return safeText.replace(regex, '<strong>$1</strong>');
@@ -32,9 +29,7 @@ export function highlightMatch(text, query) {
  */
 export function getDefaultSearchResults() {
     const neighborhoods = window.neighborhoods || [];
-    return [...neighborhoods]
-        .sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0))
-        .slice(0, 5);
+    return [...neighborhoods].sort((a, b) => (b.stats?.listingCount || 0) - (a.stats?.listingCount || 0)).slice(0, 5);
 }
 
 /**
@@ -47,17 +42,20 @@ export function searchNeighborhoods(query) {
     if (!query) return getDefaultSearchResults();
 
     const neighborhoods = window.neighborhoods || [];
-    return neighborhoods.filter(n =>
-        n.name.toLowerCase().includes(query) ||
-        (n.location?.city || '').toLowerCase().includes(query) ||
-        (n.zipCode || '').includes(query)
-    ).sort((a, b) => {
-        // Prioritize name matches
-        const aNameMatch = a.name.toLowerCase().includes(query) ? 0 : 1;
-        const bNameMatch = b.name.toLowerCase().includes(query) ? 0 : 1;
-        if (aNameMatch !== bNameMatch) return aNameMatch - bNameMatch;
-        return a.name.localeCompare(b.name);
-    });
+    return neighborhoods
+        .filter(
+            n =>
+                n.name.toLowerCase().includes(query) ||
+                (n.location?.city || '').toLowerCase().includes(query) ||
+                (n.zipCode || '').includes(query)
+        )
+        .sort((a, b) => {
+            // Prioritize name matches
+            const aNameMatch = a.name.toLowerCase().includes(query) ? 0 : 1;
+            const bNameMatch = b.name.toLowerCase().includes(query) ? 0 : 1;
+            if (aNameMatch !== bNameMatch) return aNameMatch - bNameMatch;
+            return a.name.localeCompare(b.name);
+        });
 }
 
 /**
@@ -75,21 +73,29 @@ export function renderSearchResults(resultsContainer, query) {
         const topListings = getDefaultSearchResults();
         resultsContainer.innerHTML = `
             <div class="px-4 py-2 text-xs font-medium text-neutral-400 dark:text-dark-text-secondary uppercase">Most Listings</div>
-            ${topListings.map(n => `
+            ${topListings
+                .map(
+                    n => `
                 <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
                     ${n.name} - ${n.propertyType}
                 </button>
-            `).join('')}
+            `
+                )
+                .join('')}
         `;
     } else {
         const matches = searchNeighborhoods(queryLower);
 
         if (matches.length) {
-            resultsContainer.innerHTML = matches.map(n => `
+            resultsContainer.innerHTML = matches
+                .map(
+                    n => `
                 <button class="search-result w-full text-left px-4 py-2 text-sm hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-colors cursor-pointer" data-name="${n.name}" data-type="${n.propertyType}">
                     ${highlightMatch(n.name, query)} - ${highlightMatch(n.propertyType, query)}
                 </button>
-            `).join('');
+            `
+                )
+                .join('');
         } else {
             resultsContainer.innerHTML = '<div class="px-4 py-3 text-sm text-neutral-400">No matches found</div>';
         }
@@ -127,9 +133,7 @@ export function handleSearchInput(e) {
     // Live filter the main results list AND markers
     window.searchQuery = query;
     if (query) {
-        window.filteredNeighborhoods = (window.neighborhoods || []).filter(n =>
-            n.name.toLowerCase().includes(query)
-        );
+        window.filteredNeighborhoods = (window.neighborhoods || []).filter(n => n.name.toLowerCase().includes(query));
     } else {
         window.filteredNeighborhoods = [...(window.neighborhoods || [])];
     }
@@ -168,7 +172,9 @@ export function handleSearchResultClick(resultElement) {
             window.smoothFlyTo(n.position);
         }
 
-        const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+        const marker = (window.markers || []).find(
+            m => m.neighborhood.name === name && m.neighborhood.propertyType === type
+        );
         if (marker) {
             // Calculate distance to determine delay
             const startPos = window.map.getCenter();

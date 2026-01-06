@@ -14,7 +14,7 @@ import { eventBus, Events } from '../core/eventBus.js';
  */
 export function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
     const stats = area.stats || {};
-    const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+    const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
     const neighborhoodsList = (area.neighborhoods || [])
         .slice(0, 10)
         .map(n => n.name)
@@ -74,23 +74,45 @@ export function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
 function buildAreaNavButtons(area) {
     const filtered = window.filteredNeighborhoods || [];
     const hasNav = filtered.length > 1;
-    const prevBtn = hasNav ? '<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>' : '';
-    const nextBtn = hasNav ? '<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>' : '';
+    const prevBtn = hasNav
+        ? '<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>'
+        : '';
+    const nextBtn = hasNav
+        ? '<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>'
+        : '';
 
     if (window.isSingleMode) {
         // Single mode: Neighborhood Finder button with popout icon
-        const baseUrl = window.location.hostname === 'localhost'
-            ? window.location.origin
-            : 'https://neighborhoods.truesouthcoastalhomes.com';
+        const baseUrl =
+            window.location.hostname === 'localhost'
+                ? window.location.origin
+                : 'https://neighborhoods.truesouthcoastalhomes.com';
         const areaSlug = area.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         const finderUrl = baseUrl + '?marker=' + areaSlug;
-        return prevBtn + '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + area.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>' + nextBtn;
+        return (
+            prevBtn +
+            '<a href="' +
+            finderUrl +
+            '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' +
+            area.name +
+            ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>' +
+            nextBtn
+        );
     } else {
         // Full mode: Matching Listings button
         const areaConfig = (window.areaPresets?.presets || []).find(p => p.name === area.name);
         const areaParam = areaConfig?.listingsParam || 'area_' + encodeURIComponent(area.name) + '/';
-        const listingsUrl = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3#listtype_1/' + areaParam;
-        return prevBtn + '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all ' + area.name + ' listings">Matching Listings</a>' + nextBtn;
+        const listingsUrl =
+            'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3#listtype_1/' + areaParam;
+        return (
+            prevBtn +
+            '<a href="' +
+            listingsUrl +
+            '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all ' +
+            area.name +
+            ' listings">Matching Listings</a>' +
+            nextBtn
+        );
     }
 }
 
@@ -112,19 +134,25 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
         window.currentNeighborhood = n;
     }
 
-    const formatPrice = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
+    const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
     const stats = n.stats || {};
     const medianPrice = stats.medianPrice || stats.avgPrice || 0;
     const medianPriceDisplay = formatPrice(medianPrice);
-    const pricePerSqFt = stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
+    const pricePerSqFt =
+        stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
     const listingLabel = getListingLabel(n.propertyType);
-    const selectedAmenities = (window.filterState && window.filterState.amenities) ? window.filterState.amenities : new Set();
+    const selectedAmenities =
+        window.filterState && window.filterState.amenities ? window.filterState.amenities : new Set();
     const formatAmenitiesList = (list = []) => {
-        const escape = (str) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        return list.map(a => {
-            const safe = escape(a);
-            return selectedAmenities.has(a) ? `<strong>${safe}</strong>` : safe;
-        }).join(', ') + '.';
+        const escape = str => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return (
+            list
+                .map(a => {
+                    const safe = escape(a);
+                    return selectedAmenities.has(a) ? `<strong>${safe}</strong>` : safe;
+                })
+                .join(', ') + '.'
+        );
     };
 
     // Build listings URL with filter slugs
@@ -136,7 +164,9 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
         <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
-                ${n.urlSlug ? `
+                ${
+                    n.urlSlug
+                        ? `
                 <a href="https://www.truesouthcoastalhomes.com${n.urlSlug}"
                    target="_blank"
                    class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
@@ -147,7 +177,9 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                     </svg>
                 </a>
-                ` : ''}
+                `
+                        : ''
+                }
             </div>
             <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
                 <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
@@ -169,27 +201,39 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
                     <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
                 </div>
             </div>
-            ${(n.amenities || []).length > 0 ? `
+            ${
+                (n.amenities || []).length > 0
+                    ? `
             <div class="mb-2 sm:mb-3">
                 <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
                     <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
                     <div class="amenities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${formatAmenitiesList(n.amenities || [])}</div>
                 </div>
             </div>
-            ` : ''}
+            `
+                    : ''
+            }
             <hr class="divider mb-2 sm:mb-3">
             <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
-                ${hasNav ? `
+                ${
+                    hasNav
+                        ? `
                 <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
-                ` : ''}
+                `
+                        : ''
+                }
                 ${buildMainButton(n, listingsUrl)}
-                ${hasNav ? `
+                ${
+                    hasNav
+                        ? `
                 <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
-                ` : ''}
+                `
+                        : ''
+                }
             </div>
         </div>
     `;
@@ -232,7 +276,7 @@ function buildListingsUrl(n) {
     const bedsSlug = bedsMin > 1 ? `beds_${bedsMin}/` : '';
     const bathsSlug = bathsMin > 1 ? `baths_${bathsMin}/` : '';
     const priceMinSlug = priceMin ? `lprice_${priceMin}/` : '';
-    const priceMaxSlug = (priceMax && priceMax < 35000000) ? `uprice_${priceMax}/` : '';
+    const priceMaxSlug = priceMax && priceMax < 35000000 ? `uprice_${priceMax}/` : '';
 
     // Determine property type descrip
     let typeDescrip = '';
@@ -256,8 +300,8 @@ function buildListingsUrl(n) {
 
     // Build search parameter using subdivision names (Sierra uses + for space, %26% for &)
     // Convert to proper case for cleaner URLs
-    const toProperCase = (str) => str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-    const encodeSubdiv = (s) => toProperCase(s).replace(/ /g, '+').replace(/&/g, '%26%');
+    const toProperCase = str => str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    const encodeSubdiv = s => toProperCase(s).replace(/ /g, '+').replace(/&/g, '%26%');
 
     let searchParam;
     if (n.mlsSubdivisions && n.mlsSubdivisions.length > 0) {
@@ -281,17 +325,44 @@ function buildMainButton(n, listingsUrl) {
 
     if (window.isSingleMode) {
         // Single mode: link to Community Finder with marker parameter
-        const neighborhoodSlug = window.toSlug ? window.toSlug(n.name) : n.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        const neighborhoodSlug = window.toSlug
+            ? window.toSlug(n.name)
+            : n.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         const propertyTypeParam = n.propertyType ? '&propertyType=' + encodeURIComponent(n.propertyType) : '';
-        const baseUrl = window.location.hostname === 'localhost'
-            ? window.location.origin
-            : 'https://neighborhoods.truesouthcoastalhomes.com';
+        const baseUrl =
+            window.location.hostname === 'localhost'
+                ? window.location.origin
+                : 'https://neighborhoods.truesouthcoastalhomes.com';
         const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
-        return '<a href="' + finderUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' + n.name + ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>';
+        return (
+            '<a href="' +
+            finderUrl +
+            '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' +
+            n.name +
+            ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>'
+        );
     } else if (listingsUrl) {
-        return '<a href="' + listingsUrl + '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation(); if(typeof gtag!==\'undefined\')gtag(\'event\',\'view_listings\',{neighborhood_name:\'' + n.name + '\',listing_count:' + (stats.listingCount || 0) + ',property_type:\'' + n.propertyType + '\'});" title="View all ' + n.name + ' ' + n.propertyType + ' for sale">Matching Listings</a>';
+        return (
+            '<a href="' +
+            listingsUrl +
+            "\" target=\"_blank\" class=\"flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors\" onclick=\"event.stopPropagation(); if(typeof gtag!=='undefined')gtag('event','view_listings',{neighborhood_name:'" +
+            n.name +
+            "',listing_count:" +
+            (stats.listingCount || 0) +
+            ",property_type:'" +
+            n.propertyType +
+            '\'});" title="View all ' +
+            n.name +
+            ' ' +
+            n.propertyType +
+            ' for sale">Matching Listings</a>'
+        );
     } else {
-        return '<button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed" disabled title="MLS listings coming soon for ' + n.name + '">Coming Soon!</button>';
+        return (
+            '<button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed" disabled title="MLS listings coming soon for ' +
+            n.name +
+            '">Coming Soon!</button>'
+        );
     }
 }
 

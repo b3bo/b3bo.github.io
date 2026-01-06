@@ -22,7 +22,6 @@ import './filters/index.js';
 import './search/index.js';
 import './keyboard/index.js';
 
-
 // Initialize event delegation layer (single listeners for performance)
 initEventDelegation();
 
@@ -83,7 +82,10 @@ window.sortOrder = window.sortOrder || 'listings-desc';
 window.formatPrice = formatPrice;
 
 function toSlug(str) {
-    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    return str
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
 }
 window.toSlug = toSlug;
 

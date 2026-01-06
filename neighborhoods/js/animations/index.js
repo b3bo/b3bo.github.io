@@ -32,9 +32,12 @@ export function animateCount(element, targetCount, duration = 700) {
     // Get current displayed value
     const countSpan = element.querySelector('.count-number');
     const currentDisplayed = countSpan ? parseInt(countSpan.textContent, 10) : null;
-    const start = (currentDisplayed !== null && !isNaN(currentDisplayed))
-        ? currentDisplayed
-        : (lastDisplayedCount !== null ? lastDisplayedCount : targetCount);
+    const start =
+        currentDisplayed !== null && !isNaN(currentDisplayed)
+            ? currentDisplayed
+            : lastDisplayedCount !== null
+              ? lastDisplayedCount
+              : targetCount;
     const diff = targetCount - start;
 
     // Skip animation if no change or first load
@@ -46,7 +49,7 @@ export function animateCount(element, targetCount, duration = 700) {
 
     const startTime = performance.now();
 
-    activeCountAnimation = createAnimation((currentTime) => {
+    activeCountAnimation = createAnimation(currentTime => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 

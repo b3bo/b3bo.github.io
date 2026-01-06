@@ -14,7 +14,7 @@ import { eventBus, Events } from '../core/eventBus.js';
 export function formatAmenitiesWithSelection(amenitiesArr) {
     if (!amenitiesArr || amenitiesArr.length === 0) return 'No amenities listed';
     const selected = window.filterState?.amenities || new Set();
-    return amenitiesArr.map(a => selected.has(a) ? `<strong>${a}</strong>` : a).join(', ') + '.';
+    return amenitiesArr.map(a => (selected.has(a) ? `<strong>${a}</strong>` : a)).join(', ') + '.';
 }
 
 /**
@@ -108,7 +108,7 @@ export function renderResults() {
         if (hasActiveFilters()) {
             const clearBtnEl = document.getElementById('clear-filters');
             if (clearBtnEl) {
-                clearBtnEl.addEventListener('click', (e) => {
+                clearBtnEl.addEventListener('click', e => {
                     e.stopPropagation();
                     if (window.clearAllFilters) {
                         window.clearAllFilters();
@@ -119,8 +119,10 @@ export function renderResults() {
     }
 
     // Render list - use buttons for WCAG keyboard navigation
-    const fmt = window.formatPrice || (p => '$' + (p/1000000).toFixed(1) + 'M');
-    list.innerHTML = sorted.map(n => `
+    const fmt = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
+    list.innerHTML = sorted
+        .map(
+            n => `
         <button type="button" class="neighborhood-item w-full text-left bg-white dark:bg-dark-bg-elevated px-4 py-3 rounded-xl border border-neutral-200 dark:border-dark-border cursor-pointer overflow-hidden transition-colors hover:bg-brand-100 dark:hover:bg-brand-dark/20 active:bg-brand-200 dark:active:bg-brand-dark/30"
              data-name="${n.name}" data-type="${n.propertyType}">
             <div class="flex justify-between items-start gap-2 mb-1">
@@ -130,7 +132,9 @@ export function renderResults() {
             <div class="text-xs text-neutral-600 dark:text-dark-text-secondary mb-3">${n.stats?.listingCount || 0} ${listingLabelForType(n.propertyType)}</div>
             <div class="text-xs text-neutral-600 dark:text-dark-text-secondary leading-relaxed break-words">${formatAmenitiesWithSelection(n.amenities || [])}</div>
         </button>
-    `).join('');
+    `
+        )
+        .join('');
 
     // Add click handlers for neighborhood items
     list.querySelectorAll('.neighborhood-item').forEach(item => {
@@ -154,7 +158,9 @@ export function renderResults() {
                 }
 
                 // Find and click marker after flight
-                const marker = (window.markers || []).find(m => m.neighborhood.name === name && m.neighborhood.propertyType === type);
+                const marker = (window.markers || []).find(
+                    m => m.neighborhood.name === name && m.neighborhood.propertyType === type
+                );
                 if (marker) {
                     // Calculate distance to determine delay
                     const startPos = window.map.getCenter();

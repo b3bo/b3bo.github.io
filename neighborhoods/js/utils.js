@@ -71,7 +71,10 @@ export function getUrlParams() {
 
 // Convert neighborhood name to slug
 export function toSlug(name) {
-    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
 }
 
 // Helper to parse range strings like "$500,000 - $3,695,000" or "3 - 6" or "3-4"
@@ -100,7 +103,7 @@ export function parseRange(rangeStr) {
 // Debounce helper for performance
 export function debounce(func, wait) {
     let timeout;
-    return function(...args) {
+    return function (...args) {
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
@@ -111,7 +114,7 @@ export function throttle(func, limit) {
     let inThrottle = false;
     let lastArgs = null;
 
-    return function(...args) {
+    return function (...args) {
         if (!inThrottle) {
             func.apply(this, args);
             inThrottle = true;
@@ -137,7 +140,7 @@ export function createAnimation(callback) {
     let frameId = null;
     let cancelled = false;
 
-    const animate = (timestamp) => {
+    const animate = timestamp => {
         if (cancelled) return;
         const shouldContinue = callback(timestamp);
         if (shouldContinue !== false && !cancelled) {
@@ -168,10 +171,10 @@ export const Easing = {
     linear: t => t,
     easeInQuad: t => t * t,
     easeOutQuad: t => t * (2 - t),
-    easeInOutQuad: t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
+    easeInOutQuad: t => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t),
     easeInCubic: t => t * t * t,
-    easeOutCubic: t => (--t) * t * t + 1,
-    easeInOutCubic: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+    easeOutCubic: t => --t * t * t + 1,
+    easeInOutCubic: t => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)
 };
 
 export function clamp(val, min, max) {

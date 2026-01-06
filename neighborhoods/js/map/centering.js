@@ -13,8 +13,8 @@ let activeFlyAnimation = null;
 // ============================================
 // CENTERING CONSTANTS - SINGLE SOURCE OF TRUTH
 // ============================================
-export const TAIL_HEIGHT = 78;    // Measured tail height (card tip to marker)
-export const MARKER_RADIUS = 10;  // Visual marker dot radius
+export const TAIL_HEIGHT = 78; // Measured tail height (card tip to marker)
+export const MARKER_RADIUS = 10; // Visual marker dot radius
 
 /**
  * Convert pixel offset to latitude offset using Mercator projection.
@@ -28,12 +28,12 @@ export const MARKER_RADIUS = 10;  // Visual marker dot radius
 export function preCalculateOffsetLat(lat, offsetPixels, zoom) {
     const TILE_SIZE = 256;
     const scale = Math.pow(2, zoom);
-    const latRad = lat * Math.PI / 180;
+    const latRad = (lat * Math.PI) / 180;
     const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
-    const pixelsPerRadian = TILE_SIZE * scale / (2 * Math.PI);
+    const pixelsPerRadian = (TILE_SIZE * scale) / (2 * Math.PI);
     const newMercY = mercY + offsetPixels / pixelsPerRadian;
     const newLatRad = 2 * Math.atan(Math.exp(newMercY)) - Math.PI / 2;
-    return newLatRad * 180 / Math.PI;
+    return (newLatRad * 180) / Math.PI;
 }
 
 /**
@@ -59,7 +59,7 @@ export function computeOffsetPx(zoomLevel, isAreaMarker = false) {
         return Math.round((cardHeight + TAIL_HEIGHT - MARKER_RADIUS) / 2);
     } else {
         const markerY = 20 + cardHeight + TAIL_HEIGHT + MARKER_RADIUS;
-        return Math.round(Math.max(0, markerY - (dvh / 2)));
+        return Math.round(Math.max(0, markerY - dvh / 2));
     }
 }
 
@@ -249,7 +249,9 @@ export function logCenteringDiagnostics(markerLatLng) {
         const markerCenterY = markerRect.top + markerRect.height / 2 - mapRect.top;
         markerY = markerCenterY;
         markerBottom = markerCenterY + markerRadius;
-        console.log(`(Using DOM position: marker element at ${Math.round(markerRect.top - mapRect.top)}px, center at ${Math.round(markerCenterY)}px)`);
+        console.log(
+            `(Using DOM position: marker element at ${Math.round(markerRect.top - mapRect.top)}px, center at ${Math.round(markerCenterY)}px)`
+        );
     } else {
         // Fallback: calculate from lat/lng (less accurate due to Mercator projection)
         const bounds = map.getBounds();
@@ -279,7 +281,9 @@ export function logCenteringDiagnostics(markerLatLng) {
     console.log('---');
     console.log(`Space ABOVE card: ${Math.round(topPadding)}px`);
     console.log(`Space BELOW marker: ${Math.round(bottomPadding)}px`);
-    console.log(`Difference: ${Math.round(paddingDiff)}px (${paddingDiff < 0 ? 'more space below' : paddingDiff > 0 ? 'more space above' : 'centered'})`);
+    console.log(
+        `Difference: ${Math.round(paddingDiff)}px (${paddingDiff < 0 ? 'more space below' : paddingDiff > 0 ? 'more space above' : 'centered'})`
+    );
     console.log('=============================');
 
     // Send diagnostic to parent window (for iframe-test.html)
@@ -287,11 +291,14 @@ export function logCenteringDiagnostics(markerLatLng) {
         const absDiff = Math.abs(Math.round(paddingDiff));
         const status = absDiff <= 5 ? 'good' : absDiff <= 20 ? 'warn' : 'bad';
         const direction = paddingDiff < 0 ? 'more space below' : paddingDiff > 0 ? 'more space above' : 'centered';
-        window.parent.postMessage({
-            type: 'centeringDiagnostic',
-            difference: `Difference: ${Math.round(paddingDiff)}px (${direction})`,
-            status: status
-        }, '*');
+        window.parent.postMessage(
+            {
+                type: 'centeringDiagnostic',
+                difference: `Difference: ${Math.round(paddingDiff)}px (${direction})`,
+                status: status
+            },
+            '*'
+        );
     }
 }
 
@@ -376,7 +383,7 @@ export function smoothFlyTo(targetPosition, targetZoom) {
 
     const startTime = performance.now();
 
-    activeFlyAnimation = createAnimation((currentTime) => {
+    activeFlyAnimation = createAnimation(currentTime => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
