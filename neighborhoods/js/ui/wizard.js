@@ -287,36 +287,36 @@ function generateAmenitiesStep() {
 
 function generateSummaryStep() {
     return `
-        <div class="py-4">
-            <h2 class="text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">
+        <div class="py-2 sm:py-4">
+            <h2 class="text-base sm:text-lg font-heading font-semibold text-neutral-800 dark:text-dark-text-primary mb-1 sm:mb-2 text-center">
                 Here's what we found.
             </h2>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6 text-center">
+            <p class="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mb-4 sm:mb-6 text-center">
                 These neighborhoods match your criteria.
             </p>
 
             <!-- Hero Number -->
-            <div class="text-center mb-6">
-                <div class="text-5xl font-bold text-brand-600 dark:text-brand-dark" id="wizard-stat-communities">--</div>
-                <div class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Matching Neighborhoods</div>
+            <div class="text-center mb-4 sm:mb-6">
+                <div class="text-3xl sm:text-5xl font-bold text-brand-600 dark:text-brand-dark" id="wizard-stat-communities">--</div>
+                <div class="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1">Matching Neighborhoods</div>
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-2 gap-3 mb-6">
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
-                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-listings">--</div>
+            <div class="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
+                    <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-listings">--</div>
                     <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Active Listings</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
-                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-median">--</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
+                    <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-median">--</div>
                     <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Median Price</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
-                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-price-range">--</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
+                    <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-price-range">--</div>
                     <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Price Range</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-4 text-center">
-                    <div class="text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-dom">--</div>
+                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
+                    <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-dom">--</div>
                     <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Avg Days on Market</div>
                 </div>
             </div>
@@ -961,12 +961,6 @@ export function initWizard() {
     const closeBtnMobile = document.getElementById('wizard-close-mobile');
     if (closeBtnMobile) {
         closeBtnMobile.addEventListener('click', closeWizard);
-    }
-
-    // Backdrop click to close
-    const backdrop = document.getElementById('wizard-backdrop');
-    if (backdrop) {
-        backdrop.addEventListener('click', closeWizard);
     }
 
     // Navigation buttons
