@@ -1241,6 +1241,9 @@ function initApp() {
     // ==========================================
     document.querySelectorAll('.amenity-tag').forEach(tag => {
         tag.addEventListener('click', function () {
+            // Skip price presets - they have their own handler in events.js
+            if (this.classList.contains('price-preset')) return;
+
             this.classList.toggle('selected');
             const amenity = this.getAttribute('data-amenity');
             const isSelected = this.classList.contains('selected');

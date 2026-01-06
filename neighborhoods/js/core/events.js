@@ -5,6 +5,7 @@
  */
 
 import { eventBus, Events } from './eventBus.js';
+import { updatePriceSlider } from '../filters/index.js';
 
 // Handler registries
 const clickHandlers = new Map();
@@ -196,8 +197,11 @@ export function registerCommonHandlers() {
         eventBus.emit(Events.FILTERS_CHANGED, { type: 'propertyType' });
     });
 
-    // Amenity tag clicks
+    // Amenity tag clicks (skip price presets - they have their own handler)
     onClick('.amenity-tag', (event, element) => {
+        // Skip price presets - they have their own dedicated handler
+        if (element.classList.contains('price-preset')) return;
+
         const isActive = element.classList.contains('filter-btn-active');
         element.classList.toggle('filter-btn-active', !isActive);
         element.classList.toggle('filter-btn-inactive', isActive);
@@ -271,30 +275,118 @@ export function registerCommonHandlers() {
         }
     });
 
-    // Price preset clicks
+    // Price preset clicks - supports toggle and consecutive range extension
     onClick('.price-preset', (event, element) => {
-        const minIdx = parseInt(element.dataset.min, 10);
-        const maxIdx = parseInt(element.dataset.max, 10);
-
         const priceMinSlider = document.getElementById('price-min');
         const priceMaxSlider = document.getElementById('price-max');
+        const allPresets = Array.from(document.querySelectorAll('.price-preset'));
 
-        if (priceMinSlider && priceMaxSlider) {
-            priceMinSlider.value = minIdx;
-            priceMaxSlider.value = maxIdx;
+        const clickedMin = parseInt(element.dataset.min, 10);
+        const clickedMax = parseInt(element.dataset.max, 10);
+        const isActive = element.classList.contains('selected');
 
-            // Trigger input events to update display and filters
-            priceMinSlider.dispatchEvent(new Event('input', { bubbles: true }));
-            priceMaxSlider.dispatchEvent(new Event('input', { bubbles: true }));
+        if (isActive) {
+            // Toggle OFF this preset
+            element.classList.remove('selected');
+
+            // Check if any presets still active
+            const stillActive = allPresets.filter(btn => btn.classList.contains('selected'));
+
+            if (stillActive.length === 0) {
+                // No presets active - reset to default (both at 0 = no filter)
+                if (priceMinSlider && priceMaxSlider) {
+                    priceMinSlider.value = 0;
+                    priceMaxSlider.value = 0;
+                }
+            } else {
+                // Recalculate range from remaining active presets
+                let newMin = 41, newMax = 0;
+                stillActive.forEach(btn => {
+                    newMin = Math.min(newMin, parseInt(btn.dataset.min, 10));
+                    newMax = Math.max(newMax, parseInt(btn.dataset.max, 10));
+                });
+                if (priceMinSlider && priceMaxSlider) {
+                    priceMinSlider.value = newMin;
+                    priceMaxSlider.value = newMax;
+                }
+            }
+        } else {
+            // Activating a preset - check if consecutive with existing selection
+            const currentActive = allPresets.filter(btn => btn.classList.contains('selected'));
+
+            if (currentActive.length === 0) {
+                // No current selection - just activate this one
+                element.classList.add('selected');
+                if (priceMinSlider && priceMaxSlider) {
+                    priceMinSlider.value = clickedMin;
+                    priceMaxSlider.value = clickedMax;
+                }
+            } else {
+                // Check if clicked preset is adjacent to current selection
+                let currentMin = 41, currentMax = 0;
+                currentActive.forEach(btn => {
+                    currentMin = Math.min(currentMin, parseInt(btn.dataset.min, 10));
+                    currentMax = Math.max(currentMax, parseInt(btn.dataset.max, 10));
+                });
+
+                // Adjacent if clicked range touches current range
+                const isAdjacent = (clickedMax === currentMin) || (clickedMin === currentMax);
+
+                if (isAdjacent) {
+                    // Extend selection - activate clicked preset
+                    element.classList.add('selected');
+                    const newMin = Math.min(currentMin, clickedMin);
+                    const newMax = Math.max(currentMax, clickedMax);
+                    if (priceMinSlider && priceMaxSlider) {
+                        priceMinSlider.value = newMin;
+                        priceMaxSlider.value = newMax;
+                    }
+                } else {
+                    // Not adjacent - deselect all, select only clicked
+                    allPresets.forEach(btn => {
+                        btn.classList.remove('selected');
+                    });
+                    element.classList.add('selected');
+                    if (priceMinSlider && priceMaxSlider) {
+                        priceMinSlider.value = clickedMin;
+                        priceMaxSlider.value = clickedMax;
+                    }
+                }
+            }
         }
 
-        // Visual feedback - same pattern as amenity buttons
-        document.querySelectorAll('.price-preset').forEach(btn => {
-            btn.classList.remove('filter-btn-active');
-            btn.classList.add('filter-btn-inactive');
-        });
-        element.classList.remove('filter-btn-inactive');
-        element.classList.add('filter-btn-active');
+        // Update the slider display and apply filters
+        const minVal = parseInt(priceMinSlider?.value) || 0;
+        const maxVal = parseInt(priceMaxSlider?.value) || 0;
+
+        const PRICE_STEPS = window.PRICE_STEPS || [];
+        const priceDisplay = document.getElementById('price-display');
+        const priceFill = document.getElementById('price-fill');
+
+        // Update filter state
+        window.filterState.priceMin = minVal;
+        window.filterState.priceMax = maxVal;
+
+        // Update display
+        if (priceDisplay) {
+            if (minVal === 0 && maxVal === 0) {
+                priceDisplay.textContent = '$250K - $35M+';
+            } else {
+                const formatPrice = (p) => p >= 1000000 ? '$' + (p / 1000000).toFixed(p % 1000000 === 0 ? 0 : 1) + 'M' : '$' + (p / 1000).toFixed(0) + 'K';
+                const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0] || 250000;
+                const maxPrice = PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000;
+                priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+            }
+        }
+
+        // Update track fill
+        if (priceFill) {
+            const totalSteps = 41;
+            const minPct = minVal / totalSteps;
+            const maxPct = maxVal / totalSteps;
+            priceFill.style.left = minVal === 0 ? '0' : `${minPct * 100}%`;
+            priceFill.style.width = `${(maxVal === 0 ? 0 : maxPct - minPct) * 100}%`;
+        }
 
         if (window.applyFilters) window.applyFilters();
         eventBus.emit(Events.FILTERS_CHANGED, { type: 'pricePreset' });

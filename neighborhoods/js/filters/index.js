@@ -54,8 +54,10 @@ export function updatePriceSlider(minInput, maxInput, event) {
     const priceDisplay = document.getElementById('price-display');
     const priceFill = document.getElementById('price-fill');
 
-    let minVal = parseInt(minInput.value) || 0;
-    let maxVal = parseInt(maxInput.value) || 41;
+    let minVal = parseInt(minInput.value);
+    let maxVal = parseInt(maxInput.value);
+    if (isNaN(minVal)) minVal = 0;
+    if (isNaN(maxVal)) maxVal = 0;
     const totalSteps = 41;
 
     // Push behavior - prevent overlap
@@ -75,9 +77,14 @@ export function updatePriceSlider(minInput, maxInput, event) {
 
     // Update display
     if (priceDisplay) {
-        const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0];
-        const maxPrice = PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1];
-        priceDisplay.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+        if (minVal === 0 && maxVal === 0) {
+            // Default state - no filter
+            priceDisplay.textContent = '$250K - $35M+';
+        } else {
+            const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0];
+            const maxPrice = PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1];
+            priceDisplay.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+        }
     }
 
     // Update track fill
@@ -331,8 +338,7 @@ export function clearAllFilters() {
 
     // Reset price preset buttons to default (unselected) state
     document.querySelectorAll('.price-preset').forEach(btn => {
-        btn.classList.remove('filter-btn-active');
-        btn.classList.add('filter-btn-inactive');
+        btn.classList.remove('selected');
     });
 
     // Clear any visible map boundaries
@@ -443,18 +449,18 @@ export function handleAmenityTagClick(tag) {
     const amenity = tag.getAttribute('data-amenity');
     if (!amenity) return;
 
-    // Handle mutual exclusivity for Short-Term Allowed / No Short-Term
-    if (amenity === 'Short-Term Allowed') {
+    // Handle mutual exclusivity for Short-Term / No Short-Term
+    if (amenity === 'Short-Term') {
         const noShortTermTag = document.querySelector('.amenity-tag[data-amenity="No Short-Term"]');
         if (noShortTermTag && noShortTermTag.classList.contains('selected')) {
             noShortTermTag.classList.remove('selected');
             window.filterState.amenities.delete('No Short-Term');
         }
     } else if (amenity === 'No Short-Term') {
-        const shortTermTag = document.querySelector('.amenity-tag[data-amenity="Short-Term Allowed"]');
+        const shortTermTag = document.querySelector('.amenity-tag[data-amenity="Short-Term"]');
         if (shortTermTag && shortTermTag.classList.contains('selected')) {
             shortTermTag.classList.remove('selected');
-            window.filterState.amenities.delete('Short-Term Allowed');
+            window.filterState.amenities.delete('Short-Term');
         }
     }
 
