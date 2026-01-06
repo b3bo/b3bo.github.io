@@ -848,19 +848,19 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
   content: '';
   position: absolute;
   left: 15px;
-  top: 42px;
+  top: 44px;
   width: 2px;
-  height: calc(100% - 18px);
+  height: calc(100% - 32px);
   background-color: var(--color-neutral-200);
 }
 .dark .wizard-step-item:not(:last-child)::after {
   background-color: var(--color-dark-border, #2d3440);
 }
 .wizard-step-item.completed:not(:last-child)::after {
-  background-color: var(--color-neutral-800);
+  background-color: var(--color-neutral-400);
 }
 .dark .wizard-step-item.completed:not(:last-child)::after {
-  background-color: var(--color-neutral-700);
+  background-color: var(--color-neutral-500);
 }
 
 /* Step circle (number or checkmark) */
@@ -897,15 +897,16 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
   color: white;
 }
 
-/* Completed step - dark neutral checkmark */
+/* Completed step - outlined circle with gray checkmark */
 .wizard-step-item.completed .wizard-step-circle {
-  border-color: var(--color-neutral-800);
-  background-color: var(--color-neutral-800);
-  color: white;
+  border-color: var(--color-neutral-400);
+  background-color: transparent;
+  color: var(--color-neutral-500);
 }
 .dark .wizard-step-item.completed .wizard-step-circle {
-  border-color: var(--color-neutral-700);
-  background-color: var(--color-neutral-700);
+  border-color: var(--color-neutral-500);
+  background-color: transparent;
+  color: var(--color-neutral-400);
 }
 
 /* Step text labels */
@@ -940,23 +941,93 @@ html.dark #search-results::-webkit-scrollbar-thumb:active {
   color: var(--color-dark-text-primary, #e8eaed);
 }
 
+/* Horizontal step indicators (mobile) */
+.wizard-step-h {
+  display: flex;
+  align-items: center;
+}
+.wizard-step-h-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 2px solid var(--color-neutral-300);
+  background-color: white;
+  color: var(--color-neutral-400);
+  flex-shrink: 0;
+}
+.dark .wizard-step-h-circle {
+  border-color: var(--color-dark-border, #2d3440);
+  background-color: var(--color-dark-bg-elevated, #1a1f26);
+  color: var(--color-neutral-500);
+}
+.wizard-step-h.active .wizard-step-h-circle {
+  border-color: var(--color-brand-base);
+  background-color: var(--color-brand-base);
+  color: white;
+}
+.dark .wizard-step-h.active .wizard-step-h-circle {
+  border-color: var(--color-brand-dark);
+  background-color: var(--color-brand-dark);
+  color: white;
+}
+.wizard-step-h.completed .wizard-step-h-circle {
+  border-color: var(--color-neutral-400);
+  background-color: transparent;
+  color: var(--color-neutral-500);
+}
+.dark .wizard-step-h.completed .wizard-step-h-circle {
+  border-color: var(--color-neutral-500);
+  background-color: transparent;
+  color: var(--color-neutral-400);
+}
+.wizard-step-h-line {
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-neutral-300);
+}
+.dark .wizard-step-h-line {
+  background-color: var(--color-dark-border, #2d3440);
+}
+.wizard-step-h.completed + .wizard-step-h .wizard-step-h-line-before,
+.wizard-step-h.completed .wizard-step-h-line {
+  background-color: var(--color-neutral-400);
+}
+.dark .wizard-step-h.completed + .wizard-step-h .wizard-step-h-line-before,
+.dark .wizard-step-h.completed .wizard-step-h-line {
+  background-color: var(--color-neutral-500);
+}
+
 /* Property type selection cards */
 .wizard-prop-type {
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
+/* Match sidebar Homes/Condos button styling */
 .wizard-prop-type.selected {
+  background-color: var(--color-brand-base) !important;
   border-color: var(--color-brand-base) !important;
-  background-color: var(--color-brand-light) !important;
+  color: white !important;
 }
 .wizard-prop-type.selected svg {
-  color: var(--color-brand-base);
+  color: white !important;
+}
+.wizard-prop-type.selected span {
+  color: white !important;
 }
 .dark .wizard-prop-type.selected {
+  background-color: var(--color-brand-dark) !important;
   border-color: var(--color-brand-dark) !important;
-  background-color: rgba(var(--color-brand-rgb), 0.15) !important;
+  color: white !important;
 }
 .dark .wizard-prop-type.selected svg {
-  color: var(--color-brand-dark);
+  color: white !important;
+}
+.dark .wizard-prop-type.selected span {
+  color: white !important;
 }
 
 /* Area and Amenity tag selection */

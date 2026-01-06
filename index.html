@@ -3215,7 +3215,7 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
             <div class="flex-shrink-0 w-full">
                 <div class="px-5">
                     <hr class="divider">
-                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 6 | v1.1.51</p>
+                    <p class="text-xs text-neutral-400 dark:text-neutral-600 text-center py-2">Data: ECAR MLS | Updated Jan 6 | v1.1.52</p>
                 </div>
             </div>
 
@@ -3330,8 +3330,8 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
         <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
             <div id="wizard-card" class="relative bg-white dark:bg-dark-bg-elevated rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden pointer-events-auto transform transition-all">
 
-                <!-- Close Button -->
-                <button id="wizard-close" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors z-10" aria-label="Close wizard">
+                <!-- Close Button (Desktop - absolute positioned) -->
+                <button id="wizard-close" class="hidden sm:block absolute top-4 right-4 p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors z-10" aria-label="Close wizard">
                     <svg class="w-5 h-5 text-neutral-500 dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
@@ -3353,12 +3353,19 @@ Copyright 2025 Kimberly Bauman, P.A. All rights reserved.
 
                     <!-- Right: Content Area -->
                     <div class="flex-1 flex flex-col min-w-0">
-                        <!-- Mobile: Horizontal Progress -->
-                        <div class="sm:hidden flex items-center gap-3 px-5 pt-5 pb-2">
-                            <div class="flex-1 h-1.5 bg-neutral-200 dark:bg-dark-border rounded-full overflow-hidden">
-                                <div id="wizard-progress-bar" class="h-full bg-brand-500 dark:bg-brand-dark transition-all duration-300" style="width: 16.67%;"></div>
+                        <!-- Mobile: Close Button Row -->
+                        <div class="sm:hidden flex justify-end px-4 pt-3">
+                            <button id="wizard-close-mobile" class="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-bg-elevated-2 transition-colors" aria-label="Close wizard">
+                                <svg class="w-5 h-5 text-neutral-500 dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Mobile: Horizontal Step Indicators -->
+                        <div class="sm:hidden pb-2">
+                            <div id="wizard-steps-horizontal" class="flex items-center justify-center gap-0">
+                                <!-- Step circles rendered by JS -->
                             </div>
-                            <span id="wizard-step-count" class="text-xs font-medium text-neutral-500 dark:text-neutral-400 whitespace-nowrap">Step 1/6</span>
                         </div>
 
                         <!-- Step Content -->

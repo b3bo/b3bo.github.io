@@ -26,9 +26,10 @@ const wizardState = {
     isOpen: false,
     currentStep: 0,
     selections: {
-        propertyType: null,      // null = both, 'Homes', 'Condos'
-        priceMin: 0,
-        priceMax: 0,
+        homes: false,            // independent toggle (like sidebar)
+        condos: false,           // independent toggle (like sidebar)
+        priceMin: 0,             // both thumbs stacked left = Any price
+        priceMax: 0,             // both thumbs stacked left = Any price
         bedsMin: 1,
         bathsMin: 1,
         areas: new Set(),
@@ -65,8 +66,8 @@ function generateWelcomeStep() {
 }
 
 function generatePropertyTypeStep() {
-    const homesSelected = wizardState.selections.propertyType === 'Homes' ? 'selected' : '';
-    const condosSelected = wizardState.selections.propertyType === 'Condos' ? 'selected' : '';
+    const homesSelected = wizardState.selections.homes ? 'selected' : '';
+    const condosSelected = wizardState.selections.condos ? 'selected' : '';
 
     return `
         <div class="py-4">
@@ -77,13 +78,13 @@ function generatePropertyTypeStep() {
                 Select one or both to see available communities.
             </p>
             <div class="flex gap-4 justify-center py-4">
-                <button class="wizard-prop-type flex-1 max-w-[140px] flex flex-col items-center gap-3 p-6 rounded-xl border-2 border-neutral-200 dark:border-dark-border hover:border-brand-300 dark:hover:border-brand-dark/50 transition-all ${homesSelected}" data-type="Homes">
+                <button class="wizard-prop-type flex-1 max-w-[140px] flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-all ${homesSelected}" data-type="Homes">
                     <svg class="w-10 h-10 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                     </svg>
                     <span class="text-sm font-medium text-neutral-700 dark:text-dark-text-primary">Homes</span>
                 </button>
-                <button class="wizard-prop-type flex-1 max-w-[140px] flex flex-col items-center gap-3 p-6 rounded-xl border-2 border-neutral-200 dark:border-dark-border hover:border-brand-300 dark:hover:border-brand-dark/50 transition-all ${condosSelected}" data-type="Condos">
+                <button class="wizard-prop-type flex-1 max-w-[140px] flex flex-col items-center gap-3 p-6 rounded-xl border border-neutral-300 dark:border-dark-border bg-white dark:bg-dark-bg-elevated hover:bg-brand-100 dark:hover:bg-brand-dark/20 transition-all ${condosSelected}" data-type="Condos">
                     <svg class="w-10 h-10 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
@@ -99,12 +100,17 @@ function generatePropertyTypeStep() {
 
 function generateBudgetStep() {
     const PRICE_STEPS = window.PRICE_STEPS || [];
-    const minPrice = PRICE_STEPS[wizardState.selections.priceMin] || PRICE_STEPS[0] || 250000;
-    const maxPrice = (wizardState.selections.priceMax === 0) ? (PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000) : (PRICE_STEPS[wizardState.selections.priceMax] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000);
-    const priceDisplay = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${(wizardState.selections.priceMax === 0 || wizardState.selections.priceMax >= 41) ? '+' : ''}`;
+    const minVal = wizardState.selections.priceMin;
+    const maxVal = wizardState.selections.priceMax;
 
-    const priceFillLeft = (wizardState.selections.priceMin / 41) * 100;
-    const priceFillWidth = ((wizardState.selections.priceMax - wizardState.selections.priceMin) / 41) * 100;
+    // When both at 0 (stacked left), show full range
+    const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0] || 250000;
+    const maxPrice = (maxVal === 0) ? (PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000) : (PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000);
+    const priceDisplay = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${(maxVal === 0 || maxVal >= 41) ? '+' : ''}`;
+
+    // Fill: when both at 0, no fill shown (thumbs stacked left)
+    const priceFillLeft = 0;
+    const priceFillWidth = (maxVal === 0) ? 0 : (minVal === 0 ? (maxVal / 41) * 100 : ((maxVal - minVal) / 41) * 100);
     const bedsDisplay = wizardState.selections.bedsMin === 1 ? 'Any' : (wizardState.selections.bedsMin >= 6 ? '6+' : `${wizardState.selections.bedsMin}+`);
     const bathsDisplay = wizardState.selections.bathsMin === 1 ? 'Any' : (wizardState.selections.bathsMin >= 6 ? '6+' : `${wizardState.selections.bathsMin}+`);
     const bedsFill = ((wizardState.selections.bedsMin - 1) / 5) * 100;
@@ -325,7 +331,7 @@ export function openWizard() {
 
     // Check if there are saved selections (non-default values)
     const sel = wizardState.selections;
-    const hasSavedValues = sel.propertyType !== null ||
+    const hasSavedValues = sel.homes || sel.condos ||
         sel.priceMin !== 0 ||
         sel.priceMax !== 0 ||
         sel.bedsMin !== 1 ||
@@ -333,8 +339,8 @@ export function openWizard() {
         sel.areas.size > 0 ||
         sel.amenities.size > 0;
 
-    // Start at step 2 if there are saved values, otherwise step 0
-    wizardState.currentStep = hasSavedValues ? 2 : 0;
+    // Start at step 1 (Property Type) if there are saved values, otherwise step 0 (Welcome)
+    wizardState.currentStep = hasSavedValues ? 1 : 0;
 
     // Show modal
     modal.classList.remove('hidden');
@@ -417,25 +423,19 @@ function renderCurrentStep() {
 }
 
 /**
- * Update vertical step indicators and mobile progress bar
+ * Update vertical step indicators (desktop) and horizontal step indicators (mobile)
  */
 function updateStepIndicators() {
     const verticalContainer = document.getElementById('wizard-steps-vertical');
-    const progressBar = document.getElementById('wizard-progress-bar');
-    const stepCount = document.getElementById('wizard-step-count');
+    const horizontalContainer = document.getElementById('wizard-steps-horizontal');
 
-    // Update mobile progress bar
-    if (progressBar) {
-        const progress = ((wizardState.currentStep + 1) / TOTAL_STEPS) * 100;
-        progressBar.style.width = `${progress}%`;
-    }
-    if (stepCount) {
-        stepCount.textContent = `Step ${wizardState.currentStep + 1}/${TOTAL_STEPS}`;
-    }
+    const checkmarkSvg = `<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>`;
 
-    // Render vertical step indicators
+    // Render vertical step indicators (desktop)
     if (verticalContainer) {
-        const checkmarkSvg = `<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+        const checkmarkSvgLarge = `<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
         </svg>`;
 
@@ -445,7 +445,7 @@ function updateStepIndicators() {
 
             if (index < wizardState.currentStep) {
                 stateClass = 'completed';
-                circleContent = checkmarkSvg;
+                circleContent = checkmarkSvgLarge;
             } else if (index === wizardState.currentStep) {
                 stateClass = 'active';
             }
@@ -457,6 +457,31 @@ function updateStepIndicators() {
                         <div class="wizard-step-label">${step.label}</div>
                         <div class="wizard-step-sublabel">${step.sublabel}</div>
                     </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Render horizontal step indicators (mobile)
+    if (horizontalContainer) {
+        horizontalContainer.innerHTML = STEP_META.map((step, index) => {
+            let stateClass = '';
+            let circleContent = index + 1;
+
+            if (index < wizardState.currentStep) {
+                stateClass = 'completed';
+                circleContent = checkmarkSvg;
+            } else if (index === wizardState.currentStep) {
+                stateClass = 'active';
+            }
+
+            // Add connecting line before all steps except the first
+            const lineBefore = index > 0 ? '<div class="wizard-step-h-line"></div>' : '';
+
+            return `
+                <div class="wizard-step-h ${stateClass}">
+                    ${lineBefore}
+                    <div class="wizard-step-h-circle">${circleContent}</div>
                 </div>
             `;
         }).join('');
@@ -492,20 +517,24 @@ function applyWizardFilters() {
     const fs = window.filterState;
     if (!fs) return;
 
-    // Apply property type
-    fs.propertyType = wizardState.selections.propertyType;
+    // Apply property type (independent toggles like sidebar)
     const homesBtn = document.getElementById('btn-homes');
     const condosBtn = document.getElementById('btn-condos');
 
-    if (wizardState.selections.propertyType === 'Homes') {
-        if (homesBtn) homesBtn.classList.add('active');
-        if (condosBtn) condosBtn.classList.remove('active');
-    } else if (wizardState.selections.propertyType === 'Condos') {
-        if (homesBtn) homesBtn.classList.remove('active');
-        if (condosBtn) condosBtn.classList.add('active');
-    } else {
-        if (homesBtn) homesBtn.classList.remove('active');
-        if (condosBtn) condosBtn.classList.remove('active');
+    // Sync sidebar buttons to match wizard selections
+    if (homesBtn) {
+        if (wizardState.selections.homes) {
+            homesBtn.classList.add('active');
+        } else {
+            homesBtn.classList.remove('active');
+        }
+    }
+    if (condosBtn) {
+        if (wizardState.selections.condos) {
+            condosBtn.classList.add('active');
+        } else {
+            condosBtn.classList.remove('active');
+        }
     }
 
     // Apply price range
@@ -587,7 +616,8 @@ function calculateAndDisplayStats() {
 
     console.log('[Wizard] Calculating stats with', neighborhoods.length, 'neighborhoods');
     console.log('[Wizard] Selections:', JSON.stringify({
-        propertyType: wizardState.selections.propertyType,
+        homes: wizardState.selections.homes,
+        condos: wizardState.selections.condos,
         priceMin: wizardState.selections.priceMin,
         priceMax: wizardState.selections.priceMax,
         bedsMin: wizardState.selections.bedsMin,
@@ -604,12 +634,19 @@ function calculateAndDisplayStats() {
 
     // Filter based on wizard selections
     const filtered = neighborhoods.filter(n => {
-        // Property type
-        if (wizardState.selections.propertyType) {
+        // Property type (same logic as sidebar - OR between homes/condos)
+        const isHomesActive = wizardState.selections.homes;
+        const isCondosActive = wizardState.selections.condos;
+        if (isHomesActive || isCondosActive) {
             const propType = (n.propertyType || '').toLowerCase();
-            const selected = wizardState.selections.propertyType.toLowerCase();
-            if (selected === 'homes' && propType !== 'homes' && propType !== 'townhomes') return false;
-            if (selected === 'condos' && propType !== 'condos') return false;
+            let matchesType = false;
+            if (isHomesActive && (propType === 'homes' || propType === 'townhomes')) {
+                matchesType = true;
+            }
+            if (isCondosActive && propType === 'condos') {
+                matchesType = true;
+            }
+            if (!matchesType) return false;
         }
 
         // Areas
@@ -629,12 +666,12 @@ function calculateAndDisplayStats() {
             if (!hasAll) return false;
         }
 
-        // Price range (matching main filter logic)
+        // Price range: 0 = no limit (both thumbs stacked left = Any price)
         const stats = n.stats || {};
         const priceMinIdx = wizardState.selections.priceMin;
         const priceMaxIdx = wizardState.selections.priceMax;
         const minPrice = priceMinIdx === 0 ? 0 : (PRICE_STEPS[priceMinIdx] || 0);
-        const maxPrice = priceMaxIdx >= 41 ? Number.MAX_SAFE_INTEGER : (PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER);
+        const maxPrice = (priceMaxIdx === 0 || priceMaxIdx >= 41) ? Number.MAX_SAFE_INTEGER : (PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER);
 
         const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
         const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
@@ -721,16 +758,14 @@ function attachStepEventListeners() {
     document.querySelectorAll('.wizard-prop-type').forEach(btn => {
         btn.addEventListener('click', () => {
             const type = btn.dataset.type;
-            const wasSelected = btn.classList.contains('selected');
+            // Toggle independently (like sidebar - can select both)
+            btn.classList.toggle('selected');
+            const isNowSelected = btn.classList.contains('selected');
 
-            // Toggle selection
-            document.querySelectorAll('.wizard-prop-type').forEach(b => b.classList.remove('selected'));
-
-            if (!wasSelected) {
-                btn.classList.add('selected');
-                wizardState.selections.propertyType = type;
-            } else {
-                wizardState.selections.propertyType = null;
+            if (type === 'Homes') {
+                wizardState.selections.homes = isNowSelected;
+            } else if (type === 'Condos') {
+                wizardState.selections.condos = isNowSelected;
             }
         });
     });
@@ -775,17 +810,20 @@ function attachStepEventListeners() {
         });
     });
 
-    // Price sliders
+    // Price sliders - both thumbs start at 0 (stacked left = Any price)
     const priceMin = document.getElementById('wizard-price-min');
     const priceMax = document.getElementById('wizard-price-max');
     if (priceMin && priceMax) {
-        const updatePriceDisplay = () => {
-            let minVal = parseInt(priceMin.value);
-            let maxVal = parseInt(priceMax.value);
+        const updatePriceDisplay = (event) => {
+            const PRICE_STEPS = window.PRICE_STEPS || [];
+            const totalSteps = 41;
 
-            // Prevent overlap
-            if (minVal > maxVal) {
-                if (document.activeElement === priceMax) {
+            let minVal = parseInt(priceMin.value) || 0;
+            let maxVal = parseInt(priceMax.value) || 0;
+
+            // Push behavior - prevent overlap
+            if (minVal > maxVal && maxVal !== 0) {
+                if (event?.target === priceMax) {
                     priceMin.value = maxVal;
                     minVal = maxVal;
                 } else {
@@ -794,29 +832,36 @@ function attachStepEventListeners() {
                 }
             }
 
+            // Update wizard state
             wizardState.selections.priceMin = minVal;
             wizardState.selections.priceMax = maxVal;
 
-            const PRICE_STEPS = window.PRICE_STEPS || [];
+            // Update display
             const display = document.getElementById('wizard-price-display');
-            const fill = document.getElementById('wizard-price-fill');
-
             if (display) {
-                const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0] || 250000;
-                const maxPrice = (maxVal === 0) ? (PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000) : (PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000);
+                const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0];
+                const maxPrice = (maxVal === 0) ? PRICE_STEPS[PRICE_STEPS.length - 1] : (PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1]);
                 display.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${(maxVal === 0 || maxVal >= 41) ? '+' : ''}`;
             }
 
+            // Update track fill
+            const fill = document.getElementById('wizard-price-fill');
             if (fill) {
-                const minPct = minVal / 41;
-                const maxPct = maxVal / 41;
-                fill.style.left = `${minPct * 100}%`;
-                fill.style.width = `${(maxPct - minPct) * 100}%`;
+                if (maxVal === 0) {
+                    // Both at 0 = no fill
+                    fill.style.left = '0';
+                    fill.style.width = '0';
+                } else {
+                    const minPct = minVal / totalSteps;
+                    const maxPct = maxVal / totalSteps;
+                    fill.style.left = `${minPct * 100}%`;
+                    fill.style.width = `${(maxPct - minPct) * 100}%`;
+                }
             }
         };
 
-        priceMin.addEventListener('input', updatePriceDisplay);
-        priceMax.addEventListener('input', updatePriceDisplay);
+        priceMin.addEventListener('input', (e) => updatePriceDisplay(e));
+        priceMax.addEventListener('input', (e) => updatePriceDisplay(e));
     }
 
     // Beds/Baths sliders
@@ -846,7 +891,8 @@ function attachStepEventListeners() {
 
 function resetSelections() {
     wizardState.selections = {
-        propertyType: null,
+        homes: false,
+        condos: false,
         priceMin: 0,
         priceMax: 0,
         bedsMin: 1,
@@ -870,10 +916,16 @@ export function initWizard() {
         triggerBtn.addEventListener('click', openWizard);
     }
 
-    // Close button
+    // Close button (desktop)
     const closeBtn = document.getElementById('wizard-close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeWizard);
+    }
+
+    // Close button (mobile)
+    const closeBtnMobile = document.getElementById('wizard-close-mobile');
+    if (closeBtnMobile) {
+        closeBtnMobile.addEventListener('click', closeWizard);
     }
 
     // Backdrop click to close
