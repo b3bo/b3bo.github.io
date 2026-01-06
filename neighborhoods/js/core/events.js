@@ -132,7 +132,7 @@ export function registerCommonHandlers() {
         const panelId = element.dataset.panel;
         if (!panelId) return;
 
-        const panel = document.getElementById(panelId);
+        const panel = document.getElementById(panelId + '-panel') || document.getElementById(panelId);
         const mainMenu = document.getElementById('main-menu');
 
         if (panel) {
