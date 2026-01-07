@@ -1,6 +1,6 @@
 {
   "area": "14 - Destin",
-  "updated": "2026-01-06T19:50:26.698803",
+  "updated": "2026-01-07T07:39:18.779228",
   "neighborhoods": [
     {
       "name": "Aegean",
@@ -3911,7 +3911,7 @@
       "propertyType": "homes",
       "position": {
         "lat": 30.392655,
-        "lng": -86.457202
+        "lng": -86.455179
       },
       "location": {
         "city": "Destin",
@@ -3954,8 +3954,7 @@
         "INDIAN LAKE",
         "INDIAN LAKE PH 1",
         "INDIAN LAKE PH 2",
-        "INDIAN LAKE PH 3",
-        "Indian Lakes"
+        "INDIAN LAKE PH 3"
       ],
       "searchId": "4004642",
       "urlSlug": "/indian-lake/"

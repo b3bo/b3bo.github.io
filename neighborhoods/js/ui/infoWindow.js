@@ -13,7 +13,11 @@ import { eventBus, Events } from '../core/eventBus.js';
  * @param {Object} targetInfoWindow - Google Maps InfoWindow instance
  */
 export function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
-    const stats = area.stats || {};
+    // Use type-specific stats if propertyType is set, otherwise use combined stats
+    const propType = (area.propertyType || '').toLowerCase();
+    const stats = propType === 'homes' ? (area.homeStats || area.stats || {})
+                : propType === 'condos' ? (area.condoStats || area.stats || {})
+                : (area.stats || {});
     const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
     const neighborhoodsList = (area.neighborhoods || [])
         .slice(0, 10)
@@ -88,7 +92,10 @@ function buildAreaNavButtons(area) {
                 ? window.location.origin
                 : 'https://neighborhoods.truesouthcoastalhomes.com';
         const areaSlug = area.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        const finderUrl = baseUrl + '?marker=' + areaSlug;
+        const propertyTypeParam = area.propertyType
+            ? '&propertyType=' + encodeURIComponent(area.propertyType)
+            : '';
+        const finderUrl = baseUrl + '?marker=' + areaSlug + propertyTypeParam;
         return (
             prevBtn +
             '<a href="' +

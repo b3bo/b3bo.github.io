@@ -56,7 +56,7 @@ function generateWelcomeStep() {
             <p class="text-sm text-neutral-600 dark:text-dark-text-secondary leading-relaxed max-w-sm mx-auto">
                 Discover your perfect community along 30A and Florida's Emerald Coast.
                 We'll help you explore <strong>700+ neighborhoods</strong> across Destin, Santa Rosa Beach,
-                Miramar Beach, Inlet Beach, and Panama City Beach.
+                Miramar Beach, Inlet Beach, and Panama City Beach. 
             </p>
             <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-4">
                 Let's find what you're looking for in just a few quick steps.

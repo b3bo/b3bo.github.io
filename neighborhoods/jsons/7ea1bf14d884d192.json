@@ -1,6 +1,6 @@
 {
   "area": "17 - 30A West",
-  "updated": "2026-01-06T19:50:26.696622",
+  "updated": "2026-01-07T07:39:18.777302",
   "neighborhoods": [
     {
       "name": "Adagio",
@@ -336,7 +336,7 @@
       "propertyType": "homes",
       "position": {
         "lat": 30.360733,
-        "lng": -86.264103
+        "lng": -86.265249
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -345,22 +345,22 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 2,
+        "listingCount": 3,
         "avgPrice": 0,
         "avgPriceDisplay": "N/A",
-        "medianPrice": 5599000,
-        "avgSqft": 5201,
-        "avgPricePerSqFt": 816,
-        "avgDom": 218,
-        "priceRange": "$2,890,000 - $5,599,000",
+        "medianPrice": 2890000,
+        "avgSqft": 4817,
+        "avgPricePerSqFt": 746,
+        "avgDom": 202,
+        "priceRange": "$2,295,000 - $5,599,000",
         "bedsRange": "4-5",
-        "bathsRange": "6-7",
+        "bathsRange": "4-7",
         "sqftRange": "N/A",
         "domRange": "N/A",
         "yearBuiltRange": "N/A",
         "minBeds": 4.0,
         "maxBeds": 5.0,
-        "minBaths": 6.0,
+        "minBaths": 4.0,
         "maxBaths": 7.0,
         "minSqft": null,
         "maxSqft": null,
@@ -377,6 +377,7 @@
       },
       "listingsUrlMap": "",
       "mlsSubdivisions": [
+        "BEACH VIEW HEIGHTS UNREC",
         "BEACH VIEW HGTS S/D",
         "Beach View Heights",
         "Beachview Heights"

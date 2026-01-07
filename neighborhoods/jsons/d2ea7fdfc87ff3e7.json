@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2026-01-06T19:50:26.693758",
+  "updated": "2026-01-07T07:39:18.774361",
   "neighborhoods": [
     {
       "name": "30A",
@@ -3081,7 +3081,7 @@
       "propertyType": "homes",
       "position": {
         "lat": 30.311823,
-        "lng": -86.091482
+        "lng": -86.089456
       },
       "location": {
         "city": "Santa Rosa Beach",
@@ -3090,22 +3090,22 @@
       },
       "zipCode": "32459",
       "stats": {
-        "listingCount": 1,
+        "listingCount": 2,
         "avgPrice": 0,
         "avgPriceDisplay": "N/A",
         "medianPrice": 1699900,
-        "avgSqft": 2318,
-        "avgPricePerSqFt": 733,
-        "avgDom": 247,
-        "priceRange": "$1,699,900 - $1,699,900",
+        "avgSqft": 2288,
+        "avgPricePerSqFt": 742,
+        "avgDom": 144,
+        "priceRange": "$1,695,000 - $1,699,900",
         "bedsRange": "4-4",
-        "bathsRange": "5-5",
+        "bathsRange": "4-5",
         "sqftRange": "N/A",
         "domRange": "N/A",
         "yearBuiltRange": "N/A",
         "minBeds": 4.0,
         "maxBeds": 4.0,
-        "minBaths": 5.0,
+        "minBaths": 4.0,
         "maxBaths": 5.0,
         "minSqft": null,
         "maxSqft": null,
@@ -3113,11 +3113,7 @@
         "maxDom": null
       },
       "amenities": [
-        "Dock",
-        "Gated",
         "No Short-Term",
-        "Pet-Friendly",
-        "Waterfront",
         "Waterview"
       ],
       "photos": {

@@ -70,7 +70,7 @@ function initApp() {
     // Parse URL parameters for single mode
     const urlParams = getUrlParams();
     const isSingleMode = urlParams.get('mode') === 'single';
-    const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
+    const neighborhoodSlug = (urlParams.get('neighborhood') || urlParams.get('marker'))?.toLowerCase();
     window.isSingleMode = isSingleMode;
     const isInIframe = window.self !== window.top;
 
@@ -1328,15 +1328,30 @@ function initApp() {
     // UNIFIED AREA SELECTION (ALL 8 AREAS USE THIS)
     // ==========================================
     // Helper: Create area marker data from preset (exposed on window for map script)
-    window.createAreaMarkerData = function (presetData) {
+    // Optional propertyType param selects type-specific stats and neighborhoods
+    window.createAreaMarkerData = function (presetData, propertyType = null) {
+        // Select appropriate neighborhoods list based on propertyType
+        const propType = (propertyType || '').toLowerCase();
+        let neighborhoods = presetData.neighborhoods;
+        if (propType === 'homes' && presetData.homeNeighborhoods) {
+            neighborhoods = presetData.homeNeighborhoods;
+        } else if (propType === 'condos' && presetData.condoNeighborhoods) {
+            neighborhoods = presetData.condoNeighborhoods;
+        }
+
         return {
             name: presetData.name,
             position: presetData.position,
             stats: presetData.stats,
-            neighborhoods: presetData.neighborhoods,
+            homeStats: presetData.homeStats,
+            condoStats: presetData.condoStats,
+            neighborhoods: neighborhoods,
+            homeNeighborhoods: presetData.homeNeighborhoods,
+            condoNeighborhoods: presetData.condoNeighborhoods,
             filterField: presetData.filterField,
             filterValue: presetData.filterValue,
-            isAreaMarker: true
+            isAreaMarker: true,
+            propertyType: propertyType
         };
     };
 
@@ -1763,7 +1778,7 @@ function initMap() {
     // Check for single mode
     const urlParams = getUrlParams();
     const isSingleMode = urlParams.get('mode') === 'single';
-    const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
+    const neighborhoodSlug = (urlParams.get('neighborhood') || urlParams.get('marker'))?.toLowerCase();
     window.isSingleMode = isSingleMode; // Set early to prevent race condition with center_changed listener
 
     // Determine initial center and zoom
@@ -1773,7 +1788,7 @@ function initMap() {
     // In single mode, center on target neighborhood or area (offset applied after map ready)
     // Use synchronous position objects first - no race condition
     let singleModeTarget = null;
-    const areaSlug = urlParams.get('area');
+    const areaSlug = urlParams.get('area')?.toLowerCase();
 
     if (isSingleMode && neighborhoodSlug) {
         // Check NEIGHBORHOOD_POSITIONS first (synchronous, race-free)
@@ -1911,8 +1926,9 @@ function initMap() {
 
         const urlParams = getUrlParams();
         const isSingleMode = urlParams.get('mode') === 'single';
-        const neighborhoodSlug = urlParams.get('neighborhood') || urlParams.get('marker');
-        const areaSlug = urlParams.get('area');
+        const neighborhoodSlug = (urlParams.get('neighborhood') || urlParams.get('marker'))?.toLowerCase();
+        const areaSlug = urlParams.get('area')?.toLowerCase();
+        const propertyType = urlParams.get('propertyType')?.toLowerCase();
 
         // UNIFIED single mode handler for BOTH neighborhoods AND areas
         if (isSingleMode) {
@@ -1923,7 +1939,7 @@ function initMap() {
                 const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
                 if (matching.length > 0) {
                     // Respect propertyType URL param (case-insensitive), default to 'homes'
-                    const requestedType = (urlParams.get('propertyType') || 'homes').toLowerCase();
+                    const requestedType = propertyType || 'homes';
                     const preferred = matching.find(n => (n.propertyType || '').toLowerCase() === requestedType);
                     target = preferred || matching[0];
                     window.neighborhoods = [target];
@@ -1933,9 +1949,9 @@ function initMap() {
             } else if (areaSlug) {
                 const presetData = window.areaPresets?.presets?.find(s => s.slug === areaSlug);
                 if (presetData) {
-                    target = window.createAreaMarkerData(presetData);
+                    target = window.createAreaMarkerData(presetData, propertyType);
                     window.filteredNeighborhoods = [target];
-                    console.log('Single mode: area', presetData.name);
+                    console.log('Single mode: area', presetData.name, 'propertyType:', propertyType || 'all');
                 }
             }
 
@@ -2009,7 +2025,7 @@ function initMap() {
             }
 
             // Full mode
-            const markerSlug = urlParams.get('marker');
+            const markerSlug = urlParams.get('marker')?.toLowerCase();
 
             // Only fit to all neighborhoods if no marker param - otherwise we center on the marker
             if (!markerSlug) {
@@ -2019,6 +2035,24 @@ function initMap() {
             if (markerSlug) {
                 const presetData = window.areaPresets?.presets?.find(s => s.slug === markerSlug);
                 if (presetData) {
+                    // Get propertyType from URL if present
+                    const areaPropertyType = urlParams.get('propertyType')?.toLowerCase();
+
+                    // Activate propertyType filter button if specified
+                    if (areaPropertyType) {
+                        const homesBtn = document.getElementById('btn-homes');
+                        const condosBtn = document.getElementById('btn-condos');
+                        if (areaPropertyType === 'homes' && homesBtn) {
+                            homesBtn.classList.add('active');
+                            if (condosBtn) condosBtn.classList.remove('active');
+                        } else if (areaPropertyType === 'condos' && condosBtn) {
+                            condosBtn.classList.add('active');
+                            if (homesBtn) homesBtn.classList.remove('active');
+                        }
+                        // Store propertyType for area marker
+                        window.pendingAreaPropertyType = areaPropertyType;
+                    }
+
                     // Wait for tiles to render, then click the button
                     // Button click handler triggers showAreaMarker
                     google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
@@ -2029,11 +2063,11 @@ function initMap() {
                     });
                 } else {
                     // Not an area preset - try to find a regular neighborhood
-                    const propertyType = urlParams.get('propertyType') || 'Homes';
+                    const requestedType = (urlParams.get('propertyType') || 'homes').toLowerCase();
                     const matching = neighborhoods.filter(n => window.toSlug(n.name) === markerSlug);
                     if (matching.length > 0) {
                         // Prefer the specified propertyType, fallback to first match
-                        const target = matching.find(n => n.propertyType === propertyType) || matching[0];
+                        const target = matching.find(n => (n.propertyType || '').toLowerCase() === requestedType) || matching[0];
 
                         google.maps.event.addListenerOnce(window.map, 'tilesloaded', () => {
                             setTimeout(() => {
@@ -2959,7 +2993,10 @@ window.showAreaMarker = function (presetData) {
     window.activeAreaSlug = presetData.slug;
 
     // Create marker data and DOM element first (so it exists during flight)
-    const areaData = window.createAreaMarkerData(presetData);
+    // Use pending propertyType from URL if available, then clear it
+    const propertyType = window.pendingAreaPropertyType || null;
+    window.pendingAreaPropertyType = null;
+    const areaData = window.createAreaMarkerData(presetData, propertyType);
     areaData.position = markerPosition;
 
     const markerContent = document.createElement('div');
