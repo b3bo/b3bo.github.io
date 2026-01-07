@@ -1922,8 +1922,10 @@ function initMap() {
             if (neighborhoodSlug && !areaSlug && neighborhoods.length > 0) {
                 const matching = neighborhoods.filter(n => window.toSlug(n.name) === neighborhoodSlug);
                 if (matching.length > 0) {
-                    const homes = matching.find(n => n.propertyType === 'Homes');
-                    target = homes || matching[0];
+                    // Respect propertyType URL param (case-insensitive), default to 'homes'
+                    const requestedType = (urlParams.get('propertyType') || 'homes').toLowerCase();
+                    const preferred = matching.find(n => (n.propertyType || '').toLowerCase() === requestedType);
+                    target = preferred || matching[0];
                     window.neighborhoods = [target];
                     window.filteredNeighborhoods = [target];
                     console.log('Single mode: neighborhood', target.name);
