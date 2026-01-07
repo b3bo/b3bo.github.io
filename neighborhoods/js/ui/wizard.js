@@ -4,7 +4,7 @@
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  */
 
-import { formatSliderPrice, formatPrice } from '../utils.js';
+import { formatSliderPrice, formatPrice, parseRange } from '../utils.js';
 
 // ==========================================
 // WIZARD STATE
@@ -704,14 +704,21 @@ function calculateAndDisplayStats() {
                 ? Number.MAX_SAFE_INTEGER
                 : PRICE_STEPS[priceMaxIdx] || Number.MAX_SAFE_INTEGER;
 
-        const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
-        const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
+        // Try numeric minPrice/maxPrice first, fall back to parsing priceRange string
+        let nbMinPrice = stats.minPrice != null ? parseFloat(stats.minPrice) : null;
+        let nbMaxPrice = stats.maxPrice != null ? parseFloat(stats.maxPrice) : null;
+
+        // If no numeric values, parse the priceRange string (e.g., "$619,900 - $3,990,000")
+        if ((nbMinPrice === null || nbMaxPrice === null) && stats.priceRange) {
+            const parsed = parseRange(stats.priceRange);
+            if (parsed) {
+                nbMinPrice = parsed.min;
+                nbMaxPrice = parsed.max;
+            }
+        }
 
         if (nbMinPrice !== null && nbMaxPrice !== null && !isNaN(nbMinPrice) && !isNaN(nbMaxPrice)) {
             if (!(maxPrice >= nbMinPrice && minPrice <= nbMaxPrice)) return false;
-        } else if (stats.avgPrice > 0) {
-            // Fallback to avgPrice if min/max not available
-            if (!(stats.avgPrice >= minPrice && stats.avgPrice <= maxPrice)) return false;
         }
 
         // Beds

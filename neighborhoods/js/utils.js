@@ -196,3 +196,8 @@ export function updateUrlParams(newParams) {
 
     return `${window.location.pathname}?${params.toString()}`;
 }
+
+// Expose parseRange on window for legacy main.js
+if (typeof window !== 'undefined') {
+    window.parseRange = parseRange;
+}

@@ -5,6 +5,7 @@
  */
 
 import { eventBus, Events } from '../core/eventBus.js';
+import { formatSliderPrice, parseRange } from '../utils.js';
 
 // ==========================================
 // FILTER STATE INITIALIZATION
@@ -28,18 +29,6 @@ export function initFilterState() {
 // ==========================================
 // PRICE SLIDER
 // ==========================================
-
-/**
- * Format price for slider display.
- * @param {number} price - Price value
- * @returns {string} Formatted price string
- */
-export function formatSliderPrice(price) {
-    if (price >= 1000000) {
-        return '$' + (price / 1000000).toFixed(price % 1000000 === 0 ? 0 : 1) + 'M';
-    }
-    return '$' + (price / 1000).toFixed(0) + 'K';
-}
 
 /**
  * Update price slider UI and filter state.
@@ -219,13 +208,13 @@ export function applyFilters() {
         // Price filter (overlap check)
         let inPriceRange = true;
         const stats = n.stats || {};
-        const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
-        const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
 
-        if (nbMinPrice !== null && nbMaxPrice !== null && !isNaN(nbMinPrice) && !isNaN(nbMaxPrice)) {
-            inPriceRange = maxPrice >= nbMinPrice && minPrice <= nbMaxPrice;
-        } else if (stats.avgPrice > 0) {
-            inPriceRange = stats.avgPrice >= minPrice && stats.avgPrice <= maxPrice;
+        // Parse priceRange string (e.g., "$499,000 - $1,200,000")
+        if (stats.priceRange && stats.priceRange !== 'N/A') {
+            const parsed = parseRange(stats.priceRange);
+            if (parsed) {
+                inPriceRange = maxPrice >= parsed.min && minPrice <= parsed.max;
+            }
         }
 
         // Beds filter
@@ -506,7 +495,7 @@ if (typeof window !== 'undefined') {
     window.handleAreaTagClick = handleAreaTagClick;
     window.handleAmenityTagClick = handleAmenityTagClick;
     window.handlePropertyTypeClick = handlePropertyTypeClick;
-    window.formatSliderPrice = formatSliderPrice;
+    // formatSliderPrice now imported from utils.js
     window.initFilterState = initFilterState;
 
     // Initialize filter state immediately

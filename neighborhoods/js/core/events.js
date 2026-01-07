@@ -6,6 +6,7 @@
 
 import { eventBus, Events } from './eventBus.js';
 import { updatePriceSlider } from '../filters/index.js';
+import { formatSliderPrice } from '../utils.js';
 
 // Handler registries
 const clickHandlers = new Map();
@@ -161,13 +162,7 @@ export function registerCommonHandlers() {
         }
     });
 
-    // Menu item keyboard navigation
-    onKeydown('.menu-item', (event, element) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            element.click();
-        }
-    });
+    // Menu item keyboard navigation - removed; native <button> elements handle Enter/Space automatically
 
     // Back button in sliding panels
     onClick('.sliding-panel button[onclick*="translate-x-full"]', (event, element) => {
@@ -382,10 +377,9 @@ export function registerCommonHandlers() {
             if (minVal === 0 && maxVal === 0) {
                 priceDisplay.textContent = '$250K - $35M+';
             } else {
-                const formatPrice = (p) => p >= 1000000 ? '$' + (p / 1000000).toFixed(p % 1000000 === 0 ? 0 : 1) + 'M' : '$' + (p / 1000).toFixed(0) + 'K';
                 const minPrice = PRICE_STEPS[minVal] || PRICE_STEPS[0] || 250000;
                 const maxPrice = PRICE_STEPS[maxVal] || PRICE_STEPS[PRICE_STEPS.length - 1] || 35000000;
-                priceDisplay.textContent = `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
+                priceDisplay.textContent = `${formatSliderPrice(minPrice)} - ${formatSliderPrice(maxPrice)}${maxVal === 41 ? '+' : ''}`;
             }
         }
 

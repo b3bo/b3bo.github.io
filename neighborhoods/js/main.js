@@ -25,28 +25,28 @@
         return false;
     });
 
-    // Block developer tools keyboard shortcuts
+    // Block developer tools keyboard shortcuts (using modern event.key)
     document.addEventListener('keydown', e => {
         // F12
-        if (e.keyCode === 123) {
+        if (e.key === 'F12') {
             e.preventDefault();
             return false;
         }
 
         // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Dev Tools)
-        if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
             e.preventDefault();
             return false;
         }
 
         // Ctrl+U (View Source)
-        if (e.ctrlKey && e.keyCode === 85) {
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
             e.preventDefault();
             return false;
         }
 
         // Ctrl+S (Save Page)
-        if (e.ctrlKey && e.keyCode === 83) {
+        if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
             e.preventDefault();
             return false;
         }
@@ -1394,15 +1394,23 @@ function initApp() {
             // Price filter (overlap check)
             let inPriceRange = true;
             const stats = n.stats || {};
-            const nbMinPrice = stats.minPrice !== undefined ? parseFloat(stats.minPrice) : null;
-            const nbMaxPrice = stats.maxPrice !== undefined ? parseFloat(stats.maxPrice) : null;
+
+            // Try numeric minPrice/maxPrice first, fall back to parsing priceRange string
+            let nbMinPrice = stats.minPrice != null ? parseFloat(stats.minPrice) : null;
+            let nbMaxPrice = stats.maxPrice != null ? parseFloat(stats.maxPrice) : null;
+
+            // If no numeric values, parse the priceRange string (e.g., "$619,900 - $3,990,000")
+            if ((nbMinPrice === null || nbMaxPrice === null) && stats.priceRange && window.parseRange) {
+                const parsed = window.parseRange(stats.priceRange);
+                if (parsed) {
+                    nbMinPrice = parsed.min;
+                    nbMaxPrice = parsed.max;
+                }
+            }
 
             if (nbMinPrice !== null && nbMaxPrice !== null && !isNaN(nbMinPrice) && !isNaN(nbMaxPrice)) {
                 // Check for overlap: UserMax >= NbMin && UserMin <= NbMax
                 inPriceRange = maxPrice >= nbMinPrice && minPrice <= nbMaxPrice;
-            } else if (stats.avgPrice > 0) {
-                // Fallback to avgPrice
-                inPriceRange = stats.avgPrice >= minPrice && stats.avgPrice <= maxPrice;
             }
 
             // Beds filter - check if neighborhood has listings >= minBeds
