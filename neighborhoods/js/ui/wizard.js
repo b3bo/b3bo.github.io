@@ -396,6 +396,13 @@ export function closeWizard() {
     modal.classList.add('hidden');
     wizardState.isOpen = false;
 
+    // Mark that user has seen the wizard
+    try {
+        localStorage.setItem('nf_wizard_seen', '1');
+    } catch (e) {
+        // localStorage may be unavailable
+    }
+
     // Restore focus
     if (previousActiveElement) {
         previousActiveElement.focus();
@@ -982,6 +989,23 @@ export function initWizard() {
             closeWizard();
         }
     });
+
+    // Auto-open for first-time visitors (full mode only)
+    const urlParams = new URLSearchParams(window.location.search);
+    const isSingleMode = urlParams.get('mode') === 'single';
+
+    if (!isSingleMode) {
+        try {
+            if (!localStorage.getItem('nf_wizard_seen')) {
+                // Small delay to ensure page is fully rendered
+                setTimeout(() => {
+                    openWizard();
+                }, 500);
+            }
+        } catch (e) {
+            // localStorage may be unavailable
+        }
+    }
 
     console.log('[Wizard] Initialized');
 }
