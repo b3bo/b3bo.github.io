@@ -36,7 +36,7 @@
 /* Optional: Scan files for classes */
 @source "../../../*.html";
 @source "../../../assets/js/*.js";
-@source "./components/**/*.html";
+@source "./components/sierra/*.html";
 
 /* Tailwind base, components, utilities */
 @import "tailwindcss";
