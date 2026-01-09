@@ -1,3 +1,6 @@
+/* Load v3 config for content paths */
+@config "../../../tailwind.config.js";
+
 /* Theme definition (fixing @theme to @layer) */
 @theme {
   --color-primary-50: #f1fcfd;
@@ -32,11 +35,6 @@
 @layer base {
   /* Font families defined in theme below */
 }
-
-/* Optional: Scan files for classes */
-@source "../../../*.html";
-@source "../../../assets/js/*.js";
-@source "./components/**/*.html";
 
 /* Tailwind base, components, utilities */
 @import "tailwindcss";
