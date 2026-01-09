@@ -6,6 +6,9 @@
 /* Tailwind base, components, utilities - MUST be first */
 @import 'tailwindcss';
 
+/* Load config for content paths */
+@config "../../../tailwind.config.js";
+
 /* Google Fonts are loaded via GTM script - no @font-face needed */
 @layer base {
   /* Font families defined in theme below */
@@ -41,8 +44,88 @@
   --radius: 0.375rem;
 }
 
+/* Configure dark mode to use class strategy instead of prefers-color-scheme */
+@variant dark (.dark &);
+
+/* Component classes - previously only in tailwind-stable.css */
+@layer components {
+  /* Button Group - horizontal button strip for navigation */
+  .button-group {
+    @apply mx-auto mt-4 inline-flex w-full flex-col justify-center;
+  }
+
+  @media (min-width: 640px) {
+    .button-group {
+      @apply grid grid-cols-2 gap-2;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .button-group {
+      @apply inline-flex w-auto flex-row;
+    }
+  }
+
+  .button-group a {
+    @apply border border-neutral-300 bg-neutral-100 px-8 py-2;
+    @apply text-sm font-medium text-neutral-600 no-underline;
+    @apply transition-colors duration-200;
+  }
+
+  .button-group a:hover {
+    @apply bg-neutral-200 text-neutral-700 no-underline;
+  }
+
+  .button-group a:focus {
+    @apply z-10 outline-none ring-2 ring-neutral-500;
+  }
+
+  @media (min-width: 640px) {
+    .button-group a {
+      @apply m-0 rounded-lg px-4 py-1 text-center;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .button-group a {
+      @apply rounded-none;
+    }
+    .button-group a:first-child {
+      @apply rounded-l-lg border-r-0;
+    }
+    .button-group a:last-child {
+      @apply rounded-r-lg border-l-0;
+    }
+    .button-group a:not(:first-child):not(:last-child) {
+      @apply border-x-0;
+    }
+  }
+
+  /* Custom Button */
+  .btn-custom {
+    @apply inline-flex items-center justify-center rounded-lg;
+    @apply bg-primary-600 px-6 py-3 text-white font-medium;
+    @apply transition-colors duration-200;
+    @apply hover:bg-primary-700;
+  }
+
+  /* Breadcrumb Items */
+  .breadcrumb-items {
+    @apply flex items-center space-x-2 text-sm text-neutral-700;
+  }
+
+  /* Tag Items */
+  .tag-items {
+    @apply flex items-center space-x-1 text-sm font-bold text-neutral-700;
+  }
+}
+
 /* Force include missing utilities */
 @layer utilities {
+  .h-1 {
+    height: calc(var(--spacing, 0.25rem) * 1);
+  }
+
   .w-64 {
     width: calc(var(--spacing, 0.25rem) * 64);
   }
@@ -54,10 +137,11 @@
   }
 }
 
-/* Scan component files for utility classes - AFTER @import and @theme */
-/* Using path relative to CSS file location (assets/css/sierra/) */
+/* Scan files for utility classes - paths relative to this CSS file (assets/css/sierra/) */
 @source "./components/*.html";
 @source "./components/**/*.html";
+@source "../../../*.html";
+@source "../../../neighborhoods/*.html";
 
 /* Include custom.css */
 @import "./custom.css";
