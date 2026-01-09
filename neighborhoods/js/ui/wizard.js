@@ -305,11 +305,11 @@ function generateSummaryStep() {
             <div class="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
                     <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-listings">--</div>
-                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Active Listings</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Active</div>
                 </div>
                 <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
                     <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-median">--</div>
-                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Median Price</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">Median</div>
                 </div>
                 <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 rounded-xl p-3 sm:p-4 text-center">
                     <div class="text-base sm:text-xl font-semibold text-neutral-800 dark:text-dark-text-primary" id="wizard-stat-price-range">--</div>

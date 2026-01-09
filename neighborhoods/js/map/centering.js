@@ -424,11 +424,13 @@ export function smoothFlyTo(targetPosition, targetZoom, skipOffset = false, isMi
         activeFlyAnimation = null;
     }
 
-    // Use CONFIG for default zoom
-    const cfg = window.CONFIG?.map || {};
+    // Use current zoom as fallback (maintains view context when not explicitly specified)
     if (targetZoom === undefined) {
-        targetZoom = cfg.defaultZoom || 14;
+        targetZoom = map.getZoom();
     }
+
+    // Get CONFIG for flight settings
+    const cfg = window.CONFIG?.map || {};
 
     const startPos = map.getCenter();
     const startZoom = map.getZoom();

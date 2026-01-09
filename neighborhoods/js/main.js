@@ -726,12 +726,9 @@ function initApp() {
         return amenitiesArr.map(a => (selected.has(a) ? `<strong>${a}</strong>` : a)).join(', ') + '.';
     }
 
-    function listingLabelForType(typeString) {
-        const t = (typeString || '').toLowerCase();
-        if (t.includes('townhome')) return 'Active T/H Listings';
-        if (t.includes('condo')) return 'Active Condo Listings';
-        if (t.includes('home')) return 'Active Home Listings';
-        return 'Active Listings';
+    function listingLabelForType() {
+        // Use simple "Active" label to match area info-window style
+        return 'Active';
     }
 
     function aggregateListingLabel(count, neighborhoods = []) {
@@ -1002,8 +999,8 @@ function initApp() {
                         });
                     }
 
-                    // Smooth fly animation
-                    window.smoothFlyTo(n.position);
+                    // Smooth fly animation (maintain current zoom to preserve area context)
+                    window.smoothFlyTo(n.position, window.map.getZoom());
 
                     // Find and click marker after flight
                     const marker = (window.markers || []).find(
@@ -1678,8 +1675,8 @@ function initApp() {
                     });
                 }
 
-                // Smooth fly animation
-                window.smoothFlyTo(n.position);
+                // Smooth fly animation (maintain current zoom to preserve area context)
+                window.smoothFlyTo(n.position, window.map.getZoom());
 
                 const marker = (window.markers || []).find(
                     m => m.neighborhood.name === name && m.neighborhood.propertyType === type
@@ -2077,7 +2074,9 @@ function initMap() {
                     });
                 });
 
-                markerObj.marker.content.innerHTML = createMarkerSVG(markerObj.marker.markerColor, true);
+                // Use diamond for area markers, circle for neighborhoods
+                const svgFn = markerObj.marker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+                markerObj.marker.content.innerHTML = svgFn(markerObj.marker.markerColor, true);
                 window.activeMarker = markerObj.marker;
                 return true;
             }
@@ -2172,10 +2171,9 @@ function initMap() {
                                         // Open info window
                                         showNeighborhoodInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
                                         window.activeMarker = markerObj.marker;
-                                        markerObj.marker.content.innerHTML = createMarkerSVG(
-                                            markerObj.marker.markerColor,
-                                            true
-                                        );
+                                        // Use diamond for area markers, circle for neighborhoods
+                                        const svgFn = markerObj.marker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+                                        markerObj.marker.content.innerHTML = svgFn(markerObj.marker.markerColor, true);
 
                                         // Phase 2: Apply correction after info window renders
                                         google.maps.event.addListenerOnce(window.infoWindow, 'domready', () => {
@@ -2236,9 +2234,10 @@ function initMap() {
         if (window.hoverInfoWindow && window.hoverInfoWindow.getMap()) {
             window.hoverInfoWindow.close();
         }
-        // Deactivate ripple on active marker
+        // Deactivate ripple on active marker (area markers stay pulsating)
         if (window.activeMarker && window.activeMarker.content) {
-            window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+            const svgFn = window.activeMarker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+            window.activeMarker.content.innerHTML = svgFn(window.activeMarker.markerColor, false);
             window.activeMarker = null;
         }
     });
@@ -2623,9 +2622,10 @@ window.navigateNeighborhood = function (direction) {
             if (window.infoWindow && window.infoWindow.getMap()) {
                 window.infoWindow.close();
             }
-            // Deactivate current marker ripple
+            // Deactivate current marker ripple (area markers stay pulsating)
             if (window.activeMarker && window.activeMarker.content) {
-                window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                const svgFn = window.activeMarker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+                window.activeMarker.content.innerHTML = svgFn(window.activeMarker.markerColor, false);
                 window.activeMarker = null;
             }
 
@@ -2694,6 +2694,48 @@ function createMarkerSVG(color, isActive = false) {
             `;
 }
 
+// Create animated diamond SVG for area/city markers
+// Always shows at full size with pulsing animation to stand out from neighborhood markers
+function createDiamondSVG(color, isActive = false) {
+    const size = 44;
+    const diamondSize = 12;
+    const strokeWidth = 3;
+    const center = size / 2;
+
+    // Diamond points: top, right, bottom, left
+    const diamond = `${center},${center - diamondSize} ${center + diamondSize},${center} ${center},${center + diamondSize} ${center - diamondSize},${center}`;
+
+    // Pulse animation diamond (larger)
+    const pulseSize = size / 2 - 2;
+    const pulseDiamond = `${center},${center - pulseSize} ${center + pulseSize},${center} ${center},${center + pulseSize} ${center - pulseSize},${center}`;
+
+    return `
+        <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="${diamond}"
+                fill="none"
+                stroke="${color}"
+                stroke-width="4"
+                opacity="0.7">
+                <animate attributeName="points"
+                    from="${diamond}"
+                    to="${pulseDiamond}"
+                    dur="1.5s"
+                    repeatCount="indefinite"/>
+                <animate attributeName="opacity"
+                    from="0.7"
+                    to="0"
+                    dur="1.5s"
+                    repeatCount="indefinite"/>
+            </polygon>
+            <polygon points="${diamond}"
+                fill="${color}"
+                stroke="white"
+                stroke-opacity="0.85"
+                stroke-width="${strokeWidth}"/>
+        </svg>
+    `;
+}
+
 // Helper to generate title with property type suffix
 function getAreaTitle(area) {
     const baseName = area.name;
@@ -2703,6 +2745,10 @@ function getAreaTitle(area) {
         return baseName + ' Homes';
     } else if (propertyType === 'condos') {
         return baseName + ' Condos';
+    } else if (propertyType === 'townhomes') {
+        return baseName + ' T/H';
+    } else if (propertyType === 'lots') {
+        return baseName + ' Lots';
     }
     return baseName;
 }
@@ -2829,17 +2875,17 @@ function showPresetInfoWindowContent(marker, area, targetInfoWindow, options = {
                     <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="listingCount">${stats.listingCount || 0}</div>
-                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active</div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="medianPrice">${formatPrice(stats.medianPrice || 0)}</div>
-                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median</div>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="avgPricePerSqFt">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
-                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">$/SF</div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="avgDom">${stats.avgDom || 0}</div>
@@ -2962,13 +3008,8 @@ function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsA
     const medianPriceDisplay = formatPrice(medianPrice);
     const pricePerSqFt =
         stats.avgPricePerSqFt || (stats.avgSqft > 0 ? Math.round((stats.avgPrice || 0) / stats.avgSqft) : 0);
-    const listingLabel = (() => {
-        const t = (n.propertyType || '').toLowerCase();
-        if (t.includes('townhome')) return 'Active T/H Listings';
-        if (t.includes('condo')) return 'Active Condo Listings';
-        if (t.includes('home')) return 'Active Home Listings';
-        return 'Active Listings';
-    })();
+    // Use simple "Active" label to match area info-window style
+    const listingLabel = 'Active';
     const selectedAmenities =
         window.filterState && window.filterState.amenities ? window.filterState.amenities : new Set();
     const formatAmenitiesList = (list = []) => {
@@ -3037,7 +3078,7 @@ function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsA
     const content = `
                 <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
                     <div class="flex items-center justify-center gap-2 mb-2">
-                        <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
+                        <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${getAreaTitle(n)}</h3>
                         ${
                             n.urlSlug
                                 ? `
@@ -3062,13 +3103,13 @@ function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsA
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
-                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median</div>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
-                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                            <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">$/SF</div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
                             <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.avgDom || 0}</div>
@@ -3184,7 +3225,8 @@ function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsA
         google.maps.event.clearListeners(window.infoWindow, 'closeclick');
         window.infoWindow.addListener('closeclick', () => {
             if (window.activeMarker && window.activeMarker.content) {
-                window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                const svgFn = window.activeMarker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+                window.activeMarker.content.innerHTML = svgFn(window.activeMarker.markerColor, false);
             }
             window.activeMarker = null;
             // Clean up ResizeObserver when info window closes
@@ -3196,28 +3238,31 @@ function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsA
 // Toggle marker ripple animation (from production markers.js)
 function toggleMarker(marker, neighborhood, showInfoFn) {
     const color = marker.markerColor;
+    // Use diamond SVG for area markers, circle SVG for regular markers
+    const getSvgFn = (m) => m.isAreaMarker ? createDiamondSVG : createMarkerSVG;
 
     // If clicking same marker, toggle info window
     if (window.activeMarker === marker) {
         if (window.infoWindow && window.infoWindow.getMap()) {
             window.infoWindow.close();
-            marker.content.innerHTML = createMarkerSVG(color, false);
+            marker.content.innerHTML = getSvgFn(marker)(color, false);
             window.activeMarker = null;
             // Clean up ResizeObserver when info window closes
             cleanupSingleModeObservers();
         } else {
             showInfoFn();
-            marker.content.innerHTML = createMarkerSVG(color, true);
+            marker.content.innerHTML = getSvgFn(marker)(color, true);
         }
     } else {
         // Deactivate previous marker ripple
         if (window.activeMarker && window.activeMarker.content) {
-            window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+            const prevSvgFn = getSvgFn(window.activeMarker);
+            window.activeMarker.content.innerHTML = prevSvgFn(window.activeMarker.markerColor, false);
         }
 
         // Clicking different marker - open with ripple
         showInfoFn();
-        marker.content.innerHTML = createMarkerSVG(color, true);
+        marker.content.innerHTML = getSvgFn(marker)(color, true);
         window.activeMarker = marker;
     }
 }
@@ -3275,7 +3320,7 @@ window.showAreaMarker = function (presetData) {
 
     const markerContent = document.createElement('div');
     markerContent.className = 'marker-pin area-marker';
-    markerContent.innerHTML = createMarkerSVG('#F4A261', true);
+    markerContent.innerHTML = createDiamondSVG('#F4A261', true);
     markerContent.style.cursor = 'pointer';
     markerContent.style.zIndex = '1000';
 
@@ -3287,22 +3332,24 @@ window.showAreaMarker = function (presetData) {
         zIndex: 1000
     });
     marker.markerColor = '#F4A261';
+    marker.isAreaMarker = true; // Flag to use diamond SVG
     marker.areaSlug = presetData.slug; // Store slug on marker for lookup
 
     marker.addListener('click', () => {
         // Toggle info window if clicking same marker
         if (window.activeMarker === marker && window.infoWindow?.getMap()) {
             window.infoWindow.close();
-            marker.content.innerHTML = createMarkerSVG(marker.markerColor, false);
+            marker.content.innerHTML = createDiamondSVG(marker.markerColor, false);
             window.activeMarker = null;
         } else {
             // Deactivate previous marker animation
             if (window.activeMarker && window.activeMarker.content) {
-                window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                const svgFn = window.activeMarker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+                window.activeMarker.content.innerHTML = svgFn(window.activeMarker.markerColor, false);
             }
             // Open with animation
             showPresetInfoWindowContent(marker, areaData, window.infoWindow);
-            marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+            marker.content.innerHTML = createDiamondSVG(marker.markerColor, true);
             window.activeMarker = marker;
             window.activeAreaSlug = presetData.slug;
         }
@@ -3401,7 +3448,7 @@ window.addMarkers = function addMarkers() {
             const areaMarkerColor = '#F4A261'; // Sandy accent color for area markers
             const markerContent = document.createElement('div');
             markerContent.className = 'marker-pin area-marker';
-            markerContent.innerHTML = createMarkerSVG(areaMarkerColor, true); // Selected state
+            markerContent.innerHTML = createDiamondSVG(areaMarkerColor, true); // Selected state - diamond shape
             markerContent.style.cursor = 'pointer';
             markerContent.style.zIndex = '1000';
 
@@ -3414,22 +3461,24 @@ window.addMarkers = function addMarkers() {
             });
 
             marker.markerColor = areaMarkerColor;
+            marker.isAreaMarker = true; // Flag to use diamond SVG
 
             // Click handler for area marker - toggle animation like neighborhood markers
             marker.addListener('click', () => {
                 // Toggle info window if clicking same marker
                 if (window.activeMarker === marker && window.infoWindow?.getMap()) {
                     window.infoWindow.close();
-                    marker.content.innerHTML = createMarkerSVG(marker.markerColor, false);
+                    marker.content.innerHTML = createDiamondSVG(marker.markerColor, false);
                     window.activeMarker = null;
                 } else {
                     // Deactivate previous marker animation
                     if (window.activeMarker && window.activeMarker.content) {
-                        window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                        const svgFn = window.activeMarker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+                        window.activeMarker.content.innerHTML = svgFn(window.activeMarker.markerColor, false);
                     }
                     // Open with animation
                     showNeighborhoodInfoWindowContent(marker, n, window.infoWindow, true);
-                    marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+                    marker.content.innerHTML = createDiamondSVG(marker.markerColor, true);
                     window.activeMarker = marker;
                 }
             });
@@ -3645,6 +3694,11 @@ window.diagnostics = function() {
 // ============================================================
 // POST MESSAGE HANDLER - For test page hover functionality
 // ============================================================
+
+// Track pending idle listener to prevent stacking when hovering quickly
+let pendingIdleListener = null;
+let pendingFlightId = 0;
+
 window.addEventListener('message', event => {
     // Log all messages for debugging
     if (event.data && typeof event.data === 'object' && event.data.type) {
@@ -3661,6 +3715,17 @@ window.addEventListener('message', event => {
         if (!map) {
             console.warn('[PostMessage] Map not ready, ignoring flyTo');
             return;
+        }
+
+        // Increment flight ID to track which flight is current
+        const thisFlightId = ++pendingFlightId;
+        console.log(`[PostMessage] Flight #${thisFlightId} starting`);
+
+        // Remove any pending idle listener from previous flight
+        if (pendingIdleListener) {
+            google.maps.event.removeListener(pendingIdleListener);
+            pendingIdleListener = null;
+            console.log('[PostMessage] Removed previous idle listener');
         }
 
         // Ensure isSingleMode is set (race condition fix)
@@ -3681,9 +3746,10 @@ window.addEventListener('message', event => {
             window.infoWindow.close();
         }
 
-        // Deactivate current marker
+        // Deactivate current marker (area markers stay pulsating)
         if (window.activeMarker && window.activeMarker.content) {
-            window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+            const svgFn = window.activeMarker.isAreaMarker ? createDiamondSVG : createMarkerSVG;
+            window.activeMarker.content.innerHTML = svgFn(window.activeMarker.markerColor, false);
             window.activeMarker = null;
         }
 
@@ -3714,18 +3780,25 @@ window.addEventListener('message', event => {
             console.log('[PostMessage] Marker created');
         }
 
-        // SIMPLE APPROACH: Just like full mode navigation
-        // 1. Marker already created at target position
-        // 2. Call smoothFlyTo with isMiniCard=true
-        // 3. After flight, open info window
-        console.log('[PostMessage] Flying with mini card offset');
-
-        // Fly to target with mini card offset calculation (Phase 1)
+        // Fly to target with smoothFlyTo
+        console.log('[PostMessage] Flying with smoothFlyTo');
         window.smoothFlyTo(targetPosition, targetZoom, false, true);
 
-        // Wait for flight to complete, then open info window
+        // Wait for map idle, then open info window
         if (newMarker) {
             google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                // Check if we're still the current flight
+                if (thisFlightId !== pendingFlightId) {
+                    console.log(`[PostMessage] Flight #${thisFlightId} was superseded, aborting`);
+                    return;
+                }
+
+                // Verify this marker is still the current temp marker
+                if (newMarker !== window.tempMarker) {
+                    console.log('[PostMessage] Marker no longer current, skipping info window');
+                    return;
+                }
+
                 const neighborhoodData = {
                     name: neighborhoodName,
                     position: targetPosition,
@@ -3750,30 +3823,7 @@ window.addEventListener('message', event => {
                     showNeighborhoodInfoWindowContent(newMarker, neighborhoodData, window.infoWindow, true);
                 }
 
-                console.log('[PostMessage] Info window opened after flight');
-
-                // Phase 2: Apply correction after info window renders
-                google.maps.event.addListenerOnce(window.infoWindow, 'domready', () => {
-                    requestAnimationFrame(() => {
-                        const markerLatLng = new google.maps.LatLng(targetPosition);
-
-                        // Apply pixel-perfect centering correction using padding method
-                        window.applyCenteringFromRenderedCard(markerLatLng, {
-                            maxRetries: 30,
-                            usePaddingMethod: true, // Padding-based micro-correction
-                            maxCorrection: 50, // Allow larger correction for initial positioning
-                            onComplete: () => {
-                                console.log('[PostMessage] Phase 2 padding correction applied');
-                                // Log diagnostics to verify accuracy
-                                setTimeout(() => {
-                                    if (window.logCenteringDiagnostics) {
-                                        window.logCenteringDiagnostics(markerLatLng);
-                                    }
-                                }, 100);
-                            }
-                        });
-                    });
-                });
+                console.log(`[PostMessage] Flight #${thisFlightId} complete, info window opened`);
             });
         }
     }

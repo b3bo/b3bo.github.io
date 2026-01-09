@@ -22,6 +22,10 @@ function getAreaTitle(area) {
         return `${baseName} Homes`;
     } else if (propertyType === 'condos') {
         return `${baseName} Condos`;
+    } else if (propertyType === 'townhomes') {
+        return `${baseName} T/H`;
+    } else if (propertyType === 'lots') {
+        return `${baseName} Lots`;
     }
     return baseName;
 }
@@ -257,7 +261,7 @@ export function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, s
     const content = `
         <div class="info-window" style="cursor: pointer;" tabindex="-1">
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <h3 class="info-window-title" style="margin-bottom: 0;">${n.name}</h3>
+                <h3 class="info-window-title" style="margin-bottom: 0;">${getAreaTitle(n)}</h3>
                 ${
                     n.urlSlug
                         ? `
@@ -282,11 +286,11 @@ export function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, s
                 </div>
                 <div class="info-window-stat">
                     <div class="info-window-stat-value">${medianPriceDisplay}</div>
-                    <div class="info-window-stat-label">Med List Price</div>
+                    <div class="info-window-stat-label">Median</div>
                 </div>
                 <div class="info-window-stat">
                     <div class="info-window-stat-value">$${pricePerSqFt.toLocaleString()}</div>
-                    <div class="info-window-stat-label">Avg $/Sq Ft</div>
+                    <div class="info-window-stat-label">$/SF</div>
                 </div>
                 <div class="info-window-stat">
                     <div class="info-window-stat-value">${stats.avgDom || 0}</div>
@@ -339,12 +343,9 @@ export function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, s
  * @param {string} propertyType - Property type
  * @returns {string} Label text
  */
-function getListingLabel(propertyType) {
-    const t = (propertyType || '').toLowerCase();
-    if (t.includes('townhome')) return 'Active T/H Listings';
-    if (t.includes('condo')) return 'Active Condo Listings';
-    if (t.includes('home')) return 'Active Home Listings';
-    return 'Active Listings';
+function getListingLabel() {
+    // Use simple "Active" label to match area info-window style
+    return 'Active';
 }
 
 /**
@@ -481,9 +482,8 @@ export function showMiniInfoWindowContent(marker, n, targetInfoWindow) {
             : 'https://neighborhoods.truesouthcoastalhomes.com';
     const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
 
-    // Use getAreaTitle for area markers to show "Destin Homes" or "Destin Condos"
-    // For regular neighborhoods, show name + propertyType like before
-    const title = n.isAreaMarker ? getAreaTitle(n) : `${n.name} ${propertyType}`;
+    // Use getAreaTitle to show consistent format: "Name Homes/Condos/T/H/Lots"
+    const title = getAreaTitle(n);
 
     const content = `
         <div class="info-window info-window-mini">

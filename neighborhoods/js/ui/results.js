@@ -19,15 +19,11 @@ export function formatAmenitiesWithSelection(amenitiesArr) {
 
 /**
  * Get listing label based on property type.
- * @param {string} typeString - Property type (e.g., 'Homes', 'Condos', 'Townhomes')
  * @returns {string} Formatted label
  */
-export function listingLabelForType(typeString) {
-    const t = (typeString || '').toLowerCase();
-    if (t.includes('townhome')) return 'Active T/H Listings';
-    if (t.includes('condo')) return 'Active Condo Listings';
-    if (t.includes('home')) return 'Active Home Listings';
-    return 'Active Listings';
+export function listingLabelForType() {
+    // Use simple "Active" label to match area info-window style
+    return 'Active';
 }
 
 /**
@@ -160,9 +156,9 @@ export function renderResults() {
                     });
                 }
 
-                // Smooth fly animation
-                if (window.smoothFlyTo) {
-                    window.smoothFlyTo(n.position);
+                // Smooth fly animation (maintain current zoom to preserve area context)
+                if (window.smoothFlyTo && window.map) {
+                    window.smoothFlyTo(n.position, window.map.getZoom());
                 }
 
                 // Find and click marker after flight
