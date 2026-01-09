@@ -59,7 +59,7 @@
 
   @media (min-width: 768px) {
     .button-group {
-      @apply w-auto flex-row;
+      @apply inline-flex w-auto flex-row;
     }
   }
 
