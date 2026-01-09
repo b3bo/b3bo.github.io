@@ -10,6 +10,7 @@
 module.exports = {
   content: [
     "./*.html",
+    "./assets/css/sierra/*.html",
     "./assets/css/sierra/components/**/*.html",
     "./assets/**/*.css",
   ],
