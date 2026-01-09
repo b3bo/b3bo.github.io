@@ -5,6 +5,7 @@
  */
 
 import { eventBus, Events } from '../core/eventBus.js';
+import { formatPrice, getAreaStats, getAreaNeighborhoods } from '../utils.js';
 
 /**
  * Show info window content for area markers.
@@ -12,54 +13,136 @@ import { eventBus, Events } from '../core/eventBus.js';
  * @param {Object} area - Area data object
  * @param {Object} targetInfoWindow - Google Maps InfoWindow instance
  */
-export function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
+// Helper to generate title with property type suffix
+function getAreaTitle(area) {
+    const baseName = area.name;
+    const propertyType = (area.propertyType || '').toLowerCase();
+
+    if (propertyType === 'homes') {
+        return `${baseName} Homes`;
+    } else if (propertyType === 'condos') {
+        return `${baseName} Condos`;
+    }
+    return baseName;
+}
+
+// Helper function to update stats in already-rendered info window (DOM-only, no Google Maps API calls)
+function updateInfoWindowStatsOnly(area) {
+    console.log('[infoWindow.js updateInfoWindowStatsOnly] Called with area:', area.name, 'propertyType:', area.propertyType);
+
+    // Get stats based on propertyType
+    const stats = getAreaStats(area, area.propertyType);
+    console.log('[infoWindow.js updateInfoWindowStatsOnly] Stats to apply:', stats);
+
+    // Find the rendered info window
+    const infoWindow = document.querySelector('.info-window');
+    if (!infoWindow) {
+        console.log('[infoWindow.js updateInfoWindowStatsOnly] ERROR: No .info-window element found');
+        return false;
+    }
+
+    console.log('[infoWindow.js updateInfoWindowStatsOnly] Found .info-window element');
+
+    // Update title with property type suffix
+    const titleEl = infoWindow.querySelector('.info-window-title');
+    if (titleEl) {
+        titleEl.textContent = getAreaTitle(area);
+        console.log('[infoWindow.js updateInfoWindowStatsOnly] Updated title to:', titleEl.textContent);
+    }
+
+    // Use data attributes for reliable targeting
+    const listingCountEl = infoWindow.querySelector('[data-stat="listingCount"]');
+    const medianPriceEl = infoWindow.querySelector('[data-stat="medianPrice"]');
+    const avgPricePerSqFtEl = infoWindow.querySelector('[data-stat="avgPricePerSqFt"]');
+    const avgDomEl = infoWindow.querySelector('[data-stat="avgDom"]');
+
+    console.log('[infoWindow.js updateInfoWindowStatsOnly] Found stat elements:', {
+        listingCount: !!listingCountEl,
+        medianPrice: !!medianPriceEl,
+        avgPricePerSqFt: !!avgPricePerSqFtEl,
+        avgDom: !!avgDomEl
+    });
+
+    if (listingCountEl && medianPriceEl && avgPricePerSqFtEl && avgDomEl) {
+        listingCountEl.textContent = stats.listingCount || 0;
+        medianPriceEl.textContent = formatPrice(stats.medianPrice || 0);
+        avgPricePerSqFtEl.textContent = '$' + (stats.avgPricePerSqFt || 0);
+        avgDomEl.textContent = stats.avgDom || 0;
+        console.log('[infoWindow.js updateInfoWindowStatsOnly] SUCCESS: Stats updated via DOM');
+        return true;
+    }
+
+    console.log('[infoWindow.js updateInfoWindowStatsOnly] ERROR: Could not find all stat elements with data attributes');
+    return false;
+}
+
+export function showPresetInfoWindowContent(marker, area, targetInfoWindow, options = {}) {
+    const { skipCentering = false } = options;
+    console.log('[infoWindow.js showPresetInfoWindowContent] Called with skipCentering:', skipCentering);
+
+    // Use mini info window if URL param infoWindowSize=mini
+    if (window.useMiniInfoWindow) {
+        return showMiniInfoWindowContent(marker, area, targetInfoWindow);
+    }
+
+    // If skipCentering, just update the stats in the DOM and return
+    if (skipCentering) {
+        console.log('[infoWindow.js showPresetInfoWindowContent] Attempting DOM-only update...');
+        const domUpdateSuccess = updateInfoWindowStatsOnly(area);
+        console.log('[infoWindow.js showPresetInfoWindowContent] DOM update result:', domUpdateSuccess);
+        if (domUpdateSuccess) {
+            console.log('[infoWindow.js showPresetInfoWindowContent] SUCCESS: Stats updated via DOM-only method, returning early');
+            return;
+        } else {
+            console.log('[infoWindow.js showPresetInfoWindowContent] FALLBACK: DOM update failed, continuing with full render');
+        }
+    }
+
     // Use type-specific stats if propertyType is set, otherwise use combined stats
-    const propType = (area.propertyType || '').toLowerCase();
-    const stats = propType === 'homes' ? (area.homeStats || area.stats || {})
-                : propType === 'condos' ? (area.condoStats || area.stats || {})
-                : (area.stats || {});
-    const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
+    const stats = getAreaStats(area, area.propertyType);
     const neighborhoodsList = (area.neighborhoods || [])
         .slice(0, 10)
         .map(n => n.name)
         .join(', ');
 
     const content = `
-        <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
-            <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${area.name}</h3>
-            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
+        <div class="info-window">
+            <h3 class="info-window-title">${getAreaTitle(area)}</h3>
+            <div class="info-window-stats">
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value" data-stat="listingCount">${stats.listingCount || 0}</div>
+                    <div class="info-window-stat-label">Active</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value" data-stat="medianPrice">${formatPrice(stats.medianPrice || 0)}</div>
+                    <div class="info-window-stat-label">Median</div>
                 </div>
-            </div>
-            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value" data-stat="avgPricePerSqFt">$${stats.avgPricePerSqFt || 0}</div>
+                    <div class="info-window-stat-label">$/SF</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value" data-stat="avgDom">${stats.avgDom || 0}</div>
+                    <div class="info-window-stat-label">Avg DOM</div>
                 </div>
             </div>
-            <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-2 sm:mb-3">
-                <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
-                <div class="communities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
+            <div class="info-window-section">
+                <div class="info-window-section-title">Top Neighborhoods</div>
+                <div class="communities-scroll info-window-section-content">${neighborhoodsList}</div>
             </div>
-            <hr class="divider mb-2 sm:mb-3">
-            <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
+            <hr class="divider">
+            <div class="info-window-nav">
                 ${buildAreaNavButtons(area)}
             </div>
         </div>
     `;
 
     targetInfoWindow.setContent(content);
-    targetInfoWindow.open(window.map, marker);
+
+    // Only call .open() if not already open (prevents unwanted panning)
+    if (!skipCentering) {
+        targetInfoWindow.open(window.map, marker);
+    }
 
     // After info window renders: detect overflow
     google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
@@ -79,10 +162,10 @@ function buildAreaNavButtons(area) {
     const filtered = window.filteredNeighborhoods || [];
     const hasNav = filtered.length > 1;
     const prevBtn = hasNav
-        ? '<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>'
+        ? '<button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="info-window-nav-btn" title="Previous Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>'
         : '';
     const nextBtn = hasNav
-        ? '<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>'
+        ? '<button id="nav-next" onclick="window.navigateNeighborhood(1)" class="info-window-nav-btn" title="Next Community"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>'
         : '';
 
     if (window.isSingleMode) {
@@ -100,7 +183,7 @@ function buildAreaNavButtons(area) {
             prevBtn +
             '<a href="' +
             finderUrl +
-            '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' +
+            '" target="_blank" class="info-window-action-btn" title="Open ' +
             area.name +
             ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>' +
             nextBtn
@@ -115,7 +198,7 @@ function buildAreaNavButtons(area) {
             prevBtn +
             '<a href="' +
             listingsUrl +
-            '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" onclick="event.stopPropagation();" title="View all ' +
+            '" target="_blank" class="info-window-action-btn" onclick="event.stopPropagation();" title="View all ' +
             area.name +
             ' listings">Matching Listings</a>' +
             nextBtn
@@ -130,10 +213,15 @@ function buildAreaNavButtons(area) {
  * @param {Object} targetInfoWindow - Google Maps InfoWindow instance
  * @param {boolean} storeAsActive - Whether to store as current neighborhood (default: true)
  */
-export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true) {
+export function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true) {
     // Handle area markers
     if (n.isAreaMarker) {
-        return showAreaInfoWindowContent(marker, n, targetInfoWindow);
+        return showPresetInfoWindowContent(marker, n, targetInfoWindow);
+    }
+
+    // Use mini info window if URL param infoWindowSize=mini
+    if (window.useMiniInfoWindow) {
+        return showMiniInfoWindowContent(marker, n, targetInfoWindow);
     }
 
     // Only store as current neighborhood for primary (click) window
@@ -141,7 +229,6 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
         window.currentNeighborhood = n;
     }
 
-    const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
     const stats = n.stats || {};
     const medianPrice = stats.medianPrice || stats.avgPrice || 0;
     const medianPriceDisplay = formatPrice(medianPrice);
@@ -168,15 +255,15 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
     const hasNav = filtered.length > 1;
 
     const content = `
-        <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated" style="cursor: pointer;" tabindex="-1">
-            <div class="flex items-center justify-center gap-2 mb-2">
-                <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary">${n.name}</h3>
+        <div class="info-window" style="cursor: pointer;" tabindex="-1">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <h3 class="info-window-title" style="margin-bottom: 0;">${n.name}</h3>
                 ${
                     n.urlSlug
                         ? `
                 <a href="https://www.truesouthcoastalhomes.com${n.urlSlug}"
                    target="_blank"
-                   class="text-brand-500 dark:text-brand-dark hover:text-brand-600 dark:hover:text-brand-dark-hover transition-colors focus-ring rounded"
+                   style="color: var(--color-brand-base); flex-shrink: 0;"
                    onclick="event.stopPropagation();"
                    title="${n.name} ${n.propertyType} for Sale">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -188,44 +275,40 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
                         : ''
                 }
             </div>
-            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.listingCount || 0}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${listingLabel}</div>
+            <div class="info-window-stats">
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value">${stats.listingCount || 0}</div>
+                    <div class="info-window-stat-label">${listingLabel}</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${medianPriceDisplay}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Med List Price</div>
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value">${medianPriceDisplay}</div>
+                    <div class="info-window-stat-label">Med List Price</div>
                 </div>
-            </div>
-            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">$${pricePerSqFt.toLocaleString()}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value">$${pricePerSqFt.toLocaleString()}</div>
+                    <div class="info-window-stat-label">Avg $/Sq Ft</div>
                 </div>
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-0.5">${stats.avgDom || 0}</div>
-                    <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
+                <div class="info-window-stat">
+                    <div class="info-window-stat-value">${stats.avgDom || 0}</div>
+                    <div class="info-window-stat-label">Avg DOM</div>
                 </div>
             </div>
             ${
                 (n.amenities || []).length > 0
                     ? `
-            <div class="mb-2 sm:mb-3">
-                <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border">
-                    <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Amenities</div>
-                    <div class="amenities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary leading-tight">${formatAmenitiesList(n.amenities || [])}</div>
-                </div>
+            <div class="info-window-section">
+                <div class="info-window-section-title">Amenities</div>
+                <div class="amenities-scroll info-window-section-content">${formatAmenitiesList(n.amenities || [])}</div>
             </div>
             `
                     : ''
             }
-            <hr class="divider mb-2 sm:mb-3">
-            <div class="pt-2 sm:pt-3 flex items-center gap-1.5 sm:gap-2">
+            <hr class="divider">
+            <div class="info-window-nav">
                 ${
                     hasNav
                         ? `
-                <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Previous Community">
+                <button id="nav-prev" onclick="window.navigateNeighborhood(-1)" class="info-window-nav-btn" title="Previous Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
                 `
@@ -235,7 +318,7 @@ export function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive
                 ${
                     hasNav
                         ? `
-                <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="p-2 rounded-full border border-neutral-300 dark:border-dark-border hover:bg-brand-100 dark:hover:bg-brand-dark/20 text-neutral-600 dark:text-dark-text-secondary transition-colors flex-shrink-0 focus-ring" title="Next Community">
+                <button id="nav-next" onclick="window.navigateNeighborhood(1)" class="info-window-nav-btn" title="Next Community">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
                 `
@@ -344,7 +427,7 @@ function buildMainButton(n, listingsUrl) {
         return (
             '<a href="' +
             finderUrl +
-            '" target="_blank" class="flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors" title="Open ' +
+            '" target="_blank" class="info-window-action-btn" title="Open ' +
             n.name +
             ' in Neighborhood Finder">Neighborhood Finder&trade; <svg style="display:inline;width:1.1em;height:1.1em;vertical-align:middle;margin-left:2px" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>'
         );
@@ -352,7 +435,7 @@ function buildMainButton(n, listingsUrl) {
         return (
             '<a href="' +
             listingsUrl +
-            "\" target=\"_blank\" class=\"flex-1 text-center bg-brand-500 dark:bg-brand-dark hover:bg-brand-600 dark:hover:bg-brand-dark-hover text-white py-2.5 px-4 rounded-lg font-medium transition-colors\" onclick=\"event.stopPropagation(); if(typeof gtag!=='undefined')gtag('event','view_listings',{neighborhood_name:'" +
+            "\" target=\"_blank\" class=\"info-window-action-btn\" onclick=\"event.stopPropagation(); if(typeof gtag!=='undefined')gtag('event','view_listings',{neighborhood_name:'" +
             n.name +
             "',listing_count:" +
             (stats.listingCount || 0) +
@@ -366,15 +449,66 @@ function buildMainButton(n, listingsUrl) {
         );
     } else {
         return (
-            '<button class="flex-1 bg-neutral-300 dark:bg-dark-bg-elevated-2 text-neutral-500 dark:text-dark-text-secondary py-2.5 px-4 rounded-lg font-medium opacity-50 cursor-not-allowed" disabled title="MLS listings coming soon for ' +
+            '<button class="info-window-action-btn disabled" disabled title="MLS listings coming soon for ' +
             n.name +
             '">Coming Soon!</button>'
         );
     }
 }
 
+/**
+ * Show mini info window content - compact variant for space-constrained contexts.
+ * Shows only: title, active listings count, and Neighborhood Finder button.
+ * @param {Object} marker - Google Maps marker
+ * @param {Object} n - Neighborhood or area data object
+ * @param {Object} targetInfoWindow - Google Maps InfoWindow instance
+ */
+export function showMiniInfoWindowContent(marker, n, targetInfoWindow) {
+    // Use propertyType-specific stats for area markers
+    const stats = n.isAreaMarker
+        ? getAreaStats(n, n.propertyType)
+        : (n.stats || {});
+    const propertyType = n.propertyType || window.filterState?.propertyType || 'Homes';
+
+    // Build Neighborhood Finder URL
+    const neighborhoodSlug = window.toSlug
+        ? window.toSlug(n.name)
+        : n.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const propertyTypeParam = propertyType ? '&propertyType=' + encodeURIComponent(propertyType) : '';
+    const baseUrl =
+        window.location.hostname === 'localhost'
+            ? window.location.origin
+            : 'https://neighborhoods.truesouthcoastalhomes.com';
+    const finderUrl = baseUrl + '?marker=' + neighborhoodSlug + propertyTypeParam;
+
+    // Use getAreaTitle for area markers to show "Destin Homes" or "Destin Condos"
+    // For regular neighborhoods, show name + propertyType like before
+    const title = n.isAreaMarker ? getAreaTitle(n) : `${n.name} ${propertyType}`;
+
+    const content = `
+        <div class="info-window info-window-mini">
+            <h3 class="info-window-title">${title}</h3>
+            <div class="info-window-stat">
+                <div class="info-window-stat-value">${stats.listingCount || 0}</div>
+                <div class="info-window-stat-label">Active</div>
+            </div>
+            <hr class="divider">
+            <div class="info-window-nav">
+                <a href="${finderUrl}" target="_blank" class="info-window-action-btn" title="Open ${n.name} in Neighborhood Finder">
+                    <span>Neighborhood</span>
+                    <span>Finder&trade; <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></span>
+                </a>
+            </div>
+        </div>
+    `;
+
+    targetInfoWindow.setContent(content);
+    targetInfoWindow.open(window.map, marker);
+}
+
 // Expose on window for legacy code during transition
 if (typeof window !== 'undefined') {
-    window.showInfoWindowContent = showInfoWindowContent;
-    window.showAreaInfoWindowContent = showAreaInfoWindowContent;
+    window.showNeighborhoodInfoWindowContent = showNeighborhoodInfoWindowContent;
+    window.showPresetInfoWindowContent = showPresetInfoWindowContent;
+    window.showMiniInfoWindowContent = showMiniInfoWindowContent;
 }

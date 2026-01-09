@@ -39,6 +39,22 @@ export function formatSliderPrice(price) {
     return '$' + price;
 }
 
+// Get stats object for an area based on property type (homes, condos, or combined)
+export function getAreaStats(area, propertyType) {
+    const propType = (propertyType || '').toLowerCase();
+    return propType === 'homes' ? (area.homeStats || area.stats || {})
+         : propType === 'condos' ? (area.condoStats || area.stats || {})
+         : (area.stats || {});
+}
+
+// Get neighborhoods list for an area based on property type
+export function getAreaNeighborhoods(area, propertyType) {
+    const propType = (propertyType || '').toLowerCase();
+    return propType === 'homes' ? (area.homeNeighborhoods || area.neighborhoods || [])
+         : propType === 'condos' ? (area.condoNeighborhoods || area.neighborhoods || [])
+         : (area.neighborhoods || []);
+}
+
 // Zip code boundary management
 export function normalizeZip(value) {
     if (!value) return null;
@@ -65,7 +81,8 @@ export function getUrlParams() {
         offsetPx: params.get('offsetPx') !== null ? parseFloat(params.get('offsetPx')) : null,
         offsetPct: params.get('offsetPct') !== null ? parseFloat(params.get('offsetPct')) : null,
         marker: params.get('marker'), // Marker to auto-open
-        propertyType: params.get('propertyType') // Property type filter for marker
+        propertyType: params.get('propertyType'), // Property type filter for marker
+        controls: params.get('controls') // 'false' to hide map controls (for embeds)
     };
 }
 
@@ -197,7 +214,9 @@ export function updateUrlParams(newParams) {
     return `${window.location.pathname}?${params.toString()}`;
 }
 
-// Expose parseRange on window for legacy main.js
+// Expose functions on window for legacy main.js
 if (typeof window !== 'undefined') {
     window.parseRange = parseRange;
+    window.getAreaStats = getAreaStats;
+    window.getAreaNeighborhoods = getAreaNeighborhoods;
 }

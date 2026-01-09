@@ -1,6 +1,6 @@
 /**
  * @file main.js
- * @description Main application logic for Neighborhood Finder
+ * @description Main application logic for Neighborhood Finder™
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  *
  * This file was extracted from inline scripts in index.html
@@ -73,6 +73,10 @@ function initApp() {
     const neighborhoodSlug = (urlParams.get('neighborhood') || urlParams.get('marker'))?.toLowerCase();
     window.isSingleMode = isSingleMode;
     const isInIframe = window.self !== window.top;
+
+    // Mini info window mode (for space-constrained embeds)
+    const infoWindowSize = urlParams.get('infoWindowSize');
+    window.useMiniInfoWindow = infoWindowSize === 'mini';
 
     // Single mode: CSS in <head> handles hiding sidebar/drawer/disclaimer
     if (isSingleMode) {
@@ -214,20 +218,22 @@ function initApp() {
                 // Store current markers
                 const existingMarkers = window.markers || [];
 
-                // Recreate map
+                // Recreate map (check controls param for embeds)
+                const hideControls = getUrlParams().controls === 'false';
                 window.map = new google.maps.Map(document.getElementById('map'), {
                     zoom: currentZoom,
                     center: currentCenter,
                     mapId: '92b2f4ea8b2fce54a50ed2e9',
                     colorScheme: isDark ? 'DARK' : 'LIGHT',
-                    mapTypeControl: true,
+                    disableDefaultUI: hideControls,
+                    mapTypeControl: !hideControls,
                     mapTypeControlOptions: {
                         style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
                         position: google.maps.ControlPosition.TOP_RIGHT
                     },
-                    streetViewControl: true,
-                    fullscreenControl: true,
-                    zoomControl: true,
+                    streetViewControl: !hideControls,
+                    fullscreenControl: !hideControls,
+                    zoomControl: !hideControls,
                     clickableIcons: false
                 });
 
@@ -1175,6 +1181,7 @@ function initApp() {
         homesBtn.addEventListener('click', function () {
             this.classList.toggle('active');
             applyFilters();
+            updateActiveAreaMarkerInfoWindow();
         });
     }
 
@@ -1182,7 +1189,74 @@ function initApp() {
         condosBtn.addEventListener('click', function () {
             this.classList.toggle('active');
             applyFilters();
+            updateActiveAreaMarkerInfoWindow();
         });
+    }
+
+    // Helper function to update area marker info window when sidebar filter changes
+    function updateActiveAreaMarkerInfoWindow() {
+        console.log('[updateActiveAreaMarkerInfoWindow] Called');
+
+        // Check if there's an active area marker with an open info window
+        if (!window.activeMarker) {
+            console.log('[updateActiveAreaMarkerInfoWindow] No active marker');
+            return;
+        }
+        if (!window.activeMarker.areaData) {
+            console.log('[updateActiveAreaMarkerInfoWindow] Active marker has no areaData (not an area marker)');
+            return;
+        }
+        if (!window.infoWindow) {
+            console.log('[updateActiveAreaMarkerInfoWindow] No info window');
+            return;
+        }
+        if (!window.infoWindow.getMap()) {
+            console.log('[updateActiveAreaMarkerInfoWindow] Info window not open');
+            return;
+        }
+
+        const isHomesActive = homesBtn ? homesBtn.classList.contains('active') : false;
+        const isCondosActive = condosBtn ? condosBtn.classList.contains('active') : false;
+
+        // Determine propertyType from sidebar state
+        let propertyType = null;
+        if (isHomesActive && !isCondosActive) {
+            propertyType = 'homes';
+        } else if (isCondosActive && !isHomesActive) {
+            propertyType = 'condos';
+        }
+        // If both or neither active, propertyType = null (show combined)
+
+        console.log('[updateActiveAreaMarkerInfoWindow] Before update:', {
+            oldPropertyType: window.activeMarker.areaData.propertyType,
+            newPropertyType: propertyType,
+            areaName: window.activeMarker.areaData.name,
+            stats: window.activeMarker.areaData.stats?.listingCount,
+            homeStats: window.activeMarker.areaData.homeStats?.listingCount,
+            condoStats: window.activeMarker.areaData.condoStats?.listingCount
+        });
+
+        // Update the area marker's propertyType
+        window.activeMarker.areaData.propertyType = propertyType;
+
+        // Re-render the info window with updated stats
+        if (window.showPresetInfoWindowContent) {
+            console.log('[updateActiveAreaMarkerInfoWindow] Calling showPresetInfoWindowContent with skipCentering: true');
+            console.log('[updateActiveAreaMarkerInfoWindow] Function type:', typeof window.showPresetInfoWindowContent);
+            try {
+                window.showPresetInfoWindowContent(
+                    window.activeMarker,
+                    window.activeMarker.areaData,
+                    window.infoWindow,
+                    { skipCentering: true } // Don't re-center when updating existing window
+                );
+                console.log('[updateActiveAreaMarkerInfoWindow] showPresetInfoWindowContent call completed successfully');
+            } catch (error) {
+                console.error('[updateActiveAreaMarkerInfoWindow] ERROR calling showPresetInfoWindowContent:', error);
+            }
+        } else {
+            console.log('[updateActiveAreaMarkerInfoWindow] showPresetInfoWindowContent not available');
+        }
     }
 
     // ==========================================
@@ -1361,6 +1435,16 @@ function initApp() {
     function applyFilters() {
         const isHomesActive = homesBtn ? homesBtn.classList.contains('active') : false;
         const isCondosActive = condosBtn ? condosBtn.classList.contains('active') : false;
+
+        // Update filterState.propertyType based on button states
+        if (isHomesActive && !isCondosActive) {
+            window.filterState.propertyType = 'homes';
+        } else if (isCondosActive && !isHomesActive) {
+            window.filterState.propertyType = 'condos';
+        } else {
+            window.filterState.propertyType = null; // Both or neither = show all
+        }
+
         const selectedAreas = window.filterState.areas;
         const selectedAmenities = window.filterState.amenities;
 
@@ -1452,9 +1536,12 @@ function initApp() {
         // Re-render results and markers
         renderResults();
         window.addMarkers();
-        // Skip fitBounds when marker param present - centering handled by showAreaMarker
+        // Skip fitBounds when:
+        // - marker param present (centering handled by showAreaMarker)
+        // - area is selected (user wants to stay focused on that area)
         const markerParam = getUrlParams().get('marker');
-        if (!markerParam) {
+        const hasAreaSelected = window.activeAreaSlug;
+        if (!markerParam && !hasAreaSelected) {
             window.fitBoundsToNeighborhoods();
         }
     }
@@ -1724,48 +1811,35 @@ function fadeOutOverlay() {
     }
 }
 
+// Clean up single mode observers to prevent memory leaks
+function cleanupSingleModeObservers() {
+    if (window.singleModeResizeObserver) {
+        window.singleModeResizeObserver.disconnect();
+        window.singleModeResizeObserver = null;
+        console.log('Single mode: ResizeObserver disconnected');
+    }
+}
+
 function applySingleModeCenteringFromRenderedCard(markerLatLng, attempt = 0, isInitialCentering = false) {
-    const map = window.map;
-    if (!map || !markerLatLng) return;
+    // Use the new consolidated centering function from centering.js
+    const result = window.applyCenteringFromRenderedCard(markerLatLng, {
+        maxRetries: 30,
+        usePaddingMethod: false, // Use full offset recalculation method
+        attempt: attempt,
+        onComplete: () => {
+            window.singleModeOffsetApplied = true;
 
-    const iwContainer = document.querySelector('.gm-style-iw-c');
-    if (!iwContainer) {
-        if (attempt < 20) {
-            return requestAnimationFrame(() =>
-                applySingleModeCenteringFromRenderedCard(markerLatLng, attempt + 1, isInitialCentering)
-            );
+            // Log diagnostics once on initial centering
+            if (isInitialCentering && !diagnosticsLogged) {
+                diagnosticsLogged = true;
+                setTimeout(() => {
+                    window.logCenteringDiagnostics?.(markerLatLng);
+                }, 500);
+            }
         }
-        return;
-    }
+    });
 
-    const cardH = iwContainer.getBoundingClientRect().height;
-    const mapEl = document.getElementById('map') || map.getDiv();
-    const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
-    // Use constants from centering.js (single source of truth)
-    const tailHeight = window.TAIL_HEIGHT || 78;
-    const markerRadius = window.MARKER_RADIUS || 10;
-    const comboH = cardH + tailHeight + markerRadius;
-    const canCenter = dvh >= 450 && comboH < dvh - 40;
-
-    // Calculate actual offset from rendered card
-    const actualOffsetPx = canCenter
-        ? Math.round((cardH + tailHeight - markerRadius) / 2)
-        : Math.round(Math.max(0, 20 + cardH + tailHeight + markerRadius - dvh / 2));
-
-    // Always apply correction based on actual rendered card height (more accurate than heuristic)
-    const zoom = map.getZoom();
-    const adjustedLat = preCalculateOffsetLat(markerLatLng.lat(), actualOffsetPx, zoom);
-    map.setCenter({ lat: adjustedLat, lng: markerLatLng.lng() });
-    console.log('Single mode: applied centering with actual card height, offset:', actualOffsetPx, 'px');
-    window.singleModeOffsetApplied = true;
-
-    // Log diagnostics once
-    if (!diagnosticsLogged) {
-        diagnosticsLogged = true;
-        setTimeout(() => {
-            window.logCenteringDiagnostics?.(markerLatLng);
-        }, 500);
-    }
+    return result;
 }
 
 function initMap() {
@@ -1775,9 +1849,10 @@ function initMap() {
     // Clear placeholder
     mapDiv.innerHTML = '';
 
-    // Check for single mode
+    // Check for single mode and controls
     const urlParams = getUrlParams();
     const isSingleMode = urlParams.get('mode') === 'single';
+    const hideControls = urlParams.get('controls') === 'false';
     const neighborhoodSlug = (urlParams.get('neighborhood') || urlParams.get('marker'))?.toLowerCase();
     window.isSingleMode = isSingleMode; // Set early to prevent race condition with center_changed listener
 
@@ -1874,14 +1949,15 @@ function initMap() {
         zoom: initialZoom,
         center: mapCenter,
         mapId: '92b2f4ea8b2fce54a50ed2e9',
-        mapTypeControl: true,
+        disableDefaultUI: hideControls,
+        mapTypeControl: !hideControls,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
             position: google.maps.ControlPosition.TOP_RIGHT
         },
-        streetViewControl: true,
-        fullscreenControl: true,
-        zoomControl: true,
+        streetViewControl: !hideControls,
+        fullscreenControl: !hideControls,
+        zoomControl: !hideControls,
         clickableIcons: false
     });
 
@@ -1965,9 +2041,9 @@ function initMap() {
                 console.log('Single mode: opening', markerObj.neighborhood.name);
                 // Use correct info window function based on marker type
                 if (markerObj.neighborhood.isAreaMarker) {
-                    showAreaInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow);
+                    showPresetInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow);
                 } else {
-                    showInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
+                    showNeighborhoodInfoWindowContent(markerObj.marker, markerObj.neighborhood, window.infoWindow, true);
                 }
 
                 // After the card renders, re-apply centering using the real rendered height.
@@ -1985,18 +2061,18 @@ function initMap() {
                         applySingleModeCenteringFromRenderedCard(markerLatLng, 0, true); // true to trigger diagnostics
                         fadeOutOverlay();
                         // Set up ResizeObserver with debounce for subsequent changes
-                        if (!window.singleModeResizeObserver) {
-                            let resizeTimeout = null;
-                            window.singleModeResizeObserver = new ResizeObserver(() => {
-                                if (resizeTimeout) clearTimeout(resizeTimeout);
-                                resizeTimeout = setTimeout(() => {
-                                    applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
-                                }, 150);
-                            });
-                            const iwContainer = document.querySelector('.gm-style-iw-c');
-                            if (iwContainer) {
-                                window.singleModeResizeObserver.observe(iwContainer);
-                            }
+                        // Clean up any existing observer first to prevent duplicates
+                        cleanupSingleModeObservers();
+                        let resizeTimeout = null;
+                        window.singleModeResizeObserver = new ResizeObserver(() => {
+                            if (resizeTimeout) clearTimeout(resizeTimeout);
+                            resizeTimeout = setTimeout(() => {
+                                applySingleModeCenteringFromRenderedCard(markerLatLng, 999, false);
+                            }, 150);
+                        });
+                        const iwContainer = document.querySelector('.gm-style-iw-c');
+                        if (iwContainer) {
+                            window.singleModeResizeObserver.observe(iwContainer);
                         }
                     });
                 });
@@ -2078,29 +2154,51 @@ function initMap() {
                                         m.neighborhood.propertyType === target.propertyType
                                 );
                                 if (markerObj) {
-                                    // Pan to pre-offset position for proper centering
+                                    // Phase 1: Calculate pre-offset target for smooth flight
                                     const targetZoom = 14;
-                                    const offsetPx = computeOffsetPx(targetZoom, false); // false = not area marker
+                                    const disclaimerHeight = 40; // Full mode has disclaimer bar
+                                    const isMiniCard = window.useMiniInfoWindow === true;
+                                    const offsetPx = calculateCenteredOffset(targetZoom, disclaimerHeight, isMiniCard);
                                     const offsetLat = preCalculateOffsetLat(target.position.lat, offsetPx, targetZoom);
                                     const centeredPosition = { lat: offsetLat, lng: target.position.lng };
-                                    window.map.setZoom(targetZoom);
-                                    window.map.panTo(centeredPosition);
-                                    setTimeout(() => {
-                                        showInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
+
+                                    console.log('?marker: Flying to', target.name, 'with pre-offset:', offsetPx, 'px');
+
+                                    // Smooth camera flight to pre-offset position
+                                    smoothFlyTo(centeredPosition, targetZoom);
+
+                                    // Wait for flight to complete, then open info window
+                                    google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                                        // Open info window
+                                        showNeighborhoodInfoWindowContent(markerObj.marker, target, window.infoWindow, true);
                                         window.activeMarker = markerObj.marker;
                                         markerObj.marker.content.innerHTML = createMarkerSVG(
                                             markerObj.marker.markerColor,
                                             true
                                         );
 
-                                        // Apply centering after card renders
-                                        setTimeout(() => {
+                                        // Phase 2: Apply correction after info window renders
+                                        google.maps.event.addListenerOnce(window.infoWindow, 'domready', () => {
                                             requestAnimationFrame(() => {
                                                 const markerLatLng = new google.maps.LatLng(target.position);
-                                                applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+
+                                                // Apply pixel-perfect centering correction
+                                                window.applyCenteringFromRenderedCard(markerLatLng, {
+                                                    maxRetries: 30,
+                                                    usePaddingMethod: false, // Full offset recalc
+                                                    onComplete: () => {
+                                                        console.log('?marker: Phase 2 correction applied');
+                                                        // Log diagnostics to verify accuracy
+                                                        setTimeout(() => {
+                                                            if (window.logCenteringDiagnostics) {
+                                                                window.logCenteringDiagnostics(markerLatLng);
+                                                            }
+                                                        }, 100);
+                                                    }
+                                                });
                                             });
-                                        }, 100);
-                                    }, 800);
+                                        });
+                                    });
                                 }
                             }, 400);
                         });
@@ -2157,51 +2255,59 @@ function initMap() {
 }
 
 // ==========================================
-// GEOJSON BOUNDARY DISPLAY
+// GEOJSON BOUNDARY DISPLAY (FALLBACK)
 // ==========================================
-window.customBoundaries = new Set();
+// Use existing customBoundaries from boundaries.js if available, otherwise create new
+// This ensures we share the same Set regardless of load order
+if (!window.customBoundaries) {
+    window.customBoundaries = new Set();
+}
 
-// Expose showCustomBoundary globally for theme toggle and filters
-window.showCustomBoundary = function showCustomBoundary(zipCode) {
-    if (!window.map || window.customBoundaries.has(zipCode)) return;
-    window.customBoundaries.add(zipCode);
+// Provide fallback showCustomBoundary if boundaries.js didn't load or set it up
+if (!window.showCustomBoundary) {
+    window.showCustomBoundary = function showCustomBoundary(zipCode) {
+        if (!window.map || window.customBoundaries.has(zipCode)) return;
+        window.customBoundaries.add(zipCode);
 
-    window.map.data.loadGeoJson(
-        `./neighborhoods/jsons/${zipCode}.geojson`,
-        { idPropertyName: 'ZCTA5CE20' },
-        function (features) {
-            window.map.data.setStyle(function (feature) {
-                const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
-                if (window.customBoundaries.has(featureZip)) {
-                    const isDark = document.documentElement.classList.contains('dark');
-                    const primaryColor = isDark ? '#5ba3ab' : '#4c8f96';
-                    return {
-                        strokeColor: primaryColor,
-                        strokeWeight: 1.5,
-                        strokeOpacity: 0.35,
-                        fillColor: primaryColor,
-                        fillOpacity: 0.15,
-                        clickable: false
-                    };
-                }
-                return { visible: false };
-            });
-        }
-    );
-};
+        window.map.data.loadGeoJson(
+            `./neighborhoods/jsons/${zipCode}.geojson`,
+            { idPropertyName: 'ZCTA5CE20' },
+            function (features) {
+                window.map.data.setStyle(function (feature) {
+                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+                    if (window.customBoundaries.has(featureZip)) {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        const primaryColor = isDark ? '#5ba3ab' : '#4c8f96';
+                        return {
+                            strokeColor: primaryColor,
+                            strokeWeight: 1.5,
+                            strokeOpacity: 0.35,
+                            fillColor: primaryColor,
+                            fillOpacity: 0.15,
+                            clickable: false
+                        };
+                    }
+                    return { visible: false };
+                });
+            }
+        );
+    };
+}
 
-// Expose hideCustomBoundary globally for filters
-window.hideCustomBoundary = function hideCustomBoundary(zipCode) {
-    if (!window.map || !window.customBoundaries.has(zipCode)) return;
-    window.customBoundaries.delete(zipCode);
+// Provide fallback hideCustomBoundary if boundaries.js didn't load or set it up
+if (!window.hideCustomBoundary) {
+    window.hideCustomBoundary = function hideCustomBoundary(zipCode) {
+        if (!window.map || !window.customBoundaries.has(zipCode)) return;
+        window.customBoundaries.delete(zipCode);
 
-    window.map.data.forEach(function (feature) {
-        const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
-        if (featureZip === zipCode) {
-            window.map.data.remove(feature);
-        }
-    });
-};
+        window.map.data.forEach(function (feature) {
+            const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
+            if (featureZip === zipCode) {
+                window.map.data.remove(feature);
+            }
+        });
+    };
+}
 
 // ==========================================
 // FIT BOUNDS TO FILTERED NEIGHBORHOODS
@@ -2588,9 +2694,129 @@ function createMarkerSVG(color, isActive = false) {
             `;
 }
 
+// Helper to generate title with property type suffix
+function getAreaTitle(area) {
+    const baseName = area.name;
+    const propertyType = (area.propertyType || '').toLowerCase();
+
+    if (propertyType === 'homes') {
+        return baseName + ' Homes';
+    } else if (propertyType === 'condos') {
+        return baseName + ' Condos';
+    }
+    return baseName;
+}
+
+// Helper function to update stats in already-rendered info window (DOM-only, no Google Maps API calls)
+function updateInfoWindowStatsOnly(area) {
+    console.log('[updateInfoWindowStatsOnly] Called with area:', area.name, 'propertyType:', area.propertyType);
+
+    // Get stats based on propertyType
+    let stats;
+    if (window.getAreaStats) {
+        stats = window.getAreaStats(area, area.propertyType);
+    } else {
+        const propType = (area.propertyType || '').toLowerCase();
+        stats = propType === 'homes' ? (area.homeStats || area.stats || {})
+             : propType === 'condos' ? (area.condoStats || area.stats || {})
+             : (area.stats || {});
+    }
+
+    console.log('[updateInfoWindowStatsOnly] Stats to apply:', stats);
+
+    // Find the rendered info window
+    const infoWindow = document.querySelector('.info-window');
+    if (!infoWindow) {
+        console.log('[updateInfoWindowStatsOnly] ERROR: No .info-window element found');
+        return false;
+    }
+
+    console.log('[updateInfoWindowStatsOnly] Found .info-window element');
+
+    // Update title with property type suffix
+    const titleEl = infoWindow.querySelector('.info-window h3, .info-window-title, h3.text-base.sm\\:text-lg');
+    if (titleEl) {
+        titleEl.textContent = getAreaTitle(area);
+        console.log('[updateInfoWindowStatsOnly] Updated title to:', titleEl.textContent);
+    }
+
+    // Use data attributes for reliable targeting
+    const listingCountEl = infoWindow.querySelector('[data-stat="listingCount"]');
+    const medianPriceEl = infoWindow.querySelector('[data-stat="medianPrice"]');
+    const avgPricePerSqFtEl = infoWindow.querySelector('[data-stat="avgPricePerSqFt"]');
+    const avgDomEl = infoWindow.querySelector('[data-stat="avgDom"]');
+
+    console.log('[updateInfoWindowStatsOnly] Found stat elements:', {
+        listingCount: !!listingCountEl,
+        medianPrice: !!medianPriceEl,
+        avgPricePerSqFt: !!avgPricePerSqFtEl,
+        avgDom: !!avgDomEl
+    });
+
+    if (listingCountEl && medianPriceEl && avgPricePerSqFtEl && avgDomEl) {
+        const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
+        listingCountEl.textContent = stats.listingCount || 0;
+        medianPriceEl.textContent = formatPrice(stats.medianPrice || 0);
+        avgPricePerSqFtEl.textContent = '$' + ((stats.avgPricePerSqFt || 0).toLocaleString());
+        avgDomEl.textContent = stats.avgDom || 0;
+        console.log('[updateInfoWindowStatsOnly] SUCCESS: Stats updated via DOM');
+        return true;
+    }
+
+    console.log('[updateInfoWindowStatsOnly] ERROR: Could not find all stat elements with data attributes');
+    return false;
+}
+
 // Show info window content for area markers
-function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
-    const stats = area.stats || {};
+function showPresetInfoWindowContent(marker, area, targetInfoWindow, options = {}) {
+    const { skipCentering = false } = options;
+    console.log('[showPresetInfoWindowContent] Called with skipCentering:', skipCentering, 'options:', options);
+
+    // Use mini info window if URL param infoWindowSize=mini
+    if (window.useMiniInfoWindow && window.showMiniInfoWindowContent) {
+        return window.showMiniInfoWindowContent(marker, area, targetInfoWindow);
+    }
+
+    // If skipCentering, just update the stats in the DOM and return
+    if (skipCentering) {
+        console.log('[showPresetInfoWindowContent] Attempting DOM-only update...');
+        const domUpdateSuccess = updateInfoWindowStatsOnly(area);
+        console.log('[showPresetInfoWindowContent] DOM update result:', domUpdateSuccess);
+        if (domUpdateSuccess) {
+            console.log('[showPresetInfoWindowContent] SUCCESS: Stats updated via DOM-only method, returning early');
+            return;
+        } else {
+            console.log('[showPresetInfoWindowContent] FALLBACK: DOM update failed, continuing with full render');
+        }
+    }
+
+    // Use propertyType-specific stats based on area.propertyType
+    // If window.getAreaStats is available, use it; otherwise fallback to inline logic
+    console.log('[showPresetInfoWindowContent] Area:', area.name, 'PropertyType:', area.propertyType);
+    console.log('[showPresetInfoWindowContent] Available stats:', {
+        stats: area.stats?.listingCount,
+        homeStats: area.homeStats?.listingCount,
+        condoStats: area.condoStats?.listingCount
+    });
+
+    let stats;
+    if (window.getAreaStats) {
+        console.log('[showPresetInfoWindowContent] Using window.getAreaStats');
+        stats = window.getAreaStats(area, area.propertyType);
+    } else {
+        console.log('[showPresetInfoWindowContent] Using inline fallback');
+        // Inline fallback if getAreaStats not loaded
+        const propType = (area.propertyType || '').toLowerCase();
+        stats = propType === 'homes' ? (area.homeStats || area.stats || {})
+             : propType === 'condos' ? (area.condoStats || area.stats || {})
+             : (area.stats || {});
+    }
+
+    console.log('[showPresetInfoWindowContent] Selected stats:', {
+        listingCount: stats.listingCount,
+        medianPrice: stats.medianPrice
+    });
+
     const formatPrice = window.formatPrice || (p => '$' + (p / 1000000).toFixed(1) + 'M');
     const neighborhoodsList = (area.neighborhoods || [])
         .slice(0, 10)
@@ -2599,29 +2825,29 @@ function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
 
     const content = `
                 <div class="info-window p-2 sm:p-3 max-w-sm bg-white dark:bg-dark-bg-elevated">
-                    <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${area.name}</h3>
+                    <h3 class="text-base sm:text-lg font-semibold text-neutral-800 dark:text-dark-text-primary mb-2 text-center">${getAreaTitle(area)}</h3>
                     <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.listingCount || 0}</div>
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="listingCount">${stats.listingCount || 0}</div>
                             <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Active Listings</div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${formatPrice(stats.medianPrice || 0)}</div>
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="medianPrice">${formatPrice(stats.medianPrice || 0)}</div>
                             <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Median Price</div>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="avgPricePerSqFt">$${(stats.avgPricePerSqFt || 0).toLocaleString()}</div>
                             <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg $/Sq Ft</div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-neutral-200 dark:border-dark-border">
-                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary">${stats.avgDom || 0}</div>
+                            <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary" data-stat="avgDom">${stats.avgDom || 0}</div>
                             <div class="text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">Avg DOM</div>
                         </div>
                     </div>
                     <div class="bg-neutral-50 dark:bg-dark-bg-elevated-2 p-2 sm:p-3 rounded-lg border border-neutral-200 dark:border-dark-border mb-2 sm:mb-3">
-                        <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Communities</div>
+                        <div class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-dark-text-primary mb-1">Top Neighborhoods</div>
                         <div class="communities-scroll text-[10px] sm:text-xs text-neutral-600 dark:text-dark-text-secondary">${neighborhoodsList}</div>
                     </div>
                     <hr class="divider mb-2 sm:mb-3">
@@ -2678,7 +2904,11 @@ function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
             `;
 
     targetInfoWindow.setContent(content);
-    targetInfoWindow.open(window.map, marker);
+
+    // Only call .open() if not already open (prevents unwanted panning)
+    if (!skipCentering) {
+        targetInfoWindow.open(window.map, marker);
+    }
 
     // After info window renders: detect overflow AND fine-tune centering based on actual height
     google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
@@ -2688,7 +2918,8 @@ function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
             communitiesEl.classList.add('has-overflow');
         }
         // Apply centering correction and log diagnostics (skip for single mode - handled separately)
-        if (!window.isSingleMode) {
+        // Also skip if explicitly requested (e.g., when updating existing info window)
+        if (!window.isSingleMode && !skipCentering) {
             setTimeout(() => {
                 if (marker?.position) {
                     if (window.applyMicroCenteringCorrection) {
@@ -2703,12 +2934,21 @@ function showAreaInfoWindowContent(marker, area, targetInfoWindow) {
     });
 }
 
+// Expose on window for updateActiveAreaMarkerInfoWindow to call
+window.showPresetInfoWindowContent = showPresetInfoWindowContent;
+console.log('[CACHE CHECK] main.js loaded at:', new Date().toISOString(), 'showPresetInfoWindowContent type:', typeof showPresetInfoWindowContent);
+
 // Show info window content (matches production markers.js)
 // Called by both click and hover handlers
-function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true) {
+function showNeighborhoodInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true) {
     // Handle area markers
     if (n.isAreaMarker) {
-        return showAreaInfoWindowContent(marker, n, targetInfoWindow);
+        return showPresetInfoWindowContent(marker, n, targetInfoWindow);
+    }
+
+    // Use mini info window if URL param infoWindowSize=mini
+    if (window.useMiniInfoWindow && window.showMiniInfoWindowContent) {
+        return window.showMiniInfoWindowContent(marker, n, targetInfoWindow);
     }
 
     // Only store as current neighborhood for primary (click) window
@@ -2947,6 +3187,8 @@ function showInfoWindowContent(marker, n, targetInfoWindow, storeAsActive = true
                 window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
             }
             window.activeMarker = null;
+            // Clean up ResizeObserver when info window closes
+            cleanupSingleModeObservers();
         });
     }
 }
@@ -2961,6 +3203,8 @@ function toggleMarker(marker, neighborhood, showInfoFn) {
             window.infoWindow.close();
             marker.content.innerHTML = createMarkerSVG(color, false);
             window.activeMarker = null;
+            // Clean up ResizeObserver when info window closes
+            cleanupSingleModeObservers();
         } else {
             showInfoFn();
             marker.content.innerHTML = createMarkerSVG(color, true);
@@ -2984,9 +3228,39 @@ function toggleMarker(marker, neighborhood, showInfoFn) {
 window.areaMarkers = new Map(); // slug -> marker
 window.activeAreaSlug = null; // Track which area is currently being viewed
 
+// Helper: Calculate centroid of ALL neighborhood positions in an area
+// Uses filterField/filterValue to find ALL matching neighborhoods (not just preset list)
+// This ensures marker position is at true center of the cluster
+function calculateClusterCentroid(presetData) {
+    const allNeighborhoods = window.neighborhoods || [];
+    const filterField = presetData.filterField;
+    const filterValue = presetData.filterValue;
+
+    // Filter neighborhoods by area criteria (e.g., zipCode === '32541')
+    const areaNeighborhoods = allNeighborhoods.filter(n => n[filterField] === filterValue);
+    if (areaNeighborhoods.length === 0) return null;
+
+    let totalLat = 0;
+    let totalLng = 0;
+    let count = 0;
+
+    areaNeighborhoods.forEach(n => {
+        if (n.position) {
+            totalLat += n.position.lat;
+            totalLng += n.position.lng;
+            count++;
+        }
+    });
+
+    if (count === 0) return null;
+    return { lat: totalLat / count, lng: totalLng / count };
+}
+
 // Show area marker and info window (called from button click handler)
 window.showAreaMarker = function (presetData) {
-    const markerPosition = presetData.position;
+    // Calculate centroid from ALL neighborhoods matching this area's filter
+    // Fall back to presetData.position if centroid calculation fails
+    const markerPosition = calculateClusterCentroid(presetData) || presetData.position;
     const targetZoom = 13;
 
     // Track this as the active area
@@ -3001,7 +3275,7 @@ window.showAreaMarker = function (presetData) {
 
     const markerContent = document.createElement('div');
     markerContent.className = 'marker-pin area-marker';
-    markerContent.innerHTML = createMarkerSVG('#4c8f96', true);
+    markerContent.innerHTML = createMarkerSVG('#F4A261', true);
     markerContent.style.cursor = 'pointer';
     markerContent.style.zIndex = '1000';
 
@@ -3012,13 +3286,26 @@ window.showAreaMarker = function (presetData) {
         title: areaData.name + ' (Area)',
         zIndex: 1000
     });
-    marker.markerColor = '#4c8f96';
+    marker.markerColor = '#F4A261';
     marker.areaSlug = presetData.slug; // Store slug on marker for lookup
 
     marker.addListener('click', () => {
-        showAreaInfoWindowContent(marker, areaData, window.infoWindow);
-        window.activeMarker = marker;
-        window.activeAreaSlug = presetData.slug;
+        // Toggle info window if clicking same marker
+        if (window.activeMarker === marker && window.infoWindow?.getMap()) {
+            window.infoWindow.close();
+            marker.content.innerHTML = createMarkerSVG(marker.markerColor, false);
+            window.activeMarker = null;
+        } else {
+            // Deactivate previous marker animation
+            if (window.activeMarker && window.activeMarker.content) {
+                window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+            }
+            // Open with animation
+            showPresetInfoWindowContent(marker, areaData, window.infoWindow);
+            marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+            window.activeMarker = marker;
+            window.activeAreaSlug = presetData.slug;
+        }
     });
 
     // Store marker data for info window access, but DON'T add to window.markers
@@ -3026,35 +3313,22 @@ window.showAreaMarker = function (presetData) {
     marker.areaData = areaData;
     window.areaMarkers.set(presetData.slug, marker);
 
-    // Smooth fly to the marker (smoothFlyTo handles offset calculation)
-    window.smoothFlyTo(markerPosition, targetZoom);
+    // Fit bounds to show all neighborhoods in this area
+    // This automatically calculates the right zoom level for the area size
+    if (window.fitBoundsToNeighborhoods) {
+        window.fitBoundsToNeighborhoods();
+    }
 
-    // Open info window after flight completes
-    const onFlyComplete = () => {
+    // Open info window after map settles
+    const onIdle = () => {
         // Only open if this is still the active area (user may have clicked another)
         if (window.activeAreaSlug === presetData.slug) {
-            showAreaInfoWindowContent(marker, areaData, window.infoWindow);
+            showPresetInfoWindowContent(marker, areaData, window.infoWindow);
             window.activeMarker = marker;
-
-            // Apply micro-correction after card renders
-            setTimeout(() => {
-                requestAnimationFrame(() => {
-                    const markerLatLng = new google.maps.LatLng(markerPosition);
-                    applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
-                });
-            }, 100);
-
-            // Log centering diagnostics
-            setTimeout(() => {
-                if (window.logCenteringDiagnostics) {
-                    window.logCenteringDiagnostics(markerPosition);
-                }
-            }, 500);
         }
-        // Remove listener after handling
-        window.eventBus?.off(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+        google.maps.event.removeListener(idleListener);
     };
-    window.eventBus?.on(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+    const idleListener = google.maps.event.addListener(window.map, 'idle', onIdle);
 };
 
 // Hide area marker (called when filter is deselected)
@@ -3074,30 +3348,39 @@ window.hideAreaMarker = function (slug) {
         window.activeMarker = null;
         window.activeAreaSlug = null;
 
-        // Find the last remaining selected area and fly to it
+        // Find remaining selected areas
         const remainingAreas = Array.from(window.areaMarkers.keys());
         if (remainingAreas.length > 0) {
-            // Get the last one (most recently selected)
+            // Get the last one (most recently selected) for info window
             const lastSlug = remainingAreas[remainingAreas.length - 1];
             const lastMarker = window.areaMarkers.get(lastSlug);
-            if (lastMarker && lastMarker.position) {
-                // Set as active and fly to it
-                window.activeAreaSlug = lastSlug;
-                window.smoothFlyTo(lastMarker.position, 13);
 
-                // Open info window after flight (use marker.areaData)
-                const onFlyComplete = () => {
-                    if (window.activeAreaSlug === lastSlug && lastMarker.areaData) {
-                        showAreaInfoWindowContent(lastMarker, lastMarker.areaData, window.infoWindow);
+            // Set as active area
+            window.activeAreaSlug = lastSlug;
+
+            // FitBounds to ALL remaining filtered neighborhoods (not just one area)
+            if (window.fitBoundsToNeighborhoods) {
+                window.fitBoundsToNeighborhoods();
+            }
+
+            // Open info window for last selected area after map settles
+            if (lastMarker && lastMarker.areaData) {
+                const onIdle = () => {
+                    if (window.activeAreaSlug === lastSlug) {
+                        showPresetInfoWindowContent(lastMarker, lastMarker.areaData, window.infoWindow);
                         window.activeMarker = lastMarker;
                     }
-                    window.eventBus?.off(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+                    google.maps.event.removeListener(idleListener);
                 };
-                window.eventBus?.on(window.Events?.FLY_TO_COMPLETED, onFlyComplete);
+                const idleListener = google.maps.event.addListener(window.map, 'idle', onIdle);
             }
         }
+    } else {
+        // Not the active area - still fitBounds to update view for remaining areas
+        if (window.areaMarkers.size > 0 && window.fitBoundsToNeighborhoods) {
+            window.fitBoundsToNeighborhoods();
+        }
     }
-    // If not the active area, just remove it - don't close info window or fly anywhere
 };
 
 // Expose addMarkers globally for theme toggle
@@ -3115,7 +3398,7 @@ window.addMarkers = function addMarkers() {
     filteredNeighborhoods.forEach(n => {
         // Special handling for area markers (preset markers)
         if (n.isAreaMarker) {
-            const areaMarkerColor = '#4c8f96'; // Teal color for area markers
+            const areaMarkerColor = '#F4A261'; // Sandy accent color for area markers
             const markerContent = document.createElement('div');
             markerContent.className = 'marker-pin area-marker';
             markerContent.innerHTML = createMarkerSVG(areaMarkerColor, true); // Selected state
@@ -3132,10 +3415,23 @@ window.addMarkers = function addMarkers() {
 
             marker.markerColor = areaMarkerColor;
 
-            // Click handler for area marker
+            // Click handler for area marker - toggle animation like neighborhood markers
             marker.addListener('click', () => {
-                showInfoWindowContent(marker, n, window.infoWindow, true);
-                window.activeMarker = marker;
+                // Toggle info window if clicking same marker
+                if (window.activeMarker === marker && window.infoWindow?.getMap()) {
+                    window.infoWindow.close();
+                    marker.content.innerHTML = createMarkerSVG(marker.markerColor, false);
+                    window.activeMarker = null;
+                } else {
+                    // Deactivate previous marker animation
+                    if (window.activeMarker && window.activeMarker.content) {
+                        window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+                    }
+                    // Open with animation
+                    showNeighborhoodInfoWindowContent(marker, n, window.infoWindow, true);
+                    marker.content.innerHTML = createMarkerSVG(marker.markerColor, true);
+                    window.activeMarker = marker;
+                }
             });
 
             window.markers.push({ marker, neighborhood: n });
@@ -3172,7 +3468,7 @@ window.addMarkers = function addMarkers() {
         // Click handler - uses toggleMarker for ripple animation
         marker.addListener('click', () => {
             const showInfoWindow = () => {
-                showInfoWindowContent(marker, n, window.infoWindow, true);
+                showNeighborhoodInfoWindowContent(marker, n, window.infoWindow, true);
             };
             toggleMarker(marker, n, showInfoWindow);
         });
@@ -3184,7 +3480,7 @@ window.addMarkers = function addMarkers() {
             if (window.activeMarker === marker) return;
 
             // Show the same full info window content as click (storeAsActive=false for hover)
-            showInfoWindowContent(marker, n, window.hoverInfoWindow, false);
+            showNeighborhoodInfoWindowContent(marker, n, window.hoverInfoWindow, false);
         });
 
         markerContent.addEventListener('mouseleave', () => {
@@ -3206,15 +3502,16 @@ window.addMarkers = function addMarkers() {
             }
             // Open info window after centering starts
             setTimeout(() => {
-                showAreaInfoWindowContent(areaMarkerToOpen.marker, areaMarkerToOpen.neighborhood, window.infoWindow);
+                showPresetInfoWindowContent(areaMarkerToOpen.marker, areaMarkerToOpen.neighborhood, window.infoWindow);
                 window.activeMarker = areaMarkerToOpen.marker;
 
-                // Apply proper centering after card renders (fixes offset issue)
-                // Use setTimeout since domready may have already fired
+                // Log centering diagnostics to verify no shift occurs
                 setTimeout(() => {
                     requestAnimationFrame(() => {
                         const markerLatLng = new google.maps.LatLng(areaMarkerToOpen.neighborhood.position);
-                        applySingleModeCenteringFromRenderedCard(markerLatLng, 0, false);
+                        if (window.logCenteringDiagnostics) {
+                            window.logCenteringDiagnostics(markerLatLng);
+                        }
                     });
                 }, 100);
             }, 200);
@@ -3261,3 +3558,223 @@ setTimeout(() => {
 
 // Expose initMap globally for Google Maps API callback
 window.initMap = initMap;
+
+// ============================================================
+// DIAGNOSTIC FUNCTIONS - For testing and troubleshooting
+// ============================================================
+window.testFlyTo = function(lat, lng, zoom = 14) {
+    console.log('========================================');
+    console.log('TEST: Manual flyTo test');
+    console.log('========================================');
+    console.log('Target:', { lat, lng, zoom });
+    console.log('Map exists:', !!window.map);
+    console.log('smoothFlyTo exists:', typeof window.smoothFlyTo);
+    console.log('isSingleMode:', window.isSingleMode);
+
+    if (!window.map) {
+        console.error('FAIL: No map found');
+        return;
+    }
+
+    if (typeof window.smoothFlyTo !== 'function') {
+        console.error('FAIL: smoothFlyTo not a function');
+        return;
+    }
+
+    console.log('Current position:', {
+        lat: window.map.getCenter().lat(),
+        lng: window.map.getCenter().lng(),
+        zoom: window.map.getZoom()
+    });
+
+    console.log('Calling smoothFlyTo...');
+    window.smoothFlyTo({ lat, lng }, zoom);
+    console.log('========================================');
+};
+
+window.testPostMessage = function(lat, lng, name = 'Test', zoom = 14) {
+    console.log('========================================');
+    console.log('TEST: Simulating postMessage');
+    console.log('========================================');
+
+    const message = {
+        type: 'flyTo',
+        lat: lat,
+        lng: lng,
+        neighborhoodName: name,
+        zoom: zoom
+    };
+
+    console.log('Sending message:', message);
+    window.postMessage(message, '*');
+    console.log('========================================');
+};
+
+window.diagnostics = function() {
+    console.log('========================================');
+    console.log('DIAGNOSTICS: Current state');
+    console.log('========================================');
+    console.log('Map:', window.map ? 'EXISTS' : 'MISSING');
+    if (window.map) {
+        console.log('  Center:', {
+            lat: window.map.getCenter().lat(),
+            lng: window.map.getCenter().lng()
+        });
+        console.log('  Zoom:', window.map.getZoom());
+    }
+    console.log('isSingleMode:', window.isSingleMode);
+    console.log('smoothFlyTo:', typeof window.smoothFlyTo);
+    console.log('markers:', window.markers ? window.markers.length : 'MISSING');
+    console.log('activeMarker:', window.activeMarker ? 'EXISTS' : 'null');
+    console.log('infoWindow:', window.infoWindow ? 'EXISTS' : 'MISSING');
+
+    // Check for common issues
+    const issues = [];
+    if (!window.map) issues.push('Map not initialized');
+    if (typeof window.smoothFlyTo !== 'function') issues.push('smoothFlyTo not available');
+    if (!window.CONFIG) issues.push('CONFIG not loaded');
+
+    if (issues.length > 0) {
+        console.error('ISSUES FOUND:', issues);
+    } else {
+        console.log('✓ All checks passed');
+    }
+    console.log('========================================');
+};
+
+// ============================================================
+// POST MESSAGE HANDLER - For test page hover functionality
+// ============================================================
+window.addEventListener('message', event => {
+    // Log all messages for debugging
+    if (event.data && typeof event.data === 'object' && event.data.type) {
+        console.log('[PostMessage] Received:', event.data.type, event.data);
+    }
+
+    // Basic security check
+    if (!event.data || typeof event.data !== 'object') return;
+
+    const { type, lat, lng, zoom, neighborhoodName, stats, propertyType } = event.data;
+
+    if (type === 'flyTo' && lat && lng) {
+        const map = window.map;
+        if (!map) {
+            console.warn('[PostMessage] Map not ready, ignoring flyTo');
+            return;
+        }
+
+        // Ensure isSingleMode is set (race condition fix)
+        if (window.isSingleMode === undefined) {
+            const urlParams = new URLSearchParams(window.location.search);
+            window.isSingleMode = urlParams.get('mode') === 'single';
+            console.log('[PostMessage] isSingleMode was undefined, set to:', window.isSingleMode);
+        }
+
+        const targetPosition = { lat, lng };
+        const targetZoom = zoom || map.getZoom();
+
+        console.log(`[PostMessage] Flying to ${neighborhoodName || 'position'} at (${lat.toFixed(4)}, ${lng.toFixed(4)}) zoom ${targetZoom}`);
+        console.log('[PostMessage] isSingleMode:', window.isSingleMode);
+
+        // Close current info window before flying
+        if (window.infoWindow && window.infoWindow.getMap()) {
+            window.infoWindow.close();
+        }
+
+        // Deactivate current marker
+        if (window.activeMarker && window.activeMarker.content) {
+            window.activeMarker.content.innerHTML = createMarkerSVG(window.activeMarker.markerColor, false);
+            window.activeMarker = null;
+        }
+
+        // Remove any existing temporary marker
+        if (window.tempMarker) {
+            if (window.tempMarker.content) {
+                window.tempMarker.content.innerHTML = createMarkerSVG('#4c8f96', false);
+            }
+            window.tempMarker.setMap(null);
+            window.tempMarker = null;
+        }
+
+        // Create marker BEFORE flight (same as full mode navigation)
+        let newMarker = null;
+        if (neighborhoodName) {
+            console.log('[PostMessage] Creating marker for:', neighborhoodName);
+
+            const markerDiv = document.createElement('div');
+            markerDiv.innerHTML = createMarkerSVG('#4c8f96', false);
+
+            newMarker = new google.maps.marker.AdvancedMarkerElement({
+                position: targetPosition,
+                map: map,
+                content: markerDiv
+            });
+
+            window.tempMarker = newMarker;
+            console.log('[PostMessage] Marker created');
+        }
+
+        // SIMPLE APPROACH: Just like full mode navigation
+        // 1. Marker already created at target position
+        // 2. Call smoothFlyTo with isMiniCard=true
+        // 3. After flight, open info window
+        console.log('[PostMessage] Flying with mini card offset');
+
+        // Fly to target with mini card offset calculation (Phase 1)
+        window.smoothFlyTo(targetPosition, targetZoom, false, true);
+
+        // Wait for flight to complete, then open info window
+        if (newMarker) {
+            google.maps.event.addListenerOnce(window.map, 'idle', () => {
+                const neighborhoodData = {
+                    name: neighborhoodName,
+                    position: targetPosition,
+                    propertyType: propertyType,
+                    stats: stats || {}
+                };
+
+                // Activate marker
+                newMarker.content.innerHTML = createMarkerSVG('#4c8f96', true);
+                newMarker.markerColor = '#4c8f96';
+                window.activeMarker = newMarker;
+
+                // Ensure info window exists
+                if (!window.infoWindow) {
+                    window.infoWindow = new google.maps.InfoWindow();
+                }
+
+                // Open info window
+                if (window.showMiniInfoWindowContent) {
+                    window.showMiniInfoWindowContent(newMarker, neighborhoodData, window.infoWindow);
+                } else {
+                    showNeighborhoodInfoWindowContent(newMarker, neighborhoodData, window.infoWindow, true);
+                }
+
+                console.log('[PostMessage] Info window opened after flight');
+
+                // Phase 2: Apply correction after info window renders
+                google.maps.event.addListenerOnce(window.infoWindow, 'domready', () => {
+                    requestAnimationFrame(() => {
+                        const markerLatLng = new google.maps.LatLng(targetPosition);
+
+                        // Apply pixel-perfect centering correction using padding method
+                        window.applyCenteringFromRenderedCard(markerLatLng, {
+                            maxRetries: 30,
+                            usePaddingMethod: true, // Padding-based micro-correction
+                            maxCorrection: 50, // Allow larger correction for initial positioning
+                            onComplete: () => {
+                                console.log('[PostMessage] Phase 2 padding correction applied');
+                                // Log diagnostics to verify accuracy
+                                setTimeout(() => {
+                                    if (window.logCenteringDiagnostics) {
+                                        window.logCenteringDiagnostics(markerLatLng);
+                                    }
+                                }, 100);
+                            }
+                        });
+                    });
+                });
+            });
+        }
+    }
+});

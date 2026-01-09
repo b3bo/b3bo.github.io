@@ -1,3 +1,9 @@
+/**
+ * @file init.js
+ * @description Production ES module initialization for Neighborhood Finder™.
+ * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
+ */
+
 // ==========================================
 // PRODUCTION ES MODULE IMPORTS
 // ==========================================

@@ -16,6 +16,31 @@ let activeFlyAnimation = null;
 export const TAIL_HEIGHT = 78; // Measured tail height (card tip to marker)
 export const MARKER_RADIUS = 10; // Visual marker dot radius
 
+// Card height estimates for Phase 1 pre-offset
+// These are tuned to minimize visible shift before Phase 2 measurement
+// Values represent typical rendered heights at different viewport widths
+export const CARD_HEIGHT_ESTIMATES = {
+    MINI: 150, // Mini info window (nav page hover-to-fly)
+    FULL_MOBILE: 450, // < 640px: Mobile, taller due to single-column layout
+    FULL_TABLET: 380, // 640-1024px: Tablet, medium height
+    FULL_DESKTOP: 295 // >= 1024px: Desktop, compact 2-column layout
+};
+
+// Area markers have additional content rows (+70px)
+export const AREA_MARKER_HEIGHT_DELTA = 70;
+
+/**
+ * Convert latitude to Mercator Y coordinate.
+ * Helper function for accurate positioning calculations.
+ *
+ * @param {number} lat - Latitude in degrees
+ * @returns {number} Mercator Y coordinate
+ */
+export function latToMercatorY(lat) {
+    const latRad = (lat * Math.PI) / 180;
+    return Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+}
+
 /**
  * Convert pixel offset to latitude offset using Mercator projection.
  * Used for pre-calculating map positions before Google Maps is loaded.
@@ -28,8 +53,7 @@ export const MARKER_RADIUS = 10; // Visual marker dot radius
 export function preCalculateOffsetLat(lat, offsetPixels, zoom) {
     const TILE_SIZE = 256;
     const scale = Math.pow(2, zoom);
-    const latRad = (lat * Math.PI) / 180;
-    const mercY = Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+    const mercY = latToMercatorY(lat);
     const pixelsPerRadian = (TILE_SIZE * scale) / (2 * Math.PI);
     const newMercY = mercY + offsetPixels / pixelsPerRadian;
     const newLatRad = 2 * Math.atan(Math.exp(newMercY)) - Math.PI / 2;
@@ -42,16 +66,33 @@ export function preCalculateOffsetLat(lat, offsetPixels, zoom) {
  *
  * @param {number} zoomLevel - Current zoom level (unused, kept for API consistency)
  * @param {boolean} isAreaMarker - Whether this is an area marker (taller card)
+ * @param {boolean} isMiniCard - Whether this is a mini info window (smaller card)
  * @returns {number} Pixel offset for panBy
  */
-export function computeOffsetPx(zoomLevel, isAreaMarker = false) {
+export function computeOffsetPx(zoomLevel, isAreaMarker = false, isMiniCard = false) {
     const mapDiv = document.getElementById('map');
     const w = mapDiv?.offsetWidth || window.innerWidth;
     const dvh = mapDiv?.offsetHeight || window.innerHeight;
 
-    // Responsive card height
-    const baseCardHeight = w < 640 ? 450 : w < 1024 ? 380 : 340;
-    const cardHeight = isAreaMarker ? baseCardHeight + 70 : baseCardHeight;
+    // Card height estimates - tuned to avoid visible post-flight shifts
+    // Content varies (1-line vs 2-line names), so estimates are approximate
+    // Goal: Get close enough that no visible correction is needed
+    let baseCardHeight;
+    if (isMiniCard) {
+        // Mini info window - get close, then applyMicroCenteringCorrection for 1-2px accuracy
+        baseCardHeight = CARD_HEIGHT_ESTIMATES.MINI;
+        console.log('[computeOffsetPx] Using MINI card height estimate:', baseCardHeight);
+    } else {
+        // Full info window - varies by viewport and content
+        baseCardHeight =
+            w < 640
+                ? CARD_HEIGHT_ESTIMATES.FULL_MOBILE
+                : w < 1024
+                  ? CARD_HEIGHT_ESTIMATES.FULL_TABLET
+                  : CARD_HEIGHT_ESTIMATES.FULL_DESKTOP;
+        console.log('[computeOffsetPx] Using FULL card height estimate:', baseCardHeight, '(viewport:', w, 'px)');
+    }
+    const cardHeight = isAreaMarker ? baseCardHeight + AREA_MARKER_HEIGHT_DELTA : baseCardHeight;
     const comboHeight = cardHeight + TAIL_HEIGHT + MARKER_RADIUS;
     const canCenter = dvh >= 450 && comboHeight < dvh - 40;
 
@@ -79,10 +120,11 @@ export function calculateInitialOffset(zoomLevel, isAreaMarker = false) {
  *
  * @param {number} zoomLevel - Current map zoom
  * @param {number} disclaimerHeight - Bottom bar height (0 for single mode, 40 for full mode)
+ * @param {boolean} isMiniCard - Whether this is a mini info window (smaller card)
  * @returns {number} Pixel offset for panBy
  */
-export function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0) {
-    const baseOffset = computeOffsetPx(zoomLevel, false);
+export function calculateCenteredOffset(zoomLevel, disclaimerHeight = 0, isMiniCard = false) {
+    const baseOffset = computeOffsetPx(zoomLevel, false, isMiniCard);
     return Math.round(baseOffset + disclaimerHeight / 2);
 }
 
@@ -124,83 +166,133 @@ export function getOpenInfoWindowCardHeightPx() {
 }
 
 /**
- * Measure actual centering padding and apply micro-correction if needed.
- * Called after info window renders to perfect the centering.
+ * Apply centering correction from rendered card with RAF retry logic.
+ * Unified function that combines RAF retry with actual height measurement.
  *
- * @param {Object} markerLatLng - Google Maps LatLng of the marker
- * @param {number} maxCorrection - Maximum correction in pixels (default 30)
- * @returns {boolean} True if correction was applied
+ * @param {Object} markerLatLng - Google Maps LatLng or {lat, lng} of the marker
+ * @param {Object} options - Configuration options
+ * @param {number} options.maxRetries - Maximum RAF retry attempts (default 30)
+ * @param {boolean} options.usePaddingMethod - Use padding-based correction vs. full recalc (default false)
+ * @param {number} options.maxCorrection - Maximum pixel correction for padding method (default 30)
+ * @param {Function} options.onComplete - Callback when centering applied
+ * @param {number} options.attempt - Internal: current retry attempt
+ * @returns {boolean|void} True if correction was applied (padding method only)
  */
-export function applyMicroCenteringCorrection(markerLatLng, maxCorrection = 30) {
+export function applyCenteringFromRenderedCard(markerLatLng, options = {}) {
+    const {
+        maxRetries = 30,
+        usePaddingMethod = false,
+        maxCorrection = 30,
+        onComplete = null,
+        attempt = 0
+    } = options;
+
     const map = window.map;
     if (!map || !markerLatLng) return false;
 
     const mapDiv = document.getElementById('map');
     if (!mapDiv) return false;
 
-    // Use .gm-style-iw (same as test) for consistent measurement
-    const infoWindow = document.querySelector('.gm-style-iw');
-    if (!infoWindow) return false;
-
-    const mapRect = mapDiv.getBoundingClientRect();
-    const cardRect = infoWindow.getBoundingClientRect();
-    const viewportHeight = mapRect.height;
-
-    // Calculate actual card top position relative to map
-    const cardTop = cardRect.top - mapRect.top;
-
-    // Get marker Y position from DOM element (accurate) or fall back to lat/lng calculation
-    let markerBottom;
-    const markerRadius = 10; // Visual dot radius
-
-    // Try to get actual marker DOM position (most accurate)
-    const activeMarker = window.activeMarker;
-    if (activeMarker && activeMarker.content) {
-        const markerRect = activeMarker.content.getBoundingClientRect();
-        // SVG is 44x44 when active, dot center is at middle
-        const markerCenterY = markerRect.top + markerRect.height / 2 - mapRect.top;
-        markerBottom = markerCenterY + markerRadius;
-    } else {
-        // Fallback: calculate from lat/lng (less accurate due to Mercator projection)
-        const bounds = map.getBounds();
-        if (!bounds) return false;
-        const ne = bounds.getNorthEast();
-        const sw = bounds.getSouthWest();
-        const latRange = ne.lat() - sw.lat();
-        const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
-        const markerY = ((ne.lat() - markerLat) / latRange) * viewportHeight;
-        markerBottom = markerY + markerRadius;
+    // Wait for InfoWindow DOM to render
+    const iwContainer = document.querySelector('.gm-style-iw-c');
+    if (!iwContainer) {
+        if (attempt < maxRetries) {
+            requestAnimationFrame(() =>
+                applyCenteringFromRenderedCard(markerLatLng, { ...options, attempt: attempt + 1 })
+            );
+        }
+        return false;
     }
 
-    // Calculate actual padding
-    const topPadding = cardTop;
-    const bottomPadding = viewportHeight - markerBottom;
-    const paddingDiff = topPadding - bottomPadding;
+    if (usePaddingMethod) {
+        // Method 1: Measure padding difference and apply micro-correction
+        const infoWindow = document.querySelector('.gm-style-iw');
+        if (!infoWindow) return false;
 
-    // If difference is small enough, skip correction
-    if (Math.abs(paddingDiff) < 5) return false;
+        const mapRect = mapDiv.getBoundingClientRect();
+        const cardRect = infoWindow.getBoundingClientRect();
+        const viewportHeight = mapRect.height;
+        const cardTop = cardRect.top - mapRect.top;
 
-    // Calculate correction (half the difference, clamped, NEGATED because:
-    // positive paddingDiff = too much space at top = need to move center NORTH to push content down)
-    const correction = Math.max(-maxCorrection, Math.min(maxCorrection, -paddingDiff / 2));
+        // Get marker Y position from DOM or calculate
+        let markerBottom;
+        const markerRadius = MARKER_RADIUS;
+        const activeMarker = window.activeMarker;
 
-    // Apply correction via pan
-    const zoom = map.getZoom();
-    const correctedLat = preCalculateOffsetLat(
-        typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat,
-        correction,
-        zoom
-    );
+        if (activeMarker && activeMarker.content) {
+            const markerRect = activeMarker.content.getBoundingClientRect();
+            const markerCenterY = markerRect.top + markerRect.height / 2 - mapRect.top;
+            markerBottom = markerCenterY + markerRadius;
+        } else {
+            const bounds = map.getBounds();
+            if (!bounds) return false;
+            const ne = bounds.getNorthEast();
+            const sw = bounds.getSouthWest();
+            const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
+            const neMercY = latToMercatorY(ne.lat());
+            const swMercY = latToMercatorY(sw.lat());
+            const markerMercY = latToMercatorY(markerLat);
+            const mercRange = neMercY - swMercY;
+            const markerY = ((neMercY - markerMercY) / mercRange) * viewportHeight;
+            markerBottom = markerY + markerRadius;
+        }
 
-    // Get current center and apply micro-adjustment
-    const center = map.getCenter();
-    const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
-    const newCenterLat = center.lat() + (correctedLat - markerLat);
+        const topPadding = cardTop;
+        const bottomPadding = viewportHeight - markerBottom;
+        const paddingDiff = topPadding - bottomPadding;
 
-    map.setCenter({ lat: newCenterLat, lng: center.lng() });
+        if (Math.abs(paddingDiff) < 5) {
+            if (onComplete) onComplete();
+            return false;
+        }
 
-    console.log(`Centering micro-correction: ${Math.round(paddingDiff)}px diff, applied ${Math.round(correction)}px`);
-    return true;
+        const correction = Math.max(-maxCorrection, Math.min(maxCorrection, -paddingDiff / 2));
+        const zoom = map.getZoom();
+        const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
+        const correctedLat = preCalculateOffsetLat(markerLat, correction, zoom);
+        const center = map.getCenter();
+        const newCenterLat = center.lat() + (correctedLat - markerLat);
+        map.setCenter({ lat: newCenterLat, lng: center.lng() });
+
+        console.log(`Centering micro-correction: ${Math.round(paddingDiff)}px diff, applied ${Math.round(correction)}px`);
+        if (onComplete) onComplete();
+        return true;
+    } else {
+        // Method 2: Recalculate full offset from actual rendered card height
+        const cardH = iwContainer.getBoundingClientRect().height;
+        const mapEl = mapDiv || map.getDiv();
+        const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
+        const comboH = cardH + TAIL_HEIGHT + MARKER_RADIUS;
+        const canCenter = dvh >= 450 && comboH < dvh - 40;
+
+        const actualOffsetPx = canCenter
+            ? Math.round((cardH + TAIL_HEIGHT - MARKER_RADIUS) / 2)
+            : Math.round(Math.max(0, 20 + cardH + TAIL_HEIGHT + MARKER_RADIUS - dvh / 2));
+
+        const zoom = map.getZoom();
+        const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
+        const markerLng = typeof markerLatLng.lng === 'function' ? markerLatLng.lng() : markerLatLng.lng;
+        const adjustedLat = preCalculateOffsetLat(markerLat, actualOffsetPx, zoom);
+        map.setCenter({ lat: adjustedLat, lng: markerLng });
+
+        console.log('Centering: applied with actual card height, offset:', actualOffsetPx, 'px');
+        if (onComplete) onComplete();
+        return true;
+    }
+}
+
+/**
+ * Measure actual centering padding and apply micro-correction if needed.
+ * Called after info window renders to perfect the centering.
+ *
+ * @deprecated Use applyCenteringFromRenderedCard() with usePaddingMethod: true instead
+ * @param {Object} markerLatLng - Google Maps LatLng of the marker
+ * @param {number} maxCorrection - Maximum correction in pixels (default 30)
+ * @returns {boolean} True if correction was applied
+ */
+export function applyMicroCenteringCorrection(markerLatLng, maxCorrection = 30) {
+    // Backward compatibility wrapper
+    return applyCenteringFromRenderedCard(markerLatLng, { usePaddingMethod: true, maxCorrection });
 }
 
 /**
@@ -253,7 +345,7 @@ export function logCenteringDiagnostics(markerLatLng) {
             `(Using DOM position: marker element at ${Math.round(markerRect.top - mapRect.top)}px, center at ${Math.round(markerCenterY)}px)`
         );
     } else {
-        // Fallback: calculate from lat/lng (less accurate due to Mercator projection)
+        // Fallback: calculate from lat/lng using Mercator projection
         const bounds = map.getBounds();
         if (!bounds) {
             console.log('=== CENTERING DIAGNOSTICS: No bounds ===');
@@ -261,11 +353,16 @@ export function logCenteringDiagnostics(markerLatLng) {
         }
         const ne = bounds.getNorthEast();
         const sw = bounds.getSouthWest();
-        const latRange = ne.lat() - sw.lat();
         const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
-        markerY = ((ne.lat() - markerLat) / latRange) * viewportHeight;
+
+        // Use Mercator projection for accurate Y position calculation
+        const neMercY = latToMercatorY(ne.lat());
+        const swMercY = latToMercatorY(sw.lat());
+        const markerMercY = latToMercatorY(markerLat);
+        const mercRange = neMercY - swMercY;
+        markerY = ((neMercY - markerMercY) / mercRange) * viewportHeight;
         markerBottom = markerY + markerRadius;
-        console.log('(Using lat/lng calculation - less accurate)');
+        console.log('(Using lat/lng calculation with Mercator projection)');
     }
 
     // Calculate padding
@@ -308,13 +405,21 @@ export function logCenteringDiagnostics(markerLatLng) {
  *
  * @param {Object} targetPosition - {lat, lng} target
  * @param {number} targetZoom - Target zoom level
+ * @param {boolean} skipOffset - Skip offset calculation (for test page where no info window opens)
+ * @param {boolean} isMiniCard - Use mini info window offset (smaller card)
  */
-export function smoothFlyTo(targetPosition, targetZoom) {
+export function smoothFlyTo(targetPosition, targetZoom, skipOffset = false, isMiniCard = false) {
     const map = window.map;
-    if (!map) return;
+    if (!map) {
+        console.error('[smoothFlyTo] No map available');
+        return;
+    }
+
+    console.log('[smoothFlyTo] Starting flight to:', targetPosition, 'zoom:', targetZoom);
 
     // Cancel any in-progress fly animation
     if (activeFlyAnimation) {
+        console.log('[smoothFlyTo] Canceling previous animation');
         activeFlyAnimation.cancel();
         activeFlyAnimation = null;
     }
@@ -329,14 +434,37 @@ export function smoothFlyTo(targetPosition, targetZoom) {
     const startZoom = map.getZoom();
     const targetLatLng = new google.maps.LatLng(targetPosition);
 
+    console.log('[smoothFlyTo] Start:', { lat: startPos.lat(), lng: startPos.lng(), zoom: startZoom });
+    console.log('[smoothFlyTo] Target:', { lat: targetPosition.lat, lng: targetPosition.lng, zoom: targetZoom });
+    console.log('[smoothFlyTo] Mode:', window.isSingleMode ? 'SINGLE' : 'FULL', 'skipOffset:', skipOffset, 'isMiniCard:', isMiniCard);
+
     // Calculate offset for visual centering (marker + info card)
-    const disclaimerHeight = 40; // Full mode has 40px disclaimer bar
-    const offsetPixels = calculateCenteredOffset(targetZoom, disclaimerHeight);
-    const offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
+    // Single mode has no disclaimer bar (0), full mode has 40px
+    const disclaimerHeight = window.isSingleMode ? 0 : 40;
+
+    // Skip offset for test page where no info window opens at target
+    let offsetTarget, offsetPixels;
+    if (skipOffset) {
+        offsetTarget = targetPosition;
+        offsetPixels = 0;
+        console.log('[smoothFlyTo] Skipping offset, flying directly to target');
+    } else {
+        offsetPixels = calculateCenteredOffset(targetZoom, disclaimerHeight, isMiniCard);
+        offsetTarget = offsetLatLng(targetPosition, offsetPixels, targetZoom);
+
+        console.log('[smoothFlyTo] Offset calculation:', {
+            disclaimerHeight,
+            isMiniCard,
+            offsetPixels,
+            offsetTarget: { lat: offsetTarget.lat.toFixed(6), lng: offsetTarget.lng.toFixed(6) }
+        });
+    }
 
     // Calculate distance from marker-to-marker
-    const startOffsetPixels = calculateCenteredOffset(startZoom, disclaimerHeight);
-    const startMarkerPos = offsetLatLng({ lat: startPos.lat(), lng: startPos.lng() }, -startOffsetPixels, startZoom);
+    const startOffsetPixels = skipOffset ? 0 : calculateCenteredOffset(startZoom, disclaimerHeight, isMiniCard);
+    const startMarkerPos = skipOffset
+        ? { lat: startPos.lat(), lng: startPos.lng() }
+        : offsetLatLng({ lat: startPos.lat(), lng: startPos.lng() }, -startOffsetPixels, startZoom);
     const startMarkerLatLng = new google.maps.LatLng(startMarkerPos);
     const distance = google.maps.geometry.spherical.computeDistanceBetween(startMarkerLatLng, targetLatLng);
 
@@ -437,13 +565,17 @@ if (typeof window !== 'undefined') {
     // Constants - SINGLE SOURCE OF TRUTH
     window.TAIL_HEIGHT = TAIL_HEIGHT;
     window.MARKER_RADIUS = MARKER_RADIUS;
+    window.CARD_HEIGHT_ESTIMATES = CARD_HEIGHT_ESTIMATES;
+    window.AREA_MARKER_HEIGHT_DELTA = AREA_MARKER_HEIGHT_DELTA;
     // Functions
     window.smoothFlyTo = smoothFlyTo;
     window.computeOffsetPx = computeOffsetPx;
     window.calculateCenteredOffset = calculateCenteredOffset;
     window.offsetLatLng = offsetLatLng;
     window.preCalculateOffsetLat = preCalculateOffsetLat;
+    window.latToMercatorY = latToMercatorY;
     window.getOpenInfoWindowCardHeightPx = getOpenInfoWindowCardHeightPx;
+    window.applyCenteringFromRenderedCard = applyCenteringFromRenderedCard;
     window.applyMicroCenteringCorrection = applyMicroCenteringCorrection;
     window.logCenteringDiagnostics = logCenteringDiagnostics;
 }

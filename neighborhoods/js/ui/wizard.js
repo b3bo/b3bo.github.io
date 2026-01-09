@@ -1,6 +1,6 @@
 /**
  * @file ui/wizard.js
- * @description Multi-step onboarding wizard for Neighborhood Finder.
+ * @description Multi-step onboarding wizard for Neighborhood Finder™.
  * @copyright 2025 Kimberly Bauman, P.A. All rights reserved.
  */
 

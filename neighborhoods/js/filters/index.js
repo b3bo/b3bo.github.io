@@ -241,7 +241,13 @@ export function applyFilters() {
     // Re-render results and markers
     if (window.renderResults) window.renderResults();
     if (window.addMarkers) window.addMarkers();
-    if (window.fitBoundsToNeighborhoods) window.fitBoundsToNeighborhoods();
+
+    // Skip fitBounds if an area marker info window is currently open
+    // User wants to stay focused on the area while filtering property types
+    const isViewingArea = window.activeAreaSlug && window.infoWindow?.getMap();
+    if (!isViewingArea && window.fitBoundsToNeighborhoods) {
+        window.fitBoundsToNeighborhoods();
+    }
 
     // Emit filter applied event
     eventBus.emit(Events.FILTERS_APPLIED, {
