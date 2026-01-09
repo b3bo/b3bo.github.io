@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+@config "../../../tailwind.config.js";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
 
 /* Theme definition */
 @theme {
@@ -35,8 +38,7 @@
   /* Font families defined in theme above */
 }
 
-/* Scan files for classes */
-@source "./*.html", "./components/**/*.html";
+/* Let Tailwind v4 auto-detect source files */
 
 /* Component classes */
 @layer components {
