@@ -1,3 +1,4 @@
+@import "./custom.css";
 @import 'tailwindcss';
 @config "../../../tailwind.config.js";
 @plugin "@tailwindcss/typography";
@@ -89,5 +90,3 @@
   }
 }
 
-/* Include custom.css */
-@import "./custom.css";
