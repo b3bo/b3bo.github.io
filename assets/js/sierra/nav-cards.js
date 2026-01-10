@@ -318,10 +318,10 @@
         tagBarHtml += tagLinks;
         tagBarHtml += '</div></div>';
 
-        // Insert before the content box (blockquote parent) if found
-        var contentBox = document.querySelector('blockquote');
-        if (contentBox && contentBox.parentElement) {
-          contentBox.parentElement.insertAdjacentHTML('beforebegin', tagBarHtml);
+        // Insert after page H1 (Home Search heading)
+        var pageH1 = document.querySelector('h1');
+        if (pageH1) {
+          pageH1.insertAdjacentHTML('afterend', tagBarHtml);
         } else {
           html += tagBarHtml;
         }
