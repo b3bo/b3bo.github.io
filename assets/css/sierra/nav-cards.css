@@ -84,10 +84,18 @@
   transition: all 0.15s ease-in-out;
   cursor: pointer;
 }
-#area-cards .stat-button:hover {
-  border-color: var(--color-primary-500);
-  background-color: var(--color-primary-50);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+#area-cards a.stat-button:link,
+#area-cards a.stat-button:visited {
+  text-decoration: none;
+  border-color: var(--color-neutral-300);
+  background-color: white;
+}
+#area-cards a.stat-button:hover,
+#area-cards a.stat-button:focus {
+  border-color: var(--color-primary-500) !important;
+  background-color: var(--color-primary-50) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  text-decoration: none !important;
 }
 #area-cards .stat-value {
   font-size: 1.25rem;
@@ -124,7 +132,10 @@
   color: var(--color-neutral-600);
 }
 #area-cards .communities-table tbody tr:hover {
-  background-color: var(--color-neutral-50);
+  background-color: var(--color-neutral-50) !important;
+}
+#area-cards .communities-table tbody tr:hover td {
+  background-color: var(--color-neutral-50) !important;
 }
 #area-cards .communities-table td:first-child {
   color: var(--color-primary-600);
