@@ -318,10 +318,10 @@
         tagBarHtml += tagLinks;
         tagBarHtml += '</div></div>';
 
-        // Insert after page H2 if found, otherwise prepend to container
-        var pageH2 = document.querySelector('h2');
-        if (pageH2 && pageH2.closest('#area-cards') === null) {
-          pageH2.insertAdjacentHTML('afterend', tagBarHtml);
+        // Insert before the content box (blockquote parent) if found
+        var contentBox = document.querySelector('blockquote');
+        if (contentBox && contentBox.parentElement) {
+          contentBox.parentElement.insertAdjacentHTML('beforebegin', tagBarHtml);
         } else {
           html += tagBarHtml;
         }
