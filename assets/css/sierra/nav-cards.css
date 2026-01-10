@@ -200,6 +200,5 @@
 
 /* Tag navigation bar */
 .tag-items {
-  gap: 0.5rem;
-  max-width: 50%;
+  @apply gap-2 max-w-[50%];
 }
