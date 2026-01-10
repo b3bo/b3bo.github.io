@@ -205,11 +205,11 @@
       neighborhoodRows,
       '        </tbody>',
       '      </table>',
-      '      <a href="' + areaUrl + '" class="area-card-link">',
-      '        View All ' + preset.name + ' ' + typeLabel + ' &rarr;',
-      '      </a>',
       '    </div>',
       '  </div>',
+      '  <a href="' + areaUrl + '" class="area-card-link">',
+      '    View All ' + preset.name + ' ' + typeLabel + ' &rarr;',
+      '  </a>',
       '</div>'
     ].join('');
   }
