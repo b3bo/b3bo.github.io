@@ -1,0 +1,5754 @@
+{
+  "1900 Ninety-Eight": {
+    "urlSlug": "",
+    "searchId": "3582599",
+    "variants": [
+      "1900 NINETY EIGHT"
+    ]
+  },
+  "30 North": {
+    "urlSlug": "",
+    "variants": [
+      "30 NORTH"
+    ],
+    "searchId": "7126129"
+  },
+  "30A": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "A.E. Richards": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Abacos": {
+    "urlSlug": "",
+    "variants": [
+      "ABACOS"
+    ],
+    "searchId": "7092755"
+  },
+  "Adagio": {
+    "urlSlug": "",
+    "variants": [
+      "ADAGIO"
+    ],
+    "searchId": "7092757"
+  },
+  "Aegean": {
+    "urlSlug": "/holiday-isle/aegean/",
+    "variants": [
+      "AEGEAN"
+    ],
+    "searchId": "407373"
+  },
+  "Alerio": {
+    "urlSlug": "/alerio/",
+    "variants": [
+      "ALERIO"
+    ],
+    "searchId": "1113751"
+  },
+  "Alexander at Palm Court": {
+    "urlSlug": "",
+    "searchId": "7092759",
+    "variants": [
+      "ALEXANDER AT PALM COURT"
+    ]
+  },
+  "Alys Beach": {
+    "urlSlug": "/30a/alys-beach/",
+    "searchId": "374868",
+    "variants": [
+      "ALYS BEACH",
+      "ALYS BEACH CONDOS",
+      "ALYS BEACH LOTS",
+      "ALYS BEACH T/H"
+    ]
+  },
+  "Amalfi Coast Resort": {
+    "urlSlug": "",
+    "variants": [
+      "AMALFI COAST RESORT"
+    ],
+    "searchId": "7126130"
+  },
+  "Ambassador Beach": {
+    "urlSlug": "",
+    "variants": [
+      "AMBASSADOR BEACH"
+    ],
+    "searchId": "7126132"
+  },
+  "Anchorage": {
+    "urlSlug": "/sandestin/anchorage/",
+    "searchId": "377803",
+    "variants": [
+      "THE ANCHORAGE"
+    ]
+  },
+  "Aqua": {
+    "urlSlug": "",
+    "variants": [
+      "AQUA"
+    ],
+    "searchId": "7126134"
+  },
+  "Aquavista": {
+    "urlSlug": "",
+    "variants": [
+      "AQUAVISTA"
+    ],
+    "searchId": "7126135"
+  },
+  "Arc Acres": {
+    "urlSlug": "",
+    "variants": [
+      "ARC ACRES"
+    ],
+    "searchId": "7092760"
+  },
+  "Arcadia Place": {
+    "urlSlug": "",
+    "variants": [
+      "ARCADIA PLACE"
+    ],
+    "searchId": "7092762"
+  },
+  "Ariel Dunes": {
+    "urlSlug": "/destin/ariel-dunes/",
+    "variants": [
+      "ARIEL DUNES"
+    ],
+    "searchId": "3579851"
+  },
+  "Arroya-Casa": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Audubon Point": {
+    "urlSlug": "",
+    "variants": [
+      "AUDUBON POINT"
+    ],
+    "searchId": "7113394"
+  },
+  "Augusta Village": {
+    "urlSlug": "/sandestin/augusta-village/",
+    "searchId": "378446",
+    "variants": [
+      "AUGUSTA VILLAGE",
+      "AUGUSTA VILLAGE CONDOS"
+    ]
+  },
+  "Avalon Beach Estates": {
+    "urlSlug": "",
+    "variants": [
+      "AVALON BEACH ESTATES"
+    ],
+    "searchId": "7113420"
+  },
+  "Azalea Gardens": {
+    "urlSlug": "",
+    "variants": [
+      "AZALEA GARDENS"
+    ],
+    "searchId": "7113472"
+  },
+  "Azure At 30A": {
+    "urlSlug": "",
+    "variants": [
+      "AZURE AT 30A"
+    ],
+    "searchId": "7092765"
+  },
+  "Bahia": {
+    "urlSlug": "/sandestin/bahia/",
+    "variants": [
+      "BAHIA"
+    ],
+    "searchId": "377891"
+  },
+  "Bannerman": {
+    "urlSlug": "",
+    "variants": [
+      "BANNERMAN"
+    ],
+    "searchId": "7089719"
+  },
+  "Barataria": {
+    "urlSlug": "/barataria/",
+    "variants": [
+      "BARATARIA"
+    ],
+    "searchId": "3582568"
+  },
+  "Barrett": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Bay Bridge Landing": {
+    "urlSlug": "",
+    "searchId": "7113494",
+    "variants": [
+      "BAY BRIDGE LANDING",
+      "BAY BRIDGE LANDING LOTS"
+    ]
+  },
+  "Bay Magnolia": {
+    "urlSlug": "",
+    "searchId": "7113510",
+    "variants": [
+      "BAY MAGNOLIA",
+      "BAY MAGNOLIA LOTS"
+    ]
+  },
+  "Bay Oaks": {
+    "urlSlug": "",
+    "variants": [
+      "BAY OAKS"
+    ],
+    "searchId": "3582599"
+  },
+  "Bay Pine Shores": {
+    "urlSlug": "",
+    "searchId": "7113531",
+    "variants": [
+      "BAY PINE SHORES",
+      "BAY PINE SHORES LOTS"
+    ]
+  },
+  "Bay Pines": {
+    "urlSlug": "",
+    "variants": [
+      "BAY PINES"
+    ],
+    "searchId": "7113537"
+  },
+  "Bay Shadow Estates": {
+    "urlSlug": "",
+    "variants": [
+      "BAY SHADOW ESTATES"
+    ],
+    "searchId": "7126138"
+  },
+  "Bayou Creek Estates": {
+    "urlSlug": "",
+    "variants": [
+      "BAYOU CREEK ESTATES"
+    ],
+    "searchId": "7113568"
+  },
+  "Bayou Farms": {
+    "urlSlug": "",
+    "variants": [
+      "BAYOU FARMS"
+    ],
+    "searchId": "7113579"
+  },
+  "Bayou Landing": {
+    "urlSlug": "",
+    "variants": [
+      "BAYOU LANDING"
+    ],
+    "searchId": "7113582"
+  },
+  "Bayou Pines": {
+    "urlSlug": "",
+    "searchId": "7113590",
+    "variants": [
+      "BAYOU PINES",
+      "BAYOU PINES LOTS"
+    ]
+  },
+  "Bayou Point": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Bayou Preserve": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Bayou Village": {
+    "urlSlug": "/sandestin/bayou-village/",
+    "variants": [
+      "BAYOU VILLAGE"
+    ],
+    "searchId": "378449"
+  },
+  "Bayshore Gardens": {
+    "urlSlug": "",
+    "searchId": "7126139",
+    "variants": [
+      "BAYSHORE GARDENS",
+      "BAYSHORE GARDENS LOTS"
+    ]
+  },
+  "Bayshore Pines": {
+    "urlSlug": "",
+    "searchId": "7113590",
+    "variants": [
+      "BAYSHORE PINES",
+      "BAYSHORE PINES LOTS"
+    ]
+  },
+  "Bayside": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Bayside At Ward Creek": {
+    "urlSlug": "",
+    "searchId": "7114308",
+    "variants": [
+      "BAYSIDE AT WARD CREEK",
+      "BAYSIDE AT WARD CREEK T/H"
+    ]
+  },
+  "Bayside Heights Ranchettes": {
+    "urlSlug": "",
+    "variants": [
+      "BAYSIDE HEIGHTS RANCHETTES"
+    ],
+    "searchId": "7114310"
+  },
+  "Bayside Sandestin": {
+    "urlSlug": "/sandestin/bayside-at-sandestin/",
+    "searchId": "684805",
+    "variants": [
+      "BAYSIDE SANDESTIN"
+    ]
+  },
+  "Baytowne Avenue": {
+    "urlSlug": "/sandestin/baytowne-avenue/",
+    "searchId": "378458",
+    "variants": [
+      "BAYTOWNE AVENUE"
+    ]
+  },
+  "Bayview Estates": {
+    "urlSlug": "",
+    "variants": [
+      "BAYVIEW ESTATES"
+    ],
+    "searchId": "7114312"
+  },
+  "Bayview Manor": {
+    "urlSlug": "",
+    "variants": [
+      "BAYVIEW MANOR"
+    ],
+    "searchId": "7114319"
+  },
+  "Baywalk Landings": {
+    "urlSlug": "",
+    "variants": [
+      "BAYWALK LANDINGS"
+    ],
+    "searchId": "7114322"
+  },
+  "Baywinds Golf Estates": {
+    "urlSlug": "",
+    "variants": [
+      "BAYWINDS GOLF ESTATES"
+    ],
+    "searchId": "7114324"
+  },
+  "Beach Commerce Park": {
+    "urlSlug": "",
+    "variants": [
+      "BEACH COMMERCE PARK"
+    ],
+    "searchId": "7126140"
+  },
+  "Beach Highland": {
+    "urlSlug": "",
+    "searchId": "7099859",
+    "variants": [
+      "BEACH HIGHLAND",
+      "BEACH HIGHLAND LOTS"
+    ]
+  },
+  "Beach Highlands": {
+    "urlSlug": "",
+    "variants": [
+      "BEACH HIGHLANDS"
+    ],
+    "searchId": "7114329"
+  },
+  "Beach House": {
+    "urlSlug": "",
+    "variants": [
+      "BEACH HOUSE"
+    ],
+    "searchId": "7126141"
+  },
+  "Beach Lofts": {
+    "urlSlug": "",
+    "variants": [
+      "BEACH LOFTS"
+    ],
+    "searchId": "7126142"
+  },
+  "Beach Nest": {
+    "urlSlug": "",
+    "variants": [
+      "BEACH NEST"
+    ],
+    "searchId": "7092772"
+  },
+  "Beach Pointe": {
+    "urlSlug": "",
+    "variants": [
+      "BEACH POINTE"
+    ],
+    "searchId": "7126162"
+  },
+  "Beach Resort": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Beach View Heights": {
+    "urlSlug": "",
+    "searchId": "7092774",
+    "variants": [
+      "BEACH VIEW HEIGHTS",
+      "BEACH VIEW HEIGHTS LOTS"
+    ]
+  },
+  "Beachcrest": {
+    "urlSlug": "",
+    "variants": [
+      "BEACHCREST"
+    ],
+    "searchId": "7126164"
+  },
+  "Beachfront": {
+    "urlSlug": "",
+    "searchId": "7092782",
+    "variants": [
+      "BEACHFRONT",
+      "BEACHFRONT CONDOS",
+      "BEACHFRONT T/H"
+    ]
+  },
+  "Beachhouse": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Beachside": {
+    "urlSlug": "/sandestin/beachside/",
+    "variants": [
+      "BEACHSIDE",
+      "BEACHSIDE ONE",
+      "BEACHSIDE TWO"
+    ],
+    "searchId": "377831"
+  },
+  "Beachside At Seagrove": {
+    "urlSlug": "",
+    "variants": [
+      "BEACHSIDE AT SEAGROVE"
+    ],
+    "searchId": "7092791"
+  },
+  "Beachside Estates": {
+    "urlSlug": "/beachside-estates/",
+    "variants": [
+      "BEACHSIDE ESTATES"
+    ],
+    "searchId": "4024717"
+  },
+  "Beachside Villas": {
+    "urlSlug": "/beachside-villas/",
+    "variants": [
+      "BEACHSIDE VILLAS"
+    ],
+    "searchId": "4033421"
+  },
+  "Beachview Heights": {
+    "urlSlug": "",
+    "variants": [
+      "BEACHVIEW HEIGHTS"
+    ],
+    "searchId": "7126165"
+  },
+  "Beachwalk": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Beachwalk Villas": {
+    "urlSlug": "/sandestin/beachwalk-villas/",
+    "variants": [],
+    "searchId": "377858"
+  },
+  "Beachwood Estates": {
+    "urlSlug": "",
+    "variants": [
+      "BEACHWOOD ESTATES"
+    ],
+    "searchId": "7092793"
+  },
+  "Beachwood Villas": {
+    "urlSlug": "/beachwood-villas/",
+    "variants": [
+      "BEACHWOOD VILLAS"
+    ],
+    "searchId": "4032690"
+  },
+  "Bella Vita": {
+    "urlSlug": "/bella-vita/",
+    "variants": [
+      "BELLA VITA"
+    ],
+    "searchId": "7092794"
+  },
+  "Bellamar At Gulf Place": {
+    "urlSlug": "",
+    "searchId": "7092797",
+    "variants": [
+      "BELLAMAR AT GULF PLACE",
+      "BELLAMAR AT GULF PLACE LOTS"
+    ]
+  },
+  "Bid-A-Wee": {
+    "urlSlug": "",
+    "searchId": "7121560",
+    "variants": [
+      "BID-A-WEE",
+      "BID-A-WEE LOTS",
+      "BID-A-WEE T/H"
+    ]
+  },
+  "Bid-A-Wee Beach": {
+    "urlSlug": "",
+    "searchId": "7114330",
+    "variants": [
+      "BID-A-WEE BEACH",
+      "BID-A-WEE BEACH LOTS"
+    ]
+  },
+  "Blue": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Blue Fish": {
+    "urlSlug": "",
+    "variants": [
+      "BLUE FISH"
+    ],
+    "searchId": "7126167"
+  },
+  "Blue Gulf": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Blue Gulf Resort": {
+    "urlSlug": "",
+    "searchId": "7092802",
+    "variants": [
+      "BLUE GULF RESORT",
+      "BLUE GULF RESORT LOTS"
+    ]
+  },
+  "Blue Mountain Beach": {
+    "urlSlug": "/30a/blue-mountain-beach/",
+    "searchId": "3985040",
+    "variants": [
+      "BLUE MOUNTAIN BEACH",
+      "BLUE MOUNTAIN BEACH LOTS"
+    ]
+  },
+  "Blue Ohana": {
+    "urlSlug": "",
+    "variants": [
+      "BLUE OHANA"
+    ],
+    "searchId": "7114331"
+  },
+  "Blue Surf": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Bluewater Landing": {
+    "urlSlug": "/30a/bluewater-landing/",
+    "variants": [
+      "BLUEWATER LANDING"
+    ],
+    "searchId": "4017750"
+  },
+  "Bocage": {
+    "urlSlug": "",
+    "searchId": "7126171",
+    "variants": [
+      "BOCAGE",
+      "BOCAGE LOTS"
+    ]
+  },
+  "Bon Villas": {
+    "urlSlug": "",
+    "variants": [
+      "BON VILLAS"
+    ],
+    "searchId": "7126172"
+  },
+  "Bonaire": {
+    "urlSlug": "",
+    "variants": [
+      "BONAIRE"
+    ],
+    "searchId": "7114336"
+  },
+  "Booth Bay": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Bootyville Estates": {
+    "urlSlug": "",
+    "variants": [
+      "BOOTYVILLE ESTATES"
+    ],
+    "searchId": "7114337"
+  },
+  "Botany Bayou": {
+    "urlSlug": "/santa-rosa-beach/botany-bayou/",
+    "variants": [
+      "BOTANY BAYOU"
+    ],
+    "searchId": "4715430"
+  },
+  "Breakers East": {
+    "urlSlug": "",
+    "variants": [
+      "BREAKERS EAST"
+    ],
+    "searchId": "7126175"
+  },
+  "Breakwater At Ward Creek": {
+    "urlSlug": "",
+    "variants": [
+      "BREAKWATER AT WARD CREEK"
+    ],
+    "searchId": "7114338"
+  },
+  "Brizo": {
+    "urlSlug": "",
+    "variants": [
+      "BRIZO"
+    ],
+    "searchId": "7114339"
+  },
+  "Brownstones": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Brownstones At Kelly Plantation": {
+    "urlSlug": "",
+    "variants": [
+      "BROWNSTONES AT KELLY PLANTATION"
+    ],
+    "searchId": "404918"
+  },
+  "Buena Vista": {
+    "urlSlug": "",
+    "variants": [
+      "BUENA VISTA"
+    ],
+    "searchId": "7114340"
+  },
+  "Bungalos": {
+    "urlSlug": "/sandestin/bungalos/",
+    "variants": [
+      "BUNGALOS"
+    ],
+    "searchId": "378473"
+  },
+  "Bungalows at Seagrove": {
+    "urlSlug": "",
+    "searchId": "7092821",
+    "variants": [
+      "BUNGALOWS AT SEAGROVE",
+      "BUNGALOWS AT SEAGROVE T/H"
+    ]
+  },
+  "Burnt Pine": {
+    "urlSlug": "/sandestin/burnt-pine/",
+    "searchId": "377812",
+    "variants": [
+      "BURNT PINE",
+      "BURNT PINE LOTS",
+      "BURNT PINE T/H"
+    ]
+  },
+  "Cabana Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Calhoun": {
+    "urlSlug": "",
+    "variants": [
+      "CALHOUN"
+    ],
+    "searchId": "7121701"
+  },
+  "Calusa Bay": {
+    "urlSlug": "/destin/calusa-bay/",
+    "searchId": "385888",
+    "variants": [
+      "CALUSA BAY",
+      "CALUSA BAY LOTS"
+    ]
+  },
+  "Calypso Pointe": {
+    "urlSlug": "",
+    "variants": [
+      "CALYPSO POINTE"
+    ],
+    "searchId": "7092822"
+  },
+  "Calypso Towers": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Camp Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Camp Creek Cove": {
+    "urlSlug": "",
+    "variants": [
+      "CAMP CREEK COVE"
+    ],
+    "searchId": "7092825"
+  },
+  "Camp Creek Lake": {
+    "urlSlug": "",
+    "searchId": "7092896",
+    "variants": [
+      "CAMP CREEK LAKE",
+      "CAMP CREEK LAKE LOTS"
+    ]
+  },
+  "Camp Creek Point": {
+    "urlSlug": "",
+    "variants": [
+      "CAMP CREEK POINT"
+    ],
+    "searchId": "7089049"
+  },
+  "Camp Creek Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": "7126111"
+  },
+  "Canal Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Cano Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Capistrano": {
+    "urlSlug": "",
+    "variants": [
+      "CAPISTRANO"
+    ],
+    "searchId": "7089767"
+  },
+  "Caribbean Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Caribe": {
+    "urlSlug": "/caribe/",
+    "searchId": "3579844",
+    "variants": [
+      "CARIBE",
+      "CARIBE LOTS"
+    ]
+  },
+  "Caribe West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Carillon Beach": {
+    "urlSlug": "/pcb/carillon-beach/",
+    "searchId": "4803536",
+    "variants": [
+      "CARILLON BEACH",
+      "CARILLON BEACH CONDOS",
+      "CARILLON BEACH LOTS"
+    ]
+  },
+  "Carillon Beach Inn": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Carson Oaks": {
+    "urlSlug": "",
+    "variants": [
+      "CARSON OAKS"
+    ],
+    "searchId": "7121702"
+  },
+  "Casa Magnolia": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Caspian Estates": {
+    "urlSlug": "",
+    "variants": [
+      "CASPIAN ESTATES"
+    ],
+    "searchId": "7092978"
+  },
+  "Cassine Garden": {
+    "urlSlug": "",
+    "searchId": "7124223",
+    "variants": [
+      "CASSINE GARDENS"
+    ]
+  },
+  "Cassine Station": {
+    "urlSlug": "",
+    "variants": [
+      "CASSINE STATION"
+    ],
+    "searchId": "7092982"
+  },
+  "Cassine Village": {
+    "urlSlug": "",
+    "variants": [
+      "CASSINE VILLAGE"
+    ],
+    "searchId": "7092983"
+  },
+  "Celadon Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Century Park West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Cessna Landing": {
+    "urlSlug": "",
+    "searchId": "7121707",
+    "variants": [
+      "CESSNA LANDING",
+      "CESSNA LANDING LOTS"
+    ]
+  },
+  "Cessna Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Chaparrel Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Chateau La Mer": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Church Street Landing": {
+    "urlSlug": "",
+    "variants": [
+      "CHURCH STREET LANDING"
+    ],
+    "searchId": "7121708"
+  },
+  "Church Street Village": {
+    "urlSlug": "",
+    "searchId": "7121710",
+    "variants": [
+      "CHURCH STREET VILLAGE",
+      "CHURCH STREET VILLAGE T/H"
+    ]
+  },
+  "Churchill Oaks": {
+    "urlSlug": "/santa-rosa-beach/churchill-oaks/",
+    "searchId": "3579840",
+    "variants": [
+      "CHURCHILL OAKS",
+      "CHURCHILL OAKS LOTS"
+    ]
+  },
+  "Ciboney": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Coastal Dunes": {
+    "urlSlug": "/coastal-dunes/",
+    "variants": [
+      "COASTAL DUNES"
+    ],
+    "searchId": "7092991"
+  },
+  "Coastal Grove": {
+    "urlSlug": "",
+    "variants": [
+      "COASTAL GROVE"
+    ],
+    "searchId": "7092993"
+  },
+  "Colleens Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Commodores Retreat": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Compass Rose": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Coral Reef Club": {
+    "urlSlug": "/coral-reef-club/",
+    "variants": [
+      "CORAL REEF CLUB"
+    ],
+    "searchId": "4004571"
+  },
+  "Costa Blanca": {
+    "urlSlug": "",
+    "variants": [
+      "COSTA BLANCA"
+    ],
+    "searchId": "7093005"
+  },
+  "Costa Del Sol": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Costa Vista": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Costera": {
+    "urlSlug": "",
+    "searchId": "7093008",
+    "variants": [
+      "COSTERA",
+      "COSTERA CONDOS",
+      "COSTERA T/H"
+    ]
+  },
+  "Cottage Grove": {
+    "urlSlug": "/30a/cottage-grove/",
+    "searchId": "7076697",
+    "variants": [
+      "COTTAGE GROVE",
+      "COTTAGE GROVE T/H"
+    ]
+  },
+  "Cottage Retreat": {
+    "urlSlug": "",
+    "variants": [
+      "COTTAGE RETREAT"
+    ],
+    "searchId": "7121711"
+  },
+  "Cottages At Camp Creek": {
+    "urlSlug": "",
+    "searchId": "7126123",
+    "variants": [
+      "THE COTTAGES AT CAMP CREEK"
+    ]
+  },
+  "Cottages At Mainsail": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Cottages at Eastern Lake": {
+    "urlSlug": "/30a/cottages-at-eastern-lake/",
+    "searchId": "4033432",
+    "variants": [
+      "COTTAGES AT EASTERN LAKE"
+    ]
+  },
+  "Cottages at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7093013",
+    "variants": [
+      "COTTAGES AT INLET BEACH"
+    ]
+  },
+  "Cottages at Santa Rosa Beach": {
+    "urlSlug": "",
+    "searchId": "7114357",
+    "variants": [
+      "COTTAGES AT SANTA ROSA BEACH"
+    ]
+  },
+  "Cottages at Seagrove": {
+    "urlSlug": "",
+    "searchId": "7093014",
+    "variants": [
+      "COTTAGES AT SEAGROVE",
+      "COTTAGES AT SEAGROVE LOTS"
+    ]
+  },
+  "Cottages of Miramar": {
+    "urlSlug": "",
+    "searchId": "7121713",
+    "variants": [
+      "COTTAGES OF MIRAMAR"
+    ]
+  },
+  "Country Club Hills": {
+    "urlSlug": "",
+    "variants": [
+      "COUNTRY CLUB HILLS"
+    ],
+    "searchId": "7121715"
+  },
+  "Court Del Mar": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Courts At Wild Heron": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Courtyards of Santa Rosa Beach": {
+    "urlSlug": "",
+    "searchId": "7093023",
+    "variants": [
+      "COURTYARDS OF SANTA ROSA BEACH"
+    ]
+  },
+  "Cove at Seventeen": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Coventry Corners": {
+    "urlSlug": "",
+    "variants": [
+      "COVENTRY CORNERS"
+    ],
+    "searchId": "7121717"
+  },
+  "Creekwater Bay Estates": {
+    "urlSlug": "",
+    "variants": [
+      "CREEKWATER BAY ESTATES"
+    ],
+    "searchId": "7121718"
+  },
+  "Crescent at Miramar Beach": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Crest Development": {
+    "urlSlug": "/30a/the-crest/",
+    "searchId": "4709056",
+    "variants": [
+      "CREST DEVELOPMENT"
+    ]
+  },
+  "Crestview Heights": {
+    "urlSlug": "",
+    "variants": [
+      "CRESTVIEW HEIGHTS"
+    ],
+    "searchId": "7121722"
+  },
+  "Cross Creek Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Crown Point": {
+    "urlSlug": "",
+    "variants": [
+      "CROWN POINT"
+    ],
+    "searchId": "7121723"
+  },
+  "Crystal Beach": {
+    "urlSlug": "/destin/crystal-beach/",
+    "searchId": "374879",
+    "variants": [
+      "CRYSTAL BEACH",
+      "CRYSTAL BEACH LOTS"
+    ]
+  },
+  "Crystal Beach Cottages": {
+    "urlSlug": "",
+    "variants": [
+      "CRYSTAL BEACH COTTAGES"
+    ],
+    "searchId": "7121724"
+  },
+  "Crystal Cove": {
+    "urlSlug": "/sandestin/crystal-cove/",
+    "variants": [
+      "CRYSTAL COVE"
+    ],
+    "searchId": "378759"
+  },
+  "Crystal Dunes": {
+    "urlSlug": "/crystal-dunes/",
+    "variants": [
+      "CRYSTAL DUNES"
+    ],
+    "searchId": "4004580"
+  },
+  "Crystal Lake": {
+    "urlSlug": "/sandestin/crystal-lake/",
+    "searchId": "378760",
+    "variants": [
+      "CRYSTAL LAKE",
+      "CRYSTAL LAKE LOTS"
+    ]
+  },
+  "Crystal Sands": {
+    "urlSlug": "/crystal-sands/",
+    "variants": [
+      "CRYSTAL SANDS"
+    ],
+    "searchId": "4114016"
+  },
+  "Crystal Shores": {
+    "urlSlug": "",
+    "variants": [
+      "CRYSTAL SHORES"
+    ],
+    "searchId": "7121727"
+  },
+  "Crystal View": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Crystal Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Crystal Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Cypress Breeze Plantation": {
+    "urlSlug": "/30a/cypress-breeze-plantation/",
+    "searchId": "4715436",
+    "variants": [
+      "CYPRESS BREEZE PLANTATION",
+      "CYPRESS BREEZE PLANTATION LOTS",
+      "CYPRESS BREEZE PLANTATION T/H"
+    ]
+  },
+  "Cypress Dunes": {
+    "urlSlug": "/30a/cypress-dunes/",
+    "searchId": "7076708",
+    "variants": [
+      "CYPRESS DUNES",
+      "CYPRESS DUNES LOTS"
+    ]
+  },
+  "Cypress Heights": {
+    "urlSlug": "",
+    "variants": [
+      "CYPRESS HEIGHTS"
+    ],
+    "searchId": "7093051"
+  },
+  "Dalton Place at Seagrove": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Daltons": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Daughettes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Daxton on the Bay": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Deerwood": {
+    "urlSlug": "/sandestin/deerwood/",
+    "variants": [
+      "DEERWOOD"
+    ],
+    "searchId": "378741"
+  },
+  "Deerwood Drive": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Del Mar": {
+    "urlSlug": "/sandestin/del-mar/",
+    "variants": [
+      "DEL MAR"
+    ],
+    "searchId": "378459"
+  },
+  "Destin Cottages": {
+    "urlSlug": "",
+    "variants": [
+      "DESTIN COTTAGES"
+    ],
+    "searchId": "7121733"
+  },
+  "Destin Garden Amd": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin Gulfgate": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin Harbor Resort": {
+    "urlSlug": "/holiday-isle/destin-harbor-resort-west/",
+    "variants": [
+      "DESTIN HARBOR RESORT"
+    ],
+    "searchId": "377900"
+  },
+  "Destin Moreno Point": {
+    "urlSlug": "",
+    "variants": [
+      "DESTIN MORENO POINT"
+    ],
+    "searchId": "7121736"
+  },
+  "Destin Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin On The Gulf": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin One": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin Pointe": {
+    "urlSlug": "/holiday-isle/destin-pointe/",
+    "searchId": "406655",
+    "variants": [
+      "DESTIN POINTE",
+      "DESTIN POINTE LOTS"
+    ]
+  },
+  "Destin Racquet Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin Sands": {
+    "urlSlug": "/holiday-isle/destin-sands/",
+    "variants": [
+      "DESTIN SANDS"
+    ],
+    "searchId": "688050"
+  },
+  "Destin Surfside": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin Towers": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destin Yacht Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destiny": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Destiny By the Sea": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Destiny East": {
+    "urlSlug": "/destin/destiny-east/",
+    "variants": [
+      "DESTINY EAST"
+    ],
+    "searchId": "690937"
+  },
+  "Destiny Shores": {
+    "urlSlug": "/destin/destiny/",
+    "variants": [
+      "DESTINY SHORES"
+    ],
+    "searchId": "3579854"
+  },
+  "Devonshire": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Diamond Head Lakeside": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Diamond Lakes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Dolphin Point": {
+    "urlSlug": "/holiday-isle/dolphin-point/",
+    "variants": [
+      "DOLPHIN POINT"
+    ],
+    "searchId": "407526"
+  },
+  "Dolphin Watch": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Dorothy Bowen Estates": {
+    "urlSlug": "",
+    "variants": [
+      "DOROTHY BOWEN ESTATES"
+    ],
+    "searchId": "7121742"
+  },
+  "Draper Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Draper Lake Coastal Village": {
+    "urlSlug": "",
+    "searchId": "7092983",
+    "variants": [
+      "DRAPER LAKE COASTAL VILLAGE",
+      "DRAPER LAKE COASTAL VILLAGE LOTS"
+    ]
+  },
+  "Dreamland Heights": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Driftwood Drive": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Driftwood Estates": {
+    "urlSlug": "/driftwood-estates/",
+    "searchId": "378857",
+    "variants": [
+      "DRIFTWOOD ESTATES",
+      "DRIFTWOOD ESTATES LOTS"
+    ]
+  },
+  "Duncan": {
+    "urlSlug": "",
+    "variants": [
+      "DUNCAN"
+    ],
+    "searchId": "7093094"
+  },
+  "Dune Allen": {
+    "urlSlug": "/30a/dune-allen/",
+    "searchId": "3579828",
+    "variants": [
+      "DUNE ALLEN",
+      "DUNE ALLEN LOTS"
+    ]
+  },
+  "Dune Breeze Villas": {
+    "urlSlug": "",
+    "variants": [
+      "DUNE BREEZE VILLAS"
+    ],
+    "searchId": "7093095"
+  },
+  "Dunes": {
+    "urlSlug": "/destin/dunes-of-destin/",
+    "searchId": "6835428",
+    "variants": [
+      "DUNES OF DESTIN"
+    ]
+  },
+  "Dunes Estates of Seagrove": {
+    "urlSlug": "",
+    "searchId": "7093096",
+    "variants": [
+      "DUNES ESTATES OF SEAGROVE"
+    ]
+  },
+  "Dunes of Seagrove": {
+    "urlSlug": "/dunes-of-seagrove/",
+    "searchId": "4024495",
+    "variants": [
+      "DUNES OF SEAGROVE"
+    ]
+  },
+  "Duneside At Blue Mountain Beach": {
+    "urlSlug": "",
+    "variants": [
+      "DUNESIDE AT BLUE MOUNTAIN BEACH"
+    ],
+    "searchId": "7114358"
+  },
+  "Durango Winds": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Eagle Bay": {
+    "urlSlug": "",
+    "searchId": "7121743",
+    "variants": [
+      "EAGLE BAY",
+      "EAGLE BAY T/H"
+    ]
+  },
+  "Eagle Bay Landing": {
+    "urlSlug": "",
+    "variants": [
+      "EAGLE BAY LANDING"
+    ],
+    "searchId": "7121745"
+  },
+  "Eagles Landing": {
+    "urlSlug": "",
+    "variants": [
+      "EAGLES LANDING"
+    ],
+    "searchId": "7121746"
+  },
+  "Eagles Landing At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "East Pass": {
+    "urlSlug": "",
+    "searchId": "7121747",
+    "variants": [
+      "EAST PASS",
+      "EAST PASS T/H"
+    ]
+  },
+  "East Pass Towers": {
+    "urlSlug": "/holiday-isle/east-pass-towers/",
+    "variants": [
+      "EAST PASS TOWERS"
+    ],
+    "searchId": "397380"
+  },
+  "Eastern Lake": {
+    "urlSlug": "",
+    "searchId": "7100766",
+    "variants": [
+      "EASTERN LAKE",
+      "EASTERN LAKE LOTS",
+      "EASTERN LAKE T/H"
+    ]
+  },
+  "Eastern Lake Estates": {
+    "urlSlug": "",
+    "searchId": "7100653",
+    "variants": [
+      "EASTERN LAKE ESTATES",
+      "EASTERN LAKE ESTATES LOTS"
+    ]
+  },
+  "Eastern Lake Village": {
+    "urlSlug": "",
+    "variants": [
+      "EASTERN LAKE VILLAGE"
+    ],
+    "searchId": "7100652"
+  },
+  "Eastwood": {
+    "urlSlug": "",
+    "variants": [
+      "EASTWOOD"
+    ],
+    "searchId": "7121750"
+  },
+  "Eden": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Eden Bay Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Eden Estates": {
+    "urlSlug": "",
+    "searchId": "7121751",
+    "variants": [
+      "EDEN ESTATES",
+      "EDEN ESTATES LOTS"
+    ]
+  },
+  "Eden Parc": {
+    "urlSlug": "",
+    "searchId": "7121753",
+    "variants": [
+      "EDEN PARC",
+      "EDEN PARC LOTS"
+    ]
+  },
+  "Edens Landing": {
+    "urlSlug": "",
+    "searchId": "7121754",
+    "variants": [
+      "EDENS LANDING",
+      "EDENS LANDING LOTS"
+    ]
+  },
+  "Edgewater Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "El Centro Beach": {
+    "urlSlug": "",
+    "searchId": "7121755",
+    "variants": [
+      "EL CENTRO BEACH",
+      "EL CENTRO BEACH LOTS"
+    ]
+  },
+  "Elation": {
+    "urlSlug": "/sandestin/elation/",
+    "variants": [
+      "ELATION"
+    ],
+    "searchId": "378410"
+  },
+  "Elizabeth Farms": {
+    "urlSlug": "",
+    "searchId": "7121756",
+    "variants": [
+      "ELIZABETH FARMS",
+      "ELIZABETH FARMS LOTS"
+    ]
+  },
+  "Elysee": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Bay": {
+    "urlSlug": "/destin/emerald-bay/",
+    "searchId": "385891",
+    "variants": [
+      "EMERALD BAY",
+      "EMERALD BAY B",
+      "EMERALD BAY LOTS"
+    ]
+  },
+  "Emerald Bay West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Beach Resort": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Breeze Estates": {
+    "urlSlug": "",
+    "variants": [
+      "EMERALD BREEZE ESTATES"
+    ],
+    "searchId": "7121758"
+  },
+  "Emerald Dunes": {
+    "urlSlug": "/emerald-dunes/",
+    "variants": [
+      "EMERALD DUNES"
+    ],
+    "searchId": "3992646"
+  },
+  "Emerald Grande East": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Grande East - Whole": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Grande West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Heights": {
+    "urlSlug": "",
+    "variants": [
+      "EMERALD HEIGHTS"
+    ],
+    "searchId": "7121759"
+  },
+  "Emerald Hill": {
+    "urlSlug": "",
+    "variants": [
+      "EMERALD HILL"
+    ],
+    "searchId": "7100547"
+  },
+  "Emerald Isle": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Lakes": {
+    "urlSlug": "",
+    "variants": [
+      "EMERALD LAKES"
+    ],
+    "searchId": "7121761"
+  },
+  "Emerald Shores": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Shores of South Walton": {
+    "urlSlug": "",
+    "searchId": "7121762",
+    "variants": [
+      "EMERALD SHORES OF SOUTH WALTON"
+    ]
+  },
+  "Emerald Towers": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Waters Beachside": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Waters Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Emerald Waters Village": {
+    "urlSlug": "",
+    "searchId": "7121763",
+    "variants": [
+      "EMERALD WATERS VILLAGE",
+      "EMERALD WATERS VILLAGE LOTS",
+      "EMERALD WATERS VILLAGE T/H"
+    ]
+  },
+  "Emerald Waters of Frangista": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Enchanted Estates": {
+    "urlSlug": "",
+    "searchId": "7121764",
+    "variants": [
+      "ENCHANTED ESTATES",
+      "ENCHANTED ESTATES LOTS"
+    ]
+  },
+  "Enclave": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Endless Summer": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Escada": {
+    "urlSlug": "",
+    "searchId": "7100541",
+    "variants": [
+      "ESCADA",
+      "ESCADA T/H"
+    ]
+  },
+  "Estates at Hidden Palms": {
+    "urlSlug": "",
+    "searchId": "7121765",
+    "variants": [
+      "ESTATES AT HIDDEN PALMS"
+    ]
+  },
+  "Estuary": {
+    "urlSlug": "",
+    "searchId": "7121766",
+    "variants": [
+      "ESTUARY",
+      "ESTUARY LOTS"
+    ]
+  },
+  "Etretat Villa": {
+    "urlSlug": "",
+    "variants": [
+      "ETRETAT VILLA"
+    ],
+    "searchId": "7121767"
+  },
+  "Exclusive Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Fairways": {
+    "urlSlug": "/sandestin/fairways/",
+    "searchId": "378462",
+    "variants": [
+      "FAIRWAYS",
+      "FAIRWAYS T/H"
+    ]
+  },
+  "Fischers Landing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Fishermans Village": {
+    "urlSlug": "/sandestin/fishermans-village/",
+    "variants": [
+      "FISHERMANS VILLAGE"
+    ],
+    "searchId": "378858"
+  },
+  "Flamingo Beach": {
+    "urlSlug": "",
+    "variants": [
+      "FLAMINGO BEACH"
+    ],
+    "searchId": "7121769"
+  },
+  "Flamingo Village": {
+    "urlSlug": "",
+    "variants": [
+      "FLAMINGO VILLAGE"
+    ],
+    "searchId": "7121806"
+  },
+  "Fontainebleau Terrace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Forest Lakes": {
+    "urlSlug": "/30a/forest-lakes/",
+    "searchId": "4685291",
+    "variants": [
+      "FOREST LAKES",
+      "FOREST LAKES LOTS"
+    ]
+  },
+  "Forest Park": {
+    "urlSlug": "",
+    "variants": [
+      "FOREST PARK"
+    ],
+    "searchId": "7121807"
+  },
+  "Fountains": {
+    "urlSlug": "/sandestin/fountains/",
+    "variants": [
+      "FOUNTAINS"
+    ],
+    "searchId": "378466"
+  },
+  "Four Mile Village": {
+    "urlSlug": "",
+    "variants": [
+      "FOUR MILE VILLAGE"
+    ],
+    "searchId": "7121808"
+  },
+  "Fox Run": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Foxmire Farms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Frangista Beach": {
+    "urlSlug": "/frangista-beach/",
+    "searchId": "3579847",
+    "variants": [
+      "FRANGISTA BEACH",
+      "FRANGISTA BEACH LOTS"
+    ]
+  },
+  "Franklin": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Garage 30A Luxury Motor": {
+    "urlSlug": "",
+    "searchId": "7124230",
+    "variants": [
+      "GARAGE 30A LUXURY MOTOR"
+    ]
+  },
+  "Garden Homes at Bayside": {
+    "urlSlug": "",
+    "searchId": "7121810",
+    "variants": [
+      "GARDEN HOMES AT BAYSIDE"
+    ]
+  },
+  "Garnett Bayou Estates": {
+    "urlSlug": "",
+    "searchId": "7121811",
+    "variants": [
+      "GARNETT BAYOU ESTATES",
+      "GARNETT BAYOU ESTATES LOTS"
+    ]
+  },
+  "Genoa": {
+    "urlSlug": "/sandestin/genoa/",
+    "variants": [
+      "GENOA"
+    ],
+    "searchId": "378455"
+  },
+  "Golf View": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Golf Villas At Regatta Bay": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Golfview": {
+    "urlSlug": "/sandestin/golf-view/",
+    "searchId": "378850",
+    "variants": [
+      "GOLFVIEW",
+      "GOLFVIEW LOTS"
+    ]
+  },
+  "Grace Point": {
+    "urlSlug": "/30a/grace-point/",
+    "searchId": "7076729",
+    "variants": [
+      "GRACE POINT",
+      "GRACE POINT CONDOS"
+    ]
+  },
+  "Grand Caribbean East": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Grand Caribbean West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Grand Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Grand Harbor": {
+    "urlSlug": "/grand-harbor/",
+    "variants": [
+      "GRAND HARBOR"
+    ],
+    "searchId": "4004594"
+  },
+  "Grand Inlet": {
+    "urlSlug": "",
+    "variants": [
+      "GRAND INLET"
+    ],
+    "searchId": "7093141"
+  },
+  "Grand Isle": {
+    "urlSlug": "",
+    "variants": [
+      "GRAND ISLE"
+    ],
+    "searchId": "7093144"
+  },
+  "Grand Mariner": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Grand Sandestin": {
+    "urlSlug": "/sandestin/grand-sandestin/",
+    "searchId": "378738",
+    "variants": [
+      "THE GRAND SANDESTIN"
+    ]
+  },
+  "Grand Villas At Tops'L Beach Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Grande Beach": {
+    "urlSlug": "",
+    "variants": [
+      "GRANDE BEACH"
+    ],
+    "searchId": "7100538"
+  },
+  "Grande Pointe at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7100534",
+    "variants": [
+      "GRANDE POINTE AT INLET BEACH",
+      "GRANDE POINTE AT INLET BEACH LOTS"
+    ]
+  },
+  "Grayton Bayou": {
+    "urlSlug": "",
+    "searchId": "7114359",
+    "variants": [
+      "GRAYTON BAYOU",
+      "GRAYTON BAYOU LOTS"
+    ]
+  },
+  "Grayton Beach": {
+    "urlSlug": "/30a/grayton-beach/",
+    "searchId": "385909",
+    "variants": [
+      "GRAYTON BEACH",
+      "GRAYTON BEACH LOTS"
+    ]
+  },
+  "Grayton Beach Village Square": {
+    "urlSlug": "",
+    "variants": [
+      "GRAYTON BEACH VILLAGE SQUARE"
+    ],
+    "searchId": "7100657"
+  },
+  "Greenreef": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Greenway Park": {
+    "urlSlug": "/30a/greenway-park/",
+    "variants": [
+      "GREENWAY PARK"
+    ],
+    "searchId": "3586052"
+  },
+  "Grove By the Sea": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Gulf Cove of Seagrove": {
+    "urlSlug": "",
+    "searchId": "7093146",
+    "variants": [
+      "GULF COVE OF SEAGROVE"
+    ]
+  },
+  "Gulf Highlands": {
+    "urlSlug": "",
+    "searchId": "7121813",
+    "variants": [
+      "GULF HIGHLANDS",
+      "GULF HIGHLANDS LOTS"
+    ]
+  },
+  "Gulf Hills Estates": {
+    "urlSlug": "",
+    "searchId": "7100660",
+    "variants": [
+      "GULF HILLS ESTATES",
+      "GULF HILLS ESTATES LOTS"
+    ]
+  },
+  "Gulf Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Lake Beaches Estates": {
+    "urlSlug": "",
+    "searchId": "7089783",
+    "variants": [
+      "GULF LAKE BEACHES ESTATES",
+      "GULF LAKE BEACHES ESTATES LOTS"
+    ]
+  },
+  "Gulf Landing": {
+    "urlSlug": "",
+    "variants": [
+      "GULF LANDING"
+    ],
+    "searchId": "7100662"
+  },
+  "Gulf Manor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Mist": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Pines": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Place": {
+    "urlSlug": "",
+    "variants": [
+      "GULF PLACE"
+    ],
+    "searchId": "4027749"
+  },
+  "Gulf Place Cabanas": {
+    "urlSlug": "",
+    "variants": [
+      "GULF PLACE CABANAS"
+    ],
+    "searchId": "7100663"
+  },
+  "Gulf Place Caribbean": {
+    "urlSlug": "",
+    "variants": [
+      "GULF PLACE CARIBBEAN"
+    ],
+    "searchId": "7100665"
+  },
+  "Gulf Place Courtyard": {
+    "urlSlug": "",
+    "variants": [
+      "GULF PLACE COURTYARD"
+    ],
+    "searchId": "7126113"
+  },
+  "Gulf Place Residences": {
+    "urlSlug": "/gulf-place-condos/",
+    "variants": [
+      "GULF PLACE RESIDENCES"
+    ],
+    "searchId": "7100670"
+  },
+  "Gulf Place Town Center": {
+    "urlSlug": "",
+    "variants": [
+      "GULF PLACE TOWN CENTER"
+    ],
+    "searchId": "7100672"
+  },
+  "Gulf Reflections": {
+    "urlSlug": "",
+    "variants": [
+      "GULF REFLECTIONS"
+    ],
+    "searchId": "7100515"
+  },
+  "Gulf Shore Manor": {
+    "urlSlug": "/30a/gulf-shore-manor/",
+    "searchId": "3586050",
+    "variants": [
+      "GULF SHORE MANOR",
+      "GULF SHORE MANOR LOTS"
+    ]
+  },
+  "Gulf Terrace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Trace": {
+    "urlSlug": "/30a/gulf-trace/",
+    "searchId": "4027558",
+    "variants": [
+      "GULF TRACE",
+      "GULF TRACE LOTS",
+      "GULF TRACE T/H"
+    ]
+  },
+  "Gulf Views": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Vista": {
+    "urlSlug": "",
+    "searchId": "7123867",
+    "variants": [
+      "GULF VISTA",
+      "GULF VISTA T/H"
+    ],
+    "zip": "32413"
+  },
+  "Gulf Vista Amend": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Walk": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulf Winds East": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulfplace Retreat": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulfshore": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulfside Cottages": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulfside Estates": {
+    "urlSlug": "",
+    "variants": [
+      "GULFSIDE ESTATES"
+    ],
+    "searchId": "7100512"
+  },
+  "Gulfview": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Gulfview Estates": {
+    "urlSlug": "",
+    "variants": [
+      "GULFVIEW ESTATES"
+    ],
+    "searchId": "7100512"
+  },
+  "Gulfview Heights": {
+    "urlSlug": "/30a/gulfview-heights/",
+    "searchId": "4715717",
+    "variants": [
+      "GULFVIEW HEIGHTS",
+      "GULFVIEW HEIGHTS LOTS"
+    ]
+  },
+  "Hammocks Of Seagrove": {
+    "urlSlug": "",
+    "searchId": "7114379",
+    "variants": [
+      "HAMMOCKS OF SEAGROVE",
+      "HAMMOCKS OF SEAGROVE LOTS"
+    ]
+  },
+  "Hammocks at Seagrove": {
+    "urlSlug": "/30a/hammocks-of-seagrove/",
+    "searchId": "4023082",
+    "variants": [
+      "HAMMOCKS AT SEAGROVE"
+    ]
+  },
+  "Hamon Haven": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Harbor Breeze": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Harbor Landing": {
+    "urlSlug": "/holiday-isle/harbor-landing/",
+    "variants": [
+      "HARBOR LANDING"
+    ],
+    "searchId": "407502"
+  },
+  "Harbor Lights": {
+    "urlSlug": "/holiday-isle/harbor-lights/",
+    "variants": [
+      "HARBOR LIGHTS"
+    ],
+    "searchId": "381364"
+  },
+  "Harbor Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Harbor Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Harbor Plantation": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Harbour Point": {
+    "urlSlug": "/sandestin/harbour-point/",
+    "variants": [
+      "HARBOUR POINT"
+    ],
+    "searchId": "378864"
+  },
+  "Harstvedt Plantation": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hatchee Shores": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hemingway": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Henderson Beach Resort": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Henderson Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Heritage Dunes": {
+    "urlSlug": "/30a/heritage-dunes/",
+    "searchId": "3579875",
+    "variants": [
+      "HERITAGE DUNES",
+      "HERITAGE DUNES LOTS"
+    ]
+  },
+  "Heritage Run": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Heron At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [
+      "HERON AT INLET BEACH"
+    ],
+    "searchId": "7100510"
+  },
+  "Heron Crossing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Heron Walk": {
+    "urlSlug": "/sandestin/heron-walk/",
+    "variants": [
+      "HERON WALK"
+    ],
+    "searchId": "378757"
+  },
+  "Herons Crossing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Herons Watch": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hewett Bayou North Santa Rosa Beach": {
+    "urlSlug": "",
+    "searchId": "7114363",
+    "variants": [
+      "HEWETT BAYOU NORTH SANTA ROSA BEACH",
+      "HEWETT BAYOU NORTH SANTA ROSA BEACH LOTS"
+    ]
+  },
+  "Hewitt Bayou": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hewitt Point": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hidden Beach Villas": {
+    "urlSlug": "",
+    "variants": [
+      "HIDDEN BEACH VILLAS"
+    ],
+    "searchId": "7093147"
+  },
+  "Hidden Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hidden Grove": {
+    "urlSlug": "/santa-rosa-beach/hidden-grove/",
+    "searchId": "4737875",
+    "variants": [
+      "HIDDEN GROVE",
+      "HIDDEN GROVE LOTS"
+    ]
+  },
+  "Hidden Harbor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hidden Harbor Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hidden Highlands": {
+    "urlSlug": "",
+    "searchId": "7100508",
+    "variants": [
+      "HIDDEN HIGHLANDS",
+      "HIDDEN HIGHLANDS LOTS"
+    ]
+  },
+  "Hidden Lake": {
+    "urlSlug": "/30a/hidden-lake-condos/",
+    "variants": [
+      "HIDDEN LAKE"
+    ],
+    "searchId": "4708974"
+  },
+  "Hidden Palms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hidden Pines": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Hidden Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "High Acre Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "High Pointe Resort": {
+    "urlSlug": "/30a/high-pointe-resort/",
+    "variants": [
+      "HIGH POINTE RESORT"
+    ],
+    "searchId": "4024482"
+  },
+  "High Ridge Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Highland Park": {
+    "urlSlug": "",
+    "searchId": "7100503",
+    "variants": [
+      "HIGHLAND PARK",
+      "HIGHLAND PARKS",
+      "HIGHLAND PARKS LOTS"
+    ]
+  },
+  "Highland Parks At Blue": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Holiday Isle": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Holiday Isle Towers": {
+    "urlSlug": "/holiday-isle/holiday-isle-towers/",
+    "variants": [
+      "HOLIDAY ISLE TOWERS"
+    ],
+    "searchId": "407506"
+  },
+  "Holiday Shores Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Holiday Surf & Racquet Club": {
+    "urlSlug": "/holiday-isle/holiday-surf-racquet-club/",
+    "variants": [
+      "HOLIDAY SURF & RACQUET CLUB"
+    ],
+    "searchId": "407401"
+  },
+  "Holley Grove At Peach Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Horizon South": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Bay": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Bayou": {
+    "urlSlug": "/destin/indian-bayou/",
+    "variants": [
+      "INDIAN BAYOU"
+    ],
+    "searchId": "385900"
+  },
+  "Indian Bayou Ut": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Hills": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Lake": {
+    "urlSlug": "/indian-lake/",
+    "searchId": "4004642",
+    "variants": [
+      "INDIAN LAKE",
+      "INDIAN LAKE CONDOS"
+    ]
+  },
+  "Indian Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Trail": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Trail Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Trails": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Indian Woods": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Inlet Beach": {
+    "urlSlug": "/30a/inlet-beach/",
+    "searchId": "385749",
+    "variants": [
+      "INLET BEACH",
+      "INLET BEACH LOTS"
+    ]
+  },
+  "Inlet Beach Bungalows": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Inlet Beach Heights": {
+    "urlSlug": "",
+    "searchId": "7114364",
+    "variants": [
+      "INLET BEACH HEIGHTS",
+      "INLET BEACH HEIGHTS LOTS"
+    ]
+  },
+  "Inlet Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Inlet Dunes": {
+    "urlSlug": "",
+    "variants": [
+      "INLET DUNES"
+    ],
+    "searchId": "7100500"
+  },
+  "Inlet Heights": {
+    "urlSlug": "",
+    "variants": [
+      "INLET HEIGHTS"
+    ],
+    "searchId": "7100499"
+  },
+  "Inlet Palms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Inlet Reef Club": {
+    "urlSlug": "/holiday-isle/inlet-reef-club/",
+    "variants": [
+      "INLET REEF CLUB"
+    ],
+    "searchId": "406702"
+  },
+  "Inlet Sands": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Inn At Blue Mountain Beach": {
+    "urlSlug": "/inn-at-blue-mountain-beach/",
+    "variants": [
+      "INN AT BLUE MOUNTAIN BEACH"
+    ],
+    "searchId": "4027839"
+  },
+  "Inn At Gulf Place": {
+    "urlSlug": "",
+    "variants": [
+      "INN AT GULF PLACE"
+    ],
+    "searchId": "7100494"
+  },
+  "Inn At Seacrest Beach": {
+    "urlSlug": "",
+    "searchId": "7100493",
+    "variants": [
+      "THE INN AT SEACREST BEACH"
+    ]
+  },
+  "Island Green": {
+    "urlSlug": "/sandestin/island-green/",
+    "variants": [
+      "ISLAND GREEN"
+    ],
+    "searchId": "378453"
+  },
+  "Island Home": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Islander": {
+    "urlSlug": "/holiday-isle/islander/",
+    "variants": [
+      "ISLANDER"
+    ],
+    "searchId": "408148"
+  },
+  "Ivy at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7100490",
+    "variants": [
+      "IVY AT INLET BEACH"
+    ]
+  },
+  "J M": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Jade East Towers": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Jamaican Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Jasmine Dunes": {
+    "urlSlug": "",
+    "variants": [
+      "JASMINE DUNES"
+    ],
+    "searchId": "7089735"
+  },
+  "Jetty East": {
+    "urlSlug": "/holiday-isle/jetty-east/",
+    "variants": [
+      "JETTY EAST"
+    ],
+    "searchId": "406674"
+  },
+  "Joes Bayou": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Journeys End": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kaiya": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kaiya Beach Resort": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kara Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kell-aire Grdns": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Kelly": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kelly Homes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kelly Plantation": {
+    "urlSlug": "/destin/kelly-plantation/",
+    "searchId": "374884",
+    "variants": [
+      "KELLY PLANTATION",
+      "KELLY PLANTATION LOTS",
+      "KELLY PLANTATION T/H"
+    ]
+  },
+  "Kellys": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kellys De": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kellys Destin 3B": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kiska Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kokomo Kove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Kona Kai Gardens": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "La Bella Vita Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "La Valencia Beach Resort": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Laguna": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Laguna Beach": {
+    "urlSlug": "/pcb/laguna-beach/",
+    "searchId": "4805424",
+    "variants": [
+      "LAGUNA BEACH",
+      "LAGUNA BEACH LOTS",
+      "LAGUNA BEACH T/H"
+    ]
+  },
+  "Laguna Beach Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Laguna Point": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lake Place At Grayton Beach": {
+    "urlSlug": "",
+    "variants": [
+      "LAKE PLACE AT GRAYTON BEACH"
+    ],
+    "searchId": "7114365"
+  },
+  "Lake Powell Estates": {
+    "urlSlug": "",
+    "variants": [
+      "LAKE POWELL ESTATES"
+    ],
+    "searchId": "4805477"
+  },
+  "Lake Shore Estates": {
+    "urlSlug": "",
+    "variants": [
+      "LAKE SHORE ESTATES"
+    ],
+    "searchId": "7100444"
+  },
+  "Lakeplace At Grayton Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lakes At Summer Breeze": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lakeside Lodge At Prospect Point": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lakeside Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lakeside Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lakeside at Blue Mountain Beach": {
+    "urlSlug": "",
+    "searchId": "7100445",
+    "variants": [
+      "LAKESIDE AT BLUE MOUNTAIN BEACH",
+      "LAKESIDE AT BLUE MOUNTAIN BEACH LOTS"
+    ]
+  },
+  "Lakeview": {
+    "urlSlug": "",
+    "searchId": "7100436",
+    "variants": [
+      "LAKEVIEW",
+      "LAKEVIEW CONDOS"
+    ]
+  },
+  "Lakewood Estates": {
+    "urlSlug": "",
+    "variants": [
+      "LAKEWOOD ESTATES"
+    ],
+    "searchId": "7100435"
+  },
+  "Lakewood Pointe Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lakewood of Seagrove Beach": {
+    "urlSlug": "",
+    "searchId": "7100428",
+    "variants": [
+      "LAKEWOOD OF SEAGROVE BEACH",
+      "LAKEWOOD OF SEAGROVE BEACH T/H"
+    ]
+  },
+  "Landing At Camp Creek": {
+    "urlSlug": "",
+    "variants": [
+      "LANDING AT CAMP CREEK"
+    ],
+    "searchId": "7100425"
+  },
+  "Las Palmas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lasata": {
+    "urlSlug": "/sandestin/lasata/",
+    "variants": [
+      "LASATA"
+    ],
+    "searchId": "378414"
+  },
+  "Latitude Margaritaville": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Laurel Grove": {
+    "urlSlug": "/sandestin/laurel-grove/",
+    "variants": [
+      "LAUREL GROVE"
+    ],
+    "searchId": "378744"
+  },
+  "Le Jardin": {
+    "urlSlug": "/sandestin/le-jardin/",
+    "variants": [
+      "LE JARDIN"
+    ],
+    "searchId": "378423"
+  },
+  "Le Soleil": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lee Place": {
+    "urlSlug": "",
+    "variants": [
+      "LEE PLACE"
+    ],
+    "searchId": "7100424"
+  },
+  "Leeward": {
+    "urlSlug": "",
+    "variants": [
+      "LEEWARD"
+    ],
+    "searchId": "7100423"
+  },
+  "Leeward Key": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Legacy": {
+    "urlSlug": "",
+    "searchId": "7100420",
+    "variants": [
+      "LEGACY",
+      "LEGACY CONDOS",
+      "LEGACY T/H"
+    ]
+  },
+  "Legend Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Legends Of Santa Rosa Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Legion Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Legion Park Landing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Legion Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lighthouse Pointe": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Linkside At Wild Heron": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Linkside Village": {
+    "urlSlug": "/sandestin/linkside-village/",
+    "variants": [
+      "LINKSIDE VILLAGE"
+    ],
+    "searchId": "378728"
+  },
+  "Longue Vue": {
+    "urlSlug": "/30a/longue-vue/",
+    "variants": [
+      "LONGUE VUE"
+    ],
+    "searchId": "4133592"
+  },
+  "Luau Condominum": {
+    "urlSlug": "/sandestin/luau/",
+    "variants": [
+      "LUAU CONDOMINUM"
+    ],
+    "searchId": "377877"
+  },
+  "Lullwater Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Lupin Beach": {
+    "urlSlug": "/30a/lupin-beach/",
+    "variants": [
+      "LUPIN BEACH"
+    ],
+    "searchId": "7100419"
+  },
+  "Mack Bayou": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mack Bayou Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mack Bayou Park": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mack Bayou Pines": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mack Bayou Pointe": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia Bay": {
+    "urlSlug": "/sandestin/magnolia-bay/",
+    "searchId": "378766",
+    "variants": [
+      "MAGNOLIA BAY",
+      "MAGNOLIA BAY T/H"
+    ]
+  },
+  "Magnolia Bay Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia Cottages": {
+    "urlSlug": "",
+    "variants": [
+      "MAGNOLIA COTTAGES"
+    ],
+    "searchId": "7100420"
+  },
+  "Magnolia Cottages By the Sea": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Magnolia Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia Dune": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia House": {
+    "urlSlug": "/holiday-isle/magnolia-house/",
+    "variants": [
+      "MAGNOLIA HOUSE"
+    ],
+    "searchId": "406648"
+  },
+  "Magnolia Park": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Magnolia Village": {
+    "urlSlug": "/sandestin/magnolia-village/",
+    "variants": [
+      "MAGNOLIA VILLAGE"
+    ],
+    "searchId": "378869"
+  },
+  "Mainsail": {
+    "urlSlug": "/mainsail/",
+    "variants": [
+      "MAINSAIL"
+    ],
+    "searchId": "3582602"
+  },
+  "Majestic Sun": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mala Beach": {
+    "urlSlug": "",
+    "variants": [
+      "MALA BEACH"
+    ],
+    "searchId": "7089738"
+  },
+  "Malibu Gardens": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mar a Lago": {
+    "urlSlug": "",
+    "searchId": "7088277",
+    "variants": [
+      "MAR-A-LAGO"
+    ]
+  },
+  "Maravilla": {
+    "urlSlug": "/maravilla/",
+    "variants": [
+      "MARAVILLA"
+    ],
+    "searchId": "4012868"
+  },
+  "Maravilla Cottages": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Maravilla Shores": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Marbella": {
+    "urlSlug": "/marbella/",
+    "searchId": "3579863",
+    "variants": [
+      "MARBELLA",
+      "MARBELLA CONDOS",
+      "MARBELLA LOTS"
+    ]
+  },
+  "Margaritaville Cottages": {
+    "urlSlug": "/pcb/margaritaville-cottages/",
+    "variants": [
+      "MARGARITAVILLE COTTAGES"
+    ],
+    "searchId": "4805389"
+  },
+  "Market Street Inn": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Marlers Landing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mediterranea": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Melodia": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mercado At Rosemary Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Merion At Burnt Pine": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Millers Crossing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mills Bayou": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Ming": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Miramar Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Miramar Beach Cottages": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Miramar Heights": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Miramar Palms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mirasol": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mistral": {
+    "urlSlug": "",
+    "variants": [
+      "MISTRAL"
+    ],
+    "searchId": "7100465"
+  },
+  "Misty Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Monarch Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Moores Landing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Moreno Acres": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mosaic Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mossey Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mussett Bayou Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Mussett Bayou Manor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Nantucket Cottages": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Naturewalk At Watersound Origins": {
+    "urlSlug": "/30a/naturewalk-at-watersound-origins/",
+    "searchId": "3574972",
+    "variants": [
+      "WATERSOUND ORIGINS NATUREWALK",
+      "WATERSOUND ORIGINS-NATUREWALK"
+    ]
+  },
+  "Naturewalk at Seagrove": {
+    "urlSlug": "/30a/naturewalk-seagrove/",
+    "searchId": "3579691",
+    "variants": [
+      "NATUREWALK AT SEAGROVE",
+      "NATUREWALK AT SEAGROVE LOTS"
+    ]
+  },
+  "Nautical Way": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Nautilus": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Nautilus Pointe At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Nellie Preserve": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Neptunes Retreat": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "North Bid-A-Wee Beach": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Northshore": {
+    "urlSlug": "/sandestin/north-shore/",
+    "searchId": "378870",
+    "variants": [
+      "NORTHSHORE"
+    ]
+  },
+  "Norwood": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Oak Grove at Watercolor": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Oak Harbour": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Oak Harbour Villa": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Oaks at Eden": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Oaks at Old Town": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Observation Point": {
+    "urlSlug": "/sandestin/observation-point/",
+    "variants": [
+      "OBSERVATION POINT"
+    ],
+    "searchId": "378428"
+  },
+  "Ocean Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Ocean Reef": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Oceania": {
+    "urlSlug": "/holiday-isle/oceania/",
+    "variants": [
+      "OCEANIA"
+    ],
+    "searchId": "407510"
+  },
+  "Oceanside": {
+    "urlSlug": "",
+    "searchId": "7089725",
+    "variants": [
+      "OCEANSIDE",
+      "OCEANSIDE LOTS"
+    ]
+  },
+  "Old Bay": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Old Florida Beach": {
+    "urlSlug": "",
+    "searchId": "7100678",
+    "variants": [
+      "OLD FLORIDA BEACH",
+      "OLD FLORIDA BEACH LOTS"
+    ]
+  },
+  "Old Florida Cottages": {
+    "urlSlug": "/30a/old-florida-cottages/",
+    "variants": [
+      "OLD FLORIDA COTTAGES"
+    ],
+    "searchId": "4027766"
+  },
+  "Old Florida Village": {
+    "urlSlug": "",
+    "variants": [
+      "OLD FLORIDA VILLAGE"
+    ],
+    "searchId": "7100331"
+  },
+  "Old Miller Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Old Seagrove Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Olde Florida Lakes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "One Beach Club": {
+    "urlSlug": "/sandestin/one-beach-club/",
+    "variants": [
+      "ONE BEACH CLUB"
+    ],
+    "searchId": "377865"
+  },
+  "One Beach Club Drive": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "One Seagrove Place": {
+    "urlSlug": "",
+    "variants": [
+      "ONE SEAGROVE PLACE"
+    ],
+    "searchId": "7100332"
+  },
+  "One Twenty Five Crys": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "One Water Place": {
+    "urlSlug": "/one-water-place/",
+    "variants": [
+      "ONE WATER PLACE"
+    ],
+    "searchId": "3582442"
+  },
+  "Open Sands": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Origin At Seahaven": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Osprey Landing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Osprey Point": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Osprey Pointe at Powell": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Oyster Lake": {
+    "urlSlug": "",
+    "variants": [
+      "OYSTER LAKE"
+    ],
+    "searchId": "7100330"
+  },
+  "Palazzo": {
+    "urlSlug": "",
+    "variants": [
+      "PALAZZO"
+    ],
+    "searchId": "7116395"
+  },
+  "Palm Court": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palm Court At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [
+      "PALM COURT AT INLET BEACH"
+    ],
+    "searchId": "7126114"
+  },
+  "Palmeira Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palmeira Villas at Seagrove Beach": {
+    "urlSlug": "",
+    "searchId": "7124573",
+    "variants": [
+      "PALMEIRA VILLAS AT SEAGROVE BEACH"
+    ]
+  },
+  "Palmetto Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palmetto Plantation": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palmetto Trace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palms": {
+    "urlSlug": "/destin/palms-of-destin/",
+    "searchId": "667548",
+    "variants": [
+      "THE PALMS OF DESTIN"
+    ]
+  },
+  "Palms North": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palms Street": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Palms at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7100327",
+    "variants": [
+      "PALMS AT INLET BEACH"
+    ]
+  },
+  "Palms at Seagrove": {
+    "urlSlug": "",
+    "searchId": "7100328",
+    "variants": [
+      "PALMS AT SEAGROVE"
+    ]
+  },
+  "Panama City Beach Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Paradise By the Sea": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Paradise Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Paradise Grove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Paradise Retreat": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Paradise Too": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Park Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Park Place at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7100334",
+    "variants": [
+      "PARK PLACE AT INLET BEACH",
+      "PARK PLACE AT INLET BEACH LOTS"
+    ]
+  },
+  "Park Place on Seagrove Beach": {
+    "urlSlug": "",
+    "searchId": "7100345",
+    "variants": [
+      "PARK PLACE ON SEAGROVE BEACH"
+    ]
+  },
+  "Parkside": {
+    "urlSlug": "",
+    "searchId": "7100346",
+    "variants": [
+      "PARKSIDE",
+      "PARKSIDE CONDOS"
+    ]
+  },
+  "Pavilion Palms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Peach Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Peachtree Farms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Peachtree Heights": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Peachtree Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Peacocks Point": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pelican Bay": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pelican Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pelican Beach Resort": {
+    "urlSlug": "/pelican-beach-resort/",
+    "variants": [
+      "PELICAN BEACH RESORT"
+    ],
+    "searchId": "4004633"
+  },
+  "Pelican Pointe at Camp Creek": {
+    "urlSlug": "",
+    "searchId": "7100350",
+    "variants": [
+      "PELICAN POINTE AT CAMP CREEK"
+    ]
+  },
+  "Penny Lane": {
+    "urlSlug": "",
+    "variants": [
+      "PENNY LANE"
+    ],
+    "searchId": "7100351"
+  },
+  "Pilot House": {
+    "urlSlug": "/sandestin/pilot-house/",
+    "variants": [
+      "PILOT HOUSE"
+    ],
+    "searchId": "378441"
+  },
+  "Pine Gardens": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pine Ridge": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pine Ridge Trace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pine Ridge Villas": {
+    "urlSlug": "/sandestin/pine-ridge-villas/",
+    "variants": [
+      "PINE RIDGE VILLAS"
+    ],
+    "searchId": "377881"
+  },
+  "Pine Trace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pinecrest at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7100354",
+    "variants": [
+      "PINECREST AT INLET BEACH"
+    ]
+  },
+  "Pines Of Blue Mountain": {
+    "urlSlug": "",
+    "variants": [
+      "PINES OF BLUE MOUNTAIN"
+    ],
+    "searchId": "7100355"
+  },
+  "Pines of Blue Mountain Beach": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Pinewood 30A": {
+    "urlSlug": "/30a/pinewood-30a/",
+    "variants": [
+      "PINEWOOD 30A"
+    ],
+    "searchId": "4033352"
+  },
+  "Pinewood Preserve": {
+    "urlSlug": "/30a/pinewood-preserve/",
+    "variants": [
+      "PINEWOOD PRESERVE"
+    ],
+    "searchId": "4709040"
+  },
+  "Pinnacle Port": {
+    "urlSlug": "",
+    "variants": [
+      "PINNACLE PORT"
+    ],
+    "searchId": "7121685"
+  },
+  "Pinnacle Port -Rise": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pirates Cove Inlet": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pisces Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Plantation at Santa Rosa": {
+    "urlSlug": "",
+    "searchId": "7114366",
+    "variants": [
+      "PLANTATION AT SANTA ROSA"
+    ]
+  },
+  "Plantations": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Players Club on the Bay": {
+    "urlSlug": "/sandestin/players-club/",
+    "searchId": "378852",
+    "variants": [
+      "PLAYERS CLUB ON THE BAY"
+    ]
+  },
+  "Poinciana Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Point Washington": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Point of View": {
+    "urlSlug": "",
+    "searchId": "7126085",
+    "variants": [
+      "POINT OF VIEW"
+    ]
+  },
+  "Pointe": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pointe 30A": {
+    "urlSlug": "",
+    "variants": [
+      "POINTE 30A"
+    ],
+    "searchId": "7100358"
+  },
+  "Pointe Of View": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Pompano Place": {
+    "urlSlug": "",
+    "variants": [
+      "POMPANO PLACE"
+    ],
+    "searchId": "7100360"
+  },
+  "Poolside Villas": {
+    "urlSlug": "/holiday-isle/poolside-villas/",
+    "variants": [
+      "POOLSIDE VILLAS"
+    ],
+    "searchId": "4004649"
+  },
+  "Portside": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Poseys": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Preserve": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Preserve At Grayton Beach": {
+    "urlSlug": "",
+    "searchId": "3136948",
+    "variants": [
+      "THE PRESERVE AT GRAYTON BEACH",
+      "THE PRESERVE AT GRAYTON BEACH LOTS"
+    ]
+  },
+  "Preserve Place": {
+    "urlSlug": "",
+    "variants": [
+      "PRESERVE PLACE"
+    ],
+    "searchId": "7100593"
+  },
+  "Preserve Place At Grayton Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Preserve at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7100573",
+    "variants": [
+      "PRESERVE AT INLET BEACH",
+      "PRESERVE AT INLET BEACH LOTS"
+    ]
+  },
+  "Preserve at Paradise Cove": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Prestwick Place": {
+    "urlSlug": "/sandestin/prestwick-place/",
+    "variants": [
+      "PRESTWICK PLACE"
+    ],
+    "searchId": "378471"
+  },
+  "Prominence": {
+    "urlSlug": "/30a/prominence/",
+    "searchId": "7088279",
+    "variants": [
+      "PROMINENCE",
+      "PROMINENCE CONDOS",
+      "PROMINENCE NORTH",
+      "PROMINENCE NORTH CONDOS",
+      "PROMINENCE NORTH T/H",
+      "PROMINENCE SOUTH",
+      "PROMINENCE SOUTH T/H",
+      "PROMINENCE T/H"
+    ]
+  },
+  "Quail Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Quail Park": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Quail Run": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Quays": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Quiet Wood": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Ramsgate Harbour": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Redfish Lane": {
+    "urlSlug": "",
+    "searchId": "7100582",
+    "variants": [
+      "REDFISH LANE",
+      "REDFISH LANE LOTS"
+    ]
+  },
+  "Redfish Village": {
+    "urlSlug": "",
+    "variants": [
+      "REDFISH VILLAGE"
+    ],
+    "searchId": "7100579"
+  },
+  "Regatta Bay": {
+    "urlSlug": "/destin/regatta-bay/",
+    "searchId": "374886",
+    "variants": [
+      "REGATTA BAY",
+      "REGATTA BAY CONDOS",
+      "REGATTA BAY LOTS",
+      "REGATTA BAY T/H"
+    ]
+  },
+  "Regatta Patio Homes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Regency Towers": {
+    "urlSlug": "/regency-towers/",
+    "variants": [
+      "REGENCY TOWERS"
+    ],
+    "searchId": "423269"
+  },
+  "Reids": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Reserves In Serenity At Dune Allen": {
+    "urlSlug": "",
+    "variants": [
+      "RESERVES IN SERENITY AT DUNE ALLEN"
+    ],
+    "searchId": "7114368"
+  },
+  "Retreat": {
+    "urlSlug": "",
+    "searchId": "7089727",
+    "variants": [
+      "RETREAT AT OLD PASS",
+      "THE RETREAT",
+      "THE RETREAT LOTS"
+    ]
+  },
+  "Retreat at Miramar": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Ridge Walk": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Ridge Wood Manor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Rileys Bayview": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "River Bend": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Rivercamps on Crooked Creek": {
+    "urlSlug": "/pcb/rivercamps-crooked-creek/",
+    "searchId": "6886325",
+    "variants": [
+      "RIVERCAMPS ON CROOKED CREEK",
+      "RIVERCAMPS ON CROOKED CREEK LOTS"
+    ]
+  },
+  "Riviera Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Rollin Tide Villas": {
+    "urlSlug": "",
+    "variants": [
+      "ROLLIN TIDE VILLAS"
+    ],
+    "searchId": "7100366"
+  },
+  "Rolling Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Rolling Dunes Estates": {
+    "urlSlug": "",
+    "variants": [
+      "ROLLING DUNES ESTATES"
+    ],
+    "searchId": "7100597"
+  },
+  "Rosemary Beach": {
+    "urlSlug": "/30a/rosemary-beach/",
+    "searchId": "385757",
+    "variants": [
+      "ROSEMARY BEACH",
+      "ROSEMARY BEACH CONDOS",
+      "ROSEMARY BEACH T/H"
+    ]
+  },
+  "Royal Palms": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Royal Palms of Laguna Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Rushlin Park": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sacred Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Safe Harbor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sago Sands": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Saint Tropez": {
+    "urlSlug": "/saint-tropez/",
+    "variants": [
+      "SAINT TROPEZ"
+    ],
+    "searchId": "3579852"
+  },
+  "Salt Grass At Ward Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Saltwater": {
+    "urlSlug": "",
+    "variants": [
+      "SALTWATER"
+    ],
+    "searchId": "7100370"
+  },
+  "San Remo": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sanctuary By the Sea": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Sanctuary at Redfish": {
+    "urlSlug": "/30a/sanctuary-at-redfish/",
+    "searchId": "3583506",
+    "variants": [
+      "SANCTUARY AT REDFISH"
+    ]
+  },
+  "Sanctuary at Seagrove": {
+    "urlSlug": "",
+    "searchId": "7114369",
+    "variants": [
+      "SANCTUARY AT SEAGROVE"
+    ]
+  },
+  "Sand": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sand Castles West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sand Cliffs": {
+    "urlSlug": "/30a/sand-cliffs/",
+    "searchId": "3582502",
+    "variants": [
+      "SAND CLIFFS",
+      "SAND CLIFFS LOTS"
+    ]
+  },
+  "Sand Dollar Court": {
+    "urlSlug": "",
+    "searchId": "7100373",
+    "variants": [
+      "SAND DOLLAR COURT",
+      "SAND DOLLAR COURT LOTS"
+    ]
+  },
+  "Sand Dollar Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sand Pebbles": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandalwood Manor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandcastles By the Sea": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Sandestin": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandestin Estates": {
+    "urlSlug": "/sandestin/sandestin-estates/",
+    "searchId": "378874",
+    "variants": [
+      "SANDESTIN ESTATES",
+      "SANDESTIN ESTATES LOTS"
+    ]
+  },
+  "Sandhill Pines": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandpiper Cove": {
+    "urlSlug": "/holiday-isle/sandpiper-cove/",
+    "searchId": "406727",
+    "variants": [
+      "SANDPIPER COVE",
+      "SANDPIPER COVE CONDOS"
+    ]
+  },
+  "Sandpiper Cove - Destin - West Water Access View": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandpiper Village": {
+    "urlSlug": "/sandestin/sandpiper-village/",
+    "searchId": "378877",
+    "variants": [
+      "SANDPIPER VILLAGE",
+      "SANDPIPER VILLAGE CONDOS"
+    ]
+  },
+  "Sandprints": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sands Street Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandspur": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sandy Shores": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Santa Monica Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Santa Rosa": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Santa Rosa Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Santa Rosa Beach Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Santa Rosa Dunes": {
+    "urlSlug": "",
+    "variants": [
+      "SANTA ROSA DUNES"
+    ],
+    "searchId": "7100377"
+  },
+  "Santa Rosa Golf Villas": {
+    "urlSlug": "",
+    "variants": [
+      "SANTA ROSA GOLF VILLAS"
+    ],
+    "searchId": "7114372"
+  },
+  "Santa Rosa Pines": {
+    "urlSlug": "",
+    "variants": [
+      "SANTA ROSA PINES"
+    ],
+    "searchId": "7114373"
+  },
+  "Santa Rosa Plantation": {
+    "urlSlug": "",
+    "searchId": "7100379",
+    "variants": [
+      "SANTA ROSA PLANTATION",
+      "SANTA ROSA PLANTATION LOTS"
+    ]
+  },
+  "Santa Rosa Retreat": {
+    "urlSlug": "",
+    "variants": [
+      "SANTA ROSA RETREAT"
+    ],
+    "searchId": "7100385"
+  },
+  "Santa Rosa Ridge": {
+    "urlSlug": "",
+    "searchId": "7100388",
+    "variants": [
+      "SANTA ROSA RIDGE",
+      "SANTA ROSA RIDGE LOTS"
+    ]
+  },
+  "Satinwood Place": {
+    "urlSlug": "",
+    "variants": [
+      "SATINWOOD PLACE"
+    ],
+    "searchId": "7100389"
+  },
+  "Savannah at Rosemary Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Bluff": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Cabins": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Cliff": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Croft Cottages": {
+    "urlSlug": "",
+    "variants": [
+      "SEA CROFT COTTAGES"
+    ],
+    "searchId": "7100393"
+  },
+  "Sea Drift": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Dunes": {
+    "urlSlug": "",
+    "searchId": "7100768",
+    "variants": [
+      "SEA DUNES",
+      "SEA DUNES LOTS"
+    ]
+  },
+  "Sea Highlands": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Hills": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Pointe": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sea Walk": {
+    "urlSlug": "",
+    "variants": [
+      "SEA WALK"
+    ],
+    "searchId": "7089734"
+  },
+  "Seabreeze": {
+    "urlSlug": "/30a/seabreeze/",
+    "variants": [
+      "SEABREEZE"
+    ],
+    "searchId": "4133645"
+  },
+  "Seabreeze East": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seabreeze Forest": {
+    "urlSlug": "",
+    "searchId": "7100738",
+    "variants": [
+      "SEABREEZE FOREST",
+      "SEABREEZE FOREST LOTS"
+    ]
+  },
+  "Seachase": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seaclusion Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seacove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seacrest": {
+    "urlSlug": "/30a/seacrest/",
+    "searchId": "374875",
+    "variants": [
+      "SEACREST",
+      "SEACREST CONDOS"
+    ]
+  },
+  "Seacrest Beach": {
+    "urlSlug": "/30a/seacrest-beach/",
+    "variants": [
+      "SEACREST BEACH"
+    ],
+    "searchId": "3579878"
+  },
+  "Seafarer": {
+    "urlSlug": "/seafarer/",
+    "variants": [
+      "SEAFARER"
+    ],
+    "searchId": "4004674"
+  },
+  "Seagrove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seagrove Beach": {
+    "urlSlug": "/30a/seagrove/",
+    "searchId": "374888",
+    "variants": [
+      "SEAGROVE BEACH",
+      "SEAGROVE BEACH LOTS"
+    ]
+  },
+  "Seagrove Beach Dune Villas": {
+    "urlSlug": "",
+    "variants": [
+      "SEAGROVE BEACH DUNE VILLAS"
+    ],
+    "searchId": "7126120"
+  },
+  "Seagrove By the Sea": {
+    "urlSlug": "",
+    "searchId": "7126121",
+    "variants": [
+      "SEAGROVE BY THE SEA"
+    ]
+  },
+  "Seagrove Dune": {
+    "urlSlug": "",
+    "variants": [
+      "SEAGROVE DUNE"
+    ],
+    "searchId": "7126122"
+  },
+  "Seagrove Heights": {
+    "urlSlug": "/30a/seagrove-heights/",
+    "searchId": "7089712",
+    "variants": [
+      "SEAGROVE HEIGHTS",
+      "SEAGROVE HEIGHTS LOTS"
+    ]
+  },
+  "Seagrove Highlands": {
+    "urlSlug": "",
+    "variants": [
+      "SEAGROVE HIGHLANDS"
+    ],
+    "searchId": "7089708"
+  },
+  "Seagrove Horizons": {
+    "urlSlug": "",
+    "variants": [
+      "SEAGROVE HORIZONS"
+    ],
+    "searchId": "7100630"
+  },
+  "Seagrove Shores": {
+    "urlSlug": "",
+    "variants": [
+      "SEAGROVE SHORES"
+    ],
+    "searchId": "7100632"
+  },
+  "Seagrove Village": {
+    "urlSlug": "",
+    "variants": [
+      "SEAGROVE VILLAGE"
+    ],
+    "searchId": "7114374"
+  },
+  "Seahaunts": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seahighland": {
+    "urlSlug": "",
+    "searchId": "7089708",
+    "variants": [
+      "SEAHIGHLAND",
+      "SEAHIGHLAND LOTS"
+    ]
+  },
+  "Seahorse Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seamist": {
+    "urlSlug": "",
+    "searchId": "7100684",
+    "variants": [
+      "SEAMIST",
+      "SEAMIST CONDOS",
+      "SEAMIST T/H"
+    ]
+  },
+  "Seanest Village": {
+    "urlSlug": "",
+    "searchId": "7100634",
+    "variants": [
+      "SEANEST VILLAGE",
+      "SEANEST VILLAGE LOTS"
+    ]
+  },
+  "Seascape Resort": {
+    "urlSlug": "/seascape/",
+    "searchId": "7100641",
+    "variants": [
+      "SEASCAPE",
+      "SEASCAPE CONDOS",
+      "SEASCAPE LOTS",
+      "SEASCAPE RESORT",
+      "SEASCAPE T/H"
+    ]
+  },
+  "Seaside": {
+    "urlSlug": "/30a/seaside/",
+    "searchId": "385862",
+    "variants": [
+      "SEASIDE",
+      "SEASIDE LOTS",
+      "SEASIDE T/H"
+    ]
+  },
+  "Seaspray": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seaview": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seaview Trace at Inlet Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seawinds": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seclusion Bay": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Seclusion Dunes": {
+    "urlSlug": "",
+    "searchId": "7100644",
+    "variants": [
+      "SECLUSION DUNES",
+      "SECLUSION DUNES LOTS"
+    ]
+  },
+  "Serenity At Dune Allen": {
+    "urlSlug": "",
+    "searchId": "7088298",
+    "variants": [
+      "SERENITY AT DUNE ALLEN"
+    ]
+  },
+  "Shadow Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shadow Pines": {
+    "urlSlug": "",
+    "variants": [
+      "SHADOW PINES"
+    ],
+    "searchId": "7100647"
+  },
+  "Shallows": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shelter Cove Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sherwood Forrest": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shipwatch": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shoal River": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shoreline": {
+    "urlSlug": "",
+    "searchId": "7100269",
+    "variants": [
+      "SHORELINE"
+    ]
+  },
+  "Shoreline Estates At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [
+      "SHORELINE ESTATES AT INLET BEACH"
+    ],
+    "searchId": "7114376"
+  },
+  "Shoreline Gardens": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shoreline Towers": {
+    "urlSlug": "/holiday-isle/shoreline-towers/",
+    "searchId": "407792",
+    "variants": [
+      "SHORELINE TOWERS",
+      "SHORELINE TOWERS CONDOS",
+      "SHORELINE TOWERS T/H"
+    ]
+  },
+  "Shores": {
+    "urlSlug": "",
+    "searchId": "7116393",
+    "variants": [
+      "SHORES",
+      "SHORES T/H"
+    ]
+  },
+  "Shorewalk": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Shortline Lake Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sides Moreno Point West": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Signature Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Silver Beach Tower East": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Silver Dunes": {
+    "urlSlug": "/silver-dunes/",
+    "variants": [
+      "SILVER DUNES"
+    ],
+    "searchId": "3582591"
+  },
+  "Silver Sands": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Silver Shells": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Snowdrift Beach": {
+    "urlSlug": "/snow-drift-beach/",
+    "variants": [
+      "SNOWDRIFT BEACH"
+    ],
+    "searchId": "3579843"
+  },
+  "Somerset Bridge at Seagrove": {
+    "urlSlug": "",
+    "searchId": "7114377",
+    "variants": [
+      "SOMERSET BRIDGE AT SEAGROVE"
+    ]
+  },
+  "South Bay By The Gulf": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "South Haven": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "South Shores": {
+    "urlSlug": "",
+    "variants": [
+      "SOUTH SHORES"
+    ],
+    "searchId": "7100288"
+  },
+  "Southern Exposures": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Southern Pines": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Southfields": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Southwind": {
+    "urlSlug": "/sandestin/southwinds/",
+    "searchId": "377819",
+    "variants": [
+      "SOUTHWINDS"
+    ]
+  },
+  "Southwinds": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sovereign Isle": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Splash": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Spring Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "St Andrews": {
+    "urlSlug": "/sandestin/st-andrews/",
+    "variants": [
+      "ST ANDREWS"
+    ],
+    "searchId": "378461"
+  },
+  "St Andrews Drive": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "St Barth At Silver Shells": {
+    "urlSlug": "/silver-shells/",
+    "searchId": "1317294",
+    "variants": [
+      "SILVER SHELLS"
+    ]
+  },
+  "St Croix At Silver Shells": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "St Lucia At Silver Shells": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "St Maarten At Silver Shells": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "St Martin Beachwalk": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "St Thomas At Silver Shells": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Stallworth Preserve": {
+    "urlSlug": "",
+    "variants": [
+      "STALLWORTH PRESERVE"
+    ],
+    "searchId": "7100294"
+  },
+  "Sterling Breeze": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sterling Sands": {
+    "urlSlug": "/sterling-sands/",
+    "variants": [
+      "STERLING SANDS"
+    ],
+    "searchId": "3582574"
+  },
+  "Sterling Shores": {
+    "urlSlug": "/sterling-shores/",
+    "variants": [
+      "STERLING SHORES"
+    ],
+    "searchId": "4004623"
+  },
+  "Stonegate": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Stonegate Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sugar Cliffs": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sugar Dunes": {
+    "urlSlug": "",
+    "variants": [
+      "SUGAR DUNES"
+    ],
+    "searchId": "7100287"
+  },
+  "Sugar Sands Estates": {
+    "urlSlug": "/30a/sugar-sands-estates/",
+    "variants": [
+      "SUGAR SANDS ESTATES"
+    ],
+    "searchId": "4708988"
+  },
+  "Sugarwood": {
+    "urlSlug": "",
+    "variants": [
+      "SUGARWOOD"
+    ],
+    "searchId": "7100296"
+  },
+  "Summer Breeze": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summer Dream": {
+    "urlSlug": "",
+    "variants": [
+      "SUMMER DREAM"
+    ],
+    "searchId": "7100297"
+  },
+  "Summer Haven": {
+    "urlSlug": "",
+    "variants": [
+      "SUMMER HAVEN",
+      "SUMMER HAVEN NORTH"
+    ],
+    "searchId": "7124941"
+  },
+  "Summer Haven North": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summer Ridge": {
+    "urlSlug": "",
+    "variants": [
+      "SUMMER RIDGE"
+    ],
+    "searchId": "7100299"
+  },
+  "Summerhouse": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summerlake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summers Edge": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summerspell": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summerwood": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Summit At Topsl": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sun King Towers": {
+    "urlSlug": "/holiday-isle/sun-king/",
+    "variants": [
+      "SUN KING TOWERS"
+    ],
+    "searchId": "407348"
+  },
+  "Sundance": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sundestin International": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sunnyside": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Sunnyside Beach & Tennis Club": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sunrise & Sunset": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sunrise Beach": {
+    "urlSlug": "/santa-rosa-beach/sunrise-beach/",
+    "searchId": "5344859",
+    "variants": [
+      "SUNRISE BEACH",
+      "SUNRISE BEACH CONDOS",
+      "SUNRISE BEACH LOTS"
+    ]
+  },
+  "Sunsail": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sunset Beach": {
+    "urlSlug": "",
+    "searchId": "7080897",
+    "variants": [
+      "SUNSET BEACH",
+      "SUNSET BEACH T/H"
+    ]
+  },
+  "Sunset Key Cottages": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Suntime Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Surfsong": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Surfsong Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sweet Bay": {
+    "urlSlug": "",
+    "searchId": "7121644",
+    "variants": [
+      "SWEET BAY",
+      "SWEET BAY LOTS"
+    ]
+  },
+  "T S Mischners": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tang": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tang-O-Mar": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Terra Cotta Terrace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Terrace At Pelican Beach": {
+    "urlSlug": "/destin/terrace-at-pelican-beach/",
+    "searchId": "423272",
+    "variants": [
+      "THE TERRACE AT PELICAN BEACH"
+    ]
+  },
+  "The Empress": {
+    "urlSlug": "/the-empress/",
+    "searchId": "4012852",
+    "variants": [
+      "EMPRESS"
+    ]
+  },
+  "The Shoals": {
+    "urlSlug": "",
+    "variants": [
+      "THE SHOALS"
+    ],
+    "searchId": "7124982"
+  },
+  "Thirty": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Thirty Blu": {
+    "urlSlug": "/30a/thirty-blu/",
+    "variants": [
+      "THIRTY BLU"
+    ],
+    "searchId": "4033279"
+  },
+  "Thirty One": {
+    "urlSlug": "/30a/thirty-one/",
+    "variants": [
+      "THIRTY ONE"
+    ],
+    "searchId": "4024322"
+  },
+  "Thompson Plantation": {
+    "urlSlug": "",
+    "searchId": "7100304",
+    "variants": [
+      "THOMPSON PLANTATION",
+      "THOMPSON PLANTATION LOTS"
+    ]
+  },
+  "Thompson Woods": {
+    "urlSlug": "/30a/thompson-woods/",
+    "searchId": "4709005",
+    "variants": [
+      "THOMPSON WOODS",
+      "THOMPSON WOODS LOTS"
+    ]
+  },
+  "Tides": {
+    "urlSlug": "/holiday-isle/tides-of-destin/",
+    "searchId": "406711",
+    "variants": [
+      "THE TIDES OF DESTIN"
+    ]
+  },
+  "Tides At Topsl": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tidewater": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tidewater Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tivoli By the Sea": {
+    "urlSlug": "/sandestin/tivoli-by-the-sea/",
+    "searchId": "377888",
+    "variants": [
+      "TIVOLI BY THE SEA"
+    ]
+  },
+  "Tivoli Ridge": {
+    "urlSlug": "/sandestin/tivoli-ridge/",
+    "variants": [
+      "TIVOLI RIDGE"
+    ],
+    "searchId": "377945"
+  },
+  "Tivoli Terrace": {
+    "urlSlug": "/sandestin/tivoli-terrace/",
+    "variants": [],
+    "searchId": "377952"
+  },
+  "Topsail Village": {
+    "urlSlug": "",
+    "variants": [
+      "TOPSAIL VILLAGE"
+    ],
+    "searchId": "7100608"
+  },
+  "Topsl Beach Manor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Topsl Tennis Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Town": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Town of Santa Rosa": {
+    "urlSlug": "",
+    "searchId": "7121693",
+    "variants": [
+      "TOWN OF SANTA ROSA",
+      "TOWN OF SANTA ROSA LOTS"
+    ]
+  },
+  "Tradewinds": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tranquil Harbor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tranquility By the Bay": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Tranquillity on the Beach": {
+    "urlSlug": "/30a/tranquillity-on-the-beach/",
+    "searchId": "4024478",
+    "variants": [
+      "TRANQUILLITY ON THE BEACH"
+    ]
+  },
+  "Treasure Sands": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Treasure Trove Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Treetop": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Treetop Village": {
+    "urlSlug": "",
+    "variants": [
+      "TREETOP VILLAGE",
+      "TREETOP VILLAGE LOTS"
+    ],
+    "searchId": "7100605"
+  },
+  "Treetops at Bayside": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Tresca Place": {
+    "urlSlug": "",
+    "variants": [
+      "TRESCA PLACE"
+    ],
+    "searchId": "7080850"
+  },
+  "Troon": {
+    "urlSlug": "/sandestin/troon/",
+    "variants": [
+      "TROON"
+    ],
+    "searchId": "378465"
+  },
+  "Troon Drive": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tropic Winds": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Turnberry": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Turnberry Villas": {
+    "urlSlug": "/sandestin/turnberry-villas/",
+    "variants": [
+      "TURNBERRY VILLAS"
+    ],
+    "searchId": "378785"
+  },
+  "Turquoise Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Turtle Cove at Lake Powell": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Tuscan Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Tuscana": {
+    "urlSlug": "/sandestin/tuscana/",
+    "searchId": "377966",
+    "variants": [
+      "TUSCANA",
+      "TUSCANA T/H"
+    ]
+  },
+  "Tuscany": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Twin Lakes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Twin Palms": {
+    "urlSlug": "/30a/twin-palms/",
+    "variants": [
+      "TWIN PALMS"
+    ],
+    "searchId": "5497083"
+  },
+  "Twin Palms at Inlet Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Ultimate Watervw Tower Yc": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Van Way Beach": {
+    "urlSlug": "",
+    "variants": [
+      "VAN WAY BEACH"
+    ],
+    "searchId": "7080823"
+  },
+  "Vantage Pointe": {
+    "urlSlug": "/sandestin/vantage-point/",
+    "variants": [
+      "VANTAGE POINTE"
+    ],
+    "searchId": "378732"
+  },
+  "Ventana Dunes": {
+    "urlSlug": "",
+    "searchId": "7080823",
+    "variants": [
+      "VENTANA DUNES",
+      "VENTANA DUNES LOTS"
+    ]
+  },
+  "View": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villa Burago": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villa Chateaus": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villa Lago": {
+    "urlSlug": "/sandestin/villa-lago/",
+    "variants": [
+      "VILLA LAGO"
+    ],
+    "searchId": "378460"
+  },
+  "Village": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Village At Blue Mountain Beach": {
+    "urlSlug": "",
+    "searchId": "7080808",
+    "variants": [
+      "VILLAGE AT BLUE MOUNTAIN BEACH",
+      "VILLAGE AT BLUE MOUNTAIN BEACH CONDOS",
+      "VILLAGE AT BLUE MOUNTAIN BEACH LOTS"
+    ]
+  },
+  "Village Of South Walton Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Village Of White Cliffs": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Village at Grayton Beach": {
+    "urlSlug": "/30a/village-at-grayton-beach/",
+    "searchId": "7080803",
+    "variants": [
+      "VILLAGE AT GRAYTON BEACH"
+    ]
+  },
+  "Village of Sugar Beach": {
+    "urlSlug": "",
+    "searchId": "7080786",
+    "variants": [
+      "VILLAGE OF SUGAR BEACH"
+    ]
+  },
+  "Villages Crystal Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villas At Longleaf Park": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villas At Santa Rosa Beach": {
+    "urlSlug": "",
+    "searchId": "7080776",
+    "variants": [
+      "THE VILLAS AT SANTA ROSA BEACH"
+    ]
+  },
+  "Villas At Seagrove Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villas At Sunset Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Villas at Seacrest Beach": {
+    "urlSlug": "",
+    "searchId": "7126125",
+    "variants": [
+      "VILLAS AT SEACREST BEACH"
+    ]
+  },
+  "Vineyard at Raven Oaks": {
+    "urlSlug": "",
+    "searchId": "",
+    "variants": []
+  },
+  "Vizcaya At Dune Allen": {
+    "urlSlug": "",
+    "variants": [
+      "VIZCAYA AT DUNE ALLEN"
+    ],
+    "searchId": "7080716"
+  },
+  "Walton Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Walton On 30A": {
+    "urlSlug": "",
+    "variants": [
+      "WALTON ON 30A"
+    ],
+    "searchId": "7080709"
+  },
+  "Waltons Landing": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Warren Heights": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Water Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Water View at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7077270",
+    "variants": [
+      "WATER VIEW AT INLET BEACH"
+    ]
+  },
+  "Watercolor": {
+    "urlSlug": "/30a/watercolor/",
+    "searchId": "385840",
+    "variants": [
+      "WATERCOLOR",
+      "WATERCOLOR CONDOS",
+      "WATERCOLOR LOTS"
+    ]
+  },
+  "Watercolor Beachside": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Watercolor Town Center": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Watercrest On 30A": {
+    "urlSlug": "",
+    "searchId": "7077195",
+    "variants": [
+      "WATERCREST ON 30A",
+      "WATERCREST ON 30A LOTS"
+    ]
+  },
+  "Waterhouse": {
+    "urlSlug": "",
+    "variants": [
+      "WATERHOUSE"
+    ],
+    "searchId": "7077180"
+  },
+  "Waterside at Inlet Beach": {
+    "urlSlug": "",
+    "searchId": "7121695",
+    "variants": [
+      "WATERSIDE AT INLET BEACH"
+    ]
+  },
+  "Watersound": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Watersound Beach": {
+    "urlSlug": "/30a/watersound-beach/",
+    "searchId": "7077041",
+    "variants": [
+      "WATERSOUND BEACH",
+      "WATERSOUND BEACH CONDOS",
+      "WATERSOUND BEACH LOTS"
+    ]
+  },
+  "Watersound Bridges": {
+    "urlSlug": "/30a/watersound-bridges/",
+    "variants": [
+      "WATERSOUND BRIDGES"
+    ],
+    "searchId": "4049793"
+  },
+  "Watersound Camp Creek": {
+    "urlSlug": "/30a/watersound-camp-creek/",
+    "searchId": "4046364",
+    "variants": [
+      "WATERSOUND CAMP CREEK",
+      "WATERSOUND CAMP CREEK LOTS"
+    ]
+  },
+  "Watersound Origins": {
+    "urlSlug": "/30a/watersound-origins/",
+    "searchId": "374894",
+    "variants": [
+      "WATERSOUND ORIGINS",
+      "WATERSOUND ORIGINS LOTS",
+      "WATERSOUND ORIGINS T/H"
+    ]
+  },
+  "Watersound West Beach": {
+    "urlSlug": "/30a/watersound-west-beach/",
+    "searchId": "418736",
+    "variants": [
+      "WATERSOUND WEST BEACH",
+      "WATERSOUND WEST BEACH LOTS"
+    ]
+  },
+  "Waterview At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [
+      "WATERVIEW AT INLET BEACH"
+    ],
+    "searchId": "7076900"
+  },
+  "Waterview Towers": {
+    "urlSlug": "/holiday-isle/waterview-towers/",
+    "variants": [
+      "WATERVIEW TOWERS"
+    ],
+    "searchId": "392725"
+  },
+  "Wells Gulf Beach Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Wendwood": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "West Shore Place": {
+    "urlSlug": "",
+    "variants": [
+      "WEST SHORE PLACE"
+    ],
+    "searchId": "7076884"
+  },
+  "Westlake Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Westwinds": {
+    "urlSlug": "/sandestin/westwinds/",
+    "variants": [
+      "WESTWINDS"
+    ],
+    "searchId": "377963"
+  },
+  "Whisper Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Whispering Lake": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Whispering Oaks": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Whispering Pines": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "White Cliffs": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "White Sands Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Whites Gulfview Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Wild Heron": {
+    "urlSlug": "/pcb/wild-heron/",
+    "variants": [],
+    "searchId": "4805396"
+  },
+  "Wildwood": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Wildwood At Inlet Beach": {
+    "urlSlug": "",
+    "variants": [
+      "WILDWOOD AT INLET BEACH"
+    ],
+    "searchId": "7076859"
+  },
+  "Wildwood Village": {
+    "urlSlug": "",
+    "variants": [
+      "WILDWOOD VILLAGE"
+    ],
+    "searchId": "7076848"
+  },
+  "Windancer": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Windancer Shores": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Windsor Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Windsor Forest": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Winston Manor": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Woodland Bayou Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Woodland Shores": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Woods": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  }
+}
