@@ -136,9 +136,6 @@
 #area-cards .communities-table tbody tr:hover {
   background-color: var(--color-neutral-50);
 }
-#area-cards .communities-table tbody tr:hover td {
-  background-color: var(--color-neutral-50);
-}
 #area-cards .communities-table .neighborhood-row {
   cursor: pointer;
 }
@@ -193,15 +190,4 @@
 }
 @media (min-width: 1024px) {
   #area-cards .area-card-stats { width: 50%; }
-}
-#area-cards .area-card-footer {
-  border-top: 1px solid var(--color-neutral-200);
-  padding: 1rem 1.5rem;
-}
-#area-cards .area-card-footer h3 {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-neutral-700);
-  margin-bottom: 0.75rem;
 }
