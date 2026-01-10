@@ -38,3 +38,6 @@
 
 /* Component CSS extracted from tailwind-stable.css */
 @import "./extracted-components.css";
+
+/* Area navigation page components */
+@import "./nav-cards.css";

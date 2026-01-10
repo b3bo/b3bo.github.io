@@ -1,0 +1,138 @@
+/* ========================================
+   Area Navigation Cards
+   For /home-search-menu/ page
+   ======================================== */
+
+/* Card container */
+.area-card {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-neutral-300);
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+/* Card header - brand gradient */
+.area-card-header {
+  background-color: var(--color-primary-600);
+  padding: 1rem 1.5rem;
+}
+.area-card-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* Card body - flex layout */
+.area-card-body {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .area-card-body { flex-direction: row; }
+}
+
+/* Stats column */
+.area-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .area-card-stats { width: 50%; }
+}
+
+/* Stat button (clickable stat box) */
+.stat-button {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-neutral-200);
+  background-color: var(--color-neutral-50);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.stat-button:hover {
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+}
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-700);
+}
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600);
+}
+
+/* Map column */
+.area-card-map {
+  padding: 1rem;
+}
+@media (min-width: 1024px) {
+  .area-card-map { width: 50%; }
+}
+.area-card-map iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 0.5rem;
+  border: 0;
+}
+
+/* Communities table */
+.area-card-footer {
+  border-top: 1px solid var(--color-neutral-200);
+  padding: 1rem 1.5rem;
+}
+.area-card-footer h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-neutral-700);
+  margin-bottom: 0.75rem;
+}
+.communities-table {
+  width: 100%;
+  font-size: 0.875rem;
+}
+.communities-table td {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+.communities-table a {
+  color: var(--color-primary-600);
+}
+.communities-table a:hover {
+  text-decoration: underline;
+}
+
+/* View all link */
+.area-card-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary-600);
+}
+.area-card-link:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* Loading skeleton */
+.area-card-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
