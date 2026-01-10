@@ -294,6 +294,11 @@ h2 {
   color: var(--color-primary-600);
 }
 
+/* Blockquote Span - Medium Weight */
+.main-content .si-content-area blockquote span {
+  font-weight: var(--font-weight-medium, 500);
+}
+
 /**
  * Paragraph Spans - Responsive Sizing
  * --------------------------------------------------------------------------
@@ -1167,6 +1172,21 @@ h2 {
 /* ==========================================================================
    9. LAYOUT UTILITIES
    ========================================================================== */
+
+/**
+ * Anchor Scroll Offset
+ * --------------------------------------------------------------------------
+ * Offsets anchor scroll position to account for fixed header.
+ * Automatically applied to common anchor targets.
+ * Use .anchor-offset class for custom anchors.
+ */
+
+#listings,
+#faq,
+#map,
+.anchor-offset {
+  scroll-margin-top: 5rem;
+}
 
 /**
  * Full-Width Background
