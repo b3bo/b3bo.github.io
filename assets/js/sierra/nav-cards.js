@@ -313,7 +313,7 @@
           return '<a href="#' + p.slug + '">' + p.name + '</a>';
         }).join(' ');
         var tagBarHtml = '<div class="flex justify-center items-center mb-8 px-4">';
-        tagBarHtml += '<div class="tag-items flex items-center justify-center flex-wrap gap-x-2 gap-y-2 text-sm font-body text-neutral-700 font-bold" style="max-width: 50%;">';
+        tagBarHtml += '<div class="tag-items flex items-center justify-center flex-wrap text-sm font-body text-neutral-700 font-bold" style="max-width: 50%; gap: 0.5rem 0.5rem;">';
         tagBarHtml += '<i class="fa fa-tags text-primary-600 flex-shrink-0" style="width: 1rem; height: 1rem;"></i> ';
         tagBarHtml += tagLinks;
         tagBarHtml += '</div></div>';
