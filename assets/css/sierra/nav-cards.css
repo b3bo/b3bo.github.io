@@ -150,6 +150,14 @@
 #area-cards .communities-table td:first-child a:hover {
   color: var(--color-primary-600);
 }
+#area-cards .communities-table .link-icon {
+  display: none;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+}
+#area-cards .communities-table tr:hover .link-icon {
+  display: inline;
+}
 
 /* View all link - full-width footer bar (outside card-body) */
 #area-cards .area-card-link,
