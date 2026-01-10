@@ -197,3 +197,9 @@
 @media (min-width: 1024px) {
   #area-cards .area-card-stats { width: 50%; }
 }
+
+/* Tag navigation bar */
+.tag-items {
+  gap: 0.5rem;
+  max-width: 50%;
+}
