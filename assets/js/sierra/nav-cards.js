@@ -171,7 +171,7 @@
       '  </div>',
       '  <div class="area-card-body">',
       '    <div class="area-card-map">',
-      '      <iframe src="' + mapUrl + '" loading="lazy"></iframe>',
+      '      <iframe data-src="' + mapUrl + '"></iframe>',
       '    </div>',
       '    <div class="area-card-content">',
       '      <div class="stats-grid">',
@@ -308,6 +308,8 @@
         if (html) {
           container.innerHTML = html;
           console.log('[NavCards] Rendered', presets.length, 'area cards for', propertyType);
+          // Preload maps when 500px from viewport
+          setupMapPreloading();
           // Setup hover-to-fly listeners
           setupHoverListeners();
         } else {
@@ -318,6 +320,35 @@
         console.error('[NavCards] Error:', error);
         showError(error.message);
       });
+  }
+
+  // ============================================
+  // Map Preloading (500px before viewport)
+  // ============================================
+
+  function setupMapPreloading() {
+    var iframes = container.querySelectorAll('iframe[data-src]');
+    console.log('[NavCards] Setting up preloading for', iframes.length, 'maps');
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var iframe = entry.target;
+          var src = iframe.dataset.src;
+          if (src && !iframe.src) {
+            iframe.src = src;
+            console.log('[NavCards] Preloading map:', src.split('?')[1].split('&')[0]);
+          }
+          observer.unobserve(iframe);
+        }
+      });
+    }, {
+      rootMargin: '500px 0px' // Load 500px before entering viewport
+    });
+
+    iframes.forEach(function(iframe) {
+      observer.observe(iframe);
+    });
   }
 
   // ============================================
