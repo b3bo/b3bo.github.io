@@ -302,6 +302,11 @@
         // Render cards for each area using the configured property type
         var html = '';
         var presets = data.presets.presets || [];
+        // Custom display order (west to east, 30A areas grouped)
+        var order = ['Destin', 'Miramar Beach', 'Sandestin', 'West 30A', 'East 30A', 'Santa Rosa Beach', 'Inlet Beach', 'Panama City Beach'];
+        presets.sort(function(a, b) {
+          return order.indexOf(a.name) - order.indexOf(b.name);
+        });
         for (var i = 0; i < presets.length; i++) {
           html += createAreaCard(presets[i], propertyType, data.neighborhoods, data.urlOverrides);
         }
