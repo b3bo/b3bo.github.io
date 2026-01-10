@@ -308,15 +308,23 @@
           return order.indexOf(a.name) - order.indexOf(b.name);
         });
 
-        // Build tag navigation bar
+        // Build tag navigation bar and insert after page H2
         var tagLinks = presets.map(function(p) {
           return '<a href="#' + p.slug + '">' + p.name + '</a>';
         }).join(' ');
-        html += '<div class="flex justify-center items-center mb-8 px-4">';
-        html += '<div class="tag-items flex items-center justify-center space-x-1 md:space-x-2 flex-wrap text-sm font-body text-neutral-700 font-bold">';
-        html += '<i class="fa fa-tags text-primary-600 flex-shrink-0" style="width: 1rem; height: 1rem;"></i> ';
-        html += tagLinks;
-        html += '</div></div>';
+        var tagBarHtml = '<div class="flex justify-center items-center mb-8 px-4">';
+        tagBarHtml += '<div class="tag-items flex items-center justify-center space-x-1 md:space-x-2 flex-wrap text-sm font-body text-neutral-700 font-bold">';
+        tagBarHtml += '<i class="fa fa-tags text-primary-600 flex-shrink-0" style="width: 1rem; height: 1rem;"></i> ';
+        tagBarHtml += tagLinks;
+        tagBarHtml += '</div></div>';
+
+        // Insert after page H2 if found, otherwise prepend to container
+        var pageH2 = document.querySelector('h2');
+        if (pageH2 && pageH2.closest('#area-cards') === null) {
+          pageH2.insertAdjacentHTML('afterend', tagBarHtml);
+        } else {
+          html += tagBarHtml;
+        }
 
         for (var i = 0; i < presets.length; i++) {
           html += createAreaCard(presets[i], propertyType, data.neighborhoods, data.urlOverrides);
