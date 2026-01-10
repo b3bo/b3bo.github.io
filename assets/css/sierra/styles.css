@@ -36,7 +36,5 @@
 /* Scan HTML files for utility classes */
 @source "./*.html", "./components/**/*.html";
 
-/*
- * Component CSS is in components.css - appended to build output
- * DO NOT use @apply here - it outputs to @layer components which has low specificity
- */
+/* Component CSS extracted from tailwind-stable.css */
+@import "./extracted-components.css";
