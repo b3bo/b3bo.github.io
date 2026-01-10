@@ -92,10 +92,10 @@
 }
 #area-cards a.stat-button:hover,
 #area-cards a.stat-button:focus {
-  border-color: var(--color-primary-500) !important;
-  background-color: var(--color-primary-50) !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-  text-decoration: none !important;
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-decoration: none;
 }
 #area-cards .stat-value {
   font-size: 1.25rem;
@@ -134,46 +134,46 @@
   text-align: center;
 }
 #area-cards .communities-table tbody tr:hover {
-  background-color: var(--color-neutral-50) !important;
+  background-color: var(--color-neutral-50);
 }
 #area-cards .communities-table tbody tr:hover td {
-  background-color: var(--color-neutral-50) !important;
+  background-color: var(--color-neutral-50);
 }
 #area-cards .communities-table .neighborhood-row {
   cursor: pointer;
 }
 #area-cards .communities-table td:first-child {
-  color: var(--color-primary-600) !important;
+  color: var(--color-neutral-700);
   font-weight: 500;
 }
 #area-cards .communities-table td:first-child a,
 #area-cards .communities-table td:first-child a:link,
 #area-cards .communities-table td:first-child a:visited {
-  color: var(--color-primary-600) !important;
-  text-decoration: none !important;
+  color: var(--color-neutral-700);
+  text-decoration: none;
 }
 #area-cards .communities-table td:first-child a:hover {
-  color: var(--color-primary-700) !important;
-  text-decoration: underline !important;
+  color: var(--color-primary-600);
 }
 
-/* View all link - contained in content column */
+/* View all link - styled as full-width footer bar */
 #area-cards .area-card-link,
 #area-cards .area-card-link:link,
 #area-cards .area-card-link:visited {
   display: block;
   text-align: center;
-  margin-top: 1rem;
-  padding: 0.75rem;
+  margin: 1rem -1.5rem -1rem -1.5rem;
+  padding: 0.75rem 1.5rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-primary-600) !important;
-  text-decoration: none !important;
+  color: var(--color-primary-600);
+  text-decoration: none;
   border-top: 1px solid var(--color-neutral-200);
+  background-color: var(--color-neutral-50);
 }
 #area-cards .area-card-link:hover {
-  color: var(--color-primary-700) !important;
-  text-decoration: underline !important;
+  color: var(--color-primary-700);
+  text-decoration: underline;
 }
 
 /* Loading skeleton */
