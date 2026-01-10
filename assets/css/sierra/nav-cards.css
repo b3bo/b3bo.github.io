@@ -201,5 +201,10 @@
 
 /* Tag navigation bar */
 .tag-items {
-  @apply gap-2 max-w-[50%];
+  @apply gap-2;
+}
+@media (min-width: 768px) {
+  .tag-items {
+    @apply max-w-[50%];
+  }
 }
