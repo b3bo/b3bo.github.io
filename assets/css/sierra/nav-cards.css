@@ -122,14 +122,16 @@
   border-bottom: 2px solid var(--color-neutral-200);
   text-align: left;
 }
-#area-cards .communities-table th.text-right,
-#area-cards .communities-table td.text-right {
-  text-align: right;
+#area-cards .communities-table th:not(:first-child) {
+  text-align: center;
 }
 #area-cards .communities-table td {
   padding: 0.5rem 0.25rem;
   border-bottom: 1px solid var(--color-neutral-100);
   color: var(--color-neutral-600);
+}
+#area-cards .communities-table td:not(:first-child) {
+  text-align: center;
 }
 #area-cards .communities-table tbody tr:hover {
   background-color: var(--color-neutral-50) !important;
@@ -137,9 +139,20 @@
 #area-cards .communities-table tbody tr:hover td {
   background-color: var(--color-neutral-50) !important;
 }
+#area-cards .communities-table .neighborhood-row {
+  cursor: pointer;
+}
 #area-cards .communities-table td:first-child {
   color: var(--color-primary-600);
   font-weight: 500;
+}
+#area-cards .communities-table td:first-child a {
+  color: var(--color-primary-600);
+  text-decoration: none;
+}
+#area-cards .communities-table td:first-child a:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
 }
 
 /* View all link */
