@@ -38,7 +38,11 @@
   /* Font families defined in theme above */
 }
 
-/* Let Tailwind v4 auto-detect source files */
+/* Scan HTML files for classes */
+@source "./*.html", "./components/**/*.html";
+
+/* Include custom.css (accordion, SI overrides, etc) */
+@import "./custom.css";
 
 /* Component classes */
 @layer components {
