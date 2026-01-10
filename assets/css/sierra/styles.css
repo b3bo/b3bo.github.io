@@ -36,9 +36,9 @@
 /* Scan HTML files for classes */
 @source "./*.html", "./components/**/*.html";
 
-/* Component classes using @apply */
-@layer components {
-  /* Primary action button */
+/* Component classes - unlayered for higher specificity */
+
+/* Primary action button */
   .btn-custom,
   .si-iw-fma__btn,
   .si-form .si-btn {
@@ -334,5 +334,4 @@
       @apply flex-none w-1/2;
     }
   }
-}
 
