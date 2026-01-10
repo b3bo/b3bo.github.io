@@ -1217,17 +1217,10 @@
     "searchId": "",
     "variants": []
   },
-  "Deerwood": {
-    "urlSlug": "/sandestin/deerwood/",
-    "variants": [
-      "DEERWOOD"
-    ],
-    "searchId": "378741"
-  },
   "Deerwood Drive": {
-    "urlSlug": "",
+    "urlSlug": "/sandestin/deerwood/",
     "variants": [],
-    "searchId": ""
+    "searchId": "378741"
   },
   "Del Mar": {
     "urlSlug": "/sandestin/del-mar/",
@@ -1318,17 +1311,17 @@
     "searchId": ""
   },
   "Destin Yacht Club": {
-    "urlSlug": "",
+    "urlSlug": "/destin-yacht-club/",
     "variants": [],
     "searchId": ""
   },
   "Destiny": {
-    "urlSlug": "",
+    "urlSlug": "/destin/destiny/",
     "variants": [],
     "searchId": ""
   },
   "Destiny By the Sea": {
-    "urlSlug": "",
+    "urlSlug": "/destin/destiny-by-the-sea/",
     "searchId": "",
     "variants": []
   },
@@ -2471,7 +2464,7 @@
     "variants": []
   },
   "Holiday Isle": {
-    "urlSlug": "",
+    "urlSlug": "/holiday-isle/",
     "variants": [],
     "searchId": ""
   },
@@ -4475,7 +4468,7 @@
     "searchId": "4004674"
   },
   "Seagrove": {
-    "urlSlug": "",
+    "urlSlug": "/30a/seagrove/",
     "variants": [],
     "searchId": ""
   },
