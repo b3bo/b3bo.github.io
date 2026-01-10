@@ -473,8 +473,9 @@
         if (container) {
           console.log('[NavCards] Container found after', attempts, 'attempt(s)');
           clearInterval(retryInterval);
-          // Read property type from container
-          propertyType = container.dataset.propertyType || 'homes';
+          // Determine property type from URL path
+          var path = window.location.pathname;
+          propertyType = path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
           console.log('[NavCards] Property type:', propertyType);
           loadData();
         } else if (attempts >= maxAttempts) {
@@ -484,8 +485,9 @@
       }, 500);
       return;
     }
-    // Read property type from container's data attribute
-    propertyType = container.dataset.propertyType || 'homes';
+    // Determine property type from URL path
+    var path = window.location.pathname;
+    propertyType = path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
     console.log('[NavCards] Container found, property type:', propertyType);
     loadData();
   }
