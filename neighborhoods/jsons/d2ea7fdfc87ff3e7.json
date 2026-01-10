@@ -1,6 +1,6 @@
 {
   "area": "18 - 30A East",
-  "updated": "2026-01-07T07:39:18.774361",
+  "updated": "2026-01-10T15:58:31.077746",
   "neighborhoods": [
     {
       "name": "30A",
@@ -5569,7 +5569,8 @@
         "SEAGROVE 5TH ADDN",
         "Seagrove",
         "Seagrove Second Addition"
-      ]
+      ],
+      "urlSlug": "/30a/seagrove/"
     },
     {
       "name": "Seagrove Beach",
