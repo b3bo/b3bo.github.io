@@ -312,10 +312,10 @@
         var tagLinks = presets.map(function(p) {
           return '<a href="#' + p.slug + '">' + p.name + '</a>';
         }).join(' ');
-        html += '<div class="flex justify-center items-center mt-2 mb-8 px-4">';
+        html += '<div class="flex justify-center items-center mb-8 px-4">';
         html += '<div class="tag-items flex items-center justify-center space-x-1 md:space-x-2 flex-wrap text-sm font-body text-neutral-700 font-bold">';
         html += '<i class="fa fa-tags text-primary-600 flex-shrink-0" style="width: 1rem; height: 1rem;"></i> ';
-        html += '<span>Jump to: </span> ' + tagLinks;
+        html += tagLinks;
         html += '</div></div>';
 
         for (var i = 0; i < presets.length; i++) {
