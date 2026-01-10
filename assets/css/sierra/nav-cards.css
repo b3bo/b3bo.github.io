@@ -12,6 +12,7 @@
   border: 1px solid var(--color-neutral-300);
   background-color: white;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  @apply scroll-mt-20;
 }
 
 /* Card header - brand color */
