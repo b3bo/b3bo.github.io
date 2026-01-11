@@ -92,7 +92,7 @@
   // Card Rendering
   // ============================================
 
-  function createAreaCard(preset, propType, neighborhoodData, urlOverrides) {
+  function createAreaCard(preset, propType, neighborhoodData) {
     var stats = getAreaStats(preset, propType);
     var topNeighborhoods = getAreaNeighborhoods(preset, propType);
 
@@ -100,7 +100,6 @@
 
     var typeLabel = propType === 'homes' ? 'Homes' : 'Condos';
     var areaUrl = '/' + preset.slug + '/';
-    urlOverrides = urlOverrides || {};
 
     // Build neighborhood rows (top 8)
     var neighborhoodRows = '';
@@ -140,9 +139,8 @@
         : actualType === 'lots' ? 'Lots'
         : 'Homes';
 
-      // Get URL slug for hyperlink (if exists)
-      var override = urlOverrides[n.name] || {};
-      var urlSlug = override.urlSlug || '';
+      // Get URL slug for hyperlink (embedded in neighborhood data during Step 2)
+      var urlSlug = (fullData && fullData.urlSlug) || '';
       var linkIcon = '<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
       var linkTitle = n.name + ' ' + actualTypeLabel + ' for Sale';
       var nameCell = urlSlug
@@ -233,7 +231,6 @@
       'e0e3b36d8e692892.json.b64',
       'f7e6349b564cdbb2.json.b64'
     ],
-    urlOverrides: 'search_id_overrides.json'
   };
 
   // Store neighborhood data globally for hover handlers
@@ -242,7 +239,7 @@
   function loadData() {
     showLoading();
 
-    // Load presets and URL overrides in parallel
+    // Load presets
     var presetsPromise = fetch(baseUrl + jsonFiles.presets)
       .then(function(response) {
         if (!response.ok) throw new Error('Failed to load area presets');
@@ -252,22 +249,9 @@
         return decodeBase64Json(text);
       });
 
-    var urlOverridesPromise = fetch(baseUrl + jsonFiles.urlOverrides)
-      .then(function(response) {
-        if (!response.ok) return {};
-        return response.json();
-      })
-      .catch(function() {
-        console.warn('[NavCards] Failed to load URL overrides, continuing without');
-        return {};
-      });
-
-    Promise.all([presetsPromise, urlOverridesPromise])
-      .then(function(results) {
-        var areaPresets = results[0];
-        var urlOverrides = results[1];
+    presetsPromise
+      .then(function(areaPresets) {
         console.log('[NavCards] Loaded', (areaPresets.presets || []).length, 'area presets');
-        console.log('[NavCards] Loaded', Object.keys(urlOverrides).length, 'URL overrides');
 
         // Load all neighborhood files
         var neighborhoodPromises = jsonFiles.neighborhoods.map(function(file) {
@@ -292,7 +276,7 @@
             allNeighborhoods = allNeighborhoods.concat(neighborhoods);
           });
           console.log('[NavCards] Loaded', allNeighborhoods.length, 'neighborhoods');
-          return { presets: areaPresets, neighborhoods: allNeighborhoods, urlOverrides: urlOverrides };
+          return { presets: areaPresets, neighborhoods: allNeighborhoods };
         });
       })
       .then(function(data) {
@@ -327,7 +311,7 @@
         }
 
         for (var i = 0; i < presets.length; i++) {
-          html += createAreaCard(presets[i], propertyType, data.neighborhoods, data.urlOverrides);
+          html += createAreaCard(presets[i], propertyType, data.neighborhoods);
         }
 
         if (html) {
