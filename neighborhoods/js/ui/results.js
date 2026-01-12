@@ -40,7 +40,7 @@ export function hasActiveFilters() {
 
     // Also check explicit filter states
     if (window.searchQuery) return true;
-    if (fs.propertyType) return true;
+    if (fs.propertyType && fs.propertyType !== 'homes') return true;
     if (fs.areas && fs.areas.size > 0) return true;
     if (fs.amenities && fs.amenities.size > 0) return true;
     if (fs.priceMin > 0 || fs.priceMax < 41) return true;
