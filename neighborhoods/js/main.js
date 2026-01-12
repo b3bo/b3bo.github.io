@@ -1371,6 +1371,24 @@ function initApp() {
     }
 
     // ==========================================
+    // URL PARAM: AUTO-SELECT PROPERTY TYPE FILTER
+    // ==========================================
+    const urlPropertyType = getUrlParams().get('propertyType')?.toLowerCase();
+    if (urlPropertyType && !window.isSingleMode) {
+        const homesBtn = document.getElementById('btn-homes');
+        const condosBtn = document.getElementById('btn-condos');
+        if (urlPropertyType === 'homes' && homesBtn) {
+            homesBtn.classList.add('active');
+            if (condosBtn) condosBtn.classList.remove('active');
+            applyFilters();
+        } else if (urlPropertyType === 'condos' && condosBtn) {
+            condosBtn.classList.add('active');
+            if (homesBtn) homesBtn.classList.remove('active');
+            applyFilters();
+        }
+    }
+
+    // ==========================================
     // DEBOUNCE HELPER
     // ==========================================
     function debounce(func, wait) {
@@ -1821,7 +1839,7 @@ function applySingleModeCenteringFromRenderedCard(markerLatLng, attempt = 0, isI
     // Use the new consolidated centering function from centering.js
     const result = window.applyCenteringFromRenderedCard(markerLatLng, {
         maxRetries: 30,
-        usePaddingMethod: false, // Use full offset recalculation method
+        usePaddingMethod: false, // Use full offset recalculation method (per docs)
         attempt: attempt,
         onComplete: () => {
             window.singleModeOffsetApplied = true;
@@ -2968,10 +2986,18 @@ function showPresetInfoWindowContent(marker, area, targetInfoWindow, options = {
         if (!window.isSingleMode && !skipCentering) {
             setTimeout(() => {
                 if (marker?.position) {
-                    if (window.applyMicroCenteringCorrection) {
-                        window.applyMicroCenteringCorrection(marker.position, 100);
-                    }
-                    if (window.logCenteringDiagnostics) {
+                    // Use full recalc method (usePaddingMethod: false) like neighborhood markers
+                    // This removes the 100px cap that was limiting accuracy for area markers
+                    if (window.applyCenteringFromRenderedCard) {
+                        window.applyCenteringFromRenderedCard(marker.position, {
+                            usePaddingMethod: false,
+                            onComplete: () => {
+                                if (window.logCenteringDiagnostics) {
+                                    window.logCenteringDiagnostics(marker.position);
+                                }
+                            }
+                        });
+                    } else if (window.logCenteringDiagnostics) {
                         window.logCenteringDiagnostics(marker.position);
                     }
                 }

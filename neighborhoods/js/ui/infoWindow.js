@@ -148,11 +148,29 @@ export function showPresetInfoWindowContent(marker, area, targetInfoWindow, opti
         targetInfoWindow.open(window.map, marker);
     }
 
-    // After info window renders: detect overflow
+    // After info window renders: detect overflow AND apply centering (same as neighborhoods)
     google.maps.event.addListenerOnce(targetInfoWindow, 'domready', () => {
         const communitiesEl = document.querySelector('.communities-scroll');
         if (communitiesEl && communitiesEl.scrollHeight > communitiesEl.clientHeight + 4) {
             communitiesEl.classList.add('has-overflow');
+        }
+        // Apply same centering as neighborhood ?marker (full recalc method)
+        if (!window.isSingleMode && !skipCentering && marker?.position) {
+            requestAnimationFrame(() => {
+                if (window.applyCenteringFromRenderedCard) {
+                    window.applyCenteringFromRenderedCard(marker.position, {
+                        maxRetries: 30,
+                        usePaddingMethod: false,  // Full recalc - same as neighborhoods
+                        onComplete: () => {
+                            setTimeout(() => {
+                                if (window.logCenteringDiagnostics) {
+                                    window.logCenteringDiagnostics(marker.position);
+                                }
+                            }, 100);
+                        }
+                    });
+                }
+            });
         }
     });
 }

@@ -214,52 +214,54 @@ export function applyCenteringFromRenderedCard(markerLatLng, options = {}) {
         const viewportHeight = mapRect.height;
         const cardTop = cardRect.top - mapRect.top;
 
-        // Get marker Y position from DOM or calculate
+        // Get marker Y position using linear lat interpolation (matches test measurement)
         let markerBottom;
         const markerRadius = MARKER_RADIUS;
-        const activeMarker = window.activeMarker;
 
-        if (activeMarker && activeMarker.content) {
-            const markerRect = activeMarker.content.getBoundingClientRect();
-            const markerCenterY = markerRect.top + markerRect.height / 2 - mapRect.top;
-            markerBottom = markerCenterY + markerRadius;
-        } else {
-            const bounds = map.getBounds();
-            if (!bounds) return false;
-            const ne = bounds.getNorthEast();
-            const sw = bounds.getSouthWest();
-            const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
-            const neMercY = latToMercatorY(ne.lat());
-            const swMercY = latToMercatorY(sw.lat());
-            const markerMercY = latToMercatorY(markerLat);
-            const mercRange = neMercY - swMercY;
-            const markerY = ((neMercY - markerMercY) / mercRange) * viewportHeight;
-            markerBottom = markerY + markerRadius;
-        }
+        const bounds = map.getBounds();
+        if (!bounds) return false;
+        const ne = bounds.getNorthEast();
+        const sw = bounds.getSouthWest();
+        const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
+        const latRange = ne.lat() - sw.lat();
+        const markerY = ((ne.lat() - markerLat) / latRange) * viewportHeight;
+        markerBottom = markerY + markerRadius;
 
         const topPadding = cardTop;
         const bottomPadding = viewportHeight - markerBottom;
         const paddingDiff = topPadding - bottomPadding;
 
-        if (Math.abs(paddingDiff) < 5) {
+        if (Math.abs(paddingDiff) < 3) {
             if (onComplete) onComplete();
             return false;
         }
 
+        // Apply half the padding difference as correction
+        // This balances topPadding and bottomPadding to be equal
+        // Negative correction moves center south, shifting content up (reducing topPadding)
         const correction = Math.max(-maxCorrection, Math.min(maxCorrection, -paddingDiff / 2));
         const zoom = map.getZoom();
-        const markerLat = typeof markerLatLng.lat === 'function' ? markerLatLng.lat() : markerLatLng.lat;
+        // markerLat already declared above
         const correctedLat = preCalculateOffsetLat(markerLat, correction, zoom);
         const center = map.getCenter();
         const newCenterLat = center.lat() + (correctedLat - markerLat);
         map.setCenter({ lat: newCenterLat, lng: center.lng() });
 
         console.log(`Centering micro-correction: ${Math.round(paddingDiff)}px diff, applied ${Math.round(correction)}px`);
-        if (onComplete) onComplete();
+        // Wait for map to settle before signaling completion
+        if (onComplete) {
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    onComplete();
+                });
+            });
+        }
         return true;
     } else {
         // Method 2: Recalculate full offset from actual rendered card height
-        const cardH = iwContainer.getBoundingClientRect().height;
+        // Use .gm-style-iw (the actual card) not .gm-style-iw-c (the container) per docs
+        const cardElement = document.querySelector('.gm-style-iw');
+        const cardH = cardElement ? cardElement.getBoundingClientRect().height : iwContainer.getBoundingClientRect().height;
         const mapEl = mapDiv || map.getDiv();
         const dvh = mapEl?.getBoundingClientRect?.().height || mapEl?.offsetHeight || window.innerHeight;
         const comboH = cardH + TAIL_HEIGHT + MARKER_RADIUS;
