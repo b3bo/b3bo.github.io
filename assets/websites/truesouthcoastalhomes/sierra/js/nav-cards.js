@@ -460,11 +460,15 @@
   // Initialize
   // ============================================
 
+  function applyContainerStyles() {
+    container.className = 'max-w-6xl mx-auto py-8';
+    container.removeAttribute('style');
+  }
+
   function init() {
     container = document.getElementById('area-cards');
     if (!container) {
       console.warn('[NavCards] Container #area-cards not found, retrying...');
-      // Retry up to 10 times over 5 seconds (for dynamically injected containers)
       var attempts = 0;
       var maxAttempts = 10;
       var retryInterval = setInterval(function() {
@@ -473,7 +477,7 @@
         if (container) {
           console.log('[NavCards] Container found after', attempts, 'attempt(s)');
           clearInterval(retryInterval);
-          // Determine property type from URL path
+          applyContainerStyles();
           var path = window.location.pathname;
           propertyType = path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
           console.log('[NavCards] Property type:', propertyType);
@@ -485,7 +489,7 @@
       }, 500);
       return;
     }
-    // Determine property type from URL path
+    applyContainerStyles();
     var path = window.location.pathname;
     propertyType = path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
     console.log('[NavCards] Container found, property type:', propertyType);
