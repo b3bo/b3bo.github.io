@@ -465,6 +465,15 @@
     container.removeAttribute('style');
   }
 
+  function getPropertyType() {
+    var dataAttr = container.getAttribute('data-property-type');
+    if (dataAttr) {
+      return dataAttr.toLowerCase();
+    }
+    var path = window.location.pathname;
+    return path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
+  }
+
   function init() {
     container = document.getElementById('area-cards');
     if (!container) {
@@ -478,8 +487,7 @@
           console.log('[NavCards] Container found after', attempts, 'attempt(s)');
           clearInterval(retryInterval);
           applyContainerStyles();
-          var path = window.location.pathname;
-          propertyType = path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
+          propertyType = getPropertyType();
           console.log('[NavCards] Property type:', propertyType);
           loadData();
         } else if (attempts >= maxAttempts) {
@@ -490,8 +498,7 @@
       return;
     }
     applyContainerStyles();
-    var path = window.location.pathname;
-    propertyType = path.indexOf('/condo-search/') !== -1 ? 'condos' : 'homes';
+    propertyType = getPropertyType();
     console.log('[NavCards] Container found, property type:', propertyType);
     loadData();
   }
