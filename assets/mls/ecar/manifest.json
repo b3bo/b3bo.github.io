@@ -1,0 +1,21 @@
+{
+  "mls": "ecar",
+  "version": "1.0.0",
+  "neighborhoods": {
+    "destin": "neighborhoods/7ea1bf14d884d192.json.b64",
+    "miramar-beach": "neighborhoods/b762bb338ba328e5.json.b64",
+    "santa-rosa-beach": "neighborhoods/d2ea7fdfc87ff3e7.json.b64",
+    "30a": "neighborhoods/d897c3d107c48ccc.json.b64",
+    "inlet-beach": "neighborhoods/dcb3d8a92cc6eb54.json.b64",
+    "panama-city-beach": "neighborhoods/e0e3b36d8e692892.json.b64",
+    "30a-east": "neighborhoods/f7e6349b564cdbb2.json.b64"
+  },
+  "boundaries": {
+    "32413": "boundaries/6d8bd7c8fa195b94.geojson.b64",
+    "32459": "boundaries/16dd6baad0f8472b.geojson.b64",
+    "32461": "boundaries/7bf2aa05d42b7cdd.geojson.b64",
+    "32541": "boundaries/6d5ffa6c2aa09855.geojson.b64",
+    "32550": "boundaries/f34b5c61529b2439.geojson.b64"
+  },
+  "presets": "presets/areas.json.b64"
+}

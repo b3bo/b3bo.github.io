@@ -1,0 +1,9 @@
+{
+  "mls": {
+    "ecar": {
+      "id": "ecar",
+      "name": "Emerald Coast Association of Realtors",
+      "path": "mls/ecar"
+    }
+  }
+}

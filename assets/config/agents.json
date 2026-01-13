@@ -1,0 +1,11 @@
+{
+  "agents": {
+    "truesouthcoastalhomes": {
+      "id": "truesouthcoastalhomes",
+      "name": "Kimberly Bauman, P.A.",
+      "path": "websites/truesouthcoastalhomes",
+      "mls": ["ecar"],
+      "active": true
+    }
+  }
+}
