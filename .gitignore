@@ -60,3 +60,4 @@ b3bo-font-host/
 Thumbs.db
 *.log
 nul
+_cleanup_backup/
