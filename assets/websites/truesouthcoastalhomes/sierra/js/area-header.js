@@ -48,132 +48,11 @@
   }
 
   /**
-   * Fetch listings from Sierra widget API
+   * Build subdivision search URL for "View All" link
    */
-  function fetchSierraListings(searchId, callback, count) {
-    count = count || 12;
-
-    // Use local test file for dev to avoid CORS and unnecessary production requests
-    var widgetUrl = isLocal
-      ? '/assets/tests/listing-gallery.js'
-      : 'https://www.truesouthcoastalhomes.com/shared/global/sicm/widgets/listing-gallery.js?searchid=' + searchId + '&widget=' + count;
-
-    console.log('[AreaHeader] Fetching listings from:', widgetUrl);
-
-    fetch(widgetUrl)
-      .then(function(r) {
-        console.log('[AreaHeader] Fetch response:', r.status, r.ok);
-        return r.ok ? r.text() : '';
-      })
-      .then(function(html) {
-        console.log('[AreaHeader] Received HTML length:', html.length);
-        var listings = parseSierraWidget(html);
-        console.log('[AreaHeader] Parsed', listings.length, 'listings');
-        callback(listings);
-      })
-      .catch(function(err) {
-        console.error('[AreaHeader] Fetch failed:', err.message || err);
-        callback([]);
-      });
-  }
-
-  /**
-   * Parse listing data from Sierra widget HTML
-   */
-  function parseSierraWidget(html) {
-    var listings = [];
-    if (!html) return listings;
-
-    // Split by sist-listing divs
-    var listingBlocks = html.split('<div class="sist-listing">');
-
-    for (var i = 1; i < listingBlocks.length; i++) {
-      var block = listingBlocks[i];
-
-      // Extract detail URL (contains mlsId and address slug)
-      var urlMatch = block.match(/href="([^"]*\/detail\/40\/(\d+)\/([^\/]+)\/)"/);
-      if (!urlMatch) continue;
-
-      var detailUrl = urlMatch[1];
-      var mlsId = urlMatch[2];
-      var addressSlug = urlMatch[3];
-
-      // Parse address from slug: "282-w-lafayette-rd-inlet-beach-fl-32461"
-      var addressParts = parseAddressSlug(addressSlug);
-
-      // Extract price
-      var priceMatch = block.match(/class="sist-info-left price">\$([^<]+)</);
-      var price = priceMatch ? parseInt(priceMatch[1].replace(/,/g, ''), 10) : 0;
-
-      // Extract city from title attribute
-      var cityMatch = block.match(/title="([^,]+),\s*FL"/);
-      var city = cityMatch ? cityMatch[1] : addressParts.city;
-
-      // Extract beds and baths
-      var bedsMatch = block.match(/>Beds<\/span><span[^>]*>(\d+)</);
-      var bathsMatch = block.match(/>Baths<\/span><span[^>]*>(\d+)</);
-      var beds = bedsMatch ? parseInt(bedsMatch[1], 10) : 0;
-      var baths = bathsMatch ? parseInt(bathsMatch[1], 10) : 0;
-
-      listings.push({
-        mlsId: mlsId,
-        price: price,
-        streetAddress: addressParts.street,
-        city: city,
-        state: 'FL',
-        zip: addressParts.zip,
-        beds: beds,
-        baths: baths,
-        detailUrl: detailUrl  // Use Sierra's URL directly
-      });
-    }
-
-    return listings;
-  }
-
-  /**
-   * Parse address components from URL slug
-   * e.g., "282-w-lafayette-rd-inlet-beach-fl-32461"
-   */
-  function parseAddressSlug(slug) {
-    var parts = slug.split('-');
-    var zip = '';
-    var state = '';
-    var city = '';
-    var street = '';
-
-    // Last part is zip (5 digits)
-    if (parts.length > 0 && /^\d{5}$/.test(parts[parts.length - 1])) {
-      zip = parts.pop();
-    }
-
-    // Second to last is state (2 letters)
-    if (parts.length > 0 && /^[a-z]{2}$/i.test(parts[parts.length - 1])) {
-      state = parts.pop().toUpperCase();
-    }
-
-    // Find city - typically last 1-2 words before state
-    // Common cities: inlet-beach, santa-rosa-beach, miramar-beach, destin, panama-city-beach
-    var cityWords = [];
-    while (parts.length > 0) {
-      var word = parts[parts.length - 1].toLowerCase();
-      if (word === 'beach' || word === 'city' || word === 'inlet' || word === 'rosa' ||
-          word === 'santa' || word === 'miramar' || word === 'panama' || word === 'destin') {
-        cityWords.unshift(parts.pop());
-      } else {
-        break;
-      }
-    }
-    city = cityWords.map(function(w) {
-      return w.charAt(0).toUpperCase() + w.slice(1);
-    }).join(' ');
-
-    // Rest is street address
-    street = parts.map(function(w) {
-      return w.charAt(0).toUpperCase() + w.slice(1);
-    }).join(' ');
-
-    return { street: street, city: city, state: state, zip: zip };
+  function buildSubdivisionUrl(subdivisionName) {
+    var encoded = subdivisionName.replace(/ /g, '+');
+    return 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&subdivision=' + encoded;
   }
 
   function renderHeader(data) {
@@ -269,7 +148,7 @@
         '<h2>' + areaName + ' Market Stats</h2>' +
       '</div>' +
 
-      // Section 8: Listings (heading updated dynamically after render)
+      // Section 8: Listings
       '<div id="listings" class="si-content-area">' +
         '<h2 id="listings-heading"></h2>' +
         '<div id="listing-gallery"></div>' +
@@ -281,33 +160,16 @@
       listingsHeading.textContent = listingCount + ' Active ' + propertyType.charAt(0).toUpperCase() + propertyType.slice(1) + ' for Sale in ' + areaName;
     }
 
-    // Fetch and render listings from Sierra widget
-    if (typeof ListingCard !== 'undefined' && searchId) {
-      fetchSierraListings(searchId, function(listings) {
-        if (listings.length > 0) {
-          // Add subdivision name for display
-          var cardListings = listings.slice(0, 12).map(function(l) {
-            l.subdivision = areaName;
-            return l;
-          });
-          ListingCard.render('#listing-gallery', cardListings, { columns: 3 });
-          console.log('[AreaHeader] Rendered', cardListings.length, 'listings from Sierra widget');
-        } else {
-          console.warn('[AreaHeader] No listings returned from Sierra widget');
-          var gallery = document.getElementById('listing-gallery');
-          if (gallery) {
-            gallery.innerHTML = '<p><a href="https://www.truesouthcoastalhomes.com/property-search/results/?searchid=' + searchId + '" target="_blank">View all listings</a></p>';
-          }
-        }
-      });
-    } else if (!searchId) {
-      console.warn('[AreaHeader] No searchId available for listings');
-    } else {
-      console.warn('[AreaHeader] ListingCard component not loaded');
-      var gallery = document.getElementById('listing-gallery');
-      if (gallery && searchId) {
-        gallery.innerHTML = '<p><a href="https://www.truesouthcoastalhomes.com/property-search/results/?searchid=' + searchId + '" target="_blank">View all listings</a></p>';
-      }
+    // Add "View All Listings" link
+    var gallery = document.getElementById('listing-gallery');
+    if (gallery) {
+      var searchUrl = buildSubdivisionUrl(areaName);
+      gallery.innerHTML =
+        '<div class="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">' +
+          '<p class="text-gray-600 mb-4">' + listingCount + ' active listings in ' + areaName + '</p>' +
+          '<a href="' + searchUrl + '" target="_blank" class="text-primary underline">View All ' + areaName + ' Listings</a>' +
+        '</div>';
+      console.log('[AreaHeader] Listings link:', searchUrl);
     }
   }
 
