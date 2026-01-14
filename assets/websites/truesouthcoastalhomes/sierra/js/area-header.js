@@ -48,11 +48,13 @@
   }
 
   /**
-   * Build subdivision search URL for "View All" link
+   * Build subdivision search URL for iframe/link
    */
-  function buildSubdivisionUrl(subdivisionName) {
+  function buildSubdivisionUrl(subdivisionName, forEmbed) {
     var encoded = subdivisionName.replace(/ /g, '+');
-    return 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&subdivision=' + encoded;
+    var url = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&subdivision=' + encoded;
+    if (forEmbed) url += '&embed=true';
+    return url;
   }
 
   function renderHeader(data) {
@@ -151,7 +153,9 @@
       // Section 8: Listings
       '<div id="listings" class="si-content-area">' +
         '<h2 id="listings-heading"></h2>' +
-        '<div id="listing-gallery"></div>' +
+        '<div id="listing-gallery">' +
+          (isLocal ? '' : '<iframe id="listing-iframe" src="" style="width:100%; min-height:800px; border:none;"></iframe>') +
+        '</div>' +
       '</div>';
 
     // Update listings heading with count from neighborhood JSON
@@ -160,16 +164,27 @@
       listingsHeading.textContent = listingCount + ' Active ' + propertyType.charAt(0).toUpperCase() + propertyType.slice(1) + ' for Sale in ' + areaName;
     }
 
-    // Add "View All Listings" link
+    // Load listings - iframe on prod, link on local
     var gallery = document.getElementById('listing-gallery');
     if (gallery) {
-      var searchUrl = buildSubdivisionUrl(areaName);
-      gallery.innerHTML =
-        '<div class="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">' +
-          '<p class="text-gray-600 mb-4">' + listingCount + ' active listings in ' + areaName + '</p>' +
-          '<a href="' + searchUrl + '" target="_blank" class="text-primary underline">View All ' + areaName + ' Listings</a>' +
-        '</div>';
-      console.log('[AreaHeader] Listings link:', searchUrl);
+      if (isLocal) {
+        // Local: show link (iframe blocked cross-origin)
+        var searchUrl = buildSubdivisionUrl(areaName, false);
+        gallery.innerHTML =
+          '<div class="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">' +
+            '<p class="text-gray-600 mb-4">' + listingCount + ' active listings in ' + areaName + '</p>' +
+            '<a href="' + searchUrl + '" target="_blank" class="text-primary underline">View All ' + areaName + ' Listings</a>' +
+          '</div>';
+        console.log('[AreaHeader] Local mode - link:', searchUrl);
+      } else {
+        // Prod: load iframe with embed mode
+        var iframe = document.getElementById('listing-iframe');
+        if (iframe) {
+          var embedUrl = buildSubdivisionUrl(areaName, true);
+          iframe.src = embedUrl;
+          console.log('[AreaHeader] Iframe loaded:', embedUrl);
+        }
+      }
     }
   }
 
