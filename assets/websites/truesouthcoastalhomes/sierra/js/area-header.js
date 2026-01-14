@@ -52,7 +52,7 @@
    */
   function buildSubdivisionUrl(subdivisionName, forEmbed) {
     var encoded = subdivisionName.replace(/ /g, '+');
-    var url = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=3&subdivision=' + encoded;
+    var url = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&subdivision=' + encoded;
     if (forEmbed) url += '&embed=true';
     return url;
   }
