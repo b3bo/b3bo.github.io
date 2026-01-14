@@ -75,13 +75,13 @@
     var rawTitle = h1 ? h1.textContent.trim() : document.title;
     var pageTitle = toProperCase(rawTitle);
 
-    // Format directory for display (uppercase)
-    var directoryDisplay = directory.toUpperCase();
+    // Format directory for display (Proper Case)
+    var directoryDisplay = toProperCase(directory.replace(/-/g, ' '));
 
     var breadcrumbHtml = [
       '<nav aria-label="Breadcrumb" class="mt-2 mb-4">',
       '<div class="breadcrumb-items flex justify-center items-center px-4 space-x-2 md:space-x-4 font-body text-neutral-700">',
-      '<a href="/" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500"><i class="fa fa-home"></i></a>',
+      '<a href="/" class="text-primary-600 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500"><i class="fa fa-home"></i></a>',
       '<svg class="w-4 h-4 text-neutral-400 flex-shrink-0" style="width: 1rem; height: 1rem;" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">',
       '<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>',
       '</svg>',
@@ -94,8 +94,8 @@
       '</nav>'
     ].join('');
 
-    // Insert after H2 if exists, otherwise after H1
-    var h2 = document.querySelector('.si-content-area h2, .main-content h2, h2');
+    // Insert after H2 if it's a direct sibling of H1, otherwise after H1
+    var h2 = h1 ? h1.parentElement.querySelector('h1 ~ h2') : null;
     var insertTarget = h2 || h1;
     if (insertTarget) {
       insertTarget.insertAdjacentHTML('afterend', breadcrumbHtml);
