@@ -69,6 +69,39 @@ html {
   font-size: 100%;
 }
 
+/**
+ * Content Area Container
+ * --------------------------------------------------------------------------
+ * Matches Sierra's Bootstrap container widths for consistent layout.
+ */
+
+.si-content-area {
+  width: 100%;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 1199px) {
+  .si-content-area {
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 991px) {
+  .si-content-area {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767px) {
+  .si-content-area {
+    max-width: 100%;
+  }
+}
+
 
 /* ==========================================================================
    2. TYPOGRAPHY
@@ -1430,4 +1463,42 @@ h2 {
 .tag-icon {
   flex-shrink: 0;
   color: var(--color-primary-600);
+}
+
+
+/* --------------------------------------------------------------------------
+   10.5 Header Container Alignment
+   -------------------------------------------------------------------------- */
+
+/**
+ * Header Container
+ * --------------------------------------------------------------------------
+ * Override header container to match .si-content-area widths for
+ * consistent logo alignment with page content.
+ */
+
+header .container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 1199px) {
+  header .container {
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 991px) {
+  header .container {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767px) {
+  header .container {
+    max-width: 100%;
+  }
 }
