@@ -12,7 +12,7 @@
 
   // Use local files for dev, remote for production
   var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  var mlsBaseUrl = isLocal ? '/assets/mls/ecar/' : 'https://neighborhoods.truesouthcoastalhomes.com/';
+  var mlsBaseUrl = isLocal ? '/assets/mls/ecar/' : 'https://neighborhoods.truesouthcoastalhomes.com/assets/mls/ecar/';
 
   var jsonFiles = {
     neighborhoods: [
