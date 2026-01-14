@@ -154,7 +154,7 @@
       '<div id="listings" class="si-content-area">' +
         '<h2 id="listings-heading"></h2>' +
         '<div id="listing-gallery">' +
-          (isLocal ? '' : '<iframe id="listing-iframe" src="" style="width:100%; min-height:800px; border:none;"></iframe>') +
+          (isLocal ? '' : '<iframe id="listing-iframe" src="" style="width:100%; height:2000px; border:none;"></iframe>') +
         '</div>' +
       '</div>';
 
