@@ -58,23 +58,30 @@
   // Breadcrumb Navigation
   // ============================================
 
+  function toProperCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
   function renderBreadcrumb() {
     // Get directory from URL path (e.g., "pcb" from "/pcb/home-search-menu/")
     var path = window.location.pathname;
     var parts = path.split('/').filter(function(p) { return p; });
     var directory = parts.length > 0 ? parts[0] : '';
 
-    // Get page title from H1
+    // Get page title from H1, convert to Proper Case
     var h1 = document.querySelector('h1');
-    var pageTitle = h1 ? h1.textContent.trim() : document.title;
+    var rawTitle = h1 ? h1.textContent.trim() : document.title;
+    var pageTitle = toProperCase(rawTitle);
 
     // Format directory for display (uppercase)
     var directoryDisplay = directory.toUpperCase();
 
     var breadcrumbHtml = [
-      '<nav aria-label="Breadcrumb" class="mb-4">',
+      '<nav aria-label="Breadcrumb" class="mt-2 mb-4">',
       '<div class="breadcrumb-items flex justify-center items-center px-4 space-x-2 md:space-x-4 font-body text-neutral-700">',
-      '<a href="/" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500">Home</a>',
+      '<a href="/" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500"><i class="fa fa-home"></i></a>',
       '<svg class="w-4 h-4 text-neutral-400 flex-shrink-0" style="width: 1rem; height: 1rem;" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">',
       '<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>',
       '</svg>',
@@ -87,10 +94,12 @@
       '</nav>'
     ].join('');
 
-    // Insert before H1
-    if (h1) {
-      h1.insertAdjacentHTML('beforebegin', breadcrumbHtml);
-      console.log('[NavCards] Rendered breadcrumb');
+    // Insert after H2 if exists, otherwise after H1
+    var h2 = document.querySelector('.si-content-area h2, .main-content h2, h2');
+    var insertTarget = h2 || h1;
+    if (insertTarget) {
+      insertTarget.insertAdjacentHTML('afterend', breadcrumbHtml);
+      console.log('[NavCards] Rendered breadcrumb after', h2 ? 'H2' : 'H1');
     }
   }
 
@@ -359,12 +368,18 @@
         tagBarHtml += tagLinks;
         tagBarHtml += '</div></div>';
 
-        // Insert after page H1 (Home Search heading)
-        var pageH1 = document.querySelector('h1');
-        if (pageH1) {
-          pageH1.insertAdjacentHTML('afterend', tagBarHtml);
+        // Insert after breadcrumb (which is after H2 or H1)
+        var breadcrumbNav = document.querySelector('nav[aria-label="Breadcrumb"]');
+        if (breadcrumbNav) {
+          breadcrumbNav.insertAdjacentHTML('afterend', tagBarHtml);
         } else {
-          html += tagBarHtml;
+          // Fallback: insert after H1 if breadcrumb not found
+          var pageH1 = document.querySelector('h1');
+          if (pageH1) {
+            pageH1.insertAdjacentHTML('afterend', tagBarHtml);
+          } else {
+            html += tagBarHtml;
+          }
         }
 
         for (var i = 0; i < presets.length; i++) {
