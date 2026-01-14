@@ -1214,3 +1214,220 @@ h2 {
 .css-16xp66h {
   background-color: #4c8f96;
 }
+
+
+/* ==========================================================================
+   10. AREA HEADER COMPONENTS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   10.1 Hero Section Layout
+   -------------------------------------------------------------------------- */
+
+/**
+ * Hero Section Container
+ * --------------------------------------------------------------------------
+ * Main hero container with mobile-first column-reverse layout.
+ * Switches to side-by-side row layout on tablet and up.
+ */
+
+.hero-section {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-inline: auto;
+  margin-top: calc(var(--spacing, .25rem) * 4);
+  margin-bottom: calc(var(--spacing, .25rem) * 4);
+  padding-inline: calc(var(--spacing, .25rem) * 5);
+  max-width: var(--container-7xl, 80rem);
+}
+
+@media (min-width: 48rem) {
+  .hero-section {
+    flex-direction: row;
+    margin-top: calc(var(--spacing, .25rem) * 9);
+  }
+}
+
+/**
+ * Hero Content Column
+ * --------------------------------------------------------------------------
+ * Text content column with H1 and CTA button.
+ * Expands to half-width on tablet with right padding.
+ */
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 48rem) {
+  .hero-content {
+    width: 50%;
+    margin-bottom: 0;
+    align-items: flex-start;
+    padding-right: calc(var(--spacing, .25rem) * 16);
+    text-align: left;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero-content {
+    flex-grow: 1;
+    padding-right: calc(var(--spacing, .25rem) * 24);
+  }
+}
+
+/**
+ * Hero CTA Group
+ * --------------------------------------------------------------------------
+ * Centered button wrapper for call-to-action buttons.
+ */
+
+.hero-cta-group {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--spacing, .25rem) * 4);
+}
+
+/**
+ * Hero Image Column
+ * --------------------------------------------------------------------------
+ * Image container column with responsive width behavior.
+ * Uses with .hero-image for aspect ratio styling.
+ */
+
+.hero-image-col {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 48rem) {
+  .hero-image-col {
+    width: 50%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero-image-col {
+    width: 100%;
+    max-width: var(--container-lg, 32rem);
+  }
+}
+
+/**
+ * Hero Image Styling
+ * --------------------------------------------------------------------------
+ * Image element styling within hero (extends base .hero-image).
+ */
+
+.hero-image img {
+  border-radius: var(--radius, 0.375rem);
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 10/6;
+}
+
+
+/* --------------------------------------------------------------------------
+   10.2 Breadcrumb Enhancement
+   -------------------------------------------------------------------------- */
+
+/**
+ * Breadcrumb Navigation Container
+ * --------------------------------------------------------------------------
+ * Outer wrapper for breadcrumb with centering and spacing.
+ */
+
+.breadcrumb-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--spacing, .25rem) * 4);
+  padding-inline: calc(var(--spacing, .25rem) * 4);
+  font-family: var(--font-body);
+  color: var(--color-neutral-700);
+}
+
+.breadcrumb-nav .breadcrumb-items {
+  gap: calc(var(--spacing, .25rem) * 2);
+}
+
+@media (min-width: 48rem) {
+  .breadcrumb-nav .breadcrumb-items {
+    gap: calc(var(--spacing, .25rem) * 4);
+  }
+}
+
+/**
+ * Breadcrumb Chevron Icon
+ * --------------------------------------------------------------------------
+ * SVG separator icon between breadcrumb items.
+ */
+
+.breadcrumb-chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--color-neutral-400);
+}
+
+/**
+ * Breadcrumb Current Page
+ * --------------------------------------------------------------------------
+ * Current page indicator with muted text color.
+ */
+
+.breadcrumb-current {
+  color: var(--color-neutral-500);
+}
+
+
+/* --------------------------------------------------------------------------
+   10.3 Button Group Wrapper
+   -------------------------------------------------------------------------- */
+
+/**
+ * Button Group Wrapper
+ * --------------------------------------------------------------------------
+ * Centering container for button groups.
+ */
+
+.button-group-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* --------------------------------------------------------------------------
+   10.4 Tags Section
+   -------------------------------------------------------------------------- */
+
+/**
+ * Tags Section Container
+ * --------------------------------------------------------------------------
+ * Wrapper for tag list with vertical spacing.
+ */
+
+.tags-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--spacing, .25rem) * 2);
+  margin-bottom: calc(var(--spacing, .25rem) * 8);
+  padding-inline: calc(var(--spacing, .25rem) * 4);
+}
+
+/**
+ * Tag Icon
+ * --------------------------------------------------------------------------
+ * Font Awesome tag icon styling.
+ */
+
+.tag-icon {
+  flex-shrink: 0;
+  color: var(--color-primary-600);
+}
