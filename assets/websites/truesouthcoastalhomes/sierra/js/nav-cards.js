@@ -55,6 +55,46 @@
   }
 
   // ============================================
+  // Breadcrumb Navigation
+  // ============================================
+
+  function renderBreadcrumb() {
+    // Get directory from URL path (e.g., "pcb" from "/pcb/home-search-menu/")
+    var path = window.location.pathname;
+    var parts = path.split('/').filter(function(p) { return p; });
+    var directory = parts.length > 0 ? parts[0] : '';
+
+    // Get page title from H1
+    var h1 = document.querySelector('h1');
+    var pageTitle = h1 ? h1.textContent.trim() : document.title;
+
+    // Format directory for display (uppercase)
+    var directoryDisplay = directory.toUpperCase();
+
+    var breadcrumbHtml = [
+      '<nav aria-label="Breadcrumb" class="mb-4">',
+      '<div class="breadcrumb-items flex justify-center items-center px-4 space-x-2 md:space-x-4 font-body text-neutral-700">',
+      '<a href="/" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500">Home</a>',
+      '<svg class="w-4 h-4 text-neutral-400 flex-shrink-0" style="width: 1rem; height: 1rem;" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">',
+      '<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>',
+      '</svg>',
+      '<a href="/' + directory + '/" class="hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500 directory-link">' + directoryDisplay + '</a>',
+      '<svg class="w-4 h-4 text-neutral-400 flex-shrink-0" style="width: 1rem; height: 1rem;" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">',
+      '<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>',
+      '</svg>',
+      '<span class="text-neutral-500" aria-current="page">' + pageTitle + '</span>',
+      '</div>',
+      '</nav>'
+    ].join('');
+
+    // Insert before H1
+    if (h1) {
+      h1.insertAdjacentHTML('beforebegin', breadcrumbHtml);
+      console.log('[NavCards] Rendered breadcrumb');
+    }
+  }
+
+  // ============================================
   // Show Loading State
   // ============================================
 
@@ -240,6 +280,7 @@
   var globalNeighborhoodData = [];
 
   function loadData() {
+    renderBreadcrumb();
     showLoading();
 
     // Load presets and URL overrides in parallel
