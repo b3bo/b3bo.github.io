@@ -7,52 +7,33 @@
  * for better maintainability and caching.
  */
 
-// ============================================================
-// SECURITY: UI Hardening (disable dev tools unless ?debug=true)
-// ============================================================
 (function () {
     const urlParams = new URLSearchParams(window.location.search.replace(/&amp;/g, '&'));
-    const debugMode = urlParams.get('debug') === 'true';
+    if (urlParams.get('debug') === 'true') return;
 
-    if (debugMode) {
-        console.log('🔓 Debug mode: Developer tools enabled');
-        return; // Skip all security restrictions
-    }
-
-    // Block right-click context menu
     document.addEventListener('contextmenu', e => {
         e.preventDefault();
         return false;
     });
 
-    // Block developer tools keyboard shortcuts (using modern event.key)
     document.addEventListener('keydown', e => {
-        // F12
         if (e.key === 'F12') {
             e.preventDefault();
             return false;
         }
-
-        // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Dev Tools)
         if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
             e.preventDefault();
             return false;
         }
-
-        // Ctrl+U (View Source)
         if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
             e.preventDefault();
             return false;
         }
-
-        // Ctrl+S (Save Page)
         if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
             e.preventDefault();
             return false;
         }
     });
-
-    console.log('🔒 Security: UI hardening active');
 })();
 
 // Helper: Parse URL params with HTML entity decoding (handles &amp; from WYSIWYG editors)

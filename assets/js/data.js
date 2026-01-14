@@ -7,21 +7,6 @@
 import { CONFIG } from './config.js';
 
 export async function loadNeighborhoods() {
-    // Domain Lock: Prevent running on unauthorized domains
-    // Currently in "Soft Mode" (Logging only) to troubleshoot local environments
-    const allowedDomains = ['b3bo.github.io', 'localhost', '127.0.0.1'];
-    const currentDomain = window.location.hostname;
-
-    // Log for debugging
-    // console.log(`[Security] Current Domain: "${currentDomain}"`);
-
-    // If domain is not empty (not file://) and not in allowed list
-    if (currentDomain && !allowedDomains.some(d => currentDomain.includes(d))) {
-        // console.error(`[Security] Unauthorized domain detected: ${currentDomain}. Data loading would be blocked in Strict Mode.`);
-        // In Strict Mode, we would: return [];
-        // For now, we allow it to proceed but log the violation.
-    }
-
     const files = CONFIG.data.neighborhoodFiles;
 
     let allNeighborhoods = [];

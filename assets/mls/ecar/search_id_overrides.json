@@ -124,6 +124,11 @@
     ],
     "searchId": "3579851"
   },
+  "Arroya-Casa": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Audubon Point": {
     "urlSlug": "",
     "variants": [
@@ -265,6 +270,11 @@
     "variants": [],
     "searchId": ""
   },
+  "Bayou Preserve": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Bayou Village": {
     "urlSlug": "/sandestin/bayou-village/",
     "variants": [
@@ -356,6 +366,11 @@
       "BEACH COMMERCE PARK"
     ],
     "searchId": "7126140"
+  },
+  "Beach Haven Cottages": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
   },
   "Beach Highland": {
     "urlSlug": "",
@@ -533,6 +548,11 @@
       "BLUE FISH"
     ],
     "searchId": "7126167"
+  },
+  "Blue Gulf": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
   },
   "Blue Gulf Resort": {
     "urlSlug": "",
@@ -2187,6 +2207,11 @@
     "variants": [],
     "searchId": ""
   },
+  "Henderson Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Heritage Dunes": {
     "urlSlug": "/30a/heritage-dunes/",
     "searchId": "3579875",
@@ -2369,6 +2394,11 @@
     ],
     "searchId": "385900"
   },
+  "Indian Cove": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Indian Creek": {
     "urlSlug": "",
     "variants": [],
@@ -2446,11 +2476,6 @@
       "INLET HEIGHTS"
     ],
     "searchId": "7100499"
-  },
-  "Inlet Palms": {
-    "urlSlug": "",
-    "variants": [],
-    "searchId": ""
   },
   "Inlet Reef Club": {
     "urlSlug": "/holiday-isle/inlet-reef-club/",
@@ -2536,6 +2561,11 @@
     "searchId": "406674"
   },
   "Joes Bayou": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Journeys End": {
     "urlSlug": "",
     "variants": [],
     "searchId": ""
@@ -2686,6 +2716,11 @@
       "LAKEWOOD ESTATES"
     ],
     "searchId": "7100435"
+  },
+  "Lakewood Pointe Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
   },
   "Lakewood of Seagrove Beach": {
     "urlSlug": "",
@@ -3059,6 +3094,11 @@
     "variants": [],
     "searchId": ""
   },
+  "Monarch Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Moores Landing": {
     "urlSlug": "",
     "variants": [],
@@ -3174,6 +3214,11 @@
     ],
     "searchId": "378428"
   },
+  "Ocean Estates": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Ocean Reef": {
     "urlSlug": "",
     "variants": [],
@@ -3220,6 +3265,16 @@
       "OLD FLORIDA VILLAGE"
     ],
     "searchId": "7100331"
+  },
+  "Old Miller Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Old Seagrove Beach": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
   },
   "Olde Florida Lakes": {
     "urlSlug": "",
@@ -3366,6 +3421,16 @@
     "variants": [],
     "searchId": ""
   },
+  "Paradise Too": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Park Place": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Park Place at Inlet Beach": {
     "urlSlug": "",
     "searchId": "7100334",
@@ -3395,6 +3460,11 @@
     "searchId": ""
   },
   "Peach Creek": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Peachtree Farms": {
     "urlSlug": "",
     "variants": [],
     "searchId": ""
@@ -3468,6 +3538,11 @@
       "PINE RIDGE VILLAS"
     ],
     "searchId": "377881"
+  },
+  "Pine Trace": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
   },
   "Pinecrest at Inlet Beach": {
     "urlSlug": "",
@@ -3744,6 +3819,11 @@
     "searchId": ""
   },
   "Rileys Bayview": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "River Bend": {
     "urlSlug": "",
     "variants": [],
     "searchId": ""
@@ -4257,6 +4337,11 @@
     "variants": [],
     "searchId": ""
   },
+  "Seaview": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "Seawinds": {
     "urlSlug": "",
     "variants": [],
@@ -4396,6 +4481,11 @@
     "variants": [],
     "searchId": ""
   },
+  "South Haven": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
   "South Shores": {
     "urlSlug": "",
     "variants": [
@@ -4521,6 +4611,11 @@
     "searchId": ""
   },
   "Stonegate Villas": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
+  },
+  "Sugar Cliffs": {
     "urlSlug": "",
     "variants": [],
     "searchId": ""
@@ -5060,6 +5155,11 @@
       "VIZCAYA AT DUNE ALLEN"
     ],
     "searchId": "7080716"
+  },
+  "Walton Dunes": {
+    "urlSlug": "",
+    "variants": [],
+    "searchId": ""
   },
   "Walton On 30A": {
     "urlSlug": "",
