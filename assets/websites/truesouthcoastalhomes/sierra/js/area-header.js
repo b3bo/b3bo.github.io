@@ -179,7 +179,7 @@
   function renderHeader(data) {
     var areaName = data.name || 'Community';
     var directory = data.directory || '';
-    var city = data.city || 'Florida';
+    var city = data.city || 'Emerald Coast';
     var propertyType = formatPropertyTypeLabel(data.propertyType);
     var heroImage = data.heroImage || '';
     var amenities = data.amenities || [];
@@ -429,7 +429,7 @@
           renderHeader({
             name: parts.length > 1 ? parts[1].replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); }) : 'Community',
             directory: parts.length > 0 ? parts[0].toUpperCase() : '',
-            city: 'Florida',
+            city: 'Emerald Coast',
             propertyType: 'homes',
             heroImage: '',
             amenities: []
