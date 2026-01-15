@@ -4,10 +4,10 @@
    Activated by body.embed-mode class
    ======================================== */
 
-/* Hide page chrome */
-body.embed-mode header,
-body.embed-mode footer,
-body.embed-mode nav,
+/* Hide page chrome - be specific to avoid hiding card components */
+body.embed-mode > header,
+body.embed-mode > footer,
+body.embed-mode > nav,
 body.embed-mode .site-header,
 body.embed-mode .site-footer,
 body.embed-mode .si-header,
@@ -20,11 +20,14 @@ body.embed-mode #footer,
 body.embed-mode #navigation,
 body.embed-mode .breadcrumb,
 body.embed-mode .page-header,
-body.embed-mode [class*="header"],
-body.embed-mode [class*="footer"],
-body.embed-mode [class*="navbar"],
-body.embed-mode [id*="header"],
-body.embed-mode [id*="footer"] {
+body.embed-mode [class*="site-header"],
+body.embed-mode [class*="site-footer"],
+body.embed-mode [class*="main-header"],
+body.embed-mode [class*="main-footer"],
+body.embed-mode [class*="page-header"],
+body.embed-mode [class*="page-footer"],
+body.embed-mode [id*="site-header"],
+body.embed-mode [id*="site-footer"] {
   @apply hidden;
 }
 
@@ -143,16 +146,27 @@ body.embed-mode [data-testid="gallery-item"] [class*="gallery-bullet"] {
   @apply hidden;
 }
 
-/* Hide status container strip */
+/* Make status/favorite container transparent (keep heart visible) */
 body.embed-mode [data-testid="gallery-item"] [class*="status-favorite-container"],
-body.embed-mode [data-testid="gallery-item"] [class*="status-text"] {
-  @apply hidden;
+body.embed-mode [data-testid="gallery-item"] [class*="StatusFavorite"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Hide status text only */
+body.embed-mode [data-testid="gallery-item"] [class*="status-text"],
+body.embed-mode [data-testid="gallery-item"] [class*="property-status"],
+body.embed-mode [data-testid="gallery-item"] [class*="PropertyStatus"] {
+  display: none !important;
 }
 
 /* Show favorite heart button */
 body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"],
-body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"] i {
-  @apply block text-white opacity-100;
+body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"] i,
+body.embed-mode [data-testid="gallery-item"] [class*="PropertyFavorite"] {
+  display: block !important;
+  color: white !important;
+  opacity: 1 !important;
 }
 
 /* Full width containers - no padding */

@@ -18,12 +18,30 @@
   critical.textContent = [
     'body.embed-mode { opacity: 0; }',
     'body.embed-mode.ready { opacity: 1; transition: opacity 0.1s; }',
-    'body.embed-mode header, body.embed-mode footer, body.embed-mode nav { display: none !important; }',
-    'body.embed-mode [class*="header"], body.embed-mode [class*="footer"], body.embed-mode [class*="navbar"] { display: none !important; }',
+    'body.embed-mode > header, body.embed-mode > footer, body.embed-mode > nav { display: none !important; }',
+    'body.embed-mode .site-header, body.embed-mode .site-footer, body.embed-mode .navbar { display: none !important; }',
     'body.embed-mode [class*="si-header"], body.embed-mode [class*="si-footer"] { display: none !important; }',
     'body.embed-mode { padding-top: 0 !important; margin-top: 0 !important; }'
   ].join(' ');
   document.head.appendChild(critical);
+
+  // Preconnect to Google Fonts for faster loading
+  var preconnect1 = document.createElement('link');
+  preconnect1.rel = 'preconnect';
+  preconnect1.href = 'https://fonts.googleapis.com';
+  document.head.appendChild(preconnect1);
+
+  var preconnect2 = document.createElement('link');
+  preconnect2.rel = 'preconnect';
+  preconnect2.href = 'https://fonts.gstatic.com';
+  preconnect2.crossOrigin = 'anonymous';
+  document.head.appendChild(preconnect2);
+
+  // Load Google Fonts (Roboto - matching area-cards)
+  var fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap';
+  document.head.appendChild(fontLink);
 
   // Load compiled Tailwind CSS from CDN (includes listing-cards.css)
   var link = document.createElement('link');
