@@ -25,20 +25,18 @@ body.embed-mode [class*="footer"],
 body.embed-mode [class*="navbar"],
 body.embed-mode [id*="header"],
 body.embed-mode [id*="footer"] {
-  display: none !important;
+  @apply hidden;
 }
 
 /* Reset body spacing */
 body.embed-mode {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  @apply pt-0 mt-0;
 }
 
 body.embed-mode .container,
 body.embed-mode .content-wrapper,
 body.embed-mode main {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  @apply pt-0 mt-0;
 }
 
 /* Remove sticky/fixed positioning */
@@ -46,7 +44,7 @@ body.embed-mode [style*="position: fixed"],
 body.embed-mode [style*="position: sticky"],
 body.embed-mode .sticky,
 body.embed-mode .fixed {
-  position: static !important;
+  @apply static;
 }
 
 /* Reset listing results positioning */
@@ -56,56 +54,57 @@ body.embed-mode .si-results-grid,
 body.embed-mode [class*="listing-results"],
 body.embed-mode [class*="search-results"],
 body.embed-mode [class*="results-grid"] {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  position: relative !important;
-  top: 0 !important;
+  @apply mt-0 pt-0 relative top-0;
 }
 
 /* Card styling - clean borders, no shadows */
-/* Sierra uses data-testid="gallery-item" and CSS module classes */
 body.embed-mode [data-testid="gallery-item"],
 body.embed-mode [class*="property-item-container"] {
-  box-shadow: none !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 0.5rem !important;
-  overflow: hidden !important;
-  background: #fff !important;
-  outline: none !important;
+  @apply shadow-none border border-neutral-300 rounded-lg overflow-hidden bg-white outline-none;
+}
+
+/* Remove focus/selection states */
+body.embed-mode [data-testid="gallery-item"]:focus,
+body.embed-mode [data-testid="gallery-item"]:focus-visible,
+body.embed-mode [data-testid="gallery-item"]:focus-within,
+body.embed-mode [data-testid="gallery-item"][class*="outline"],
+body.embed-mode [data-testid="gallery-item"][class*="shadow-brand"] {
+  @apply outline-none shadow-none border border-neutral-300;
 }
 
 /* Card hover state */
 body.embed-mode [data-testid="gallery-item"]:hover,
 body.embed-mode [class*="property-item-container"]:hover {
-  box-shadow: none !important;
-  border-color: #4c8f96 !important;
-  outline: none !important;
+  @apply shadow-none border-primary-600 outline-none;
 }
 
 /* Remove shadows from all card children */
 body.embed-mode [data-testid="gallery-item"] *,
 body.embed-mode [class*="property-item-container"] * {
-  box-shadow: none !important;
+  @apply shadow-none;
 }
 
 /* Remove shadows from all buttons and UI elements */
 body.embed-mode button,
 body.embed-mode [class*="shadow"] {
-  box-shadow: none !important;
+  @apply shadow-none;
 }
 
-/* Typography - Roboto, 2 colors only */
+/* Typography - Roboto, neutral-700 default */
 body.embed-mode [data-testid="gallery-item"],
 body.embed-mode [data-testid="gallery-item"] * {
-  font-family: "Roboto", sans-serif !important;
-  color: #313842 !important; /* neutral-700 - default */
-  font-weight: 400 !important; /* regular */
+  @apply font-body text-neutral-700 font-normal;
 }
 
-/* Price - semi-bold */
+/* Price - neutral-600, semi-bold */
 body.embed-mode [data-testid="gallery-item"] span[class*="font-extrabold"],
 body.embed-mode [data-testid="gallery-item"] span[class*="text-[18px]"] {
-  font-weight: 600 !important; /* semi-bold */
+  @apply text-neutral-600 font-semibold;
+}
+
+/* Neighborhood name - neutral-600, semi-bold */
+body.embed-mode [data-testid="gallery-item"] a[class*="property-item-link"] + div {
+  @apply text-neutral-600 font-semibold;
 }
 
 /* MLS number and stats - lighter */
@@ -113,26 +112,27 @@ body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"],
 body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] *,
 body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"],
 body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"] * {
-  color: #697381 !important; /* neutral-500 */
+  @apply text-neutral-500;
+}
+
+/* Space between price and stats */
+body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"] {
+  @apply mt-2;
 }
 
 /* Divider above address */
 body.embed-mode [data-testid="gallery-item"] a[class*="property-item-link"] {
-  border-top: 1px solid #e3e5e7 !important; /* neutral-200 */
-  padding-top: 0.5rem !important;
-  margin-top: 0.5rem !important;
+  @apply border-t border-neutral-200 pt-2 mt-2;
 }
 
 /* Divider above MLS number */
 body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] {
-  border-top: 1px solid #e3e5e7 !important; /* neutral-200 */
-  padding-top: 0.5rem !important;
-  margin-top: 0.5rem !important;
+  @apply border-t border-neutral-200 pt-2 mt-2;
 }
 
 /* Taller cards */
 body.embed-mode [data-testid="gallery-item"] {
-  min-height: 340px !important;
+  @apply min-h-85;
 }
 
 /* Full width containers - no padding */
@@ -141,10 +141,5 @@ body.embed-mode .si-container,
 body.embed-mode [class*="container"],
 body.embed-mode .row,
 body.embed-mode [class*="results"] {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: 100% !important;
-  width: 100% !important;
+  @apply px-0 mx-0 max-w-full w-full;
 }

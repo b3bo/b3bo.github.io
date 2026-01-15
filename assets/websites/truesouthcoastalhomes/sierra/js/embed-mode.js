@@ -25,10 +25,10 @@
   ].join(' ');
   document.head.appendChild(critical);
 
-  // Load listing-cards.css from CDN
+  // Load compiled Tailwind CSS from CDN (includes listing-cards.css)
   var link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/listing-cards.css';
+  link.href = 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css';
   link.onload = function() {
     // Show body after CSS loads
     document.body.classList.add('ready');
@@ -46,6 +46,27 @@
   // Also add class after DOM loads (in case body isn't ready yet)
   document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('embed-mode');
+
+    // Strip Sierra's !important classes from cards for cleaner CSS overrides
+    function stripImportantClasses() {
+      var cards = document.querySelectorAll('[data-testid="gallery-item"]');
+      cards.forEach(function(card) {
+        // Remove classes that use !important (start with ! or contain shadow-brand/outline)
+        var classes = card.className.split(' ');
+        var cleanClasses = classes.filter(function(c) {
+          return !c.startsWith('!') &&
+                 c.indexOf('shadow-brand') === -1 &&
+                 c.indexOf('outline') === -1 ||
+                 c.indexOf('outline-none') !== -1;
+        });
+        card.className = cleanClasses.join(' ');
+      });
+    }
+
+    // Run initially and observe for dynamic content
+    stripImportantClasses();
+    var observer = new MutationObserver(stripImportantClasses);
+    observer.observe(document.body, { childList: true, subtree: true });
   });
 
   // Intercept listing link clicks and open in new tab
