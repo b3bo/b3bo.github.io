@@ -1,179 +1,89 @@
 /* ========================================
    Listing Cards - Embed Mode Styles
-   For iframe embedding of Sierra search results
-   Activated by body.embed-mode class
+   Hide site chrome, simple card borders
    ======================================== */
 
-/* Hide page chrome - be specific to avoid hiding card components */
-body.embed-mode > header,
-body.embed-mode > footer,
-body.embed-mode > nav,
-body.embed-mode .site-header,
-body.embed-mode .site-footer,
+/* === HIDE SITE CHROME === */
+/* Sierra Interactive specific elements */
+body.embed-mode header,
+body.embed-mode footer,
+body.embed-mode nav:not([data-testid]) {
+  display: none !important;
+}
+
+/* Sierra's header/footer wrappers */
+body.embed-mode .si-header-wrapper,
+body.embed-mode .si-footer-wrapper,
 body.embed-mode .si-header,
 body.embed-mode .si-footer,
-body.embed-mode .si-nav,
+body.embed-mode .si-nav {
+  display: none !important;
+}
+
+/* Common site chrome classes */
+body.embed-mode .site-header,
+body.embed-mode .site-footer,
 body.embed-mode .navbar,
 body.embed-mode .nav-wrapper,
 body.embed-mode #header,
-body.embed-mode #footer,
-body.embed-mode #navigation,
-body.embed-mode .breadcrumb,
-body.embed-mode .page-header,
-body.embed-mode [class*="site-header"],
-body.embed-mode [class*="site-footer"],
-body.embed-mode [class*="main-header"],
-body.embed-mode [class*="main-footer"],
-body.embed-mode [class*="page-header"],
-body.embed-mode [class*="page-footer"],
-body.embed-mode [id*="site-header"],
-body.embed-mode [id*="site-footer"] {
-  @apply hidden;
+body.embed-mode #footer {
+  display: none !important;
 }
 
 /* Reset body spacing */
 body.embed-mode {
-  @apply pt-0 mt-0;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
-body.embed-mode .container,
-body.embed-mode .content-wrapper,
-body.embed-mode main {
-  @apply pt-0 mt-0;
-}
-
-/* Remove sticky/fixed positioning */
-body.embed-mode [style*="position: fixed"],
-body.embed-mode [style*="position: sticky"],
-body.embed-mode .sticky,
-body.embed-mode .fixed {
-  @apply static;
-}
-
-/* Reset listing results positioning */
-body.embed-mode .si-listing-results,
-body.embed-mode .listing-results,
-body.embed-mode .si-results-grid,
-body.embed-mode [class*="listing-results"],
-body.embed-mode [class*="search-results"],
-body.embed-mode [class*="results-grid"] {
-  @apply mt-0 pt-0 relative top-0;
-}
-
-/* Card styling - clean borders, no shadows */
-body.embed-mode [data-testid="gallery-item"],
-body.embed-mode [class*="property-item-container"] {
-  @apply shadow-none border border-neutral-300 rounded-lg overflow-hidden bg-white outline-none;
-}
-
-/* Remove focus/selection states */
-body.embed-mode [data-testid="gallery-item"]:focus,
-body.embed-mode [data-testid="gallery-item"]:focus-visible,
-body.embed-mode [data-testid="gallery-item"]:focus-within,
-body.embed-mode [data-testid="gallery-item"][class*="outline"],
-body.embed-mode [data-testid="gallery-item"][class*="shadow-brand"] {
-  @apply outline-none shadow-none border border-neutral-300;
-}
-
-/* Card hover state */
-body.embed-mode [data-testid="gallery-item"]:hover,
-body.embed-mode [class*="property-item-container"]:hover {
-  @apply shadow-none border-primary-600 outline-none;
-}
-
-/* Remove shadows from all card children */
-body.embed-mode [data-testid="gallery-item"] *,
-body.embed-mode [class*="property-item-container"] * {
-  @apply shadow-none;
-}
-
-/* Remove shadows from all buttons and UI elements */
-body.embed-mode button,
-body.embed-mode [class*="shadow"] {
-  @apply shadow-none;
-}
-
-/* Typography - Roboto, neutral-700 default (exclude icons) */
-body.embed-mode [data-testid="gallery-item"],
-body.embed-mode [data-testid="gallery-item"] *:not(i):not([class*="fa-"]):not(svg) {
-  @apply font-body text-neutral-700 font-normal;
-}
-
-/* Price - neutral-600, semi-bold */
-body.embed-mode [data-testid="gallery-item"] span[class*="font-extrabold"],
-body.embed-mode [data-testid="gallery-item"] span[class*="text-[18px]"] {
-  @apply text-neutral-600 font-semibold;
-}
-
-/* Neighborhood name - neutral-600, semi-bold */
-body.embed-mode [data-testid="gallery-item"] a[class*="property-item-link"] + div {
-  @apply text-neutral-600 font-semibold;
-}
-
-/* MLS number and stats - lighter */
-body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"],
-body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] *,
-body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"],
-body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"] * {
-  @apply text-neutral-500;
-}
-
-/* Space between price and stats */
-body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"] {
-  @apply mt-2;
-}
-
-/* Divider above address */
-body.embed-mode [data-testid="gallery-item"] a[class*="property-item-link"] {
-  @apply border-t border-neutral-200 pt-2 mt-2;
-}
-
-/* Divider above MLS number */
-body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] {
-  @apply border-t border-neutral-200 pt-2 mt-2;
-}
-
-/* Taller cards */
+/* === CARD STYLING === */
+/* Simple border, no shadow */
 body.embed-mode [data-testid="gallery-item"] {
-  @apply min-h-85;
+  box-shadow: none !important;
+  border: 1px solid #d0d5dc !important;
+  border-radius: 0.5rem !important;
+  outline: none !important;
 }
 
-/* Hide image slider arrows and dots */
-body.embed-mode [data-testid="gallery-item"] .tw-slider-button,
-body.embed-mode [data-testid="gallery-item"] [class*="slider-button"],
-body.embed-mode [data-testid="gallery-item"] .image-gallery-bullets,
-body.embed-mode [data-testid="gallery-item"] [class*="gallery-bullet"] {
-  @apply hidden;
+body.embed-mode [data-testid="gallery-item"]:hover {
+  border-color: #4c8f96 !important;
 }
 
-/* Make status/favorite container transparent (keep heart visible) */
-body.embed-mode [data-testid="gallery-item"] [class*="status-favorite-container"],
-body.embed-mode [data-testid="gallery-item"] [class*="StatusFavorite"] {
-  background: transparent !important;
-  background-color: transparent !important;
+body.embed-mode [data-testid="gallery-item"]:focus,
+body.embed-mode [data-testid="gallery-item"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* Hide status text only */
-body.embed-mode [data-testid="gallery-item"] [class*="status-text"],
-body.embed-mode [data-testid="gallery-item"] [class*="property-status"],
-body.embed-mode [data-testid="gallery-item"] [class*="PropertyStatus"] {
-  display: none !important;
-}
+/* === SIERRA NATIVE LISTING CARDS === */
+/* Target Sierra's .si-listing structure for embed pages */
 
-/* Show favorite heart button */
-body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"],
-body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"] i,
-body.embed-mode [data-testid="gallery-item"] [class*="PropertyFavorite"] {
+/* Photo container - ensure images display */
+body.embed-mode .si-listing__photo-img {
   display: block !important;
-  color: white !important;
-  opacity: 1 !important;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  position: relative;
 }
 
-/* Full width containers - no padding */
-body.embed-mode .container,
-body.embed-mode .si-container,
-body.embed-mode [class*="container"],
-body.embed-mode .row,
-body.embed-mode [class*="results"] {
-  @apply px-0 mx-0 max-w-full w-full;
+body.embed-mode .si-listing__photo-img img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Card container styling */
+body.embed-mode .si-listing {
+  box-shadow: none !important;
+  border: 1px solid #d0d5dc !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+}
+
+body.embed-mode .si-listing:hover {
+  border-color: #4c8f96 !important;
 }
