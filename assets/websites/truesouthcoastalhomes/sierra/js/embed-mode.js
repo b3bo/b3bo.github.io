@@ -1,6 +1,7 @@
 /**
- * Embed Mode for Search Results
- * Hide site chrome, let Sierra cards render naturally
+ * Embed Mode for Sierra Property Search Results
+ * Loads external CSS and applies embed-mode class for styled listing cards
+ * Used on /property-search/results/?embed=true pages via GTM
  */
 (function() {
   'use strict';
@@ -9,113 +10,121 @@
   if (window.location.pathname.indexOf('/property-search/results') === -1) return;
   if (window.location.search.indexOf('embed=true') === -1) return;
 
-  console.log('[EmbedMode] Activated');
+  // GitHub Pages URL for CSS
+  var cssUrl = 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css';
 
-  // jsDelivr base URL for cached GitHub assets
-  var cdnBase = 'https://cdn.jsdelivr.net/gh/b3bo/b3bo.github.io@main/assets/websites/truesouthcoastalhomes';
-  var version = 'v3'; // Increment to bust jsDelivr cache
-
-  // Add embed-mode class - try multiple approaches
+  // Add embed-mode class to body
   function addEmbedClass() {
     if (document.body) {
       document.body.classList.add('embed-mode');
-      console.log('[EmbedMode] Class added, body classes:', document.body.className);
       return true;
     }
     return false;
   }
 
-  // Try immediately
-  if (!addEmbedClass()) {
-    console.log('[EmbedMode] Body not ready, will retry');
-  }
+  addEmbedClass();
 
-  // Critical CSS to hide chrome during load
+  // Critical inline CSS: hide page + loader animation
   var critical = document.createElement('style');
   critical.id = 'embed-critical';
   critical.textContent = [
-    'body.embed-mode { opacity: 0; }',
-    'body.embed-mode.ready { opacity: 1; transition: opacity 0.2s; }',
-    'body.embed-mode header, body.embed-mode footer { display: none !important; }',
-    'body.embed-mode .si-header, body.embed-mode .si-footer, body.embed-mode .si-header-wrapper, body.embed-mode .si-footer-wrapper { display: none !important; }',
-    'body.embed-mode { padding-top: 0 !important; margin-top: 0 !important; }'
-  ].join(' ');
+    'body.embed-mode{opacity:0;overflow:hidden}',
+    'body.embed-mode.ready{opacity:1;overflow:auto;transition:opacity .2s}',
+    '.embed-loader{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:#fff;z-index:9999;transition:opacity .3s}',
+    '.embed-loader.hidden{opacity:0;pointer-events:none}',
+    '.loader-dual-shape{position:relative;width:2.5em;height:2.5em;transform:rotate(165deg)}',
+    '.loader-dual-shape:before,.loader-dual-shape:after{content:"";position:absolute;top:50%;left:50%;display:block;width:.5em;height:.5em;border-radius:.25em;transform:translate(-50%,-50%)}',
+    '.loader-dual-shape:before{animation:lb 2s infinite}',
+    '.loader-dual-shape:after{animation:la 2s infinite}',
+    '@keyframes lb{0%{width:.5em;box-shadow:1em -.5em rgba(76,143,150,.75),-1em .5em rgba(163,163,163,.75)}35%{width:2.5em;box-shadow:0 -.5em rgba(76,143,150,.75),0 .5em rgba(163,163,163,.75)}70%{width:.5em;box-shadow:-1em -.5em rgba(76,143,150,.75),1em .5em rgba(163,163,163,.75)}100%{box-shadow:1em -.5em rgba(76,143,150,.75),-1em .5em rgba(163,163,163,.75)}}',
+    '@keyframes la{0%{height:.5em;box-shadow:.5em 1em rgba(91,163,171,.75),-.5em -1em rgba(115,115,115,.75)}35%{height:2.5em;box-shadow:.5em 0 rgba(91,163,171,.75),-.5em 0 rgba(115,115,115,.75)}70%{height:.5em;box-shadow:.5em -1em rgba(91,163,171,.75),-.5em 1em rgba(115,115,115,.75)}100%{box-shadow:.5em 1em rgba(91,163,171,.75),-.5em -1em rgba(115,115,115,.75)}}'
+  ].join('');
   document.head.appendChild(critical);
 
-  // Load shared loader utility, then main CSS
-  var loaderScript = document.createElement('script');
-  loaderScript.src = cdnBase + '/common/js/loader.js?' + version;
-  loaderScript.onload = function() {
-    console.log('[EmbedMode] Loader script loaded');
-    // Show loader using shared component
-    if (typeof TrueSouthLoader !== 'undefined') {
-      TrueSouthLoader.show();
+  // Create loader overlay
+  function createLoader() {
+    if (document.getElementById('embed-loader')) return;
+    var loader = document.createElement('div');
+    loader.id = 'embed-loader';
+    loader.className = 'embed-loader';
+    loader.innerHTML = '<div class="loader-dual-shape"></div>';
+    if (document.body) {
+      document.body.appendChild(loader);
+    } else {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.appendChild(loader);
+      });
     }
-    // Now load main CSS
-    loadMainCSS();
-  };
-  loaderScript.onerror = function() {
-    console.log('[EmbedMode] Loader script failed, continuing without loader');
-    loadMainCSS();
-  };
-  document.head.appendChild(loaderScript);
-
-  // Load main CSS from jsDelivr
-  function loadMainCSS() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', cdnBase + '/sierra/css/tailwind.css?' + version, true);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        var style = document.createElement('style');
-        style.id = 'embed-styles';
-        style.textContent = xhr.responseText;
-        document.head.appendChild(style);
-        console.log('[EmbedMode] CSS injected, length:', xhr.responseText.length);
-      } else {
-        console.log('[EmbedMode] CSS load failed:', xhr.status);
-      }
-      onReady();
-    };
-    xhr.onerror = function() {
-      console.log('[EmbedMode] CSS load error');
-      onReady();
-    };
-    xhr.send();
   }
 
-  // Called when CSS is loaded (or failed)
-  function onReady() {
+  createLoader();
+
+  // Hide loader when listings appear
+  function hideLoader() {
+    var loader = document.getElementById('embed-loader');
+    if (loader) {
+      loader.classList.add('hidden');
+      setTimeout(function() {
+        loader.remove();
+      }, 300);
+    }
+  }
+
+  // Watch for gallery items to appear
+  function checkForListings() {
+    var items = document.querySelectorAll('[data-testid="gallery-item"]');
+    if (items.length > 0) {
+      hideLoader();
+      return true;
+    }
+    return false;
+  }
+
+  // Load external CSS via link tag
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = cssUrl;
+  link.onload = function() {
     document.body.classList.add('ready');
-    if (typeof TrueSouthLoader !== 'undefined') {
-      TrueSouthLoader.hide();
+    // Check immediately, then poll for listings
+    if (!checkForListings()) {
+      var interval = setInterval(function() {
+        if (checkForListings()) {
+          clearInterval(interval);
+        }
+      }, 100);
+      // Stop polling after 10 seconds
+      setTimeout(function() {
+        clearInterval(interval);
+        hideLoader();
+      }, 10000);
     }
-  }
+  };
+  link.onerror = function() {
+    document.body.classList.add('ready');
+    hideLoader();
+  };
+  document.head.appendChild(link);
 
-  // Fallback show after 800ms
+  // Fallback: show page after 800ms regardless
   setTimeout(function() {
     addEmbedClass();
-    if (document.body) {
-      document.body.classList.add('ready');
-    }
+    if (document.body) document.body.classList.add('ready');
   }, 800);
 
-  // Ensure class on DOM ready
+  // Ensure class is added on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
     addEmbedClass();
+    createLoader();
   });
 
-  // Also try on load as final fallback
-  window.addEventListener('load', function() {
-    addEmbedClass();
-  });
-
-  // Open listing links in new tab
+  // Open listing detail links in new tab
   document.addEventListener('click', function(e) {
-    var link = e.target.closest('a[href*="/property-search/detail/"]');
-    if (link) {
+    var anchor = e.target.closest('a[href*="/property-search/detail/"]');
+    if (anchor) {
       e.preventDefault();
       e.stopPropagation();
-      window.open(link.href, '_blank');
+      window.open(anchor.href, '_blank');
     }
   }, true);
 })();

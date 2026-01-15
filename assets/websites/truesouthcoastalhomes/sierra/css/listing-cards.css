@@ -41,17 +41,29 @@ body.embed-mode #footer {
   display: none !important;
 }
 
-/* Reset body spacing */
+/* Reset body spacing and hide overflow while loading */
 body.embed-mode {
   padding-top: 0 !important;
   margin-top: 0 !important;
+  overflow: hidden !important;
+}
+
+body.embed-mode.ready {
+  overflow: auto !important;
 }
 
 /* === HIDE ELEMENTS === */
 /* Page heading, breadcrumb, results count, Property Search title */
 body.embed-mode h1,
+body.embed-mode h6,
 body.embed-mode [class*="breadcrumb"] {
   display: none !important;
+}
+
+/* Remove padding from grid container */
+body.embed-mode .grid.px-5,
+body.embed-mode .grid.pb-3 {
+  padding: 0 !important;
 }
 
 /* Hide "14 Properties", pagination "1/2", and "Property Search" header row */
@@ -228,11 +240,6 @@ body.embed-mode [data-testid="gallery-item"]:hover .gallery-container {
 
 body.embed-mode [data-testid="gallery-item"] .gallery-container {
   transition: filter 0.2s ease;
-}
-
-/* === DISABLE LINKS (TEMPORARY - for debugging) === */
-body.embed-mode [data-testid="gallery-item"] {
-  pointer-events: none;
 }
 
 /* === MISC === */

@@ -45,5 +45,115 @@
 /* Listing cards for embedded search results */
 @import "./listing-cards.css";
 
-/* Shared loader component */
-@import "../../common/css/loader.css";
+/* ========================================================================
+   EMBED MODE LOADER
+   Replaces Sierra's default "Loading Listings..." spinner
+   ======================================================================== */
+
+/* Hide Sierra's default loader */
+body.embed-mode [class*="loading"],
+body.embed-mode [class*="spinner"],
+body.embed-mode [class*="Loading"] {
+    display: none !important;
+}
+
+/* Custom loader container */
+.embed-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.embed-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Dual-shape rotating loader */
+.loader-dual-shape {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    transform: rotate(165deg);
+}
+
+.loader-dual-shape:before,
+.loader-dual-shape:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+}
+
+.loader-dual-shape:before {
+    animation: loader-before 2s infinite;
+}
+
+.loader-dual-shape:after {
+    animation: loader-after 2s infinite;
+}
+
+@keyframes loader-before {
+    0% {
+        width: 0.5em;
+        box-shadow:
+            1em -0.5em rgba(76, 143, 150, 0.75),
+            -1em 0.5em rgba(163, 163, 163, 0.75);
+    }
+    35% {
+        width: 2.5em;
+        box-shadow:
+            0 -0.5em rgba(76, 143, 150, 0.75),
+            0 0.5em rgba(163, 163, 163, 0.75);
+    }
+    70% {
+        width: 0.5em;
+        box-shadow:
+            -1em -0.5em rgba(76, 143, 150, 0.75),
+            1em 0.5em rgba(163, 163, 163, 0.75);
+    }
+    100% {
+        box-shadow:
+            1em -0.5em rgba(76, 143, 150, 0.75),
+            -1em 0.5em rgba(163, 163, 163, 0.75);
+    }
+}
+
+@keyframes loader-after {
+    0% {
+        height: 0.5em;
+        box-shadow:
+            0.5em 1em rgba(91, 163, 171, 0.75),
+            -0.5em -1em rgba(115, 115, 115, 0.75);
+    }
+    35% {
+        height: 2.5em;
+        box-shadow:
+            0.5em 0 rgba(91, 163, 171, 0.75),
+            -0.5em 0 rgba(115, 115, 115, 0.75);
+    }
+    70% {
+        height: 0.5em;
+        box-shadow:
+            0.5em -1em rgba(91, 163, 171, 0.75),
+            -0.5em 1em rgba(115, 115, 115, 0.75);
+    }
+    100% {
+        box-shadow:
+            0.5em 1em rgba(91, 163, 171, 0.75),
+            -0.5em -1em rgba(115, 115, 115, 0.75);
+    }
+}
