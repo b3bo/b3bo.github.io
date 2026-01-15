@@ -90,9 +90,9 @@ body.embed-mode [class*="shadow"] {
   @apply shadow-none;
 }
 
-/* Typography - Roboto, neutral-700 default */
+/* Typography - Roboto, neutral-700 default (exclude icons) */
 body.embed-mode [data-testid="gallery-item"],
-body.embed-mode [data-testid="gallery-item"] * {
+body.embed-mode [data-testid="gallery-item"] *:not(i):not([class*="fa-"]):not(svg) {
   @apply font-body text-neutral-700 font-normal;
 }
 
@@ -133,6 +133,26 @@ body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] {
 /* Taller cards */
 body.embed-mode [data-testid="gallery-item"] {
   @apply min-h-85;
+}
+
+/* Hide image slider arrows and dots */
+body.embed-mode [data-testid="gallery-item"] .tw-slider-button,
+body.embed-mode [data-testid="gallery-item"] [class*="slider-button"],
+body.embed-mode [data-testid="gallery-item"] .image-gallery-bullets,
+body.embed-mode [data-testid="gallery-item"] [class*="gallery-bullet"] {
+  @apply hidden;
+}
+
+/* Hide status container strip */
+body.embed-mode [data-testid="gallery-item"] [class*="status-favorite-container"],
+body.embed-mode [data-testid="gallery-item"] [class*="status-text"] {
+  @apply hidden;
+}
+
+/* Show favorite heart button */
+body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"],
+body.embed-mode [data-testid="gallery-item"] [class*="property-favorite"] i {
+  @apply block text-white opacity-100;
 }
 
 /* Full width containers - no padding */
