@@ -36,6 +36,8 @@ body.embed-mode #footer {
 body.embed-mode {
   padding-top: 0 !important;
   margin-top: 0 !important;
+  /* DEBUG: Remove this after testing - red border proves CSS is loading */
+  border: 10px solid red !important;
 }
 
 /* === HIDE ELEMENTS === */
