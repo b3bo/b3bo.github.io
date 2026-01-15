@@ -6,7 +6,7 @@
   'use strict';
 
   // Only run on search results pages with embed param
-  if (window.location.pathname.indexOf('/property-search/results/') === -1) return;
+  if (window.location.pathname.indexOf('/property-search/results') === -1) return;
   if (window.location.search.indexOf('embed=true') === -1) return;
 
   console.log('[EmbedMode] Activated');
