@@ -38,14 +38,26 @@
   ].join(' ');
   document.head.appendChild(critical);
 
-  // Load CSS from CDN
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css';
-  link.onload = function() {
+  // Load CSS from CDN and inject as inline style (bypasses CSP issues)
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css', true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      var style = document.createElement('style');
+      style.id = 'embed-styles';
+      style.textContent = xhr.responseText;
+      document.head.appendChild(style);
+      console.log('[EmbedMode] CSS injected, length:', xhr.responseText.length);
+    } else {
+      console.log('[EmbedMode] CSS load failed:', xhr.status);
+    }
     document.body.classList.add('ready');
   };
-  document.head.appendChild(link);
+  xhr.onerror = function() {
+    console.log('[EmbedMode] CSS load error');
+    document.body.classList.add('ready');
+  };
+  xhr.send();
 
   // Fallback show after 800ms
   setTimeout(function() {

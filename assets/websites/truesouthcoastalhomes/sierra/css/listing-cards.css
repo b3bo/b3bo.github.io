@@ -3,6 +3,24 @@
    For /property-search/results/?embed=true
    Styles Sierra Interactive cards to match
    TrueSouth Coastal Homes tailwind theme
+
+   Sierra DOM Structure (actual):
+   [data-testid="gallery-item"]
+   ├── ._top-content-container (photo section)
+   │   └── .main-image-container
+   │       ├── button[aria-label="Add to favorite"]
+   │       ├── a.js-listing-detail > .gallery-container
+   │       │   └── .image-gallery
+   │       │       ├── .tw-slider-button (prev/next)
+   │       │       ├── .image-gallery-slides
+   │       │       └── .image-gallery-bullet (dots)
+   │       └── status container
+   └── div (info section - flex flex-col)
+       ├── span.font-extrabold (price)
+       ├── div > spans (beds/baths/sqft)
+       ├── a.js-listing-detail (address)
+       ├── div (subdivision)
+       └── .listing-brokerage (MLS)
    ======================================== */
 
 /* === HIDE SITE CHROME === */
@@ -10,15 +28,6 @@
 body.embed-mode header,
 body.embed-mode footer,
 body.embed-mode nav:not([data-testid]) {
-  display: none !important;
-}
-
-/* Sierra's header/footer wrappers */
-body.embed-mode .si-header-wrapper,
-body.embed-mode .si-footer-wrapper,
-body.embed-mode .si-header,
-body.embed-mode .si-footer,
-body.embed-mode .si-nav {
   display: none !important;
 }
 
@@ -36,156 +45,96 @@ body.embed-mode #footer {
 body.embed-mode {
   padding-top: 0 !important;
   margin-top: 0 !important;
-  /* DEBUG: Remove this after testing - red border proves CSS is loading */
-  border: 10px solid red !important;
 }
 
 /* === HIDE ELEMENTS === */
-/* Page heading, breadcrumb, results header, and property count */
+/* Page heading and breadcrumb */
 body.embed-mode h1,
-body.embed-mode .si-breadcrumb,
-body.embed-mode [class*="results-header"],
-body.embed-mode [class*="results-count"],
-body.embed-mode [class*="property-count"],
-body.embed-mode [class*="listing-count"],
-body.embed-mode [class*="total-count"] {
+body.embed-mode [class*="breadcrumb"] {
   display: none !important;
 }
 
-/* Hide photo nav arrows and dots */
-body.embed-mode .si-listing__photo-btns button[class*="prev"],
-body.embed-mode .si-listing__photo-btns button[class*="next"],
-body.embed-mode .si-listing__photo-btns [class*="dot"],
-body.embed-mode .si-listing__photo-btns [class*="indicator"],
-body.embed-mode .si-listing__photo-btns [class*="nav-arrow"],
-body.embed-mode .si-listing__photo button[class*="arrow"],
-body.embed-mode .si-listing__photo [class*="carousel-nav"] {
+/* Hide photo nav arrows (prev/next buttons) */
+body.embed-mode .tw-slider-button {
   display: none !important;
 }
 
-/* Hide photo count badge */
-body.embed-mode .si-listing__photo-btns [class*="count"],
-body.embed-mode .si-listing__photo-btns [class*="camera"],
-body.embed-mode .si-listing__photo [class*="photo-count"] {
+/* Hide photo carousel dots */
+body.embed-mode .image-gallery-bullets,
+body.embed-mode .image-gallery-bullet {
   display: none !important;
 }
 
-/* Hide subdivision name (redundant on subdivision pages) */
-body.embed-mode .si-listing__info [class*="subdivision"],
-body.embed-mode .si-listing [class*="subdivision"]:not(.si-listing__info-address) {
+/* Hide subdivision name in card info (redundant on subdivision pages) */
+/* The subdivision is the 4th child in the info section */
+body.embed-mode [data-testid="gallery-item"] > div:last-child > div:nth-child(4):not(.listing-brokerage) {
   display: none !important;
 }
 
-/* Remove strip above photo (covers rounded corners) */
-body.embed-mode .si-listing__photo::before,
-body.embed-mode [data-testid="gallery-item"] > div:first-child::before {
-  display: none !important;
-  content: none !important;
-}
-
-/* Favorite heart - clean white outline, transparent center */
-body.embed-mode .si-listing__photo-btns [class*="favorite"] svg,
-body.embed-mode .si-listing__photo-btns [class*="heart"] svg {
-  fill: transparent !important;
-  stroke: white !important;
-  stroke-width: 2 !important;
-}
-body.embed-mode .si-listing__photo-btns [class*="favorite"],
-body.embed-mode .si-listing__photo-btns [class*="heart"] {
+/* === FAVORITE HEART STYLING === */
+/* Heart uses Font Awesome icons: .fa-heart (filled) and .fa-heart-o (outline) */
+body.embed-mode [data-testid="gallery-item"] button[aria-label="Add to favorite"] {
   background: transparent !important;
 }
 
-/* === FILTER BAR STYLING === */
-/* Hide Price, subdivision search, and More/All Filters */
-body.embed-mode .si-search-bar [class*="price"],
-body.embed-mode .si-search-bar [data-testid*="price"],
-body.embed-mode .si-search-bar [class*="search-input"],
-body.embed-mode .si-search-bar input[type="text"],
-body.embed-mode .si-search-bar [class*="subdivision"],
-body.embed-mode .si-search-bar [class*="more-filter"],
-body.embed-mode .si-search-bar [class*="all-filter"],
-body.embed-mode .si-search-bar button[class*="more"] {
+/* Hide the filled translucent heart, show only outline */
+body.embed-mode [data-testid="gallery-item"] button[aria-label="Add to favorite"] .fa-heart:not(.fa-heart-o) {
   display: none !important;
 }
 
-/* Fix overlap - push content below sticky bar */
-body.embed-mode .si-listings-gallery,
-body.embed-mode [class*="listings-gallery"],
-body.embed-mode [class*="property-grid"] {
-  padding-top: 70px;
+/* Style the outline heart */
+body.embed-mode [data-testid="gallery-item"] button[aria-label="Add to favorite"] .fa-heart-o {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Remove shadow from filter bar */
-body.embed-mode .si-search-bar,
+/* === FILTER BAR STYLING === */
+/* Target the search/filter container */
+body.embed-mode [data-testid="search-container"],
 body.embed-mode [class*="search-bar"],
 body.embed-mode [class*="filter-bar"] {
   box-shadow: none !important;
-  border-bottom: 1px solid var(--color-neutral-200, #e3e5e7);
-}
-
-/* Style filter buttons */
-body.embed-mode .si-search-bar button,
-body.embed-mode .si-search-bar select {
-  font-family: var(--font-body, "Roboto", sans-serif);
-  border: 1px solid var(--color-neutral-300, #d0d5dc);
-  border-radius: 0.375rem;
-}
-
-body.embed-mode .si-search-bar button:hover {
-  border-color: var(--color-primary-600, #4c8f96);
-  background-color: var(--color-primary-50, #f1fcfd);
-}
-
-/* Gallery/Map toggle - active state */
-body.embed-mode .si-search-bar [class*="toggle"] button.active,
-body.embed-mode .si-search-bar [class*="toggle"] button[aria-selected="true"] {
-  background-color: var(--color-primary-600, #4c8f96);
-  color: white;
-}
-
-/* === DISABLE LINKS (TEMPORARY - for debugging) === */
-body.embed-mode [data-testid="gallery-item"] {
-  pointer-events: none;
+  border-bottom: 1px solid #e3e5e7;
 }
 
 /* === LAYOUT: 3-COLUMN MAX === */
-body.embed-mode .si-listings-gallery,
-body.embed-mode [class*="listings-gallery"],
-body.embed-mode [class*="property-grid"] {
+/* Target the grid container that holds gallery-items */
+body.embed-mode div:has(> [data-testid="gallery-item"]) {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 1.5rem !important;
+  max-width: 1200px !important;
+  padding: 1.5rem !important;
 }
+
 @media (max-width: 992px) {
-  body.embed-mode .si-listings-gallery,
-  body.embed-mode [class*="listings-gallery"],
-  body.embed-mode [class*="property-grid"] {
+  body.embed-mode div:has(> [data-testid="gallery-item"]) {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+
 @media (max-width: 576px) {
-  body.embed-mode .si-listings-gallery,
-  body.embed-mode [class*="listings-gallery"],
-  body.embed-mode [class*="property-grid"] {
+  body.embed-mode div:has(> [data-testid="gallery-item"]) {
     grid-template-columns: 1fr !important;
   }
 }
 
 /* === PHOTO ASPECT RATIO === */
-body.embed-mode .si-listing__photo-img {
-  display: block !important;
-  height: 0;
-  overflow: hidden;
-  padding-bottom: 60% !important;
-  aspect-ratio: unset !important;
-  position: relative;
-  transition: filter 0.2s ease;
+/* Target the gallery container which has the photo */
+body.embed-mode [data-testid="gallery-item"] .gallery-container {
+  height: 200px !important;
 }
 
-body.embed-mode .si-listing__photo-img img {
-  position: absolute !important;
-  top: 0;
-  left: 0;
+body.embed-mode [data-testid="gallery-item"] .image-gallery,
+body.embed-mode [data-testid="gallery-item"] .image-gallery-content,
+body.embed-mode [data-testid="gallery-item"] .image-gallery-slide-wrapper,
+body.embed-mode [data-testid="gallery-item"] .image-gallery-swipe,
+body.embed-mode [data-testid="gallery-item"] .image-gallery-slides,
+body.embed-mode [data-testid="gallery-item"] .image-gallery-slide {
+  height: 100% !important;
+}
+
+body.embed-mode [data-testid="gallery-item"] .image-gallery-slide img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
@@ -194,15 +143,15 @@ body.embed-mode .si-listing__photo-img img {
 /* === CARD STYLING === */
 body.embed-mode [data-testid="gallery-item"] {
   box-shadow: none !important;
-  border: 1px solid var(--color-neutral-300, #d0d5dc) !important;
+  border: 1px solid #d0d5dc !important;
   border-radius: 0.5rem !important;
   outline: none !important;
-  overflow: hidden;
-  transition: border-color 0.15s ease;
+  overflow: hidden !important;
+  transition: border-color 0.15s ease !important;
 }
 
 body.embed-mode [data-testid="gallery-item"]:hover {
-  border-color: var(--color-primary-600, #4c8f96) !important;
+  border-color: #4c8f96 !important;
 }
 
 body.embed-mode [data-testid="gallery-item"]:focus,
@@ -212,102 +161,52 @@ body.embed-mode [data-testid="gallery-item"]:focus-visible {
 }
 
 /* === TYPOGRAPHY === */
-/* Override extrabold to semibold throughout */
-body.embed-mode .font-extrabold {
+/* Override extrabold to semibold for price */
+body.embed-mode [data-testid="gallery-item"] .font-extrabold {
   font-weight: 600 !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
-/* Street address */
-body.embed-mode .si-listing__info-address > div:first-child,
-body.embed-mode .si-listing__info-address .street {
-  font-family: var(--font-heading, "Montserrat", sans-serif);
-  font-weight: 600;
-  color: var(--color-neutral-700, #313842);
+/* Address link styling */
+body.embed-mode [data-testid="gallery-item"] .js-listing-detail {
+  color: #313842 !important;
 }
 
-/* City/State */
-body.embed-mode .si-listing__info-address > div:last-child,
-body.embed-mode .si-listing__info-address .city-state {
-  font-family: var(--font-body, "Roboto", sans-serif);
-  color: var(--color-neutral-500, #697381);
+body.embed-mode [data-testid="gallery-item"] .js-listing-detail:hover {
+  color: #4c8f96 !important;
 }
 
-/* Price overlay */
-body.embed-mode .si-listing__photo-price span {
-  font-family: var(--font-heading, "Montserrat", sans-serif);
-  font-weight: 600;
-}
-
-/* Stats - larger, bolder numbers */
-body.embed-mode .si-listing__info-beds-baths-sqft {
-  display: flex;
-  gap: 1rem;
-  padding: 0.5rem 0;
-}
-
-body.embed-mode .si-listing__info-beds-baths-sqft .font-semibold,
-body.embed-mode .si-listing__info-beds-baths-sqft span.font-semibold {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-neutral-700, #313842);
-}
-
-body.embed-mode .si-listing__info-beds-baths-sqft span:not(.font-semibold) {
-  font-size: 0.75rem;
-  color: var(--color-neutral-500, #697381);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* MLS Number */
-body.embed-mode .si-listing__info-mls {
-  font-size: 0.75rem;
-  color: var(--color-neutral-500, #697381);
+/* MLS Number styling */
+body.embed-mode [data-testid="gallery-item"] .listing-brokerage {
+  font-size: 0.75rem !important;
+  color: #697381 !important;
 }
 
 /* === STATUS BADGE === */
-body.embed-mode .si-listing__photo-status span {
-  background: var(--color-primary-600, #4c8f96) !important;
+/* Status badges appear in _property-item-status-text */
+body.embed-mode [data-testid="gallery-item"] [class*="status-text"] {
+  background: #4c8f96 !important;
   color: white !important;
 }
 
 /* === QUICK WIN POLISH === */
 /* Subtle image hover - brightness */
-body.embed-mode [data-testid="gallery-item"]:hover .si-listing__photo-img {
+body.embed-mode [data-testid="gallery-item"]:hover .gallery-container {
   filter: brightness(1.05);
 }
 
-/* More padding in info section */
-body.embed-mode .si-listing__info {
-  padding: 0.75rem 1rem !important;
+body.embed-mode [data-testid="gallery-item"] .gallery-container {
+  transition: filter 0.2s ease;
 }
 
-/* Pagination styling */
-body.embed-mode [class*="pagination"] button,
-body.embed-mode [class*="pagination"] a {
-  font-family: var(--font-body, "Roboto", sans-serif);
-  color: var(--color-neutral-600, #4a5462);
-  border: 1px solid var(--color-neutral-300, #d0d5dc);
-  border-radius: 0.375rem;
-  padding: 0.5rem 0.75rem;
-}
-
-body.embed-mode [class*="pagination"] button:hover,
-body.embed-mode [class*="pagination"] a:hover {
-  border-color: var(--color-primary-600, #4c8f96);
-  color: var(--color-primary-600, #4c8f96);
-}
-
-body.embed-mode [class*="pagination"] [class*="active"],
-body.embed-mode [class*="pagination"] [aria-current="page"] {
-  background-color: var(--color-primary-600, #4c8f96);
-  color: white;
-  border-color: var(--color-primary-600, #4c8f96);
+/* === DISABLE LINKS (TEMPORARY - for debugging) === */
+body.embed-mode [data-testid="gallery-item"] {
+  pointer-events: none;
 }
 
 /* === MISC === */
 /* Remove all shadows */
-body.embed-mode [class*="shadow-bottom"],
+body.embed-mode .shadow-md,
 body.embed-mode [class*="shadow"] {
   box-shadow: none !important;
 }
