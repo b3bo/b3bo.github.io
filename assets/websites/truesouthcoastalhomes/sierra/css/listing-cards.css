@@ -63,29 +63,34 @@ body.embed-mode [class*="results-grid"] {
 }
 
 /* Card styling - clean borders, no shadows */
-body.embed-mode .si-listing,
-body.embed-mode .listing-card,
-body.embed-mode [class*="listing-card"],
-body.embed-mode [class*="property-card"] {
+/* Sierra uses data-testid="gallery-item" and CSS module classes */
+body.embed-mode [data-testid="gallery-item"],
+body.embed-mode [class*="property-item-container"] {
   box-shadow: none !important;
-  border: 1px solid var(--color-neutral-300, #d1d5db) !important;
+  border: 1px solid #d1d5db !important;
   border-radius: 0.5rem !important;
   overflow: hidden !important;
   background: #fff !important;
+  outline: none !important;
 }
 
 /* Card hover state */
-body.embed-mode .si-listing:hover,
-body.embed-mode .listing-card:hover,
-body.embed-mode [class*="listing-card"]:hover,
-body.embed-mode [class*="property-card"]:hover {
+body.embed-mode [data-testid="gallery-item"]:hover,
+body.embed-mode [class*="property-item-container"]:hover {
   box-shadow: none !important;
-  border-color: var(--color-primary-600, #2563eb) !important;
+  border-color: #4c8f96 !important;
+  outline: none !important;
 }
 
 /* Remove shadows from all card children */
-body.embed-mode [class*="listing"] *,
-body.embed-mode [class*="property-card"] * {
+body.embed-mode [data-testid="gallery-item"] *,
+body.embed-mode [class*="property-item-container"] * {
+  box-shadow: none !important;
+}
+
+/* Remove shadows from all buttons and UI elements */
+body.embed-mode button,
+body.embed-mode [class*="shadow"] {
   box-shadow: none !important;
 }
 
