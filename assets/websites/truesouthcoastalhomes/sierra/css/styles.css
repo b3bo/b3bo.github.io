@@ -44,3 +44,6 @@
 
 /* Listing cards for embedded search results */
 @import "./listing-cards.css";
+
+/* Shared loader component */
+@import "../../common/css/loader.css";
