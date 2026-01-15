@@ -38,9 +38,9 @@
   ].join(' ');
   document.head.appendChild(critical);
 
-  // Load CSS from CDN and inject as inline style (bypasses CSP issues)
+  // Load CSS from jsDelivr (wraps GitHub with CORS headers)
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css', true);
+  xhr.open('GET', 'https://cdn.jsdelivr.net/gh/b3bo/b3bo.github.io@main/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css', true);
   xhr.onload = function() {
     if (xhr.status === 200) {
       var style = document.createElement('style');
