@@ -34,10 +34,13 @@
 }
 
 /* Scan HTML and JS files for utility classes */
-@source "../../tests/production_reference.html", "./nav-cards.css", "./components/**/*.html", "../../assets/js/sierra/*.js";
+@source "../../tests/production_reference.html", "./area-cards.css", "./listing-cards.css", "./components/**/*.html", "../../assets/js/sierra/*.js";
 
 /* Component CSS extracted from tailwind-stable.css */
 @import "./extracted-components.css";
 
 /* Area navigation page components */
-@import "./nav-cards.css";
+@import "./area-cards.css";
+
+/* Listing cards for embedded search results */
+@import "./listing-cards.css";

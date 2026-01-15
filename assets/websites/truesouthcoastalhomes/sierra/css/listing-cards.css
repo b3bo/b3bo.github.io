@@ -1,0 +1,104 @@
+/* ========================================
+   Listing Cards - Embed Mode Styles
+   For iframe embedding of Sierra search results
+   Activated by body.embed-mode class
+   ======================================== */
+
+/* Hide page chrome */
+body.embed-mode header,
+body.embed-mode footer,
+body.embed-mode nav,
+body.embed-mode .site-header,
+body.embed-mode .site-footer,
+body.embed-mode .si-header,
+body.embed-mode .si-footer,
+body.embed-mode .si-nav,
+body.embed-mode .navbar,
+body.embed-mode .nav-wrapper,
+body.embed-mode #header,
+body.embed-mode #footer,
+body.embed-mode #navigation,
+body.embed-mode .breadcrumb,
+body.embed-mode .page-header,
+body.embed-mode [class*="header"],
+body.embed-mode [class*="footer"],
+body.embed-mode [class*="navbar"],
+body.embed-mode [id*="header"],
+body.embed-mode [id*="footer"] {
+  display: none !important;
+}
+
+/* Reset body spacing */
+body.embed-mode {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+body.embed-mode .container,
+body.embed-mode .content-wrapper,
+body.embed-mode main {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove sticky/fixed positioning */
+body.embed-mode [style*="position: fixed"],
+body.embed-mode [style*="position: sticky"],
+body.embed-mode .sticky,
+body.embed-mode .fixed {
+  position: static !important;
+}
+
+/* Reset listing results positioning */
+body.embed-mode .si-listing-results,
+body.embed-mode .listing-results,
+body.embed-mode .si-results-grid,
+body.embed-mode [class*="listing-results"],
+body.embed-mode [class*="search-results"],
+body.embed-mode [class*="results-grid"] {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+}
+
+/* Card styling - clean borders, no shadows */
+body.embed-mode .si-listing,
+body.embed-mode .listing-card,
+body.embed-mode [class*="listing-card"],
+body.embed-mode [class*="property-card"] {
+  box-shadow: none !important;
+  border: 1px solid var(--color-neutral-300, #d1d5db) !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+/* Card hover state */
+body.embed-mode .si-listing:hover,
+body.embed-mode .listing-card:hover,
+body.embed-mode [class*="listing-card"]:hover,
+body.embed-mode [class*="property-card"]:hover {
+  box-shadow: none !important;
+  border-color: var(--color-primary-600, #2563eb) !important;
+}
+
+/* Remove shadows from all card children */
+body.embed-mode [class*="listing"] *,
+body.embed-mode [class*="property-card"] * {
+  box-shadow: none !important;
+}
+
+/* Full width containers - no padding */
+body.embed-mode .container,
+body.embed-mode .si-container,
+body.embed-mode [class*="container"],
+body.embed-mode .row,
+body.embed-mode [class*="results"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
