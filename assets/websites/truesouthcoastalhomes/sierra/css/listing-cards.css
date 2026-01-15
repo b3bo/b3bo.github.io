@@ -48,9 +48,25 @@ body.embed-mode {
 }
 
 /* === HIDE ELEMENTS === */
-/* Page heading and breadcrumb */
+/* Page heading, breadcrumb, results count, Property Search title */
 body.embed-mode h1,
 body.embed-mode [class*="breadcrumb"] {
+  display: none !important;
+}
+
+/* Hide "14 Properties", pagination "1/2", and "Property Search" header row */
+body.embed-mode [class*="property-count"],
+body.embed-mode [class*="listing-count"],
+body.embed-mode [class*="results-count"],
+body.embed-mode [class*="total-count"] {
+  display: none !important;
+}
+
+/* Hide the entire top bar with "14 Properties | 1/2 | Property Search | Sort" */
+/* This is typically a flex row above the filter bar */
+body.embed-mode > div > div:first-child:has([class*="sort"]),
+body.embed-mode [class*="results-header"],
+body.embed-mode [class*="search-header"] {
   display: none !important;
 }
 
@@ -89,12 +105,17 @@ body.embed-mode [data-testid="gallery-item"] button[aria-label="Add to favorite"
 }
 
 /* === FILTER BAR STYLING === */
-/* Target the search/filter container */
+/* Align filter bar width with card grid */
 body.embed-mode [data-testid="search-container"],
 body.embed-mode [class*="search-bar"],
 body.embed-mode [class*="filter-bar"] {
   box-shadow: none !important;
   border-bottom: 1px solid #e3e5e7;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 
 /* === LAYOUT: 3-COLUMN MAX === */
@@ -105,6 +126,8 @@ body.embed-mode div:has(> [data-testid="gallery-item"]) {
   gap: 1.5rem !important;
   max-width: 1200px !important;
   padding: 1.5rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 @media (max-width: 992px) {
@@ -120,9 +143,16 @@ body.embed-mode div:has(> [data-testid="gallery-item"]) {
 }
 
 /* === PHOTO ASPECT RATIO === */
-/* Target the gallery container which has the photo */
+/* Fix photo cropping - ensure full image shows */
+body.embed-mode [data-testid="gallery-item"] .main-image-container {
+  height: 200px !important;
+  overflow: visible !important;
+}
+
 body.embed-mode [data-testid="gallery-item"] .gallery-container {
   height: 200px !important;
+  overflow: hidden !important;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
 }
 
 body.embed-mode [data-testid="gallery-item"] .image-gallery,
@@ -131,13 +161,14 @@ body.embed-mode [data-testid="gallery-item"] .image-gallery-slide-wrapper,
 body.embed-mode [data-testid="gallery-item"] .image-gallery-swipe,
 body.embed-mode [data-testid="gallery-item"] .image-gallery-slides,
 body.embed-mode [data-testid="gallery-item"] .image-gallery-slide {
-  height: 100% !important;
+  height: 200px !important;
 }
 
 body.embed-mode [data-testid="gallery-item"] .image-gallery-slide img {
   width: 100% !important;
-  height: 100% !important;
+  height: 200px !important;
   object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* === CARD STYLING === */
