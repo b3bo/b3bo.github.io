@@ -66,6 +66,12 @@ body.embed-mode .grid.pb-3 {
   padding: 0 !important;
 }
 
+/* Hide search input */
+body.embed-mode .raw-focus,
+body.embed-mode .focus-within-base.mr-2\.5 {
+  display: none !important;
+}
+
 /* Hide "14 Properties", pagination "1/2", and "Property Search" header row */
 body.embed-mode [class*="property-count"],
 body.embed-mode [class*="listing-count"],
