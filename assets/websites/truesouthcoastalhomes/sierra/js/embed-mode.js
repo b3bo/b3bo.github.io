@@ -13,8 +13,9 @@
   // GitHub Pages URL for CSS
   var cssUrl = 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css';
 
-  // Add embed-mode class to body
+  // Add embed-mode class to html and body
   function addEmbedClass() {
+    document.documentElement.classList.add('embed-mode');
     if (document.body) {
       document.body.classList.add('embed-mode');
       return true;
@@ -22,14 +23,17 @@
     return false;
   }
 
+  // Add to html immediately
+  document.documentElement.classList.add('embed-mode');
   addEmbedClass();
 
   // Critical inline CSS: hide page + loader animation
   var critical = document.createElement('style');
   critical.id = 'embed-critical';
   critical.textContent = [
-    'body.embed-mode{opacity:0;overflow:hidden}',
-    'body.embed-mode.ready{opacity:1;overflow:auto;transition:opacity .2s}',
+    'html.embed-mode,body.embed-mode{opacity:0;overflow:hidden!important}',
+    'html.embed-mode.ready,body.embed-mode.ready{opacity:1;overflow:auto!important;transition:opacity .2s}',
+    'body.embed-mode header,body.embed-mode footer,body.embed-mode nav,body.embed-mode .navbar,body.embed-mode .site-header,body.embed-mode .site-footer{display:none!important}',
     '.embed-loader{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:#fff;z-index:9999;transition:opacity .3s}',
     '.embed-loader.hidden{opacity:0;pointer-events:none}',
     '.loader-dual-shape{position:relative;width:2.5em;height:2.5em;transform:rotate(165deg)}',
@@ -85,6 +89,7 @@
   link.rel = 'stylesheet';
   link.href = cssUrl;
   link.onload = function() {
+    document.documentElement.classList.add('ready');
     document.body.classList.add('ready');
     // Check immediately, then poll for listings
     if (!checkForListings()) {
@@ -101,6 +106,7 @@
     }
   };
   link.onerror = function() {
+    document.documentElement.classList.add('ready');
     document.body.classList.add('ready');
     hideLoader();
   };
@@ -109,6 +115,7 @@
   // Fallback: show page after 800ms regardless
   setTimeout(function() {
     addEmbedClass();
+    document.documentElement.classList.add('ready');
     if (document.body) document.body.classList.add('ready');
   }, 800);
 
