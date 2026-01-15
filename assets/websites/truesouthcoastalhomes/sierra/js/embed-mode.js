@@ -11,9 +11,19 @@
 
   console.log('[EmbedMode] Activated');
 
-  // Add embed-mode class immediately
-  if (document.body) {
-    document.body.classList.add('embed-mode');
+  // Add embed-mode class - try multiple approaches
+  function addEmbedClass() {
+    if (document.body) {
+      document.body.classList.add('embed-mode');
+      console.log('[EmbedMode] Class added, body classes:', document.body.className);
+      return true;
+    }
+    return false;
+  }
+
+  // Try immediately
+  if (!addEmbedClass()) {
+    console.log('[EmbedMode] Body not ready, will retry');
   }
 
   // Critical CSS to hide chrome during load
@@ -39,15 +49,20 @@
 
   // Fallback show after 800ms
   setTimeout(function() {
+    addEmbedClass();
     if (document.body) {
-      document.body.classList.add('embed-mode');
       document.body.classList.add('ready');
     }
   }, 800);
 
   // Ensure class on DOM ready
   document.addEventListener('DOMContentLoaded', function() {
-    document.body.classList.add('embed-mode');
+    addEmbedClass();
+  });
+
+  // Also try on load as final fallback
+  window.addEventListener('load', function() {
+    addEmbedClass();
   });
 
   // Open listing links in new tab
