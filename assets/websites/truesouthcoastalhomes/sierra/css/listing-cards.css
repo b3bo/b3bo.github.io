@@ -1,6 +1,8 @@
 /* ========================================
    Listing Cards - Embed Mode Styles
-   Hide site chrome, simple card borders
+   For /property-search/results/?embed=true
+   Styles Sierra Interactive cards to match
+   TrueSouth Coastal Homes tailwind theme
    ======================================== */
 
 /* === HIDE SITE CHROME === */
@@ -36,35 +38,146 @@ body.embed-mode {
   margin-top: 0 !important;
 }
 
-/* === CARD STYLING === */
-/* Simple border, no shadow */
+/* === HIDE ELEMENTS === */
+/* Page heading, breadcrumb, results header, and property count */
+body.embed-mode h1,
+body.embed-mode .si-breadcrumb,
+body.embed-mode [class*="results-header"],
+body.embed-mode [class*="results-count"],
+body.embed-mode [class*="property-count"],
+body.embed-mode [class*="listing-count"],
+body.embed-mode [class*="total-count"] {
+  display: none !important;
+}
+
+/* Hide photo nav arrows and dots */
+body.embed-mode .si-listing__photo-btns button[class*="prev"],
+body.embed-mode .si-listing__photo-btns button[class*="next"],
+body.embed-mode .si-listing__photo-btns [class*="dot"],
+body.embed-mode .si-listing__photo-btns [class*="indicator"],
+body.embed-mode .si-listing__photo-btns [class*="nav-arrow"],
+body.embed-mode .si-listing__photo button[class*="arrow"],
+body.embed-mode .si-listing__photo [class*="carousel-nav"] {
+  display: none !important;
+}
+
+/* Hide photo count badge */
+body.embed-mode .si-listing__photo-btns [class*="count"],
+body.embed-mode .si-listing__photo-btns [class*="camera"],
+body.embed-mode .si-listing__photo [class*="photo-count"] {
+  display: none !important;
+}
+
+/* Hide subdivision name (redundant on subdivision pages) */
+body.embed-mode .si-listing__info [class*="subdivision"],
+body.embed-mode .si-listing [class*="subdivision"]:not(.si-listing__info-address) {
+  display: none !important;
+}
+
+/* Remove strip above photo (covers rounded corners) */
+body.embed-mode .si-listing__photo::before,
+body.embed-mode [data-testid="gallery-item"] > div:first-child::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Favorite heart - clean white outline, transparent center */
+body.embed-mode .si-listing__photo-btns [class*="favorite"] svg,
+body.embed-mode .si-listing__photo-btns [class*="heart"] svg {
+  fill: transparent !important;
+  stroke: white !important;
+  stroke-width: 2 !important;
+}
+body.embed-mode .si-listing__photo-btns [class*="favorite"],
+body.embed-mode .si-listing__photo-btns [class*="heart"] {
+  background: transparent !important;
+}
+
+/* === FILTER BAR STYLING === */
+/* Hide Price, subdivision search, and More/All Filters */
+body.embed-mode .si-search-bar [class*="price"],
+body.embed-mode .si-search-bar [data-testid*="price"],
+body.embed-mode .si-search-bar [class*="search-input"],
+body.embed-mode .si-search-bar input[type="text"],
+body.embed-mode .si-search-bar [class*="subdivision"],
+body.embed-mode .si-search-bar [class*="more-filter"],
+body.embed-mode .si-search-bar [class*="all-filter"],
+body.embed-mode .si-search-bar button[class*="more"] {
+  display: none !important;
+}
+
+/* Fix overlap - push content below sticky bar */
+body.embed-mode .si-listings-gallery,
+body.embed-mode [class*="listings-gallery"],
+body.embed-mode [class*="property-grid"] {
+  padding-top: 70px;
+}
+
+/* Remove shadow from filter bar */
+body.embed-mode .si-search-bar,
+body.embed-mode [class*="search-bar"],
+body.embed-mode [class*="filter-bar"] {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--color-neutral-200, #e3e5e7);
+}
+
+/* Style filter buttons */
+body.embed-mode .si-search-bar button,
+body.embed-mode .si-search-bar select {
+  font-family: var(--font-body, "Roboto", sans-serif);
+  border: 1px solid var(--color-neutral-300, #d0d5dc);
+  border-radius: 0.375rem;
+}
+
+body.embed-mode .si-search-bar button:hover {
+  border-color: var(--color-primary-600, #4c8f96);
+  background-color: var(--color-primary-50, #f1fcfd);
+}
+
+/* Gallery/Map toggle - active state */
+body.embed-mode .si-search-bar [class*="toggle"] button.active,
+body.embed-mode .si-search-bar [class*="toggle"] button[aria-selected="true"] {
+  background-color: var(--color-primary-600, #4c8f96);
+  color: white;
+}
+
+/* === DISABLE LINKS (TEMPORARY - for debugging) === */
 body.embed-mode [data-testid="gallery-item"] {
-  box-shadow: none !important;
-  border: 1px solid #d0d5dc !important;
-  border-radius: 0.5rem !important;
-  outline: none !important;
+  pointer-events: none;
 }
 
-body.embed-mode [data-testid="gallery-item"]:hover {
-  border-color: #4c8f96 !important;
+/* === LAYOUT: 3-COLUMN MAX === */
+body.embed-mode .si-listings-gallery,
+body.embed-mode [class*="listings-gallery"],
+body.embed-mode [class*="property-grid"] {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem !important;
+}
+@media (max-width: 992px) {
+  body.embed-mode .si-listings-gallery,
+  body.embed-mode [class*="listings-gallery"],
+  body.embed-mode [class*="property-grid"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 576px) {
+  body.embed-mode .si-listings-gallery,
+  body.embed-mode [class*="listings-gallery"],
+  body.embed-mode [class*="property-grid"] {
+    grid-template-columns: 1fr !important;
+  }
 }
 
-body.embed-mode [data-testid="gallery-item"]:focus,
-body.embed-mode [data-testid="gallery-item"]:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-/* === SIERRA NATIVE LISTING CARDS === */
-/* Target Sierra's .si-listing structure for embed pages */
-
-/* Photo container - ensure images display */
+/* === PHOTO ASPECT RATIO === */
 body.embed-mode .si-listing__photo-img {
   display: block !important;
   height: 0;
   overflow: hidden;
-  padding-bottom: 75%; /* 4:3 aspect ratio */
+  padding-bottom: 60% !important;
+  aspect-ratio: unset !important;
   position: relative;
+  transition: filter 0.2s ease;
 }
 
 body.embed-mode .si-listing__photo-img img {
@@ -76,14 +189,123 @@ body.embed-mode .si-listing__photo-img img {
   object-fit: cover !important;
 }
 
-/* Card container styling */
-body.embed-mode .si-listing {
+/* === CARD STYLING === */
+body.embed-mode [data-testid="gallery-item"] {
   box-shadow: none !important;
-  border: 1px solid #d0d5dc !important;
+  border: 1px solid var(--color-neutral-300, #d0d5dc) !important;
   border-radius: 0.5rem !important;
+  outline: none !important;
   overflow: hidden;
+  transition: border-color 0.15s ease;
 }
 
-body.embed-mode .si-listing:hover {
-  border-color: #4c8f96 !important;
+body.embed-mode [data-testid="gallery-item"]:hover {
+  border-color: var(--color-primary-600, #4c8f96) !important;
+}
+
+body.embed-mode [data-testid="gallery-item"]:focus,
+body.embed-mode [data-testid="gallery-item"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* === TYPOGRAPHY === */
+/* Override extrabold to semibold throughout */
+body.embed-mode .font-extrabold {
+  font-weight: 600 !important;
+}
+
+/* Street address */
+body.embed-mode .si-listing__info-address > div:first-child,
+body.embed-mode .si-listing__info-address .street {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-weight: 600;
+  color: var(--color-neutral-700, #313842);
+}
+
+/* City/State */
+body.embed-mode .si-listing__info-address > div:last-child,
+body.embed-mode .si-listing__info-address .city-state {
+  font-family: var(--font-body, "Roboto", sans-serif);
+  color: var(--color-neutral-500, #697381);
+}
+
+/* Price overlay */
+body.embed-mode .si-listing__photo-price span {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-weight: 600;
+}
+
+/* Stats - larger, bolder numbers */
+body.embed-mode .si-listing__info-beds-baths-sqft {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+body.embed-mode .si-listing__info-beds-baths-sqft .font-semibold,
+body.embed-mode .si-listing__info-beds-baths-sqft span.font-semibold {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-neutral-700, #313842);
+}
+
+body.embed-mode .si-listing__info-beds-baths-sqft span:not(.font-semibold) {
+  font-size: 0.75rem;
+  color: var(--color-neutral-500, #697381);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* MLS Number */
+body.embed-mode .si-listing__info-mls {
+  font-size: 0.75rem;
+  color: var(--color-neutral-500, #697381);
+}
+
+/* === STATUS BADGE === */
+body.embed-mode .si-listing__photo-status span {
+  background: var(--color-primary-600, #4c8f96) !important;
+  color: white !important;
+}
+
+/* === QUICK WIN POLISH === */
+/* Subtle image hover - brightness */
+body.embed-mode [data-testid="gallery-item"]:hover .si-listing__photo-img {
+  filter: brightness(1.05);
+}
+
+/* More padding in info section */
+body.embed-mode .si-listing__info {
+  padding: 0.75rem 1rem !important;
+}
+
+/* Pagination styling */
+body.embed-mode [class*="pagination"] button,
+body.embed-mode [class*="pagination"] a {
+  font-family: var(--font-body, "Roboto", sans-serif);
+  color: var(--color-neutral-600, #4a5462);
+  border: 1px solid var(--color-neutral-300, #d0d5dc);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+}
+
+body.embed-mode [class*="pagination"] button:hover,
+body.embed-mode [class*="pagination"] a:hover {
+  border-color: var(--color-primary-600, #4c8f96);
+  color: var(--color-primary-600, #4c8f96);
+}
+
+body.embed-mode [class*="pagination"] [class*="active"],
+body.embed-mode [class*="pagination"] [aria-current="page"] {
+  background-color: var(--color-primary-600, #4c8f96);
+  color: white;
+  border-color: var(--color-primary-600, #4c8f96);
+}
+
+/* === MISC === */
+/* Remove all shadows */
+body.embed-mode [class*="shadow-bottom"],
+body.embed-mode [class*="shadow"] {
+  box-shadow: none !important;
 }
