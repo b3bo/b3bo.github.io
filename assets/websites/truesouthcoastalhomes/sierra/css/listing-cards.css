@@ -94,6 +94,47 @@ body.embed-mode [class*="shadow"] {
   box-shadow: none !important;
 }
 
+/* Typography - Roboto, 2 colors only */
+body.embed-mode [data-testid="gallery-item"],
+body.embed-mode [data-testid="gallery-item"] * {
+  font-family: "Roboto", sans-serif !important;
+  color: #313842 !important; /* neutral-700 - default */
+  font-weight: 400 !important; /* regular */
+}
+
+/* Price - semi-bold */
+body.embed-mode [data-testid="gallery-item"] span[class*="font-extrabold"],
+body.embed-mode [data-testid="gallery-item"] span[class*="text-[18px]"] {
+  font-weight: 600 !important; /* semi-bold */
+}
+
+/* MLS number and stats - lighter */
+body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"],
+body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] *,
+body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"],
+body.embed-mode [data-testid="gallery-item"] [class*="gap-x-3"] * {
+  color: #697381 !important; /* neutral-500 */
+}
+
+/* Divider above address */
+body.embed-mode [data-testid="gallery-item"] a[class*="property-item-link"] {
+  border-top: 1px solid #e3e5e7 !important; /* neutral-200 */
+  padding-top: 0.5rem !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Divider above MLS number */
+body.embed-mode [data-testid="gallery-item"] [class*="listing-brokerage"] {
+  border-top: 1px solid #e3e5e7 !important; /* neutral-200 */
+  padding-top: 0.5rem !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Taller cards */
+body.embed-mode [data-testid="gallery-item"] {
+  min-height: 340px !important;
+}
+
 /* Full width containers - no padding */
 body.embed-mode .container,
 body.embed-mode .si-container,
