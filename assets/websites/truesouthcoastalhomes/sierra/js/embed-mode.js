@@ -63,6 +63,8 @@
 
   createLoader();
 
+  var stickyResizeBound = false;
+
   // Hide loader when listings appear
   function hideLoader() {
     var loader = document.getElementById('embed-loader');
@@ -80,6 +82,10 @@
     if (items.length > 0) {
       hideLoader();
       adjustForStickyBar();
+      if (!stickyResizeBound) {
+        stickyResizeBound = true;
+        window.addEventListener('resize', adjustForStickyBar);
+      }
       return true;
     }
     return false;
@@ -87,22 +93,30 @@
 
   // Adjust spacing to account for sticky filter bar
   function adjustForStickyBar() {
-    var sticky = document.querySelector('[class*="sticky"][class*="top-0"]');
-    var header = document.querySelector('[class*="lg\\:py-3"][class*="lg\\:px-5"]');
+    var stickyWrapper = document.querySelector('[class*="sticky"][class*="top-0"]');
+    var stickyContent = document.querySelector('.flex.w-full.h-auto.bg-component-bg.flex-col.p-0');
 
-    // Find the card grid
-    var grid = null;
+    // Find the card grid wrapper
+    var gridWrapper = null;
     var items = document.querySelectorAll('[data-testid="gallery-item"]');
     if (items.length) {
-      grid = items[0].parentElement;
+      var grid = items[0].parentElement;
+      gridWrapper = grid.closest('div[class*="flex"][class*="gap-4"]') || grid;
     }
 
-    if (sticky && (header || grid)) {
-      var stickyHeight = sticky.offsetHeight;
-      // Add margin to the element right after sticky (header row or grid)
-      var target = header || grid;
-      target.style.marginTop = stickyHeight + 'px';
+    if (!gridWrapper) return;
+
+    var stickyHeight = 0;
+    if (stickyContent) {
+      stickyHeight = stickyContent.getBoundingClientRect().height;
+    } else if (stickyWrapper) {
+      stickyHeight = stickyWrapper.getBoundingClientRect().height;
     }
+
+    if (!stickyHeight) return;
+
+    gridWrapper.style.marginTop = stickyHeight + 'px';
+    gridWrapper.style.scrollMarginTop = stickyHeight + 'px';
   }
 
   // Load external CSS via link tag
