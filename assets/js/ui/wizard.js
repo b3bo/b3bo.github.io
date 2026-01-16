@@ -349,13 +349,8 @@ const stepGenerators = [
  * Open the wizard modal
  */
 export function openWizard() {
-    console.log('[Wizard] openWizard called');
     const modal = document.getElementById('wizard-modal');
-    if (!modal) {
-        console.error('[Wizard] wizard-modal element not found in DOM!');
-        return;
-    }
-    console.log('[Wizard] wizard-modal found, opening...');
+    if (!modal) return;
 
     // Store current focus for restoration
     previousActiveElement = document.activeElement;
