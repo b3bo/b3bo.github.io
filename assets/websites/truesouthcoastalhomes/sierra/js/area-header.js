@@ -10,6 +10,18 @@
   var container = document.getElementById('area-header');
   if (!container) return;
 
+  function setAreaHeaderLoading() {
+    container.classList.add('area-header-loading');
+    container.classList.remove('area-header-ready');
+  }
+
+  function setAreaHeaderReady() {
+    container.classList.remove('area-header-loading');
+    container.classList.add('area-header-ready');
+  }
+
+  setAreaHeaderLoading();
+
   // Use local files for dev, remote for production
   var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   var mlsBaseUrl = isLocal ? '/assets/mls/ecar/' : 'https://neighborhoods.truesouthcoastalhomes.com/assets/mls/ecar/';
@@ -55,6 +67,18 @@
     var url = 'https://www.truesouthcoastalhomes.com/property-search/results/?searchtype=2&subdivision=' + encoded;
     if (forEmbed) url += '&embed=true';
     return url;
+  }
+
+  function buildFallbackHeader(path) {
+    var parts = path.split('/').filter(function(p) { return p; });
+    return {
+      name: parts.length > 1 ? parts[1].replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); }) : 'Community',
+      directory: parts.length > 0 ? parts[0].toUpperCase() : '',
+      city: 'Emerald Coast',
+      propertyType: 'homes',
+      heroImage: '',
+      amenities: []
+    };
   }
 
   function renderHeader(data) {
@@ -157,6 +181,8 @@
           (isLocal ? '' : '<iframe id="listing-iframe" src="" style="width:100%; height:2000px; border:none;"></iframe>') +
         '</div>' +
       '</div>';
+
+    setAreaHeaderReady();
 
     // Update listings heading with count from neighborhood JSON
     var listingsHeading = document.getElementById('listings-heading');
@@ -301,20 +327,12 @@
           renderHeader(communityData);
         } else {
           console.warn('[AreaHeader] No community found for path:', currentPath);
-          // Render with fallback data from URL
-          var parts = currentPath.split('/').filter(function(p) { return p; });
-          renderHeader({
-            name: parts.length > 1 ? parts[1].replace(/-/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); }) : 'Community',
-            directory: parts.length > 0 ? parts[0].toUpperCase() : '',
-            city: 'Emerald Coast',
-            propertyType: 'homes',
-            heroImage: '',
-            amenities: []
-          });
+          renderHeader(buildFallbackHeader(currentPath));
         }
       })
       .catch(function(err) {
         console.error('[AreaHeader] Failed to load data:', err);
+        renderHeader(buildFallbackHeader(currentPath));
       });
   }
 
