@@ -996,15 +996,19 @@ export function initWizard() {
 
     if (!isSingleMode) {
         let hasSeenWizard = false;
-        try {
-            hasSeenWizard = localStorage.getItem('nf_wizard_seen') === '1';
-        } catch (e) {
-            // localStorage unavailable (incognito or blocked) - show wizard
-            hasSeenWizard = false;
+
+        // Check localStorage safely - some browsers block it entirely in private mode
+        if (typeof localStorage !== 'undefined') {
+            try {
+                hasSeenWizard = localStorage.getItem('nf_wizard_seen') === '1';
+            } catch (e) {
+                // localStorage blocked - show wizard
+                hasSeenWizard = false;
+            }
         }
+        // If localStorage doesn't exist at all, hasSeenWizard stays false
 
         if (!hasSeenWizard) {
-            // Small delay to ensure page is fully rendered
             setTimeout(() => {
                 openWizard();
             }, 500);
