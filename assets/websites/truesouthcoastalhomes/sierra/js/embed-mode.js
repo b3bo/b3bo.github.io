@@ -31,8 +31,12 @@
   var critical = document.createElement('style');
   critical.id = 'embed-critical';
   critical.textContent = [
-    'html.embed-mode,body.embed-mode{opacity:0;overflow:hidden!important}',
-    'html.embed-mode.ready,body.embed-mode.ready{opacity:1;overflow:auto!important;transition:opacity .2s}',
+    'html.embed-mode,body.embed-mode{overflow:hidden!important}',
+    'html.embed-mode.ready,body.embed-mode.ready{overflow:auto!important}',
+    'body.embed-mode:not(.ready){position:relative}',
+    'body.embed-mode:not(.ready)>:not(#embed-loader){opacity:0!important;pointer-events:none!important}',
+    'body.embed-mode.ready>:not(#embed-loader){opacity:1!important;transition:opacity .2s}',
+    'body.embed-mode:not(.ready)::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:9990}',
     'body.embed-mode header,body.embed-mode footer,body.embed-mode nav,body.embed-mode .navbar,body.embed-mode .site-header,body.embed-mode .site-footer{display:none!important}',
     '.embed-loader{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:#fff;z-index:9999;transition:opacity .3s}',
     '.embed-loader.hidden{opacity:0;pointer-events:none}',
