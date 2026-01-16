@@ -129,19 +129,11 @@
 
     if (!gridWrapper || !stickyTarget) return;
 
-    var stickyRect = stickyTarget.getBoundingClientRect();
-    var gridRect = gridWrapper.getBoundingClientRect();
     var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
-    var currentGap = gridRect.top - stickyRect.bottom;
-    var extraNeeded = Math.max(0, desiredGap - currentGap);
+    var offset = (stickyTarget.offsetHeight || 0) + desiredGap;
 
-    if (extraNeeded) {
-      gridWrapper.style.marginTop = extraNeeded + 'px';
-    } else {
-      gridWrapper.style.marginTop = '';
-    }
-
-    gridWrapper.style.scrollMarginTop = (stickyTarget.offsetHeight + desiredGap) + 'px';
+    gridWrapper.style.marginTop = offset + 'px';
+    gridWrapper.style.scrollMarginTop = offset + 'px';
   }
 
   // Load external CSS via link tag
