@@ -995,15 +995,19 @@ export function initWizard() {
     const isSingleMode = urlParams.get('mode') === 'single';
 
     if (!isSingleMode) {
+        let hasSeenWizard = false;
         try {
-            if (!localStorage.getItem('nf_wizard_seen')) {
-                // Small delay to ensure page is fully rendered
-                setTimeout(() => {
-                    openWizard();
-                }, 500);
-            }
+            hasSeenWizard = localStorage.getItem('nf_wizard_seen') === '1';
         } catch (e) {
-            // localStorage may be unavailable
+            // localStorage unavailable (incognito or blocked) - show wizard
+            hasSeenWizard = false;
+        }
+
+        if (!hasSeenWizard) {
+            // Small delay to ensure page is fully rendered
+            setTimeout(() => {
+                openWizard();
+            }, 500);
         }
     }
 
