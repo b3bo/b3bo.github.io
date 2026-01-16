@@ -305,6 +305,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Bayside At Ward Creek": {
@@ -717,6 +721,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121701"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Calusa Bay": {
@@ -1643,12 +1651,6 @@
       "searchId": ""
     }
   },
-  "Emerald": {
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Emerald Bay": {
     "homes": {
       "urlSlug": "/destin/emerald-bay/",
@@ -2021,7 +2023,7 @@
   },
   "Grande Pointe at Inlet Beach": {
     "homes": {
-      "urlSlug": "/30a/grande-pointe-at-inlet-beach/",
+      "urlSlug": "",
       "searchId": "7100534"
     },
     "lots": {
@@ -3997,6 +3999,12 @@
       "searchId": ""
     }
   },
+  "Point At Lake Powell": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Point Washington": {
     "homes": {
       "urlSlug": "",
@@ -4731,6 +4739,12 @@
       "searchId": ""
     }
   },
+  "Seagrove East": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Seagrove Heights": {
     "homes": {
       "urlSlug": "/30a/seagrove-heights/",
@@ -4780,10 +4794,6 @@
     }
   },
   "Seamist": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""

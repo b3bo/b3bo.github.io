@@ -1,0 +1,159 @@
+@import 'tailwindcss';
+@config "../../../../../tailwind.config.js";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+/* Theme definition */
+@theme {
+    --color-primary-50: #f1fcfd;
+    --color-primary-100: #e0f5f8;
+    --color-primary-200: #c1edf2;
+    --color-primary-300: #9ce0e7;
+    --color-primary-400: #73cad3;
+    --color-primary-500: #58a7af;
+    --color-primary-600: #4c8f96;
+    --color-primary-700: #3e7378;
+    --color-primary-800: #335d61;
+    --color-primary-900: #2e4d50;
+    --color-primary-950: #1a3336;
+    --color-neutral-50: #fafafb;
+    --color-neutral-100: #f3f4f5;
+    --color-neutral-200: #e3e5e7;
+    --color-neutral-300: #d0d5dc;
+    --color-neutral-400: #98a1ae;
+    --color-neutral-500: #697381;
+    --color-neutral-600: #4a5462;
+    --color-neutral-700: #313842;
+    --color-neutral-800: #24282d;
+    --color-neutral-900: #16181c;
+    --color-neutral-950: #07090d;
+
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Roboto", sans-serif;
+    --radius: 0.375rem;
+}
+
+/* Scan HTML and JS files for utility classes */
+@source "../../tests/production_reference.html", "./area-cards.css", "./listing-cards.css", "./components/**/*.html", "../../assets/js/sierra/*.js";
+
+/* Component CSS extracted from tailwind-stable.css */
+@import "./extracted-components.css";
+
+/* Area navigation page components */
+@import "./area-cards.css";
+
+/* Listing cards for embedded search results */
+@import "./listing-cards.css";
+
+/* ========================================================================
+   EMBED MODE LOADER
+   Replaces Sierra's default "Loading Listings..." spinner
+   ======================================================================== */
+
+/* Hide Sierra's default loader */
+body.embed-mode [class*="loading"],
+body.embed-mode [class*="spinner"],
+body.embed-mode [class*="Loading"] {
+    display: none !important;
+}
+
+/* Custom loader container */
+.embed-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.embed-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Dual-shape rotating loader */
+.loader-dual-shape {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    transform: rotate(165deg);
+}
+
+.loader-dual-shape:before,
+.loader-dual-shape:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+}
+
+.loader-dual-shape:before {
+    animation: loader-before 2s infinite;
+}
+
+.loader-dual-shape:after {
+    animation: loader-after 2s infinite;
+}
+
+@keyframes loader-before {
+    0% {
+        width: 0.5em;
+        box-shadow:
+            1em -0.5em rgba(76, 143, 150, 0.75),
+            -1em 0.5em rgba(163, 163, 163, 0.75);
+    }
+    35% {
+        width: 2.5em;
+        box-shadow:
+            0 -0.5em rgba(76, 143, 150, 0.75),
+            0 0.5em rgba(163, 163, 163, 0.75);
+    }
+    70% {
+        width: 0.5em;
+        box-shadow:
+            -1em -0.5em rgba(76, 143, 150, 0.75),
+            1em 0.5em rgba(163, 163, 163, 0.75);
+    }
+    100% {
+        box-shadow:
+            1em -0.5em rgba(76, 143, 150, 0.75),
+            -1em 0.5em rgba(163, 163, 163, 0.75);
+    }
+}
+
+@keyframes loader-after {
+    0% {
+        height: 0.5em;
+        box-shadow:
+            0.5em 1em rgba(91, 163, 171, 0.75),
+            -0.5em -1em rgba(115, 115, 115, 0.75);
+    }
+    35% {
+        height: 2.5em;
+        box-shadow:
+            0.5em 0 rgba(91, 163, 171, 0.75),
+            -0.5em 0 rgba(115, 115, 115, 0.75);
+    }
+    70% {
+        height: 0.5em;
+        box-shadow:
+            0.5em -1em rgba(91, 163, 171, 0.75),
+            -0.5em 1em rgba(115, 115, 115, 0.75);
+    }
+    100% {
+        box-shadow:
+            0.5em 1em rgba(91, 163, 171, 0.75),
+            -0.5em -1em rgba(115, 115, 115, 0.75);
+    }
+}

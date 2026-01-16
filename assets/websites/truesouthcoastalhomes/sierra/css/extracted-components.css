@@ -1,0 +1,1504 @@
+/**
+ * ==========================================================================
+ * SIERRA THEME - EXTRACTED COMPONENTS
+ * ==========================================================================
+ *
+ * Component styles extracted from tailwind-stable.css with full specificity.
+ * These styles provide consistent typography, interactive elements, and
+ * widget styling for the Sierra theme.
+ *
+ * @version     1.0.0
+ * @author      Sierra Theme
+ * @license     Proprietary
+ *
+ * TABLE OF CONTENTS
+ * ==========================================================================
+ *
+ * 1.  BASE STYLES
+ *     - Document defaults
+ *
+ * 2.  TYPOGRAPHY
+ *     2.1  Headings (H1, H2, H3)
+ *     2.2  Body Text & Paragraphs
+ *     2.3  Text Emphasis (bold, strong, spans)
+ *     2.4  Links
+ *     2.5  Blockquotes
+ *     2.6  Disclaimer Text
+ *
+ * 3.  INTERACTIVE COMPONENTS
+ *     3.1  Primary Buttons
+ *     3.2  Button Groups
+ *
+ * 4.  NAVIGATION
+ *     4.1  Breadcrumbs
+ *     4.2  Tag Items
+ *
+ * 5.  MEDIA
+ *     5.1  Hero Images
+ *     5.2  Videos
+ *
+ * 6.  DATA DISPLAY
+ *     6.1  Tables
+ *     6.2  FAQ Accordion
+ *     6.3  Property Statistics
+ *
+ * 7.  SIERRA WIDGETS
+ *     7.1  Content Labels
+ *     7.2  Form Containers
+ *     7.3  Price Range Widget
+ *
+ * 8.  BLOG COMPONENTS
+ *
+ * 9.  LAYOUT UTILITIES
+ *
+ * ==========================================================================
+ */
+
+
+/* ==========================================================================
+   1. BASE STYLES
+   ========================================================================== */
+
+/**
+ * Document Defaults
+ * --------------------------------------------------------------------------
+ * Override Sierra's base font size to ensure consistent rem calculations.
+ */
+
+html {
+  font-size: 100%;
+}
+
+/**
+ * Content Area Container
+ * --------------------------------------------------------------------------
+ * Matches Sierra's Bootstrap container widths for consistent layout.
+ */
+
+.si-content-area {
+  width: 100%;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 1199px) {
+  .si-content-area {
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 991px) {
+  .si-content-area {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767px) {
+  .si-content-area {
+    max-width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   2. TYPOGRAPHY
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   2.1 Headings
+   -------------------------------------------------------------------------- */
+
+/**
+ * H1 - Primary Page Heading
+ * --------------------------------------------------------------------------
+ * Main page title with responsive sizing. Centers on mobile, aligns left
+ * on larger screens. Supports accent-colored spans for emphasis.
+ *
+ * Breakpoints:
+ *   - Base:   1.6rem, centered
+ *   - 40rem:  1.9rem
+ *   - 48rem:  2.35rem, left-aligned
+ *   - 64rem:  2.75rem
+ */
+
+.main-content .si-content-area h1 {
+  margin-bottom: calc(var(--spacing, .25rem) * 4);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: var(--leading-tight, 1.25);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-neutral-700);
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area h1 {
+    text-align: left;
+    font-size: 2.35rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .main-content .si-content-area h1 {
+    font-size: 2.75rem;
+  }
+}
+
+/* H1 accent spans */
+.main-content .si-content-area h1 span {
+  color: var(--color-primary-600);
+}
+
+/**
+ * H2 - Section Headings
+ * --------------------------------------------------------------------------
+ * Secondary headings for major content sections. Includes significant
+ * top margin for visual separation between sections.
+ *
+ * Selectors include:
+ *   - Standard content area h2
+ *   - Video widget titles
+ *   - Content label titles
+ *   - Standalone h2 elements
+ *
+ * Breakpoints:
+ *   - Base:   1.25rem (text-xl)
+ *   - 48rem:  1.5rem (text-2xl)
+ *   - 64rem:  1.875rem (text-3xl)
+ */
+
+.main-content .si-content-area h2,
+.si-videos-widget > h2,
+.si-content-label__title,
+h2 {
+  margin-top: calc(var(--spacing, .25rem) * 20);
+  margin-bottom: calc(var(--spacing, .25rem) * 4);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl, 1.25rem);
+  line-height: var(--leading-tight, 1.25);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-neutral-700);
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area h2,
+  .si-videos-widget > h2,
+  .si-content-label__title,
+  h2 {
+    font-size: var(--text-xl, 1.25rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area h2,
+  .si-videos-widget > h2,
+  .si-content-label__title,
+  h2 {
+    font-size: var(--text-2xl, 1.5rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .main-content .si-content-area h2,
+  .si-videos-widget > h2,
+  .si-content-label__title,
+  h2 {
+    font-size: var(--text-3xl, 1.875rem);
+  }
+}
+
+/**
+ * H3 - Subsection Headings
+ * --------------------------------------------------------------------------
+ * Tertiary headings for content subsections.
+ *
+ * Breakpoints:
+ *   - Base:   1rem (text-base)
+ *   - 40rem:  1.125rem (text-lg)
+ *   - 48rem:  1.25rem (text-xl)
+ *   - 64rem:  1.5rem (text-2xl)
+ */
+
+.main-content .si-content-area h3 {
+  margin-top: calc(var(--spacing, .25rem) * 4);
+  margin-bottom: calc(var(--spacing, .25rem) * 4);
+  font-family: var(--font-heading);
+  font-size: var(--text-base, 1rem);
+  line-height: var(--leading-tight, 1.25);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-neutral-700);
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area h3 {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area h3 {
+    font-size: var(--text-xl, 1.25rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .main-content .si-content-area h3 {
+    font-size: var(--text-2xl, 1.5rem);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   2.2 Body Text & Paragraphs
+   -------------------------------------------------------------------------- */
+
+/**
+ * Paragraph Styles
+ * --------------------------------------------------------------------------
+ * Standard body text with responsive sizing.
+ *
+ * Breakpoints:
+ *   - Base:   0.875rem (text-sm)
+ *   - 40rem:  1rem (text-base)
+ *   - 48rem+: 1.125rem (text-lg)
+ */
+
+.main-content .si-content-area p {
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+  line-height: var(--leading-tight, 1.25);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--color-neutral-700);
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area p {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area p {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .main-content .si-content-area p {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   2.3 Text Emphasis
+   -------------------------------------------------------------------------- */
+
+/**
+ * Bold & Strong Text
+ * --------------------------------------------------------------------------
+ * Semi-bold weight for emphasized inline text.
+ */
+
+.main-content .si-content-area b,
+.main-content .si-content-area strong {
+  font-weight: 550;
+}
+
+/**
+ * Accent Spans
+ * --------------------------------------------------------------------------
+ * Primary color accent for highlighted text within headings,
+ * paragraphs, and blockquotes.
+ */
+
+.main-content .si-content-area h3 span,
+.main-content .si-content-area p span,
+.main-content .si-content-area blockquote span {
+  color: var(--color-primary-600);
+}
+
+/* Blockquote Span - Medium Weight */
+.main-content .si-content-area blockquote span {
+  font-weight: var(--font-weight-medium, 500);
+}
+
+/**
+ * Paragraph Spans - Responsive Sizing
+ * --------------------------------------------------------------------------
+ * Larger text sizing for spans within paragraphs (callout text).
+ */
+
+.main-content .si-content-area p span {
+  font-size: var(--text-base, 1rem);
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area p span {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area p span {
+    font-size: var(--text-xl, 1.25rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .main-content .si-content-area p span {
+    font-size: var(--text-2xl, 1.5rem);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   2.4 Links
+   -------------------------------------------------------------------------- */
+
+/**
+ * Content Links
+ * --------------------------------------------------------------------------
+ * Inline links within paragraphs, definition lists, and blockquotes.
+ * Features underline decoration and smooth color transitions.
+ */
+
+.main-content p a,
+.main-content dd a,
+.main-content blockquote a {
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-primary-600);
+  text-decoration-line: underline;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+/**
+ * Content Label Links
+ * --------------------------------------------------------------------------
+ * Neutral-colored links within content label widgets.
+ */
+
+.si-content-label__link > a {
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-neutral-600);
+}
+
+
+/* --------------------------------------------------------------------------
+   2.5 Blockquotes
+   -------------------------------------------------------------------------- */
+
+/**
+ * Blockquote Container
+ * --------------------------------------------------------------------------
+ * Styled quote blocks with left border accent, subtle background,
+ * and decorative opening quotation mark.
+ */
+
+.main-content .si-content-area blockquote {
+  position: relative;
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-color: rgba(76, 143, 150, 0.5);
+  background-color: rgba(243, 244, 245, 0.5);
+  padding-top: calc(var(--spacing, .25rem) * 12);
+  padding-bottom: calc(var(--spacing, .25rem) * 6);
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area blockquote {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area blockquote {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+/**
+ * Blockquote Decorative Quote Mark
+ * --------------------------------------------------------------------------
+ * Large opening quotation mark positioned at top-left of blockquote.
+ */
+
+.main-content .si-content-area blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: calc(var(--spacing, .25rem) * 3);
+  left: calc(var(--spacing, .25rem) * 5);
+  z-index: 10;
+  font-family: var(--font-body);
+  font-size: var(--text-5xl, 3rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-primary-600);
+}
+
+
+/* --------------------------------------------------------------------------
+   2.6 Disclaimer Text
+   -------------------------------------------------------------------------- */
+
+/**
+ * Disclaimer Block
+ * --------------------------------------------------------------------------
+ * Small, uppercase text for legal disclaimers and fine print.
+ * Includes a horizontal separator line above.
+ */
+
+.main-content .si-content-area .disclaimer {
+  margin-top: calc(var(--spacing, .25rem) * 4);
+  margin-bottom: calc(var(--spacing, .25rem) * 4);
+  font-family: var(--font-body);
+  font-size: var(--text-xs, .75rem);
+  line-height: var(--leading-tight, 1.25);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-neutral-500);
+  text-transform: uppercase;
+}
+
+@media (min-width: 40rem) {
+  .main-content .si-content-area .disclaimer {
+    font-size: var(--text-sm, .875rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .main-content .si-content-area .disclaimer {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .main-content .si-content-area .disclaimer {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+/**
+ * Disclaimer Separator Line
+ * --------------------------------------------------------------------------
+ * Horizontal rule generated via ::before pseudo-element.
+ */
+
+.main-content .si-content-area .disclaimer::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: calc(var(--spacing, .25rem) * 20);
+  margin-bottom: calc(var(--spacing, .25rem) * 2);
+  background-color: var(--color-neutral-300);
+}
+
+
+/* ==========================================================================
+   3. INTERACTIVE COMPONENTS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   3.1 Primary Buttons
+   -------------------------------------------------------------------------- */
+
+/**
+ * Primary Action Button
+ * --------------------------------------------------------------------------
+ * Main call-to-action button with primary brand color background.
+ * Used for form submissions, CTAs, and interactive widget actions.
+ *
+ * Applied to:
+ *   - .btn-custom (custom button class)
+ *   - .si-iw-fma__btn (Sierra interactive widget buttons)
+ *   - .si-form .si-btn (Form submit buttons)
+ */
+
+.btn-custom,
+.si-iw-fma__btn,
+.si-form .si-btn {
+  display: inline-flex;
+  align-items: center;
+  border-width: 0;
+  border-radius: var(--radius);
+  background-color: var(--color-primary-600);
+  padding-inline: calc(var(--spacing, .25rem) * 6);
+  padding-block: calc(var(--spacing, .25rem) * 2);
+  font-size: var(--text-base, 1rem);
+  font-weight: var(--font-weight-medium, 500);
+  white-space: nowrap;
+  color: var(--color-white, #fff);
+  transition: background-color 0.2s;
+}
+
+/* Primary Button - Hover State */
+@media (hover: hover) {
+  .btn-custom:hover,
+  .si-iw-fma__btn:hover,
+  .si-form .si-btn:hover {
+    background-color: rgba(76, 143, 150, 0.75);
+  }
+}
+
+/* Primary Button - Mobile Sizing */
+@media not all and (min-width: 48rem) {
+  .btn-custom,
+  .si-iw-fma__btn,
+  .si-form .si-btn {
+    padding-inline: calc(var(--spacing, .25rem) * 4);
+    padding-block: calc(var(--spacing, .25rem) * 1);
+    font-size: var(--text-sm, .875rem);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   3.2 Button Groups
+   -------------------------------------------------------------------------- */
+
+/**
+ * Button Group Container
+ * --------------------------------------------------------------------------
+ * Horizontal grouping of related actions (e.g., filter buttons).
+ * Displays as a 2-column grid on mobile, inline row on desktop.
+ */
+
+.button-group {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-inline: auto;
+  margin-top: calc(var(--spacing, .25rem) * 4);
+}
+
+/* Button Group - Mobile Grid Layout */
+@media not all and (min-width: 48rem) {
+  .button-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(var(--spacing, .25rem) * 2);
+  }
+}
+
+/* Button Group - Desktop Row Layout */
+@media (min-width: 48rem) {
+  .button-group {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+/**
+ * Button Group Items
+ * --------------------------------------------------------------------------
+ * Individual buttons within a button group with neutral styling.
+ */
+
+.button-group a {
+  border: 1px solid var(--color-neutral-300);
+  background-color: var(--color-neutral-100);
+  padding-inline: calc(var(--spacing, .25rem) * 8);
+  padding-block: calc(var(--spacing, .25rem) * 2);
+  font-size: var(--text-sm, .875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-neutral-600);
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Button Group Items - Hover State */
+@media (hover: hover) {
+  .button-group a:hover {
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-700);
+    text-decoration: none;
+  }
+}
+
+/* Button Group Items - Focus State */
+.button-group a:focus {
+  z-index: 10;
+  color: var(--color-neutral-500);
+  box-shadow: 0 0 0 2px var(--color-neutral-500);
+}
+
+/* Button Group Items - Mobile Styling */
+@media not all and (min-width: 48rem) {
+  .button-group a {
+    border-radius: var(--radius-lg, .5rem);
+    padding-inline: calc(var(--spacing, .25rem) * 4);
+    padding-block: calc(var(--spacing, .25rem) * 1);
+    text-align: center;
+  }
+}
+
+/**
+ * Button Group - Connected Border Styling (Desktop)
+ * --------------------------------------------------------------------------
+ * Creates a pill-shaped connected button group on larger screens.
+ */
+
+@media (min-width: 768px) {
+  .button-group a {
+    margin: 0;
+  }
+
+  /* Middle buttons - no border radius */
+  .button-group a:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+  }
+
+  /* First button - rounded left corners */
+  .button-group a:first-child {
+    border-top-left-radius: var(--radius-lg, .5rem);
+    border-bottom-left-radius: var(--radius-lg, .5rem);
+    border-right-width: 0;
+  }
+
+  /* Last button - rounded right corners */
+  .button-group a:last-child {
+    border-top-right-radius: var(--radius-lg, .5rem);
+    border-bottom-right-radius: var(--radius-lg, .5rem);
+    border-left-width: 0;
+  }
+}
+
+
+/* ==========================================================================
+   4. NAVIGATION
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   4.1 Breadcrumbs
+   -------------------------------------------------------------------------- */
+
+/**
+ * Breadcrumb Navigation
+ * --------------------------------------------------------------------------
+ * Horizontal breadcrumb trail for page hierarchy.
+ * Centered layout with responsive item spacing.
+ */
+
+[aria-label="Breadcrumb"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: calc(var(--spacing, .25rem) * 4);
+}
+
+[aria-label="Breadcrumb"] .breadcrumb-items {
+  display: flex;
+  align-items: center;
+}
+
+/* Breadcrumb Item Spacing */
+:where([aria-label="Breadcrumb"] .breadcrumb-items > :not(:last-child)) {
+  margin-inline-end: calc(var(--spacing, .25rem) * 2);
+}
+
+@media (min-width: 48rem) {
+  :where([aria-label="Breadcrumb"] .breadcrumb-items > :not(:last-child)) {
+    margin-inline-end: calc(var(--spacing, .25rem) * 4);
+  }
+}
+
+/* Prevent breadcrumb items from shrinking */
+[aria-label="Breadcrumb"] .breadcrumb-items > * {
+  flex-shrink: 0;
+}
+
+/**
+ * Standalone Breadcrumb Items
+ * --------------------------------------------------------------------------
+ * Breadcrumb styling for use outside of aria-label container.
+ */
+
+.breadcrumb-items {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-items > * {
+  flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   4.2 Tag Items
+   -------------------------------------------------------------------------- */
+
+/**
+ * Tag List Container
+ * --------------------------------------------------------------------------
+ * Horizontally-wrapped list of tag links (categories, filters, etc.).
+ */
+
+.tag-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(var(--spacing, .25rem) * 8);
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-neutral-600);
+}
+
+/* Tag Item Spacing */
+:where(.tag-items > :not(:last-child)) {
+  margin-inline-end: calc(var(--spacing, .25rem) * 0.5);
+}
+
+@media (min-width: 48rem) {
+  :where(.tag-items > :not(:last-child)) {
+    margin-inline-end: calc(var(--spacing, .25rem) * 1);
+  }
+}
+
+/**
+ * Individual Tag Links
+ * --------------------------------------------------------------------------
+ * Pill-shaped tag buttons with hover and focus states.
+ */
+
+.tag-items a {
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-lg, .5rem);
+  padding-inline: calc(var(--spacing, .25rem) * 2);
+  padding-block: calc(var(--spacing, .25rem) * 1);
+  text-align: center;
+  font-size: var(--text-sm, .875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-neutral-600);
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Tag Link - Hover State */
+@media (hover: hover) {
+  .tag-items a:hover {
+    background-color: rgba(76, 143, 150, 0.3);
+    color: var(--color-neutral-700);
+    text-decoration: none;
+  }
+}
+
+/* Tag Link - Focus State */
+.tag-items a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(88, 167, 175, 0.6);
+}
+
+
+/* ==========================================================================
+   5. MEDIA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   5.1 Hero Images
+   -------------------------------------------------------------------------- */
+
+/**
+ * Hero Image Container
+ * --------------------------------------------------------------------------
+ * Responsive hero image with fixed aspect ratio (10:6).
+ */
+
+.hero-image {
+  position: relative;
+  aspect-ratio: 10/6;
+}
+
+.hero-image > img {
+  width: 100%;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   5.2 Videos
+   -------------------------------------------------------------------------- */
+
+/**
+ * Video Container
+ * --------------------------------------------------------------------------
+ * Sierra video widget with removed bottom margin.
+ */
+
+.si-video {
+  margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   6. DATA DISPLAY
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   6.1 Tables
+   -------------------------------------------------------------------------- */
+
+/**
+ * Custom Table Styles
+ * --------------------------------------------------------------------------
+ * Responsive table with sticky first column and row separators.
+ */
+
+.table-custom {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* Table Header Cells */
+.th-custom {
+  padding-inline: calc(var(--spacing, .25rem) * 3);
+  padding-block: calc(var(--spacing, .25rem) * 2);
+}
+
+/* Table Data Cells */
+.td-custom {
+  padding-inline: calc(var(--spacing, .25rem) * 3);
+  padding-block: calc(var(--spacing, .25rem) * 2);
+}
+
+/**
+ * Table Row Styling
+ * --------------------------------------------------------------------------
+ * Responsive font sizing with sticky first-column support.
+ */
+
+.tr-custom {
+  font-size: var(--text-xs, .75rem);
+}
+
+.tr-custom > * {
+  color: var(--color-neutral-600);
+}
+
+/* Sticky First Column (row header) */
+.tr-custom > *:first-child {
+  position: sticky;
+  left: 0;
+  background-color: var(--color-white, #fff);
+  font-weight: var(--font-weight-bold, 700);
+}
+
+@media (min-width: 40rem) {
+  .tr-custom {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+/**
+ * Table Header Styling
+ * --------------------------------------------------------------------------
+ * Bold, left-aligned header with RTL support.
+ */
+
+.head-custom {
+  font-weight: var(--font-weight-bold, 700);
+  text-align: left;
+}
+
+.head-custom:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
+  text-align: right;
+}
+
+/**
+ * Table Body Row Separators
+ * --------------------------------------------------------------------------
+ */
+
+:where(.tbody-custom > :not(:last-child)) {
+  border-bottom: 1px solid var(--color-neutral-300);
+}
+
+
+/* --------------------------------------------------------------------------
+   6.2 FAQ Accordion
+   -------------------------------------------------------------------------- */
+
+/**
+ * FAQ Question
+ * --------------------------------------------------------------------------
+ * Bold question text with responsive sizing.
+ */
+
+.faq-question {
+  font-family: var(--font-heading);
+  font-size: var(--text-base, 1rem);
+  line-height: var(--leading-tight, 1.25);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-neutral-700);
+}
+
+@media (min-width: 40rem) {
+  .faq-question {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .faq-question {
+    font-size: var(--text-xl, 1.25rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .faq-question {
+    font-size: var(--text-2xl, 1.5rem);
+  }
+}
+
+/**
+ * FAQ Answer
+ * --------------------------------------------------------------------------
+ * Regular-weight answer text with slightly relaxed line height.
+ */
+
+.faq-answer {
+  padding-top: calc(var(--spacing, .25rem) * 4);
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+  line-height: var(--leading-normal, 1.5);
+  color: var(--color-neutral-600);
+}
+
+@media (min-width: 40rem) {
+  .faq-answer {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .faq-answer {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .faq-answer {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   6.3 Property Statistics
+   -------------------------------------------------------------------------- */
+
+/**
+ * Property Stats Container
+ * --------------------------------------------------------------------------
+ * Bordered container for property data display.
+ */
+
+.si-property-stats {
+  border: 1px solid var(--color-neutral-300);
+}
+
+/**
+ * Property Stats Title Bar
+ * --------------------------------------------------------------------------
+ * Header section with subtle background.
+ */
+
+.si-property-stats__title {
+  border-bottom: 1px solid var(--color-neutral-300);
+  background-color: var(--color-neutral-100);
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+  line-height: var(--leading-normal, 1.5);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--color-neutral-600);
+}
+
+@media (min-width: 40rem) {
+  .si-property-stats__title {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .si-property-stats__title {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+/**
+ * Property Stats Date
+ * --------------------------------------------------------------------------
+ * Date display within property stats with trailing period.
+ */
+
+.si-property-stats__title-date {
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+  line-height: var(--leading-normal, 1.5);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--color-neutral-600);
+}
+
+@media (min-width: 40rem) {
+  .si-property-stats__title-date {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .si-property-stats__title-date {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+.si-property-stats__title-date::after {
+  content: ".";
+}
+
+
+/* ==========================================================================
+   7. SIERRA WIDGETS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   7.1 Content Labels
+   -------------------------------------------------------------------------- */
+
+/**
+ * Content Label Body
+ * --------------------------------------------------------------------------
+ * Bordered container for widget content.
+ */
+
+.si-content-label__body {
+  border: 1px solid var(--color-neutral-300);
+  background-color: transparent;
+}
+
+
+/* --------------------------------------------------------------------------
+   7.2 Form Containers
+   -------------------------------------------------------------------------- */
+
+/**
+ * Sierra Form Container
+ * --------------------------------------------------------------------------
+ * Centered form wrapper with neutral background and rounded bottom corners.
+ */
+
+.si-container.si-form {
+  margin-inline: auto;
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing, .25rem) * 6);
+  max-width: var(--container-4xl, 56rem);
+  border-bottom-right-radius: var(--radius-lg, .5rem);
+  border-bottom-left-radius: var(--radius-lg, .5rem);
+  background-color: var(--color-neutral-100);
+  padding: calc(var(--spacing, .25rem) * 12);
+}
+
+
+/* --------------------------------------------------------------------------
+   7.3 Price Range Widget
+   -------------------------------------------------------------------------- */
+
+/**
+ * Price Range Title
+ * --------------------------------------------------------------------------
+ * Styled title bar for price range filter widget.
+ */
+
+.si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+  margin: 0;
+  border: 1px solid var(--color-neutral-300);
+  background-color: var(--color-neutral-100);
+  padding-inline: calc(var(--spacing, .25rem) * 2.5);
+  padding-block: calc(var(--spacing, .25rem) * 1.5);
+  font-family: var(--font-body);
+  font-size: var(--text-sm, .875rem);
+  line-height: var(--leading-normal, 1.5);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--color-neutral-600);
+}
+
+@media (min-width: 40rem) {
+  .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+    font-size: var(--text-base, 1rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .si-container.si-content-label.si-content-label--price-range.js-lw-price-ranges .si-content-label__title {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+
+/* ==========================================================================
+   8. BLOG COMPONENTS
+   ========================================================================== */
+
+/**
+ * Blog Link Visibility
+ * --------------------------------------------------------------------------
+ * Hide standalone blog links (navigation handled elsewhere).
+ */
+
+.blog-link {
+  display: none !important;
+}
+
+/**
+ * Blog Grid Layout
+ * --------------------------------------------------------------------------
+ * Two-column flexbox grid for blog post listings.
+ */
+
+.blogs .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blogs .row .col-sm-6 {
+  flex: none;
+  width: 50%;
+}
+
+/**
+ * Blog Post Images
+ * --------------------------------------------------------------------------
+ * Responsive image sizing for blog post thumbnails.
+ */
+
+.blogs .item .img img {
+  width: 345px;
+}
+
+@media (min-width: 48rem) {
+  .blogs .item .img img {
+    width: 100%;
+    max-height: 200px;
+  }
+}
+
+@media (min-width: 64rem) {
+  .blogs .item .img img {
+    width: auto;
+  }
+}
+
+
+/* ==========================================================================
+   9. LAYOUT UTILITIES
+   ========================================================================== */
+
+/**
+ * Anchor Scroll Offset
+ * --------------------------------------------------------------------------
+ * Offsets anchor scroll position to account for fixed header.
+ * Automatically applied to common anchor targets.
+ * Use .anchor-offset class for custom anchors.
+ */
+
+#listings,
+#faq,
+#map,
+.anchor-offset {
+  scroll-margin-top: 5rem;
+}
+
+/**
+ * Full-Width Background
+ * --------------------------------------------------------------------------
+ * Utility class to break out of container and span full viewport width.
+ * Uses negative margin technique for edge-to-edge backgrounds.
+ */
+
+.full-width-bg {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  min-height: 100px;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--light-bg-color);
+}
+
+/**
+ * Theme Color Override
+ * --------------------------------------------------------------------------
+ * Specific class override for primary brand color.
+ */
+
+.css-16xp66h {
+  background-color: #4c8f96;
+}
+
+
+/* ==========================================================================
+   10. AREA HEADER COMPONENTS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   10.1 Hero Section Layout
+   -------------------------------------------------------------------------- */
+
+/**
+ * Hero Section Container
+ * --------------------------------------------------------------------------
+ * Main hero container with mobile-first column-reverse layout.
+ * Switches to side-by-side row layout on tablet and up.
+ */
+
+.hero-section {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-inline: auto;
+  margin-top: calc(var(--spacing, .25rem) * 4);
+  margin-bottom: calc(var(--spacing, .25rem) * 4);
+  padding-inline: calc(var(--spacing, .25rem) * 5);
+  max-width: var(--container-7xl, 80rem);
+}
+
+@media (min-width: 48rem) {
+  .hero-section {
+    flex-direction: row;
+    margin-top: calc(var(--spacing, .25rem) * 9);
+  }
+}
+
+/**
+ * Hero Content Column
+ * --------------------------------------------------------------------------
+ * Text content column with H1 and CTA button.
+ * Expands to half-width on tablet with right padding.
+ */
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 48rem) {
+  .hero-content {
+    width: 50%;
+    margin-bottom: 0;
+    align-items: flex-start;
+    padding-right: calc(var(--spacing, .25rem) * 16);
+    text-align: left;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero-content {
+    flex-grow: 1;
+    padding-right: calc(var(--spacing, .25rem) * 24);
+  }
+}
+
+/**
+ * Hero CTA Group
+ * --------------------------------------------------------------------------
+ * Centered button wrapper for call-to-action buttons.
+ */
+
+.hero-cta-group {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--spacing, .25rem) * 4);
+}
+
+/**
+ * Hero Image Column
+ * --------------------------------------------------------------------------
+ * Image container column with responsive width behavior.
+ * Uses with .hero-image for aspect ratio styling.
+ */
+
+.hero-image-col {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 48rem) {
+  .hero-image-col {
+    width: 50%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero-image-col {
+    width: 100%;
+    max-width: var(--container-lg, 32rem);
+  }
+}
+
+/**
+ * Hero Image Styling
+ * --------------------------------------------------------------------------
+ * Image element styling within hero (extends base .hero-image).
+ */
+
+.hero-image img {
+  border-radius: var(--radius, 0.375rem);
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 10/6;
+}
+
+
+/* --------------------------------------------------------------------------
+   10.2 Breadcrumb Enhancement
+   -------------------------------------------------------------------------- */
+
+/**
+ * Breadcrumb Navigation Container
+ * --------------------------------------------------------------------------
+ * Outer wrapper for breadcrumb with centering and spacing.
+ */
+
+.breadcrumb-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--spacing, .25rem) * 4);
+  padding-inline: calc(var(--spacing, .25rem) * 4);
+  font-family: var(--font-body);
+  color: var(--color-neutral-700);
+}
+
+.breadcrumb-nav .breadcrumb-items {
+  gap: calc(var(--spacing, .25rem) * 2);
+}
+
+@media (min-width: 48rem) {
+  .breadcrumb-nav .breadcrumb-items {
+    gap: calc(var(--spacing, .25rem) * 4);
+  }
+}
+
+/**
+ * Breadcrumb Chevron Icon
+ * --------------------------------------------------------------------------
+ * SVG separator icon between breadcrumb items.
+ */
+
+.breadcrumb-chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--color-neutral-400);
+}
+
+/**
+ * Breadcrumb Current Page
+ * --------------------------------------------------------------------------
+ * Current page indicator with muted text color.
+ */
+
+.breadcrumb-current {
+  color: var(--color-neutral-500);
+}
+
+
+/* --------------------------------------------------------------------------
+   10.3 Button Group Wrapper
+   -------------------------------------------------------------------------- */
+
+/**
+ * Button Group Wrapper
+ * --------------------------------------------------------------------------
+ * Centering container for button groups.
+ */
+
+.button-group-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* --------------------------------------------------------------------------
+   10.4 Tags Section
+   -------------------------------------------------------------------------- */
+
+/**
+ * Tags Section Container
+ * --------------------------------------------------------------------------
+ * Wrapper for tag list with vertical spacing.
+ */
+
+.tags-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--spacing, .25rem) * 2);
+  margin-bottom: calc(var(--spacing, .25rem) * 8);
+  padding-inline: calc(var(--spacing, .25rem) * 4);
+}
+
+/**
+ * Tag Icon
+ * --------------------------------------------------------------------------
+ * Font Awesome tag icon styling.
+ */
+
+.tag-icon {
+  flex-shrink: 0;
+  color: var(--color-primary-600);
+}
+
+
+/* --------------------------------------------------------------------------
+   10.5 Header Container Alignment
+   -------------------------------------------------------------------------- */
+
+/**
+ * Header Container
+ * --------------------------------------------------------------------------
+ * Override header container to match .si-content-area widths for
+ * consistent logo alignment with page content.
+ */
+
+header .container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 1199px) {
+  header .container {
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 991px) {
+  header .container {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767px) {
+  header .container {
+    max-width: 100%;
+  }
+}
