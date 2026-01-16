@@ -28,7 +28,7 @@
       'body.embed-mode:not(.ready)>:not(#embed-loader),html.embed-mode body:not(.ready)>:not(#embed-loader){opacity:0!important;pointer-events:none!important}',
       'body.embed-mode.ready>:not(#embed-loader),html.embed-mode body.ready>:not(#embed-loader){opacity:1!important;transition:opacity .2s}',
       'body.embed-mode:not(.ready)::before,html.embed-mode body:not(.ready)::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:9990}',
-      'body.embed-mode header,body.embed-mode footer,body.embed-mode nav,body.embed-mode .navbar,body.embed-mode .site-header,body.embed-mode .site-footer,body.embed-mode .nav-wrapper,body.embed-mode #header,body.embed-mode #footer,body.embed-mode [class*="loading"],body.embed-mode [class*="spinner"],body.embed-mode [class*="Loading"],html.embed-mode body header,html.embed-mode body footer,html.embed-mode body nav,html.embed-mode body .navbar,html.embed-mode body .site-header,html.embed-mode body .site-footer,html.embed-mode body .nav-wrapper,html.embed-mode body #header,html.embed-mode body #footer,html.embed-mode body [class*="loading"],html.embed-mode body [class*="spinner"],html.embed-mode body [class*="Loading"]{display:none!important}',
+      'body.embed-mode header,body.embed-mode footer,body.embed-mode nav,body.embed-mode .navbar,body.embed-mode .site-header,body.embed-mode .site-footer,body.embed-mode .nav-wrapper,body.embed-mode #header,body.embed-mode #footer,body.embed-mode .fixed.dark.dynamic,body.embed-mode .dynamic-nav,body.embed-mode [class*="loading"],body.embed-mode [class*="spinner"],body.embed-mode [class*="Loading"],html.embed-mode body header,html.embed-mode body footer,html.embed-mode body nav,html.embed-mode body .navbar,html.embed-mode body .site-header,html.embed-mode body .site-footer,html.embed-mode body .nav-wrapper,html.embed-mode body #header,html.embed-mode body #footer,html.embed-mode body .fixed.dark.dynamic,html.embed-mode body .dynamic-nav,html.embed-mode body [class*="loading"],html.embed-mode body [class*="spinner"],html.embed-mode body [class*="Loading"]{display:none!important}',
       '.embed-loader{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:#fff;z-index:9999;transition:opacity .3s}',
       '.embed-loader.hidden{opacity:0;pointer-events:none}',
       '.loader-dual-shape{position:relative;width:2.5em;height:2.5em;transform:rotate(165deg)}',
@@ -91,7 +91,31 @@
   var stickyResizeBound = false;
   var stickyResizeObserver = null;
 
+  function nukeSiteChrome() {
+    var selectors = [
+      'header', 'footer', 'nav', '.navbar', '.site-header', '.site-footer',
+      '#header', '#footer', '.fixed.dark.dynamic', '.dynamic-nav',
+      '[class*="loading"]', '[class*="spinner"]', '[class*="Loading"]',
+      '.si-header.si-header--sticky', '#userwayAccessibilityIcon'
+    ];
+    selectors.forEach(function(sel) {
+      var els = document.querySelectorAll(sel);
+      for(var i=0; i<els.length; i++) {
+        if (els[i].id !== 'embed-loader') {
+          els[i].style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+
+    // Also force fix images
+    var imgs = document.querySelectorAll('[data-testid="gallery-item"] img');
+    for(var j=0; j<imgs.length; j++) {
+      imgs[j].style.objectPosition = 'top'; 
+    }
+  }
+
   function markReadyState() {
+    nukeSiteChrome();
     document.documentElement.classList.add('ready');
     if (document.body) document.body.classList.add('ready');
     if (typeof window.__tsReleaseEmbedPreload === 'function') {
@@ -112,6 +136,7 @@
 
   // Watch for gallery items to appear
   function checkForListings() {
+    nukeSiteChrome();
     var items = document.querySelectorAll('[data-testid="gallery-item"]');
     if (items.length > 0) {
       hideLoader();

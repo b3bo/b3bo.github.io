@@ -100,7 +100,7 @@
             // Image container - aspect ratio with full coverage
             '<div class="aspect-[4/3] overflow-hidden">' +
               '<img src="' + photoUrl + '" ' +
-                'class="w-full h-full object-cover object-top" ' +
+                'class="w-full h-full object-cover" ' +
                 'alt="' + altText + '" loading="lazy">' +
             '</div>' +
             // Price overlay
