@@ -130,7 +130,13 @@
         grid;
     }
 
-    if (!gridWrapper || !stickyTarget) return;
+    if (!gridWrapper) return;
+
+    if (!stickyTarget) {
+      gridWrapper.style.marginTop = '16px';
+      gridWrapper.style.scrollMarginTop = '16px';
+      return;
+    }
 
     var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
     var offset = (stickyTarget.offsetHeight || 0) + desiredGap;
