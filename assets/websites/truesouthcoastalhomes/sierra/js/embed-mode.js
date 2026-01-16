@@ -95,6 +95,7 @@
   function adjustForStickyBar() {
     var stickyWrapper = document.querySelector('[class*="sticky"][class*="top-0"]');
     var stickyContent = document.querySelector('.flex.w-full.h-auto.bg-component-bg.flex-col.p-0');
+    var stickyTarget = stickyContent || stickyWrapper;
 
     // Find the card grid wrapper
     var gridWrapper = null;
@@ -104,19 +105,21 @@
       gridWrapper = grid.closest('div[class*="flex"][class*="gap-4"]') || grid;
     }
 
-    if (!gridWrapper) return;
+    if (!gridWrapper || !stickyTarget) return;
 
-    var stickyHeight = 0;
-    if (stickyContent) {
-      stickyHeight = stickyContent.getBoundingClientRect().height;
-    } else if (stickyWrapper) {
-      stickyHeight = stickyWrapper.getBoundingClientRect().height;
+    var stickyRect = stickyTarget.getBoundingClientRect();
+    var gridRect = gridWrapper.getBoundingClientRect();
+    var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
+    var currentGap = gridRect.top - stickyRect.bottom;
+    var extraNeeded = Math.max(0, desiredGap - currentGap);
+
+    if (extraNeeded) {
+      gridWrapper.style.marginTop = extraNeeded + 'px';
+    } else {
+      gridWrapper.style.marginTop = '';
     }
 
-    if (!stickyHeight) return;
-
-    gridWrapper.style.marginTop = stickyHeight + 'px';
-    gridWrapper.style.scrollMarginTop = stickyHeight + 'px';
+    gridWrapper.style.scrollMarginTop = (stickyTarget.offsetHeight + desiredGap) + 'px';
   }
 
   // Load external CSS via link tag
