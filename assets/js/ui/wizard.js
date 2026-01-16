@@ -621,6 +621,9 @@ function applyWizardFilters() {
         window.applyFilters();
     }
 
+    // Flag to close sidebar when user clicks a result (wizard flow only)
+    window.closeSidebarOnResultClick = true;
+
     // Open the Summary panel in sidebar
     const summaryPanel = document.getElementById('summary-panel');
     const mainMenu = document.getElementById('main-menu');

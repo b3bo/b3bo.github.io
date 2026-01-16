@@ -165,17 +165,28 @@ export function renderResults() {
                 const marker = (window.markers || []).find(
                     m => m.neighborhood.name === name && m.neighborhood.propertyType === type
                 );
+
+                // Calculate delay based on distance (or use 0 if no marker)
+                let delay = 0;
                 if (marker) {
-                    // Calculate distance to determine delay
                     const startPos = window.map.getCenter();
                     const targetLatLng = new google.maps.LatLng(n.position);
                     const distance = google.maps.geometry.spherical.computeDistanceBetween(startPos, targetLatLng);
-                    const delay = distance < 2000 ? 450 : 2200;
-
-                    setTimeout(() => {
-                        google.maps.event.trigger(marker.marker, 'click');
-                    }, delay);
+                    delay = distance < 2000 ? 450 : 2200;
                 }
+
+                setTimeout(() => {
+                    if (marker) {
+                        google.maps.event.trigger(marker.marker, 'click');
+                    }
+
+                    // Close sidebar only if user came from wizard flow
+                    if (window.closeSidebarOnResultClick) {
+                        const drawerToggle = document.getElementById('drawer-toggle');
+                        if (drawerToggle) drawerToggle.checked = false;
+                        window.closeSidebarOnResultClick = false; // One-time only
+                    }
+                }, delay);
             }
         });
     });
