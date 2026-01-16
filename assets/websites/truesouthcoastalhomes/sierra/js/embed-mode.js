@@ -194,10 +194,17 @@
     var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
     if (gridContainer) {
       var gridStyle = window.getComputedStyle(gridContainer);
-      var padBottom = parseFloat(gridStyle.paddingBottom) || desiredGap;
+      var padBottom = parseFloat(gridStyle.paddingBottom) || 24;
       var padTop = parseFloat(gridStyle.paddingTop) || 0;
       if (padTop < padBottom) {
         gridContainer.style.paddingTop = padBottom + 'px';
+      }
+    }
+    if (gridWrapper) {
+      var wrapperStyle = window.getComputedStyle(gridWrapper);
+      var wrapperPadTop = parseFloat(wrapperStyle.paddingTop) || 0;
+      if (wrapperPadTop < 20) {
+        gridWrapper.style.paddingTop = '24px';
       }
     }
     if (!stickyTarget) {
