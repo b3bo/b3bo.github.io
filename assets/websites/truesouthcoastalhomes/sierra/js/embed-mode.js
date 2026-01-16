@@ -95,8 +95,8 @@
 
   function getStickyTarget() {
     return document.querySelector('.flex.w-full.h-auto.bg-component-bg.flex-col.p-0') ||
-      document.querySelector('[data-testid="search-container"]') ||
-      document.querySelector('[class*="sticky"][class*="top-0"]');
+      document.querySelector('[class*="sticky"][class*="top-0"]') ||
+      document.querySelector('[data-testid="search-container"]');
   }
 
   function bindStickyObserver() {
