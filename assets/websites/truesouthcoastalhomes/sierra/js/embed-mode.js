@@ -26,6 +26,7 @@
   // Add to html immediately
   document.documentElement.classList.add('embed-mode');
   addEmbedClass();
+  createLoader();
 
   // Critical inline CSS: hide page + loader animation
   var critical = document.createElement('style');
@@ -64,8 +65,6 @@
       });
     }
   }
-
-  createLoader();
 
   var stickyResizeBound = false;
   var stickyResizeObserver = null;
