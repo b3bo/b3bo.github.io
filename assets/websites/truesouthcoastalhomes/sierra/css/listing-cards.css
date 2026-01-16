@@ -183,6 +183,7 @@ body.embed-mode div:has(> [data-testid="gallery-item"]) {
 /* Neutralize Sierra's mt-36 spacer on the gallery wrapper */
 body.embed-mode [data-testid="property-gallery"] {
   margin-top: 0 !important;
+  padding-top: var(--ts-grid-gap) !important;
 }
 
 @media (max-width: 992px) {
