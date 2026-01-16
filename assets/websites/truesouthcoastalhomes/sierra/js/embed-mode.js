@@ -11,7 +11,7 @@
   if (window.location.search.indexOf('embed=true') === -1) return;
 
   // GitHub Pages URL for CSS
-  var CSS_VERSION = '20260116-1';
+  var CSS_VERSION = '20260116-2';
   var cssUrl = 'https://b3bo.github.io/assets/websites/truesouthcoastalhomes/sierra/css/tailwind.css?v=' + CSS_VERSION;
   var bodyClassApplied = false;
 
