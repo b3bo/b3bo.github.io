@@ -10,6 +10,16 @@
   var container = document.getElementById('area-header');
   if (!container) return;
 
+  function ensureCriticalStyles() {
+    if (document.getElementById('area-header-critical')) return;
+    var style = document.createElement('style');
+    style.id = 'area-header-critical';
+    style.textContent = '#area-header.area-header-loading{opacity:0;min-height:320px;}#area-header.area-header-ready{opacity:1;transition:opacity .25s ease;}';
+    document.head.appendChild(style);
+  }
+
+  ensureCriticalStyles();
+
   function setAreaHeaderLoading() {
     container.classList.add('area-header-loading');
     container.classList.remove('area-header-ready');
@@ -49,6 +59,40 @@
   function getDirectoryFromPath(path) {
     var parts = path.split('/').filter(function(p) { return p; });
     return parts.length > 0 ? parts[0].toUpperCase() : '';
+  }
+
+  function slugify(text) {
+    return (text || '')
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function parsePathInfo(path) {
+    var trimmed = path.replace(/\/+$/, '');
+    var parts = trimmed.split('/').filter(Boolean);
+    var lastSegment = parts[parts.length - 1] || '';
+    var suffixMatch = lastSegment.match(/-(homes|home|condos|condo|townhomes|townhome|lots|lot)$/);
+    var propertySuffix = null;
+    if (suffixMatch) {
+      var suffixMap = {
+        homes: 'homes',
+        home: 'homes',
+        condos: 'condos',
+        condo: 'condos',
+        townhomes: 'townhomes',
+        townhome: 'townhomes',
+        lots: 'lots',
+        lot: 'lots'
+      };
+      propertySuffix = suffixMap[suffixMatch[1]] || null;
+      lastSegment = lastSegment.slice(0, -(suffixMatch[1].length + 1));
+    }
+    return {
+      normalizedSlug: slugify(lastSegment),
+      propertySuffix: propertySuffix
+    };
   }
 
   function formatPropertyTypeLabel(type) {
@@ -219,6 +263,8 @@
     var pathLower = currentPath.toLowerCase();
     if (!pathLower.endsWith('/')) pathLower += '/';
 
+    var pathInfo = parsePathInfo(currentPath);
+
     console.log('[AreaHeader] Looking for path:', pathLower);
 
     // Search through overrides to find matching urlSlug
@@ -276,6 +322,30 @@
       }
     }
     console.log('[AreaHeader] No match found for path:', pathLower);
+
+    if (pathInfo.normalizedSlug) {
+      var fallbackNeighborhood = neighborhoods.find(function(n) {
+        var slug = slugify(n.name || '');
+        if (!slug || slug !== pathInfo.normalizedSlug) return false;
+        if (pathInfo.propertySuffix && (n.propertyType || '').toLowerCase() !== pathInfo.propertySuffix) return false;
+        return true;
+      });
+
+      if (fallbackNeighborhood) {
+        console.log('[AreaHeader] Fallback slug match:', fallbackNeighborhood.name);
+        return {
+          name: fallbackNeighborhood.name,
+          propertyType: fallbackNeighborhood.propertyType,
+          city: fallbackNeighborhood.location ? fallbackNeighborhood.location.city : '',
+          heroImage: fallbackNeighborhood.photos ? fallbackNeighborhood.photos.hero : '',
+          amenities: fallbackNeighborhood.amenities || [],
+          directory: getDirectoryFromPath(currentPath),
+          searchId: fallbackNeighborhood.searchId || '',
+          listingCount: (fallbackNeighborhood.stats && fallbackNeighborhood.stats.listingCount) || 0
+        };
+      }
+    }
+
     return null;
   }
 
