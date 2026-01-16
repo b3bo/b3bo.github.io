@@ -179,6 +179,7 @@
     // Find the card grid wrapper
     var gridWrapper = document.querySelector('[data-testid="property-gallery"]');
     var items = document.querySelectorAll('[data-testid="gallery-item"]');
+    var gridContainer = items.length ? items[0].parentElement : null;
     if (!gridWrapper && items.length) {
       var grid = items[0].parentElement;
       gridWrapper = grid.closest('[data-testid="search-results-grid"]') ||
@@ -191,6 +192,14 @@
     var stickyTarget = getStickyTarget();
 
     var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
+    if (gridContainer) {
+      var gridStyle = window.getComputedStyle(gridContainer);
+      var padBottom = parseFloat(gridStyle.paddingBottom) || desiredGap;
+      var padTop = parseFloat(gridStyle.paddingTop) || 0;
+      if (padTop < padBottom) {
+        gridContainer.style.paddingTop = padBottom + 'px';
+      }
+    }
     if (!stickyTarget) {
       gridWrapper.style.marginTop = desiredGap + 'px';
       gridWrapper.style.scrollMarginTop = desiredGap + 'px';
