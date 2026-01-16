@@ -79,9 +79,30 @@
     var items = document.querySelectorAll('[data-testid="gallery-item"]');
     if (items.length > 0) {
       hideLoader();
+      adjustForStickyBar();
       return true;
     }
     return false;
+  }
+
+  // Adjust spacing to account for sticky filter bar
+  function adjustForStickyBar() {
+    var sticky = document.querySelector('[class*="sticky"][class*="top-0"]');
+    var header = document.querySelector('[class*="lg\\:py-3"][class*="lg\\:px-5"]');
+
+    // Find the card grid
+    var grid = null;
+    var items = document.querySelectorAll('[data-testid="gallery-item"]');
+    if (items.length) {
+      grid = items[0].parentElement;
+    }
+
+    if (sticky && (header || grid)) {
+      var stickyHeight = sticky.offsetHeight;
+      // Add margin to the element right after sticky (header row or grid)
+      var target = header || grid;
+      target.style.marginTop = stickyHeight + 'px';
+    }
   }
 
   // Load external CSS via link tag
