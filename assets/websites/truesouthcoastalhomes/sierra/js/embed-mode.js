@@ -188,22 +188,26 @@
 
     if (!gridWrapper) return;
 
-    if (isEmbedModeActive()) {
-      gridWrapper.style.marginTop = '0px';
-      gridWrapper.style.scrollMarginTop = '0px';
-      return;
-    }
-
     var stickyTarget = getStickyTarget();
 
+    var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
     if (!stickyTarget) {
-      gridWrapper.style.marginTop = '16px';
-      gridWrapper.style.scrollMarginTop = '16px';
+      gridWrapper.style.marginTop = desiredGap + 'px';
+      gridWrapper.style.scrollMarginTop = desiredGap + 'px';
       return;
     }
 
-    var desiredGap = 16; // px, keeps a little breathing room below the sticky bar
-    var offset = (stickyTarget.offsetHeight || 0) + desiredGap;
+    var stickyStyle = window.getComputedStyle(stickyTarget);
+    var isSticky = stickyStyle.position === 'sticky' || stickyStyle.position === 'fixed';
+
+    if (!isSticky) {
+      gridWrapper.style.marginTop = desiredGap + 'px';
+      gridWrapper.style.scrollMarginTop = desiredGap + 'px';
+      return;
+    }
+
+    var targetHeight = stickyTarget.getBoundingClientRect().height || stickyTarget.offsetHeight || 0;
+    var offset = targetHeight + desiredGap;
 
     gridWrapper.style.marginTop = offset + 'px';
     gridWrapper.style.scrollMarginTop = offset + 'px';

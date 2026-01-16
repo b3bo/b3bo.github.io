@@ -165,12 +165,14 @@ body.embed-mode [class*="filter-bar"] {
   padding-left: var(--ts-filter-padding) !important;
   padding-right: var(--ts-filter-padding) !important;
 }
+/* Layout: 3-Column Max */
+/* Target the grid container that holds gallery-items */
 
 /* === LAYOUT: 3-COLUMN MAX === */
 /* Target the grid container that holds gallery-items */
 body.embed-mode div:has(> [data-testid="gallery-item"]) {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  padding: var(--ts-grid-gap) var(--ts-grid-gap) var(--ts-grid-gap) !important;
   gap: var(--ts-grid-gap) !important;
   max-width: var(--ts-grid-max-width) !important;
   padding: var(--ts-grid-gap) !important;
