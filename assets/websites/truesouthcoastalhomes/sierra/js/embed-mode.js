@@ -174,12 +174,27 @@
     stickyResizeObserver.observe(stickyTarget);
   }
 
+  function findGridContainer(items) {
+    if (!items || !items.length) return null;
+    var node = items[0].parentElement;
+    while (node && node !== document.body) {
+      try {
+        var directItems = node.querySelectorAll(':scope > [data-testid="gallery-item"]');
+        if (directItems && directItems.length) return node;
+      } catch (err) {
+        break;
+      }
+      node = node.parentElement;
+    }
+    return items[0].parentElement;
+  }
+
   // Adjust spacing to account for sticky filter bar
   function adjustForStickyBar() {
     // Find the card grid wrapper
     var gridWrapper = document.querySelector('[data-testid="property-gallery"]');
     var items = document.querySelectorAll('[data-testid="gallery-item"]');
-    var gridContainer = items.length ? items[0].parentElement : null;
+    var gridContainer = findGridContainer(items);
     if (!gridWrapper && items.length) {
       var grid = items[0].parentElement;
       gridWrapper = grid.closest('[data-testid="search-results-grid"]') ||
