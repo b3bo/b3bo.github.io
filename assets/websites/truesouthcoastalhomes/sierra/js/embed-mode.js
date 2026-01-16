@@ -64,6 +64,7 @@
   createLoader();
 
   var stickyResizeBound = false;
+  var stickyResizeObserver = null;
 
   // Hide loader when listings appear
   function hideLoader() {
@@ -82,6 +83,7 @@
     if (items.length > 0) {
       hideLoader();
       adjustForStickyBar();
+      bindStickyObserver();
       if (!stickyResizeBound) {
         stickyResizeBound = true;
         window.addEventListener('resize', adjustForStickyBar);
@@ -91,18 +93,38 @@
     return false;
   }
 
+  function getStickyTarget() {
+    return document.querySelector('.flex.w-full.h-auto.bg-component-bg.flex-col.p-0') ||
+      document.querySelector('[data-testid="search-container"]') ||
+      document.querySelector('[class*="sticky"][class*="top-0"]');
+  }
+
+  function bindStickyObserver() {
+    if (typeof ResizeObserver === 'undefined') return;
+    if (stickyResizeObserver) return;
+    var stickyTarget = getStickyTarget();
+    if (!stickyTarget) {
+      setTimeout(bindStickyObserver, 300);
+      return;
+    }
+    stickyResizeObserver = new ResizeObserver(function() {
+      adjustForStickyBar();
+    });
+    stickyResizeObserver.observe(stickyTarget);
+  }
+
   // Adjust spacing to account for sticky filter bar
   function adjustForStickyBar() {
-    var stickyWrapper = document.querySelector('[class*="sticky"][class*="top-0"]');
-    var stickyContent = document.querySelector('.flex.w-full.h-auto.bg-component-bg.flex-col.p-0');
-    var stickyTarget = stickyContent || stickyWrapper;
+    var stickyTarget = getStickyTarget();
 
     // Find the card grid wrapper
-    var gridWrapper = null;
+    var gridWrapper = document.querySelector('[data-testid="property-gallery"]');
     var items = document.querySelectorAll('[data-testid="gallery-item"]');
-    if (items.length) {
+    if (!gridWrapper && items.length) {
       var grid = items[0].parentElement;
-      gridWrapper = grid.closest('div[class*="flex"][class*="gap-4"]') || grid;
+      gridWrapper = grid.closest('[data-testid="search-results-grid"]') ||
+        grid.closest('div[class*="flex"][class*="gap-4"]') ||
+        grid;
     }
 
     if (!gridWrapper || !stickyTarget) return;
