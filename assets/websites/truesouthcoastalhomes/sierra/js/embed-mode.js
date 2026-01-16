@@ -32,7 +32,7 @@
   var critical = document.createElement('style');
   critical.id = 'embed-critical';
   critical.textContent = [
-    'html.embed-mode,body.embed-mode{overflow:hidden!important}',
+    'html.embed-mode,body.embed-mode{overflow:hidden!important;background:#fff!important}',
     'html.embed-mode.ready,body.embed-mode.ready{overflow:auto!important}',
     'body.embed-mode:not(.ready){position:relative}',
     'body.embed-mode:not(.ready)>:not(#embed-loader){opacity:0!important;pointer-events:none!important}',
