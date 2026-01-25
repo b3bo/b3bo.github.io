@@ -996,11 +996,11 @@ function initApp() {
 
                         setTimeout(() => {
                             google.maps.event.trigger(marker.marker, 'click');
+                            // Close the sidebar after marker click is triggered
+                            const drawerToggle = document.getElementById('drawer-toggle');
+                            if (drawerToggle) drawerToggle.checked = false;
                         }, delay);
                     }
-
-                    // Keep drawer open so users can browse multiple results
-                    // They can manually close it to focus on the map
                 }
             });
         });
@@ -1977,17 +1977,6 @@ function initMap() {
     window.infoWindow.addListener('domready', removeInfoWindowCloseButton);
     window.hoverInfoWindow.addListener('domready', removeInfoWindowCloseButton);
 
-    // ==========================================
-    // PRELOAD GEOJSON BOUNDARIES (for instant button clicks)
-    // Delete this block if preloading causes issues
-    // ==========================================
-    const zipCodesToPreload = ['32541', '32459', '32550', '32461', '32413'];
-    zipCodesToPreload.forEach(zip => {
-        fetch(`./neighborhoods/jsons/${zip}.geojson`)
-            .then(r => r.json())
-            .catch(() => {}); // Silent fail - will load on-demand if preload fails
-    });
-
     // Rendezvous: whoever finishes second (data or map) triggers markers
     window.tryInitializeMarkers = function () {
         if (window.markersInitialized) return;
@@ -2259,52 +2248,6 @@ function initMap() {
 // This ensures we share the same Set regardless of load order
 if (!window.customBoundaries) {
     window.customBoundaries = new Set();
-}
-
-// Provide fallback showCustomBoundary if boundaries.js didn't load or set it up
-if (!window.showCustomBoundary) {
-    window.showCustomBoundary = function showCustomBoundary(zipCode) {
-        if (!window.map || window.customBoundaries.has(zipCode)) return;
-        window.customBoundaries.add(zipCode);
-
-        window.map.data.loadGeoJson(
-            `./neighborhoods/jsons/${zipCode}.geojson`,
-            { idPropertyName: 'ZCTA5CE20' },
-            function (features) {
-                window.map.data.setStyle(function (feature) {
-                    const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
-                    if (window.customBoundaries.has(featureZip)) {
-                        const isDark = document.documentElement.classList.contains('dark');
-                        const primaryColor = isDark ? '#5ba3ab' : '#4c8f96';
-                        return {
-                            strokeColor: primaryColor,
-                            strokeWeight: 1.5,
-                            strokeOpacity: 0.35,
-                            fillColor: primaryColor,
-                            fillOpacity: 0.15,
-                            clickable: false
-                        };
-                    }
-                    return { visible: false };
-                });
-            }
-        );
-    };
-}
-
-// Provide fallback hideCustomBoundary if boundaries.js didn't load or set it up
-if (!window.hideCustomBoundary) {
-    window.hideCustomBoundary = function hideCustomBoundary(zipCode) {
-        if (!window.map || !window.customBoundaries.has(zipCode)) return;
-        window.customBoundaries.delete(zipCode);
-
-        window.map.data.forEach(function (feature) {
-            const featureZip = feature.getProperty('ZCTA5CE20') || feature.getProperty('ZCTA5CE10');
-            if (featureZip === zipCode) {
-                window.map.data.remove(feature);
-            }
-        });
-    };
 }
 
 // ==========================================

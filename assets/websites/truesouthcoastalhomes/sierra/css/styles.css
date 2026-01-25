@@ -157,3 +157,14 @@ body.embed-mode [class*="Loading"] {
             -0.5em -1em rgba(115, 115, 115, 0.75);
     }
 }
+
+/* Area header flash guard */
+#area-header.area-header-loading {
+    opacity: 0;
+    min-height: 320px;
+}
+
+#area-header.area-header-ready {
+    opacity: 1;
+    transition: opacity 0.25s ease-out;
+}

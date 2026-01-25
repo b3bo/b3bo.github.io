@@ -104,6 +104,10 @@ body.embed-mode [class*="search-header"] {
   display: none !important;
 }
 
+body.embed-mode [class*="search-header"] + div {
+  margin-top: 0 !important;
+}
+
 /* Hide photo nav arrows (prev/next buttons) */
 body.embed-mode .tw-slider-button {
   display: none !important;
@@ -164,20 +168,23 @@ body.embed-mode [class*="filter-bar"] {
   margin-right: auto !important;
   padding-left: var(--ts-filter-padding) !important;
   padding-right: var(--ts-filter-padding) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
-/* Layout: 3-Column Max */
-/* Target the grid container that holds gallery-items */
 
 /* === LAYOUT: 3-COLUMN MAX === */
 /* Target the grid container that holds gallery-items */
 body.embed-mode div:has(> [data-testid="gallery-item"]) {
   display: grid !important;
-  padding: var(--ts-grid-gap) var(--ts-grid-gap) var(--ts-grid-gap) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: var(--ts-grid-gap) !important;
   max-width: var(--ts-grid-max-width) !important;
-  padding: var(--ts-grid-gap) !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: var(--ts-grid-gap) !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: var(--ts-grid-gap) !important;
+  padding-right: var(--ts-grid-gap) !important;
 }
 
 /* Neutralize Sierra's mt-36 spacer on the gallery wrapper */
@@ -224,7 +231,7 @@ body.embed-mode [data-testid="gallery-item"] .image-gallery-slide img {
   width: 100% !important;
   height: var(--ts-photo-height) !important;
   object-fit: cover !important;
-  object-position: center !important;
+  object-position: top !important;
 }
 
 /* === CARD STYLING === */
@@ -274,6 +281,10 @@ body.embed-mode [data-testid="gallery-item"] .listing-brokerage {
 body.embed-mode [data-testid="gallery-item"] [class*="status-text"] {
   background: var(--ts-accent-color) !important;
   color: white !important;
+}
+
+body.embed-mode [data-testid="gallery-item"] [class*="status-text"]:empty {
+  display: none !important;
 }
 
 /* === QUICK WIN POLISH === */

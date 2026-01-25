@@ -973,6 +973,12 @@
       "searchId": ""
     }
   },
+  "Continental": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Coral Reef Club": {
     "condos": {
       "urlSlug": "",
@@ -981,6 +987,12 @@
   },
   "Costa Blanca": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Costa Carina": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -1373,10 +1385,6 @@
     "condos": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Diamond Lakes": {
@@ -1417,12 +1425,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7092983"
-    }
-  },
-  "Dreamland Heights": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Driftwood Drive": {
@@ -1920,10 +1922,6 @@
     }
   },
   "Garnett Bayou Estates": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": "7121811"
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -2045,6 +2043,10 @@
     "homes": {
       "urlSlug": "/30a/grayton-beach/",
       "searchId": "385909"
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     },
     "lots": {
       "urlSlug": "",
@@ -2632,12 +2634,6 @@
     }
   },
   "Indian Trail Estates": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Indian Trails": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -4407,12 +4403,6 @@
       "searchId": ""
     }
   },
-  "Sand Dollar Estates": {
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Sand Pebbles": {
     "townhomes": {
       "urlSlug": "",
@@ -4515,6 +4505,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Santa Rosa Beach": {
@@ -4529,6 +4523,10 @@
   },
   "Santa Rosa Beach Estates": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4673,10 +4671,6 @@
     "condos": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Seacrest": {
@@ -4753,12 +4747,6 @@
   },
   "Seagrove Highlands": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Seagrove Horizons": {
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4883,6 +4871,12 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7088298"
+    }
+  },
+  "Seven Palms At Inlet Beach": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Shadow Estates": {
@@ -5353,6 +5347,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Terra Cotta Terrace": {
@@ -5386,9 +5384,9 @@
     }
   },
   "Thirty One": {
-    "homes": {
-      "urlSlug": "/30a/thirty-one/",
-      "searchId": "4024322"
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Thompson Plantation": {
