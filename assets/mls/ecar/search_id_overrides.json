@@ -278,10 +278,6 @@
     }
   },
   "Bayshore Gardens": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": "7126139"
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -485,10 +481,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7126165"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Beachwalk": {
@@ -3331,12 +3323,6 @@
       "searchId": ""
     }
   },
-  "Melodia": {
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Merion At Burnt Pine": {
     "homes": {
       "urlSlug": "",
@@ -4345,6 +4331,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100370"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "San Remo": {
@@ -4957,6 +4947,12 @@
       "searchId": ""
     }
   },
+  "Sierra Dunes At Topsl": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Signature Beach": {
     "condos": {
       "urlSlug": "",
@@ -5093,12 +5089,6 @@
       "searchId": ""
     }
   },
-  "St Martin Beachwalk": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "St Thomas At Silver Shells": {
     "condos": {
       "urlSlug": "",
@@ -5149,6 +5139,12 @@
   },
   "Sugar Dunes": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Sugar Sand Lane": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5477,10 +5473,6 @@
       "searchId": ""
     },
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5919,10 +5911,6 @@
     "homes": {
       "urlSlug": "/30a/watersound-west-beach/",
       "searchId": "418736"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Waterview At Inlet Beach": {
@@ -5985,10 +5973,6 @@
   },
   "Whispering Oaks": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
