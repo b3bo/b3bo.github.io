@@ -187,6 +187,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7113494"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Bay Magnolia": {
@@ -1612,10 +1616,6 @@
       "urlSlug": "",
       "searchId": "7100766"
     },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -3027,6 +3027,10 @@
   },
   "Kellys": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4767,6 +4771,10 @@
     "condos": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Sandestin Estates": {
@@ -5292,6 +5300,12 @@
     }
   },
   "Shoal River": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Shoal River Farms": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -5935,6 +5949,10 @@
       "searchId": ""
     },
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
