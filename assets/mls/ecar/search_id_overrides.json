@@ -1483,6 +1483,12 @@
       "searchId": "7092983"
     }
   },
+  "Driftwood": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Driftwood Drive": {
     "townhomes": {
       "urlSlug": "",
@@ -3607,12 +3613,6 @@
       "searchId": ""
     }
   },
-  "Miramar Beach Cottages": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Miramar Heights": {
     "homes": {
       "urlSlug": "",
@@ -4319,6 +4319,12 @@
       "searchId": ""
     }
   },
+  "Pointe": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Pointe 30A": {
     "homes": {
       "urlSlug": "",
@@ -4988,6 +4994,10 @@
     }
   },
   "Sea Pointe": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -5361,6 +5371,12 @@
   },
   "Sides Moreno Point West": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Sierra Dunes At Topsl": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5897,10 +5913,6 @@
     "condos": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Topsl Beach Manor": {
@@ -5937,10 +5949,6 @@
   },
   "Tradewinds": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     },
@@ -6292,6 +6300,10 @@
     }
   },
   "Water Oaks": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -6457,10 +6469,6 @@
   },
   "Whispering Lake": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
