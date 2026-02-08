@@ -1328,10 +1328,6 @@
     }
   },
   "Destin Oaks": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -1911,6 +1907,12 @@
       "searchId": ""
     },
     "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Fairway Villas": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5911,6 +5913,12 @@
   },
   "Topsail Village": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Topsail Walk": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
