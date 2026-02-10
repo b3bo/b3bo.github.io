@@ -1328,6 +1328,10 @@
     }
   },
   "Destin Oaks": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -1384,6 +1388,12 @@
     }
   },
   "Destin West": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Destin West Beach": {
     "condos": {
       "urlSlug": "",
       "searchId": ""
@@ -1593,10 +1603,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121747"
-    },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "East Pass Towers": {
@@ -1811,6 +1817,12 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121762"
+    }
+  },
+  "Emerald Surf Villas": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Emerald Towers": {
@@ -3365,6 +3377,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Lupin Beach": {
@@ -3397,10 +3413,6 @@
   },
   "Mack Bayou Pines": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3589,12 +3601,6 @@
   },
   "Millers Crossing": {
     "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Mills Bayou": {
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4627,12 +4633,6 @@
       "searchId": ""
     }
   },
-  "Royal Palms": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Royal Palms of Laguna Beach": {
     "homes": {
       "urlSlug": "",
@@ -4769,10 +4769,6 @@
   },
   "Sandestin": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
