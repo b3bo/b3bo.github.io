@@ -101,6 +101,12 @@
       "searchId": ""
     }
   },
+  "Arboleda": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Arc Acres": {
     "lots": {
       "urlSlug": "",
@@ -553,6 +559,10 @@
   },
   "Blue": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     },
@@ -1031,6 +1041,12 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7093008"
+    }
+  },
+  "Cote Dazur": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Cottage Grove": {
@@ -1545,10 +1561,6 @@
   },
   "Dunes Estates of Seagrove": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4312,10 +4324,6 @@
     }
   },
   "Point Washington": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -4739,6 +4747,12 @@
       "searchId": ""
     }
   },
+  "Sand Dollar": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Sand Dollar Court": {
     "homes": {
       "urlSlug": "",
@@ -4763,12 +4777,6 @@
   },
   "Sandcastles By the Sea": {
     "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Sandestin": {
-    "condos": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5637,6 +5645,12 @@
       "searchId": ""
     }
   },
+  "Summer Place": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Summer Ridge": {
     "homes": {
       "urlSlug": "",
@@ -5681,6 +5695,12 @@
   },
   "Sun King Towers": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Sunchase": {
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -6364,6 +6384,10 @@
     }
   },
   "Watersound": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "homes": {
       "urlSlug": "",
       "searchId": ""
