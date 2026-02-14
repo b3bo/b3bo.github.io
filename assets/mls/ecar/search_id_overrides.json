@@ -1280,6 +1280,10 @@
     }
   },
   "Daltons": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -2149,6 +2153,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100538"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Grande Pointe at Inlet Beach": {
@@ -2352,6 +2360,10 @@
     }
   },
   "Gulf Views": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -2673,12 +2685,6 @@
   },
   "Hidden Villas": {
     "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "High Acre Estates": {
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5921,12 +5927,6 @@
       "searchId": "377945"
     }
   },
-  "Tivoli Terrace": {
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Topsail Village": {
     "condos": {
       "urlSlug": "",
@@ -6384,10 +6384,6 @@
     }
   },
   "Watersound": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "homes": {
       "urlSlug": "",
       "searchId": ""
