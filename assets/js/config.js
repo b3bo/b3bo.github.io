@@ -17,7 +17,7 @@
  */
 export const CONFIG = {
     // App version - MAJOR.MINOR.PATCH (auto-incremented on deploy)
-    version: '1.2.17',
+    version: '1.2.18',
 
     // ===================================================================
     // MAP SETTINGS
