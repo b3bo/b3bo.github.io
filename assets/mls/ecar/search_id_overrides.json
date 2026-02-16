@@ -1879,10 +1879,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121764"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Enclave": {
@@ -2842,6 +2838,12 @@
     }
   },
   "Indian Trail Estates": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Indian Woman": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -4570,12 +4572,6 @@
     }
   },
   "Ridge Wood Manor": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Rileys Bayview": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
