@@ -621,6 +621,12 @@
       "searchId": "4017750"
     }
   },
+  "Bluffs": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Bocage": {
     "homes": {
       "urlSlug": "",
@@ -811,6 +817,12 @@
   },
   "Capistrano": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Captiva At Topsl": {
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -1438,10 +1450,6 @@
   "Destiny By the Sea": {
     "homes": {
       "urlSlug": "/destin/destiny-by-the-sea/",
-      "searchId": ""
-    },
-    "lots": {
-      "urlSlug": "",
       "searchId": ""
     }
   },
@@ -4177,12 +4185,6 @@
       "searchId": ""
     }
   },
-  "Pelican Beach": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Pelican Beach Resort": {
     "condos": {
       "urlSlug": "",
@@ -4766,6 +4768,12 @@
       "urlSlug": "",
       "searchId": "7100373"
     },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Sand Dollar Estates": {
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -5727,10 +5735,6 @@
   },
   "Sunnyside": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     },
