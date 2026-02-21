@@ -1376,10 +1376,6 @@
     }
   },
   "Destin One": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -1887,6 +1883,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121764"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Enclave": {
@@ -2071,6 +2071,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Golf Villas At Regatta Bay": {
@@ -2217,6 +2221,10 @@
     "homes": {
       "urlSlug": "/30a/greenway-park/",
       "searchId": "3586052"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Grove By the Sea": {
@@ -2869,12 +2877,6 @@
       "searchId": "385749"
     },
     "lots": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Inlet Beach Bungalows": {
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3646,6 +3648,10 @@
     }
   },
   "Miramar Beach": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -6510,17 +6516,7 @@
     }
   },
   "Whispering Pines": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Whispering Pinewoods": {
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
