@@ -288,6 +288,10 @@
     }
   },
   "Bayshore Gardens": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -343,6 +347,10 @@
     "homes": {
       "urlSlug": "/sandestin/baytowne-avenue/",
       "searchId": "378458"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Bayview Estates": {
@@ -487,6 +495,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7126165"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Beachwalk": {
@@ -622,6 +634,10 @@
     }
   },
   "Bluffs": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -781,10 +797,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7092896"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Camp Creek Point": {
@@ -1050,9 +1062,13 @@
     }
   },
   "Costera": {
-    "homes": {
+    "condos": {
       "urlSlug": "",
-      "searchId": "7093008"
+      "searchId": ""
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Cote Dazur": {
@@ -1167,6 +1183,10 @@
   },
   "Crescent at Miramar Beach": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -1415,12 +1435,6 @@
       "searchId": ""
     }
   },
-  "Destin West": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Destin West Beach": {
     "condos": {
       "urlSlug": "",
@@ -1569,6 +1583,10 @@
   },
   "Dunes Estates of Seagrove": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -2037,12 +2055,6 @@
       "searchId": ""
     }
   },
-  "Franklin": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Garage 30A Luxury Motor": {
     "condos": {
       "urlSlug": "",
@@ -2211,6 +2223,12 @@
       "searchId": ""
     }
   },
+  "Grayton Cove": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Greenreef": {
     "townhomes": {
       "urlSlug": "",
@@ -2303,12 +2321,6 @@
       "searchId": ""
     }
   },
-  "Gulf Place": {
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Gulf Place Cabanas": {
     "condos": {
       "urlSlug": "",
@@ -2350,6 +2362,12 @@
       "urlSlug": "/30a/gulf-shore-manor/",
       "searchId": "3586050"
     },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Gulf Shores": {
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -2787,6 +2805,18 @@
       "searchId": ""
     }
   },
+  "Huck And Toms": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Hunters Run": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Indian Bay": {
     "homes": {
       "urlSlug": "",
@@ -3099,6 +3129,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Kokomo Kove": {
@@ -3198,6 +3232,12 @@
     }
   },
   "Lakes At Summer Breeze": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Lakeside": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -3741,12 +3781,6 @@
       "searchId": ""
     }
   },
-  "Nantucket Cottages": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Naturewalk At Watersound Origins": {
     "homes": {
       "urlSlug": "/30a/naturewalk-at-watersound-origins/",
@@ -4045,6 +4079,10 @@
     "condos": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Palms North": {
@@ -4094,10 +4132,6 @@
     }
   },
   "Paradise Grove": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -4115,12 +4149,6 @@
       "searchId": ""
     }
   },
-  "Park Lake": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Park Place": {
     "townhomes": {
       "urlSlug": "",
@@ -4131,6 +4159,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100334"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Park Place on Seagrove Beach": {
@@ -4193,6 +4225,12 @@
   },
   "Pelican Beach Resort": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Pelican Place": {
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4328,6 +4366,12 @@
     }
   },
   "Players Club on the Bay": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Plaza": {
     "condos": {
       "urlSlug": "",
       "searchId": ""
@@ -4513,10 +4557,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100582"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Redfish Village": {
@@ -4663,6 +4703,12 @@
       "searchId": ""
     }
   },
+  "Royal Seaesta": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Rushlin Park": {
     "homes": {
       "urlSlug": "",
@@ -4757,10 +4803,6 @@
     "homes": {
       "urlSlug": "/30a/sand-cliffs/",
       "searchId": "3582502"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Sand Dollar": {
@@ -4819,6 +4861,12 @@
       "searchId": ""
     }
   },
+  "Sandpiper Beach Colony": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Sandpiper Cove": {
     "condos": {
       "urlSlug": "",
@@ -4851,12 +4899,6 @@
       "searchId": ""
     }
   },
-  "Sands Street Villas": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Sandspur": {
     "condos": {
       "urlSlug": "",
@@ -4871,6 +4913,10 @@
   },
   "Santa Monica Beach": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4955,12 +5001,6 @@
       "searchId": "7100389"
     }
   },
-  "Savannah at Rosemary Beach": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Sea Bluff": {
     "condos": {
       "urlSlug": "",
@@ -5027,6 +5067,12 @@
       "searchId": ""
     },
     "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Sea View Villas": {
+    "condos": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5421,6 +5467,12 @@
       "searchId": ""
     }
   },
+  "Silver Beach Tower West": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Silver Dunes": {
     "condos": {
       "urlSlug": "",
@@ -5685,12 +5737,6 @@
       "searchId": ""
     }
   },
-  "Summerlake": {
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Summers Edge": {
     "homes": {
       "urlSlug": "",
@@ -5751,10 +5797,6 @@
   },
   "Sunnyside Beach & Tennis Club": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -6155,6 +6197,12 @@
       "searchId": ""
     }
   },
+  "Valencia": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Van Way Beach": {
     "homes": {
       "urlSlug": "",
@@ -6173,6 +6221,12 @@
       "searchId": "7080823"
     },
     "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "View": {
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -6458,6 +6512,12 @@
     }
   },
   "Waterview Towers": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Waterview Towers Yacht Club": {
     "condos": {
       "urlSlug": "",
       "searchId": ""
