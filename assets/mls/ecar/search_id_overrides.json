@@ -1733,6 +1733,12 @@
       "searchId": ""
     }
   },
+  "Edgewood To De": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "El Centro Beach": {
     "homes": {
       "urlSlug": "",
@@ -4132,6 +4138,10 @@
     }
   },
   "Paradise Grove": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -5797,6 +5807,10 @@
   },
   "Sunnyside Beach & Tennis Club": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
