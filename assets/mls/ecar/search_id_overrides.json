@@ -175,6 +175,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7089719"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Barataria": {
@@ -480,6 +484,10 @@
     }
   },
   "Beachside Estates": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "homes": {
       "urlSlug": "/beachside-estates/",
       "searchId": "4024717"
@@ -525,6 +533,12 @@
   },
   "Beachwood Villas": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Beaconview": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -606,6 +620,10 @@
     }
   },
   "Blue Mountain Beach": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "homes": {
       "urlSlug": "/30a/blue-mountain-beach/",
       "searchId": "3985040"
@@ -1007,12 +1025,6 @@
       "searchId": "7092993"
     }
   },
-  "Colleens Cove": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Commodores Retreat": {
     "condos": {
       "urlSlug": "",
@@ -1367,6 +1379,12 @@
       "searchId": ""
     }
   },
+  "Destin Harbor Place": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Destin Harbor Resort": {
     "condos": {
       "urlSlug": "",
@@ -1467,6 +1485,10 @@
     "homes": {
       "urlSlug": "/destin/destiny-east/",
       "searchId": "690937"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Destiny Shores": {
@@ -1641,6 +1663,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121747"
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "East Pass Towers": {
@@ -1848,10 +1874,6 @@
     }
   },
   "Emerald Shores": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -2327,6 +2349,12 @@
       "searchId": ""
     }
   },
+  "Gulf Place": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Gulf Place Cabanas": {
     "condos": {
       "urlSlug": "",
@@ -2563,10 +2591,6 @@
   },
   "Henderson Beach Resort": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     },
@@ -3235,6 +3259,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Lakes At Summer Breeze": {
@@ -3639,10 +3667,6 @@
     "homes": {
       "urlSlug": "/marbella/",
       "searchId": "3579863"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Margaritaville Cottages": {
@@ -3713,12 +3737,6 @@
       "searchId": ""
     }
   },
-  "Miramar Palms": {
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Mirasol": {
     "townhomes": {
       "urlSlug": "",
@@ -3733,6 +3751,12 @@
   },
   "Misty Cove": {
     "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Mockingbird Estates": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3782,6 +3806,12 @@
     }
   },
   "Mussett Bayou Manor": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Nantucket Cottages": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -3888,6 +3918,12 @@
     }
   },
   "Ocean Reef": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Ocean Ritz": {
     "condos": {
       "urlSlug": "",
       "searchId": ""
@@ -4017,12 +4053,6 @@
       "searchId": ""
     }
   },
-  "Osprey Pointe at Powell": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Oyster Lake": {
     "homes": {
       "urlSlug": "",
@@ -4111,12 +4141,6 @@
   },
   "Palms at Seagrove": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Panama City Beach Club": {
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4400,6 +4424,10 @@
     }
   },
   "Point Washington": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -4909,6 +4937,12 @@
       "searchId": ""
     }
   },
+  "Sands Street Villas": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Sandspur": {
     "condos": {
       "urlSlug": "",
@@ -5379,12 +5413,6 @@
       "searchId": ""
     }
   },
-  "Shipwatch": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Shoal River": {
     "homes": {
       "urlSlug": "",
@@ -5455,12 +5483,6 @@
   },
   "Sides Moreno Point West": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Sierra Dunes At Topsl": {
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5661,6 +5683,10 @@
   },
   "Stonegate": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5905,6 +5931,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Terrace At Pelican Beach": {
@@ -6077,10 +6107,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Treetop": {
@@ -6233,10 +6259,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7080823"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "View": {
