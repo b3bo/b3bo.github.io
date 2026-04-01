@@ -77,12 +77,6 @@
       "searchId": ""
     }
   },
-  "Ambassador Beach": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Anchorage": {
     "condos": {
       "urlSlug": "",
@@ -633,6 +627,12 @@
       "searchId": ""
     }
   },
+  "Blue Mountain Villas": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Blue Ohana": {
     "homes": {
       "urlSlug": "",
@@ -997,6 +997,12 @@
       "searchId": "7121710"
     }
   },
+  "Churchill Bayou Preserve": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Churchill Oaks": {
     "homes": {
       "urlSlug": "/santa-rosa-beach/churchill-oaks/",
@@ -1194,10 +1200,6 @@
     }
   },
   "Crescent at Miramar Beach": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -1903,12 +1905,6 @@
       "searchId": ""
     }
   },
-  "Emerald Waters Place": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Emerald Waters Village": {
     "homes": {
       "urlSlug": "",
@@ -2591,6 +2587,10 @@
   },
   "Henderson Beach Resort": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     },
@@ -3277,12 +3277,6 @@
       "searchId": ""
     }
   },
-  "Lakeside Lodge At Prospect Point": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Lakeside Village": {
     "homes": {
       "urlSlug": "",
@@ -3376,6 +3370,10 @@
     }
   },
   "Le Jardin": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -3434,10 +3432,6 @@
     }
   },
   "Legion Park Landing": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -4645,10 +4639,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7089727"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Retreat at Miramar": {
@@ -5691,12 +5681,6 @@
       "searchId": ""
     }
   },
-  "Stonegate Villas": {
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Sugar Cliffs": {
     "homes": {
       "urlSlug": "",
@@ -6560,6 +6544,10 @@
     }
   },
   "Wells Gulf Beach Estates": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "homes": {
       "urlSlug": "",
       "searchId": ""
