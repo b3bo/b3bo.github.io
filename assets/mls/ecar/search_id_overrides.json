@@ -119,12 +119,6 @@
       "searchId": ""
     }
   },
-  "Arroya-Casa": {
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Audubon Point": {
     "homes": {
       "urlSlug": "",
@@ -439,12 +433,6 @@
       "searchId": "7092774"
     }
   },
-  "Beachcrest": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Beachfront": {
     "condos": {
       "urlSlug": "",
@@ -578,6 +566,10 @@
     }
   },
   "Blue": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -758,10 +750,6 @@
       "urlSlug": "/sandestin/burnt-pine/",
       "searchId": "377812"
     },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -800,12 +788,10 @@
     }
   },
   "Camp Creek": {
-    "lots": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
-    }
-  },
-  "Camp Creek Cove": {
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -831,10 +817,6 @@
   },
   "Canal Place": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -1301,6 +1283,10 @@
     "homes": {
       "urlSlug": "/30a/cypress-breeze-plantation/",
       "searchId": "4715436"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Cypress Dunes": {
@@ -1309,12 +1295,6 @@
       "searchId": "7076708"
     },
     "lots": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Cypress Heights": {
-    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -1361,6 +1341,12 @@
     "homes": {
       "urlSlug": "/sandestin/del-mar/",
       "searchId": "378459"
+    }
+  },
+  "Delos": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Destin Cottages": {
@@ -1451,6 +1437,12 @@
   },
   "Destin Towers": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Destin Village Rv Resort": {
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -1671,6 +1663,12 @@
       "searchId": ""
     }
   },
+  "East Pass Amend": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "East Pass Towers": {
     "condos": {
       "urlSlug": "",
@@ -1771,6 +1769,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121755"
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     },
     "lots": {
       "urlSlug": "",
@@ -1899,12 +1901,6 @@
       "searchId": ""
     }
   },
-  "Emerald Waters Beachside": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Emerald Waters Village": {
     "homes": {
       "urlSlug": "",
@@ -1949,6 +1945,12 @@
       "searchId": "7100541"
     },
     "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Estates At Indian Pointe": {
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -2181,6 +2183,12 @@
       "searchId": ""
     }
   },
+  "Grand Palms": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Grand Sandestin": {
     "condos": {
       "urlSlug": "",
@@ -2238,10 +2246,6 @@
     }
   },
   "Grayton Beach Village Square": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": "7100657"
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -2289,10 +2293,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7121813"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Gulf Hills Estates": {
@@ -2413,10 +2413,6 @@
     "homes": {
       "urlSlug": "/30a/gulf-trace/",
       "searchId": "4027558"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Gulf Views": {
@@ -2433,6 +2429,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7123867"
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Gulf Vista Amend": {
@@ -2499,6 +2499,12 @@
       "searchId": ""
     }
   },
+  "Gulfview at Watersound Beach": {
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Hammocks Of Seagrove": {
     "homes": {
       "urlSlug": "",
@@ -2543,6 +2549,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Harbor Place": {
@@ -2574,6 +2584,10 @@
     }
   },
   "Hatchee Shores": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -2749,6 +2763,12 @@
       "searchId": ""
     }
   },
+  "High Acre Estates": {
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "High Pointe Resort": {
     "condos": {
       "urlSlug": "",
@@ -2831,6 +2851,10 @@
   },
   "Horizon South": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3128,6 +3152,10 @@
       "urlSlug": "/destin/kelly-plantation/",
       "searchId": "374884"
     },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -3363,6 +3391,12 @@
       "searchId": ""
     }
   },
+  "Latrium": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Laurel Grove": {
     "homes": {
       "urlSlug": "/sandestin/laurel-grove/",
@@ -3432,6 +3466,10 @@
     }
   },
   "Legion Park Landing": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -3510,12 +3548,6 @@
     }
   },
   "Mack Bayou Park": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Mack Bayou Pines": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -3641,10 +3673,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Maravilla Shores": {
@@ -3669,6 +3697,12 @@
       "searchId": "4805389"
     }
   },
+  "Marinwood": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Market Street Inn": {
     "condos": {
       "urlSlug": "",
@@ -3689,12 +3723,6 @@
   },
   "Mercado At Rosemary Beach": {
     "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Merion At Burnt Pine": {
-    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3725,8 +3753,18 @@
       "searchId": ""
     }
   },
+  "Miramar Beach Cottages": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Miramar Heights": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3757,10 +3795,6 @@
   },
   "Monarch Estates": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
-    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -3841,6 +3875,12 @@
   },
   "Nautilus Pointe At Inlet Beach": {
     "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Neighborhood At Mack Bayou": {
+    "lots": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4115,6 +4155,12 @@
       "searchId": ""
     }
   },
+  "Palms At Dune Allen": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Palms North": {
     "condos": {
       "urlSlug": "",
@@ -4135,6 +4181,18 @@
   },
   "Palms at Seagrove": {
     "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Panama City Beach Club": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Panama City Beach Estates": {
+    "homes": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -4178,6 +4236,10 @@
     }
   },
   "Park Place": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    },
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -4251,6 +4313,12 @@
       "searchId": ""
     }
   },
+  "Pelican Beach": {
+    "condos": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Pelican Beach Resort": {
     "condos": {
       "urlSlug": "",
@@ -4273,6 +4341,12 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100351"
+    }
+  },
+  "Pier Park North": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Pilot House": {
@@ -4470,6 +4544,12 @@
     }
   },
   "Poseys": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Powell Landing at Watersound Origins": {
     "homes": {
       "urlSlug": "",
       "searchId": ""
@@ -4743,6 +4823,12 @@
       "searchId": ""
     }
   },
+  "Russell": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Sacred Oaks": {
     "homes": {
       "urlSlug": "",
@@ -4785,10 +4871,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100370"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "San Remo": {
@@ -4869,6 +4951,12 @@
   },
   "Sandcastles By the Sea": {
     "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Sandestin Beach Villas": {
+    "condos": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -5096,10 +5184,6 @@
     }
   },
   "Sea Pointe": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    },
     "lots": {
       "urlSlug": "",
       "searchId": ""
@@ -5121,12 +5205,6 @@
     "homes": {
       "urlSlug": "/30a/seabreeze/",
       "searchId": "4133645"
-    }
-  },
-  "Seabreeze East": {
-    "homes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Seabreeze Forest": {
@@ -5157,6 +5235,10 @@
     "homes": {
       "urlSlug": "/30a/seacrest/",
       "searchId": "374875"
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Seacrest Beach": {
@@ -5167,6 +5249,10 @@
     "homes": {
       "urlSlug": "/30a/seacrest-beach/",
       "searchId": "3579878"
+    },
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Seafarer": {
@@ -5347,10 +5433,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": "7100644"
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Serenity At Dune Allen": {
@@ -5675,10 +5757,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "townhomes": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Sugar Cliffs": {
@@ -5722,9 +5800,9 @@
     }
   },
   "Summer Dream": {
-    "homes": {
+    "lots": {
       "urlSlug": "",
-      "searchId": "7100297"
+      "searchId": ""
     }
   },
   "Summer Haven": {
@@ -5751,7 +5829,19 @@
       "searchId": "7100299"
     }
   },
+  "Summer Ridge South": {
+    "homes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Summerhouse": {
+    "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Summerlake": {
     "townhomes": {
       "urlSlug": "",
       "searchId": ""
@@ -6043,6 +6133,12 @@
       "searchId": ""
     }
   },
+  "Town Center": {
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
   "Town of Santa Rosa": {
     "homes": {
       "urlSlug": "",
@@ -6165,10 +6261,6 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
-    },
-    "lots": {
-      "urlSlug": "",
-      "searchId": ""
     }
   },
   "Tuscan Village": {
@@ -6215,12 +6307,6 @@
       "searchId": ""
     }
   },
-  "Ultimate Watervw Tower Yc": {
-    "condos": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
   "Valencia": {
     "condos": {
       "urlSlug": "",
@@ -6259,6 +6345,12 @@
   },
   "Villa Chateaus": {
     "townhomes": {
+      "urlSlug": "",
+      "searchId": ""
+    }
+  },
+  "Villa Coyaba": {
+    "condos": {
       "urlSlug": "",
       "searchId": ""
     }
@@ -6597,6 +6689,10 @@
     "homes": {
       "urlSlug": "",
       "searchId": ""
+    },
+    "lots": {
+      "urlSlug": "",
+      "searchId": ""
     }
   },
   "Whispering Pines": {
@@ -6683,12 +6779,6 @@
   },
   "Windsor Forest": {
     "homes": {
-      "urlSlug": "",
-      "searchId": ""
-    }
-  },
-  "Winston Manor": {
-    "townhomes": {
       "urlSlug": "",
       "searchId": ""
     }
